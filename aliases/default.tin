@@ -1,0 +1,125 @@
+#alias nn { #10 n; }
+#alias ww { #10 w; }
+#alias ee { #10 e; }
+#alias ss { #10 s; }
+#alias nne { #10 ne; }
+#alias nnw { #10 nw; }
+#alias sse { #10 se; }
+#alias ssw { #10 sw; }
+
+#alias f2 { #map run home; }
+
+#alias f9 {
+  !wrap corpse;
+  !get all;
+}
+
+#alias f12 {
+  #loop 2 8 i {!sell all from bag $i};
+}
+
+#alias ktrig_commands { }
+
+#alias ktrig_off {
+  #showme Turning ktrig off, ktrig_on to reactivate.
+  #unaction {^%1 dealt the killing blow to %+.};
+}
+
+#alias ktrig_on {
+  #read actions.tin;
+}
+
+#nop Utilities;
+
+#alias dcor {
+  #map run morgue;
+  !acquire coffin;
+  !donate coffin;
+  #var coffin_status {Empty};
+  #var corpses 0;
+  #map run home;
+}
+
+#alias dtrig {
+  #var dtrig {%0};
+  #replace {dtrig} {,} {;};
+}
+
+#nop HighMortal powers;
+
+#alias hms {
+  !hmsever;
+}
+
+#alias hmb {
+  !hmblast %0;
+}
+
+#alias kk {
+  #if {@length{%0} == 0} {
+    #showme need a target;
+  } {
+    #var kk_list {%0};
+    #replace {kk_list} {,} {;};
+
+    #forall {$kk_list} { !kill &0 };
+
+    #nop #unvar kk_list;
+  }
+}
+
+#alias l {
+  #if {@length{%1} > 0} {
+    !look at %0;
+  } {
+    !look;
+  };
+}
+
+#alias ls {
+  !look at %0;
+  !search %0;
+}
+
+#alias ut_mow {
+  #map run ultimate_tournament;
+  #2 !w;
+  #3 !s;
+  !k player;
+  !s;
+  !k player;
+  !s;
+  !k player;
+
+  !w;
+  !k player;
+
+  !w;
+  !k player;
+  !s;
+  !k player;
+  #2 !n;
+  kk player, player 2;
+  #2 !n;
+  !k player;
+  !n;
+  !k player;
+
+  !w;
+  #2 !s;
+  kk player, player 2;
+  #2 !s;
+  kk player, player 2;
+  !s;
+
+  #map jump -5 -6;
+}
+
+#alias unfollow {
+  !unfollow %0;
+
+  #list {followers} {find} {%1} {follower_index};
+  #if {$follower_index > 0} {
+    #list {followers} {delete} {$follower_index};
+  };
+}

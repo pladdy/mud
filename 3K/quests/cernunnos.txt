@@ -1,0 +1,26 @@
+killed cleric, his fragment has these runes:
+
+You peer closely at the rune, and as though some racial memory were at
+play you reach out with a finger tip:
+
+                                +-----+
+                                |----/|
+                                |---/ |
+                                |--/  |
+                                +-----+
+                                +-----+
+                                |    /|
+                                |---/ |
+                                |  /  |
+                                +-----+
+                                +-----+
+                                |\    |
+                                | \---|
+                                |  \--|
+                                +-----+
+
+runes are randomly placed at boot it seems
+found two of 3 runes from fragment
+se side
+n side nw room
+

@@ -1,0 +1,36 @@
+#action {^Your shield is shattered from the force of the blow!$} {
+  !cast shield;
+}
+
+#action {^Your armor spell has dissipated!$} {
+  !cast armor;
+}
+
+#action {^----*> Your %1 contingency has dissipated!<*----} {
+  #switch {"%1"} {
+    #case {"stoneskin"} {!cast contingency as %1#cast rhino skin};
+    #case {"shield"} {!cast contingency as %1#cast shield};
+    #default {!cast contingency as %1#cast %1};
+  };
+}
+
+#action {^Your protection from %1 has ended.$} {
+  #if { @length{$enemy} > 0 } {
+    #if {"%1" == "good" && "$spells[pg]" == "on"} {pg};
+    #if {"%1" == "evil" && "$spells[pe]" == "on"} {pe};
+  };
+}
+
+#action {^Your rhino skin has been depleted!$} {
+  !cast rhino skin;
+}
+
+#action {^Your minor globe has ended.$} {
+  #if { @length{$enemy} > 0 } {
+    !cast minor globe;
+  }
+}
+
+#action {^Your immersion has expired.$} {
+  !cast spell tap always;
+}

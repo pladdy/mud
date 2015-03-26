@@ -1,0 +1,32 @@
+quests:
+
+misc:
+bailout - below atm in cot, need to deposit 100M coins
+
+chaos:
+heart of the cosmos - almost finished, not sure how to 'forge' the patch
+
+silver/blue - mapped, going through npc dialogue, not sure what to do next
+
+dragonball z
+miyu
+the secret of nimh
+
+fantasy:
+macabre collector
+cernunnos
+
+seahaven
+wayhaven
+balooga falls
+pyron
+perplexus
+crystals of ao
+keylon crown
+
+science:
+schroedingers cat
+boomer rampage
+boomer crisis
+nuke
+megatech

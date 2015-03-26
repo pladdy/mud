@@ -1,0 +1,39 @@
+#alias cg {
+  !get materials from bag;
+  #10 cast create golem;
+  #delay 2 {
+    !put materials in bag;
+    !say golem, you are now in group tank;
+    !say golem, assist always;
+    !say golem, ignore blanket commands;
+  };
+}
+
+#alias de {
+  !deplete %1;
+  #var spells[%1] {off};
+}
+
+#alias mg {
+  #var spells[mg] {on};
+  !cast minor globe;
+}
+
+#alias mim {
+  !cast spell tap never;
+  !cast mystic immersion;
+}
+
+#alias pe {
+  !deplete pg;
+  #var spells[pg] {off};
+  !cast protection from evil;
+  #var spells[pe] {on};
+}
+
+#alias pg {
+  !deplete pe;
+  #var spells[pe] {off};
+  !cast protection from good;
+  #var spells[pg] {on};
+}

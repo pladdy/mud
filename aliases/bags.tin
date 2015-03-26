@@ -1,0 +1,30 @@
+#alias gb {
+  !get %1 from bag %2
+}
+
+#alias pb {
+  #if {@length{%1} == 0} {
+    #showme specify which 'bag' to put an 'item' in;
+    #showme Ex: pb 4 emerald 3 (put emerald 3 in bag 4);
+  } {
+    #list arg_list create %0;
+    #var bag_num $arg_list[-1];
+    #list arg_list delete -1;
+
+    #var new_args {};
+    #foreach { $arg_list[%*] } {arg} {
+      #var new_args {$new_args $arg};
+    };
+
+    !put @join{ $new_args } in bag $bag_num;
+    #unvar arg_list;
+    #unvar bag_num;
+    #unvar new_args;
+    #unvar check;
+  }
+}
+
+#alias pba {
+  #loop 2 12 i { !put all in bag $i }
+  #var i 0;
+}

@@ -1,0 +1,10 @@
+#alias ktrig_commands {
+
+}
+
+#alias f10 {
+  !hp;
+  !bury corpse;
+  !hp;
+  !get all;
+}

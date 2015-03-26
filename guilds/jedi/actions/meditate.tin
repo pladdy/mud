@@ -1,0 +1,21 @@
+#nop 'rests.' doesn't trigger the action...not sure why;
+
+#action {^Tension leaves you as your mind rests.$} {
+  !hp;
+}
+
+#action {^Stress and emotion flow away as your mind clears.$} {
+  !hp;
+}
+
+#action {^Your meditation techniques calm your mind.$} {
+  !hp;
+}
+
+#action {^You void your thoughts and find inner peace.$} {
+  !hp;
+}
+
+#action {^The Force flows through you and soothes your thoughts.$} {
+  !hp;
+}

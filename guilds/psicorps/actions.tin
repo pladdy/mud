@@ -1,0 +1,66 @@
+#action {^H: %1/%2 S: %3/%4 P: %5/%6 St: %8/%9 G: %10(%11%) En: %12 E: %13$} {
+  #var hp {%1};
+  #var hp_max {%2};
+  #format hp_pct {%f} {$hp / $hp_max};
+
+  #var sp {%3};
+  #var sp_max {%4};
+  #format sp_pct {%f} {$sp / $sp_max};
+
+  #var gp1 {%5};
+  #var gp1_max {%6};
+  #format gp1_pct {%f} {$gp1 / $gp1_max};
+
+  #var gp2 {%8};
+  #var gp2_max {%9};
+  #format gp2_pct {%f} {$gp2 / $gp2_max};
+
+  #var enemy {%13};
+  #replace {enemy} {%} {};
+
+  #nop Convert PE if needed/able to;
+
+  #math {max_convert} {$sp / 10};
+  #math {gp1_delta} {$gp1_max - $gp1};
+
+  #if {$sp >= $sp_max && $gp1_delta > $max_convert} {
+    !convert;
+  };
+}
+
+#action {^Sc: %1 A: %2$} {
+  #var powers_str {%2};
+
+  #var power_list {%2};
+  #replace {power_list} {[[ } {};
+  #replace {power_list} { ]]} {};
+  #replace {power_list} {: } {:};
+  #replace {power_list} { } {;};
+
+  #list powers clear;
+  #foreach {$power_list} {power} {
+    #regexp {$power} {%w:%d} {
+      #var powers[&1] &2;
+      #format {actuate} {%l} {&1};
+    };
+
+    #if {$powers[$power] < 20} { !$actuate; };
+  }
+
+  #if {@length{$enemy} > 1} {
+    #nop Defense first;
+    #regex {$powers_str} { Vr} {#nop;} {!vr};
+
+    #nop Offense;
+    #regex {$powers_str} { Tl} {#nop;} {!tl};
+    #regex {$powers_str} { Ij} {#nop;} {!ij};
+
+    #nop Perks;
+    #regex {$powers_str} { Vg} {#nop;} {!vg};
+    #regex {$powers_str} { Vv} {#nop;} {!vv};
+  };
+}
+
+#action {^Your %1 has expired.$} {
+  #if {@length{$enemy} > 1} {!actuate %1;}
+}

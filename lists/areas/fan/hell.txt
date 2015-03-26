@@ -1,0 +1,4 @@
+Hell Names:
+  cerberus     # runs to the portal
+  hell_princes # jeweled sceptres
+  hell_lords   # sapphire sceptres; runs to the board in case dirs are messed up

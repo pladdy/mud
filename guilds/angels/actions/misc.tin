@@ -1,0 +1,14 @@
+#action {^You are too exhausted!$} {
+  #if {$corpses > 0} {reri};
+}
+
+#action {^Not enough time slices to %1!$} {
+  #if {"$circle" != "true"} {
+    !circle;
+    #var circle {true};
+  };
+}
+
+#action {^You feel ready to train %1.$} {
+  #list angel_train add %1;
+}

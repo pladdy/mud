@@ -1,0 +1,68 @@
+Conversation with Laveau
+
+## note, only 6 veve are listed in the ritual book, my guess is each is for a
+ # stat boost
+ ###
+You say: invocation
+Laveau says: To begin the ritual you must give me a reagent, a symbol of
+            the loa that you wish to summon.  I trust you have The Book of
+            Voodoo Ritual in your possession so that you know what role
+            you must play in the Invocation.                              
+
+You say: loa                                                                  
+Laveau says: Loa are the immortal spirits of the ancestors or archetypal
+            representations of the natural world and of moral principles,
+            such as love, death, war and the ocean.  Which loa in
+            particular interests you?  Dambala, Ayezan, Ogoun, Erzulie,
+            Aida, Yemaya, Papa Ghede, Lady Luck, Eshu Elegua?             
+
+You say: dambala                                                              
+Laveau says: The symbolic father of the loa, Dambala represents the
+            ancestral knowledge that forms the foundation of our belief. 
+            His symbol is the snake.                                      
+
+You say: ayezan                                                               
+Laveau says: Ayezan is one of the many loa who represents healing.  She is
+            a protector and guardian of religious ceremonies and her
+            symbol is the leaf.      
+# leaf is upstairs in the dirt at the entrance
+# give leaf to laveau, trace shield, drink goblet +5 con 
+# also a mission for henkey
+
+You say: ogoun                                                                
+Laveau says: Ogoun is a powerful warrior loa who represents all aspects of
+            power, strength, and masculinity, including war, fire,
+            lightning and politics.  His symbol is anything involving war.
+# sword ozando is carrying
+
+You say: erzulie                                                              
+Laveau says: Representing love, purity, the ideal female and the moon,
+            Erzulie is the most beloved of the loa.  Her symbol is the
+            heart.       
+# red microchip on first floor se corner? heart of a computer...
+
+You say: aida                                                                 
+Laveau says: Aida is the wife of Dambala and represents beauty, fertility
+            and new life.  Her symbol is the rainbow.                     
+# rada has prism, say prism (near boxing rink)
+
+You say: yemaya                                                               
+Laveau says: Known as the Mother of the Ocean, Yemaya is often depicted as
+            a mermaid or siren.  Her symbol is water.                     
+# glass of water is in the lounge on the table
+
+You say: papa ghede                                                           
+Laveau says: Ghede is the eternal figure in black, controlling the eternal
+            crossroads at which everyone must someday cross over.  Known
+            as the spirit of death, other spirits fear him and try to
+            avoid him.  Ghede's symbol is a cross upon a tomb.            
+
+You say: lady luck                                                            
+Laveau says: Lady Luck controls every action we make, you don't want to
+            get on her bad side.  Her symbol is dice.                     
+
+You say: eshu elgua                                                           
+Laveau says: Eshu Elegua is the trickster loa.  Full of mischief and
+            humour, he is a spirit we can rely on to brighten our day.  He
+            also is one of the few loa who can communicate with the
+            Creator God.  His symbol is rum.

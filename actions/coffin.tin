@@ -1,0 +1,24 @@
+#nop Coffin stuff;
+
+#action {^ 1 An enchanted coffin (%1 corpse%?) [%2] [%3].$} {
+  #var corpses %1;
+  #var coffin_status %3;
+}
+
+#action {^wrap it up into the coffin's protective hold!$} {
+  #math corpses {$corpses + 1};
+}
+
+#action {The coffin expels a corpse onto the ground!$} {
+  #math corpses {$corpses - 1};
+  #var coffin_status {not_full};
+}
+
+#action {^The coffin is full!$} {
+  #var coffin_status {FULL};
+}
+
+#action {^You relinquish your control of the enchanted coffin and it vanishes} {
+  #var corpses {};
+  #var coffin_status {};
+}

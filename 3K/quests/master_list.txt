@@ -1,0 +1,110 @@
+                    -=[ Quests of the 3 Kingdoms ]=-
+
+  1.  ( Not Done ) [  1  ]  Marbles               Not solved this reboot.
+  2.  ( Complete ) [* 5 *]  BBN Planet            Solved: 06:16:19.
+  3.  ( Complete ) [* 5 *]  Bug                   Solved: 12:12:19.
+  4.  ( Complete ) [* 5 *]  Chop Tree             Solved: 07:30:31.
+  5.  ( Complete ) [* 5 *]  Codename: Kodiak      Solved: 07:48:32.
+  6.  ( Complete ) [* 5 *]  Free Cho              Solved: 06:26:44.
+  7.  ( Complete ) [* 5 *]  Mack                  Solved: 07:34:52.
+  8.  ( Complete ) [* 5 *]  Newbie Academy        Solved: 13:36:44.
+  9.  ( Complete ) [* 5 *]  Ralintaro             Solved: 08:06:22.
+ 10.  ( Complete ) [* 5 *]  Resource Crisis       Solved: 07:55:41.
+ 11.  ( Defunkt  )          Seal
+ 12.  ( Complete ) [* 5 *]  The Browning Murders  Solved: 07:22:05.
+ 13.  ( Complete ) [* 5 *]  Tree                  Solved: 06:20:59.
+ 14.  ( Complete ) [* 8 *]  Twelve Princesses     Not solved this reboot.
+ 15.  ( Complete ) [* 10*]  Arcanarton            Not solved this reboot.
+ 16.  ( Complete ) [* 10*]  Destroy Barney        Not solved this reboot.
+ 17.  ( Complete ) [* 10*]  Disney                Solved: 21:17:08.
+ 18.  ( Complete ) [* 10*]  Djinni                Not solved this reboot.
+ 19.  ( Complete ) [* 10*]  Gameshow              Not solved this reboot.
+ 20.  ( Complete ) [* 10*]  Nightmare             Not solved this reboot.
+ 21.  ( Complete ) [* 10*]  NY Mugger             Solved: 09:06:24.
+ 22.  ( Defunkt  )          Omp Quest Marble
+ 23.  ( Complete ) [* 10*]  Orc Slayer            Not solved this reboot.
+ 24.  ( Complete ) [* 10*]  Rampart               Not solved this reboot.
+ 25.  ( Complete ) [* 10*]  Sarkath Khan          Solved: 04:26:29.
+ 26.  ( Complete ) [* 10*]  Save Grandma!         Not solved this reboot.
+ 27.  ( Not Done ) [  10 ]  Schroedingers Cat     Not solved this reboot.
+ 28.  ( Complete ) [* 10*]  Spaceport             Not solved this reboot.
+ 29.  ( Defunkt  )          Transformers
+ 30.  ( Complete ) [* 10*]  Zetron                Solved: 07:17:25.
+ 31.  ( Complete ) [* 13*]  Lothlarian            Solved: 08:09:19.
+ 32.  ( Complete ) [* 15*]  Alphabet              Not solved this reboot.
+ 33.  ( Not Done ) [  15 ]  Boomer Rampage        Not solved this reboot.
+ 34.  ( Complete ) [* 15*]  Hobgoblin             Not solved this reboot.
+ 35.  ( Complete ) [* 15*]  Jack the Ripper       Not solved this reboot.
+ 36.  ( Not Done ) [  15 ]  Macabre Collector     Not solved this reboot.
+ 37.  ( Complete ) [* 17*]  Perfection            Solved: 07:23:01.
+ 38.  ( Complete ) [* 20*]  Ebonbane              Not solved this reboot.
+ 39.  ( Complete ) [* 20*]  Free Stag             Solved: 05:54:14.
+ 40.  ( Complete ) [* 20*]  Frozen Dude           Not solved this reboot.
+ 41.  ( Complete ) [* 20*]  Waldo                 Not solved this reboot.
+ 42.  ( Complete ) [* 25*]  Accipiter             Not solved this reboot.
+ 43.  ( Complete ) [* 25*]  Attrition!            Not solved this reboot.
+ 44.  ( Defunkt  )          Barovia
+ 45.  ( Complete ) [* 25*]  Haunted Manor         Not solved this reboot.
+ 46.  ( Not Done ) [  25 ]  Heart of the Cosmos   Not solved this reboot.
+ 47.  ( Complete ) [* 25*]  Katin                 Not solved this reboot.
+ 48.  ( Not Done ) [  25 ]  Larissa's Thingy      Not solved this reboot.
+ 49.  ( Not Done ) [  25 ]  Merciful Miller       Not solved this reboot.
+ 50.  ( Not Done ) [  25 ]  Nuke                  Not solved this reboot.
+ 51.  ( Complete ) [* 25*]  Spire                 Not solved this reboot.
+ 52.  ( Complete ) [* 25*]  Whodunit              Not solved this reboot.
+ 53.  ( Not Done ) [  27 ]  Silver/Blue           Not solved this reboot.
+ 54.  ( Complete ) [* 27*]  Van Richten           Not solved this reboot.
+ 55.  ( Complete ) [* 30*]  Atlantis              Not solved this reboot.
+ 56.  ( Defunkt  )          Bloodwand
+ 57.  ( Complete ) [* 30*]  Hide and Seek         Not solved this reboot.
+ 58.  ( Complete ) [* 30*]  Shadowrun             Not solved this reboot.
+ 59.  ( Defunkt  )          Hive Queen
+ 60.  ( Not Done ) [  35 ]  Pub Crawl             Not solved this reboot.
+ 61.  ( Not Done ) [  35 ]  Scavenger Hunt        Not solved this reboot.
+ 62.  ( Not Done ) [  35 ]  The Social Network    Not solved this reboot.
+ 63.  ( Defunkt  )          Blow Up Da School
+ 64.  ( Defunkt  )          Cacodemon
+ 65.  ( Not Done ) [  40 ]  Dragonball Z          Not solved this reboot.
+ 66.  ( Defunkt  )          Goblinhead
+ 67.  ( Complete ) [* 40*]  Hidden Treasure       Not solved this reboot.
+ 68.  ( Defunkt  )          Jerusalem
+ 69.  ( Complete ) [  40 ]  Kimlark               Not solved this reboot.
+ 70.  ( Not Done ) [  40 ]  Miyu                  Not solved this reboot.
+ 71.  ( Not Done ) [  40 ]  Ravenloft II          Not solved this reboot.
+ 72.  ( Complete ) [* 45*]  Covenant              Solved: 07:04:33.
+ 73.  ( Not Done ) [  45 ]  Dragon Shell          Not solved this reboot.
+ 74.  ( Complete ) [* 45*]  Mortal Kombat         Not solved this reboot.
+ 75.  ( Not Done ) [  45 ]  The Secret of Nimh    Not solved this reboot.
+ 76.  ( Defunkt  )          Predator
+ 77.  ( Not Done ) [  50 ]  Boomer Crisis         Not solved this reboot.
+ 78.  ( Not Done ) [  50 ]  Cernunnos             Not solved this reboot.
+ 79.  ( Not Done ) [  50 ]  Dragon Egg            Not solved this reboot.
+ 80.  ( Complete ) [* 55*]  Ring of Power         Solved: 22:04:21.
+ 81.  ( Complete ) [* 55*]  The Project           Not solved this reboot.
+ 82.  ( Not Done ) [  60 ]  Evil Artifact         Not solved this reboot.
+ 83.  ( Not Done ) [  60 ]  Rutha-Al              Not solved this reboot.
+ 84.  ( Not Done ) [  65 ]  Megatech              Not solved this reboot.
+ 85.  ( Defunkt  )          Red Death
+ 86.  ( Not Done ) [  70 ]  Prismatic Jewel       Not solved this reboot.
+ 87.  ( Not Done ) [  70 ]  Seahaven              Not solved this reboot.
+ 88.  ( Not Done ) [  73 ]  Kill Bahamut          Not solved this reboot.
+ 89.  ( Complete ) [* 75*]  Mira                  Not solved this reboot.
+ 90.  ( Not Done ) [  75 ]  Perplexus             Not solved this reboot.
+ 91.  ( Not Done ) [  75 ]  Pyron                 Not solved this reboot.
+ 92.  ( Complete ) [* 80*]  Dragon Knight         Not solved this reboot.
+ 94.  ( Not Done ) [  80 ]  Vole the Hateful      Solved: 14:28:50.
+ 94.  ( Not Done ) [  90 ]  Crystals of Ao        Not solved this reboot.
+ 95.  ( Not Done ) [  90 ]  Evil God              Not solved this reboot.
+ 96.  ( Defunkt  )          Halo of Truth
+ 97.  ( Not Done ) [  92 ]  Balooga Falls         Not solved this reboot.
+ 98.  ( Not Done ) [  95 ]  Wayhaven              Not solved this reboot.
+ 99.  ( Not Done ) [ 100 ]  Bailout               Not solved this reboot.
+100.  ( Not Done ) [ 100 ]  Balance               Not solved this reboot.
+101.  ( Not Done ) [ 100 ]  Durskaen              Not solved this reboot.
+102.  ( Not Done ) [ 100 ]  Epic                  Not solved this reboot.
+103.  ( Not Done ) [ 100 ]  Keylon Crown          Not solved this reboot.
+104.  ( Not Done ) [ 100 ]  Miritar               Not solved this reboot.
+105.  ( Not Done ) [ 100 ]  Ravenloft             Solved: 10:25:38.
+
+You have 40 quests left unsolved out of 93.
+You have 1117 quest points out of a possible 3403.

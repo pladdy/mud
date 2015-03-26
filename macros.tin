@@ -1,0 +1,18 @@
+#nop Number Keypad;
+
+#macro {\eOx} {n}
+#macro {\eOy} {ne}
+#macro {\eOv} {e}
+#macro {\eOs} {se}
+#macro {\eOr} {s}
+#macro {\eOq} {sw}
+#macro {\eOt} {w}
+#macro {\eOw} {nw}
+
+#macro {\eOu} {
+  !look;
+  !search;
+}
+
+#nop F2;
+#macro {\eOQ} {run home;}

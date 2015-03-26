@@ -1,0 +1,11 @@
+Method ideas:
+Dragon gives +1 wis per point in method.  Ups your hit dmg as well as palm.  
+Given the stance you're in I would think this is an appropriate boost for palm
+and makes Dragon a lot more fun.
+
+Discipleship to expand so disciples can be based on glvl.  Glvl / 20 disciples
+perhaps?  Gxp bonus should be small, but automatic.  As long as master is logged
+in disciples get small bonus.  In party the master gets a bonus.  Encourages
+big monks to take smaller monks out more?
+
+

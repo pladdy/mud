@@ -1,0 +1,79 @@
+# Questor      Quest Date          Granter      Grant Date           Days
+ 3 Trent        2012/10/27 22:09    <CURRENT>    -                       0
+   Since you want to get stronger in the guild, you should first get
+   stronger in the body.  Tell me where in Science you can 'lift weights'
+   for a strength boost.
+
+checked voodoo scavengers, found a hole in the wall first floor (marked on map)
+across from elevator room, check that out.
+       
+Notes:
+contention training grounds had weights, couldn't lift weights
+drexler's nano labs had weights in dr wong's room, couldn't lift
+
+Trent tells you: It's neither of those.  You're on the right track in
+        thinking of an organized group.   Try looking in the major cities
+        in Science - it's an area in one of those.
+  
+20:28 Trent : No fighting involved to get to the weight lifting
+
+20:29 Trent : the area in general, well, you won't want to be hitting
+              akill on everyone
+        
+Comb through atlanta, detroit, new york
+organized groups is silicon wraiths in detroit, only area not aggro
+
+pittsburgh is all aggro
+atlanta has no gangs in it that aren't aggro/easy to kill
+new york doesn't have an organized group that can hurt you
+
+ANSWER:
+
+NW rec room in silicon wraiths has a bench you can 'load x', 'lie on bench',
+'lift weights', and 'stand'
+
+Areas Checked:
+A Quiet Swamp
+A Refugee House
+Air Force Base
+Alien Ship
+Alien/Alpha
+Atlanta
+  Abandoned Building
+  EMA Complex
+Bandit Camp
+Bomb Shelter
+Bombfreak's Abbey
+Codename: Kodiak
+Collapsed Subway
+Contention Training Grounds
+CybDom Inc.
+Dan's Garage
+Drexler Nanolabs, Inc.
+Detroit
+  Drug Lab
+  Global Merc
+  Silicon Wraiths
+Dune   
+Environmentalist Camp
+Exobiology Laboratory
+Fallout Shelter
+Forgotten Sewers
+Gas Station
+Global Merc Training Theatre
+Mantis Swamp
+Mantle Corps
+Military Camp
+Murdoc Chicken Plant
+NYPD
+Pittsburgh
+Redneck Trailer
+Supply Shuttle
+Swede Research Center
+The Amazon Research Center
+The Fern Man
+UED Installation
+Valley of the Tribes
+Voodoo Scavengers
+
+try gencorps, mobs train in there

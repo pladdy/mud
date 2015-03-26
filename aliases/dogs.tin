@@ -1,0 +1,16 @@
+#alias dhp {
+  !dog hp;
+}
+
+#alias refe {
+  !unwrap corpse;
+  !dog feed;
+  !dog pet;
+}
+
+#alias repet {
+  !repet;
+  !dog monitor;
+  !dog brief;
+  !dog play;
+}

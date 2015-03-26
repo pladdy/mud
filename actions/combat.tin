@@ -1,0 +1,47 @@
+#nop Combat triggers;
+
+#action {^Your body spasms, and you juggle your things about!$} {
+  !get all;
+  !keep all;
+  !wear all;
+  !wield sword;
+}
+
+#action {^The High Colonic steps out from a vortex of light!$} {
+  !kill mage;
+}
+
+#action {^Galmog casts fear on you!$} {e}
+
+#action {^Sauk casts fear at you!} {w}
+
+#action {^The holy symbol fades away.$} {
+  e;
+  n;
+}
+
+#nop Wimpy;
+
+#action {^Your legs tried to run away, but failed.$} {
+  !hp;
+}
+
+#action {^Your legs run away with you %1.$} {
+  !hp;
+
+  #switch {"%1"} {
+    #case "north" {#map move n};
+    #case "south" {#map move s};
+    #case "east" {#map move e};
+    #case "west" {#map move w};
+    #case "northwest" {#map move nw};
+    #case "northeast" {#map move ne};
+    #case "southwest" {#map move sw};
+    #case "southeast" {#map move se};
+    #case "up" {#map move u};
+    #case "down" {#map move d};
+    #default {#map move %1};
+  };
+
+  wimpy_commands;
+}

@@ -1,0 +1,7 @@
+when you get to castle, and enter, if you go east look at room:
+if room has 4 dragon statues you cannot go back west (should be one way on map).
+if you try you can get blicked.
+
+mapping is a challenge as the towers span multiple floors and it seems some
+exits may drop multiple floors.  trying not to overlap rooms incorrectly so
+map each level completely before going further.

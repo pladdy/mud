@@ -1,0 +1,10 @@
+#alias asmbl {
+  #5 {!unstash %0};
+
+  #list arg_list create %0;
+  #list arg_list delete 1;
+
+  !assemble @join{ $arg_list[%*] };
+  !stash all;
+  #unvar arg_list;
+}

@@ -1,0 +1,55 @@
+tiny <1k - 3k
+cha ty.
+fan ty.
+sci ty.
+
+small <3k - 20k
+cha sm.
+fan sm.
+sci sm.
+
+medium 20k - 50k
+cha md.
+fan md.
+sci md.
+
+large 50k - 100k
+cha lg.
+fan lg.
+sci lg.
+
+big >100k
+cha bg.
+fan bg.
+sci bg.
+
+area is classified based on overall size, or usefulness.  if an area has mostly big stuff
+then it goes in big.  these should be xp/gxp areas, not eq oriented (unless they're both)
+
+add a ravenloft button, once in ravenloft (like serinth)
+der'thalas
+abbey
+etc.
+
+areas to add:
+chaos
+
+fantasy
+barracks (tiny)
+mage tower (medium)
+guiles forest (large)
+enchanted spring (large)
+
+science
+pittsburg (medium)
+detroit (medium)
+atlanta (small)
+new york (small)
+megatech (medium)
+look into adding the arcade games in the houston area
+cytel mine (mars?) (small)
+alien ship (large, energy dmg so they hit super hard)
+mantis swamp (large)
+kwuteg (medium)
+lost submarine?
+

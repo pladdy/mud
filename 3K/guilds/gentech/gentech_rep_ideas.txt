@@ -1,0 +1,14 @@
+Autorepair tech/gen should be upgraded to regen .1% reps per round.  This would
+make it a little more like a monk or mage regen and not the painfully useless
+and slow regen it provides today.
+
+Engineering Gen/Tech should be changed so when used they can actually overheal
+a gentechs reps to 1% over 100 per phase.  The benefit to this would be to 
+directly boost the damage and defensive output of all powers.  I think it would
+be best applied such that the 10% on offense raises the damage cap.  The 10% on
+defense would be a flat decrease on incoming dmg.  This would help us handle
+specials and scale more effectively.
+
+Stabilize would then be much more useful as it could ensure boosts stay at peak
+levels and bigger gens have insentives to use so many slots for reps (which is
+sadly necessary today).

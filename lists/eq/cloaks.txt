@@ -1,0 +1,8 @@
+Cloak:
+  cryohydra      # random
+  cyberpope      # holy robes
+  grand_summoner
+  green_cloak
+  battleshroud
+  illithid2
+  storm_cloak

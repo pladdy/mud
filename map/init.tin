@@ -1,0 +1,16 @@
+#nop Initialize the mapping stuff;
+
+#var map_path map/map.txt;
+
+read_tin_files map/;
+
+#nop Backup map;
+#system cp $map_path map/backup.txt;
+
+#map read $map_path;
+map_lock;
+
+#nop Go to last known room;
+
+#read last_session.tin;
+#map goto $map[current_room];

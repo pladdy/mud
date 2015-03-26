@@ -1,0 +1,46 @@
+notes:
+i've killed the suit when i 'use mirror on armour'.  i also had miyu's blood on
+me but not sure if that's necessary.  don't know what else to do.  still can't
+buy a ticket at the train station.
+
+i need to try use mirror on suit but not be in combat with it
+
+----------------------------------------
+
+search records in library, read diary:
+  You stare at the notes you've made to remind yourself of what
+  you think the words mean - and cross your fingers that you got
+  it right...
+  
+  In the days of the great emperor <hmmm...>, our village
+  prospered under the benign guidance of <hmmm...>. Only
+  16 heads got cut off this month so the lord was pretty
+  calm about things.
+  
+  Then the wizard <hmm...> came to serve our lord.  However,
+  he angered the lord and was sentenced to be put to death.
+  But the wizard, unknown to any of us, was in league with
+  the dark gods.  Those gods we dare not name...
+  
+  (hmm, big blood spot, the gods were active back then...)
+  
+  The wizard tricked our lord into having one of us try
+  on a suit of armour to prove the armour would be of
+  use to our lord and not harmful.
+  
+  The evil gods entered the suit and it destroyed the
+  dwelling of the man chosen.  Then the armour hid
+  in amongst the dark places and destroys everyone
+  who dares to approach it.
+  
+  Please, save us from the evil gods and restore our
+  honour and family...
+
+trace symbol on cop in police station:
+  The cop says in a hollow echoing voice:
+  The wise ones have forseen that the person who defeats
+  the raging demons will carry the dark powers within
+  while using the power of light to free our land.
+  Suddenly the cop stares at you and starts to scream!
+  Don't attack without... and he is suddenly struck dumb!
+

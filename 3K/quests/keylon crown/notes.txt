@@ -1,0 +1,59 @@
+before going to serinth:
+  get amulet of water breathing (angelo or enchanted forest)
+  get ring of leveitate/flying (ao for flying, not sure for levitate)
+
+NPCs:
+  desaren
+  syrena the high knight (queen);              keylonica
+  satarus the lizardman king (royal);          razorin
+  poritha zican the mystical (mage);           wexsmuk
+  gray ranger questing);                       (near) wexsmuk
+  gruntt the Ogre guard (guarding);            zolifo
+  hurinteon the grand master mage (deadly!!!); raric
+  panthorin;                                   raric
+  fredden?
+  koricu?
+  tanary treeheart;                            razorin
+  sholitia; zolifo
+  salinsha maduric;                            keylonica
+  brytex?
+
+Cities:
+
+city of raric:
+  two hidden towers and a ranger
+  panthorin
+  hurnteon
+
+razorin
+  lizardman shaman
+  tanary treeheart, rune sword
+  lizardman king, boots of water? talk to him with scroll of knowledge?
+
+zolifo:
+  sholita
+
+wexsmuk:
+  poritha
+  has golden door to a castle?
+
+----------------------------------------
+
+random details:
+  some moss -> smell for sp heal (main area)
+  enter 'tear' to port back to beginning of area
+  pick nut at walnut trees for heal
+  howler monkeys steal!!!
+
+grey ranger near wexsmuk
+You say: hi
+> The ranger says: I am on a quest to find a crown.  That is all I shall
+mention of it ..
+
+The ranger eyes you suspiciously.
+
+You say: crown
+> The ranger says: that is all I am prepared to share with you, a
+stranger.  I am seeking the city of Zolifo which I have been told by a
+reliable source is roughly to the southwest.  Anyway, I best be resting
+or getting on with my journey.  Good day to you and good luck.

@@ -1,0 +1,32 @@
+#function length {
+  #var result 0;
+
+  #parse {%0} {char} {
+    #math {result} { $result + 1 }
+  };
+
+  #return $result;
+}
+
+#function join {
+  #list join_list create %0;
+
+  #var result {};
+
+  #foreach { $join_list[%*] } {arg} {
+    #regexp {$arg} {^%s$} {#var check 1} {#var check 0};
+    #if {$check == 1} {#continue};
+
+    #regexp $result {^$} {#var check 1} {#var check 0};
+
+    #if {$check == 1} {
+      #var result {$arg};
+    } {
+      #var result {$result $arg};
+    };
+  };
+
+  #unvar join_list;
+  #unvar arg;
+  #return $result;
+}

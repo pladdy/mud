@@ -1,0 +1,103 @@
+#action {^H: %1/%2 S: %3/%4 T: %5/%6 D: %7/%8 E: %9/%10 En:%11$} {
+  #var hp {%1};
+  #var hp_max {%2};
+  #format hp_pct {%f} {$hp / $hp_max};
+
+  #var sp {%3};
+  #var sp_max {%4};
+  #format sp_pct {%f} {$sp / $sp_max};
+
+  #var gp1 {%7};
+  #var gp1_max {%8};
+  #format gp1_pct {%f} {$gp1 / $gp1_max};
+
+  #var gp2 {%9};
+  #var gp2_max {%10};
+  #format gp2_pct {%f} {$gp2 / $gp2_max};
+
+  #var time_slices {%5};
+  #var time_slices_max {%6};
+
+  #var circle {false};
+
+  #list angel_train size angel_trainings;
+
+  #if {$angel_trainings > 0} {
+    #foreach { $angel_train[%*] } {skill} {
+      #if { @length{$skill} > 0 } { #showme <fca>Go Train $skill; };
+    };
+  };
+  #unvar angel_trainings;
+  #unvar skill;
+}
+
+#nop distance action
+
+#action {^Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
+  #if { @length{%3} > 0 } {
+    !engage;
+    #var angel[distance] @length(%3);
+  } {
+    #var angel[distance] 0;
+  }
+}
+
+#nop advantages and weaknesses;
+
+#action {^HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8} {
+  #if { @length{%1} > 0 } {
+    #nop capture advantages;
+    #var advantages {};
+    #var advantages[ho] %1;
+    #var advantages[hi] %3;
+    #var advantages[lo] %5;
+    #var advantages[li] %7;
+
+    #nop sort them in descending order by value (k: location -> v: advantage);
+
+    #var i {1};
+    #var adv_sort {};
+
+    #forall {ho;hi;lo;li} {
+      #if {$i == 1} {
+        #var adv_sort[$i] { {1}{&0}{2}{$advantages[&0]} };
+      } {
+        #var j {1};
+        #var found {0};
+
+        #foreach $adv_sort[%*] {item} {
+          #if { $advantages[&0] > $adv_sort[$j][2] } {
+            #list adv_sort insert $j { {1}{&0}{2}{$advantages[&0]} };
+            #var found {1};
+            #break;
+          };
+
+          #math {j} {$j + 1};
+          #replace {j} {.00} {};
+        };
+
+        #if {$found == 0} {
+          #list adv_sort add $j;
+          #list adv_sort insert $j { {1}{&0}{2}{$advantages[&0]} };
+          #list adv_sort delete -1;
+        };
+      };
+
+      #math {i} {$i + 1};
+    };
+
+    #nop hit or not;
+
+    #if { $angel[distance] == 0 } {
+      #if {$adv_sort[1][2] > 100 && $time_slices > 1} {
+        !divine strike $adv_sort[1][1];
+        #math {time_slices} {$time_slices - 2};
+      };
+
+      #if {$adv_sort[1][2] > 20 && $time_slices > 0} {
+        !presage $adv_sort[1][1];
+        #math {time_slices} {$time_slices - 1};
+      };
+    };
+  };
+}

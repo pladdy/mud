@@ -1,0 +1,118 @@
+#alias conform_bias {
+  #if {@length{%2} > 0} {
+    !biaslock;
+    !conform %1 bias %2;
+  } {
+    #showme need a number between 0 - 190;
+  }
+}
+
+#alias cona {conform_bias attack %1;}
+#alias cond {conform_bias defense %1;}
+
+#alias f6 {
+  !wimpy 0;
+  !autoguild surge;
+  !timeslide %1;
+  !pheal 1 hmheal;
+
+  !meditate;
+  #delay {2} {!surge};
+  #delay {3} {!surge};
+  #delay {4} {!surge};
+  #delay {5} {!surge};
+  #delay {6} {!surge};
+  #delay {7} {!surge};
+  #delay {8} {!surge};
+  #delay {9} {!surge};
+  #delay {10} {!surge};
+  #delay {11} {
+    !wimpy 45;
+    !autoguild surge;
+    !pheal 1000 surge;
+  }
+}
+
+#alias tme {f6 emergency}
+
+#alias f8 {
+  #map run smithy;
+  !buy longsword;
+  !keep longsword;
+  !wield longsword;
+  dcor;
+}
+
+#alias not_defined {
+  #nop Get backpacks;
+
+  run gentech;
+  e;
+  u;
+  w;
+  w;
+
+  #loop 1 10 loop {
+    buy 4;
+    rename backpack to bag;
+  }
+  !keep all bag;
+}
+
+#alias f10 {
+  !hp;
+  !recharge;
+  !reclaim;
+  !hp;
+  !get all;
+}
+
+#alias f12 {
+  #if {$map[current_room] == 676} {
+    #loop 2 12 i {!trash all from bag $i};
+  } {
+    #loop 2 12 i {!sell all from bag $i};
+  }
+}
+
+#alias en {
+  !switchddb sonic;
+  !switch sonicator;
+  !aset synthorg himagenta;
+  !aset ddb himagenta;
+}
+
+#alias fi {
+  !switchddb thermal;
+  !switch laser;
+  !aset synthorg hired;
+  !aset ddb hired;
+}
+
+#alias hca {
+  !switchddb thermal;
+  !switch shocker;
+  !aset synthorg yellow;
+  !aset ddb hired;
+}
+
+#alias ktrig_commands {
+  !repair;
+  !stabilize;
+  !tactical;
+}
+
+#alias repu {
+  !unwrap corpse;
+  !recharge;
+  !reclaim;
+  !recharge;
+}
+
+#alias showd {
+  #split {} 1;
+}
+
+#alias hided {
+  #unsplit;
+}

@@ -1,0 +1,11 @@
+atlanta
+camazots
+chicken_guards
+gencorps
+hamilton_plant
+mantis_swamp (50k)
+pittsburg (25k)
+silicon_wraiths
+
+Large:
+  aegis_global

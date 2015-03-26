@@ -1,0 +1,46 @@
+wimpy 30
+
+#nop Ansi;
+
+aset xp1 yellow
+aset xp2 green
+aset xp3 white
+aset shout yellow
+aset melee bkblue
+aset soul green
+aset tell himagenta
+aset say hicyan
+aset attack white
+aset skill_crit flash+hired
+aset skill_block flash+hicyan
+
+#nop Aliases;
+
+alias .login jump
+alias l look at
+alias li lineofsight
+alias f get all
+alias g glimpse
+alias gab get all from bag
+alias k kill
+alias sa sell all
+alias sk skills
+alias h salve
+alias gx get $* from box
+alias px put $* in box
+
+#nop Skills;
+
+cartography: max
+appraisal: 1
+perception: max
+
+# if needed
+combat.armor.light
+combat.armor.light.medium
+combat.armor.light.medium.heavy
+
+#nop got to mods room;
+modify TELLSELF 1
+
+#nop skill quest;

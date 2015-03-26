@@ -1,0 +1,78 @@
+#alias conup {
+  !cast contingency as armor#cast armor;
+  !cast contingency as shield#cast shield;
+  !cast contingency as stoneskin#cast rhino skin;
+}
+
+#alias dedn {
+  #replace {dspells} { } {;};
+
+  #forall {$dspells} {
+    #if { @length{&0} > 0 } {
+      #list {spells_to_deplete} {add} {&0}
+    };
+  };
+
+  #forall {RS;<P>;MB;A;ST} {
+    #list {spells_to_deplete} find {&0} {deplete_index};
+    #if {$deplete_index > 0} {
+      #list {spells_to_deplete} delete {$deplete_index};
+    };
+  };
+
+  #foreach {$spells_to_deplete[%*] } {deplete_spell} {
+    #format {deplete_spell} {%l} {$deplete_spell};
+    #if { @length{$deplete_spell} > 0} {!deplete $deplete_spell};
+  };
+
+  #unvar spells_to_deplete;
+  #unvar deplete_spell;
+  #unvar deplete_indx;
+}
+
+#alias deup {
+  #var i {0};
+  #regexp {$dspells} { A } {#nop;} {
+    #delay {$i} {!cast armor}; #math {i} {$i + 2};
+  };
+  #regexp {$dspells} { S } {#nop;} {
+    #delay {$i} {!cast shield}; #math {i} {$i + 2};
+  };
+  #regexp {$dspells} { RS } {#nop;} {
+    #delay {$i} {!cast rhino skin}; #math {i} {$i + 2};
+  };
+
+  #if {"$spells[mg]" == "on"} {
+    #delay {$i} {mg};
+    #math {i} {$i + 2};
+  };
+  #if {"$spells[pe]" == "on"} {
+    #delay {$i} {!cast protection from evil};
+    #math {i} {$i + 2};
+  };
+  #if {"$spells[pg]" == "on"} {
+    #delay {$i} {!cast protection from good};
+    #math {i} {$i + 2};
+  };
+
+  #delay {$i} {#unvar i};
+}
+
+#alias regen {
+  dedn
+  !hp;
+  !study spellbook;
+
+  #math {rounds} {$regen_multiplier * 1};
+  #delay {$rounds} {#showme 25% done; !hp;};
+
+  #math {rounds} {$regen_multiplier * 2};
+  #delay {$rounds} {#showme 50% done; !hp;};
+
+  #math {rounds} {$regen_multiplier * 3};
+  #delay {$rounds} {#showme 75% done; !hp;};
+
+  #math {rounds} {$regen_multiplier * 4};
+  #delay {$rounds} {#showme 100% done; !hp;};
+  #delay {$rounds} {deup};
+}

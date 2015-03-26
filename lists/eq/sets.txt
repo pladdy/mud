@@ -1,0 +1,9 @@
+Sets:
+  crimson_eq
+  cryohydra
+  cyberpope
+  hk
+  orc_chief
+  pol2_eq (other, helmet)
+  trans1
+  tree_of_life # spirit eq

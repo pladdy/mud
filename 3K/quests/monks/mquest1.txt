@@ -1,0 +1,20 @@
+ # Questor      Quest Date          Granter      Grant Date           Days
+ 1 Thane        2012/06/28 17:31    <CURRENT>    -                      10
+   Your first mquest will be focused in Chaos. You will need a can of
+   JOLT cola to get the energy required to uncover the Essence of Fear. 
+   Bring me both items, if the bastard drink your soda, bring me his
+   head!
+
+Thane : both items are located "eastern" from the vortex
+-- this suggests the area is not a floating one like fridge or ice cream truck
+
+can of jolt cola: beavis and butthead, in closet, jump
+
+essence of fear ideas
+  net hack      -- maybe something to do with the altars?
+  darkmoore     -- didn't find it here
+  haunted house -- not here
+  cineplex      -- not in terror of the aisles
+                -- not in elm street
+  chaos musuem  -- keep spinning wheel until fear room, kill mob <-BOOM!
+# ---------------------------------------------------------------------------- #

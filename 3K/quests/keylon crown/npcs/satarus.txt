@@ -1,0 +1,35 @@
+Location: Razaorin
+
+Satarus the Lizardmen King (royal):
+** converstaion is verbatim and translated beneath
+say ob
+# say hi
+
+Satarus says: Kschp dbvhynbko B ochy qrx.  Jcdbibzhzbrfk oxghf.
+# Satarus says: Speak lizardish I hear you.  Felicitations human.
+
+say nxkz
+# say dust
+
+Satarus says: Krxzo krgclocyc rj zrlf zoc nxkz rj zyxzo bk.  Mrrzk rj
+              lhzcy lhdpbfa qrx lbdd fccn.
+# Satarus says: South somewhere of town the dust of truth is.  Boots of
+               water walking you will need.
+
+say mrrzk rj lhzcy lhdpbfa
+# say boots of water walking
+
+Satarus says: Krxzo zoc mrrzk hyc.
+# Satarus says: South the boots are.
+
+say krxzo
+# say south
+Satarus says: Krxzo lbdd B dcz ar qrx, bj cqck rj zoc nyharf qrx abtc zr
+              gc.
+# Satarus says: South will I let go you, if eyes of the dragon you give to
+               me.
+
+say cqck
+# say eyes
+Satarus says: H nyharf aychz hfn mdxc zoc cqck ohk.
+# Satarus says: A dragon great and blue the eyes has. # this is brontic

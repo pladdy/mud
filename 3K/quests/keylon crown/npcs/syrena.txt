@@ -1,0 +1,90 @@
+Location: Keyloncia
+
+say quest to start
+
+You say: desaren
+Syrena says: He was a very powerful mage. I never did get to know him
+             well.  He was always wrapped up in his work.
+
+You say: work
+Syrena says: Always working on a new spell or something.  The last thing
+             I remember him working on was a mirror.
+
+You say: mirror
+Syrena says: I don't know what it was.  I just know it was very
+             powerful.
+
+Syrena shrugs helplessly.
+
+Syrena says: Oh, I think it was called the mirror of fate.
+
+You say: keylon
+Syrena looks at you with very sad eyes.
+
+Syrena says: Keylon was my father.  He died battling evil.  The sad
+             thing is, the evil being was his best and dearest friend.
+
+Syrena burst out crying.
+
+You say: evil
+Syrena says: The man was Desaren.  At one time he was good, but the dark
+             side took over.
+
+You say: satarus
+Syrena says: Satarus is the lizardmen king. He might still have the
+             dust.  That is all I know about it.
+
+'dust
+You say: dust
+Syrena says: Satarus is the lizardmen king. He might still have the
+             dust.  That is all I know about it
+
+You say: hurinteon
+>
+Syrena says: Hurinteon is Salinsha's brother.  I do not know much about
+             him.
+
+'salinsha
+You say: salinsha
+> Syrena smiles at you.
+
+
+Syrena says: She is my best and closest friend.  She is a Paladin and
+             helps me to be fair and honorable.
+
+
+You say: paladin
+>
+Syrena says: Someday, I hope to be righteous and honorable to become a
+             Paladin.
+
+> 'honorable
+You say: honorable
+>
+Syrena says: Salinsha is both honorable and fair, and she always speaks
+             the truth.
+
+
+You say: truth
+>
+Syrena says: Very few people speak the whole truth and nothing but the
+             truth.  I once heard that Satarus had some magical dust
+             that forced people to tell the truth.
+
+You say: ill
+>
+Syrena says: Well, when I was much younger, I was ill.  A brave
+             adventurer went on a quest to find the cure.  Finally that
+             person found the cure and saved my life.
+
+Syrena blushes.
+
+You say: cure
+>
+Syrena says: I drank from a blessed cup of Lucanus.
+
+You say: lucanus
+>
+Syrena says: I do not know much about the Lucanus stuff.  I heard they
+             were a bunch of special adventurers who were given magical
+             items by the gods.

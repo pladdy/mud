@@ -1,0 +1,34 @@
+#nop Gags:
+
+#action {There is no money here to share!$} {#line gag}
+#action {There are no bag %ds here!} {#line gag}
+#action {There is no reason to 'divvy' here.$} {#line gag}
+
+#nop Misc;
+
+#action {^3Kingdoms welcomes you back from linkdeath.$} {
+  #read map/init.tin;
+  !hp;
+  !i;
+}
+
+#nop Dogs;
+
+#action {^Pogo :: HP: %1/%2  Happy: %3%  Hungry: %4%  Level: %5/%6%$} {
+  #if {%4 > 75 && $corpses > 0} {refe};
+}
+
+#nop Crafting;
+
+#action {^You have created something new!$} {
+  !retrieve all;
+}
+
+#nop Boons;
+
+#action {^You can now 'choose' which stats to apply the blessing to.$} {
+  #delay 3 {#8 !choose con};
+  #delay 5 {#8 !choose str};
+  #delay 7 {#8 !choose wis};
+  #delay 9 {#8 !choose dex};
+}

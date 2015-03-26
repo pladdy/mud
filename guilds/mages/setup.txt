@@ -1,0 +1,2 @@
+alias .login jump/study spellbook/cast monitor/cast mindblank/con as armor#cast armor/con as shield#cast shield/con as stoneskin#cast rhino skin/1/cast activate combat
+alias c cast

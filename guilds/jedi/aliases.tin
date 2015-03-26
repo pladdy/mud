@@ -1,0 +1,54 @@
+#alias f10 {
+  !hp;
+  !eat corpse;
+  !hp;
+  !get all;
+}
+
+#alias healup {
+  #forall {0;2;4;6;8} { #delay {&0} {!ri; hp;}; }
+}
+
+#alias ktrig_commands {
+  #var mindblock {no};
+
+  #if {$gp1 < 75 && $gp2 < 50} {
+    !focus meditation;
+  } {
+    !focus hibernation trance;
+  }
+}
+
+#alias refo {
+  !unwrap corpse;
+  !focus release force;
+}
+
+#alias reeat {
+  !unwrap corpse;
+  !eat corpse;
+}
+
+#nop Force trance alias for spells;
+
+#alias ftr {
+  #switch {"%1"} {
+    #case {"ips"} {
+      !focus force trance /ips,repeat;
+      !aset jedi_ipain yellow;
+    }
+    #case {"tka"} {
+      !focus force trance /tka,repeat;
+      !aset jedi_ipain green;
+    }
+    #case {"off"} {
+      !focus force trance /off;
+    }
+    #default {
+      #showme Current options:;
+      #showme ips: inflict pain spasm (electric);
+      #showme tka: telekinetic kill asphyxiate (poison);
+      #showme off: turn it off;
+    }
+  }
+}

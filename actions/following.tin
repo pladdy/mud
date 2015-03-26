@@ -1,0 +1,57 @@
+#nop Following;
+
+#nop Leave off any numbers like 'follow ogre 2' -> just save ogre (not 2);
+
+#action {^%1 begins to follow %D%s%d.} {
+  #regexp {%1} {%i{$character}} {
+    #list {followers} {find} {%1} {follower_index};
+
+    #if {$follower_index > 0} {
+      #list {followers} {delete} {$follower_index};
+    };
+
+    #format {follower} {%l} {%2};
+    #list followers {add} {$follower};
+    #unvar follower;
+  }
+}
+
+#action {^You stop following %1} {
+  #list {followers} {find} {%1} {follower_index};
+
+  #if {$follower_index > 0} {
+    #list {followers} {delete} {$follower_index};
+  };
+}
+
+#action {%w leaves %2.} {
+  #var followers_string {};
+
+  #foreach { $followers[%*] } {arg} {
+    #if { @length{$arg} > 0 } {
+      #if { @length{$followers_string} > 0 } {
+        #var followers_string {"$followers_string|$arg"};
+      } {
+        #var followers_string {$arg};
+      };
+    };
+  }
+
+  #regexp {$followers_string} {%i%1} {
+    #switch {"%2"} {
+      #case "north" {#map move n};
+      #case "south" {#map move s};
+      #case "east" {#map move e};
+      #case "west" {#map move w};
+      #case "northwest" {#map move nw};
+      #case "northeast" {#map move ne};
+      #case "southwest" {#map move sw};
+      #case "southeast" {#map move se};
+      #case "up" {#map move u};
+      #case "down" {#map move d};
+      #default {#map move %2};
+    };
+  };
+
+  #unvar followers_string;
+}

@@ -1,0 +1,32 @@
+Larissa's Thingy, 25 qps
+
+Go to house and 'get letter' from mailbox
+
+read letter:
+
+  Larissa,
+  
+  I've taken and destroyed your thingy.  It's gone forever and you shall
+  never see it again.  Blown into a million pieces it is.  Little chunks
+  of wood have been scattered all over the realm in a religious ceremony
+  for your thingy.  Pity you weren't there to see it.  It really was quite
+  touching.
+  
+  Why do you ask?  Because my truly warped and twisted mind could no
+  longer bear the fact that there are thingies in the world.  They must be
+  destroyed.  Forever destroyed.  How could you possibly bring such a
+  horrendous creation into being?  I'll never understand.  But it makes no
+  difference now.  It's over.  Gone forever.
+  
+  Yours truly,
+  
+  Max.
+  
+  P.S.  Hope things are well.  Hugs to the family from me.
+  
+in basement:
+  need screwdriver to 'remove screws', remove grate, get key (crate in attic)
+  search cabinet -> laundry soap
+  search jeans -> quarter
+  
+where is key to crate in the front, skeleton key is closet crumbles :(

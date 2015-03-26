@@ -1,0 +1,65 @@
+[PARTY] Rictor: -=[ MegaMonk ]=- I loved that quest
+get past the end of the maze at all
+[PARTY] Shenanigans: can't get past the end of the maze at all
+> [PARTY] Rictor: -=[ MegaMonk ]=- Gotta get the amulet off the gnome king
+        or whatever
+[PARTY] Rictor: -=[ MegaMonk ]=- You find that part?
+a oh didn't know there was an ammy or a gnome king
+[PARTY] Shenanigans: oh didn't know there was an ammy or a gnome king
+> [PARTY] Rictor: -=[ MegaMonk ]=- Yeah, when yo get to the top
+[PARTY] Rictor: -=[ MegaMonk ]=- there is a thief
+[PARTY] Rictor: -=[ MegaMonk ]=- like after you go up, it's east
+tell rictor is [Gen-Notify]: Zanadu has activated a Level 1 HyperGen!
+this in the ma[PARTY] Rictor: -=[ MegaMonk ]=- Kill him, go northeast (hidden dir)
+ze or somewhere else?
+You tell Rictor: is this in the maze or somewhere else?
+> [PARTY] Rictor: -=[ MegaMonk ]=- then.... careful there is a death trap
+[PARTY] Rictor: -=[ MegaMonk ]=- Somewhere else, mainland
+[Gen-Notify]: Zanadu has activated a Level 2 HyperGen!
+[PARTY] Rictor: -=[ MegaMonk ]=- As soon as you get to the top with the
+        trhone to the west
+[Auction House] Caboose has placed Spiderskin Codpiece up for bids at the
+                Auction House starting at 20000 coins (buy it now for
+                25000!)
+[PARTY] Rictor: -=[ MegaMonk ]=- you go east and there is a thief
+a oh interesting
+[PARTY] Shenanigans: oh interesting
+> a i know at the top of one [PARTY] Rictor: -=[ MegaMonk ]=- You should have found him
+place is a castle
+[PARTY] Shenanigans: i know at the top of one place is a castle
+> tell[PARTY] Rictor: -=[ MegaMonk ]=- anyways, northeast is a hidden dir, you
+        see a gnome
+[PARTY] Rictor: -=[ MegaMonk ]=- don't go d, death trap
+[PARTY] Rictor: -=[ MegaMonk ]=- instead enter cave, d,e
+[PARTY] Rictor: -=[ MegaMonk ]=- need lik e+15 light so get a wand of
+        lumen from arundin
+[PARTY] Rictor: -=[ MegaMonk ]=- Kill him, he has a pack, and a
+        sword/armour but those are unique
+[PARTY] Rictor: -=[ MegaMonk ]=- in the pack is a shiny black amulet
+[PARTY] Rictor: -=[ MegaMonk ]=- you need that to get through maze
+z\e[1;2D[PARTY] Rictor: -=[ MegaMonk ]=- Heh, I used to run that amulet for ac :P
+        It only has e/b but always there
+
+
+after killing minotaur in maze and ghost
+
+As the Ghost fades to nothingness the image of the Good King
+grows and solidifies.  He smiles sadly at you.  `Thank you
+kind adventurer.  But you have come too late to save my mortal
+body.  But my soul is now mine own once again.  Look to your
+feet and you shall see two powerful items which will break
+the curse of my friend Zetron and free Kimlark's people to
+live again.  Find my throne, sit yourself upon it, then you
+will find a chest.  Place the crystal inside.  And once
+again...thank you.  Now I must follow my soul and atone for
+my foolishness.  Goodbye!'  The image disappears.
+
+leave maze (climb cleft)
+
+get back to throne
+
+sit sthrone
+
+place crystal in chest
+
+voila

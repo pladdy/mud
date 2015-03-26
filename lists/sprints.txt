@@ -1,0 +1,4 @@
+Sprints:
+  run_kimlark      # run to kimlark
+  run_kimlark_home # from kimlark, go home
+  rshop            # show a list of shops, or run to specified shop

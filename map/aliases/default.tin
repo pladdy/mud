@@ -1,0 +1,67 @@
+#alias chaos_area_port {
+  #showme porting to $chaos_port_location!;
+  #map goto $chaos_port_location;
+  #var chaos_port_location {};
+}
+
+#alias gmap {
+  #if {@length{%0} > 0} {
+    #system grep "%0" $map_path;
+  } {
+    #showme Need some arguments to grep for;
+  }
+}
+
+#alias map { #map map; }
+
+#alias map_run {
+  #format {run_to} {%l} {%1};
+  #map run $run_to;
+  #unvar run_to;
+}
+
+#alias run {map_run %0}
+
+#alias map_hide { #unsplit; }
+
+#alias map_load {
+  #map read $map_path;
+  #map goto home;
+  #showme Map loaded, set to home.;
+}
+
+#alias map_info { #map info; }
+
+#alias map_lock {
+  #showme Map is Read only.;
+  #map flag static on;
+  #alias map_undo {#nop;};
+  !brief on yes;
+  #unsplit;
+}
+
+#alias map_refresh {
+  #map map 80x50 map/current_map.txt;
+}
+
+#alias mapr { map_refresh }
+
+#alias map_save {
+  #map write $map_path;
+  #showme Map saved to $map_path;
+}
+
+#alias map_show {
+  #split 16 1;
+  #map flag vtmap on;
+}
+
+#alias map_write {
+  #showme Map is writable.;
+  #map flag static off;
+  #alias map_undo { #map undo; };
+  #nop !brief on no;
+  #nop map_show;
+}
+
+#alias map_undo {#nop;}

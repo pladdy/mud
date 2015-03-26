@@ -1,0 +1,34 @@
+#nop Sprints that require commands in the middle;
+
+#alias run_kimlark {
+  run kimlark;
+  !embark;
+  !fore;
+  !bridge;
+  !tell captain kimlark;
+  !deck;
+  !fore;
+  !disembark;
+  run gnome_warlord;
+  !kill thief;
+}
+
+#alias run_kimlark_home {
+  run kimlark_dock;
+  !embark;
+  !aft;
+  !bridge;
+  !tell captain mainland;
+  !deck;
+  !aft;
+  !disembark;
+  run home;
+}
+
+#alias rshop {
+  #if { @length{%1} > 0 } {
+    #map run shop_%1;
+  } {
+    #system cat lists/areas/shops.txt;
+  };
+}

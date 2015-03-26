@@ -1,0 +1,26 @@
+Mains:
+  adamantium1
+  adamantium2
+  armour_kourlyn
+  cow_plate
+  cyberpope      # rare, cyberpope main armour
+  dragon_scale
+  green_armour
+  hk             # sturdy plate (also in sets list)
+  orc_chief
+  trans1         # westron can drop armor
+  prismatia      # breastplate of dreams
+  demonmail
+
+Serinth
+  octochromatic armour
+    - make sure you have 15K coins, and empty bags
+    - run way_dock
+    - charter serinth
+    - run porih_traveler
+    - push 2
+    - kill the 8 hidden dragons
+    - give scales to bron
+    - contract
+  armour of lucanus
+    - run salinsha

@@ -1,0 +1,31 @@
+Shops:
+
+All shops on map should be prefixed with 'shop_'
+
+cot => Trading Post
+
+Chaos:
+  chaos     => Chaos Shop
+  crydee    => Crydee
+  darkmoore => Darkmoore
+  land1     => Revelwood shop
+  land2     => ^^ 2.0
+
+Fantasy:
+  blingdenwood   => Blingdenwood
+  harfain        => Harfain
+  katin          => Katin
+  way_dock       => Wayhaven Docks
+  way_main       => Wayhaven Main
+  way_pawn       => Wayahven Pawn (muggers)
+  roland         => Roland's (Angelo)
+  troll_alliance => Troll Alliance
+  westersea      => Westersea
+  xaxis          => Xaxis shop
+
+Science:
+  atlanta_main => Atlanta Main
+  atlanta_tiny => Atlanta Main (Tiny)
+  detroit      => Detroit Merkentile
+  luddite      => Luddite Commune
+  sydermans    => HTC Northern Expansion

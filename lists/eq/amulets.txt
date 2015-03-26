@@ -1,0 +1,4 @@
+Amulets:
+  hirebrand_amulet
+  normal_cow_king
+  storm_amulet

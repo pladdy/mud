@@ -1,0 +1,45 @@
+#action {^Hp:%1/%2 Sp:%3/%4 Pu:%5/%6(%7) } {
+  #var hp {%1};
+  #var hp_max {%2};
+  #math {hp_delta} {$hp - $hp_last};
+  #var hp_last {$hp};
+  #format hp_pct {%f} {$hp / $hp_max};
+
+  #var sp {%3};
+  #var sp_max {%4};
+  #format sp_pct {%f} {$sp / $sp_max};
+
+  #var gp1 {%5};
+  #var gp1_max {%6};
+  #format gp1_pct {%f} {$gp1 / $gp1_max};
+
+  #var gp2 {%7};
+  #format gp2_max {%f} {$gp1_max / 2};
+  #format gp2_pct {%f} {$gp2 / $gp2_max};
+
+  #var pu_storage {%7};
+
+  #nop triggers based on stats;
+
+  #if {$gp1 < 2000 && $corpses > 0} {repu;};
+}
+
+#action {^Ef:%1 Ed:%2 B:[ %3% | %4% ] Gx:%5(%6%) Rc:%7} {
+  #var {gxp} {%5};
+  #math {gxp_delta} {$gxp_last - $gxp};
+  #var gxp_last {$gxp};
+
+  #var {gxp2} {%7};
+  #math {gxp2_delta} {$gxp2 - $gxp2_last};
+  #var gxp2_last {$gxp2};
+
+  #math {total_gxp} {$gxp_delta + $gxp2_delta};
+
+  #var deltas {H: $hp_delta};
+  #var deltas {$deltas Gxp: $gxp_delta RC: $gxp2_delta Total: $total_gxp};
+  #showme {$deltas} {1};
+}
+
+#action {^        BIAS CONFORMATION HAS REACHED SPECIFIED DIFFERENTIAL} {
+  !biaslock;
+}

@@ -1,0 +1,53 @@
+#alias f10 {
+  !hp;
+  !study corpse;
+  !eat corpse;
+  !hp;
+  !get all;
+}
+
+#alias ktrig_commands {
+  #var pressure {off};
+  !meditate;
+}
+
+#alias en {
+  !enervate 80;
+  #2 {!hands};
+}
+
+#alias reet {
+  !unwrap;
+  !study corpse;
+  !eat corpse;
+}
+
+#alias wimpy_commands {
+  #delay 2 {!meditate;}
+}
+
+#alias ansi {
+  !ansi %1;
+
+  #if {"%1" == "off"} {
+    mset attack bkblack;
+    mset dodge bkblack;
+    mset pressure bkblack;
+    mset stun bkblack;
+    mset palm bkblack;
+    mset isn bkblack;
+    mset blur bkblack;
+    mset crit bkblack;
+    mset throw bkblack;
+  } {
+    mset attack white;
+    mset dodge hicyan;
+    mset pressure hiblack;
+    mset stun yellow;
+    mset palm himagenta;
+    mset isn hiblack;
+    mset blur hiblue;
+    mset crit hired;
+    mset throw brown;
+  }
+}

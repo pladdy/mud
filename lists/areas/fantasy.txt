@@ -1,0 +1,41 @@
+Tiny:
+  icy_blue
+  rilians
+  scorpion_caves
+
+Small:
+  arcanarton
+  cata1
+  durhals_ant_caves
+  devourer_cavern
+  gnoll_encampment
+  grindur
+  vindaes
+  westersea # sewer, 1-8k mobs
+  
+Medium:
+  elven_woods
+  elemental_planes
+  guiles_forest
+  mage_tower
+  orc_village
+  pol1 (20k)
+  verbeeg
+  underdark
+
+Big:
+  alizarian_tower
+  cata2
+  chapel
+  encampment
+  hc_golems       # high colonic sub area of golems
+  pol2
+  pol3
+  ravenloft
+    # sub areas in ravenloft
+    rloft_exit
+    rloft_abbey
+    rloft_aidens
+
+Misc:
+  pol_to_underdark

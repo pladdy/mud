@@ -1,0 +1,37 @@
+#nop Science Shuttle;
+
+#action {^The engines fire loudly and the shuttle blasts off.$} {
+  #map goto 8373;
+}
+
+#action {^The captain announces: Welcome to Midway Space Station.$} {
+  #map goto 8372;
+}
+
+#action {^The captain announces: Welcome to Houston Transport Center.$} {
+  #map goto 8371;
+}
+
+#nop Dune;
+
+#action {^Archway to Spacing Guild (d,exit)} {
+  #if {$map[current_room] == 9073} {
+    #map goto 9074;
+  }
+}
+
+#nop Living Planets;
+
+#action {^In the gravity well (u,d)} {
+  #if {$map[current_room] == 10033} {
+    #map goto 10034;
+  }
+}
+
+#nop Brood Wars;
+
+#action {^A Starcraft Expansion Shuttle Bay (e)} {
+  #if {$map[current_room] == 10045} {
+    #map goto 10046;
+  }
+}

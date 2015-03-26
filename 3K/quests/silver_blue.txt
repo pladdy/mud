@@ -1,0 +1,125 @@
+Character dialogue:
+
+Silver
+say house or say home or say majesty
+Silver tells you: My house is echoing with the lack of Blue.  She made
+        this place a home, and now is gone.  I am hopeless without her. 
+say blue or love                                                             
+> Silver tells you: Oh, my beautiful Blue is gone!  She is my heart, my
+        everything.  Without her, my house is not a home, my heart is
+        cold, my life is nothing.  
+You say: rose                                                                 
+> Silver tells you: The mysterious Lady Rose, a woman strange and powerful,
+        but I know little of her.
+
+You say: bronze                                                               
+> Silver tells you: Bronze, legendary dragon, strong and true
+
+You say: grey                                                                 
+> Silver tells you: Grey?  I know him not.                                 
+'black
+You say: black                                                                
+> Silver tells you: Black, the taint of darkness across the land is his, I
+        know. 
+You say: help                                                                 
+> Silver tells you: Help?  Surely none can help my hopeless heart.  The
+        only thing I long for is my Blue, but even my Hope is gone.
+You say: hope                                                                 
+> Silver tells you: My heart is empty of hope, I have not the strength to
+        find it.  Alone, I fear I will wither into nothing, for without
+        the hope that my Blue lives on, what point is there in life.
+
+Rose
+You say: hi                                                                   
+> Rose tells you: I see you.  What brings you to my tent?    
+You say: silver                                                               
+> Rose tells you: He is barely himself, his aura pale and wan.             
+'aura
+You say: aura                                                                 
+> Rose tells you: I could read your aura, but you would need to sit down.
+You say: black                                                                
+> Rose tells you: Strange one he, his aura both strong and weak.           
+'bronze
+You say: bronze                                                               
+> Rose tells you: Beasts interest me not, they have no aura.               
+'grey
+You say: grey                                                                 
+> Rose tells you: Beasts interest me not, they have no aura.               
+'blue
+say blue or love                                                               
+> Rose tells you: She comes, she goes, who has her now, nobody knows.
+
+Bronze
+You say: hi                                                                   
+> Bronze hisses at you: Greetings, brief one.  What brings you to Promise? 
+You say: promise                                                              
+> Bronze hisses at you: Promise has been here forever, much longer than me.
+You say: silver                                                               
+Bronze hisses at you: I hear he is light of heart, long may he live.     
+say blue or love                                                               
+> Bronze hisses at you: Such brief lives interest me not.                  
+You say: rose                                                                 
+> Bronze hisses at you: Such brief lives interest me not.                  
+You say: grey                                                                 
+> Bronze hisses at you: Grey is a cursed presence in the land.             
+You say: black                                                                
+> Bronze hisses at you: Such brief lives interest me not.                  
+You say: help                                                                 
+> Bronze hisses at you: I do not know you.
+
+Grey
+You say: hi                                                                   
+> Grey hisses at you: Ssso sssoft, ssso tasssty.
+You say: forlorn                                                              
+> Grey hisses at you: Forlorn.  Ssso cold, ssso comforting
+You say: silver                                                               
+Grey hisses at you: Ssssilver isss light.  Sssso painful
+You say: black                                                                
+> Grey hisses at you: Sssomeone insssignificant, no doubt.
+You say: rose                                                                 
+> Grey hisses at you: I care not about them. 
+You say: bronze                                                               
+> Grey hisses at you: Hisss brightnesss burnsss the ssshadow.              
+say blue or love                                                               
+> Grey hisses at you: Sssshe sssounds tasssty too. 
+You say: help                                                                 
+> Grey hisses at you: Who are you to assssk for help?  Leave
+
+Black
+You say: hi                                                                   
+> Black tells you: An intruder into Mournful, how strange.  Welcome to the
+        castle of darkness, stranger. 
+You say: mournful                                                             
+> Black tells you: Fitting, I think, a castle so grand, the home of dark. 
+You say: silver                                                               
+> Black tells you: Silver!  That disgusting shining light, I would kill him
+        if the prying eyes of the sky didn't always warn him of my
+        coming! 
+You say: bronze                                                               
+> Black tells you: A puny dragon who bathes in the light.  He is of no
+        consequence.   
+You say: rose                                                                 
+> Black tells you: She is a strange one. 
+You say: blue                                                                 
+> Black tells you: Blue?  I know not of her.  Or he.  Whoever it is.  
+You say: help   /* the quest is alignment based */                              
+> Black tells you: Help?  Your light heart would be better suited
+        elsewhere.  Begone.    
+You say: grey                                                                 
+> Black tells you: Grey?  I know him not. 
+
+/* ----------------- */
+
+at rose's tent, 'sit cushions'
+say aura
+You say: aura                                                                 
+> Lady Rose sweeps her hands around you, peering intently.
+Rose tells you: You have no aura.  How strange.
+
+need an aura,
+need to have bronze know me
+
+can't seem to kill any of the npcs either, combat just stops
+
+do npcs respond to 'resonant' or 'humble' or 'aspect'?
+not black

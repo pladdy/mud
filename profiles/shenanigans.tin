@@ -1,0 +1,7 @@
+#nop Set up environment.
+#var character {shenanigans};
+#read init.tin;
+read_tin_files guilds/gentech;
+
+#nop Connect.  Connection triggers client to read map.
+#session 3k 3k.org 3000;shenanigans;

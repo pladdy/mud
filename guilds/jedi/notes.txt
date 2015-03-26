@@ -1,0 +1,22 @@
+Notes:
+
+for light jedi build
+  go athlete
+    use guide saber (green)
+    use flurry daggers (purple)
+    melee
+    h2h
+
+  dathomir melee build?  downside is 20 DS hit to healing/defense...OR purge
+  as low as you can go and enjoy
+    +2 gfs
+    +1 lfs
+    +2 melee
+    +1 h2h
+    lose deflect so probably not worth it.  damage is in the spells and real
+    defense is in deflect
+
+for dark side build:
+  go sorcerer, always so you can use spells faster and heal quick
+  try krath
+  could second childhood sith aspirant to lower combat skill reqs

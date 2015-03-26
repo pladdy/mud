@@ -1,0 +1,7 @@
+Boots:
+  cryohydra   # random
+  cyberpope   # cyberpope hat
+  green_boots
+  greyfox
+  storm_boots # bindy, +defense)
+  trans1      # eastron can drop boots

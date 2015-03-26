@@ -1,0 +1,41 @@
+Items as seen in seal:
+
+You have a Magical Match.
+  - match is in desaren's tower behind a west wall, not sure how to break
+    it down; shenanigans can go right in...str check maybe?
+    -- brytex has a str potion that might override this...
+
+  - magical match lights the silver candle in ivory keep; creates a beam you can
+    enter.  altar in room has a holy symbol.
+
+You have a Holy Symbol.
+  - using magical match ^^
+  You must first answer this riddle. Type answer <word> to guess the word.
+
+  If to half a dozen you add six and five hundred, the result
+  is clear, lucid and glowing. What's the word?
+
+  googled it, VIVID (roman numerals)
+  answer vivid, get symbol -> holy symbol
+
+You found the Key to Hurinteon's Door.
+  - hurinteon's key is 'search boards' in the room down from his level
+
+You have the Scroll of Knowledge.
+  - scroll of knowledge (who did i get this from??)
+  - use this to translate lizardish and ogrish
+
+You have the cup of Lucanus.
+  - in the forest of illusion at the end, get cup
+  - Oft I must strive with wind and wave,
+    Battle them both when under the sea.
+    I feel out the bottom, a foreign land.
+    In lying still I am strong in the strife;
+    If I fail in that they are stronger than I
+    And wrenching me loose, soon put me to rout.
+    They wish to capture what I must keep.
+    I can master them both if my grip holds out,
+    If the rocks bring succor and lend me support,
+    Strength in the struggle. What am I?
+
+    answer anchor

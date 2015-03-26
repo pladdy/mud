@@ -1,0 +1,25 @@
+#event {MAP ENTER ROOM} {
+  #var map[current_room] %0;
+  #map map 80x50 map/current_map.txt;
+  #delay {0.75} {map_refresh;};
+}
+
+#event {MAP EXIT ROOM} {
+  #var map[last_room] %0;
+}
+
+#event {END OF PATH} {
+  #delay {1} {map_refresh;}
+}
+
+#event {SESSION DISCONNECTED} {
+  map_save;
+  #system {
+    echo \#var {map[current_room]} {$map[current_room]} > last_session.tin;
+    echo \#var {chaos_port_location} {$chaos_port_location} >> last_session.tin;
+  };
+}
+
+#event {SESSION DEACTIVATED} {
+  #nop Removed but same as above event;
+}

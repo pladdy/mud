@@ -1,0 +1,84 @@
+==========================================================================
+                                 Confighp
+==========================================================================
+
+You can use the confighp command to customize your hpbar that is displayed
+during battle.  Typing 'confighp list' will show you your current hpbar as well
+as a list of the variables you can use when setting your hpbar.
+
+confighp help will show you a brief summary of how to use the tool.
+confighp default will reset your bar to a sane default.
+
+Note: All variables must be typed in CAPITAL letters.
+
+Examples:
+
+confighp hp HP: $CHP$/$MHP$ SP: $CSP$/$MSP$ W: $CWT$/$MWT$($SWT$) L:
+$LMB$%$MPS$ P: $PSN$/$PSR$% T: $TRG$ G: $GXP$
+
+confighp mps A: $MPA$($MPC$)
+
+Last modified: Tue May 20 16:00:04 2014 by Thrax
+
+> confighp
+Syntax: confighp [hp|mps|rp|g1|g2] [config line]
+        confighp list
+        confighp default
+> confighp list
+Configure HP
+============
+
+The list of variables that you can use for confighp are:
+
+$TRG$ + Displays your targets status.
+$CHP$ + Displays your current hit points.
+$MAS$ - Displays your assault mode.
+$CWT$ + Displays your current water.
+$GXP$ - Displays your gexp gained last round.
+$MPI$ - Displays your pain mode.
+$MHP$ - Displays your max hit points.
+$BTW$ + Displays your belt water level.
+$SWT$ - Displays your current water recirculating in your suit.
+$MPC$ - Displays your maula pistol clips.
+$MSP$ - Displays your max spell points.
+$MPR$ - Displays your prana mode.
+$MRE$ - Displays your reflexes mode.
+$CRT$ - Carriage Return - Start a new line.
+$MBI$ - Displays your bindu mode.
+$MWT$ - Displays your max water.
+$MPA$ - Displays your maula pistol ammo.
+$ATT$ - Displays the number of attackers you are facing.
+$LTF$ + Displays your litany focus (full).
+$DES$ - Displays minutes until sandtrout reset (or " D" if ready).
+$PSN$ - Displays your number of poisons.
+$WCR$ - Displays your mode water cost per round.
+$LBP$ + Displays your store of pain.
+$PSR$ + Displays your poison reset percentage.
+$MAT$ - Displays your attacks mode.
+$CCP$ + Displays the corpses in your coffin.
+$MPS$ - Displays your maula pistol substring when your pistol is drawn.
+$LMB$ + Displays your current limberness.
+$CSP$ + Displays your current spell points.
+$MWE$ - Displays your weirding mode.
+$GXA$ - Displays the amount of gxp available to spend.
+$MLT$ - Displays your litany mode.
+$LTS$ + Displays your litany focus (short).
+
+Entries marked with a + can be set to automatically change colour
+depending on their value by adding a + at the beginning, EG: $+CHP$
+
+confighp hp H: $+CHP$/$MHP$ S: $+CSP$/$MSP$ W: $+CWT$/$MWT$($SWT$) L: $+LMB$% P: $PSN$($+PSR$%) E#: $ATT$ E: $+TRG$ $CRT$Li: $+LTS$ Pa: $+LBP$ Ma: $MPA$($MPC$) Wr: $WCR$ C: $+CCP$ Gt: $GXA$ G: $GXP$
+
+Your current settings are:
+HP (HP bar config setting):
+HP: $+CHP$/$MHP$ SP: $+CSP$/$MSP$ W: $+CWT$/$MWT$($SWT$) L: $+LMB$%$MPS$
+P:$PSN$/$+PSR$% T: $+TRG$ G: $GXP$ LT: $+LTS$
+MPS (Maula Pistol setting):
+ A: $MPA$($MPC$)
+RP (Report command setting):
+HP: $CHP$/$MHP$  SP: $CSP$/$MSP$  WATER: $CWT$/$MWT$($SWT$) LIMBERNESS:
+$LMB$%
+G1 (Client Line 1 setting):
+FOCUS: $LTF$$MPS$ GXP: $GXP%
+G2 (Client Line 2 setting):
+POISON: $PSN$/$PSR$% LIMBERNESS: $LMB$%

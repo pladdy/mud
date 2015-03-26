@@ -1,0 +1,33 @@
+#alias ktrig_commands {
+
+}
+
+#alias f10 {
+  !hp;
+  !eat corpse;
+  !hp;
+  !get all;
+}
+
+#alias f12 {
+  #loop 2 8 i {!sell all from bag $i};
+}
+
+#alias fr {
+  #if {"$fold_reality_check" == "true"} {
+    !fold reality;
+    #map goto $fold_reality_location;
+    #var fold_reality_location {0};
+    #var fold_reality_check {false};
+  } {
+    #var fold_reality_location {$map[current_room]};
+    #var fold_reality_check {true};
+    !fold reality;
+    #map goto psicorps
+  }
+}
+
+#alias redi {
+  !unwrap corpse;
+  !disperse;
+}

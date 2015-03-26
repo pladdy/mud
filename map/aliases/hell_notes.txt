@@ -1,0 +1,27 @@
+15:28 Rictor : Easiest way to figure out dirs that are opposite each
+               other, drop a torch, and move, then glimpse each of the
+               possible dirs till you find the room you dropped the torch
+               in, do that for all the dirs
+               
+yonder
+  not anotherway
+  not yonder
+  not thatway
+
+yonder and overhere
+thisway and thatway
+overhere and anotherway
+
+# last i was in cerberus room, i got moved randomly as i left
+# reboot 1468, 3/11/2015
+# test this again
+wand	    staff	   onyx ring
+zinc ring	cerberus copper flask
+armor	    sword	   gold flask
+
+north took me east
+east took me west
+west took me up
+south took me down
+up took me north
+down took me south

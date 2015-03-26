@@ -1,0 +1,83 @@
+#alias dq {
+  #list dq_list create %0;
+
+  #if {@length{%1} > 0} {
+    #var dq_string {};
+    #var dq_count 0;
+
+    #foreach { $dq_list[%*] } {arg} {
+      #if {@length{$arg} > 0} {
+        #nop Add comma if more than one defense option is given;
+        #if {$dq_count > 0} { #format dq_string {%s%s} {$dq_string} {,} };
+
+        #switch {"$arg"} {
+          #case "v" { #format dq_string {%s%s} {$dq_string} {void} };
+          #case "p" { #format dq_string {%s%s} {$dq_string} {parry} };
+          #case "b" { #format dq_string {%s%s} {$dq_string} {block} };
+          #case "ri" { #format dq_string {%s%s} {$dq_string} {riposte} };
+          #default { #format dq_string {%s%s} {$dq_string} {$arg} };
+        };
+
+        #math {dq_count} {$dq_count + 1};
+        #if {$dq_count >= 5} {#break};
+      };
+    };
+
+    !defensequeue clear;
+
+    #if {$dq_count == 1} {
+      !defensequeue $dq_string,none;
+    } {
+      !defensequeue $dq_string;
+    };
+  } {
+    #showme To change, pass in an ordered list of powers.  Ex: dq v, p, b, ri;
+    !defensequeue;
+  }
+
+  #unvar dq_list;
+  #unvar dq_count;
+  #unvar dq_string;
+}
+
+#alias dq_gxp {
+  !defensequeue clear;
+  !defensequeue parry,riposte,block,void;
+}
+
+#alias f10 {
+  !hp;
+  #if {$gp1_pct < $gp2_pct} {!disperse;} {!rites;!disperse;};
+  !hp;
+  !get all;
+}
+
+#alias f12 {
+  #if {$map[current_room] == 220} {
+    #loop 2 8 i {!junk all from bag $i};
+  } {
+    #loop 2 8 i {!sell all from bag $i};
+  }
+}
+
+#alias redi {
+  !hp;
+  !unwrap;
+  !disperse;
+  !hp;
+}
+
+#alias reri {
+  !hp;
+  !unwrap;
+  !rites;
+  !disperse;
+  !hp;
+}
+
+#alias train {
+  #if {$map[current_room] == 221} {
+    !train %0;
+    #unvar angel_train;
+  }
+}

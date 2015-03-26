@@ -1,0 +1,11 @@
+Ant Hole:
+  pedes
+  xtals
+  corrinsyl
+  hive_queen
+  arachnus # danger will robinson
+    - has mandibles (weapon)
+    - multiple lives: cyan, azure
+
+Sub-areas:
+  ant_brutes # on way to arachnus, seem to be more brutes here

@@ -1,0 +1,38 @@
+_ _ _ _ _
+
+Number 1:
+ghost: The ghost boos and says: 
+  Number one is no dumber.  You can't guess that it's four bigger.
+    From the bat will it tell, can one guess, What is number one?
+
+Number 2:
+bat: Number two isn't the biggest because it is smallest one.
+  should be 0 or 1
+
+Number 3:
+ghoul: Number three can be seen, for it is bigger than number five
+
+Number 4:
+zombie:
+The zombie says: Number four can be seen for it shines right after number two.
+  1 or 2 depending on number two
+
+Number 5:
+banshee:
+The banshee wails:
+  Number five is smaller than number three.
+    But can be found, 
+      four times larger than that of the one before
+      1 or 2(4 or 8)
+
+Guess 1:
+_ 0 _ 1 4
+
+5 1 9 2 8 *this is it
+
+notes:
+numbers are 0-9
+
+The lich crumples into a pile and whispers words you can barely hear:
+                 O..y I kn..  wh..e .h. ..y is.
+With a final smack, you end Lich's life

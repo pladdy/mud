@@ -1,0 +1,27 @@
+Weapons:
+  alythra_dagger
+  corrinsyl       # polearm, acid
+  disc_of_doom
+  disc_of_kourlyn # can't unwield, exotic
+  highlord_sword
+  staff_sun_moon  # warning, sprinting here drags 9 golems
+  storm_gloves    # careful, will drag lots of mobs
+  zaldaen         # sword of ascension
+
+Fantasy:
+  Gamal: (charter gamal from way_dock)
+    tho-razin # sword of thorazin, multi attack, good wc
+  Ravenloft:
+    oathmaker
+    rloft_aidens # obsidian rapier
+  Serinth:
+    fang_sword # unique in dragon isle, on saortise
+
+Science:
+  Living Planets: solar halberd
+
+Armour Weapons:
+  Gencorps: battle glove, gloves, 'strike' each round
+  Shansabyk Castle: galmog hide reflects damage
+                    ring of thunderbolts, does one big hit
+  Dragon Isle: octochromatic, main, scales can do dmg

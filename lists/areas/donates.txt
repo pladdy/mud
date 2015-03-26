@@ -1,0 +1,3 @@
+Donates:
+  chromatic dragon ring => random ring
+  sword of wounding     => elven_woods, on yvdonne

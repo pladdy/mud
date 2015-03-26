@@ -1,0 +1,42 @@
+eq -hide head
+eq -hide heavy body
+eq -hide upper body
+eq -hide on legs
+eq -hide shield
+
+alias .login jump/method phoenix/stun/crit/chifocus thought
+alias m meditate
+alias en enervate
+alias p palm
+alias h hands
+alias ak akill
+alias aka akill all
+alias pr pressure
+alias hi hide of the dragon
+alias st study corpse
+alias iw iron will
+alias z daze
+alias cf chiforce
+
+alias cfn chifocus normal
+alias cfs chifocus static
+alias cft chifocus thought
+
+alias mtp method phoenix
+alias mtt method tiger
+alias mts method serpent
+alias mtc method crane
+alias mtd method dragon
+
+mset always_warn 1
+mset always_warn 1
+
+mset attack white
+mset dodge hicyan
+mset pressure hiblack
+mset stun yellow
+mset palm himagenta
+mset isn hiblack
+mset blur hiblue
+mset crit hired
+mset throw brown

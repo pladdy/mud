@@ -1,0 +1,37 @@
+#nop Rasta's Hell;
+
+#nop Dirs to map:
+  #nop thisway;
+  #nop thatway;
+
+  #nop yonder;
+  #nop anotherway;
+
+  #nop overthere;
+  #nop overhere;
+
+#alias hell_map_on {
+  #alias e {!anotherway;#map move e};
+  #alias w {!overthere;#map move w};
+
+  #alias n {!thisway;#map move n};
+  #alias s {!overhere;#map move s};
+
+  #alias u {!thatway;#map move u};
+  #alias d {!yonder;#map move d};
+}
+
+#alias hell_map_off {
+  #unalias n;
+  #unalias s;
+  #unalias w;
+  #unalias e;
+  #unalias u;
+  #unalias d;
+}
+
+#alias hell_map_ref {
+  #read map/aliases/hell.tin;
+  hell_map_off;
+  hell_map_on;
+}

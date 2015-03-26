@@ -1,0 +1,35 @@
+#action {^H: %1/%2 S: %3/%4 W: %5/%6(%7) L: %8% P: %9(%10%) E#: %11 E: %12 $} {
+  #var hp {%1};
+  #var hp_max {%2};
+  #math {hp_delta} {$hp - $hp_last};
+  #var hp_last {$hp};
+  #format hp_pct {%f} {$hp / $hp_max};
+
+  #var sp {%3};
+  #var sp_max {%4};
+  #format sp_pct {%f} {$sp / $sp_max};
+
+  #var gp1 {%5};
+  #var gp1_max {%6};
+  #format gp1_pct {%f} {$gp1 / $gp1_max};
+  #var suit_water {%7};
+
+  #math {total_water} {$gp1 + $suit_water};
+  #format total_water_pct {%f} {$total_water / $gp1_max};
+
+  #var enemy {%12};
+}
+
+#action {^Li: %1 Pa: %2 Ma: %3(%4)} {
+  #if {"$enemy" != "none" && "%3" != "--"} {
+    #if {%3 == 1 && %4 > 0} {!mload};
+  }
+}
+
+#action {^Again, the trip is short, the hatch opens and you step out onto the$} {
+  #if {$map[last_room] == 8164} {
+    #map goto 63;
+  } {
+    #map goto 8164;
+  }
+}

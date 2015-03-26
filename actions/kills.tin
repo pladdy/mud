@@ -1,0 +1,27 @@
+#nop Kills:
+
+#action {^%1 dealt the killing blow to %2.} {
+  #regexp {%1} {%i{$character|$mage_summons|Pogo}} {
+    !glance;
+
+    #if { @length{$coffin_status} == 0 } {
+      f10;
+    } {
+      #if {"$coffin_status" == "FULL"} {f10;} {f9;};
+    }
+  };
+
+  #if { @length{$dtrig} > 0 } {
+    #forall {$dtrig} {&0;};
+    #var dtrig {};
+  };
+
+  !divvy gold;
+  ktrig_commands;
+
+  #nop Kill Sprints;
+  
+  #switch {"%2"} {
+    #case "Cryohydra" {run verbeeg_chief;};
+  };
+}

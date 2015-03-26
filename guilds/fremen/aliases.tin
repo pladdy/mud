@@ -1,0 +1,56 @@
+#alias am {
+  !hide;
+  #delay {2} {!ambush %0};
+}
+
+#alias drc {
+  !sheathe;
+  !holster;
+  !draw crysknife;
+  !mode litany:half weirding:all assault attacks:quick reflexes;
+}
+
+#alias drcp {
+  !sheathe;
+  !holster;
+  !draw crysknife;
+  !mode pain:some litany:half weirding:all assault attacks:normal reflexes;
+}
+
+#alias drl {
+  !sheathe;
+  !holster;
+  !draw lasgun;
+  !mode assault:all litany:half weirding attacks:normal reflexes;
+}
+
+#alias drm {
+  !sheathe;
+  !holster;
+  !draw maula pistol;
+  !mode assault:all litany:half weirding attacks:normal reflexes;
+}
+
+#alias f10 {
+  !glance;
+  !hp;
+  #if {$total_water_pct < 1.15} {!reclaim} {!fai};
+  !hp;
+  !get all;
+}
+
+#alias ktrig_commands {
+  !suspend;
+}
+
+#alias rerc {
+  !unwrap;
+  !hp;
+  !reclaim;
+  !hp;
+}
+
+#alias refi {
+  !unwrap;
+  !fai;
+}

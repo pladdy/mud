@@ -1,0 +1,61 @@
+#action {^H: %1/%2 S: %3/%4 P: %5/%6(%7) F: %8% SA: %9 E: %10 $} {
+  #var hp {%1};
+  #var hp_max {%2};
+  #format hp_pct {%f} {$hp / $hp_max};
+
+  #var sp {%3};
+  #var sp_max {%4};
+  #format sp_pct {%f} {$sp / $sp_max};
+
+  #var gp1 {%5};
+  #var gp1_max {%6};
+  #format gp1_pct {%f} {$gp1 / $gp1_max};
+
+  #var gp2 {%8};
+  #var enemy {%10};
+  #replace {enemy} {%} {};
+
+  #if {"$enemy" != "None" && "$mindsink_empty" != "true"} {
+    #if {$gp1_pct <= .5} {!mindsink};
+    #if {$enemy <= 10 && $gp1_pct <= .9} {!mindsink};
+  }
+}
+
+#action {^C: %1 W: %2 D: %3% T: %4 A:%5$} {
+  #var workings {%2};
+
+  #if {"$enemy" != "None" && "$mindsink_empty" != "true"} {
+    #if {"$contact_impossible" != "true"} {
+      #regex {$workings} {Ct} {#nop;} {!contact};
+    }
+    #nop #regex {$workings} {Re} {#nop;} {!brepeat psicrush};
+  }
+
+  #nop Deactivate;
+
+  #if {$gp1 < 500 && "$mindsink_empty" == "true"} {
+    #regex {$workings} {Ct} {!contact stop;} {#nop};
+    #regex {$workings} {Re} {!brepeat clear;} {#nop};
+  }
+}
+
+#action {^The Glaetal crystal cannot hold anymore energy.$} {
+  !hurl;
+  !daystar 400;
+}
+
+#action {^You try and channel the attack, but the crystal already overflows with energy.$} {
+  !psidraw 500 from kulnara;
+}
+
+#action {^%1 has already been drained of psi.$} {
+  #var mindsink_empty {true};
+}
+
+#action {^You are too far away to mindsink.$} {
+  !contact stop;
+}
+
+#action {^You can't break through the mental barriers!!} {
+  #var contact_impossible {true};
+}

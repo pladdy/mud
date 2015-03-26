@@ -1,0 +1,36 @@
+#action {^H: %1/%2 S: %3/%4(%5%) Ge: %6% S|C: %7%|%8%} {
+  #var hp {%1};
+  #var hp_max {%2};
+  #format hp_pct {%f} {$hp / $hp_max};
+
+  #var sp {%3};
+  #var sp_max {%4};
+  #format sp_pct {%f} {$sp / $sp_max};
+
+  #var gp1 {%7};
+}
+
+#action {^Gx: %1% P:%2 St:%3 Mon(%4):%5} {
+  #var enemy {%5};
+  #var dspells {%2};
+
+  #regex {$dspells} { RS} {#nop;} {!cast rhino skin};
+
+  #nop Spells to monitor if i enabled them;
+
+  #if {"$spells[mg]" == "on"} {
+    #regex {$dspells} { mg} {#nop;} {mg};
+  };
+  #if {"$spells[pg]" == "on"} {
+    #regex {$dspells} { PG} {#nop;} {pg};
+  };
+  #if {"$spells[pe]" == "on"} {
+    #regex {$dspells} { PE} {#nop;} {pe};
+  };
+
+} {4}
+
+#action {^Gx: %1% P:%2 St:%3} {
+  #var enemy {};
+  #var dspells {%2};
+} {5}

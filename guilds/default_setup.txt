@@ -1,0 +1,14 @@
+eq -reset
+
+alias px put $* in box
+alias f get all
+alias k kill
+alias g glimpse
+alias gx get $* from box
+alias gab get all from bag
+alias .login jump
+alias l look at
+alias sa sell all
+alias sk skills
+alias li lineofsight
+alias id identify

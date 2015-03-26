@@ -1,0 +1,30 @@
+Tiny:
+  chessboard
+    archon
+  chinese_checkers
+  grocery_store
+  leprechaun_village
+  mcd
+  old_macdonalds_farm
+  toy_store
+
+Small:
+  smurfs (8k)
+  xanth (9k)
+
+Medium:
+  carinas_observatory (30k)
+  diablo2 (normal)
+  mahjongg (35k)
+  mouse_trails_cottage (20k)
+  pandemonium (20k)
+  ultimate_tournament or ultimate (20k)
+  warner_bros (20k)
+
+cowville
+jags_bar
+
+plane_of_soy (40k)
+
+Large:
+  puppy_mill or puppies

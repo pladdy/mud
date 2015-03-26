@@ -1,0 +1,51 @@
+#alias ktrig_commands {
+  #var mindsink_empty {false};
+  #var contact_impossible {false};
+}
+
+#alias f10 {
+  !hp;
+  !disperse corpse;
+  !hp;
+  !get all;
+}
+
+#alias f12 {
+  #loop 2 8 i {!sell all from bag $i};
+}
+
+#alias pu {
+  !purge;
+  !fluxtap 100;
+}
+
+#alias redi {
+  !unwrap corpse;
+  !disperse corpse;
+}
+
+#alias redis {
+  #loop 1 $corpses $loop {
+    !unwrap corpse;
+    !disperse corpse;
+  };
+}
+
+#alias eg {
+  #if {@length{%1} == 0 || @length{%2} == 0} {
+    #showme egress requires a direction, hitpoints, and optional flag;
+  } {
+    #switch {"%1"} {
+      #case "n" {!egress north %2 %3};
+      #case "s" {!egress south %2 %3};
+      #case "e" {!egress east %2 %3};
+      #case "w" {!egress west %2 %3};
+      #case "nw" {!egress northwest %2 %3};
+      #case "ne" {!egress northeast %2 %3};
+      #case "sw" {!egress southwest %2 %3};
+      #case "se" {!egress southeast %2 %3};
+      #case "u" {!egress up %2 %3};
+      #case "d" {!egress down %2 %3};
+    }
+  };
+}

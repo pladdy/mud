@@ -1,0 +1,80 @@
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+                          Jedi Help: hpbar
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+  Currently the guild's hpbar is configurable.  The following symbols
+  may appear in your hpbar, and have the following meaning....
+
+  Explanation of major symbols:
+  HP              - hit points
+  SP              - spell points
+  C or Conc       - Concentration
+  F or Force      - Force
+  D or Dissipates - # of dissipates available
+  E or Energy     - amount of stored energy available for dissipates
+
+  Explanation of minor symbols:
+  Da - you are dissipating energy through your attacks
+  Dh - you are dissipating energy to accelerate healing
+  Dc - you are dissipating energy to control pain
+  Df - you are dissipating energy to purge Force
+  Ds - you are dissipating energy through your shields
+  A  - you are using accelerating healing
+  s  - you are using lesser force shield
+  S  - you are using greater force shield
+  D  - you are concentrating on dodging
+  RP - you are using resist poisons
+  RS - you are using resist stun
+  EM - you are using enhance metabolism
+  L  - you are levitating
+  C  - you are using control pain
+
+  Explanation of mode symbols:
+  n - no mode.  standard mud melee
+  M - guild melee mode  -  This mode is disabled
+  H - hand to hand mode
+  N - normal lightsaber mode
+  G - guide lightsaber mode
+  F - flurry lightsaber mode
+  a - aimed shot mode (teepo)
+  S - snap shot mode (teepo)
+
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+                        Jedi Help: Hpconfigure
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+  The guild hit point bar may be configured to show information
+  in any format you choose.  You may construct the bar yourself,
+  or stay with the default.
+
+  Options: #hp  - hit points            #sp  - spell points
+           #mhp - max hit points        #msp - max spell points
+           #%hp - #hp * 100 / #mhp      #%sp - #sp * 100 / #msp
+           #c   - % concentration       #f   - % Force
+           #lm  - weapon mode (long)    #sm  - weapon mode (short)
+           #%c  - weapon charge         #dr  - diss reset time
+           #dn  - dissipates left       #dm  - dissipates max
+           #ng  - stored energy         #es  - enemy status
+           #df  - defense flags         #nl  - new line
+           #gxp - gxp %
+
+  Syntax: focus hpconfigure /<hpbar string>
+
+
+
+          focus hpconfigure /default        (sets to default)
+          focus hpconfigure                 (shows current bar)
+      ie: focus hpconfigure /HP: #hp(#%hp)#mhp - SP: #sp/#msp
+          would make your hpbar: HP: 50(50%)100 - SP: 50/50
+  Costs:  <none>
+
+  Note: This ability uses the mud ansi variable: hp
+        Default hp bar is as follows:
+#dfHP: #hp/#mhp | SP: #sp/#msp | C: #c | F: #f | D: #dn | -#sm- | #es
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+                            See also: hpbar
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+focus hpconfigure /HP: #hp/#mhp SP: #sp/#msp C:#c F:#f D: #dn/#dm|#dr [#ng] E:#es #nlDef:#df Wm:#sm Wc:#%c Gx:#gxp

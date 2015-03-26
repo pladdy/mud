@@ -1,0 +1,24 @@
+#alias read_tin_files {
+  #script {init_list} {
+    find -E ./%1 -wholename '*.tin' -a ! -regex '.*/init.tin'
+  };
+
+  #foreach { $init_list[%*] } {file} {
+    #if {@length{$file} > 0} {
+      #showme reading $file;
+      #read $file;
+    };
+  };
+
+  #unvar init_list;
+}
+
+#alias show {
+  #if { @length{%1} > 0 } {
+    #system {
+      if [ -f lists/%0.txt ] ; then cat lists/%1.txt; else ls -al lists/%0 ; fi;
+    }
+  } {
+    #system ls -al lists/
+  };
+}

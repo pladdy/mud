@@ -1,0 +1,50 @@
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+                      (3.1.1) HP-bar Configuration
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Commands:
+hp show: shows your current hpbar setup
+hp set default: resets your hpbar setup
+hp set <string>: sets your hpbar to display the string values
+
+String can include any letters,numbers,[,],:,%,/,= or spaces
+
+=-------------------------------------------------------------------------=
+
+String Values:
+$HP$-Duh
+$SP$-Duh
+$STIM$-Duh
+$HEAT$-Duh
+$NUKES$-Duh
+$MNUKES$-Max nukes
+$CP$-Clan powers
+$MCP$-Max Clan powers
+$HITS$ - hits you're taking per round
+$RESET$-Guild reset
+$ENEMY$-enemy name(prefixs e:)
+$ENEMYF$-enemy(no truncation) name(prefixs e:)
+$STATUS$-enemy health(prefixes ~)
+$GXP$-Duh
+$AMMO$-Duh
+$JJ$-Jumpjets
+$LL$-lowlights
+$N$-A new line(you can only have 1 of these)
+
+(please request others if you think they would be usefull)
+
+=-------------------------------------------------------------------------=
+
+Example:
+(shows as 2 lines here but you would type it in as one giant line)
+hp set Hp[$HP$] Sp[$SP$] S[$STIM$] H[$HEAT$] M/C/R[$NUKES$/$CP$/$RESET$]
+More: 20-39(46) [q,b,<cr>]
+Gxp:$GXP$$N$$ENEMY$$STATUS$
+
+Would look like:
+Hp:2052/2052 Sp:514/482 Stim:100 Heat:0 Mis3/3 Cp:4/4 Res:99
+E:Frank~Perf Gxp:1530.520 Ammo:
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+hp set H: $HP$ S: $SP$ St: $STIM$% He: $HEAT$% C/N: $CP$/$NUKES$ [$RESET$%] Hi: $HITS$ E: $STATUS$ $N$G: $GXP$% A: $AMMO$ JJ: $JJ$ LL: $LL$

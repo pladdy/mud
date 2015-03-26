@@ -1,0 +1,55 @@
+confhp
+default:
+HP: #$CCH#/#$MHP# SP: #$CCS#/#$MSP#/#$CPC#/#$GEM# Sat: #$CSAT# Cnc: #$CCNC# G:#$NGM#/#$GPC# S:#$NSM#/#$SPC# G2N:#$G2N#$PRO.
+
+confhp CLEAR
+ confhp ADD  HP:   <- There's a space before and after HP:
+ confhp ADD $CCH   <--- current hit points (colorful)
+ confhp ADD /
+ confhp ADD $MHP   <--- max hit points
+ confhp ADD  SP:   <- Again, space before and after.
+ confhp ADD $CCS   <--- current spell points (colorful)
+ confhp ADD /
+ confhp ADD $MSP   <--- max spell points
+ confhp ADD /
+ confhp ADD $CPC   <--- current mental cognition
+ confhp ADD /
+ confhp ADD $GEM   <--- current gem status
+ confhp ADD  Sat:  <--- more spaces before and after
+ confhp ADD $SAT   <--- Magical saturation percent
+ confhp ADD  G:
+ confhp ADD $NGM   <--- Current number of golems
+ confhp ADD /
+ confhp ADD $GPC   <--- Golem reset percent
+ confhp ADD  S:
+ confhp ADD $NSM   <--- Current number of School Spells
+ confhp ADD /
+ confhp ADD $SPC   <--- School spell/Planewalk reset percent
+ confhp ADD  Cnc:
+ confhp ADD $CNC   <--- concentration percentage
+ confhp ADD  G2N:
+ confhp ADD $G2N   <--- GXP to next level
+ confhp ADD $PRO   <--- Protective spells active
+
+ The 'monitor' spell and 'summon status' are not configurable.  They will
+ always be on the end of the line for monitor, and on a new line for summon
+ status.
+
+ The other options not shown above are:
+ $CHP  - Current HP
+ $CSP  - Current SP
+ $CSAT - Colorful saturation
+ $CCNC - Colorful concentration
+ $ST   - Spell tapped effects (if any)
+ $NWL  - Add a new line.
+ $NPM  - Number of Planewalks remaining.
+ $NMI  - Number of mystic immersions remaining
+ $BOLD, $RED, $NORM, etc. - Set the current text color/style.  See info ansi
+     for a full list.  Note you do not use '+' to combine ANSI codes here.
+     For example, you could use:
+
+ confhp # HP: #$CYAN#$BOLD#$CHP#/#$MHP#$NORM# SP: #$CSP#/#$MSP#/ ...
+
+ to have the HP part of your HP bar be in hicyan.
+
+confhp H: #$CCH#/#$MHP# S: #$CCS#/#$MSP#(#$CPC#) Ge: #$GEM# S|C: #$CSAT#%|#$CCNC#% G|M: #$NGM#|#$NMI#(#$GPC#)# Sc: #$NSM#(#$SPC#)#$NWL#Gx: #$G2N# P:#$PRO# St: #$ST#

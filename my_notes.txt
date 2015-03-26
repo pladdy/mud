@@ -1,0 +1,12 @@
+Commands to implement/be aware of:
+
+panic
+repeat
+flee
+
+investiage the reflex mskill for any char (that needs server triggers)
+
+build hardcore char just to play other guilds?  can wipe/remake!
+  fremen
+  mages
+  changelings

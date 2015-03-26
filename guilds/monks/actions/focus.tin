@@ -1,0 +1,11 @@
+#action {^ Chi Points: %1(%2)  Focus Left: %3} {
+  #var focus {%3};
+}
+
+#action {^Your inner energies are too tapped to repeat this action.$} {
+  #var {focus} {0};
+}
+
+#action {^Mental energies pour into you from the power of the Ancients.$} {
+  #var {focus} {42};
+}

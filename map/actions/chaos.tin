@@ -1,0 +1,14 @@
+#action {^As you read the runes, you being to feel yourself being pulled$} {
+  #var chaos_port_location {$map[current_room]};
+  #map goto midgard;
+}
+
+#nop Atlantis;
+
+#action {^The airlock door swings open, you quickly step out.$} {
+  #if {$map[current_room] == 9146 && $map[last_room] == 9145} {
+    #map goto 9147;
+  } {
+    #map goto 9145;
+  }
+}

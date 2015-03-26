@@ -1,0 +1,5 @@
+Gloves:
+  cryohydra        # random
+  green_gloves
+  spiritual_gloves
+  trans1           # southron can drop gloves

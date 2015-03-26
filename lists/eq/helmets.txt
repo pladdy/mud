@@ -1,0 +1,8 @@
+Helmets:
+  cryohydra     # random
+  cyberpope     # cyberpope hat
+  green_helmet
+  plumed_helmet
+  pol2_eq       # archdemon skull on lesser demon, random
+  trans1        # northron can drop helmet
+  winged_helmet

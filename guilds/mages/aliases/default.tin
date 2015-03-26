@@ -1,0 +1,17 @@
+#alias ktrig_commands {
+  !study spellbook;
+}
+
+#alias f10 {
+  !hp;
+  #if {$gp1 < 90} {!cast spell tap on corpse};
+  !cast corpse blast;
+  !get all;
+  !hp;
+}
+
+#alias rebl {
+  !unwrap corpse;
+  #if {$gp1 < 95} {!cast spell tap on corpse};
+  !cast corpse blast;
+}

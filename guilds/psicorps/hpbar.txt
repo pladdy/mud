@@ -1,0 +1,47 @@
+$HP$ - Current HP         $MHP$ - Max HP
+   $SP$ - Current SP         $MSP$ - Max SP
+   $PE$  - Current Psi       $MPE$ - Max Psi
+   $PE2$ - Current and max Psi
+   $PE3$ - Current psi colorized
+
+   $ST$  - Current Stamina   $MST$ - Max Stamina
+   $ST2$ - Current and max stamina
+   $ST3$ - Current stamina colorized
+
+   $HP2$ - Current and max HP (variable colors)
+   $SP2$ - Current and max SP (variable colors)
+
+   $HP3$ - Current HP (variable colors)
+   $SP3$ - Current SP (variable colors)
+
+   $G2N$ - GXP to next level        $NL$  - New line
+   $AS$  - Active powers            $G2N%$- GXP % to next level
+   $G2S$ - GXP to spend             $EC$  - Energy Charge Amt
+   $C$   - Mob health status        $AU$  - Coins carried
+
+  Separate the variables and literals using the "&" character.
+
+  Examples:
+
+    Syntax:      pset custom_hp My HP: &$HP$&/&$MHP$&
+    Looks like:  My HP: 512/600
+
+    Syntax:      pset custom_hp My HP: &$HP$&/@hired:&$MHP$&@
+    Looks like:  My HP: 512/600
+    The default syntax that is created by 'pset custom_hp 0' (wrapped to
+    look nice):
+
+                 pset custom_hp HP: &$HP2$&  SP: &$SP2$&  PE:&$PE2$
+                                & ST: &$ST2$&$NL$& $AS$
+
+    If you need to see the variables and literals that you currently have
+
+    Syntax:      pset custom_hp ?
+
+# show me scripts to glvl
+pset custom_hp H: &$HP2$& S: &$SP2$& P: &$PE2$& St: &$ST2$& G: &$G2N$&(&$G2N%$&%) En: &$EC$& E: &$C$&&$NL$&A: &$AS$&
+
+# show me scrips to spend
+pset custom_hp H: &$HP2$& S: &$SP2$& P: &$PE2$& St: &$ST2$& G: &$G2S$&(&$G2N%$&%) En: &$EC$& E: &$C$&&$NL$&A: &$AS$&
+
+pset custom_hp H: &$HP2$& S: &$SP2$& P: &$PE2$& St: &$ST2$& G: &$G2N$&(&$G2N%$&%) En: &$EC$& E: &$C$&&$NL$&Sc: &$G2S$& A: &$AS$&
