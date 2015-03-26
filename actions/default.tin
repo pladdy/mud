@@ -4,13 +4,6 @@
 #action {There are no bag %ds here!} {#line gag}
 #action {There is no reason to 'divvy' here.$} {#line gag}
 
-#nop Misc;
-
-#action {^3Kingdoms welcomes you back from linkdeath.$} {
-  #read map/init.tin;
-  !hp;
-  !i;
-}
 
 #nop Dogs;
 

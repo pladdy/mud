@@ -1,0 +1,9 @@
+#action {^3Kingdoms welcomes you back from linkdeath.$} {
+  #read map/init.tin;
+  !hp;
+  !i;
+}
+
+#action {^You are login #%1 this boot.$} {
+  #read map/init.tin;
+}
