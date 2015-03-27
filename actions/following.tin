@@ -37,7 +37,7 @@
     };
   }
 
-  #regexp {$followers_string} {%i%1} {
+  #regexp {%i%1} {%i{$followers_string}} {
     #switch {"%2"} {
       #case "north" {#map move n};
       #case "south" {#map move s};
