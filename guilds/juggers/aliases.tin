@@ -6,11 +6,12 @@
 }
 
 #alias f12 {
-  #if {$map[current_room] == 11438} {
-    #loop 2 8 i {!donate all from bag $i};
-  } {
-    #loop 2 8 i {!sell all from bag $i};
-  }
+  #switch {$map[current_room]} {
+    #case {$map[current_room] == 11438 || $map[current_room] == 11437} {
+      #loop 2 8 i {!donate all from bag $i};
+    }
+    #default { #loop 2 8 i {!sell all from bag $i} };
+  };
 }
 
 #alias rede {
