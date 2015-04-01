@@ -1,8 +1,9 @@
 Cloak:
+  battleshroud
   cryohydra      # random
   cyberpope      # holy robes
+  dwarf_statue   # breaks after a bit, bs ac for small duration
   grand_summoner
   green_cloak
-  battleshroud
   illithid2
   storm_cloak
