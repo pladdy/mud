@@ -2,6 +2,7 @@ Mains:
   adamantium1
   adamantium2
   armour_kourlyn
+  bigpig         # rare, awesome e/b
   cow_plate
   cyberpope      # rare, cyberpope main armour
   dragon_scale
