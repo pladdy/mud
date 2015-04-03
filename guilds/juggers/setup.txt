@@ -1,4 +1,5 @@
 alias h enhance
+alias r rounds
 alias re reinforce
 alias de deener
 alias fb flipbird
