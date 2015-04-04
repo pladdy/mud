@@ -20,3 +20,11 @@
     #map goto 11730;
   }
 }
+
+#nop Mortal Kombat cd;
+
+#action {^You can almost see the swirling gates between the Earth and the} {
+  #if {$map[current_room] == 11990} {
+    #map goto 11991;
+  }
+}
