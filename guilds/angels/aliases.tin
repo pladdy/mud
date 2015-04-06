@@ -45,6 +45,8 @@
   !defensequeue parry,riposte,block,void;
 }
 
+#alias dqa {dq_gxp}
+
 #alias f10 {
   !hp;
   #if {$gp1_pct < $gp2_pct} {!disperse;} {!rites;!disperse;};
