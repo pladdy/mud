@@ -2,7 +2,7 @@
 
 #var map_path map/map.txt;
 
-read_tin_files map/;
+read_tin_files map;
 
 #nop Backup map;
 #system cp $map_path map/backup.txt;
