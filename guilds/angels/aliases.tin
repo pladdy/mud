@@ -75,6 +75,16 @@
   !hp;
 }
 
+#alias swing_at {
+  #if {@length{%1} > 0} {
+    #showme Setting swing_at_adv to %1;
+    #var swing_at_adv %1;
+  } {
+    #showme To set what advantage % you attack at, pass in an int 1-100.;
+    #showme Current swing_at_adv: $swing_at_adv;
+  }
+}
+
 #alias train {
   #if {$map[current_room] == 221} {
     !train %0;
