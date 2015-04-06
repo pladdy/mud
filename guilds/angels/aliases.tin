@@ -15,7 +15,6 @@
           #case "p" { #format dq_string {%s%s} {$dq_string} {parry} };
           #case "b" { #format dq_string {%s%s} {$dq_string} {block} };
           #case "ri" { #format dq_string {%s%s} {$dq_string} {riposte} };
-          #default { #format dq_string {%s%s} {$dq_string} {$arg} };
         };
 
         #math {dq_count} {$dq_count + 1};
@@ -23,12 +22,11 @@
       };
     };
 
-    !defensequeue clear;
+    #if {@length{$dq_string} > 0} {
+      !defensequeue clear;
 
-    #if {$dq_count == 1} {
-      !defensequeue $dq_string,none;
-    } {
-      !defensequeue $dq_string;
+      #if {$dq_count == 1} { !defensequeue $dq_string,none; }
+                           { !defensequeue $dq_string;      };
     };
   } {
     #showme To change, pass in an ordered list of powers.  Ex: dq v, p, b, ri;
