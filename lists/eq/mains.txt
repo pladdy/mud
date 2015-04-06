@@ -5,13 +5,13 @@ Mains:
   bigpig         # rare, awesome e/b
   cow_plate
   cyberpope      # rare, cyberpope main armour
+  demonmail
   dragon_scale
   green_armour
   hk             # sturdy plate (also in sets list)
   orc_chief
   trans1         # westron can drop armor
   prismatia      # breastplate of dreams
-  demonmail
 
 Serinth
   octochromatic armour
