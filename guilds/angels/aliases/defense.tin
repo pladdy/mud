@@ -43,51 +43,6 @@
   !defensequeue parry,riposte,block,void;
 }
 
+#alias dqo {!defensequeue clear;}
+
 #alias dqa {dq_gxp}
-
-#alias f10 {
-  !hp;
-  #if {$gp1_pct < $gp2_pct} {!disperse;} {!rites;!disperse;};
-  !hp;
-  !get all;
-}
-
-#alias f12 {
-  #if {$map[current_room] == 220} {
-    #loop 2 8 i {!junk all from bag $i};
-  } {
-    #loop 2 8 i {!sell all from bag $i};
-  }
-}
-
-#alias redi {
-  !hp;
-  !unwrap;
-  !disperse;
-  !hp;
-}
-
-#alias reri {
-  !hp;
-  !unwrap;
-  !rites;
-  !disperse;
-  !hp;
-}
-
-#alias swing_at {
-  #if {@length{%1} > 0} {
-    #showme Setting swing_at_adv to %1;
-    #var swing_at_adv %1;
-  } {
-    #showme To set what advantage % you attack at, pass in an int 1-100.;
-    #showme Current swing_at_adv: $swing_at_adv;
-  }
-}
-
-#alias train {
-  #if {$map[current_room] == 221} {
-    !train %0;
-    #unvar angel_train;
-  }
-}
