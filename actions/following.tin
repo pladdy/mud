@@ -37,21 +37,23 @@
     };
   }
 
-  #regexp {%i%1} {%i{$followers_string}} {
-    #switch {"%2"} {
-      #case "north" {#map move n};
-      #case "south" {#map move s};
-      #case "east" {#map move e};
-      #case "west" {#map move w};
-      #case "northwest" {#map move nw};
-      #case "northeast" {#map move ne};
-      #case "southwest" {#map move sw};
-      #case "southeast" {#map move se};
-      #case "up" {#map move u};
-      #case "down" {#map move d};
-      #default {#map move %2};
+  #if {@length{$followers_string} > 0} {
+    #regexp {%i%1} {%i{$followers_string}} {
+      #switch {"%2"} {
+        #case "north" {#map move n};
+        #case "south" {#map move s};
+        #case "east" {#map move e};
+        #case "west" {#map move w};
+        #case "northwest" {#map move nw};
+        #case "northeast" {#map move ne};
+        #case "southwest" {#map move sw};
+        #case "southeast" {#map move se};
+        #case "up" {#map move u};
+        #case "down" {#map move d};
+        #default {#map move %2};
+      };
     };
-  };
-
+  }
+  
   #unvar followers_string;
 }

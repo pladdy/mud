@@ -15,9 +15,12 @@
 
 #action {^Sauk casts fear at you!} {w}
 
+#nop Honorable Knight
 #action {^The holy symbol fades away.$} {
-  e;
-  n;
+  #if {$map[current_room] == 2205 || $map[current_room == 2204} {
+    e;
+    n;
+  }
 }
 
 #nop Wimpy;
