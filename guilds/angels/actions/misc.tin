@@ -10,5 +10,5 @@
 }
 
 #action {^You feel ready to train %1.$} {
-  #list angel_train add %1;
+  #list angel_train add {%1};
 }
