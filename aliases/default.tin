@@ -26,6 +26,7 @@
 }
 
 #alias ktrig_on {
+  #showme Turning ktrig back on.
   #read actions.tin;
 }
 
