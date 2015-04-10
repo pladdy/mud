@@ -28,6 +28,28 @@
   !hp;
 }
 
+#nop Based on input, perform scales on items or against a mob
+
+#alias scales_bot {
+  #if {"%1" == "on"} {
+    #showme Activating scales bot.;
+    #var scales_bot on;
+    #4 scales against $character;
+
+    #showme Using scales bot again in 20 seconds.;
+    #delay {20} {
+      #if {"$scales_bot" == "on"} {scales_bot on}
+    };
+  } {
+    #showme Deactivating scales bot.;
+    #var scales_bot off;
+  }
+}
+
+#alias sca {
+  #if {@length{%2} > 0} {!scales %1 against %2;} {!scales against %1;};
+}
+
 #alias swing_at {
   #if {@length{%1} > 0} {
     #showme Setting swing_at_adv to %1;
