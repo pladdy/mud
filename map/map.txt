@@ -4799,7 +4799,7 @@ R {  904} {0} {} {} { } {} {} {} {} {} {1.000}
 E { 1598} {e} {e} {2} {0} {}
 E {  905} {door} {fill out application;door;give application to richard} {0} {0} {}
 
-R {  905} {0} {} {} { } {} {} {} {} {} {1.000}
+R {  905} {0} {<130>} {} { } {} {} {fill out application east, give to richard} {} {} {1.000}
 E {  904} {door} {door} {0} {0} {}
 E {  906} {n} {n} {1} {0} {}
 
