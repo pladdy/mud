@@ -18,6 +18,7 @@ Medium:
   mahjongg (35k)
   mouse_trails_cottage (20k)
   pandemonium (20k)
+  summerset_warren (40k)
   ultimate_tournament or ultimate (20k)
   warner_bros (20k)
 
