@@ -1,0 +1,29 @@
+#nop Map Mistakes;
+
+#action {^You cannot go %1.$} { map_undo; }
+#action {^You can not go %1.$} { map_undo; }
+#action {^The island continues on elsewhere, but you cannot go %1.$} {map_undo;}
+#action {^The hills drop off too abruptly to go %1.$} {map_undo;}
+#action {^Steep rock around you prevents you from moving %1.$} {map_undo}
+#action {^Cave walls prevent you from proceeding %1.$} {map_undo}
+#action {^The golem slams you back away from the doorway!$} {map_undo}
+
+#action {^You are too powerful to pass this gate.$} {#map undo;}
+#action {^A closed door blocks your way.$} {#map undo;}
+#action {^The sand dunes are too steep in that direction.$} {#map undo;}
+#action {^The trees make it impossible for you to go %1.$} {#map undo;}
+#action {^The drow prevents you from going that way.$} {#map undo;}
+#action {^The salamander won't let you into that room.$} {#map undo;}
+#action {^The realm continues on elsewhere, but you cannot go %1.$} {#map undo;}
+#action {^A guard moves to block your path.$} {#map undo;}
+#action {^You can't go anywhere with all these customers around you!$} {
+  #map undo;
+}
+#action {^The psicrystals generate too much interference to fold reality here.$} {
+  map_undo;
+}
+#action {^You can't disembark, there's only water here!$} {#map undo;}
+#action {^The boat is not here.  You'll have to ring the bell.$} {#map undo;}
+#action {^There is no reason to 'board' here.$} {#map undo}
+#action {^GenCorps Officer knocks you back with the butt of his weapon!$} {#map undo}
+#action {^Strike Guard jumps up over your head and lands directly in your path!!$} {#map undo}

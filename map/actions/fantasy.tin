@@ -1,0 +1,55 @@
+#action {^Two large canine humanoids rush out from the encampment and growl a} {
+  #if {$map{current_room} == 1756} {map_undo;};
+}
+
+#action {^The cryohydra's head smacks you hard, sending you flying off the mountain$} {
+  #map goto cryo_fall;
+}
+
+#action {^With a screaming run, you leap out of the Entrance room} {
+  #map goto cot;
+}
+
+#nop Overlands portal;
+
+#action {^You open your eyes and... everything has changed!$} {
+  #if {$map[current_room] == 9062 && $map[last_room] == 3719} {
+    #map goto 8056;
+  } {
+    #map goto 3719;
+  }
+}
+
+#nop Fantasy Ferry;
+
+#action {^-= Wayhaven Dock =- (n,w)} {
+  #if {$map[current_room] == 2553} {
+    #map goto 1933;
+  };
+}
+
+#action {^The World of Serinth Board} {
+  #if {$map[current_room] == 2553} {
+    #map goto 2554;
+  };
+}
+
+#action {^** The Docks of Ao ** (se)$} {
+  #if {$map[current_room] == 2553} {
+    #map goto 2554;
+  };
+}
+
+#action {^Gamal Islands (w,n)} {
+  #if {$map[current_room] == 2553} {
+    #map goto 8439;
+  };
+}
+
+#nop Underdark trap door;
+
+#action {^Small Side Chamber (e)} {
+  #if {$map[current_room] == 12434} {
+    #map goto 12296;
+  };
+}
