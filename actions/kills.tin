@@ -4,12 +4,7 @@
 
   #regexp {%1} {%i{$character|$mage_summons|Pogo}} {
     !glance;
-
-    #if { @length{$coffin_status} == 0 } {
-      f10;
-    } {
-      #if {"$coffin_status" == "FULL"} {f10;} {f9;};
-    }
+    wrap_or_use_corpse;
   };
 
   #if { @length{$dtrig} > 0 } {
