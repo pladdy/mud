@@ -1,0 +1,8 @@
+#action {^Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
+  #if { @length{%3} > 0 } {
+    !engage;
+    #var angel[distance] @length{%3};
+  } {
+    #var angel[distance] 0;
+  }
+}
