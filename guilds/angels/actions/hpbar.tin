@@ -26,18 +26,8 @@
     #foreach { $angel_train[%*] } {skill} {
       #if { @length{$skill} > 0 } { #showme <fca>Go Train $skill; };
     };
+    #unvar skill;
   };
+
   #unvar angel_trainings;
-  #unvar skill;
-}
-
-#nop distance action
-
-#action {^Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
-  #if { @length{%3} > 0 } {
-    !engage;
-    #var angel[distance] @length(%3);
-  } {
-    #var angel[distance] 0;
-  }
 }

@@ -28,7 +28,7 @@
   !hp;
 }
 
-#nop Based on input, perform scales on items or against a mob
+#nop Based on input, perform scales on items or against a mob;
 
 #alias scales_bot {
   #if {"%1" == "on"} {

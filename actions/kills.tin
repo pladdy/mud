@@ -1,5 +1,3 @@
-#nop Kills:
-
 #action {^%1 dealt the killing blow to %2.} {
   #var {last_kill} {%2};
   #var {last_killer} {%1};
@@ -22,8 +20,8 @@
   !divvy gold;
   ktrig_commands;
 
-  #nop Kill Sprints;
-  
+  #nop Kill Sprints...places to run after a mob dies;
+
   #switch {"%2"} {
     #case "Cryohydra" {run verbeeg_chief;};
   };
