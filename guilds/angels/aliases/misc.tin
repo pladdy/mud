@@ -15,7 +15,7 @@
 
 #alias ktrig_commands {
   #nop Riposte makes mobs kill themselves...;
-  #if {"$killer" == "$killed"} {f10};
+  #if {"$last_killer" == "$last_kill"} {f10};
 }
 
 #alias redi {
