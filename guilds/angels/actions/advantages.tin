@@ -48,7 +48,7 @@
 
         #nop DS takes half your advantage away and costs 2 TS;
         #math {time_slices} {$time_slices - 2};
-        #math {$adv_sort[1][2]} {$adv_sort[1][2] / 2};
+        #math {adv_sort[1][2]} {$adv_sort[1][2] / 2};
         #var {circle} {true};
       };
 
