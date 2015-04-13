@@ -13,6 +13,11 @@
   }
 }
 
+#alias ktrig_commands {
+  #nop Riposte makes mobs kill themselves...;
+  #if {"$killer" == "$killed"} {f10};
+}
+
 #alias redi {
   !hp;
   !unwrap;
