@@ -1,6 +1,9 @@
 #nop Kills:
 
 #action {^%1 dealt the killing blow to %2.} {
+  #var {last_kill} {%2};
+  #var {last_killer} {%1};
+
   #regexp {%1} {%i{$character|$mage_summons|Pogo}} {
     !glance;
 
