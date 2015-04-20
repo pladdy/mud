@@ -1,0 +1,82 @@
+drop tiers
+1-49 50-74 75-91 92+
+
+scaler 70 classes:
+shell 330k
+lettuce 380k
+tomoatoes 400k
+cheese 600k
+meat 600k
+veggie taco 800k
+cheesy taco 1.2M
+
+Mobs you can make:
+-= DEATH TACO ASSEMBLY INSTRUCTIONS =-
+
+veggie taco   =  shell + lettuce + tomatoes
+cheesy taco   =  veggie taco + cheese
+meat taco     =  cheesy taco + meat
+works taco    =  meat taco + sour cream + guacamole
+DEATH TACO    =  works taco + hot sauce
+
+just 'assemble <type> taco'
+
+Player advice:
+...
+11:11 Zanadu [Gen-Alpha] : yes just go down and then door and out
+11:11 Zanadu [Gen-Alpha] : you should do :shell/lettuce/tomatoes =
+                           ingredients for veggie, add cheese for veggie
+                           tcao
+
+11:08 Zanadu [Gen-Alpha] : scaler 91
+11:08 Zanadu [Gen-Alpha] : bias to 120 defense on veggie tacos
+11:08 Zanadu [Gen-Alpha] : until you are comfortable
+11:08 Zanadu [Gen-Alpha] : veggie tacos are a bit easier
+11:09 Zanadu [Gen-Alpha] : at scal 91 veggie taco = 3.1mil,veggie =2.2mil
+11:09 Caesar [Gen-Alpha] : really just don't try anything more serious than
+                           meat tacos, and don't try to kill the sour cream
+11:09 Caesar [Gen-Alpha] : gentech don't do enough damage for sour cream,
+                           and the bigger tacos aren't gentech friendly
+
+Mobs:
+
+shells - shell fragments special, bleed damage
+lettuce - tank forced to lower level
+tomato - tomato juice special damage
+cheese - unwield weapon until cheese evaporates
+meat - temporary short duration -con, stacking (nasty)
+sour cream - big special (hurts), regens
+guacamole - forced to remove equipment for short period, cannot re-equip
+hot sauce - ?
+
+veggie taco # straightforard, class 785k
+  A Cervesa(, , , ,strong)  = +4 con, 100% overmax sp x 3 use
+  A side of rice (steaming). = 50% overmap hp/sp
+  A veggie taco (plain, crisp): +3, +4 wis, overmax 1000 hp per 'eat' x 3
+
+cheesy taco
+  Foil wrapper (tattered, , , shiny) = radiation and mind ac
+  nacho cheese (huge) = ice and acid ac
+  meat paste (brick) = edged and energy ac
+  sour cream (huge) = fire and electric ac
+  refried beans (tiny, handful, , brick) = blunt and poison ac
+
+## Not ready for these!
+
+meat taco
+  wet wipe (tiny, , ,) - stops combat
+  Sliced jalapenos (limp, thick, ,) - +hp regen (meat taco or death taco?)
+  Cinnamon twists (stale, , , ) - throw for damage
+  Side of Beans        Room damage for short time
+
+works taco
+  Lime Wedge           +acid WC to a weapon
+  Cup of Salsa         +wis (+4 dex, +4 int, +2 wis, +2 cha?)
+  Lettuce Leaf        Used to change WC to blunt
+  Packet of hot sauce  +fire WC to a weapon
+
+death taco
+  Shot of Tequila      Fire damage in a room
+  Spork                A weapon (lance)
+  Quesadilla Codpiece  An other (to be worn)- AC across all types
+  Guacamole skin       Damage reduction treatment

@@ -48,3 +48,11 @@
 
   wimpy_commands;
 }
+
+#nop Death Taco area;
+
+#action {^The melting cheese finally evaporates from %1.$} {
+  #format {target} {%l} {%1};
+  #if {"$target" == "$target"} {!wield sword;}
+  #unvar target;
+}
