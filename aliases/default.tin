@@ -140,3 +140,8 @@
     #list {followers} {delete} {$follower_index};
   };
 }
+
+#alias wield {
+  #var {wielded_weapon} {%0};
+  !wield %0;
+}

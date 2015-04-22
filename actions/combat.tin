@@ -53,6 +53,6 @@
 
 #action {^The melting cheese finally evaporates from %1.$} {
   #format {target} {%l} {%1};
-  #if {"$target" == "$target"} {!wield sword;}
+  #if {"$target" == "$target"} {!wield $wielded_weapon;}
   #unvar target;
 }
