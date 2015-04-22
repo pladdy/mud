@@ -40,7 +40,7 @@ Player advice:
 
 Mobs:
 
-shells - shell fragments special, bleed damage
+shells - shell fragments special, bleed damage, no wimpy
 lettuce - tank forced to lower level
 tomato - tomato juice special damage
 cheese - unwield weapon until cheese evaporates
