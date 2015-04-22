@@ -1,3 +1,9 @@
+#alias ammo {
+  run juggers_ammo;
+  #if {"%1" == "proj"} {!vbuy projectile 2 1 10000};
+  #if {"%1" == "miss"} {!vbuy missile 6 1 10000};
+}
+
 #alias f10 {
   !hp;
   !fdeener;
