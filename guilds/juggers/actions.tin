@@ -19,3 +19,9 @@
   #nop Use up excess sps on heat if i'm at full;
   #if {$gp2 > 40 && $sp == $sp_max} {!dissipate};
 }
+
+#action {^%1 rawrs menacingly at you.  RAAWWWRRR!} {
+  #format {player} {%l} {%1};
+  !frenzy $player;
+  #unvar player;
+}
