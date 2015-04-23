@@ -1,7 +1,10 @@
 #nop Set up environment.
-#var character {malarkey}
-#read init.tin
-read_tin_files guilds/breed;
+
+#var character {malarkey};
+#var guild_dir {guilds/breed};
+
+#read init.tin;
+read_tin_files $guild_dir;
 
 #nop Connect.  Connection triggers client to read map.
 #session 3k 3k.org 3000;malarkey;

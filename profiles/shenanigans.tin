@@ -1,7 +1,10 @@
 #nop Set up environment.
+
 #var character {shenanigans};
+#var guild_dir {guilds/gentech};
+
 #read init.tin;
-read_tin_files guilds/gentech;
+read_tin_files $guild_dir;
 
 #nop Connect.  Connection triggers client to read map.
 #session 3k 3k.org 3000;shenanigans;
