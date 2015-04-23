@@ -2,7 +2,7 @@
   run juggers_ammo;
   #switch {"%1"} {
     #case {"proj"} {!vbuy projectile 2 1 10000};
-    #case {"miss"} {!vbuy missile 6 1 10000};
+    #case {"miss"} {!vbuy missile 1 1 10000};
     #default {#showme pass in 'miss' or 'proj'};
   }
 }
