@@ -4,7 +4,7 @@ Weapons:
   disc_of_doom
   disc_of_kourlyn # can't unwield, exotic
   highlord_sword
-  staff_sun_moon  # warning, sprinting here drags 9 golems
+  staff_sun_moon  # warning, sprinting here drags some golems
   storm_gloves    # careful, will drag lots of mobs
   zaldaen         # sword of ascension
 
