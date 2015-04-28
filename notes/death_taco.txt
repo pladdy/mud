@@ -50,8 +50,8 @@ guacamole - forced to remove equipment for short period, cannot re-equip
 hot sauce - ?
 
 veggie taco # straightforard, class 785k
-  A Cervesa(, , , ,strong)  = +4 con, 100% overmax sp x 3 use
-  A side of rice (steaming). = 50% overmap hp/sp
+  A Cervesa(, , , refreshing, strong)  = +3 con, +4 con, 100% overmax sp x 3
+  A side of rice (moist, steaming). = 50% overmap hp/sp
   A veggie taco (plain, crisp): +3, +4 wis, overmax 1000 hp per 'eat' x 3
 
 cheesy taco
