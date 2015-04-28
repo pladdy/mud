@@ -17,6 +17,7 @@
   #system {
     echo \#var {map[current_room]} {$map[current_room]} > last_session.tin;
     echo \#var {chaos_port_location} {$chaos_port_location} >> last_session.tin;
+    echo \#var {wielded_weapon} {$chaos_port_location} >> last_session.tin;
   };
 }
 
