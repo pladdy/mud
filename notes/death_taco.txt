@@ -55,11 +55,11 @@ veggie taco # straightforard, class 785k
   A veggie taco (plain, crisp): +3, +4 wis, overmax 1000 hp per 'eat' x 3
 
 cheesy taco
-  Foil wrapper (tattered, , , shiny) = radiation and mind ac
+  Foil wrapper (tattered, , smooth, shiny) = radiation and mind ac
   nacho cheese (huge) = ice and acid ac
   meat paste (brick) = edged and energy ac
   sour cream (huge) = fire and electric ac
-  refried beans (tiny, handful, , brick) = blunt and poison ac
+  refried beans (tiny, , handful, brick) = blunt and poison ac
 
 ## Not ready for these!
 
