@@ -2,10 +2,6 @@
   #if {$map{current_room} == 1756} {map_undo;};
 }
 
-#action {^The cryohydra's head smacks you hard, sending you flying off the mountain$} {
-  #map goto cryo_fall;
-}
-
 #action {^With a screaming run, you leap out of the Entrance room} {
   #map goto cot;
 }
