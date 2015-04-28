@@ -7,6 +7,11 @@
   !wield sword;
 }
 
+#action {^The cryohydra's head smacks you hard, sending you flying off the mountain$} {
+  #map goto cryo_fall;
+  #delay {2} {run cryohydra; w;};
+}
+
 #action {^The High Colonic steps out from a vortex of light!$} {
   !kill mage;
 }
@@ -15,7 +20,8 @@
 
 #action {^Sauk casts fear at you!} {w}
 
-#nop Honorable Knight
+#nop Honorable Knight;
+
 #action {^The holy symbol fades away.$} {
   #if {$map[current_room] == 2205 || $map[current_room == 2204} {
     e;
