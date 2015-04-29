@@ -1,2 +1,9 @@
 alias .login jump/study spellbook/cast monitor/cast mindblank/con as armor#cast armor/con as shield#cast shield/con as stoneskin#cast rhino skin/1/cast activate combat
+
 alias c cast
+alias 1 cast perform as 200/burning hands
+alias st study spellbook
+alias cb cast corpse blast
+
+alias sh cast shield
+alias ar cast armor

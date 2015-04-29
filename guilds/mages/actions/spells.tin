@@ -2,9 +2,7 @@
   !cast shield;
 }
 
-#action {^Your armor spell has dissipated!$} {
-  !cast armor;
-}
+#action {^Your armor spell has dissipated!$} {!cast armor;}
 
 #action {^----*> Your %1 contingency has dissipated!<*----} {
   #switch {"%1"} {
@@ -21,16 +19,10 @@
   };
 }
 
-#action {^Your rhino skin has been depleted!$} {
-  !cast rhino skin;
-}
+#action {^Your rhino skin has been depleted!$} {!cast rhino skin;}
 
 #action {^Your minor globe has ended.$} {
-  #if { @length{$enemy} > 0 } {
-    !cast minor globe;
-  }
+  #if { @length{$enemy} > 0 } {!cast minor globe;};
 }
 
-#action {^Your immersion has expired.$} {
-  !cast spell tap always;
-}
+#nop #action {^Your immersion has expired.$} {!cast spell tap always;}
