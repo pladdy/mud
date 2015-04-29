@@ -32,7 +32,7 @@
 
 #action {^** The Docks of Ao ** (se)$} {
   #if {$map[current_room] == 2553} {
-    #map goto 2554;
+    #map goto 5068;
   };
 }
 
