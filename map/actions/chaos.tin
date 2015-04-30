@@ -44,3 +44,12 @@
     }
   }
 }
+
+#nop Silver/Blue;
+
+#action {^A soft jerk, the balloon rises slowly, but the landscape below fades$} {
+  #switch { $map[current_room] } {
+    #case {12868} {#map goto 12869;}
+    #case {12869} {#map goto 12868;}
+  }
+}
