@@ -1,0 +1,47 @@
+zonetbl has zone list
+
+select * from zonetbl where name like '%Rohm%';
+ZoneId|Name|ZoneFile|UserID|Modified|Script|Desc|X|Y|Z|Dx|Dy|MinX|MinY|MinZ|MaxX|MaxY|MaxZ|Background|XScale|YScale|XOffset|YOffset|Divisor|Multiplier|DefSize|DefSizeY|Res|Color|GridXInc|GridYInc|GridXOff|GridYOff|GridCol|Flags|Parent
+545|Fan, Tunnels of the Rohm Giddor||0|2012-08-11 22:09:45|||-3120|-2640|0|1000|0|-5880|-3240|-3|-3000|-1800|-1||1|1|-6600|-3600|1|100|120|120|0|536870911|120|120|0|0|0|0|361
+548|Fan, Grand Hall of the Rohm Giddor||0|2012-08-12 02:52:17|||-4560|-4080|-2|800|0|-6840|-5880|-6|-4440|-2760|-2||1|1|-7560|-6240|1|100|120|120|0|536870911|120|120|0|0|0|0|545
+
+objecttbl has room notes that i've made
+
+CREATE TABLE ObjectTbl (
+  [ObjId] INTEGER PRIMARY KEY,
+  [Name] VARCHAR(255),
+  [IDName] VARCHAR(255),
+  [Hint] VARCHAR(255),
+  [Desc] TEXT,
+  [KindID] INTEGER DEFAULT 0,
+  [IconID] INTEGER DEFAULT -1,
+  [RefNum] INTEGER DEFAULT 0,
+  [fKey] INTEGER DEFAULT 0,
+  [X] INTEGER DEFAULT 0,
+  [Y] INTEGER DEFAULT 0,
+  [Z] INTEGER DEFAULT 0,
+  [Dx] INTEGER DEFAULT 0,
+  [Dy] INTEGER DEFAULT 0,
+  [ExitX] INTEGER DEFAULT 0,
+  [ExitY] INTEGER DEFAULT 0,
+  [ExitZ] INTEGER DEFAULT 0,
+  [Cost] INTEGER DEFAULT 0,
+  [Color] INTEGER DEFAULT 536870911,
+  [MetaID] INTEGER DEFAULT -1,
+  [StyleID] INTEGER DEFAULT 0,
+  [LabelDir] INTEGER DEFAULT 11,
+  [Enabled] BOOLEAN DEFAULT True,
+  [Script] TEXT,
+  [Param] VARCHAR(80),
+  [UserStr] VARCHAR(255),
+  [UserInt] INTEGER DEFAULT 0,
+  [Content] TEXT,
+  [Flags] INTEGER DEFAULT 0,
+  [Deleted] BOOLEAN DEFAULT False,
+  [UserID] INTEGER DEFAULT 0,
+  [Modified] TIMESTAMP,
+  [DateAdded] TIMESTAMP,
+  [ServerID] INTEGER DEFAULT -1,
+  [ZoneID] INTEGER DEFAULT 1);
+
+select * from objecttbl where zoneid = 545;
