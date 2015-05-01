@@ -49,3 +49,13 @@
     #map goto 12296;
   };
 }
+
+#nop Rohm Giddor;
+
+#action {^You manage to pull yourself onto the rocks...$} {
+  #if {$map[current_room] == 12873} {#map goto 12872;}
+}
+
+#action {^You grab onto the water wheel and climb out onto the rock shelf...$} {
+  #if {$map[current_room] == 12873} {#map goto 11614};
+}
