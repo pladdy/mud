@@ -1,0 +1,7 @@
+#alias showd {
+  #split {} 1;
+}
+
+#alias hided {
+  #unsplit;
+}
