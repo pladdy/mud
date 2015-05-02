@@ -1,0 +1,37 @@
+#nop Door codes for drexler nanolabs;
+
+#action {^     Today's main door code is: %1$$} {
+  #var drexler[main] %1;
+}
+
+#action {^       Dr. Selvaraj's Lab:   %1$} {
+  #var drexler[selvaraj] %1;
+}
+
+#action {^       Dr. Wong's Lab:       %1$} {
+  #var drexler[wong] %1;
+}
+
+#action {^       Dr. Menhoud's Lab:    %1$} {
+  #var drexler[menhoud] %1;
+}
+
+#action {^       Dr. Stenholm's Lab:   %1$} {
+  #var drexler[stenholm] %1;
+}
+
+#action {^       Dr. Nakamura's Lab:   %1$} {
+  #var drexler[nakamura] %1;
+}
+
+#action {^       Dr. Zhukov's Lab:     %1$} {
+  #var drexler[zhukov] %1;
+}
+
+#action {^       Dr. Cruz Cobo's Lab:  %1$} {
+  #var drexler[cruz] %1;
+}
+
+#action {^       Dr. Havel's Lab:      %1$} {
+  #var drexler[havel] %1;
+}
