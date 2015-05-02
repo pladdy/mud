@@ -9,3 +9,4 @@ silicon_wraiths
 
 Large:
   aegis_global
+  drexler_nanolabs
