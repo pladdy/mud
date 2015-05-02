@@ -7,7 +7,7 @@ CR <178>
 
 F 11
 
-I 13050
+I 6733
 
 L * # # # | # x          
 
@@ -34849,7 +34849,7 @@ R { 6732} {0} {<130>} {blood_quartz} { } {} {} {s and kill warriors, to blood re
 E { 6731} {n} {n} {1} {0} {}
 E { 6735} {sw} {sw} {12} {0} {}
 
-R { 6733} {0} {<130>} {crystalline_carapace} { } {} {} {blob -> other} {} {} {1.000}
+R { 6733} {0} {<130>} {crystalline_warrior} { } {} {} {blob -> other} {} {} {1.000}
 E { 3919} {n} {n} {1} {0} {}
 E { 6734} {sw} {sw} {12} {0} {}
 

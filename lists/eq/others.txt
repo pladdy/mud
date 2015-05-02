@@ -1,4 +1,4 @@
 Others:
   cronos
-  crystalline_carapace # warriors randomly drop e/b/en (decent)
+  crystalline_warriore # warriors randomly drop e/b/en (decent)
   pol2_eq              # guardians have skin suit (burning) rarely
