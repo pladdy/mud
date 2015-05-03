@@ -21,23 +21,6 @@ DEATH TACO    =  works taco + hot sauce
 
 just 'assemble <type> taco'
 
-Player advice:
-...
-11:11 Zanadu [Gen-Alpha] : yes just go down and then door and out
-11:11 Zanadu [Gen-Alpha] : you should do :shell/lettuce/tomatoes =
-                           ingredients for veggie, add cheese for veggie
-                           tcao
-
-11:08 Zanadu [Gen-Alpha] : scaler 91
-11:08 Zanadu [Gen-Alpha] : bias to 120 defense on veggie tacos
-11:08 Zanadu [Gen-Alpha] : until you are comfortable
-11:08 Zanadu [Gen-Alpha] : veggie tacos are a bit easier
-11:09 Zanadu [Gen-Alpha] : at scal 91 veggie taco = 3.1mil,veggie =2.2mil
-11:09 Caesar [Gen-Alpha] : really just don't try anything more serious than
-                           meat tacos, and don't try to kill the sour cream
-11:09 Caesar [Gen-Alpha] : gentech don't do enough damage for sour cream,
-                           and the bigger tacos aren't gentech friendly
-
 Mobs:
 
 shells - shell fragments special, bleed damage, no wimpy
