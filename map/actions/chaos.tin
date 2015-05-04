@@ -40,7 +40,7 @@
 #action {^The taco grabs you and THROWS you out of the room!$} {
   #if {$map[current_room] == 12491} {
     #delay 2 {
-      #show me You got chucked...figure out what room you're in and go back.;
+      #show me <fca>You got chucked...figure out what room you're in and go back.;
     }
   }
 }

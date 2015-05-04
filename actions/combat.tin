@@ -62,3 +62,7 @@
   #if {"$target" == "$target"} {!wield $wielded_weapon;}
   #unvar target;
 }
+
+#action {^You plummet, and SLAM into the ground!$} {
+  #if {$map[current_room] ==  12492} {run lettuce};
+}
