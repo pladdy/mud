@@ -59,3 +59,9 @@
 #action {^You grab onto the water wheel and climb out onto the rock shelf...$} {
   #if {$map[current_room] == 12873} {#map goto 11614};
 }
+
+#nop Ravenloft;
+
+#action {^You find yourself complete once more.$} {
+  #if {$map[current_Room] == 4935} {#map goto 4936}  
+}

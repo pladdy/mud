@@ -12,7 +12,7 @@ Small:
   grindur
   vindaes
   westersea # sewer, 1-8k mobs
-  
+
 Medium:
   elven_woods
   elemental_planes
@@ -36,6 +36,8 @@ Big:
     rloft_exit
     rloft_abbey
     rloft_aidens
+    rloft_zombies
+    rloft_derthalas
 
 Misc:
   pol_to_underdark
