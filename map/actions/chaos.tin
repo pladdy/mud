@@ -45,6 +45,10 @@
   }
 }
 
+#action {^You try to grab on to the electrical cord to get out of here but a roach$} {
+  #map goto 12492;  
+}
+
 #nop Silver/Blue;
 
 #action {^A soft jerk, the balloon rises slowly, but the landscape below fades$} {
