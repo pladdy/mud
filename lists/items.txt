@@ -19,7 +19,8 @@ Lights:
 Utilities:
   amulet_of_flying
   # anti-gravity modules on baron vliadimir in dune, great for lowering enc.
-  
+
 Donates:
   Atlanta, FTS gang in ne
   Atlanta, Megatech
+  Der'thalas, Ravenloft

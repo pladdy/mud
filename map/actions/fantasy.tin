@@ -63,5 +63,5 @@
 #nop Ravenloft;
 
 #action {^You find yourself complete once more.$} {
-  #if {$map[current_Room] == 4935} {#map goto 4936}  
+  #if {$map[current_room] == 4935} {#map goto 4936}  
 }
