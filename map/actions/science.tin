@@ -35,3 +35,15 @@
     #map goto 10046;
   }
 }
+
+#nop Silicon Wraiths;
+
+#action {^Imogen whispers: %1, your code is %2.$} {
+  #if {$map[current_room] == 2994} { #var silicon_wraiths[code] %2 }
+}
+
+#nop Carnegie 2.0;
+
+#action {^You flash your ticket at one of the ushers as you head into the hall.$} {
+  #if {$map[current_room] == 13483} {#map goto 13484}
+}
