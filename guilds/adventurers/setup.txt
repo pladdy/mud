@@ -1,4 +1,14 @@
 wimpy 30
+cbrief on mo
+
+run houses
+acquire keyring
+
+#nop got to mods room;
+run cot
+e
+u
+modify TELLSELF 1
 
 #nop Ansi;
 
@@ -31,16 +41,16 @@ alias px put $* in box
 
 #nop Skills;
 
-cartography: max
-appraisal: 1
-perception: max
+#nop {
+  cartography: max
+  appraisal: 1
+  perception: max
 
-# if needed
-combat.armor.light
-combat.armor.light.medium
-combat.armor.light.medium.heavy
 
-#nop got to mods room;
-modify TELLSELF 1
+  # if needed
+  combat.armor.light
+  combat.armor.light.medium
+  combat.armor.light.medium.heavy
 
-#nop skill quest;
+  #nop skill quest;
+};

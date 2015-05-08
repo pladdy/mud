@@ -12,3 +12,5 @@ alias sa sell all
 alias sk skills
 alias li lineofsight
 alias id identify
+
+cbrief on mo

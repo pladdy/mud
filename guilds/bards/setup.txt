@@ -1,6 +1,15 @@
 alias com bchat main
-alias o perform o muse
+
+alias cc chilling chord
+alias id identify
+alias kt karma tap
+
 alias p perform
 alias ce cease
+alias o perform o muse
+alias band perform leader of the bands
 
-bset custom_hp
+alias hs cast hardened skin
+
+setpanic bandage at 70%
+bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% S: &$S$&(&$SR$&%) E: &$C$& &$NL$&g2n/g2s: @higreen:&$G2N%$&@%/@higreen:&$G2S$&@ A:&$AS$& &$P$
