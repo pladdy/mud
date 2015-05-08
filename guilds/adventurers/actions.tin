@@ -7,5 +7,5 @@
   #var sp_max {%4};
   #format sp_pct {%f} {$sp / $sp_max};
 
-  #if {$hp <= 40} {!salve};
+  #if {$hp_pct <= 0.8} {!salve};
 }
