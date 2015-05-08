@@ -8,6 +8,9 @@
   #format sp_pct {%f} {$sp / $sp_max};
 
   #var gp1 {%7};
+
+  #if {%7 > 90} {#showme <110> SATURATION IS HIGH!!!};
+  #if {%7 > 95} {!cast secure shelter};
 }
 
 #action {^Gx: %1% P:%2 St:%3 Mon(%4):%5} {
