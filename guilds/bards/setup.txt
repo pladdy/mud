@@ -1,0 +1,6 @@
+alias com bchat main
+alias o perform o muse
+alias p perform
+alias ce cease
+
+bset custom_hp

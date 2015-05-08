@@ -1,0 +1,16 @@
+#action {^g2n/g2s: %1%/%2 A:%3$} {
+  #var {effects} %3;
+  #replace {effects} {[} {};
+  #replace {effects} {]} {};
+
+  #nop Capture song/spell effects;
+
+  #regexp {$effects} { O:%d } {#var songs[o_muse] &1} {#var songs[o_muse] 0};
+  #regexp {$effects} { HS:%d } {#var spells[hard_skin] &1}
+                               {#var spells[hard_skin] 0};
+
+  #if {@length{$enemy} > 0} {
+    #if {$songs[o_muse] <= 10} {!perform o muse};
+    #if {$spells[hard_skin] <= 3} {!cast hardened skin};
+  }
+}

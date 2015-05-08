@@ -1,0 +1,38 @@
+Here are the variables you can set with custom_hp:
+
+ $HP$ - Current HP       $MHP$ - Max HP
+ $SP$ - Current SP       $MSP$ - Max SP
+ $K$  - Current Karma     $MK$ - Max Karma
+ $V$  - Current Voice     $MV$ - Max Voice
+
+ $HP2$ - Current and max HP (variable colors)
+ $SP2$ - Current and max SP (variable colors)
+ $K2$  - Current and max Karma (variable colors)
+ $V2$  - Current and max Voice (variable colors)
+
+ $S$   - # of smiles remaining    $NL$  - New line
+ $SR$  - % until smile reset      $G2N$ - GXP to next level
+ $AS$  - Active spells/songs      $G2N%$- GXP % to next level
+ $P$   - Song rounds left         $G2S$ - GXP to spend
+ $C$   - Mob health status        $AU$  - Coins carried
+
+Separate the variables and literals using the "&" character.
+
+Examples:
+
+  Syntax:      bset custom_hp My HP: &$HP$&/&$MHP$&
+  Looks like:  My HP: 512/600
+
+  Syntax:      bset custom_hp My HP: &$HP$&/@hired:&$MHP$&@
+  Looks like:  My HP: 512/600
+  The default syntax that is created by 'bset custom_hp 0' (wrapped to
+  look nice):
+
+               bset custom_hp HP: &$HP2$& SP: &$SP2$& K: &$K2$& V: &$V2$&
+               S:&$S$&;&$SR$&%&$AS$& @hicyan:&$P$&@ &$C$&$$
+
+  If you need to see the variables and literals that you currently have
+
+  Syntax:      bset custom_hp ?
+
+bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% S: &$S$&(&$SR$&%) E: &$C$& &$NL$&g2n/g2s: @higreen:&$G2N%$&@%/@higreen:&$G2S$&@ A:&$AS$& &$P$

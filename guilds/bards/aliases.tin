@@ -1,0 +1,13 @@
+#alias f10 {
+  !hp;
+  !cease;
+  di;
+  !hp;
+  !get all;
+}
+
+#alias di {
+  !remove shield;
+  !perform dirge;
+  !wear shield;
+}
