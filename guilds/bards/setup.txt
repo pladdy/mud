@@ -1,4 +1,4 @@
-alias com bchat main
+alias com bchat bard
 
 alias h bandage
 alias cc chilling chord

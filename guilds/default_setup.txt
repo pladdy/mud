@@ -1,5 +1,6 @@
 eq -reset
 
+alias adv advance
 alias px put $* in box
 alias f get all
 alias k kill
