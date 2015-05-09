@@ -10,7 +10,7 @@
                                {#var spells[hard_skin] 0};
 
   #if {@length{$enemy} > 0} {
+    #if {$spells[hard_skin] <= 3 && $sp > 80} {!cast hardened skin};
     #if {$songs[o_muse] <= 10} {!perform o muse};
-    #if {$spells[hard_skin] <= 3} {!cast hardened skin};
   }
 }

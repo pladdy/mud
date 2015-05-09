@@ -11,3 +11,7 @@
   !perform dirge;
   !wear shield;
 }
+
+#alias kt {
+  #if {%1} {!karma tap %1} {!karma tap 20};
+}

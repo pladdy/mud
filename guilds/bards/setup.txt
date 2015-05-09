@@ -1,5 +1,6 @@
 alias com bchat main
 
+alias h bandage
 alias cc chilling chord
 alias id identify
 alias kt karma tap
@@ -9,7 +10,15 @@ alias ce cease
 alias o perform o muse
 alias band perform leader of the bands
 
+alias c cast
 alias hs cast hardened skin
+alias lt cast light
 
 setpanic bandage at 70%
 bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% S: &$S$&(&$SR$&%) E: &$C$& &$NL$&g2n/g2s: @higreen:&$G2N%$&@%/@higreen:&$G2S$&@ A:&$AS$& &$P$
+
+aset bard_attack himagenta
+aset bard_dodge hicyan
+aset bard_heal higreen
+aset bard_dirge hiblack
+aset bard_enhance yellow
