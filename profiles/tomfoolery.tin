@@ -1,7 +1,7 @@
 #nop Set up environment.
 
 #var character {tomfoolery};
-#var guild_dir {guilds/bards};
+#var guild_dir {guilds/mages};
 
 #read init.tin;
 read_tin_files $guild_dir;
