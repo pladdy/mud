@@ -1,4 +1,4 @@
-#action {^3Kingdoms welcomes you back from linkdeath.$} {
+#action {^Your character is currently logged in and linkdead.$} {
   #read map/init.tin;
   !hp;
   !i;
