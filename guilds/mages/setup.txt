@@ -1,9 +1,33 @@
-alias .login jump/study spellbook/cast monitor/cast mindblank/con as armor#cast armor/con as shield#cast shield/con as stoneskin#cast rhino skin/1/cast activate combat
+eq -hide shield
+eq -hide upper body
+eq -hide heavy body
+eq -hide hands
+eq -hide head
 
+alias .login jump/study spellbook/cast monitor/cast mindblank/con as armor#cast armor/con as shield#cast shield/con as stoneskin#cast rhino skin/1/cast activate combat
+alias gwho mages
 alias c cast
 alias 1 cast perform as 200/cast burning hands
 alias st study spellbook
+alias ff cast find familiar
+alias lt cast light
 alias cb cast corpse blast
+alias imm cast mystic immersion
+alias fri cast friends
+alias con as cast contingency
+alias id cast identify
+alias dp cast deeppockets
+alias ex cast extension 1
+alias str cast strength
+
+alias stc cast stinking cloud
 
 alias sh cast shield
 alias ar cast armor
+
+aset spell himagenta
+aset mage_armor yellow
+aset mage_shield yellow
+aset mage_protection_from_evil yellow
+aset mage_protection_from_evil yellow
+aset mage_minor_globe yellow
