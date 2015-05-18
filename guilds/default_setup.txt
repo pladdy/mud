@@ -1,3 +1,5 @@
+ralias ALL
+
 eq -reset
 
 alias adv advance
