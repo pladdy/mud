@@ -5,6 +5,7 @@ eq -hide hands
 eq -hide head
 
 alias .login jump/study spellbook/cast monitor/cast mindblank/con as armor#cast armor/con as shield#cast shield/con as stoneskin#cast rhino skin/1/cast activate combat
+alias com mage
 alias gwho mages
 alias c cast
 alias 1 cast perform as 200/cast burning hands
