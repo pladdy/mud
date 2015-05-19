@@ -1,9 +1,8 @@
 #nop Wimpy aliases;
 
 #nop Define wimpy_commands per guild profile;
-#alias wimpy_commands {
-  #nop;
-}
+
+#alias wimpy_commands {#nop;}
 
 #alias wd {
   #switch {"%1"} {
