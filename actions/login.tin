@@ -6,6 +6,7 @@
 
 #action {^You are login #%1 this boot.$} {
   #read map/init.tin;
+  login_commands;
 }
 
 #action {^You must wait %1 seconds to log in.$} {
