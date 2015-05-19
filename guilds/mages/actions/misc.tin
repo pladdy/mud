@@ -1,7 +1,3 @@
-#action {^You are login #%1 this boot.$} {
-  conup;
-}
-
 #action {^3Kingdoms welcomes you back from linkdeath.$} {
   !hp;
   !i;

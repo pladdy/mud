@@ -4,7 +4,7 @@ eq -hide heavy body
 eq -hide hands
 eq -hide head
 
-alias .login jump/study spellbook/cast monitor/cast mindblank/con as armor#cast armor/con as shield#cast shield/con as stoneskin#cast rhino skin/1/cast activate combat
+alias .login jump/study spellbook/cast monitor/cast mindblank/1/cast activate combat
 alias com mage
 alias gwho mages
 alias c cast
@@ -20,8 +20,7 @@ alias id cast identify
 alias dp cast deeppockets
 alias ex cast extension 1
 alias str cast strength
-
-alias stc cast stinking cloud
+alias ppa put all in pocket
 
 alias sh cast shield
 alias ar cast armor
