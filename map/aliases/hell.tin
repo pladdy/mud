@@ -11,14 +11,14 @@
   #nop overhere;
 
 #alias hell_map_on {
-  #alias e {!anotherway;#map move e};
-  #alias w {!overthere;#map move w};
+  #alias e {!thatway;#map move e};
+  #alias w {!yonder;#map move w};
 
-  #alias n {!thisway;#map move n};
-  #alias s {!overhere;#map move s};
+  #alias n {!overthere;#map move n};
+  #alias s {!anotherway;#map move s};
 
-  #alias u {!thatway;#map move u};
-  #alias d {!yonder;#map move d};
+  #alias u {!overhere;#map move u};
+  #alias d {!thisway;#map move d};
 }
 
 #alias hell_map_off {

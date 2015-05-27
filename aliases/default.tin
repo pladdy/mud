@@ -24,18 +24,6 @@
   #loop 2 8 i {!sell all from bag $i};
 }
 
-#alias ktrig_commands { }
-
-#alias ktrig_off {
-  #showme Turning ktrig off, ktrig_on to reactivate.
-  #unaction {^%1 dealt the killing blow to %+.};
-}
-
-#alias ktrig_on {
-  #showme Turning ktrig back on.
-  #read actions.tin;
-}
-
 #nop Utilities;
 
 #alias wrap_or_use_corpse {

@@ -13,7 +13,7 @@
   }
 }
 
-#alias ktrig_commands {
+#alias kcommands_after_corpse {
   #nop Riposte makes mobs kill themselves...;
   #if {"$last_killer" == "$last_kill"} {wrap_or_use_corpse};
 }

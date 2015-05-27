@@ -1,4 +1,4 @@
-#alias ktrig_commands {
+#alias kcommands_before_corpse {
   !study spellbook;
   #if {$gp1 < 90} {!cast spell tap on corpse};
 }

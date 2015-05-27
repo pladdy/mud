@@ -39,7 +39,7 @@
   !get all;
 }
 
-#alias ktrig_commands {
+#alias kcommands_after_corpse {
   !suspend;
 }
 

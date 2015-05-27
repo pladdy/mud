@@ -9,7 +9,7 @@
   #forall {0;2;4;6;8} { #delay {&0} {!ri; hp;}; }
 }
 
-#alias ktrig_commands {
+#alias kcommands_after_corpse {
   #var mindblock {no};
 
   #if {$gp1 < 75 && $gp2 < 50} {
