@@ -89,6 +89,8 @@
   !aset ddb hired;
 }
 
+#nop Useful against HC mage, 3 dmg types to spread out hits;
+
 #alias hca {
   !switchddb thermal;
   !switch shocker;
