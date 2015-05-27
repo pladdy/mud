@@ -9,11 +9,15 @@
 
   #var gp1 {%7};
 
-  #if {%7 > 90} {#showme <110> SATURATION IS HIGH!!!};
-  #if {%7 > 95} {!cast secure shelter; #delay {2} {regen}};
+  #if {%7 >= 90} {#showme <110>SATURATION IS HIGH!!!};
+  #if {%7 >= 95} {
+    !cast deactivate;
+    !cast secure shelter;
+    #delay {2} {regen}
+  };
 
-  #if {%8 > 80} {#showme <110> CONCENTRATION IS HIGH!!!};
-  #if {%8 > 85} {!shoo};
+  #if {%8 >= 80} {#showme <110>CONCENTRATION IS HIGH!!!};
+  #if {%8 >= 85} {!shoo};
 }
 
 #action {^Gx: %1% P:%2 St:%3 Mon(%4):%5} {
