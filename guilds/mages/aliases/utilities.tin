@@ -3,27 +3,3 @@
   !cast contingency as shield#cast shield;
   !cast contingency as stoneskin#cast rhino skin;
 }
-
-#alias regen {
-  #if {@length{%1} > 0} {
-    #showme Setting regen_multiplier %1;
-    #var regen_multiplier {%1};
-  };
-
-  dedn
-  !hp;
-  !study spellbook;
-
-  #math {rounds} {$regen_multiplier * 1};
-  #delay {$rounds} {#showme 25% done after $rounds rounds; !hp;};
-
-  #math {rounds} {$regen_multiplier * 2};
-  #delay {$rounds} {#showme 50% done after $rounds rounds; !hp;};
-
-  #math {rounds} {$regen_multiplier * 3};
-  #delay {$rounds} {#showme 75% done after $rounds rounds; !hp;};
-
-  #math {rounds} {$regen_multiplier * 4};
-  #delay {$rounds} {#showme 100% done after $rounds rounds; !hp;};
-  #delay {$rounds} {deup};
-}
