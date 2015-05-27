@@ -31,3 +31,6 @@ aset mage_shield yellow
 aset mage_protection_from_evil yellow
 aset mage_protection_from_evil yellow
 aset mage_minor_globe yellow
+aset mage_stoneskin hiblack
+aset mage_rhino_skin hiblack
+aset mage_blink hicyan
