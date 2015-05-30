@@ -3,3 +3,8 @@
   !cast contingency as shield#cast shield;
   !cast contingency as stoneskin#cast rhino skin;
 }
+
+#alias imm {
+  !cast mystic immersion;
+  !cast spell tap never;  
+}
