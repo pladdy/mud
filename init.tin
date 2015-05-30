@@ -1,4 +1,4 @@
-#nop default init file for all profiles;
+#nop Default init file for all profiles;
 
 #script {init_list} {
   find -E . -wholename '*.tin' -a ! -regex '.*(guilds|map|profiles)/.*' -a ! -regex '.*/init.tin'
