@@ -3,3 +3,16 @@
   !follow $requestor;
   #unvar requestor;
 }
+
+#action {^ 1 *Party banner of %1 party.$} {
+  #var party_status yes;
+}
+
+#action {^[PARTY] %1 has quit the party.} {
+  #regexp {%1} {%i{$character}} {#var party_status no;};
+}
+
+
+#action {^[PARTY] Lost our leader!$} {
+  #var party_status yes;
+}
