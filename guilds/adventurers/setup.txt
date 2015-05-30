@@ -23,6 +23,8 @@ aset say hicyan
 aset attack white
 aset skill_crit flash+hired
 aset skill_block flash+hicyan
+aset skill_dodge flash+hicyan
+aset skill_freecast flash+higreen
 
 #nop Aliases;
 
