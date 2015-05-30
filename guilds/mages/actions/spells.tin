@@ -25,4 +25,4 @@
   #if { @length{$enemy} > 0 } {!cast minor globe;};
 }
 
-#nop #action {^Your immersion has expired.$} {!cast spell tap always;}
+#action {^Your immersion has expired.$} {!cast spell tap always;}
