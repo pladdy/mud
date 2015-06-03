@@ -4,7 +4,7 @@ cbrief on mo
 run houses
 acquire keyring
 
-#nop got to mods room;
+#nop goto to mods room;
 run cot
 e
 u
@@ -16,6 +16,10 @@ aset xp1 yellow
 aset xp2 green
 aset xp3 white
 aset shout yellow
+aset professions brown
+aset gshout yellow
+aset poll yellow
+aset flapchat hicyan
 aset melee bkblue
 aset soul green
 aset tell himagenta
