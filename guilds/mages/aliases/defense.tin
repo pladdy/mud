@@ -29,8 +29,8 @@
   #regexp {$dspells} { A } {#nop;} {
     #delay {$i} {!cast armor}; #math {i} {$i + 2};
   };
-  #regexp {$dspells} { S } {#nop;} {
-    #delay {$i} {!cast shield}; #math {i} {$i + 2};
+  #regexp {$dspells} { MS } {#nop;} {
+    #delay {$i} {!cast magnificent shield}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { RS } {#nop;} {
     #delay {$i} {!cast rhino skin}; #math {i} {$i + 2};

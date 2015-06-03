@@ -25,7 +25,8 @@
   #var dspells {%2};
 
   #regex {$dspells} { A} {#nop} {!cast armor};
-  #regex {$dspells} { S} {#nop} {!cast shield};
+  #nop #regex {$dspells} { S} {#nop} {!cast shield};
+  #regex {$dspells} { MS} {#nop} {!cast magnificent shield};
   #regex {$dspells} { RS} {#nop} {!cast rhino skin};
 
   #nop Spells to monitor if i enabled them;

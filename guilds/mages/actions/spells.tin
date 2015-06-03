@@ -2,12 +2,16 @@
   !cast shield;
 }
 
+#action {^Your magnificent shield is shattered from the force of the blow!$} {
+  !cast magnificent shield;
+}
+
 #action {^Your armor spell has dissipated!$} {!cast armor;}
 
 #action {^----*> Your %1 contingency has dissipated!<*----} {
   #switch {"%1"} {
     #case {"stoneskin"} {!cast contingency as %1#cast rhino skin};
-    #case {"shield"} {!cast contingency as %1#cast shield};
+    #case {"shield"} {!cast contingency as %1#cast magnificent shield};
     #default {!cast contingency as %1#cast %1};
   };
 }
