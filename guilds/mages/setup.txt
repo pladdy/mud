@@ -21,7 +21,7 @@ alias dp cast deeppockets
 alias ex cast extension 1
 alias str cast strength
 alias ppa put all in pocket
-
+alias p cast perform as $1/cast $2-
 alias sh cast shield
 alias ar cast armor
 
@@ -31,6 +31,8 @@ aset mage_shield yellow
 aset mage_protection_from_evil yellow
 aset mage_protection_from_evil yellow
 aset mage_minor_globe yellow
+aset mage_major_globe yellow
 aset mage_stoneskin hiblack
 aset mage_rhino_skin hiblack
 aset mage_blink hicyan
+aset mage_improved_shield yellow
