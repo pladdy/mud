@@ -1,10 +1,11 @@
 #alias conup {
   !cast contingency as armor#cast armor;
-  !cast contingency as shield#cast shield;
+  #nop !cast contingency as shield#cast shield;
+  !cast contingency as shield#cast magnificent shield;
   !cast contingency as stoneskin#cast rhino skin;
 }
 
 #alias imm {
   !cast mystic immersion;
-  !cast spell tap never;  
+  !cast spell tap never;
 }
