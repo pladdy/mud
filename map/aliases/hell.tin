@@ -11,17 +11,21 @@
   #nop overhere;
 
 #alias hell_map_on {
+  #showme <110>Hell mappings are turned on.;
+
   #alias e {!thatway;#map move e};
-  #alias w {!yonder;#map move w};
+  #alias w {!overthere;#map move w};
 
-  #alias n {!overthere;#map move n};
-  #alias s {!anotherway;#map move s};
+  #alias u {!anotherway;#map move u};
+  #alias d {!yonder;#map move d};
 
-  #alias u {!overhere;#map move u};
-  #alias d {!thisway;#map move d};
+  #alias n {!thisway;#map move n};
+  #alias s {!overhere;#map move s};
 }
 
 #alias hell_map_off {
+  #showme <120>Hell mappings are turned off.;
+
   #unalias n;
   #unalias s;
   #unalias w;
@@ -31,6 +35,8 @@
 }
 
 #alias hell_map_ref {
+  #showme <130>Refreshing hell mappings...;
+
   #read map/aliases/hell.tin;
   hell_map_off;
   hell_map_on;
