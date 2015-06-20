@@ -47,3 +47,10 @@
 #action {^You flash your ticket at one of the ushers as you head into the hall.$} {
   #if {$map[current_room] == 13483} {#map goto 13484}
 }
+
+#nop Amazon Research Center
+
+#action {^Stretching your somewhat stiff legs you head out of the plane.} {
+  #if {$map[current_room] == 14413 && $map[last_room] == 14414} {#map goto 4130}
+  #if {$map[current_room] == 14413 && $map[last_room] == 4130} {#map goto 14414}
+}

@@ -63,5 +63,15 @@
 #nop Ravenloft;
 
 #action {^You find yourself complete once more.$} {
-  #if {$map[current_room] == 4935} {#map goto 4936}  
+  #if {$map[current_room] == 4935} {#map goto 4936}
+}
+
+#nop Serinth, sopem;
+
+#action {^You finally wake up again after drifting through time and space} {
+  #if {$map[current_room] == 10018} {#map goto 14459}
+}
+
+#action {^The floor drops away, causing you to fall!$} {
+  #if {$map[current_room] == 14459} {#map goto 14460}
 }
