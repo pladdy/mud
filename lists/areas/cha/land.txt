@@ -1,0 +1,3 @@
+Land shortcuts; '2' denotes land2
+  land1 # starting room
+  land2
