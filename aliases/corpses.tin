@@ -1,0 +1,21 @@
+#alias f9 {
+  !wrap corpse;
+  !get all;
+}
+
+#alias wrap_or_use_corpse {
+  #if {"$coffin_status" == "FULL" || @length{$coffin_status} == 0} {
+    f10;
+  } {
+    f9;
+  };
+}
+
+#alias dcor {
+  #map run morgue;
+  !acquire coffin;
+  !donate coffin;
+  #var coffin_status {Empty};
+  #var corpses 0;
+  #map run home;
+}
