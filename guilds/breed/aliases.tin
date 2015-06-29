@@ -20,13 +20,13 @@
 }
 
 #alias redi {
-  !unwrap corpse;
+  !unwrap;
   !disperse corpse;
 }
 
 #alias redis {
   #loop 1 $corpses $loop {
-    !unwrap corpse;
+    !unwrap;
     !disperse corpse;
   };
 }

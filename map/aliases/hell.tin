@@ -10,17 +10,19 @@
   #nop overthere;
   #nop overhere;
 
+  # doing overhere
+
 #alias hell_map_on {
   #showme <110>Hell mappings are turned on.;
 
-  #alias e {!thatway;#map move e};
-  #alias w {!overthere;#map move w};
+  #alias e {!yonder;#map move e};
+  #alias w {!overhere;#map move w};
 
-  #alias u {!anotherway;#map move u};
-  #alias d {!yonder;#map move d};
+  #alias u {!thisway;#map move u};
+  #alias d {!overthere;#map move d};
 
-  #alias n {!thisway;#map move n};
-  #alias s {!overhere;#map move s};
+  #alias n {!thatway;#map move n};
+  #alias s {!anotherway;#map move s};
 }
 
 #alias hell_map_off {

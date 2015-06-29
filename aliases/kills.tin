@@ -1,12 +1,32 @@
+#alias dtrig {
+  #var dtrig {%0};
+  #replace {dtrig} {,} {;};
+}
+
+#nop Define these per guild/profile;
+
 #alias kcommands_before_corpse { }
 #alias kcommands_after_corpse { }
 
 #alias ktrig_off {
-  #showme Turning ktrig off, ktrig_on to reactivate.
+  #showme <110>Turning ktrig off, ktrig_on to reactivate.
   #unaction {^%1 dealt the killing blow to %+.};
 }
 
 #alias ktrig_on {
-  #showme Turning ktrig back on.
+  #showme <120>Turning ktrig back on.
   #read actions.tin;
+}
+
+#alias kk {
+  #if {@length{%0} == 0} {
+    #showme need a target;
+  } {
+    #var kk_list {%0};
+    #replace {kk_list} {,} {;};
+
+    #forall {$kk_list} { !kill &0 };
+
+    #nop #unvar kk_list;
+  }
 }
