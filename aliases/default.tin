@@ -15,40 +15,11 @@
 
 #alias f2 { #map run home; }
 
-#alias f9 {
-  !wrap corpse;
-  !get all;
-}
-
 #alias f12 {
   #loop 2 8 i {!sell all from bag $i};
 }
 
 #nop Utilities;
-
-#alias wrap_or_use_corpse {
-  #if {"$coffin_status" == "FULL" || @length{$coffin_status} == 0} {
-    f10;
-  } {
-    f9;
-  };
-}
-
-#alias dcor {
-  #map run morgue;
-  !acquire coffin;
-  !donate coffin;
-  #var coffin_status {Empty};
-  #var corpses 0;
-  #map run home;
-}
-
-#nop Queues up commands to run after a kill;
-
-#alias dtrig {
-  #var dtrig {%0};
-  #replace {dtrig} {,} {;};
-}
 
 #nop HighMortal powers;
 
@@ -58,19 +29,6 @@
 
 #alias hmb {
   !hmblast %0;
-}
-
-#alias kk {
-  #if {@length{%0} == 0} {
-    #showme need a target;
-  } {
-    #var kk_list {%0};
-    #replace {kk_list} {,} {;};
-
-    #forall {$kk_list} { !kill &0 };
-
-    #nop #unvar kk_list;
-  }
 }
 
 #alias l {
