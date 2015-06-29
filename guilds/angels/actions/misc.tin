@@ -12,3 +12,15 @@
 #action {^You feel ready to train %1.$} {
   #list angel_train add {%1};
 }
+
+#action {^Your radiant wings stream from your back causing you to lift from the} {
+  #var flying true;
+}
+
+#action {^You renew your radiant wings to maintain your flight!$} {
+  #var flying true;
+}
+
+#action {^You immediately will your wings out of existance.$} {
+  #unvar flying;
+}

@@ -1,0 +1,50 @@
+#alias f9 {
+  !wrap corpse;
+  #if {"$flying" == "true"} {!swoop all} {!get all};
+}
+
+#alias f10 {
+  !hp;
+  #if {$gp1_pct < $gp2_pct} {!disperse;} {!rites;!disperse;};
+  !hp;
+  #if {"$flying" == "true"} {!swoop all} {!get all};
+}
+
+#alias f12 {
+  #if {$map[current_room] == 220} {
+    #loop 2 8 i {!junk all from bag $i};
+  } {
+    #loop 2 8 i {!sell all from bag $i};
+  }
+}
+
+#alias redi {
+  !hp;
+  !unwrap;
+  !disperse;
+  !hp;
+}
+
+#alias redis {
+  #nop assuming ~20 per corpse, only burn 5 based on max divinity;
+  #if {$corpses < 5} {#var max_to_use $corpses} {#var max_to_use 5}
+
+  #loop 1 $max_to_use $loop {
+    !unwrap;
+    !disperse;
+  };
+  #unvar max_to_use;
+}
+
+#alias reri {
+  !hp;
+  !unwrap;
+  !rites;
+  !disperse;
+  !hp;
+}
+
+#alias kcommands_after_corpse {
+  #nop Riposte makes mobs kill themselves...;
+  #if {"$last_killer" == "$last_kill"} {wrap_or_use_corpse};
+}

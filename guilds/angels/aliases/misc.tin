@@ -1,38 +1,3 @@
-#alias f10 {
-  !hp;
-  #if {$gp1_pct < $gp2_pct} {!disperse;} {!rites;!disperse;};
-  !hp;
-  !get all;
-}
-
-#alias f12 {
-  #if {$map[current_room] == 220} {
-    #loop 2 8 i {!junk all from bag $i};
-  } {
-    #loop 2 8 i {!sell all from bag $i};
-  }
-}
-
-#alias kcommands_after_corpse {
-  #nop Riposte makes mobs kill themselves...;
-  #if {"$last_killer" == "$last_kill"} {wrap_or_use_corpse};
-}
-
-#alias redi {
-  !hp;
-  !unwrap;
-  !disperse;
-  !hp;
-}
-
-#alias reri {
-  !hp;
-  !unwrap;
-  !rites;
-  !disperse;
-  !hp;
-}
-
 #nop Based on input, perform scales on items or against a mob;
 
 #alias scales_bot {

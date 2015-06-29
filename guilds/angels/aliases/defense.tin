@@ -29,7 +29,7 @@
                            { !defensequeue $dq_string;      };
     };
   } {
-    #showme To change, pass in an ordered list of powers.  Ex: dq v p b ri;
+    #showme <170>To change, pass in an ordered list of powers.  Ex: dq v p b ri;
     !defensequeue;
   }
 
