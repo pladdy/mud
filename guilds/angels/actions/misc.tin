@@ -24,3 +24,8 @@
 #action {^You immediately will your wings out of existance.$} {
   #unvar flying;
 }
+
+#action {^You are already using your wings to fly.$} {
+  #var flying true;
+}
+
