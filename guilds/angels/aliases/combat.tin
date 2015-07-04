@@ -1,0 +1,7 @@
+#alias dis {
+  #var {disengage} {%1};
+  #if {@length{%1} == 0} {#var {disengage} 5};
+
+  #showme <170>retreating $disengage ...;
+  !disengage $disengage
+}

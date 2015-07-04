@@ -2,6 +2,10 @@
   #if {$corpses > 0} {reri};
 }
 
+#action {^You divine strike} {
+  #var circle {true};
+}
+
 #action {^Not enough time slices to %1!$} {
   #if {"$circle" != "true"} {
     #showme <170>Trying to circle...;
