@@ -4,6 +4,7 @@
 
 #action {^Not enough time slices to %1!$} {
   #if {"$circle" != "true"} {
+    #showme <170>Trying to circle...;
     !circle;
     #var circle {true};
   };
