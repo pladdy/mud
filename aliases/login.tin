@@ -1,1 +1,3 @@
+#alias linkdie_commands {#nop;}
 #alias login_commands {#nop;}
+#alias relog_commands {#nop;}
