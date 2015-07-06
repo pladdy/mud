@@ -3,6 +3,13 @@
   #replace {dtrig} {,} {;};
 }
 
+#nop Append to dtrig;
+
+#alias dtriga {
+  #var dtrig {$dtrig,%1};
+  #replace {dtrig} {,} {;};
+}
+
 #nop Define these per guild/profile;
 
 #alias kcommands_before_corpse { }
