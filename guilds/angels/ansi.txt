@@ -1,0 +1,21 @@
+aset angel_wings yellow
+aset angel_halo yellow
+aset angel_aegis yellow
+
+aset angel_engage white
+aset angel_dive white
+aset angel_fly white
+
+aset angel_divine_strike himagenta
+aset angel_presage himagenta
+aset angel_circle himagenta
+
+aset angel_disperse hiblack
+aset angel_rites hiblack
+
+aset angel_radiance higreen
+
+aset angel_block hicyan
+aset angel_void hicyan
+aset angel_riposte hicyan
+aset angel_parry hicyan
