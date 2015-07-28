@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# tail the map so it refreshes
+tail -f -s 0 map/current_map.txt

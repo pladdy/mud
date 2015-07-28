@@ -28,10 +28,11 @@
   #nop #regex {$dspells} { S} {#nop} {!cast shield};
   #regex {$dspells} { MS} {#nop} {!cast magnificent shield};
   #regex {$dspells} { RS} {#nop} {!cast rhino skin};
+  #regex {$dspells} { mg} {#nop} {!cast minor globe};
 
   #nop Spells to monitor if i enabled them;
 
-  #if {"$spells[mg]" == "on"} {#regex {$dspells} { mg} {#nop} {mg}};
+  #nop #if {"$spells[mg]" == "on"} {#regex {$dspells} { mg} {#nop} {mg}};
   #if {"$spells[pg]" == "on"} {#regex {$dspells} { PG} {#nop} {pg}};
   #if {"$spells[pe]" == "on"} {#regex {$dspells} { PE} {#nop} {pe}};
 } {4}
