@@ -20,4 +20,6 @@ aset angel_void hicyan
 aset angel_riposte hicyan
 aset angel_parry hicyan
 
+aset angel_soar hiblue
+
 aset angel_awe brown
