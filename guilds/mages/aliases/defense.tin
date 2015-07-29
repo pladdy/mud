@@ -7,6 +7,8 @@
     };
   };
 
+  #nop Identify spells to keep active and remove from list to depelte;
+
   #forall {RS;<P>;MB;A;ST} {
     #list {spells_to_deplete} find {&0} {deplete_index};
     #if {$deplete_index > 0} {
