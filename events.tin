@@ -1,6 +1,6 @@
 #event {MAP ENTER ROOM} {
   #var map[current_room] %0;
-  #map map 80x50 map/current_map.txt;
+  map_refresh;
   #delay {0.75} {map_refresh;};
 }
 

@@ -41,7 +41,7 @@
 }
 
 #alias map_refresh {
-  #map map 80x50 map/current_map.txt;
+  #map map 100x50 map/current_map.txt;
 }
 
 #alias mapr { map_refresh }
