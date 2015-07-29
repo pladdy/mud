@@ -652,7 +652,7 @@ E {  146} {exa hole} {exa hole} {0} {0} {}
 E {  146} {look at hole} {look at hole} {0} {0} {}
 E {  146} {l hole} {l hole} {0} {0} {}
 
-R {  146} {0} {} {mouse_trails_cottage} { } {} {} {} {} {} {1.000}
+R {  146} {0} {} {mouse_trails} { } {} {} {} {} {} {1.000}
 E {  147} {n} {n} {1} {0} {}
 
 R {  147} {0} {<130>} {} { } {} {} {search web -> spiders} {} {} {1.000}
