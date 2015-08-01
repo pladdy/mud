@@ -16,6 +16,14 @@
   }
 }
 
+#action {^After an unknown amount of time, you wake up and find yourself on$} {
+  #if {$map[current_room] == 14567 && $map[last_room] == 14566} {
+    #map goto 14568;
+  } {
+    #map goto 14566;
+  }
+}
+
 #nop Fantasy Ferry;
 
 #action {^-= Wayhaven Dock =- (n,w)} {
