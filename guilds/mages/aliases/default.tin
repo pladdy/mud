@@ -9,7 +9,7 @@
 
 #alias f10 {
   !hp;
-  #nop #if {$gp1 < 90} {!cast spell tap on corpse};
+  #nop #if {$gp1 < 93} {!cast spell tap on corpse};
   !cast corpse blast;
   !get all;
   !hp;
