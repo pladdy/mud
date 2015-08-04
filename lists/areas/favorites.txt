@@ -1,0 +1,6 @@
+alythra
+mantis_swmp
+mouse_trail
+orc_village
+guiles_forest
+valley_tribes
