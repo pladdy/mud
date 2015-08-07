@@ -18,7 +18,7 @@ Fantasy:
   way_dock       => Wayhaven Docks
   way_main       => Wayhaven Main
   way_pawn       => Wayahven Pawn (muggers)
-  roland         => Roland's (Angelo)
+  rolands        => Roland's (Angelo)
   troll_alliance => Troll Alliance
   westersea      => Westersea
   xaxis          => Xaxis shop
