@@ -6,7 +6,7 @@ Shields:
   gnome_shield # guiles forest area, gnome bone shield
   hk           # high e/b + one of the below \/
                * glacier: ice, moon: radiation, star: mind, tempest: electric
-                 crystal: acid, serpent: poison
+                 crystal: acid, serpent: poison, flame: fire
   shindrak     # rare: diamond shield
   sheikh       # unique: desert shield
   trans1       # northron can drop shield
