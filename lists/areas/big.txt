@@ -1,0 +1,7 @@
+Big areas (100K+):
+  aegis      # gmap aegis to see the rooms to run to
+  diablo2    # nightmare or hell are decent sized
+  encampment
+  hyperfunk2
+  pol2       # strongholds have good mobs >100K
+  pol3       # you will die here
