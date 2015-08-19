@@ -1,5 +1,5 @@
 #nop #prompt and #showme are used in events to display information from 'showd';
-#nop when it's invoked; #showme is being used for my gentech hp monitor based;
+#nop when it's invoked.  #showme is being used for my gentech hp monitor based;
 #nop on the second hpbar triggering for example (guilds/gentech/actions.tin);
 
 #alias showd {
