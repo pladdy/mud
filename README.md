@@ -1,6 +1,6 @@
 # MUDing is FUN!
 
-These are my tintin++ files and profiles for 3k.
+These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 
 ## Dependencies
 TinTin++ Mud Client: http://tintin.sourceforge.net/
