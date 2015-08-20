@@ -20,4 +20,4 @@ your 'chracter' and 'guild_dir' directory variables.
 
 ## Executables
 - **play**      : wrapper to start tintin session.  call with a profile name and it launches it
-- **watch_map** : quick utility to launch tail on the map so i can watch it in the window
+- **watch-map** : quick utility to launch tail on the map so i can watch it in the window
