@@ -35,7 +35,7 @@
 }
 
 #alias map_refresh {
-  #map map 100x50 map/current_map.txt;
+  #map map 100x50 $map_dir/current_map.txt;
 }
 
 #alias mapr { map_refresh }
@@ -60,7 +60,7 @@
 
 #alias map_undo {#nop;}
 
-#nop 'Private' alises used internally;
+#nop 'Private' aliases used internally;
 
 #alias chaos_area_port {
   #showme porting to $chaos_port_location!;

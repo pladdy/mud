@@ -1,6 +1,8 @@
+#nop Utilities
+
 #alias aliases {
   #var sed_str {s/#alias[[:space:]]*([a-zA-Z0-9_]+)[[:space:]].+/\1/p};
-  #system egrep -r '#alias' $guild_dir/ | sed -En '$sed_str';
+  #system egrep -r '#alias' guilds/$guild/ | sed -En '$sed_str';
   #unvar sed_str;
 }
 
@@ -18,8 +20,6 @@
 #alias f12 {
   #loop 2 8 i {!sell all from bag $i};
 }
-
-#nop Utilities;
 
 #nop HighMortal powers;
 

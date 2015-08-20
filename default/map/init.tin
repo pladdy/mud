@@ -1,11 +1,12 @@
 #nop Initialize the mapping stuff;
 
-#var map_path map/map.txt;
+#var map_dir default/map
+#var map_path $map_dir/map.txt;
 
-read_tin_files map;
+read_tin_files $map_dir;
 
 #nop Backup map;
-#system cp $map_path map/backup.txt;
+#system cp $map_path $map_dir/backup.txt;
 
 #map read $map_path;
 map_lock;
