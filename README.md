@@ -18,6 +18,6 @@ your 'chracter' and 'guild_dir' directory variables.
 ## Usage
 `./mud profiles/<your profile>.tin`
 
-## Utilities
-- **mud**       : wrapper to start tintin session.  call with a profile name and it launches it
+## Executables
+- **play**      : wrapper to start tintin session.  call with a profile name and it launches it
 - **watch_map** : quick utility to launch tail on the map so i can watch it in the window
