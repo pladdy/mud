@@ -21,11 +21,3 @@ your 'chracter' and 'guild_dir' directory variables.
 ## Utilities
 - **mud**       : wrapper to start tintin session.  call with a profile name and it launches it
 - **watch_map** : quick utility to launch tail on the map so i can watch it in the window
-
-## Caveats
-I've attempted to organize them as best as I can but it's not great and needs work.  Broad/general
-stuff used by all characters/guilds is in the parent directory.
-
-I'd like to re-work this somewhat and either have all the generally used things in one directory
-and then the utilities in the main directory...blah blah I'm lazy.  One day :).
-
