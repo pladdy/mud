@@ -1,10 +1,11 @@
-#nop Set up environment;
+#nop Set up environment.
 
 #var character {gilead};
-#var guild_dir {guilds/angels};
+#var guild {angels};
 
-#read init.tin;
-read_tin_files $guild_dir;
+#read default/init.tin;
+read_tin_files guilds/$guild;
 
-#nop Connect.  Connection triggers client to read map.
-#session 3k 3k.org 3000;gilead;
+#nop NOTE: the map can't be loaded until a session is started.  we connect first and load the
+#nop       map based on whether we connect or not (see default/actions/login.tin).
+#session 3k 3k.org 3000;$character;
