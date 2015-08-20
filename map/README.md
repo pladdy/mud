@@ -21,7 +21,7 @@ Examples:
 - **gmap** : takes a string and uses `grep` to search the map for that string.  handy to find
              mobs, items, etc. (think map search)
 - **rshop** : used to run to shops.  i originally used `shop` but that conflicts with some mud
--             rooms.  i renamed to rshop (for run shop).  `rshop` with no parameter shows a list
--             of shops by reading the *../lists/areas/shops.txt* file.
+              rooms.  i renamed to rshop (for run shop).  `rshop` with no parameter shows a list
+              of shops by reading the *../lists/areas/shops.txt* file.
 - **run**  : let's you sprint to different rooms given a 'roomname'.  useful for running between
              areas and bootrunning.
