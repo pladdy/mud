@@ -13,7 +13,7 @@ Currently the *profiles/* directory houses my profiles.  These are my files that
 up the session when I want to log in with a specific character.
 
 To set up your own profile you can copy and replace with your character name.  Make sure to change
-your 'chracter' and 'guild_dir' directory variables.
+your 'chracter' and 'guild' directory variables.
 
 ## Usage
 `./mud profiles/<your profile>.tin`
