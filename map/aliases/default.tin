@@ -1,9 +1,3 @@
-#alias chaos_area_port {
-  #showme porting to $chaos_port_location!;
-  #map goto $chaos_port_location;
-  #var chaos_port_location {};
-}
-
 #alias gmap {
   #if {@length{%0} > 0} {
     #system grep "%0" $map_path;
@@ -65,3 +59,12 @@
 }
 
 #alias map_undo {#nop;}
+
+#nop 'Private' alises used internally;
+
+#alias chaos_area_port {
+  #showme porting to $chaos_port_location!;
+  #map goto $chaos_port_location;
+  #var chaos_port_location {};
+}
+
