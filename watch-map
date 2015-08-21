@@ -1,4 +1,26 @@
 #!/usr/bin/env bash
 
-# tail the map so it refreshes
-tail -f -s 0 default/map/current_map.txt
+##
+ # for this to work we have to export this var to all sessions...
+ # might need to use a file instead
+ ##
+MUD_MAP_WIDTH=100 # default
+MAP_DIR="default/map"
+
+# TODO:
+# have named settings instead of a value with no key...
+if [[ "$1" =~ ^[0-9]+$ ]] && [ 0 -le "$1" ]; then
+  echo setting width to $1
+  echo $1 > "${MAP_DIR}/map_globals.txt"
+else
+  echo "${MUD_MAP_WIDTH}" > "${MAP_DIR}/map_globals.txt"
+fi
+
+##
+ # tail the map so it refreshes; try to use -s option if available to refresh constantly
+ ##
+if $(tail -s 2> /dev/null); then
+  tail -f -s 0 "${MAP_DIR}/current_map.txt"
+else
+  tail -f "${MAP_DIR}/current_map.txt"
+fi
