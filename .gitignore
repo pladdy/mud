@@ -5,3 +5,4 @@ areas/*
 
 default/map/current_map.txt
 default/map/backup.txt
+default/map/map_globals.txt

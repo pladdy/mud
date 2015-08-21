@@ -34,8 +34,17 @@
   #unsplit;
 }
 
+#nop TODO:;
+#nop fix this ugliness of handling globals in a file with no keys...;
+
 #alias map_refresh {
-  #map map 100x50 $map_dir/current_map.txt;
+  #nop Try to read mud_map_width from env or set to a default;
+  #script {mud_map_width} {cat $map_dir/map_globals.txt};
+  #if {! $mud_map_width[1] > 0} {#var {mud_map_width} 100};
+
+  #format {map_dimensions} {%sx%s} {$mud_map_width[1]} {50};
+  #showme writing map to $map_dimensions format in $map_dir/current_map.txt;
+  #map map $map_dimensions $map_dir/current_map.txt;
 }
 
 #alias mapr { map_refresh }
