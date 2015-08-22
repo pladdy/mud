@@ -19,7 +19,7 @@ fi
 ##
  # tail the map so it refreshes; try to use -s option if available to refresh constantly
  ##
-if $(tail -s 2> /dev/null); then
+if $(tail -s 0 /dev/null 2> /dev/null); then
   tail -f -s 0 "${MAP_DIR}/current_map.txt"
 else
   tail -f "${MAP_DIR}/current_map.txt"

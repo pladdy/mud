@@ -43,7 +43,6 @@
   #if {! $mud_map_width[1] > 0} {#var {mud_map_width} 100};
 
   #format {map_dimensions} {%sx%s} {$mud_map_width[1]} {50};
-  #showme writing map to $map_dimensions format in $map_dir/current_map.txt;
   #map map $map_dimensions $map_dir/current_map.txt;
 }
 
