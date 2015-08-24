@@ -74,6 +74,14 @@
   #if {$map[current_room] == 4935} {#map goto 4936}
 }
 
+#action {^The carriage screeches as it pulls up to the castle gatehouses.$} {
+  #if {$map[current_room] == 15485} {#map goto 15486};
+}
+
+#action {^You then step out of the coach and find yourself back$} {
+  #if {$map[current_room] == 15489} {#map goto 13212};
+}
+
 #nop Serinth, sopem;
 
 #action {^You finally wake up again after drifting through time and space} {
