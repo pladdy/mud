@@ -88,6 +88,11 @@
   #if {$map[current_room] == 15342} {#map goto 15556};
 }
 
+#nop   Mordenheim mansion
+#action {^You suddenly lose your balance...$} {
+  #if {$map[current_room] == 15432 || $map[current_room] == 15440} {#map goto 15573};
+}
+
 #nop Serinth, sopem;
 
 #action {^You finally wake up again after drifting through time and space} {
