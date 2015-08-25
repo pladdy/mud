@@ -25,6 +25,11 @@
   run home;
 }
 
+#alias run_rloft {
+  run ravenloft;
+  !enter mist;
+}
+
 #alias rshop {
   #if { @length{%1} > 0 } {
     #map run shop_%1;
