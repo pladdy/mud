@@ -28,6 +28,7 @@
 #alias run_rloft {
   run ravenloft;
   !enter mist;
+  #map goto {enter mist};
 }
 
 #alias rshop {
