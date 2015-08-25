@@ -82,6 +82,12 @@
   #if {$map[current_room] == 15489} {#map goto 13212};
 }
 
+#nop   Temple of the zombie god;
+
+#action {^You find yourself 'elsewhere'$} {
+  #if {$map[current_room] == 15342} {#map goto 15556};
+}
+
 #nop Serinth, sopem;
 
 #action {^You finally wake up again after drifting through time and space} {
