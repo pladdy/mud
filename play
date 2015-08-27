@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-if [ $# -gt 0 ]
-then
+if [ $# -gt 0 ] && [ -f profiles/$1.tin ]; then
   tt++ profiles/$1.tin
 else
-  echo Need a profile name:
+  echo Need a valid profile name:
   ls profiles
 fi
