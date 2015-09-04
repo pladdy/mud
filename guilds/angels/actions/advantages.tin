@@ -42,9 +42,14 @@
 
     #nop Hit or not, that is the question;
 
-    #if { $angel[distance] == 0 } {
+    #if {$angel[distance] == 0} {
       #if {$adv_sort[1][2] > $swing_at_adv && $time_slices > 1} {
-        !divine strike $adv_sort[1][1];
+        #nop TODO: do i want to add a round counter to track awe effect?;
+        #if {"$awe_foes" == "true" || $gp1 < 50 || $hp_pct < .8} {
+          !awe $adv_sort[1][1];
+        } {
+          !divine strike $adv_sort[1][1];
+        }
 
         #nop DS takes half your advantage away and costs 2 TS;
         #math {time_slices} {$time_slices - 2};

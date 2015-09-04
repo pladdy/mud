@@ -39,10 +39,13 @@
 }
 
 #alias dq_gxp {
-  !defensequeue clear;
   !defensequeue parry,riposte,block,void;
 }
 
 #alias dqo {!defensequeue clear;}
 
 #alias dqa {dq_gxp}
+
+#alias dqd {
+  !defensequeue void,block,parry,riposte;
+}

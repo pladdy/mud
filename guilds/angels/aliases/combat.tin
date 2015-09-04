@@ -5,3 +5,13 @@
   #showme <170>retreating $disengage ...;
   !disengage $disengage
 }
+
+#alias awe_foes {
+  #if {"$awe_foes" == "true"} {
+    #showme <170>Turning awe off.;
+    #var {awe_foes} {false};
+  } {
+    #showme <170>Turning awe on.;
+    #var {awe_foes} {true};
+  };
+}
