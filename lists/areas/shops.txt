@@ -6,6 +6,7 @@ cot => Trading Post
 
 Chaos:
   chaos     => Chaos Shop
+  cowville  => Cowville
   crydee    => Crydee
   darkmoore => Darkmoore
   land1     => Revelwood shop
