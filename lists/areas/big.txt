@@ -1,5 +1,6 @@
 Big areas (100K+):
   aegis      # gmap aegis to see the rooms to run to
+  alphabet   # depends on level
   diablo2    # nightmare or hell are decent sized
   encampment
   crap_cows  # very big
