@@ -32,6 +32,7 @@
 #nop Wimpy;
 
 #action {^Your legs tried to run away, but failed.$} {
+  #showme <110>Wimpy firing!;
   !hp;
 }
 
