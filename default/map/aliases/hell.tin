@@ -15,14 +15,14 @@
 #alias hell_map_on {
   #showme <110>Hell mappings are turned on.;
 
-  #alias e {!yonder;#map move e};
+  #alias e {!thatway;#map move e};
   #alias w {!overhere;#map move w};
 
-  #alias u {!thisway;#map move u};
-  #alias d {!overthere;#map move d};
-
-  #alias n {!thatway;#map move n};
+  #alias n {!overthere;#map move n};
   #alias s {!anotherway;#map move s};
+
+  #alias d {!thisway;#map move d};
+  #alias u {!yonder;#map move u};
 }
 
 #alias hell_map_off {
@@ -39,7 +39,7 @@
 #alias hell_map_ref {
   #showme <130>Refreshing hell mappings...;
 
-  #read map/aliases/hell.tin;
+  #read default/map/aliases/hell.tin;
   hell_map_off;
   hell_map_on;
 }
