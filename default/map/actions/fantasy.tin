@@ -96,9 +96,19 @@
 #nop Serinth, sopem;
 
 #action {^You finally wake up again after drifting through time and space} {
-  #if {$map[current_room] == 10018} {#map goto 14459}
+  #if {$map[current_room] == 10018} {#map goto 14459};
 }
 
 #action {^The floor drops away, causing you to fall!$} {
-  #if {$map[current_room] == 14459} {#map goto 14460}
+  #if {$map[current_room] == 14459} {#map goto 14460};
+}
+
+#nop Tensor's Hell;
+
+#action {^You land on the hard stone ground with a *THUMP!!*$} {
+  #if {$map[current_room] == 16536} {#map goto 16537};
+}
+
+#action {^You finally reach the top of the shaft.$} {
+  #if {$map[current_room] == 16536} {#map goto 16535};
 }
