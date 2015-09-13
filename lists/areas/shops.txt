@@ -11,6 +11,7 @@ Chaos:
   darkmoore => Darkmoore
   land1     => Revelwood shop
   land2     => ^^ 2.0
+  techno    => Techno Shop
 
 Fantasy:
   blingdenwood   => Blingdenwood
