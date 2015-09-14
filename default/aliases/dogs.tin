@@ -14,3 +14,5 @@
   !dog brief;
   !dog play;
 }
+
+#alias dsc {!dog stats;}
