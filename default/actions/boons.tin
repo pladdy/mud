@@ -1,0 +1,7 @@
+#action {^You can now 'choose' which stats to apply the blessing to.$} {
+  #delay 3 {#8 !choose con};
+  #delay 5 {#8 !choose str};
+  #delay 7 {#8 !choose wis};
+  #delay 9 {#8 !choose dex};
+}
+

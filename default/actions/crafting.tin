@@ -1,0 +1,2 @@
+#action {^You have created something new!$} {!retrieve all;}
+

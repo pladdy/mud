@@ -1,0 +1,4 @@
+#action {There is no money here to share!$} {#line gag}
+#action {There are no bag %ds here!} {#line gag}
+#action {There is no reason to 'divvy' here.$} {#line gag}
+
