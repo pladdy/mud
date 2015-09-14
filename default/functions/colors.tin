@@ -1,0 +1,5 @@
+#function colorize_pct {
+  #if {%1 > 75} {#return <120>%1;};
+  #if {%1 > 50 && %1 < 75} {#return <130>%1;};
+  #if {%1 < 50} {#return <110>%1;};
+}
