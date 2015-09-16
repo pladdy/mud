@@ -14,11 +14,10 @@
 }
 
 #alias show {
-  #if { @length{%1} > 0 } {
-    #system {
-      if [ -f lists/%0.txt ] ; then cat lists/%1.txt; else ls -al lists/%0 ; fi;
-    }
-  } {
-    #system ls -al lists/
-  };
+  #system {
+    if [ -f %1.txt ] ; then cat %1.txt ; else ls -al %1 ; fi;
+  }
 }
+
+#alias lists { show lists/%1 }
+#alias notes { show notes/%1 }
