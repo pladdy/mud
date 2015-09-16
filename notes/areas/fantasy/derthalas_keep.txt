@@ -1,0 +1,26 @@
+23:03 Rictor : Aviary btw
+23:04 Rictor : Gotta do shit at path up from spider, where crank is to
+               turn to open doors to castle
+23:04 Rictor : If it's not done before crank is turned, aviary shut down
+               for boot
+23:05 Rictor : yeah, hence why aviary is rarely opened
+23:05 Rictor : The timber you can move, e/s from lyriac
+23:05 Rictor : gotta mvoe timper from the other side along the path up
+               from spider.  Once crank is turned tho, path to that side
+               is blocked
+23:05 Rictor : So gotta do it before you oil/turn crank
+23:06 To: Rictor : wow.  i might never get to aviary then
+23:06 To: Rictor : so at boot i ran to the keep and the doors were locked.
+                   didn't know there was a spider
+23:07 Rictor : Well you gotta kill spider to oil/turn crank, so if you
+               make it a point and a macro to move timber, you can do it
+               while somebody is killing spider
+23:07 Rictor : Then move the timber by lyriac later.
+23:07 To: Rictor : a couple people told me it could be cleared after the fact
+23:08 Rictor : You can but it'd require a lot of luck.  DE in ravenloft
+               castle ports there occasionally
+23:09 To: Rictor : DE?
+23:09 Rictor : Death Entity
+23:09 To: Rictor : oh yey...assuming that thing is no bueno
+23:10 Rictor : Yeah better off makikng a macro to move timber, suggest
+              exploring a bit next anarchy and getting dirs/syntax/etc

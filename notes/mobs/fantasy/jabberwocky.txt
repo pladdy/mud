@@ -1,0 +1,37 @@
+Jabberwocky
+
+hellhound appears at room to go down to 3rd lvl of maze.  if you try to pass
+the port starts:
+
+Port Description:
+  The hell hound lets out an evil, soul piercing wail as you try to
+  sneak past.  You fear he has awoken a great evil...
+
+  Hair on the back of your neck stands...
+  Electricity crackles throughout the room...  The features of the room
+  twist and distort..
+
+  The room begins to spin and churn!  A great vortex of evil appears
+  above you.  A great force begins to suck everything towards the
+  vortex... You feel yourself rising from the ground!!
+
+  You get sucked into the vortex!!!!
+
+Class: 1M+ *each time it dies it gets bigger that boot
+
+Info:
+  summons 30-130k randomly aggro mobs
+  does edged, blunt, fire, acid
+  has some specials
+
+  i killed it after it was already dead at least once in a boot class: 1.36M
+
+  after death: go north, end up in rasta hell, on large devil level
+
+Items:
+  Genesis scroll (timeslide on a scroll)
+  Wand of Wonder (look at it; type word and it gives commands that do random things)
+    can heal your hps overmax
+    can heal sps over max
+    can hurt you
+    can hurt mob, etc.

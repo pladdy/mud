@@ -1,0 +1,14 @@
+Arachnus the Arachdaemon (deity)
+
+Class: 3.7M
+
+Notes:
+  have to kill it several times (5?)
+  does edged, acid, and poison dmg
+  is edged immune (other dmg types?)
+
+Items:
+  drops manidbles of arachnus (unique); good exotic, poison dmg
+  drops 4 valors of arachnus (main)
+    valors give regen for spans of time then have to reset; pretty good main
+    edged, blunt, electirc, mind, poison

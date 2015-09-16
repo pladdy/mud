@@ -1,0 +1,11 @@
+Crysmal, Prismatic God of Crystals
+
+Class: 3M?
+
+Notes:
+  have to kill each shade of crystal
+    quartz, garnet, saphire, ..., spinel
+  immune to energy, others?
+
+Items:
+  has glass boots at boot (unique)

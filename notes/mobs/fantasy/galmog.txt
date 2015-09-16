@@ -1,0 +1,20 @@
+Galmog the shrag
+
+galmog reflects like sauk but not as much.  he also has a lot more hps and
+regens more it seems
+
+Class: ?
+
+Strategy:
+  use sword of wounding to counter his regen
+  use 'panic' command to heal; this will heal when pheal doesn't fire (due to hit not being from
+  mob?)
+
+  gentech:
+    use 3 dmg types to remove synergy (gentech)
+    defenase bias 110, try 100 with panic next time
+    * while he's wounded, you can surge out of combat :)
+
+Items:
+  elven jewel (?)
+  hide of galmog (decent ac, reflects dmg)
