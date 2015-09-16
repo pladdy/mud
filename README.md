@@ -16,7 +16,9 @@ To set up your own profile you can copy and replace with your character name.  M
 your 'chracter' and 'guild' directory variables.
 
 ## Usage
-`./mud profiles/<your profile>.tin`
+`./play <your profile>`
+The play executable will automatically search the *profiles/* directory for the given character
+file.
 
 ## Executables
 - **play**      : wrapper to start tintin session.  call with a profile name and it launches it
