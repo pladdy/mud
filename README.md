@@ -17,6 +17,7 @@ your 'chracter' and 'guild' directory variables.
 
 ## Usage
 `./play <your profile>`
+
 The play executable will automatically search the *profiles/* directory for the given character
 file.
 
