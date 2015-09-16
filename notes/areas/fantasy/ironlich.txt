@@ -1,0 +1,12 @@
+Area is marked as unknown but is in Tensor's Hell.
+
+Gargoyles are ~30K and hunt
+Ironlich is ~300k and hunts
+
+Gargoyles drop spheres that provide overmax heal
+Lich drops 8 sphers
+
+Notes:
+  spheres heal 35 hp overmax; can get 35 spheres
+  if you leave the area and come back you can trigger a reset to double the gargoyles
+  mobs are once per boot it seems
