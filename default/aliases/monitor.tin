@@ -9,3 +9,12 @@
 #alias hided {
   #unsplit;
 }
+
+#alias status_bar {
+  #if {"%1" == "on"} { #split {} 2 } { #unsplit };
+}
+
+#alias hpbar_calcs {
+  #nop do calcs for vars here: hp, sp, gp1, gp2 (last, pct, delta);
+}
+
