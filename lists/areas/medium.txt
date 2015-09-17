@@ -2,6 +2,7 @@ Medium Areas: 40K - 100K mobs
   alphabet (depends on level)
   chinchillas2
   guiles_forest
+  mystic_seal   # ~80k elementals and shadows
   serinth
     wexsmuk
 
