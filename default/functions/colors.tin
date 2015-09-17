@@ -5,7 +5,7 @@
   #elseif {%1 > 0.70}   {#var result <130>%2};
   #elseif {%1 > 0.60}   {#var result <020>%2};
   #elseif {%1 > 0.50}   {#var result <010>%2};
-  #else   {#var result <110>%2;};
+  #else   {#var result <110>%2};
 }
 
 #function {colorize_bar} {
