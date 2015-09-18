@@ -7,6 +7,9 @@ Big areas (100K+):
   guiles_forest   # second floor
   hyperfunk2
   mystic_seal
+    fire_swamp # 300k-3M
+    infernal waste land # hard hitters, careful
+    mad titans? # huge...not ready yet
     shadow_prison # 300k+ mobs
   pol2            # strongholds have good mobs >100K
   pol3            # you will die here
