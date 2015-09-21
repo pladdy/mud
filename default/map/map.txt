@@ -5,7 +5,7 @@ CH <118>
 CP <138>
 CR <178>
 
-F 10
+F 11
 
 I 1
 
@@ -11295,7 +11295,7 @@ E { 2084} {w} {w} {8} {0} {}
 E { 2088} {s} {s} {4} {0} {}
 E { 2089} {e} {e} {2} {0} {}
 
-R { 2088} {0} {<160>} {} { } {} {} {pub, lally's pub} {} {} {1.000}
+R { 2088} {0} {<160>} {} { } {} {} {seal_marcus} {} {} {1.000}
 E { 2087} {n} {n} {1} {0} {}
 
 R { 2089} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -83222,7 +83222,7 @@ R {17460} {0} {} {mystic_seal} { } {} {} {} {} {} {1.000}
 E {17459} {out} {out} {0} {0} {}
 E {17461} {n} {n} {1} {0} {}
 
-R {17461} {0} {<130>} {arlane} { } {} {} {say marcus, herbs, pub...go get marcus at lally's pub;come back say incantation} {} {} {1.000}
+R {17461} {0} {<130>} {arlane} { } {} {} {say pub, run seal_marcus, say zinfandel there;say incantation } {} {} {1.000}
 E {17460} {s} {s} {4} {0} {}
 E {17462} {touch matrix} {touch matrix} {0} {0} {}
 
