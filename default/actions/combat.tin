@@ -29,6 +29,12 @@
   }
 }
 
+#nop Vasyrach;
+
+#action {^The Demon Spider emits a horrid screech!  A large creature approaches$} {
+  !k spider;
+}
+
 #nop Wimpy;
 
 #action {^Your legs tried to run away, but failed.$} {
