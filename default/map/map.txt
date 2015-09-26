@@ -33177,7 +33177,7 @@ E { 6314} {e} {e} {2} {0} {}
 R { 6313} {0} {<fca>} {} { } {} {} {sslyra, mother of red dragons} {} {} {1.000}
 E { 6312} {e} {e} {2} {0} {}
 
-R { 6314} {0} {<150>} {} { } {} {} {byrontic, sometimes has boots of lucanus} {} {} {1.000}
+R { 6314} {0} {<150>} {byrontic} { } {} {} {byrontic, sometimes has boots of lucanus} {} {} {1.000}
 E { 6312} {w} {w} {8} {0} {}
 
 R { 6315} {0} {<fca>} {} { } {} {} {tyhhra, mother of white dragons} {} {} {1.000}
@@ -60091,7 +60091,7 @@ E {12322} {s} {s} {4} {0} {}
 E {12314} {n} {n} {1} {0} {}
 E {12325} {w} {w} {8} {0} {}
 
-R {12324} {0} {<130>} {} { } {} {} {big ugly, crystal blue stone} {} {} {1.000}
+R {12324} {0} {<130>} {big_ugly} { } {} {} {rod of garnthanx, crystal blue stone} {} {} {1.000}
 E {12314} {e} {e} {2} {0} {}
 
 R {12325} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -60171,7 +60171,7 @@ R {12342} {0} {} {} { } {} {} {} {} {} {1.000}
 E {12341} {e} {e} {2} {0} {}
 E {12347} {s} {s} {4} {0} {}
 
-R {12343} {0} {<fca>} {} { } {} {} {vasyrach, demon spider carapace} {} {} {1.000}
+R {12343} {0} {<fca>} {vasyrach} { } {} {} {vasyrach, demon spider carapace} {} {} {1.000}
 E {12341} {s} {s} {4} {0} {}
 
 R {12344} {0} {} {} { } {} {} {} {} {} {1.000}
