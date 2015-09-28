@@ -7,7 +7,7 @@ CR <178>
 
 F 11
 
-I 3125
+I 4967
 
 L * # # # | # x          
 
@@ -33177,7 +33177,7 @@ E { 6314} {e} {e} {2} {0} {}
 R { 6313} {0} {<fca>} {} { } {} {} {sslyra, mother of red dragons} {} {} {1.000}
 E { 6312} {e} {e} {2} {0} {}
 
-R { 6314} {0} {<150>} {byrontic} { } {} {} {byrontic, sometimes has boots of lucanus} {} {} {1.000}
+R { 6314} {0} {<150>} {byrontic} { } {} {} {boots of lucanus spawn separate from mob} {} {} {1.000}
 E { 6312} {w} {w} {8} {0} {}
 
 R { 6315} {0} {<fca>} {} { } {} {} {tyhhra, mother of white dragons} {} {} {1.000}
@@ -49243,7 +49243,7 @@ R { 9935} {0} {} {} { } {} {} {} {} {} {1.000}
 E { 9931} {e} {e} {2} {0} {}
 E { 9936} {n} {n} {1} {0} {}
 
-R { 9936} {0} {<130>} {salinsha} { } {} {} {salinsha, armour of lucanus?} {} {} {1.000}
+R { 9936} {0} {<130>} {salinsha} { } {} {} {armour of lucanus, don't kill until armour spawns (separate from mob)} {} {} {1.000}
 E { 9935} {s} {s} {4} {0} {}
 
 R { 9937} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -87381,7 +87381,7 @@ R {18303} {0} {} {} { } {} {} {} {} {} {1.000}
 E {18302} {w} {w} {8} {0} {}
 E {18304} {s} {s} {4} {0} {}
 
-R {18304} {0} {<130>} {dorthinick} { } {} {} {gloves of lucanus, symbol of dorthinick} {} {} {1.000}
+R {18304} {0} {<130>} {dorthinick} { } {} {} {gloves of lucanus, don't kill until item spawns (separate spawn from mob)} {} {} {1.000}
 E {18303} {n} {n} {1} {0} {}
 
 R {18305} {8} {} {} { } {} {} {} {} {} {1.000}
