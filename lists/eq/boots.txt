@@ -5,3 +5,6 @@ Boots:
   greyfox
   storm_boots # bindy, +defense)
   trans1      # eastron can drop boots
+
+serinth
+  dragon isle, byrontic # boots of lucanus

@@ -7,7 +7,7 @@ CR <178>
 
 F 11
 
-I 4967
+I 1
 
 L * # # # | # x          
 
@@ -32023,7 +32023,7 @@ E { 6091} {sw} {sw} {12} {0} {}
 R { 6091} {0} {<140>} {} { } {} {} {zzlia, faeirie dragon} {} {} {1.000}
 E { 6090} {ne} {ne} {3} {0} {}
 
-R { 6092} {0} {<fca>} {} { } {} {} {sha'anikaar, mother sand dragon} {} {} {1.000}
+R { 6092} {0} {<fca>} {sha'anikaar} { } {} {} {sha'anikaar, mother sand dragon} {} {} {1.000}
 E { 6088} {ne} {ne} {3} {0} {}
 
 R { 6093} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -32140,7 +32140,7 @@ E { 6103} {s} {s} {4} {0} {}
 E { 6100} {e} {e} {2} {0} {}
 E { 6115} {n} {n} {1} {0} {}
 
-R { 6114} {0} {<fca>} {} { } {} {} {chlorritia mother of green dragons} {} {} {1.000}
+R { 6114} {0} {<fca>} {chlorritia} { } {} {} {chlorritia mother of green dragons} {} {} {1.000}
 E { 6099} {w} {w} {8} {0} {}
 
 R { 6115} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -32602,7 +32602,7 @@ E { 6197} {n} {n} {1} {0} {}
 R { 6197} {0} {<140>} {} { } {} {} {} {} {} {1.000}
 E { 6196} {s} {s} {4} {0} {}
 
-R { 6198} {0} {<fca>} {} { } {} {} {sxithia, mother of black dragons} {} {} {1.000}
+R { 6198} {0} {<fca>} {sxithia} { } {} {} {sxithia, mother of black dragons} {} {} {1.000}
 E { 6170} {w} {w} {8} {0} {}
 
 R { 6199} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -32749,10 +32749,10 @@ R { 6227} {0} {} {} { } {} {} {} {} {} {1.000}
 E { 6224} {ne} {ne} {3} {0} {}
 E { 6228} {e} {e} {2} {0} {}
 
-R { 6228} {0} {<fca>} {} { } {} {} {saoirse, shadow dragon; fang sword on death (unique)} {} {} {1.000}
+R { 6228} {0} {<fca>} {saoirse} { } {} {} {fang sword on death} {} {} {1.000}
 E { 6227} {w} {w} {8} {0} {}
 
-R { 6229} {0} {<fca>} {} { } {} {} {byrontiqua, mother of blue dragons} {} {} {1.000}
+R { 6229} {0} {<fca>} {byrontiqua} { } {} {} {byrontiqua, mother of blue dragons} {} {} {1.000}
 E { 6213} {s} {s} {4} {0} {}
 
 R { 6230} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -33091,7 +33091,7 @@ R { 6292} {0} {} {} { } {} {} {} {} {} {1.000}
 E { 6287} {nw} {nw} {9} {0} {}
 E { 6293} {ne} {ne} {3} {0} {}
 
-R { 6293} {0} {<fca>} {} { } {} {} {euryla, mother of cave dragons} {} {} {1.000}
+R { 6293} {0} {<fca>} {euryla} { } {} {} {euryla, mother of cave dragons} {} {} {1.000}
 E { 6292} {sw} {sw} {12} {0} {}
 
 R { 6294} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -33174,13 +33174,13 @@ E { 6311} {s} {s} {4} {0} {}
 E { 6313} {w} {w} {8} {0} {}
 E { 6314} {e} {e} {2} {0} {}
 
-R { 6313} {0} {<fca>} {} { } {} {} {sslyra, mother of red dragons} {} {} {1.000}
+R { 6313} {0} {<fca>} {sslyra} { } {} {} {sslyra, mother of red dragons} {} {} {1.000}
 E { 6312} {e} {e} {2} {0} {}
 
 R { 6314} {0} {<150>} {byrontic} { } {} {} {boots of lucanus spawn separate from mob} {} {} {1.000}
 E { 6312} {w} {w} {8} {0} {}
 
-R { 6315} {0} {<fca>} {} { } {} {} {tyhhra, mother of white dragons} {} {} {1.000}
+R { 6315} {0} {<fca>} {tyhhra} { } {} {} {tyhhra, mother of white dragons} {} {} {1.000}
 E { 6311} {w} {w} {8} {0} {}
 
 R { 6316} {0} {<020>} {xaxis} { } {} {} {} {} {} {1.000}
