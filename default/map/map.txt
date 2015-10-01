@@ -83656,7 +83656,7 @@ E {17564} {climb down} {climb down} {0} {0} {}
 E {17549} {u} {u} {16} {0} {}
 E {17564} {d} {d} {32} {0} {}
 
-R {17564} {0} {<130>} {} { } {} {note climb up a bunch, tend to slip without flying} {} {} {} {1.000}
+R {17564} {0} {<130>} {} { } {} {} {climb up a bunch (unless flying)} {} {} {1.000}
 E {17565} {s} {s} {4} {0} {}
 E {17563} {climb up} {climb up} {0} {0} {}
 E {17563} {u} {u} {16} {0} {}
