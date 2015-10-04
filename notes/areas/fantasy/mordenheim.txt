@@ -1,0 +1,4 @@
+15:02 Rictor : get scalpel from dbag;cut skull with scalpel;get cutters
+               from dbag;sever spine with cutters;get specimen bag from
+               dbag;remove brain with sbag;put scalpel in dbag;put
+               cutters in dbag;
