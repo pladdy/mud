@@ -91,3 +91,14 @@
   #var {wielded_weapon} {%0};
   !wield %0;
 }
+
+#alias auction {
+  #if {@length{%3} == 0} {
+    !auction %0;
+  } {
+    !auction %1;
+    #send %2;
+    #send %3;
+    #send %4;
+  }
+}
