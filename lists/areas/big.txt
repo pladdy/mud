@@ -2,6 +2,7 @@ Big areas (100K+):
   aegis           # gmap aegis to see the rooms to run to
   alphabet        # depends on level
   crap_cows       # very big
+  death_taco      # scales, see notes for info
   diablo2         # nightmare or hell are decent sized
   encampment
   guiles_forest   # second floor
