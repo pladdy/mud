@@ -1,0 +1,21 @@
+Dex:
+Basically linearly continues to improve your damage avoidance
+- some aspect of mob's size impacts it
+- you can avoid hits entirely, up to 55.8% of incoming hits
+
+The amount of dex + special melee defense required to hit 55.8% depends on the mob size.  You can
+see hints of this on the score screen, the melee defense readout changes based on what mob size
+you're fighting.
+
+Strength/carrying capacity impacts this as well, above a certain level of burden it hinders your
+ability to avoid attacks.
+
+The way you can measure your avoidance is to turn off all brief on incoming mob melee hits
+and count the number of complete misses from the mob, divide by total incoming attacks.
+
+Reforging AC to SMD is almost always a good idea (from the ACs you don't care about).
+- it's lossy, but adds non trivial damage avoidance
+
+Wear your normal gear with reforged to defense and go measure against things you typically fight
+see where you sit with % of hits that miss you, if it's < 55.8% over a long time period, raise your
+dex experimentally, ~230 dex was my sweet spot.
