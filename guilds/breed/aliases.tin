@@ -3,10 +3,14 @@
   #var contact_impossible {false};
 }
 
-#alias f10 {
+#alias use_corpse {
   !hp;
   !disperse corpse;
   !hp;
+}
+
+#alias f10 {
+  use_corpse;
   !get all;
 }
 

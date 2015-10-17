@@ -7,12 +7,15 @@
   }
 }
 
-#alias f10 {
+#alias use_corpse {
   !hp;
   #nop #if {$gp1 < 93} {!cast spell tap on corpse};
   !cast corpse blast;
-  !get all;
   !hp;
+}
+
+#alias f10 {
+ !get all;
 }
 
 #alias rebl {
