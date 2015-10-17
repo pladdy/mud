@@ -1,3 +1,6 @@
+#nop Define for guild;
+#alias use_corpse { }
+
 #alias f9 {
   !wrap corpse;
   !get all;
@@ -5,9 +8,9 @@
 
 #alias wrap_or_use_corpse {
   #if {"$coffin_status" == "FULL" || @length{$coffin_status} == 0} {
-    f10;
+    use_corpse;
   } {
-    f9;
+    !wrap corpse;
   };
 }
 
