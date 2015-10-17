@@ -1,4 +1,4 @@
-#alias kcommands_before_corpse {
+#alias commands_before_corpse {
   !study spellbook;
   #nop spell tap if in party in case it's not my kill;
   #if {"$party_status" == "yes" || "$coffin_status" == "FULL"

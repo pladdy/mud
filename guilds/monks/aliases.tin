@@ -6,7 +6,7 @@
   !get all;
 }
 
-#alias kcommands_after_corpse {
+#alias commands_after_corpse {
   #var pressure {off};
   !meditate;
 }

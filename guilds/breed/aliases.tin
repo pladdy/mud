@@ -1,4 +1,4 @@
-#alias kcommands_after_corpse {
+#alias commands_after_corpse {
   #var mindsink_empty {false};
   #var contact_impossible {false};
 }
