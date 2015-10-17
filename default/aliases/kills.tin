@@ -10,11 +10,6 @@
   #replace {dtrig} {,} {;};
 }
 
-#nop Define these per guild/profile;
-
-#alias kcommands_before_corpse { }
-#alias kcommands_after_corpse { }
-
 #alias ktrig_off {
   #showme <110>Turning ktrig off, ktrig_on to reactivate.
   #unaction {^%1 dealt the killing blow to %+.};
