@@ -3,10 +3,14 @@
   #if {"$flying" == "true"} {!swoop all} {!get all};
 }
 
-#alias f10 {
+#alias use_corpse {
   !hp;
   #if {$gp1_pct < $gp2_pct} {!disperse;} {!rites;!disperse;};
   !hp;
+}
+
+#alias f10 {
+  use_corpse;
   #if {"$flying" == "true"} {!swoop all} {!get all};
 }
 
