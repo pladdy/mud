@@ -29,7 +29,7 @@
   #delay {11} {
     !wimpy 45;
     !autoguild surge;
-    !pheal 1000 surge;
+    !pheal 800 surge;
   }
 }
 
@@ -59,11 +59,15 @@
   !keep all bag;
 }
 
-#alias f10 {
+#alias use_corpse {
   !hp;
   !recharge;
   !reclaim;
   !hp;
+}
+
+#alias f10 {
+  use_corpse;
   !get all;
 }
 
