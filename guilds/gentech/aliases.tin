@@ -98,7 +98,7 @@
   !aset ddb hired;
 }
 
-#alias kcommands_after_corpse {
+#alias commands_after_corpse {
   !repair;
   !stabilize;
   !tactical;
