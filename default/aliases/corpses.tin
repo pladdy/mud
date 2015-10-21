@@ -1,5 +1,7 @@
-#nop Define for guild;
+#nop Define for each guild as necessary;
 #alias use_corpse { }
+#alias commands_before_corpse { }
+#alias commands_after_corpse { }
 
 #alias f9 {
   !wrap corpse;
