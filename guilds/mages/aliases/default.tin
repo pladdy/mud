@@ -15,7 +15,8 @@
 }
 
 #alias f10 {
- !get all;
+  use_corpse;
+  !get all;
 }
 
 #alias rebl {
