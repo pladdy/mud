@@ -1,3 +1,5 @@
 Land shortcuts; '2' denotes land2
-  land1 # starting room
+  land1
+    demondim1
+    revelwood1
   land2
