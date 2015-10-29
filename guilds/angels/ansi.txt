@@ -1,14 +1,17 @@
 aset angel_wings yellow
 aset angel_halo yellow
 aset angel_aegis yellow
+aset angel_deva yellow
 
 aset angel_engage white
 aset angel_dive white
 aset angel_fly white
 aset angel_circle white
+aset angel_presage white
 
 aset angel_divine_strike himagenta
-aset angel_presage himagenta
+aset angel_retribution himagenta
+aset angel_shine himagenta
 
 aset angel_disperse hiblack
 aset angel_rites hiblack
