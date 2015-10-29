@@ -1,4 +1,5 @@
-#var swing_at_adv {80}; #nop configure to change when you swing;
+#nop use 'swing_at' function to change default value of when to take a swing;
+#var swing_at_adv {90};
 
 #action {^HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8} {
   #if { @length{%1} > 0 } {
@@ -42,24 +43,25 @@
 
     #nop Hit or not, that is the question;
 
-    #if {$angel[distance] == 0} {
-      #if {$adv_sort[1][2] > $swing_at_adv && $time_slices > 1} {
-        #nop TODO: do i want to add a round counter to track awe effect?;
-        #if {"$awe_foes" == "true" || $gp1 < 50 || $hp_pct < .8} {
-          !awe $adv_sort[1][1];
-        } {
-          !divine strike $adv_sort[1][1];
-        }
-
-        #nop DS takes half your advantage away and costs 2 TS;
-        #math {time_slices} {$time_slices - 2};
-        #math {adv_sort[1][2]} {$adv_sort[1][2] / 2};
+    #if {$angel[distance] == && $adv_sort[1][2] > $swing_at_adv && $time_slices > 1} {
+      #if {"$awe_foes" == "true" || (($gp1 < 50 || $hp_pct < .8) && "$awed" == "false")} {
+       !awe $adv_sort[1][1];
+      };
+      #elseif {$retributions > 4} {
+        !retribution $adv_sort[1][1];
+      };
+      #else {
+        !divine strike $adv_sort[1][1];
       };
 
-      #if {$adv_sort[1][2] > 20 && $time_slices > 0} {
-        !presage $adv_sort[1][1];
-        #math {time_slices} {$time_slices - 1};
-      };
+      #nop DS/awe takes half your advantage away and costs 2 TS;
+      #math {time_slices} {$time_slices - 2};
+      #math {adv_sort[1][2]} {$adv_sort[1][2] / 2};
+    };
+
+    #if {$adv_sort[1][2] > 20 && $time_slices > 0} {
+      !presage $adv_sort[1][1];
+      #math {time_slices} {$time_slices - 1};
     };
   };
 }
