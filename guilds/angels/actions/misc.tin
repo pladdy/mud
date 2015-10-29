@@ -18,6 +18,18 @@
   #list angel_train add {%1};
 }
 
+#nop Awe emotes to track if a mob is stunned;
+#nop awe_length is set to the duration the stun lasts (check info stun);
+
+#var {awe_length} {2};
+
+#action {^Your %+ stuns %+!$} {
+  #var {awed} {true};
+  #delay {$awe_length} {#var {awed} {false};};
+}
+
+#nop Flying emotes to track that i'm in flight and should use 'swoop';
+
 #action {^Your radiant wings stream from your back causing you to lift from the} {
   #var flying true;
 }
