@@ -1,7 +1,11 @@
-#nop Based on input, perform scales on items or against a mob;
-
 #alias f12 {
-  #loop 2 12 i {!sell all from bag $i};
+  #if {$map[current_room] == 220} {#loop 2 12 i {!junk all from bag $i}}
+  {#loop 2 12 i {!sell all from bag $i}}
+}
+
+#nop Based on input, perform scales on items or against a mob;
+#alias sca {
+  #if {@length{%2} > 0} {!scales %1 against %2;} {!scales against %1;};
 }
 
 #alias scales_bot {
@@ -17,20 +21,6 @@
   } {
     #showme Deactivating scales bot.;
     #var scales_bot off;
-  }
-}
-
-#alias sca {
-  #if {@length{%2} > 0} {!scales %1 against %2;} {!scales against %1;};
-}
-
-#alias swing_at {
-  #if {@length{%1} > 0} {
-    #showme Setting swing_at_adv to %1;
-    #var swing_at_adv %1;
-  } {
-    #showme To set what advantage % you attack at, pass in an int 1-100.;
-    #showme Current swing_at_adv: $swing_at_adv%.;
   }
 }
 

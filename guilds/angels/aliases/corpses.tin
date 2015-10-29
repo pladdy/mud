@@ -29,15 +29,21 @@
   !hp;
 }
 
-#alias redis {
-  #nop assuming ~20 per corpse, only burn 5 based on max divinity;
-  #if {$corpses < 5} {#var max_to_use $corpses} {#var max_to_use 5}
+#alias redi_quiet {
+  !unwrap;
+  !disperse;
+}
 
-  #loop 1 $max_to_use $loop {
-    !unwrap;
-    !disperse;
+#alias redis {
+  #if {"%1" != ""} {
+    #loop 1 %1 $loop {redi_quiet};
   };
-  #unvar max_to_use;
+  #else {
+    #nop assuming ~20 per corpse, only burn 5 based on max divinity;
+    #if {$corpses < 5} {#var max_to_use $corpses} {#var max_to_use 5}
+    #if {$corpses > 0} {#loop 1 $max_to_use $loop {redi_quiet};};
+    #unvar max_to_use;
+  };
 }
 
 #alias reri {
@@ -50,5 +56,9 @@
 
 #alias commands_after_corpse {
   #nop Riposte makes mobs kill themselves...;
-  #if {"$last_killer" == "$last_kill"} {wrap_or_use_corpse};
+  #if {"$last_killer" == "$last_kill"} {
+    wrap_or_use_corpse;
+    #if {"$flying" == "true"} {!swoop all} {!get all};
+  };
+  #var {awed} {false};
 }

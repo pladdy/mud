@@ -1,11 +1,3 @@
-#alias dis {
-  #var {disengage} {%1};
-  #if {@length{%1} == 0} {#var {disengage} 5};
-
-  #showme <170>retreating $disengage ...;
-  !disengage $disengage
-}
-
 #alias awe_foes {
   #if {"$awe_foes" == "true"} {
     #showme <170>Turning awe off.;
@@ -15,3 +7,29 @@
     #var {awe_foes} {true};
   };
 }
+
+#alias deup {
+  !aegis;
+  !manifest wings;
+  !manifest halo;
+  !fly;
+}
+
+#alias dis {
+  #var {disengage} {%1};
+  #if {@length{%1} == 0} {#var {disengage} 5};
+
+  #showme <170>retreating $disengage ...;
+  !disengage $disengage
+}
+
+#alias swing_at {
+  #if {@length{%1} > 0} {
+    #showme Setting swing_at_adv to %1;
+    #var swing_at_adv %1;
+  } {
+    #showme To set what advantage % you attack at, pass in an int 1-100.;
+    #showme Current swing_at_adv: $swing_at_adv%.;
+  }
+}
+
