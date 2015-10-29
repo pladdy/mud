@@ -36,11 +36,15 @@ $FOCUSSTAT$ Currently focused skill
 $FOCUSGXP$  Progress on currently focused skill
 $RET$       Retribution ability variable
 $COF$       Coffin contents/maximum
+$RB$        Rebirths available
+$RBM$       Max rebirths
+$RBR$       Rebirths reset
+$YIN$       Current Yin value
+$YANG$      Current Yang value
+$YANGMAX$   Max Yang value
+
 
 You can preview your current settings by using "show", or reset the
 values back to "default".
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-See Also:
-
-hpset hpbar H: $HP$/$HPMAX$ S: $SP$/$SPMAX$ T: $TS$/$TSMAX$ D: $DV$/$DVMAX$ E: $EN$/$ENMAX$ En: $ENEMY$ $NL$Di: $DIST$ F: $FLAGS$ G: $FOCUSGXP$ $NL$HO: $ADVHO$/$WKHO$ HI: $ADVHI$/$WKHI$ LO: $ADVLO$/$WKLO$ LI: $ADVLI$/$WKLI$
+hpset hpbar H: $HP$/$HPMAX$ S: $SP$/$SPMAX$ T: $TS$/$TSMAX$($TSU$) D: $DV$/$DVMAX$ E: $EN$/$ENMAX$ R: $RET$ En: $ENEMY$ $NL$Di: $DIST$ F: $FLAGS$ Yi: $YIN$ Ya: $YANG$/$YANGMAX$ G: $FOCUSGXP$ $NL$HO: $ADVHO$/$WKHO$ HI: $ADVHI$/$WKHI$ LO: $ADVLO$/$WKLO$ LI: $ADVLI$/$WKLI$
