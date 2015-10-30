@@ -6,6 +6,7 @@ Misc:
   blood_quartz # feed corpses, 4/4 regen
   hc_mage      # regen potion
   pedes        # DON"T GO HERE YET!!!
+  # anti-gravity modules on baron vliadimir in dune, great for lowering enc.
 
 Bags:
   crydee # bags
@@ -20,10 +21,7 @@ Lights:
 Utilities:
   amulet_of_flying
 
-Misc:
-  # anti-gravity modules on baron vliadimir in dune, great for lowering enc.
-
 Donates:
   Atlanta, FTS gang in ne
-  Atlanta, Megatech
+  Megatech (in atlanta)
   Der'thalas, Ravenloft

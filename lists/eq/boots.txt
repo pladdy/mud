@@ -1,5 +1,6 @@
 Boots:
   cryohydra   # random
+  crysmal     # glass boots at boot
   cyberpope   # cyberpope hat
   green_boots
   greyfox
@@ -8,3 +9,4 @@ Boots:
 
 serinth
   dragon isle, byrontic # boots of lucanus
+

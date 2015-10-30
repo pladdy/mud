@@ -1,3 +1,5 @@
+Ring Notes:
+
 ashly_fae       # ross, only a few
 fire_giant_ring # random
 kerridis        # random
@@ -5,3 +7,6 @@ kovan           # run overlands, run kovan
 ogre_ring       # random
 serpent_dragon  # ring of heroism, unique?
 tigger          # ring of speed
+
+Ravenloft
+  mordenheim # do mini quest to kill victor, sometimes has glass ring

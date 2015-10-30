@@ -3,3 +3,6 @@ Gloves:
   green_gloves
   spiritual_gloves
   trans1           # southron can drop gloves
+
+Ravenloft:
+  undead_dragon # drops razor warrior, kill for glass gloves (somtimes)

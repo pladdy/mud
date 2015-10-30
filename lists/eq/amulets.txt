@@ -2,3 +2,7 @@ Amulets:
   hirebrand_amulet
   normal_cow_king
   storm_amulet
+
+Notes:
+  Nightmare cow king has sparkling ammy at boot (x3)
+  Hell cow king has radiant ammy at boot (x3)
