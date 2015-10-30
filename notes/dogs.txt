@@ -1,0 +1,26 @@
+Concepts:
+  Dogs assist you in combat providing damage.  They can also tank and once big enough can attack
+  for you.  Maintenance is corpses and emotes (pet/play) to keep them happy.
+
+Abilities:
+  - one hit per round
+  - can dodge
+  - can get crits
+  - can tank/has ac
+  - regens
+
+Kennel:
+  Make sure to kennel them before boot.  It costs 1k coins per day to unkennel them.
+
+Dog pound items:
+  biscuits:                    use to grow a puppy into a dog
+  spiked collar:
+  squirrel chew toy:
+  studded-leather dog barding: low ac buff
+  chain dog barding:           medium ac buff
+  plate dog barding:           high ac buff
+  razorsnout:
+  super grip footies:
+  irontooth bite guards:
+  death's fido contract:       bnote for dog (so it doesn't lose xp)
+  DGH:                         change dog breed
