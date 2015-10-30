@@ -54,3 +54,9 @@
   #if {$map[current_room] == 14413 && $map[last_room] == 14414} {#map goto 4130}
   #if {$map[current_room] == 14413 && $map[last_room] == 4130} {#map goto 14414}
 }
+
+#nop Nastar;
+
+#action {^You land in a village...$} {
+  #if {$map[current_room] == 19132} {#map goto 19133}
+}
