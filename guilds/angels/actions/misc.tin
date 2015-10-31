@@ -21,7 +21,7 @@
 #nop Awe emotes to track if a mob is stunned;
 #nop awe_length is set to the duration the stun lasts (check info stun);
 
-#var {awe_length} {2};
+#var {awe_length} {4};
 
 #action {^Your %+ awe stuns %+!$} {
   #var {awed} {true};
