@@ -1,6 +1,6 @@
 #alias f12 {
-  #if {$map[current_room] == 220} {#loop 2 12 i {!junk all from bag $i}}
-  {#loop 2 12 i {!sell all from bag $i}}
+  #if {$map[current_room] == 220} {#loop 2 12 i {!junk all from bag $i}};
+  #else {#loop 2 12 i {!sell all from bag $i}}
 }
 
 #nop Based on input, perform scales on items or against a mob;

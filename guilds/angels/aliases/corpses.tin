@@ -1,25 +1,17 @@
-#alias f9 {
-  !wrap corpse;
-  #if {"$flying" == "true"} {!swoop all} {!get all};
-}
-
 #alias use_corpse {
   !hp;
   #if {$gp1_pct < $gp2_pct} {!disperse;} {!rites;!disperse;};
   !hp;
 }
 
-#alias f10 {
-  use_corpse;
+#alias f9 {
+  !wrap corpse;
   #if {"$flying" == "true"} {!swoop all} {!get all};
 }
 
-#alias f12 {
-  #if {$map[current_room] == 220} {
-    #loop 2 8 i {!junk all from bag $i};
-  } {
-    #loop 2 8 i {!sell all from bag $i};
-  }
+#alias f10 {
+  use_corpse;
+  #if {"$flying" == "true"} {!swoop all} {!get all};
 }
 
 #alias redi {
@@ -39,7 +31,6 @@
     #loop 1 %1 $loop {redi_quiet};
   };
   #else {
-    #nop assuming ~20 per corpse, only burn 5 based on max divinity;
     #if {$corpses < 5} {#var max_to_use $corpses} {#var max_to_use 5}
     #if {$corpses > 0} {#loop 1 $max_to_use $loop {redi_quiet};};
     #unvar max_to_use;
