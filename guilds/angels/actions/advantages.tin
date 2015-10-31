@@ -45,7 +45,7 @@
 
     #if {$angel[distance] == && $adv_sort[1][2] > $swing_at_adv && $time_slices > 1} {
       #if {"$awe_foes" == "true" || (($gp1 < 50 || $hp_pct < .8) && "$awed" == "false")} {
-       !awe $adv_sort[1][1];
+        !awe $adv_sort[1][1];
       };
       #elseif {$retributions > 4} {
         !retribution $adv_sort[1][1];

@@ -23,7 +23,7 @@
 
 #var {awe_length} {2};
 
-#action {^Your %+ stuns %+!$} {
+#action {^Your %+ awe stuns %+!$} {
   #var {awed} {true};
   #delay {$awe_length} {#var {awed} {false};};
 }
