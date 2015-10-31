@@ -19,8 +19,8 @@ Dog pound items:
   studded-leather dog barding: low ac buff
   chain dog barding:           medium ac buff
   plate dog barding:           high ac buff
-  razorsnout:
-  super grip footies:
-  irontooth bite guards:
+  razorsnout:                  boosts attack
+  super grip footies:          helps dodge
+  irontooth bite guards:       helps dog hit better
   death's fido contract:       bnote for dog (so it doesn't lose xp)
   DGH:                         change dog breed
