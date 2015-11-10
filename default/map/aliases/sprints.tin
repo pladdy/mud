@@ -1,5 +1,10 @@
-#nop Sprints that require commands in the middle;
+#nop set scaler then sprint to the dungeon;
+#alias dungeon {
+  !scaler %2;
+  run %1;
+}
 
+#nop Sprints that require commands in the middle;
 #alias run_kimlark {
   run kimlark;
   !embark;
