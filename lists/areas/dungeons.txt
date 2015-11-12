@@ -1,0 +1,8 @@
+Dungeons List:
+
+  alphabet
+  chessboard
+  death_taco
+  mahjong    # not scaling
+  puppies
+  smurfs
