@@ -86286,7 +86286,7 @@ E {17950} {w} {w} {8} {0} {}
 E {17949} {nw} {nw} {9} {0} {}
 E {17951} {sw} {sw} {12} {0} {}
 
-R {17942} {0} {<110>} {} { } {} {} {s summons two stone warriors} {} {} {1.000}
+R {17942} {0} {<110>} {} { } {} {} {s summons two aggro stone warriors, 650K x2} {} {} {1.000}
 E {17980} {s} {s} {4} {0} {}
 E {17941} {out} {out} {0} {0} {}
 
@@ -86969,7 +86969,7 @@ R {18054} {0} {} {} { } {} {} {} {} {} {1.000}
 E {18053} {s} {s} {4} {0} {}
 E {18055} {n} {n} {1} {0} {}
 
-R {18055} {0} {<130>} {cavalier_platemail} { } {} {} {grabble the content, cavalier platemail and ring} {} {} {1.000}
+R {18055} {0} {<fca>} {cavalier_platemail} { } {} {} {grabble: cavalier platemail, ring of element warding} {} {} {1.000}
 E {18054} {s} {s} {4} {0} {}
 
 R {18056} {0} {} {} { } {} {} {} {} {} {1.000}
