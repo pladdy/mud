@@ -29,7 +29,7 @@
   #delay {11} {
     !wimpy 45;
     !autoguild surge;
-    !pheal 850 surge;
+    !pheal 900 surge;
   }
 }
 
