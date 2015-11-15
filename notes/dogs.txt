@@ -14,13 +14,13 @@ Kennel:
 
 Dog pound items:
   biscuits:                    use to grow a puppy into a dog
-  spiked collar:
+  spiked collar:               boosts AP
   squirrel chew toy:
   studded-leather dog barding: low ac buff
   chain dog barding:           medium ac buff
   plate dog barding:           high ac buff
-  razorsnout:                  boosts attack
+  razorsnout:                  boosts crit
   super grip footies:          helps dodge
-  irontooth bite guards:       helps dog hit better
+  irontooth bite guards:       helps dog hit
   death's fido contract:       bnote for dog (so it doesn't lose xp)
   DGH:                         change dog breed
