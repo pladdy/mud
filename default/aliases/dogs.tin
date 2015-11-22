@@ -10,9 +10,21 @@
 
 #alias repet {
   !repet;
+  !y;
   !dog monitor;
   !dog brief;
   !dog play;
+  dog_suitup;
+}
+
+#nop get the necessary eq to equip the dog;
+#alias dog_suitup {
+  !buy 2;
+  !buy 5; #nop this is chainmail barding;
+  !buy 7;
+  !buy 8;
+  !buy 9;
+  !give all to dog;
 }
 
 #alias dsc {!dog stats;}
