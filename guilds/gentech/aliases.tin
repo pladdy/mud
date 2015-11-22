@@ -71,6 +71,12 @@
   !get all;
 }
 
+#alias commands_after_corpse {
+  !repair;
+  !stabilize;
+  !tactical;
+}
+
 #alias f12 {
   #if {$map[current_room] == 676} {
     #loop 2 12 i {!trash all from bag $i};
@@ -94,18 +100,12 @@
 }
 
 #nop Useful against HC mage, 3 dmg types to spread out hits;
-
 #alias hca {
   !switchddb thermal;
+  !aset ddb hired;
+
   !switch shocker;
   !aset synthorg yellow;
-  !aset ddb hired;
-}
-
-#alias commands_after_corpse {
-  !repair;
-  !stabilize;
-  !tactical;
 }
 
 #alias repu {
