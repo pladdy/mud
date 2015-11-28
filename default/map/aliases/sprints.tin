@@ -2,7 +2,7 @@
 #alias dungeon {
   #if {"%2" == ""} {
     #showme <170>Shenanigans: death_taco 75, puppies 85, chessboard 80;
-  }
+  };
   #else {
     !scaler %2;
     run %1;
