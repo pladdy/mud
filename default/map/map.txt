@@ -60826,7 +60826,7 @@ R {12342} {0} {} {} { } {} {} {} {} {} {1.000}
 E {12341} {e} {e} {2} {0} {}
 E {12347} {s} {s} {4} {0} {}
 
-R {12343} {0} {<fca>} {vasyrach} { } {} {} {vasyrach, demon spider carapace} {} {} {1.000}
+R {12343} {0} {<fca>} {vasyrach} { } {} {} {kill the 5 spider swords first, then demon;can drop demon spider carapace} {} {} {1.000}
 E {12341} {s} {s} {4} {0} {}
 
 R {12344} {0} {} {} { } {} {} {} {} {} {1.000}
@@ -83795,7 +83795,7 @@ R {17436} {0} {<130>} {} { } {} {} {trap on flagstone} {} {} {1.000}
 E {17435} {w} {w} {8} {0} {}
 E {17437} {e} {e} {2} {0} {}
 
-R {17437} {0} {} {} { } {} {} {} {} {} {1.000}
+R {17437} {0} {<130>} {} { } {} {} {toss rock here to stop trap?} {} {} {1.000}
 E {17436} {w} {w} {8} {0} {}
 E {17438} {jump across} {jump across} {0} {0} {}
 E {17456} {e} {e} {2} {0} {}
@@ -83866,7 +83866,7 @@ R {17452} {0} {} {} { } {} {} {} {} {} {1.000}
 E {17451} {w} {w} {8} {0} {}
 E {17453} {s} {s} {4} {0} {}
 
-R {17453} {0} {} {kathaelis} { } {} {} {attack to reveal, say hi, crypt, bladesinger, baren} {} {} {1.000}
+R {17453} {0} {<fca>} {kathaelis} { } {} {} {attack to reveal, say hi, crypt, bladesinger, baren} {} {} {1.000}
 E {17452} {n} {n} {1} {0} {}
 E {17454} {s} {s} {4} {0} {}
 E {17450} {w} {w} {8} {0} {}
