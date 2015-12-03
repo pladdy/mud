@@ -29,6 +29,10 @@
   #if { @length{$enemy} > 0 } {!cast minor globe;};
 }
 
+#action {^Your form has solidified.$} {
+  #if {@length{$enemy} > 0} {!cast blink;};
+}
+
 #action {^Your immersion has expired.$} {!cast spell tap always;}
 
 #action {^You feel slower as the haste wears off.!} {}

@@ -29,6 +29,7 @@
   #regex {$dspells} { MS} {#nop} {!cast magnificent shield};
   #regex {$dspells} { RS} {#nop} {!cast rhino skin};
   #regex {$dspells} { mg} {#nop} {!cast minor globe};
+  #regex {$dspells} { B}  {#nop} {!cast blink};
 
   #nop Spells to monitor if i enabled them;
 

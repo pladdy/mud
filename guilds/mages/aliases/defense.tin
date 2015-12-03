@@ -9,7 +9,7 @@
 
   #nop Identify spells to keep active and remove from list to depelte;
 
-  #forall {RS;<P>;MB;A;ST} {
+  #forall {B;RS;<P>;MB;A;ST} {
     #list {spells_to_deplete} find {&0} {deplete_index};
     #if {$deplete_index > 0} {
       #list {spells_to_deplete} delete {$deplete_index};
@@ -37,6 +37,10 @@
   #regexp {$dspells} { RS } {#nop;} {
     #delay {$i} {!cast rhino skin}; #math {i} {$i + 2};
   };
+  #regexp {$dspells} { B } {#nop;} {
+    #delay {$i} {!cast blink}; #math {i} {$i + 2};
+  };
+
 
   #if {"$spells[mg]" == "on"} {
     #delay {$i} {mg};
