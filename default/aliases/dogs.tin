@@ -10,11 +10,14 @@
 
 #alias repet {
   !repet;
-  !y;
-  !dog monitor;
-  !dog brief;
-  !dog play;
-  dog_suitup;
+  y;
+  #delay {2} {
+    !y;
+    !dog monitor;
+    !dog brief;
+    !dog play;
+    dog_suitup;
+  };
 }
 
 #nop get the necessary eq to equip the dog;
