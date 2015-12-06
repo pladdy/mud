@@ -12,7 +12,6 @@
   !repet;
   y;
   #delay {2} {
-    !y;
     !dog monitor;
     !dog brief;
     !dog play;
