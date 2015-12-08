@@ -17,8 +17,12 @@
   };
 
   #foreach {$spells_to_deplete[%*] } {deplete_spell} {
-    #format {deplete_spell} {%l} {$deplete_spell};
-    #if { @length{$deplete_spell} > 0} {!deplete $deplete_spell};
+    #nop b is blur, B is blink.  if we just lowercase we only deplete blur...;
+    #if {"$deplete_spell" == "B"} {!deplete B};
+    #else {
+      #format {deplete_spell} {%l} {$deplete_spell};
+      #if { @length{$deplete_spell} > 0} {!deplete $deplete_spell};
+    };
   };
 
   #unvar spells_to_deplete;
