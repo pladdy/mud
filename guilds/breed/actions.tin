@@ -19,6 +19,10 @@
     #if {$gp1_pct <= .5} {!mindsink};
     #if {$enemy <= 10 && $gp1_pct <= .9} {!mindsink};
   }
+
+  #if {"$enemy" != "None" && $gp1 < 750 && $corpses > 0} {
+    redis;
+  }
 }
 
 #action {^C: %1 W: %2 D: %3% T: %4 A:%5$} {
