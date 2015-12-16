@@ -1,0 +1,8 @@
+#alias hvst {
+  !harvest flower;
+  !harvest tree;
+  !harvest grass;
+  !harvest field;
+  !harvest plant;
+  !harvest forest;
+}
