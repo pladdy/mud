@@ -1,4 +1,5 @@
 sqlite3 3kingdoms.dbm
+.headers on
 
 zonetbl has zone list:
 
