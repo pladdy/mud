@@ -13,9 +13,28 @@
   #unvar init_list;
 }
 
+#alias fshow {
+  #script {fshow_files} {
+    grep -rl --exclude '*map.txt' '%1' ./%2;
+  };
+
+  #foreach { $fshow_files[%*] } {file} {
+    #if {"$file" != ""} {
+      #showme <170>File: $file;
+      #system { cat $file }
+    }
+  }
+}
+
+#alias grep {
+  #if {"%1" != ""} {
+    #system grep -r '%1' ./%2;
+  }
+}
+
 #alias show {
   #system {
-    if [ -f %1.txt ] ; then cat %1.txt ; else ls -al %1 ; fi;
+    if [ -f %1 ] ; then cat %1 ; else ls -al %1 ; fi;
   }
 }
 
