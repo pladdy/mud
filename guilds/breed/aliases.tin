@@ -38,9 +38,15 @@
 }
 
 #alias eg {
-  #if {@length{%1} == 0 || @length{%2} == 0} {
-    #showme egress requires a direction, hitpoints, and optional flag;
-  } {
+  #if {"%1" == "clear"} {
+    !egress clear;
+  };
+  #elseif {"%1" == "" || @length{%2} == 0} {
+    #showme <170>'eg' alias requires a direction, hitpoints, and optional flag;
+    !egress check;
+  };
+  #else {
+    #var {egress_dir} {%1};
     #switch {"%1"} {
       #case "n" {!egress north %2 %3};
       #case "s" {!egress south %2 %3};
@@ -54,4 +60,9 @@
       #case "d" {!egress down %2 %3};
     }
   };
+}
+
+#nop when breed wimpies hit order can change and contact has to re-target;
+#alias wimpy_commands {
+  !contact stop;
 }

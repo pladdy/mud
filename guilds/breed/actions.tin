@@ -20,9 +20,7 @@
     #if {$enemy <= 10 && $gp1_pct <= .9} {!mindsink};
   }
 
-  #if {"$enemy" != "None" && $gp1 < 750 && $corpses > 0} {
-    redis;
-  }
+  #if {"$enemy" != "None" && $gp1 < 750 && $corpses > 0} { redis; }
 }
 
 #action {^C: %1 W: %2 D: %3% T: %4 A:%5$} {
@@ -63,3 +61,9 @@
 #action {^You can't break through the mental barriers!!} {
   #var contact_impossible {true};
 }
+
+#action {^You take advantage of your egress and take refuge from battle.$} {
+  #map move $egress_dir;
+  !contact stop;
+}
+
