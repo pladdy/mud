@@ -1,7 +1,5 @@
 #alias use_corpse {
-  !hp;
   #if {$gp1_pct < $gp2_pct} {!disperse;} {!rites;!disperse;};
-  !hp;
 }
 
 #alias f9 {
