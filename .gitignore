@@ -4,5 +4,5 @@ last_session.tin
 areas/*
 
 default/map/current_map.txt
-default/map/backup.txt
+default/map/backup_map.txt
 default/map/map_globals.txt
