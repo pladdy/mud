@@ -15,13 +15,13 @@
 
 #alias fshow {
   #script {fshow_files} {
-    grep -rl --exclude '*map.txt' '%1' ./%2;
+    grep -rl --exclude '*map.txt' '%0' ./;
   };
 
   #foreach { $fshow_files[%*] } {file} {
     #if {"$file" != ""} {
-      #showme <170>File: $file;
-      #system { cat $file }
+      #system { cat $file };
+      #showme <170>From file: $file;
     }
   }
 }
