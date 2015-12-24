@@ -14,8 +14,13 @@
 }
 
 #alias fshow {
+  #if {"%1" == ""} {
+    #showme <170>Need to provide something to search for.;
+    #return;
+  };
+
   #script {fshow_files} {
-    grep -rl --exclude '*map.txt' '%0' ./;
+    grep -rlI --exclude '*map.txt' --exclude '*.git*' '%0' ./;
   };
 
   #foreach { $fshow_files[%*] } {file} {
