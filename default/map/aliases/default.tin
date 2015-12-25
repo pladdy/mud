@@ -8,6 +8,25 @@
   }
 }
 
+#nop Peek in a room to see it's data;
+
+#alias pmap {
+  #switch {"%1"} {
+    #case "n" #var {opposite_dir} {s};
+    #case "s" #var {opposite_dir} {n};
+    #case "w" #var {opposite_dir} {e};
+    #case "e" #var {opposite_dir} {w};
+    #case "nw" #var {opposite_dir} {se};
+    #case "se" #var {opposite_dir} {nw};
+    #case "ne" #var {opposite_dir} {sw};
+    #case "sw" #var {opposite_dir} {ne};
+  }
+  #map move %1;
+  #map info;
+  #map move $opposite_dir;
+  #unvar opposite_dir;
+}
+
 #alias map { #map map; }
 
 #alias map_run {
