@@ -1,5 +1,7 @@
 #nop use 'swing_at' function to change default value of when to take a swing;
 #var swing_at_adv {90};
+#nop use 'slice_at' to change default value;
+#var slice_at_ts {3};
 
 #action {^HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8} {
   #if { @length{%1} > 0 } {
@@ -8,7 +10,7 @@
     #var advantages[lo] %5;
     #var advantages[li] %7;
 
-    #nop sort them in descending order by value (k: location -> v: advantage);
+    #nop sort them in descending order by value (k: location, v: advantage);
 
     #var i {1};
     #var adv_sort {};
@@ -43,8 +45,12 @@
 
     #nop Hit or not, that is the question;
 
-    #if {$angel[distance] == && $adv_sort[1][2] > $swing_at_adv && $time_slices > 1} {
-      #if {"$awe_foes" == "true" || (($gp1 < 50 || $hp_pct < .8) && "$awed" == "false")} {
+    #if {$angel[distance] == 0
+         && $adv_sort[1][2] > $swing_at_adv
+         && $time_slices > $slice_at_ts} {
+      #if {"$awe_foes" == "true"
+           || (($gp1 < 50 || $hp_pct <= .9)
+           && "$awed" == "false")} {
         !awe $adv_sort[1][1];
       };
       #elseif {$retributions > 4} {
@@ -59,9 +65,15 @@
       #math {adv_sort[1][2]} {$adv_sort[1][2] / 2};
     };
 
-    #if {$adv_sort[1][2] > 20 && $time_slices > 0} {
+    #if {$angel[distance] == 0
+         && $adv_sort[1][2] > 20
+         && $time_slices >= $slice_at_ts} {
       !presage $adv_sort[1][1];
       #math {time_slices} {$time_slices - 1};
+    };
+
+    #if {$time_slices < $slice_at_ts && "$can_disengage" == "true"} {
+      !disengage;
     };
   };
 }

@@ -8,6 +8,8 @@
   };
 }
 
+#alias awf {awe_foes};
+
 #alias deup {
   !aegis;
   !manifest wings;
@@ -16,11 +18,26 @@
 }
 
 #alias dis {
-  #var {disengage} {%1};
-  #if {@length{%1} == 0} {#var {disengage} 5};
+  #if {"%1" == ""} {!disengage 1};
+  #else {!disengage %1};
+  #var disengaging true;
+}
 
-  #showme <170>retreating $disengage ...;
-  !disengage $disengage
+#alias en {
+  #if {"%1" == ""} {!engage 1};
+  #else {!engage %1};
+  #var disengaging false;
+}
+
+#alias slice_at {
+  #if {@length{%1} > 0} {
+    #showme Setting slice_at_ts to %1;
+    #var slice_at_ts %1;
+  } {
+    #showme To set what TS count you attack at, pass in an int > 0;
+    #showme Current slice_at_ts: $slice_at_ts;
+  }
+
 }
 
 #alias swing_at {

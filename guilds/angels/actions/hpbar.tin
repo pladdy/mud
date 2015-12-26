@@ -23,6 +23,16 @@
 
   #list angel_train size angel_trainings;
 
+  #if {$time_slices >= 9
+       && $angel[distance] < 1
+       && "$disengaging" != "false"
+       && "$can_disengage" == "true"
+       && $adv_sort[1][2] >= $swing_at_adv} {
+    !disengage;
+  };
+
+  #if {$gp1 < 50 && $corpses > 0} {redi};
+
   #if {$angel_trainings > 0} {
     #foreach { $angel_train[%*] } {skill} {
       #if { @length{$skill} > 0 } { #showme <fca>Go Train $skill; };

@@ -2,6 +2,18 @@
   #if {$corpses > 0} {reri};
 }
 
+#action {^You are not close enough to} {
+
+}
+
+#action {^You have no where to retreat!$} {
+  #var {can_disengage} {false};
+}
+
+#action {^You don't have that many time slices available.$} {
+  !circle;
+}
+
 #action {^You divine strike} {
   #var circle {true};
 }
@@ -46,3 +58,6 @@
   #var flying true;
 }
 
+#action {^Your talisman grows warm.$} {
+  #10 hold talisman;
+}
