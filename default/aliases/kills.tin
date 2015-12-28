@@ -11,13 +11,13 @@
 }
 
 #alias ktrig_off {
-  #showme <110>Turning ktrig off, ktrig_on to reactivate.
+  #showme <110>Turning ktrig off, ktrig_on to reactivate.;
   #unaction {^%1 dealt the killing blow to %+.};
 }
 
 #alias ktrig_on {
-  #showme <120>Turning ktrig back on.
-  #read actions.tin;
+  #showme <120>Turning ktrig back on.;
+  #read default/actions/kills.tin;
 }
 
 #alias kk {
