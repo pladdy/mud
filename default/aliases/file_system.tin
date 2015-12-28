@@ -20,7 +20,7 @@
   };
 
   #script {fshow_files} {
-    grep -rlI --exclude '*map.txt' --exclude '*.git*' '%0' ./;
+    grep -rliI --exclude '*map.txt' --exclude '*.git*' '%0' ./;
   };
 
   #foreach { $fshow_files[%*] } {file} {
