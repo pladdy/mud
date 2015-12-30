@@ -19,6 +19,9 @@
   #var time_slices_max {%6};
   #var retributions {%11};
 
+  #var enemy {%12};
+  #replace {enemy} {%} {};
+
   #var circle {false};
 
   #list angel_train size angel_trainings;
@@ -31,7 +34,7 @@
     !disengage;
   };
 
-  #if {$gp1 < 50 && $corpses > 0} {redi};
+  #if {$gp1 < 50 && $corpses > 0 && $enemy > 0} {redi};
 
   #if {$angel_trainings > 0} {
     #foreach { $angel_train[%*] } {skill} {
