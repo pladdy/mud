@@ -6,6 +6,5 @@
     #math {angel[distance]} {@length{%3} - 1};
   }
 
-  #regexp {%0} {|P} {#var can_disengage false} {#var can_disengage true};
-  #regexp {%0} {P|} {#var can_disengage false} {#var can_disengage true};
+  #regexp {%0} {{\|P|P\|}} {#var can_disengage false} {#var can_disengage true};
 }
