@@ -2,6 +2,8 @@
 #var swing_at_adv {90};
 #nop use 'slice_at' to change default value;
 #var slice_at_ts {3};
+#nop use 'awe_at' to specify at what ratio of hps you awe for regen buffer;
+#var awe_at_hp_pct {.9};
 
 #action {^HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8} {
   #if { @length{%1} > 0 } {
@@ -49,7 +51,7 @@
          && $adv_sort[1][2] > $swing_at_adv
          && $time_slices > $slice_at_ts} {
       #if {"$awe_foes" == "true"
-           || (($gp1 < 50 || $hp_pct <= .9)
+           || (($gp1 < 50 || $hp_pct <= $awe_at_hp_pct)
            && "$awed" == "false")} {
         !awe $adv_sort[1][1];
       };
