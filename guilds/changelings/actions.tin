@@ -1,0 +1,15 @@
+#action {^H: %1/%2 S: %3/%4 St: %5% P: %6% B: %7 C: %8/%9% E:%10} {
+  #var hp {%1};
+  #var hp_max {%2};
+  #format hp_pct {%f} {$hp / $hp_max};
+
+  #var sp {%3};
+  #var sp_max {%4};
+  #format sp_pct {%f} {$sp / $sp_max};
+
+  #var gp1 {%5};
+  #var gp2 {%6};
+
+  #var enemy {%10};
+  #replace {enemy} {%} {};
+}
