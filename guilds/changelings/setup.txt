@@ -4,8 +4,16 @@ alias h morph
 alias ab absorb
 alias bi bioextract
 alias cfs confighp showskill
-alias c consume bioplast
+alias cb consume bioplast
+alias di digest
+alias gs3 skills
+alias gs4 forms
 
 gansi 24 hiblack
 gansi 17 hicyan
 gansi 32 norm
+gansi 19 hired
+gansi 20 yellow
+gansi 22 hicyan
+gansi 35 higreen
+gansi 23 hiblack

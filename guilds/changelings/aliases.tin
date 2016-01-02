@@ -1,7 +1,13 @@
 #alias use_corpse {
-  !hp;
-  !absorb;
-  !hp;
+  #if {"$coffin_status" == "FULL" && ($gp1 < 80 || $gp1 < 80)} {
+    !hp;
+    !absorb;
+    !hp;
+  };
+  #else {
+    !bioextract;
+    !keep bioplast;
+  }
 }
 
 #alias f10 {
@@ -9,10 +15,36 @@
   #if {"$flying" == "true"} {!swoop all} {!get all}
 }
 
-#alias m {
-  #switch {%0} {
-    #case {owl} {#var flying true};
-    #default {#var flying false};
+#alias reab {
+  !unwrap;
+  !absorb;
+}
+
+#alias reabs {
+  #if {$corpses > 0} {
+    #if {$corpses < 5} {#var to_use {$corpses}} {#var to_use {5}};
+    #loop 1 $to_use $loop {
+      !unwrap;
+      !absorb;
+    };
+    #unvar to_use;
   }
+}
+
+#nop Define session variables i want exported;
+#alias guild_session {
+ #system {
+    echo \#var {flying} {$flying} >> last_session.tin;
+  };
+}
+
+#nop morph alias to set different vars;
+#alias m {
+  #if {"%0" != ""} {
+    #switch {%0} {
+      #case {owl} {#var flying true};
+      #default {#var flying false};
+    }
+  };
   !morph %0;
 }
