@@ -1,0 +1,18 @@
+#alias use_corpse {
+  !hp;
+  !absorb;
+  !hp;
+}
+
+#alias f10 {
+  use_corpse;
+  #if {"$flying" == "true"} {!swoop all} {!get all}
+}
+
+#alias m {
+  #switch {%0} {
+    #case {owl} {#var flying true};
+    #default {#var flying false};
+  }
+  !morph %0;
+}

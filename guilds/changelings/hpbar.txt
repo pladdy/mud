@@ -1,0 +1,59 @@
+<+>========================================================================<+>
+ | -<( Changeling Help )>- powers::confighp                                 |
+ |--------------------------------------------------------------------------|
+ | This command lets you completely customize your HP bar by entering       |
+ | a combination of text and tokens. If you need to, you can also           |
+ | reset your HP bar to a one of the standard configurations.               |
+ |                                                                          |
+ | These configuration changes will also be reflected in the Portal         |
+ | mud client, if you are using it.                                         |
+ |                                                                          |
+ | HP bar abbreviations: HP (hit points)    CF (Chaos Flux, for relinquish) |
+ |                       SP (spell points)  FF (form familiarity)           |
+ |                       ST (stamina)       E  (enemy health)               |
+ |                       PP (protoplasm)                                    |
+ |                                                                          |
+ | The next letter after Enemy indicates the current chaotic forces         |
+ | affecting the guild. D = detrimental, N = neutral, and B = beneficial.   |
+ |                                                                          |
+ | Enemy health will be shown as perfect, bruises, bleeding, etc. unless    |
+ | you have raised the Mud Skill for "Evaluation" (see                      |
+ | "help combat.proficiency.evaluation"). At level 4, Evaluation will       |
+ | also show you the enemy health when you look at the room.                |
+ |                                                                          |
+ | The last set of letters are abbreviations for intrinsics that are        |
+ | currently active. The most common one is P for Perform. Others           |
+ | you will note as you turn your intrinsics on and off.                    |
+ |                                                                          |
+ | For more information and a list of tokens, type "confighp".              |
+ |                                                                          |
+ | Example: confighp HP:$CHP/$MHP SP:$CSP/$MSP ST:$STA PP:$PPM              |
+ |                 = HP:2141/2262 SP:1498/498 ST:100.0% PP:100.0%           |
+ |                                                                          |
+ | Usage: confighp (view current settings)                                  |
+ |        confighp <text> (reconfigures your HP bar)                        |
+ |        hp <#> (view standard HP bar <#>)                                 |
+ |        confighp reset <#> (reset your HP bar to a standard one)          |
+ |        confighp showskill <skill> (sets the $SKN and $SKP skill)         |
+ |        confighp showskill off (stop showing skills)                      |
+ |        confighp showbioplasts (toggles showing number carried)           |
+
+Your current HP string is:
+HP[$CHP/$MHP] SP[$CSP/$MSP] ST[$STA] PP[$PPM] CF[$CFX] FF[$FAM] E[$MON] $STS
+
+Which looks like:
+HP[90/117] SP[50/48] ST[100.00%] PP[39.25%] CF[0/95%] FF[5.00%] E[] D P
+
+You may use the following tokens for substitution:
+  $BPL - # of Bioplasts    $FRM - Current Form      $SKN - Config Skill
+  $CFX - Chaos Flux        $MHP - Maximum HP        $SKP - Config Skill %
+  $CHP - Current HP        $MON - Enemy Status      $STA - Current Stam
+  $CRT - Carriage Return   $MSP - Maximum SP        $STS - Status String
+  $CSP - Current SP        $PFM - Perform Cmd
+  $FAM - Familiarity       $PPM - Current Proto
+
+Use "confighp reset #" to use one of the following standard HP bars:
+1: HP[90/117] SP[50/48] ST[100.00%] PP[39.25%] CF[0/95%] FF[5.00%] E[] D P
+2: HP:90/117 SP:50/48 ST:100.00% PP:39.25% CF:0/95% FF:5.00% E: D P
+
+confighp H: $CHP/$MHP S: $CSP/$MSP St: $STA P: $PPM B: $BPL C: $CFX E: $MON $CRTSk: $SKN Gx: $SKP F: $FRM: $FAM St: $STS

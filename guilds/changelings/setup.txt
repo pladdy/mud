@@ -1,0 +1,11 @@
+alias sk mskills
+alias ff swoop
+alias h morph
+alias ab absorb
+alias bi bioextract
+alias cfs confighp showskill
+alias c consume bioplast
+
+gansi 24 hiblack
+gansi 17 hicyan
+gansi 32 norm
