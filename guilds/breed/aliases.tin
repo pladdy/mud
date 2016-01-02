@@ -29,12 +29,14 @@
 }
 
 #alias redis {
-  #if {$corpses < 5} {#var to_use {$corpses}} {#var to_use {5}};
-  #loop 1 $to_use $loop {
-    !unwrap;
-    !disperse corpse;
-  };
-  #unvar to_use;
+  #if {$corpses >0} {
+    #if {$corpses < 5} {#var to_use {$corpses}} {#var to_use {5}};
+    #loop 1 $to_use $loop {
+      !unwrap;
+      !disperse corpse;
+    };
+    #unvar to_use;
+  }
 }
 
 #alias eg {
