@@ -27,3 +27,5 @@
 #action {^There is no reason to 'board' here.$} {map_undo;}
 #action {^GenCorps Officer knocks you back with the butt of his weapon!$} {map_undo;}
 #action {^Strike Guard jumps up over your head and lands directly in your path!!$} {map_undo;}
+#action {^You would have to fly to go that way.$} {map_undo}
+#action {^You would need to be able to fly or swim to go that way.$} {map_undo}
