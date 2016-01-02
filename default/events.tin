@@ -12,6 +12,8 @@
   #delay {1} {map_refresh;}
 }
 
+#alias guild_session {}
+
 #event {SESSION DISCONNECTED} {
   map_save;
   #system {
@@ -19,6 +21,7 @@
     echo \#var {chaos_port_location} {$chaos_port_location} >> last_session.tin;
     echo \#var {wielded_weapon} {$wielded_weapon} >> last_session.tin;
   };
+  guild_session;
 }
 
 #event {SESSION DEACTIVATED} {
