@@ -10,8 +10,6 @@ e
 u
 modify TELLSELF 1
 
-#nop Ansi;
-
 aset xp1 yellow
 aset xp2 green
 aset xp3 white
@@ -30,8 +28,6 @@ aset skill_block flash+hicyan
 aset skill_dodge flash+hicyan
 aset skill_freecast flash+higreen
 
-#nop Aliases;
-
 alias .login jump
 alias l look at
 alias li lineofsight
@@ -45,18 +41,3 @@ alias h salve
 alias gx get $* from box
 alias px put $* in box
 
-#nop Skills;
-
-#nop {
-  cartography: max
-  appraisal: 1
-  perception: max
-
-
-  # if needed
-  combat.armor.light
-  combat.armor.light.medium
-  combat.armor.light.medium.heavy
-
-  #nop skill quest;
-};
