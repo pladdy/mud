@@ -31,6 +31,12 @@
   }
 }
 
+#alias rebe {
+  !unwrap;
+  !bioextract;
+  !keep bioplast;
+}
+
 #nop Define session variables i want exported;
 #alias guild_session {
  #system {
