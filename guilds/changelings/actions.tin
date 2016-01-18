@@ -9,7 +9,10 @@
 
   #var gp1 {%5};
   #var gp2 {%6};
+  #var bioplasts {%7};
 
   #var enemy {%10};
   #replace {enemy} {%} {};
+
+  #if {$gp1 <= 5 && $bioplasts > 0} {!consume bioplast};
 }
