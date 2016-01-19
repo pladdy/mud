@@ -1,5 +1,5 @@
 #alias use_corpse {
-  #if {"$coffin_status" == "FULL" && ($gp1 < 80 || $gp1 < 80)} {
+  #if {"$coffin_status" == "FULL" && ($gp1 < 80 || $gp1 < 80 || $bioplasts > 25)} {
     !hp;
     !absorb;
     !hp;
