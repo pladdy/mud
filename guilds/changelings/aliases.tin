@@ -49,6 +49,7 @@
   #if {"%0" != ""} {
     #switch {%0} {
       #case {owl} {#var flying true};
+      #case {owlet} {#var flying true};
       #default {#var flying false};
     }
   };
