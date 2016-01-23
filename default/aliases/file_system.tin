@@ -38,9 +38,14 @@
 }
 
 #alias show {
-  #system {
-    if [ -f %1 ] ; then cat %1 ; else ls -al %1 ; fi;
-  }
+  #if {"%1" == ""} {
+    #system { ls -al };
+  };
+  #else {
+    #system {
+      if [ -f %1 ] ; then cat %1 ; else ls -al %1 ; fi;
+    }
+  };
 }
 
 #alias lists { show lists/%1 }
