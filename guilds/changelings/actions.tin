@@ -16,3 +16,8 @@
 
   #if {$gp1 <= 5 && $bioplasts > 0} {!consume bioplast};
 }
+
+#action {^You reach out a slimy tendril towards %1,} {#var {mimic} {%1};}
+#action {^You are currently mimicking %1.$} {#var {mimic} {%1};}
+#action {^You flow back into your natural form.$} {#unvar mimic;}
+#action {^You are not mimicking anything!$} {#unvar mimic;}

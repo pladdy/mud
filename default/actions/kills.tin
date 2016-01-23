@@ -4,7 +4,7 @@
 
   commands_before_corpse;
 
-  #regexp {%1} {%i{$character|$mage_summons|Pogo}} {
+  #regexp {%1} {%i{$character|$mage_summons|$mimic|Pogo}} {
     !glance;
     wrap_or_use_corpse;
     !divvy gold;
