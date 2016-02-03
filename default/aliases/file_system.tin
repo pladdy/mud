@@ -26,7 +26,7 @@
   #foreach { $fshow_files[%*] } {file} {
     #if {"$file" != ""} {
       #system { cat '$file' };
-      #showme <170>From file: $file;
+      #showme <170>From file: $file\n;
     }
   }
 }
