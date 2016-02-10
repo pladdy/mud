@@ -55,3 +55,8 @@
   };
   !morph %0;
 }
+
+#alias fu {
+  !fuse %1 and %1;
+  !keep bioplast;
+}
