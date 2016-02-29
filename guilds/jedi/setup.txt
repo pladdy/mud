@@ -1,4 +1,6 @@
-# swap these for triggers and what i'm used to reading
+#nop run this with '#script {cat guilds/jedi/setup.txt}';
+
+#nop swap these for triggers and what i'm used to reading;
 alias i ii
 alias ii i
 

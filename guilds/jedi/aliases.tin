@@ -19,6 +19,12 @@
   }
 }
 
+#alias use_corpse {
+  !hp;
+  !eat corpse;
+  !hp;
+}
+
 #alias refo {
   !unwrap corpse;
   !focus release force;

@@ -1,7 +1,7 @@
 #nop Set up environment.
 
 #var character {fiddlestix};
-#var guild {adventurers};
+#var guild {jedi};
 
 #read default/init.tin;
 read_tin_files guilds/$guild;
