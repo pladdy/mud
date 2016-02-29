@@ -1,3 +1,4 @@
+#nop run this with '#script {cat guilds/adventurers/setup.txt}';
 wimpy 30
 cbrief on mo
 
@@ -41,3 +42,4 @@ alias h salve
 alias gx get $* from box
 alias px put $* in box
 
+f2
