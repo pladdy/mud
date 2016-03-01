@@ -19,3 +19,9 @@ alias lfs focus lesser force shield
 alias gfs focus greater force shield
 alias rcost focus check /cost
 alias re focus reflex for
+
+aset jedi_cpain hiblack
+aset jedi_dodge hicyan
+aset jedi_lfs white
+aset jedi_gfs yellow
+aset jedi_r_i higreen
