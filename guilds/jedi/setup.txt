@@ -20,6 +20,9 @@ alias gfs focus greater force shield
 alias rcost focus check /cost
 alias re focus reflex for
 
+aset jedi_com higreen
+aset jedi_notify white
+aset jedi_death hired
 aset jedi_cpain hiblack
 aset jedi_dodge hicyan
 aset jedi_lfs white

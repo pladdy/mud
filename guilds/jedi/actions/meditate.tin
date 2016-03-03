@@ -1,6 +1,6 @@
 #nop 'rests.' doesn't trigger the action...not sure why;
 
-#action {^Tension leaves you as your mind rests.$} {
+#action {^Tension leaves you as your mind rests} {
   !hp;
 }
 
