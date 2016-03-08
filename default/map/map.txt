@@ -16332,7 +16332,7 @@ E { 3084} {e} {e} {2} {0} {}
 E { 3085} {n} {n} {1} {0} {}
 E { 3086} {w} {w} {8} {0} {}
 
-R { 3084} {0} {<130>} {} { } {} {} {wand of power (glowing), decent flame exotic wpn;cloak is decent too} {} {} {1.000}
+R { 3084} {0} {<130>} {wand_of_power2} { } {} {} {wand of power (glowing), decent flame exotic wpn;cloak is decent too} {} {} {1.000}
 E { 3083} {w} {w} {8} {0} {}
 
 R { 3085} {0} {} {} { } {} {} {} {} {} {1.000}
