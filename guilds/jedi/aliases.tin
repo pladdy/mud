@@ -58,3 +58,9 @@
     }
   }
 }
+
+#alias drl {
+  !draw lightsaber;
+  !activate lightsaber;
+  !focus mode /guide;
+}
