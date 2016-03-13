@@ -64,3 +64,9 @@
   !activate lightsaber;
   !focus mode /guide;
 }
+
+#alias wimpy_commands {
+  #delay 2 {!focus reduce injury};
+  #delay 4 {!focus reduce injury};
+  #delay 6 {!focus hibernation trance};
+}

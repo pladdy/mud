@@ -40,6 +40,7 @@
 #action {^Your legs tried to run away, but failed.$} {
   #showme <110>Wimpy firing!;
   !hp;
+  wimpy_commands;
 }
 
 #action {^Your legs run away with you %1.$} {
