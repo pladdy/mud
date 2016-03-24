@@ -19,11 +19,7 @@
   }
 }
 
-#alias use_corpse {
-  !hp;
-  !eat corpse;
-  !hp;
-}
+#alias use_corpse {!focus release force;}
 
 #alias refo {
   !unwrap corpse;
