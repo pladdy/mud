@@ -46,7 +46,7 @@
 }
 
 #action {^You try to grab on to the electrical cord to get out of here but a roach$} {
-  #map goto 12492;  
+  #map goto 12492;
 }
 
 #nop Silver/Blue;
@@ -56,4 +56,10 @@
     #case {12868} {#map goto 12869;}
     #case {12869} {#map goto 12868;}
   }
+}
+
+#nop Wandering Refridgerator;
+
+#action {^You open the huge refrigerator and step inside.$} {
+  #map goto 20497;
 }
