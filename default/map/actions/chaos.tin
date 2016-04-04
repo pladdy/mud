@@ -63,3 +63,14 @@
 #action {^You open the huge refrigerator and step inside.$} {
   #map goto 20497;
 }
+
+#nop Princess Bride;
+
+#action {^Florin Dock (ne)} {
+  #if {$map[current_room] == 20624} { #map go 20620; }
+}
+
+#action {^Cliffs of Insanity} {
+  #if {$map[current_room] == 20624} { #map go 20625; }
+
+}
