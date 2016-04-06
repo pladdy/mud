@@ -13,7 +13,7 @@
   #unvar init_list;
 }
 
-#alias fshow {
+#alias fsearch {
   #if {"%1" == ""} {
     #showme <170>Need to provide something to search for.;
     #return;
@@ -37,13 +37,23 @@
   }
 }
 
-#alias show {
+#alias fshow {
   #if {"%1" == ""} {
     #system { ls -al };
   };
   #else {
     #system {
-      if [ -f %1 ] ; then cat %1 ; else ls -al %1 ; fi;
+      first_file_found=$(find ./ -wholename '*%1*' | head -n 1);
+
+      if [ -n $first_file_found ]; then
+        msg="first file found: $first_file_found";
+        printf "\e[97m$msg\e[0m\n";
+        cat $first_file_found;
+      elif [ -f %1 ]; then
+        cat %1;
+      else
+        ls -al %1;
+      fi;
     }
   };
 }
