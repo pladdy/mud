@@ -108,3 +108,9 @@
 #action {^You get sucked into the vortex!!!!$} {
   #if {$map[current_room] == 4700} {#map goto 17242};
 }
+
+#nop Winter Wonderland;
+
+#action {^Exhilarated! You look back up the slope, and ponder doing it again.$} {
+  #if {$map[current_room] == 20702} {#map goto 20703};
+}
