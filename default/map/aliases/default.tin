@@ -59,11 +59,18 @@
 #nop fix this ugliness of handling globals in a file with no keys...;
 
 #alias map_refresh {
-  #nop Try to read mud_map_width from env or set to a default;
-  #script {mud_map_width} {cat $map_dir/map_globals.txt};
+  #nop Try to read mud_map_height from env or set to a default;
+  #script {mud_map_width} {
+    grep 'width'  $map_dir/map_globals.txt | sed 's/width://'
+  };
   #if {! $mud_map_width[1] > 0} {#var {mud_map_width} 100};
 
-  #format {map_dimensions} {%sx%s} {$mud_map_width[1]} {50};
+  #script {mud_map_height} {
+    grep 'height'  $map_dir/map_globals.txt | sed 's/height://'
+  };
+  #if {! $mud_map_height[1] > 0} {#var {mud_map_height} 58};
+
+  #format {map_dimensions} {%sx%s} {$mud_map_width[1]} {$mud_map_height[1]};
   #map map $map_dimensions $map_dir/current_map.txt;
 }
 

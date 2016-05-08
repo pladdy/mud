@@ -5,19 +5,28 @@
  # might need to use a file instead
  ##
 MUD_MAP_WIDTH=100 # default
+MUD_MAP_HEIGHT=50 # default
 MAP_DIR="default/map"
 
-# TODO:
-# have named settings instead of a value with no key...
+# set width if passed
 if [[ "$1" =~ ^[0-9]+$ ]] && [ 0 -le "$1" ]; then
   echo setting width to $1
-  echo $1 > "${MAP_DIR}/map_globals.txt"
+  echo width:$1 > "${MAP_DIR}/map_globals.txt"
 else
-  echo "${MUD_MAP_WIDTH}" > "${MAP_DIR}/map_globals.txt"
+  echo "width:${MUD_MAP_WIDTH}" > "${MAP_DIR}/map_globals.txt"
+fi
+
+# set height if passed
+if [[ "$2" =~ ^[0-9]+$ ]] && [ 0 -le "$1" ]; then
+  echo setting height to $2
+  echo height:$2 >> "${MAP_DIR}/map_globals.txt"
+else
+  echo "height:${MUD_MAP_HEIGHT}" >> "${MAP_DIR}/map_globals.txt"
 fi
 
 ##
- # tail the map so it refreshes; try to use -s option if available to refresh constantly
+ # tail the map so it refreshes; try to use -s option if available to refresh
+ # constantly
  ##
 if $(tail -s 0 /dev/null 2> /dev/null); then
   tail -f -s 0 "${MAP_DIR}/current_map.txt"
