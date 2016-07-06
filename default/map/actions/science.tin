@@ -12,28 +12,36 @@
   #map goto 8371;
 }
 
+#nop Battlestar Galatica;
+
+#action {^You step to the center of the docking bay, eager to explore this} {
+  #if {$map[current_room] == 21011} { #map goto 21012; }
+}
+
+#action {^The Raptor pilot announces: Welcome to Galactica.} {
+  #if {$map[current_room] == 21013} { #map goto 21014; }
+}
+
+#action {^The Raptor pilot announces: Welcome back to Midways.} {
+  #if {$map[current_room] == 21014} { #map goto 21013; }
+}
+
 #nop Dune;
 
 #action {^Archway to Spacing Guild (d,exit)} {
-  #if {$map[current_room] == 9073} {
-    #map goto 9074;
-  }
+  #if {$map[current_room] == 9073} { #map goto 9074; }
 }
 
 #nop Living Planets;
 
 #action {^In the gravity well (u,d)} {
-  #if {$map[current_room] == 10033} {
-    #map goto 10034;
-  }
+  #if {$map[current_room] == 10033} { #map goto 10034; }
 }
 
 #nop Brood Wars;
 
 #action {^A Starcraft Expansion Shuttle Bay (e)} {
-  #if {$map[current_room] == 10045} {
-    #map goto 10046;
-  }
+  #if {$map[current_room] == 10045} { #map goto 10046; }
 }
 
 #nop Silicon Wraiths;

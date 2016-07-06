@@ -67,6 +67,8 @@
       #math {adv_sort[1][2]} {$adv_sort[1][2] / 2};
     };
 
+    #nop Presage;
+
     #if {$angel[distance] == 0
          && $adv_sort[1][2] > 20
          && $time_slices >= $slice_at_ts} {
