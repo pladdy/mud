@@ -1,8 +1,8 @@
-last_session.tin
 3kingdoms.dbm
 
 areas/*
 
+default/last_session.tin
 default/map/current_map.txt
 default/map/backup_map.txt
 default/map/map_globals.txt

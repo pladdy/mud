@@ -13,5 +13,5 @@ map_lock;
 
 #nop Go to last known room;
 
-#read last_session.tin;
+#read default/last_session.tin;
 #map goto $map[current_room];

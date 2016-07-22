@@ -1,15 +1,16 @@
 #nop Default init file for all profiles;
+#nop excludes the map files and any other init files (including itself);
 
-#script {init_list} {
-  find -E . -wholename '*.tin' -a ! -regex '.*(guilds|map|profiles)/.*' -a ! -regex '.*/init.tin'
+#script {default_tin_files} {
+  find ./default -iwholename '*.tin' | grep -v '/map/' | grep -v 'init'
 };
 
-#foreach { $init_list[%*] } {file} {
+#foreach { $default_tin_files[%*] } {file} {
   #showme Reading in file: $file;
   #if {"$file" != ""} {#read $file};
 };
 
-#unvar init_list;
+#unvar default_tin_files;
 
 #CONFIG           {256 COLORS}  {ON}
 #CONFIG           {AUTO TAB}  {5000}

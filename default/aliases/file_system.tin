@@ -1,6 +1,6 @@
 #alias read_tin_files {
   #script {init_list} {
-    find -E ./%1 -wholename '*.tin' -a ! -regex '.*/init.tin'
+    find ./%1 -wholename '*.tin' | grep -v init
   };
 
   #foreach { $init_list[%*] } {file} {

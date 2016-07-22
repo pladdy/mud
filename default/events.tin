@@ -17,11 +17,11 @@
 #event {SESSION DISCONNECTED} {
   map_save;
   #system {
-    echo \#var {map[current_room]} {$map[current_room]} > last_session.tin;
-    echo \#var {chaos_port_location} {$chaos_port_location} >> last_session.tin;
-    echo \#var {wielded_weapon} {$wielded_weapon} >> last_session.tin;
+    echo \#var {map[current_room]} {$map[current_room]} > default/last_session.tin;
+    echo \#var {chaos_port_location} {$chaos_port_location} >> default/last_session.tin;
+    echo \#var {wielded_weapon} {$wielded_weapon} >> default/last_session.tin;
   };
-  guild_session;
+  #if { "$quit" != "true" } { guild_session; }
 }
 
 #event {SESSION DEACTIVATED} {

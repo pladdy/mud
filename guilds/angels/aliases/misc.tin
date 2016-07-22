@@ -3,9 +3,16 @@
   #else {#loop 2 12 i {!sell all from bag $i}}
 }
 
+#nop Define session variables i want exported;
+#alias guild_session {
+ #system {
+    echo \#var {flying} {$flying} >> default/last_session.tin;
+  };
+}
+
 #nop Based on input, perform scales on items or against a mob;
 #alias sca {
-  #if {@length{%2} > 0} {!scales %1 against %2;} {!scales against %1;};
+  #if {@length{%2} > 0} {!scales %0;} {!scales against %1;};
 }
 
 #alias scales_bot {

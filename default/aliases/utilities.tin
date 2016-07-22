@@ -6,6 +6,17 @@
   #unvar sed_str;
 }
 
+#alias auction {
+  #if {@length{%3} == 0} {
+    !auction %0;
+  } {
+    !auction %1;
+    #send %2;
+    #send %3;
+    #send %4;
+  }
+}
+
 #alias nn { #10 n; }
 #alias ww { #10 w; }
 #alias ee { #10 e; }
@@ -19,6 +30,10 @@
 
 #alias f12 {
   #loop 2 8 i {!sell all from bag $i};
+}
+
+#alias guild_sesion {
+  #nop to be implemented per guild;
 }
 
 #nop HighMortal powers;
@@ -42,6 +57,11 @@
 #alias ls {
   !look at %0;
   !search %0;
+}
+
+#alias quit {
+  #var quit true;
+  !quit
 }
 
 #alias ut_mow {
@@ -90,15 +110,4 @@
 #alias wield {
   #var {wielded_weapon} {%0};
   !wield %0;
-}
-
-#alias auction {
-  #if {@length{%3} == 0} {
-    !auction %0;
-  } {
-    !auction %1;
-    #send %2;
-    #send %3;
-    #send %4;
-  }
 }
