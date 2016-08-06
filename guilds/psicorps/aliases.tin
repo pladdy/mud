@@ -1,9 +1,11 @@
-#alias f10 {
+#alias use_corpse {
   !hp;
   !eat corpse;
   !hp;
   !get all;
 }
+
+#alias f10 {use_corpse};
 
 #alias f12 {
   #loop 2 8 i {!sell all from bag $i};

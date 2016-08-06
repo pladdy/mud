@@ -1,10 +1,12 @@
-#alias f10 {
+#alias use_corpse {
   !hp;
   !study corpse;
   !eat corpse;
   !hp;
   !get all;
 }
+
+#alias f10 {use_corpse}
 
 #alias commands_after_corpse {
   #var pressure {off};

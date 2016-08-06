@@ -31,13 +31,15 @@
   !mode assault:all litany:half weirding attacks:normal reflexes;
 }
 
-#alias f10 {
+#alias use_corpse {
   !glance;
   !hp;
   #if {$total_water_pct < 1.15} {!reclaim} {!fai};
   !hp;
   !get all;
 }
+
+#alias f10 {use_corpse}
 
 #alias commands_after_corpse {
   !suspend;

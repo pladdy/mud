@@ -1,4 +1,4 @@
-#alias f10 {
+#alias use_corpse {
   !hp;
   !cease;
   #if {$gp1 == $gp1_max} {!kt};
@@ -6,6 +6,8 @@
   !hp;
   !get all;
 }
+
+#alias f10 {use_corpse}
 
 #alias f12 {
   #if {$map[current_room] == 13692} {

@@ -93,6 +93,16 @@
   #if {$map[current_room] == 14459} {#map goto 14460};
 }
 
+#nop Taslen;
+
+#action {^Dock (e)$} {
+  #if {$map[last_room] == 21069} { #map goto 21205; }
+}
+
+#action {^Dock (w)$} {
+  #if {$map[last_room] == 21069} { #map goto 5205; }
+}
+
 #nop Tensor's Hell;
 
 #action {^You land on the hard stone ground with a *THUMP!!*$} {

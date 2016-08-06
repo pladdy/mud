@@ -7,12 +7,14 @@
   }
 }
 
-#alias f10 {
+#alias use_corpse {
   !hp;
   !fdeener;
   !hp;
   !get all;
 }
+
+#alias f10 {use_corpse}
 
 #alias f12 {
   #switch {$map[current_room]} {
