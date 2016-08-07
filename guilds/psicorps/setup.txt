@@ -1,1 +1,7 @@
-pset motto @higreen:M@@white:e@@yellow:t@@hicyan:a @@flash:-@ @hired:C@@hiblue:r@i@himagenta:t@@green:i@@brown:c@
+pset motto @higreen:M@@white:e@@yellow:t@@hicyan:a @@flash:-@ @hired:Y@@hiblue:o@@himagenta:d@@green:a@@brown:w@@white:g@
+
+alias tl talons
+alias vr valor
+alias gs3 train
+alias com psichat main
+alias c convert
