@@ -27,7 +27,7 @@
     #var kk_list {%0};
     #replace {kk_list} {,} {;};
 
-    #forall {$kk_list} { !kill &0 };
+    #forall {$kk_list} { !k &0 };
 
     #nop #unvar kk_list;
   }

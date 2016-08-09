@@ -32,9 +32,7 @@
 }
 
 #alias grep {
-  #if {"%1" != ""} {
-    #system grep -r '%1' ./%2;
-  }
+  #if {"%1" != ""} { #system grep -r '%1' ./%2; }
 }
 
 #alias fshow {
@@ -42,21 +40,22 @@
     #system { ls -al };
   };
   #else {
+    #script {files_found} {
+      find ./ -wholename "*%1*" | grep -v .git | head -n 1
+    };
+    #var first_file_found $files_found[1];
     #system {
-      first_file_found=$(find ./ -wholename '*%1*' | head -n 1);
-
       if [ -n "${first_file_found}" ]; then
         msg="first file found: ${first_file_found}";
         printf "\e[97m$msg\e[0m\n";
-        cat ${first_file_found};
-      elif [ -f %1 ]; then
-        cat %1;
-      else
-        ls -al %1;
       fi;
-    }
+      if [ -d ${first_file_found} ]; then
+        ls -al %1;
+      elif [ -f ${first_file_found} ]; then
+        cat %1;
+      fi;
+    };
+    #unvar first_file_found;
   };
 }
 
-#alias lists { show lists/%1 }
-#alias notes { show notes/%1 }
