@@ -1,16 +1,13 @@
 #event {MAP ENTER ROOM} {
   #var map[current_room] %0;
   map_refresh;
-  #delay {0.75} {map_refresh;};
 }
 
 #event {MAP EXIT ROOM} {
   #var map[last_room] %0;
 }
 
-#event {END OF PATH} {
-  #delay {1} {map_refresh;}
-}
+#nop define here to make available to event;
 
 #alias guild_session {}
 
@@ -22,8 +19,4 @@
     echo \#var {wielded_weapon} {$wielded_weapon} >> default/last_session.tin;
   };
   #if { "$quit" != "true" } { guild_session; }
-}
-
-#event {SESSION DEACTIVATED} {
-  #nop Removed but same as above event;
 }
