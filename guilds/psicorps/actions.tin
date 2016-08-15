@@ -53,7 +53,7 @@
 
     #nop Offense;
     #regex {$powers_str} { Tl} {#nop;} {!tl};
-    #nop #regex {$powers_str} { Ij} {#nop;} {!ij};
+    #regex {$powers_str} { Ij} {#nop;} {!ij};
 
     #nop Perks;
     #regex {$powers_str} { Vg} {#nop;} {!vg};
