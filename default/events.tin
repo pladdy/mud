@@ -1,6 +1,6 @@
 #event {MAP ENTER ROOM} {
   #var map[current_room] %0;
-  map_refresh;
+  #delay {0.1} {map_refresh};
 }
 
 #event {MAP EXIT ROOM} {

@@ -71,6 +71,7 @@
   #if {! $mud_map_height[1] > 0} {#var {mud_map_height[1]} 55};
 
   #format {map_dimensions} {%sx%s} {$mud_map_width[1]} {$mud_map_height[1]};
+  #system { echo >> $map_dir/current_map.txt };
   #map map $map_dimensions $map_dir/current_map.txt;
 }
 
