@@ -24,6 +24,8 @@ The play executable will automatically search the *profiles/* directory for the 
 file.
 
 ## Executables
-- **play**      : wrapper to start tintin session.  call with a profile name and it launches it
+- **play**      : wrapper to start tintin session.  call with a profile name and it launches it.
 - **watch-map** : quick utility to launch tail on the map so i can watch it in the window
   - you can pass in a width and a height so that the map will be rendered to that dimension
+- **play-tmux** : wrapper to start tintin session plus it opens up a vertical pane to show
+                  the map as you play.  this basically combines play and watch-map together.

@@ -25,3 +25,6 @@ Examples:
               of shops by reading the *../lists/areas/shops.txt* file.
 - **run**  : let's you sprint to different rooms given a 'roomname'.  useful for running between
              areas and bootrunning.
+- **map_write** : open the map for writing; basically new rooms get added to the map.
+- **map_save** : save change to map file (this is auto run at logout/session ld to save the map).
+- **map_lock** : lock the map so you stop making new rooms
