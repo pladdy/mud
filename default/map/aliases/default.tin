@@ -68,7 +68,7 @@
   #script {mud_map_height} {
     grep 'height'  $map_dir/map_globals.txt 2> /dev/null | sed 's/height://'
   };
-  #if {! $mud_map_height[1] > 0} {#var {mud_map_height[1]} 58};
+  #if {! $mud_map_height[1] > 0} {#var {mud_map_height[1]} 55};
 
   #format {map_dimensions} {%sx%s} {$mud_map_width[1]} {$mud_map_height[1]};
   #map map $map_dimensions $map_dir/current_map.txt;

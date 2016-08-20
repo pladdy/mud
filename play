@@ -13,6 +13,13 @@ PROFILE=""
 play_with_tmux() {
   local profile=$1
 
+  if [ -z $(which tmux) ]; then
+    echo "Need to install tmux to play with -t option"
+    exit 1
+  fi
+
+  rm -f default/map/map_globals.txt
+
   tmux new-session -d -s tintin "tt++ profiles/${profile}"
   tmux split-window -h -l 120 -t tintin "./watch-map"
   tmux select-pane -t 0
@@ -22,18 +29,24 @@ play_with_tmux() {
 usage() {
   declare -a lines=(
     "Synopsis:"
-    "  This is a wrapper to call tintin++ using a profile"
+    "  This is a wrapper to call tintin++ using a profile."
     ""
     "Options:"
+    "  -h this message"
+    "  -p [required] the profile you want to use"
     "  -t use tmux to split screen; map will be on the right and session"
     "     on the left"
-    "  -h this message"
     ""
     "Examples"
-    "  $0 foo_bar    # play 3k with the foo_bar profile"
-    "  $0 -t foo_bar # play 3k with the foo_bar profile in tmux"
+    "  $0 -p foo_bar    # play 3k with the foo_bar profile"
+    "  $0 -t -p foo_bar # play 3k with the foo_bar profile in tmux"
   )
   for line in "${lines[@]}"; do echo "${line}"; done
+}
+
+valid_profiles() {
+  printf "Valid profiles:\n"
+  for profile in $(ls profiles); do echo "  ${profile}"; done
 }
 
 while getopts 'thp:' opt; do
@@ -54,7 +67,10 @@ if [ $# -gt 0 ] && [ -f "profiles/${PROFILE}" ]; then
     tt++ profiles/${PROFILE}
   fi
 else
-  echo Need a valid profile name:
-  ls profiles
+  printf "Need a valid profile name.\n\n"
+  valid_profiles
+  echo
+  usage
+  exit 1
 fi
 
