@@ -1,8 +1,60 @@
 #!/usr/bin/env bash
 
-if [ $# -gt 0 ] && [ -f profiles/$1.tin ]; then
-  tt++ profiles/$1.tin
+# scrict mode
+set -o errexit -o nounset -o pipefail
+IFS=$'\n\t'
+
+USE_TMUX=0
+PROFILE=""
+
+##
+# thanks to Killergate on 3k for the below commands!
+##
+play_with_tmux() {
+  local profile=$1
+
+  tmux new-session -d -s tintin "tt++ profiles/${profile}"
+  tmux split-window -h -l 120 -t tintin "./watch-map"
+  tmux select-pane -t 0
+  tmux -2 attach-session -t tintin
+}
+
+usage() {
+  declare -a lines=(
+    "Synopsis:"
+    "  This is a wrapper to call tintin++ using a profile"
+    ""
+    "Options:"
+    "  -t use tmux to split screen; map will be on the right and session"
+    "     on the left"
+    "  -h this message"
+    ""
+    "Examples"
+    "  $0 foo_bar    # play 3k with the foo_bar profile"
+    "  $0 -t foo_bar # play 3k with the foo_bar profile in tmux"
+  )
+  for line in "${lines[@]}"; do echo "${line}"; done
+}
+
+while getopts 'thp:' opt; do
+  case "${opt}" in
+    h)
+      usage
+      exit 0
+      ;;
+    p) PROFILE="${OPTARG}.tin";;
+    t) USE_TMUX=1;;
+  esac
+done
+
+if [ $# -gt 0 ] && [ -f "profiles/${PROFILE}" ]; then
+  if [ "${USE_TMUX}" == "1" ]; then
+    play_with_tmux ${PROFILE}
+  else
+    tt++ profiles/${PROFILE}
+  fi
 else
   echo Need a valid profile name:
   ls profiles
 fi
+
