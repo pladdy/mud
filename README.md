@@ -3,7 +3,10 @@
 These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 
 ## Dependencies
-TinTin++ Mud Client: http://tintin.sourceforge.net/
+- 'Nix based OS (all this stuff runs on mac os)
+  - cygwin seems to work if you're using windows (tested by Wag)
+- TinTin++ Mud Client: http://tintin.sourceforge.net/
+- Tmux (can install via brew on mac, unsure on cygwin)
 
 ## Install
 `git clone git@github.com:pladdy/mud.git`
@@ -18,14 +21,13 @@ To set up your own profile you can copy and replace with your character name.  M
 your 'chracter' and 'guild' directory variables.
 
 ## Usage
-`./play <your profile>`
+`./play -p <your profile>`
 
 The play executable will automatically search the *profiles/* directory for the given character
 file.
 
 ## Executables
-- **play**      : wrapper to start tintin session.  call with a profile name and it launches it.
+- **play**      : wrapper to start tintin session.  ./play -h for help
 - **watch-map** : quick utility to launch tail on the map so i can watch it in the window
   - you can pass in a width and a height so that the map will be rendered to that dimension
-- **play-tmux** : wrapper to start tintin session plus it opens up a vertical pane to show
-                  the map as you play.  this basically combines play and watch-map together.
+  - if you use the tmux option in play, the tmux session will get a pane devoted to the map
