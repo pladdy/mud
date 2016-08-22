@@ -2,7 +2,7 @@
 
 areas/*
 
-default/last_session.tin
-default/map/current_map.txt
-default/map/backup_map.txt
-default/map/map_globals.txt
+tin/default/last_session.tin
+tin/map/current_map.txt
+tin/map/backup_map.txt
+tin/map/map_globals.txt

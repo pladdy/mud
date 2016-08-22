@@ -18,7 +18,7 @@ play_with_tmux() {
     exit 1
   fi
 
-  rm -f default/map/map_globals.txt
+  rm -f tin/map/map_globals.txt
 
   tmux new-session -d -s tintin "tt++ profiles/${profile}"
   tmux split-window -h -l 120 -t tintin "./watch-map"
