@@ -2,15 +2,18 @@
 #nop excludes the map files and any other init files (including itself);
 
 #script {default_tin_files} {
-  find ./default -iwholename '*.tin' | grep -v '/map/' | grep -v 'init'
+  find ./tin/default -iwholename '*.tin' | grep -v '/map/' | grep -v 'init'
 };
 
 #foreach { $default_tin_files[%*] } {file} {
   #showme Reading in file: $file;
   #if {"$file" != ""} {#read $file};
 };
-
 #unvar default_tin_files;
+
+read_tin_files tin/guilds/$guild;
+
+#var {map_dir} {tin/map};
 
 #CONFIG           {256 COLORS}  {ON}
 #CONFIG           {AUTO TAB}  {5000}

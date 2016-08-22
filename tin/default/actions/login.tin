@@ -1,16 +1,14 @@
 #nop Map is loaded based on successful login.
 
 #action {^Your character is currently logged in and linkdead.$} {
-  #read default/map/init.tin;
+  #read $map_dir/init.tin;
   !hp;
   !i;
 }
 
 #action {^You are login #%1 this boot.$} {
-  #read default/map/init.tin;
+  #read $map_dir/init.tin;
   login_commands;
 }
 
-#action {^You must wait %1 seconds to log in.$} {
-  #end;
-}
+#action {^You must wait %1 seconds to log in.$} { #end }

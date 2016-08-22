@@ -1,6 +1,5 @@
 #nop Initialize the mapping stuff;
 
-#var map_dir default/map
 #var map_path $map_dir/map.txt;
 
 read_tin_files $map_dir;

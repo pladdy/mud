@@ -39,7 +39,7 @@
 #alias hell_map_ref {
   #showme <130>Refreshing hell mappings...;
 
-  #read default/map/aliases/hell.tin;
+  #read $map_dir/aliases/hell.tin;
   hell_map_off;
   hell_map_on;
 }

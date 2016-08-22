@@ -3,8 +3,7 @@
 #var character {gilead};
 #var guild {angels};
 
-#read default/init.tin;
-read_tin_files guilds/$guild;
+#read tin/default/init.tin;
 
 #nop NOTE: the map can't be loaded until a session is started.  we connect first and load the
 #nop       map based on whether we connect or not (see default/actions/login.tin).
