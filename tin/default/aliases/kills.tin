@@ -17,7 +17,7 @@
 
 #alias ktrig_on {
   #showme <120>Turning ktrig back on.;
-  #read default/actions/kills.tin;
+  #read tin/default/actions/kills.tin;
 }
 
 #alias kk {

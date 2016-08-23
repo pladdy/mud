@@ -40,7 +40,7 @@
 #nop Define session variables i want exported;
 #alias guild_session {
  #system {
-    echo \#var {flying} {$flying} >> default/last_session.tin;
+    echo \#var {flying} {$flying} >> last_session.tin;
   };
 }
 
