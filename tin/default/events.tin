@@ -1,9 +1,7 @@
-#event {MAP ENTER ROOM} {
-  #var map[current_room] %0;
-  #delay {0.1} {map_refresh};
-}
+#nop MAP ENTER ROOM is defined with an alias so it can be toggled;
 
 #event {MAP EXIT ROOM} {
+  #var map[current_room] %1;
   #var map[last_room] %0;
 }
 
@@ -14,9 +12,9 @@
 #event {SESSION DISCONNECTED} {
   map_save;
   #system {
-    echo \#var {map[current_room]} {$map[current_room]} > default/last_session.tin;
-    echo \#var {chaos_port_location} {$chaos_port_location} >> default/last_session.tin;
-    echo \#var {wielded_weapon} {$wielded_weapon} >> default/last_session.tin;
+    echo \#var {map[current_room]} {$map[current_room]} > last_session.tin;
+    echo \#var {chaos_port_location} {$chaos_port_location} >> last_session.tin;
+    echo \#var {wielded_weapon} {$wielded_weapon} >> last_session.tin;
   };
   #if { "$quit" != "true" } { guild_session; }
 }

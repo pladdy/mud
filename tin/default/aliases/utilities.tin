@@ -17,17 +17,6 @@
   }
 }
 
-#alias nn { #10 n; }
-#alias ww { #10 w; }
-#alias ee { #10 e; }
-#alias ss { #10 s; }
-#alias nne { #10 ne; }
-#alias nnw { #10 nw; }
-#alias sse { #10 se; }
-#alias ssw { #10 sw; }
-
-#alias f2 { #map run home; }
-
 #alias f12 {
   #loop 2 8 i {!sell all from bag $i};
 }
@@ -62,40 +51,6 @@
 #alias quit {
   #var quit true;
   !quit
-}
-
-#alias ut_mow {
-  #map run ultimate_tournament;
-  #2 !w;
-  #3 !s;
-  !k player;
-  !s;
-  !k player;
-  !s;
-  !k player;
-
-  !w;
-  !k player;
-
-  !w;
-  !k player;
-  !s;
-  !k player;
-  #2 !n;
-  kk player, player 2;
-  #2 !n;
-  !k player;
-  !n;
-  !k player;
-
-  !w;
-  #2 !s;
-  kk player, player 2;
-  #2 !s;
-  kk player, player 2;
-  !s;
-
-  #map jump -5 -6;
 }
 
 #alias unfollow {

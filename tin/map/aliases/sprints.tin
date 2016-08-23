@@ -43,7 +43,7 @@
 
 #alias rshop {
   #if { @length{%1} > 0 } {
-    #map run shop_%1;
+    map_run shop_%1;
   } {
     #system cat lists/areas/shops.txt;
   };

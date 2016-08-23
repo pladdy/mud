@@ -9,8 +9,9 @@ read_tin_files $map_dir;
 
 #map read $map_path;
 map_lock;
+track_map_on_enter;
 
 #nop Go to last known room;
 
-#read default/last_session.tin;
+#read last_session.tin;
 #map goto $map[current_room];

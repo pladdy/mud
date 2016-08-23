@@ -17,10 +17,10 @@
 }
 
 #alias dcor {
-  #map run morgue;
+  map_run morgue;
   !acquire coffin;
   !donate coffin;
   #var coffin_status {Empty};
   #var corpses 0;
-  #map run home;
+  map_run home;
 }

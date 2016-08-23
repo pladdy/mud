@@ -8,6 +8,17 @@
   }
 }
 
+#alias nn { #10 n; }
+#alias ww { #10 w; }
+#alias ee { #10 e; }
+#alias ss { #10 s; }
+#alias nne { #10 ne; }
+#alias nnw { #10 nw; }
+#alias sse { #10 se; }
+#alias ssw { #10 sw; }
+
+#alias f2 { map_run home; }
+
 #nop Peek in a room to see it's data;
 
 #alias pmap {
@@ -31,7 +42,11 @@
 
 #alias map_run {
   #format {run_to} {%l} {%1};
+  #unevent {MAP ENTER ROOM};
+  #break;
   #map run $run_to;
+  track_map_on_enter;
+  map_refresh;
   #unvar run_to;
 }
 
@@ -97,6 +112,45 @@
 
 #alias map_undo {#nop;}
 
+#alias track_map_on_enter {
+  #event {MAP ENTER ROOM} {
+    #delay {0} {map_refresh};
+  }
+}
+
+#alias ut_mow {
+  map_run ultimate_tournament;
+  #2 !w;
+  #3 !s;
+  !k player;
+  !s;
+  !k player;
+  !s;
+  !k player;
+
+  !w;
+  !k player;
+
+  !w;
+  !k player;
+  !s;
+  !k player;
+  #2 !n;
+  kk player, player 2;
+  #2 !n;
+  !k player;
+  !n;
+  !k player;
+
+  !w;
+  #2 !s;
+  kk player, player 2;
+  #2 !s;
+  kk player, player 2;
+  !s;
+
+  #map jump -5 -6;
+}
 #nop 'Private' aliases used internally;
 
 #alias chaos_area_port {
