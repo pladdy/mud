@@ -7,6 +7,7 @@ These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
   - cygwin seems to work if you're using windows (tested by Wag)
 - TinTin++ Mud Client: http://tintin.sourceforge.net/
 - Tmux (can install via brew on mac, unsure on cygwin)
+  - this is only if you want to use the -t option when you './play'
 
 ## Install
 `git clone git@github.com:pladdy/mud.git`

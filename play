@@ -18,8 +18,6 @@ play_with_tmux() {
     exit 1
   fi
 
-  rm -f tin/map/map_globals.txt
-
   tmux new-session -d -s tintin "tt++ profiles/${profile}"
   tmux split-window -h -l 120 -t tintin "./watch-map"
   tmux select-pane -t 0
@@ -61,6 +59,8 @@ while getopts 'thp:' opt; do
 done
 
 if [ $# -gt 0 ] && [ -f "profiles/${PROFILE}" ]; then
+  rm -f tin/map/map_globals.txt
+
   if [ "${USE_TMUX}" == "1" ]; then
     play_with_tmux ${PROFILE}
   else
