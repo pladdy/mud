@@ -1,3 +1,8 @@
+#alias bcorpse {
+  #var bcorpse {%0};
+  #replace {bcorpse} {,} {;};
+}
+
 #alias dtrig {
   #var dtrig {%0};
   #replace {dtrig} {,} {;};
