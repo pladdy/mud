@@ -2,9 +2,9 @@
   #var {last_kill} {%2};
   #var {last_killer} {%1};
 
-  #if { @length{$bcorpse} > 0 } {
-    #forall {$bcorpse} {&0;};
-    #var bcorpse {};
+  #if { @length{$btrig} > 0 } {
+    #forall {$btrig} {&0;};
+    #var btrig {};
   };
 
   commands_before_corpse;

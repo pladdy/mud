@@ -1,6 +1,6 @@
-#alias bcorpse {
-  #var bcorpse {%0};
-  #replace {bcorpse} {,} {;};
+#alias btrig {
+  #var btrig {%0};
+  #replace {btrig} {,} {;};
 }
 
 #alias dtrig {
