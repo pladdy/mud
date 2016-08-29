@@ -67,3 +67,10 @@
   !contact stop;
 }
 
+#action {^You are mentally too tired to perform this task.} {
+  #if {$corpses > 0} {redis};
+}
+
+#action {^The weakness of your mind crosses the plane of thought and} {
+  #if {$corpses > 0} {redis};
+}
