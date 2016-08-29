@@ -21,20 +21,24 @@
   }
 }
 
+#nop Book nook;
+
+#nop Red Barcheta;
+
+#action {^You scream for joy as you leap from the train at the border!$} {
+  #if {$map[current_room] == 21389} {#map goto 21390;}
+}
+
 #nop Mortal Kombat cd;
 
 #action {^You can almost see the swirling gates between the Earth and the} {
-  #if {$map[current_room] == 11990} {
-    #map goto 11991;
-  }
+  #if {$map[current_room] == 11990} {#map goto 11991;}
 }
 
 #nop Death taco;
 
 #action {^O SNAP!!! Shredded Lettuce grabs you and THROWS you off the slide!$} {
-  #if {$map[current_room] == 12484} {
-    #map goto 12492;
-  }
+  #if {$map[current_room] == 12484} {#map goto 12492;}
 }
 
 #action {^The taco grabs you and THROWS you out of the room!$} {
