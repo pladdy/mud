@@ -1,4 +1,4 @@
-#function {colorize_string} {
+#function {colorize_pct} {
   #if     {%1 >= 1}   {#var result <160>%2};
   #elseif {%1 > 0.90} {#var result <120>%2};
   #elseif {%1 > 0.80} {#var result <020>%2};
@@ -6,20 +6,32 @@
   #elseif {%1 > 0.60} {#var result <020>%2};
   #elseif {%1 > 0.50} {#var result <010>%2};
   #else   {#var result <110>%2};
+  #return $result;
+}
+
+#function {colorize_pct_100} {
+  #if     {%1 >= 100}   {#var result <160>%2};
+  #elseif {%1 > 90} {#var result <120>%2};
+  #elseif {%1 > 80} {#var result <020>%2};
+  #elseif {%1 > 70} {#var result <130>%2};
+  #elseif {%1 > 60} {#var result <020>%2};
+  #elseif {%1 > 50} {#var result <010>%2};
+  #else   {#var result <110>%2};
+  #return $result;
 }
 
 #function {colorize_bar} {
-  #if     {%1 >= 1}   {#var result @colorize_string{%1;||||||||||}};
-  #elseif {%1 > 0.90} {#var result @colorize_string{%1;||||||||| }};
-  #elseif {%1 > 0.80} {#var result @colorize_string{%1;||||||||  }};
-  #elseif {%1 > 0.70} {#var result @colorize_string{%1;|||||||   }};
-  #elseif {%1 > 0.60} {#var result @colorize_string{%1;||||||    }};
-  #elseif {%1 > 0.50} {#var result @colorize_string{%1;|||||     }};
-  #elseif {%1 > 0.40} {#var result @colorize_string{%1;||||      }};
-  #elseif {%1 > 0.30} {#var result @colorize_string{%1;|||       }};
-  #elseif {%1 > 0.20} {#var result @colorize_string{%1;||        }};
-  #elseif {%1 > 0.10} {#var result @colorize_string{%1;|         }};
-  #else   {#var result @colorize_string{%1;|}};
+  #if     {%1 >= 1}   {#var result @colorize_pct{%1;||||||||||}};
+  #elseif {%1 > 0.90} {#var result @colorize_pct{%1;||||||||| }};
+  #elseif {%1 > 0.80} {#var result @colorize_pct{%1;||||||||  }};
+  #elseif {%1 > 0.70} {#var result @colorize_pct{%1;|||||||   }};
+  #elseif {%1 > 0.60} {#var result @colorize_pct{%1;||||||    }};
+  #elseif {%1 > 0.50} {#var result @colorize_pct{%1;|||||     }};
+  #elseif {%1 > 0.40} {#var result @colorize_pct{%1;||||      }};
+  #elseif {%1 > 0.30} {#var result @colorize_pct{%1;|||       }};
+  #elseif {%1 > 0.20} {#var result @colorize_pct{%1;||        }};
+  #elseif {%1 > 0.10} {#var result @colorize_pct{%1;|         }};
+  #else   {#var result @colorize_pct{%1;|}};
   #return [$result<070>];
 }
 
