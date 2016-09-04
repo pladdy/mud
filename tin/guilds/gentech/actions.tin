@@ -1,23 +1,19 @@
-#action {^Hp:%1/%2 Sp:%3/%4 Pu:%5/%6(%7) } {
+#action {^Hp:%1/%2 Sp:%3/%4 Pu:%5/%6(%7) C:%8 E:%9(%10)} {
   #var hp {%1};
   #var hp_max {%2};
-  #math {hp_delta} {$hp - $hp_last};
-  #var hp_last {$hp};
-  #format hp_pct {%f} {$hp / $hp_max};
 
   #var sp {%3};
   #var sp_max {%4};
-  #format sp_pct {%f} {$sp / $sp_max};
 
   #var gp1 {%5};
   #var gp1_max {%6};
-  #format gp1_pct {%f} {$gp1 / $gp1_max};
 
   #var gp2 {%7};
-  #format gp2_max {%f} {$gp1_max / 2};
-  #format gp2_pct {%f} {$gp2 / $gp2_max};
+  #math {gp2_max} {$gp1_max / 2};
 
-  #var pu_storage {%7};
+  #var enemy {%10};
+  #if {"$enemy" == "none"} {#var enemy {0}};
+  #replace {enemy} {%} {};
 
   #nop triggers based on stats;
 
@@ -25,19 +21,15 @@
 }
 
 #action {^Ef:%1 Ed:%2 B:[ %3% | %4% ] Gx:%5(%6%) Rc:%7} {
-  #var {gxp} {%5};
-  #math {gxp_delta} {$gxp_last - $gxp};
-  #var gxp_last {$gxp};
+  #var {gxp1} {%5};
+  #math {gxp1_delta} {$gxp_1_last - gx1};
+  #var {gpx1_last} {gxp1};
 
   #var {gxp2} {%7};
-  #math {gxp2_delta} {$gxp2 - $gxp2_last};
-  #var gxp2_last {$gxp2};
 
-  #math {total_gxp} {$gxp_delta + $gxp2_delta};
+  #math {gxp} {$gxp1 + $gxp2};
 
-  #var deltas {H: $hp_delta};
-  #var deltas {$deltas Gxp: $gxp_delta RC: $gxp2_delta Total: $total_gxp};
-  #showme {$deltas} {1};
+  show_status_bar;
 }
 
 #action {^        BIAS CONFORMATION HAS REACHED SPECIFIED DIFFERENTIAL} {
