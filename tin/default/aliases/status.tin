@@ -6,6 +6,9 @@
   calculate_deltas;
   colorize_pcts;
   build_deltas;
+
+  #nop thanks for the tip from Kyoujin: wrap the text in color codes to help;
+  #nop stop the ansi bleed/parse issue from showing with the prompt on;
   #showme {<070>$deltas<070>} {1};
 }
 
