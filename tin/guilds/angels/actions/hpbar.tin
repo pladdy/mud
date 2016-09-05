@@ -22,8 +22,6 @@
 
   #var circle {false};
 
-  show_status_bar;
-
   #list angel_train size angel_trainings;
 
   #if {$time_slices >= 9
