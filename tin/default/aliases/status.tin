@@ -1,0 +1,65 @@
+#nop #prompt and #showme are used in events to display information from 'showd';
+#nop when it's invoked.  #showme is being used for my gentech hp monitor based;
+#nop on the second hpbar triggering for example;
+
+#alias show_status_bar {
+  calculate_deltas;
+  colorize_pcts;
+  build_deltas;
+
+  #nop thanks for the tip from Kyoujin: wrap the text in color codes to help;
+  #nop stop the ansi bleed/parse issue from showing with the prompt on;
+  #showme {<070>$deltas<070>} {1};
+}
+
+#alias status_bar {
+  #if {"%1" == "on"} {
+    #split {} 2
+  };
+  #elseif {"%1" == "off"} {
+    #unsplit
+  };
+  #else {
+    #showme call with 'on' or 'off';
+  };
+}
+
+#alias build_deltas {
+  #var deltas {H: $hp_delta ($hp_pct) S: $sp_delta ($sp_pct) Gp1: $gp1_delta};
+  #var deltas {$deltas ($gp1_pct) Gp2: $gp2_delta ($gp2_pct) E:};
+  #var deltas {$deltas $enemy_delta% ($enemy_pct) Gxp: $gxp_delta};
+}
+
+#alias calculate_deltas {
+  #math {hp_delta} {$hp - $hp_last};
+  #var hp_last {$hp};
+  #math {hp_pct} {($hp * 1.00)/ $hp_max * 100};
+
+  #math {sp_delta} {$sp - $sp_last};
+  #var sp_last {$sp};
+  #math {sp_pct} {($sp * 1.00)/ $sp_max * 100};
+
+  #math {gp1_delta} {$gp1 - $gp1_last};
+  #var gp1_last {$gp1};
+  #math gp1_pct {($gp1 * 1.00)  / $gp1_max * 100};
+
+  #math {gp2_delta} {$gp2 - $gp2_last};
+  #var gp2_last {$gp2};
+  #math gp2_pct {($gp2 * 1.00)  / $gp2_max * 100};
+
+  #math {enemy_delta} {$enemy - $enemy_last};
+  #var {enemy_last} {$enemy};
+  #var enemy_pct {$enemy};
+
+  #math {gxp_delta} {$gxp - $gxp_last};
+  #var gxp_last {$gxp};
+}
+
+#alias colorize_pcts {
+  #var hp_pct {@colorize_pct_100{$hp_pct}$hp_pct%<070>};
+  #var sp_pct {@colorize_pct_100{$sp_pct}$sp_pct%<070>};
+  #var gp1_pct {@colorize_pct_100{$gp1_pct}$gp1_pct%<070>};
+  #var gp2_pct {@colorize_pct_100{$gp2_pct}$gp2_pct%<070>};
+  #var enemy_pct {@colorize_pct_100{$enemy_pct}$enemy_pct%<070>};
+}
+

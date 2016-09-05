@@ -52,8 +52,6 @@
 
 #alias run {map_run %0}
 
-#alias map_hide { #unsplit; }
-
 #alias map_load {
   #map read $map_path;
   #map goto home;
@@ -67,7 +65,6 @@
   #map flag static on;
   #alias map_undo {#nop;};
   !brief on yes;
-  #unsplit;
 }
 
 #nop TODO:;

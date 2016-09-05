@@ -1,20 +1,32 @@
 #action {^H: %1/%2 S: %3/%4 St: %5% P: %6% B: %7 C: %8/%9% E:%10} {
   #var hp {%1};
   #var hp_max {%2};
-  #format hp_pct {%f} {$hp / $hp_max};
 
   #var sp {%3};
   #var sp_max {%4};
-  #format sp_pct {%f} {$sp / $sp_max};
 
   #var gp1 {%5};
+  #var gp1_max {100};
+
   #var gp2 {%6};
+  #var gp2_max {100};
+
   #var bioplasts {%7};
 
   #var enemy {%10};
+  #replace {enemy} { } {};
   #replace {enemy} {%} {};
+  #if {"$enemy" == ""} {
+    #var enemy {0};
+    #var enemy_last {0};
+  };
 
   #if {$gp1 <= 5 && $bioplasts > 0} {!consume bioplast};
+}
+
+#action {^Sk: %1 Gx: %2% F: %3: %4% St: %5$} {
+  #var gxp {%2};
+  show_status_bar;
 }
 
 #action {^You reach out a slimy tendril towards %1,} {#var {mimic} {%1};}

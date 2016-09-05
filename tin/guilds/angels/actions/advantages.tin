@@ -45,13 +45,16 @@
       #math {i} {$i + 1};
     };
 
-    #nop Hit or not, that is the question;
+    #nop to hit or not to hit, that is the question;
 
     #if {$angel[distance] == 0
          && $adv_sort[1][2] > $swing_at_adv
          && $time_slices > $slice_at_ts} {
+
+      #math {pct_hp} {$hp / $hp_max * 1.0};
+
       #if {"$awe_foes" == "true"
-           || (($gp1 < 50 || $hp_pct <= $awe_at_hp_pct)
+           || (($gp1 < 50 || $pct_hp <= $awe_at_hp_pct)
            && "$awed" == "false")} {
         !awe $adv_sort[1][1];
       };

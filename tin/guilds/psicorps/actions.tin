@@ -1,22 +1,19 @@
 #action {^H: %1/%2 S: %3/%4 P: %5/%6 St: %8/%9 G: %10(%11%) En: %12 E: %13$} {
   #var hp {%1};
   #var hp_max {%2};
-  #format hp_pct {%f} {$hp / $hp_max};
 
   #var sp {%3};
   #var sp_max {%4};
-  #format sp_pct {%f} {$sp / $sp_max};
 
   #var gp1 {%5};
   #var gp1_max {%6};
-  #format gp1_pct {%f} {$gp1 / $gp1_max};
 
   #var gp2 {%8};
   #var gp2_max {%9};
-  #format gp2_pct {%f} {$gp2 / $gp2_max};
 
   #var enemy {%13};
   #replace {enemy} {%} {};
+  #if {"$enemy" == ""} {#var enemy {0}};
 
   #nop Convert PE if needed/able to;
 
@@ -26,6 +23,8 @@
   #if {$sp >= $sp_max && $gp1_delta > 200} {
     !convert;
   };
+
+  show_status_bar;
 }
 
 #action {^Sc: %1 A: %2$} {
