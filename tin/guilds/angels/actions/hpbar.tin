@@ -1,28 +1,28 @@
 #action {^H: %1/%2 S: %3/%4 T: %5/%6(%d) D: %7/%8 E: %9/%10 R: %11 En:%12$} {
   #var hp {%1};
   #var hp_max {%2};
-  #format hp_pct {%f} {$hp / $hp_max};
 
   #var sp {%3};
   #var sp_max {%4};
-  #format sp_pct {%f} {$sp / $sp_max};
 
   #var gp1 {%7};
   #var gp1_max {%8};
-  #format gp1_pct {%f} {$gp1 / $gp1_max};
 
   #var gp2 {%9};
   #var gp2_max {%10};
-  #format gp2_pct {%f} {$gp2 / $gp2_max};
 
   #var time_slices {%5};
   #var time_slices_max {%6};
   #var retributions {%11};
 
   #var enemy {%12};
+  #replace {enemy} { } {};
   #replace {enemy} {%} {};
+  #if {"$enemy" == ""} {#var enemy {0}};
 
   #var circle {false};
+
+  show_status_bar;
 
   #list angel_train size angel_trainings;
 

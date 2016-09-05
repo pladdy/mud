@@ -6,7 +6,7 @@
   calculate_deltas;
   colorize_pcts;
   build_deltas;
-  #showme {$deltas} {1};
+  #showme {<070>$deltas<070>} {1};
 }
 
 #alias status_bar {
