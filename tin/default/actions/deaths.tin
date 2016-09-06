@@ -1,0 +1,11 @@
+#action {^You die.$} {
+  #var am_i_dead {yes};
+}
+
+#action {"accept" or "refuse"} {
+  #if {"$am_i_dead" == "yes" {!accept};
+}
+
+#action {^Its mission done, the hooded figure then dissolves into the fine mists} {
+  #var am_i_dead {no};
+}
