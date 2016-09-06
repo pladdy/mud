@@ -47,4 +47,4 @@ $YANGMAX$   Max Yang value
 You can preview your current settings by using "show", or reset the
 values back to "default".
 
-hpset hpbar H: $HP$/$HPMAX$ S: $SP$/$SPMAX$ T: $TS$/$TSMAX$($TSU$) D: $DV$/$DVMAX$ E: $EN$/$ENMAX$ R: $RET$ En: $ENEMY$ $NL$Di: $DIST$ F: $FLAGS$ Yi: $YIN$ Ya: $YANG$/$YANGMAX$ $NL$HO: $ADVHO$/$WKHO$ HI: $ADVHI$/$WKHI$ LO: $ADVLO$/$WKLO$ LI: $ADVLI$/$WKLI$ G: $FOCUSGXP$
+hpset hpbar H: $HP$/$HPMAX$ S: $SP$/$SPMAX$ T: $TS$/$TSMAX$($TSU$) D: $DV$/$DVMAX$ E: $EN$/$ENMAX$ R: $RET$ En: $ENEMY$ $NL$Di: $DIST$ F: $FLAGS$ Yi: $YIN$ Ya: $YANG$/$YANGMAX$ RB: $RB$/$RBM$ ($RBR$%) $NL$HO: $ADVHO$/$WKHO$ HI: $ADVHI$/$WKHI$ LO: $ADVLO$/$WKLO$ LI: $ADVLI$/$WKLI$ G: $FOCUSGXP$
