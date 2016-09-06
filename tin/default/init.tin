@@ -25,7 +25,7 @@ read_tin_files tin/guilds/$guild;
 #CONFIG           {CONNECT RETRY}  {15}
 #CONFIG           {HISTORY SIZE}  {1000}
 #CONFIG           {LOG}  {RAW}
-#CONFIG           {PACKET PATCH}  {0.00}
+#CONFIG           {PACKET PATCH}  {0.25}
 #CONFIG           {REPEAT CHAR}  {!}
 #CONFIG           {REPEAT ENTER}  {OFF}
 #CONFIG           {SCROLL LOCK}  {ON}
