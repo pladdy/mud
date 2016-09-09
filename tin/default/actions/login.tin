@@ -1,6 +1,6 @@
 #nop Map is loaded based on successful login.
 
-#action {^Your character is currently logged in and linkdead.$} {
+#action {^Your character is currently logged in and } {
   #read $map_dir/init.tin;
   !hp;
   !i;
