@@ -12,6 +12,7 @@
   #var gp2_max {%9};
 
   #var enemy {%13};
+  #replace {enemy} {T:} {};
   #replace {enemy} {%} {};
   #if {"$enemy" == ""} {#var enemy {0}};
 
