@@ -52,8 +52,8 @@
     #regex {$powers_str} { Vr} {#nop;} {!vr};
 
     #nop Offense;
-    #regex {$powers_str} { Tl} {#nop;} {!tl};
-    #regex {$powers_str} { Ij} {#nop;} {!ij};
+    #regex {$powers_str} { Bc} {#nop;} {!bcl};
+    #regex {$powers_str} { bc} {#nop;} {!bc};
 
     #nop Perks;
     #regex {$powers_str} { Vg} {#nop;} {!vg};
