@@ -11,7 +11,14 @@
 };
 #unvar default_tin_files;
 
-read_tin_files tin/guilds/$guild;
+#nop Set up the guild logic in a class;
+
+#if {"$guild" != ""} {
+  #showme Setting up class for $guild;
+  #class $guild open;
+  read_tin_files tin/guilds/$guild;
+  #class $guild close;
+};
 
 #var {map_dir} {tin/map};
 
