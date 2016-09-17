@@ -49,6 +49,10 @@
   !search %0;
 }
 
+#alias reload_tin {
+  #read tin/default/init.tin
+}
+
 #alias quit {
   #var quit true;
   !quit

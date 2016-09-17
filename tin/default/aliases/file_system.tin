@@ -1,16 +1,16 @@
 #alias read_tin_files {
-  #script {init_list} {
+  #script {tin_list} {
     find ./%1 -wholename '*.tin' | grep -v init
   };
 
-  #foreach { $init_list[%*] } {file} {
+  #foreach { $tin_list[%*] } {file} {
     #if {@length{$file} > 0} {
       #showme reading $file;
       #read $file;
     };
   };
 
-  #unvar init_list;
+  #unvar tin_list;
 }
 
 #alias fsearch {
