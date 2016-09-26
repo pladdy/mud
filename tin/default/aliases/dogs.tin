@@ -20,6 +20,7 @@
 }
 
 #nop get the necessary eq to equip the dog;
+
 #alias dog_suitup {
   !buy 2;
   !buy 5; #nop this is chainmail barding;
@@ -29,6 +30,21 @@
   !give all to dog;
 }
 
-#alias dsc {!dog stats;}
+#alias dog {
+  #if {"%0" == "stay"} {
+    #if {$dog_location == 0} {
+      #var {dog_location} {$map[current_room]};
+    };
+    #else {
+      #var {dog_location} {0};
+    };
+    !dog stay;
+  };
+  #else {
+    !dog %0;
+  }
+}
 
-#alias dsi {!dog sicem %0;}
+#alias dsc {!dog stats}
+
+#alias dsi {!dog sicem %0}
