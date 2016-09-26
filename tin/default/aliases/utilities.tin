@@ -55,7 +55,8 @@
 
 #alias quit {
   #var quit true;
-  !quit
+  !quit;
+  #gts #var quit true;
 }
 
 #alias unfollow {

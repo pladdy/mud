@@ -12,3 +12,11 @@
 }
 
 #action {^You must wait %1 seconds to log in.$} { #end }
+
+#nop 3k relog;
+
+#action {'gts' ACTIVATED.$} {
+  #if {"$quit" != "true"} {
+    #delay 1 {#session 3k 3k.org 3000;$character};
+  }
+}
