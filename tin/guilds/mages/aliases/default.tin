@@ -3,13 +3,13 @@
   #nop spell tap if in party in case it's not my kill;
   #if {"$party_status" == "yes" || "$coffin_status" == "FULL"
         || "$coffin_status" == ""} {
-    #if {$gp1 < 90} {!cast spell tap on corpse};
+    #if {$gp1_raw < 90} {!cast spell tap on corpse};
   }
 }
 
 #alias use_corpse {
   !hp;
-  #nop #if {$gp1 < 93} {!cast spell tap on corpse};
+  #nop #if {$gp1_raw < 93} {!cast spell tap on corpse};
   !cast corpse blast;
   !hp;
 }
@@ -21,6 +21,6 @@
 
 #alias rebl {
   !unwrap corpse;
-  #if {$gp1 < 90} {!cast spell tap on corpse};
+  #if {$gp1_raw < 90} {!cast spell tap on corpse};
   !cast corpse blast;
 }

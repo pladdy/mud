@@ -26,7 +26,7 @@
 }
 
 #function regen_done {
-  #if {$sp == $sp_max && $gp1 == 0} {#return 1} {#return 0};
+  #if {$sp == $sp_max && $gp1_raw == 0} {#return 1} {#return 0};
 }
 
 #alias regen_stop {
