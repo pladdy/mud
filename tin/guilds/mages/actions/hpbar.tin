@@ -41,7 +41,6 @@
   #regex {$dspells} { B}  {#nop} {!cast blink};
 
   #nop Spells to monitor if i enabled them;
-
   #nop #if {"$spells[mg]" == "on"} {#regex {$dspells} { mg} {#nop} {mg}};
   #if {"$spells[pg]" == "on"} {#regex {$dspells} { PG} {#nop} {pg}};
   #if {"$spells[pe]" == "on"} {#regex {$dspells} { PE} {#nop} {pe}};
