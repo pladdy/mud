@@ -41,6 +41,9 @@
   #regexp {$dspells} { RS } {#nop;} {
     #delay {$i} {!cast rhino skin}; #math {i} {$i + 2};
   };
+  #regexp {$dspells} { mg } {#nop;} {
+    #delay {$i} {!cast minor globe}; #math {i} {$i + 2};
+  };
   #regexp {$dspells} { B } {#nop;} {
     #delay {$i} {!cast blink}; #math {i} {$i + 2};
   };

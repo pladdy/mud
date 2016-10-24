@@ -4,6 +4,7 @@
 
   #var sp {%3};
   #var sp_max {%4};
+  #replace {sp_max} {S} {};
 
   #var {gp1_raw} {%7};
   #nop flip the percentages for status bar;
