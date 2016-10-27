@@ -18,9 +18,11 @@
 
   #var gxp {0};
 
-  #if {$enemy > 0 && "$mindsink_empty" != "true"} {
-    #if     {$mindsink_chk <= .5} {!mindsink};
-    #elseif {$enemy <= 10 && $mindsink_chk <= .9} {!mindsink};
+  #if {"$contact_impossible" != "true"} {
+    #if {$enemy > 0 && "$mindsink_empty" != "true"} {
+      #if     {$mindsink_chk <= .5} {!mindsink};
+      #elseif {$enemy <= 10 && $mindsink_chk <= .9} {!mindsink};
+    };
   };
 
   #if {$enemy > 0 && $gp1 < 750 && $corpses > 0} { redis };
@@ -30,7 +32,7 @@
 #action {^C: %1 W: %2 D: %3% T: %4 A:%5$} {
   #var workings {%2};
 
-  #if {"$enemy" != "0" && "$mindsink_empty" != "true"} {
+  #if {$enemy > 0 && "$mindsink_empty" != "true"} {
     #if {"$contact_impossible" != "true"} {
       #regex {$workings} {Ct} {#nop;} {!contact};
     }
