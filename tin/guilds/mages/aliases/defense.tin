@@ -38,8 +38,8 @@
   #regexp {$dspells} { MS } {#nop;} {
     #delay {$i} {!cast magnificent shield}; #math {i} {$i + 2};
   };
-  #regexp {$dspells} { RS } {#nop;} {
-    #delay {$i} {!cast rhino skin}; #math {i} {$i + 2};
+  #regexp {$dspells} { SS } {#nop;} {
+    #delay {$i} {!cast stoneskin}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { mg } {#nop;} {
     #delay {$i} {!cast minor globe}; #math {i} {$i + 2};

@@ -1,8 +1,7 @@
 #alias conup {
   !cast contingency as armor#cast armor;
-  #nop !cast contingency as shield#cast shield;
   !cast contingency as shield#cast magnificent shield;
-  !cast contingency as stoneskin#cast rhino skin;
+  !cast contingency as stoneskin#cast stoneskin;
   !cast contingency as blink#cast blink;
 }
 

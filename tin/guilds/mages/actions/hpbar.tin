@@ -37,7 +37,8 @@
   #regex {$dspells} { A} {#nop} {!cast armor};
   #nop #regex {$dspells} { S} {#nop} {!cast shield};
   #regex {$dspells} { MS} {#nop} {!cast magnificent shield};
-  #regex {$dspells} { RS} {#nop} {!cast rhino skin};
+  #nop #regex {$dspells} { RS} {#nop} {!cast rhino skin};
+  #regex {$dspells} { SS} {#nop} {!cast stoneskin};
   #regex {$dspells} { mg} {#nop} {!cast minor globe};
   #regex {$dspells} { B}  {#nop} {!cast blink};
 
