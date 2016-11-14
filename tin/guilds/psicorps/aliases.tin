@@ -25,7 +25,7 @@
   }
 }
 
-#alias redi {
+#alias resp {
   !unwrap corpse;
-  !disperse;
+  !eat corpse;
 }
