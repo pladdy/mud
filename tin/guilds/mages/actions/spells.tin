@@ -38,3 +38,5 @@
 #action {^Your immersion has expired.$} {!cast spell tap always;}
 
 #action {^You feel slower as the haste wears off.!} {}
+
+#action {^The magic of your stoneskin fades over time.} {}
