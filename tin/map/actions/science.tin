@@ -68,3 +68,14 @@
 #action {^You land in a village...$} {
   #if {$map[current_room] == 19132} {#map goto 19133}
 }
+
+#nop Borg;
+
+#action {^Corner of the Borg Cube.} {
+  #if {$map[current_room] == 21521} {#map goto 21522}
+}
+
+#nop might not need these events for borg cube;
+#action {^The walls of the cube are fading.} {
+  #nop #if {$map[current_room] == 21594} {#map goto };
+}

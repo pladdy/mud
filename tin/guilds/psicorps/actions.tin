@@ -50,10 +50,13 @@
   #if {@length{$enemy} > 1} {
     #nop Defense first;
     #regex {$powers_str} { Vr} {#nop;} {!vr};
+    #nop #regex {$powers_str} { Bf} {#nop;} {!bf};
 
     #nop Offense;
     #regex {$powers_str} { Bc} {#nop;} {!bcl};
-    #regex {$powers_str} { bc} {#nop;} {!bc};
+    #regex {$powers_str} { Bo} {#nop;} {!bo};
+    #regex {$powers_str} { Ij} {#nop;} {!ij};
+    #nop #regex {$powers_str} { bc} {#nop;} {!bc};
 
     #nop Perks;
     #regex {$powers_str} { Vg} {#nop;} {!vg};
