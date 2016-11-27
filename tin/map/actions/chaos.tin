@@ -78,3 +78,9 @@
   #if {$map[current_room] == 20624} { #map go 20625; }
 
 }
+
+#nop R'lyeh;
+
+#action {^a stream! The sea is gone, you can breath again! But where are you?$} {
+  #if {$map[current_room == 21786} {#map go 11692}
+}
