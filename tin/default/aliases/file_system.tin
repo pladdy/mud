@@ -13,6 +13,8 @@
   #unvar tin_list;
 }
 
+#nop Do a fuzzy search over non tin/git fils;
+
 #alias fsearch {
   #if {"%1" == ""} {
     #showme <170>Need to provide something to search for.;
@@ -20,7 +22,7 @@
   };
 
   #script {fshow_files} {
-    grep -rliI --exclude '*map.txt' --exclude '*.git*' '%0' ./;
+    grep -rliI --exclude '*map.txt' --exclude '*.git*' --exclude '*.tin*' '%0' ./;
   };
 
   #foreach { $fshow_files[%*] } {file} {
@@ -31,11 +33,9 @@
   }
 }
 
-#alias grep {
-  #if {"%1" != ""} { #system grep -r '%1' ./%2; }
-}
+#nop Look for specific files and show them;
 
-#alias fshow {
+#alias fcat {
   #if {"%1" == ""} {
     #system { ls -al };
   };
@@ -57,5 +57,9 @@
     };
     #unvar first_file_found;
   };
+}
+
+#alias grep {
+  #if {"%1" != ""} { #system grep -r '%1' ./%2; }
 }
 
