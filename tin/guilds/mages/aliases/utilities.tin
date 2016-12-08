@@ -1,8 +1,8 @@
 #alias conup {
   !cast contingency as armor#cast armor;
   !cast contingency as shield#cast magnificent shield;
+  !cast contingency as major_globe#cast major globe;
   !cast contingency as stoneskin#cast stoneskin;
-  !cast contingency as blink#cast blink;
 }
 
 #alias imm {
