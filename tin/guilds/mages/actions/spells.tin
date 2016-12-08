@@ -13,6 +13,7 @@
     #case {"stoneskin"} {!cast contingency as %1#cast stoneskin};
     #case {"shield"} {!cast contingency as %1#cast magnificent shield};
     #case {"blinking"} {!cast contingency as blink#cast blink};
+    #case {"major_globe"} {!cast contingency as major_globe#cast major globe};
     #default {!cast contingency as %1#cast %1};
   };
 }
