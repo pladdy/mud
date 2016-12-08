@@ -15,8 +15,8 @@
 }
 
 #alias mg {
-  #var spells[mg] {on};
-  !cast minor globe;
+  #var spells[MG] {on};
+  !cast major globe;
 }
 
 #alias mim {

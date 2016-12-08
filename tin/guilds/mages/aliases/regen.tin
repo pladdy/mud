@@ -1,4 +1,5 @@
 #alias regen {
+  #showme Stopping to regen.  'regen_stop' to cancel;
   #if {@length{%1} > 0} {
     #showme Setting regen_multiplier %1;
     #var regen_multiplier {%1};

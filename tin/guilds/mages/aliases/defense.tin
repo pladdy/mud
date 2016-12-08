@@ -17,9 +17,10 @@
   };
 
   #foreach {$spells_to_deplete[%*] } {deplete_spell} {
-    #nop b is blur, B is blink.  if we just lowercase we only deplete blur...;
-    #if {"$deplete_spell" == "B"} {!deplete B};
-    #else {
+    #nop b is blur, B is blink. MG is major globe, but mg is minor globe;
+    #if     {"$deplete_spell" == "B"} {!deplete B};
+    #elseif {"$deplete_spell" == "MG"} {!deplete MG};
+    #else   {
       #format {deplete_spell} {%l} {$deplete_spell};
       #if { @length{$deplete_spell} > 0} {!deplete $deplete_spell};
     };
@@ -41,16 +42,16 @@
   #regexp {$dspells} { SS } {#nop;} {
     #delay {$i} {!cast stoneskin}; #math {i} {$i + 2};
   };
-  #regexp {$dspells} { mg } {#nop;} {
-    #delay {$i} {!cast minor globe}; #math {i} {$i + 2};
+  #regexp {$dspells} { MG } {#nop;} {
+    #delay {$i} {!cast major globe}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { B } {#nop;} {
     #delay {$i} {!cast blink}; #math {i} {$i + 2};
   };
 
 
-  #if {"$spells[mg]" == "on"} {
-    #delay {$i} {mg};
+  #if {"$spells[MG]" == "on"} {
+    #delay {$i} {MG};
     #math {i} {$i + 2};
   };
   #if {"$spells[pe]" == "on"} {
