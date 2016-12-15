@@ -50,13 +50,13 @@
   #if {@length{$enemy} > 1} {
     #nop Defense first;
     #regex {$powers_str} { Vr} {#nop;} {!vr};
-    #nop #regex {$powers_str} { Bf} {#nop;} {!bf};
+    #regex {$powers_str} { Bf} {#nop;} {!bf};
 
     #nop Offense;
     #regex {$powers_str} { Bc} {#nop;} {!bcl};
     #regex {$powers_str} { Bo} {#nop;} {!bo};
     #regex {$powers_str} { Ij} {#nop;} {!ij};
-    #regex {$powers_str} { bc} {#nop;} {!bc};
+    #nop #regex {$powers_str} { bc} {#nop;} {!bc};
 
     #nop Perks;
     #regex {$powers_str} { Vg} {#nop;} {!vg};
@@ -66,4 +66,8 @@
 
 #action {^Your %1 has expired.$} {
   #if {@length{$enemy} > 1 && $sp > 40 && $gp1 > 40} {!actuate %1;}
+}
+
+#action {^You can't focus on folding while fighting.$} {
+  #map undo;
 }
