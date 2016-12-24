@@ -31,7 +31,7 @@
 #CONFIG           {COMMAND ECHO}  {ON}
 #CONFIG           {CONNECT RETRY}  {15}
 #CONFIG           {HISTORY SIZE}  {1000}
-#CONFIG           {LOG}  {RAW}
+#CONFIG           {LOG}  {PLAIN}
 #CONFIG           {PACKET PATCH}  {0.25}
 #CONFIG           {REPEAT CHAR}  {!}
 #CONFIG           {REPEAT ENTER}  {OFF}

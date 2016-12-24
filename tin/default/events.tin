@@ -9,6 +9,9 @@
 
 #alias guild_session {}
 
+#event {SESSION ACTIVATED} {#log o {./last_log.log}}
+#event {SESSION CONNECTED} {#log a {./last_log.log}}
+
 #event {SESSION DISCONNECTED} {
   map_save;
   #system {

@@ -2,6 +2,7 @@
 
 areas/*
 
+last_log.log
 last_session.tin
 tin/map/current_map.txt
 tin/map/backup_map.txt
