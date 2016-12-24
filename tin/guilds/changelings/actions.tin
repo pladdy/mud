@@ -12,6 +12,8 @@
   #var gp2_max {100};
 
   #var bioplasts {%7};
+  #var relinquishes {%8};
+  #var chaos_flux {%9};
 
   #var enemy {%10};
   #replace {enemy} { } {};
@@ -22,6 +24,7 @@
   };
 
   #if {$gp1 <= 5 && $bioplasts > 0} {!consume bioplast};
+  #if {$chaos_flux == 99 & $relinquishes > 0} {!relinquish};
 }
 
 #action {^Sk: %1 Gx: %2% F: %3: %4% St: %5$} {
