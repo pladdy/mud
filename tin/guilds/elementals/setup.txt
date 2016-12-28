@@ -1,0 +1,14 @@
+alias gs escore
+alias gs2 escore2
+alias ps pstats
+alias ps2 pstats2
+alias gwho ewho
+alias ob evoke obfuscate
+alias pr evoke preservation at
+alias cb evoke create blast
+alias cd evoke corpse drain
+alias ed evoke energy drain
+alias ed_on evoke perform as combat ed:99,ed:99,ed:99,ed_on
+alias pva put all in vortex
+alias pv put $* in vortex
+alias sav sell all from vortex

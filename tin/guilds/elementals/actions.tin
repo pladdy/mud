@@ -1,0 +1,18 @@
+#action {^ HP:%1/%2 C:%3  NRG:%4/%5(%6)  SP:%7/%8  B:%9(%10) G2N:%11} {
+  #var hp {%1};
+  #var hp_max {%2};
+
+  #var gp1 {%4};
+  #var gp1_max {%5};
+
+  #var gp2 {1};
+  #var gp2_max {1};
+
+  #var sp {%7};
+  #var sp_max {%8};
+
+  #regexp {%11} {%d} {#var gxp &1};
+  #regexp {%11} {T:%+:%d%%$} {#var enemy &2} {#var enemy 0};
+
+  show_status_bar;
+}

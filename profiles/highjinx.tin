@@ -1,0 +1,11 @@
+#nop Set up environment.
+
+#var character {highjinx};
+#var guild {elementals};
+
+#read tin/default/init.tin;
+status_bar on;
+
+#nop NOTE: the map can't be loaded until a session is started.  we connect first and load the
+#nop       map based on whether we connect or not (see default/actions/login.tin).
+#session 3k 3k.org 3000;$character;

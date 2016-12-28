@@ -1,0 +1,20 @@
+#alias use_corpse {
+  !hp;
+  !eat corpse;
+  !hp;
+}
+
+#alias f10 {
+  use_corpse;
+  !get all;
+}
+
+#alias f12 {
+  #if {$map[current_room] == 21864} {!sell all from vortex};
+  #loop 2 12 i {!sell all from bag $i};
+}
+
+#alias gb {
+  !activate blast;
+  !give blast to %0;
+}
