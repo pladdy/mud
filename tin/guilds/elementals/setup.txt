@@ -1,3 +1,4 @@
+alias b evoke barrier
 alias gs escore
 alias gs2 escore2
 alias ps pstats

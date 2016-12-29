@@ -15,6 +15,7 @@
 }
 
 #alias gb {
+  !unkeep blast;
   !activate blast;
   !give blast to %0;
 }
