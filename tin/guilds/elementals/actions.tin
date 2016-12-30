@@ -16,3 +16,5 @@
 
   show_status_bar;
 }
+
+#action {^%imass triad spam:} {run home}

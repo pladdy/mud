@@ -1,7 +1,11 @@
 #alias use_corpse {
-  !hp;
-  !eat corpse;
-  !hp;
+  #if {$hp >= $hp_max && $sp >= $sp_max} {
+    !evoke corpse drain;
+  } {
+    !hp;
+    !eat corpse;
+    !hp;
+  }
 }
 
 #alias f10 {
@@ -18,4 +22,8 @@
   !unkeep blast;
   !activate blast;
   !give blast to %0;
+}
+
+#alias regen {
+  run el_apex;
 }

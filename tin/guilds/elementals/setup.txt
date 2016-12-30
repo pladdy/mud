@@ -1,15 +1,45 @@
+alias .login jump/ed_on
+
+alias 1 emit 1
+alias 2 emit 2
+alias 3 emit 3
+alias 4 emit 4
+alias 5 emit 5
+alias 6 emit 6
+alias 7 emit 7
+alias 8 emit 8
+alias 9 emit 9
+alias 10 emit 10
+alias 11 emit 11
+
+alias re evoke resolve
+alias resl evoke resolve slashing
+alias recr evoke resolve crushing
+alias refi evoke resolve fire
+alias reic evoke resolve ice
+alias reac evoke resolve acid
+alias resh evoke resolve shocking
+alias reme evoke resolve mental
+alias rema evoke resolve magical
+alias reto evoke resolve toxic
+alias rera evoke resolve radiation
+
 alias b evoke barrier
-alias gs escore
-alias gs2 escore2
-alias ps pstats
-alias ps2 pstats2
-alias gwho ewho
-alias ob evoke obfuscate
-alias pr evoke preservation at
 alias cb evoke create blast
 alias cd evoke corpse drain
 alias ed evoke energy drain
 alias ed_on evoke perform as combat ed:99,ed:99,ed:99,ed_on
+alias ob evoke obfuscate
+alias pr evoke preservation at
+alias ts evoke trap the soul
+
+alias gs escore
+alias gs2 escore2
+alias gwho ewho
+alias ps pstats
+alias ps2 pstats2
+
 alias pva put all in vortex
 alias pv put $* in vortex
 alias sav sell all from vortex
+
