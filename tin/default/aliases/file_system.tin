@@ -1,36 +1,21 @@
-#alias read_tin_files {
-  #script {tin_list} {
-    find ./%1 -wholename '*.tin' | grep -v init
-  };
+#nop Grep files for a search pattern;
 
-  #foreach { $tin_list[%*] } {file} {
-    #if {@length{$file} > 0} {
-      #showme reading $file;
-      #read $file;
-    };
-  };
-
-  #unvar tin_list;
-}
-
-#nop Do a fuzzy search over non tin/git fils;
-
-#alias fsearch {
+#alias gfiles {
   #if {"%1" == ""} {
     #showme <170>Need to provide something to search for.;
     #return;
   };
 
   #script {fshow_files} {
-    grep -rliI --exclude '*map.txt' --exclude '*.git*' --exclude '*.tin*' '%0' ./;
+    grep -rliI --exclude '*map.txt' --exclude '*.git*' --exclude '*.tin*' --exclude '*.log' '%0' ./;
   };
 
   #foreach { $fshow_files[%*] } {file} {
     #if {"$file" != ""} {
-      #system { cat '$file' };
-      #showme <170>From file: $file\n;
+      #showme <170>File: $file;
     }
   }
+  #showme <130>'fcat' <file> to see file.;
 }
 
 #nop Look for specific files and show them;
@@ -63,3 +48,17 @@
   #if {"%1" != ""} { #system grep -r '%1' ./%2; }
 }
 
+#alias read_tin_files {
+  #script {tin_list} {
+    find ./%1 -wholename '*.tin' | grep -v init
+  };
+
+  #foreach { $tin_list[%*] } {file} {
+    #if {@length{$file} > 0} {
+      #showme reading $file;
+      #read $file;
+    };
+  };
+
+  #unvar tin_list;
+}

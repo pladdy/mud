@@ -4,7 +4,7 @@
   #if {@length{%0} > 0} {
     #system grep "%0" $map_path;
   } {
-    #showme Need some arguments to grep for;
+    #showme <170>Need to provide something to search for.;
   }
 }
 
@@ -155,4 +155,3 @@
   #map goto $chaos_port_location;
   #var chaos_port_location {};
 }
-
