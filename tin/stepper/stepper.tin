@@ -2,12 +2,34 @@
 
 #action {^[M] %1.} {
   under_attack %1;
-  #script {monster_name} {./bin/monster_name %1};
+  #script {monster_name} {./bin/monster_name "%1"};
   #var monster_name $monster_name[1];
-
+  #format {monster_name} {%l} {$monster_name};
+  
   #list {seen_monsters} {find} {$monster_name} {index_if_seen};
   #if {$index_if_seen == 0} {
     #list {seen_monsters} {add} {$monster_name};
+  };
+  #unvar monster_name;
+}
+
+#nop If a mob is no longer present, remove from list;
+
+#action {There is no %1 here.} {
+  #regexp {%1} {reason to} {} {
+    #list {seen_monsters} {find} {%1} {mob_index};
+    #list {seen_monsters} {delete} {$mob_index};
+  }
+}
+
+#alias ak {auto_kill}
+
+#alias auto_kill {
+  #delay {0.5} {
+    #list {seen_monsters} {size} {seen_monster_count};
+    #if {$seen_monster_count > 0 & $under_attack == "false"} {
+      !kill $seen_monsters[1];
+    };
   }
 }
 

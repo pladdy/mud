@@ -42,4 +42,5 @@ alias ps2 pstats2
 alias pva put all in vortex
 alias pv put $* in vortex
 alias sav sell all from vortex
+alias si evoke siphon
 
