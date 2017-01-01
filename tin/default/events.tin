@@ -1,16 +1,20 @@
 #nop MAP ENTER ROOM is defined with an alias so it can be toggled;
+#nop see tin/map/default.tin;
 
 #event {MAP EXIT ROOM} {
   #var map[current_room] %1;
   #var map[last_room] %0;
+  #list seen_monsters clear;
 }
 
-#nop define here to make available to event;
-
-#alias guild_session {}
+#nop Logging;
 
 #event {SESSION ACTIVATED} {#log o {./last_log.log}}
 #event {SESSION CONNECTED} {#log a {./last_log.log}}
+
+#nop Define guild_session alias here to make available to events below;
+
+#alias guild_session {}
 
 #event {SESSION DISCONNECTED} {
   map_save;

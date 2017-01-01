@@ -1,3 +1,11 @@
+#alias chaos_area_port {
+  #showme porting to $chaos_port_location!;
+  #map goto $chaos_port_location;
+  #var chaos_port_location {};
+}
+
+#alias f2 { map_run home; }
+
 #nop Grep the map for text;
 
 #alias gmap {
@@ -16,8 +24,6 @@
 #alias nnw { #10 nw; }
 #alias sse { #10 se; }
 #alias ssw { #10 sw; }
-
-#alias f2 { map_run home; }
 
 #nop Peek in a room to see it's data;
 
@@ -40,25 +46,11 @@
 
 #alias map { #map map; }
 
-#alias map_run {
-  #format {run_to} {%l} {%1};
-  #unevent {MAP ENTER ROOM};
-  #break;
-  #map run $run_to;
-  track_map_on_enter;
-  map_refresh;
-  #unvar run_to;
-}
-
-#alias run {map_run %0}
-
 #alias map_load {
   #map read $map_path;
   #map goto home;
   #showme Map loaded, set to home.;
 }
-
-#alias map_info { #map info; }
 
 #alias map_lock {
   #showme Map is Read only.;
@@ -67,7 +59,7 @@
   !brief on yes;
 }
 
-#nop TODO:;
+
 #nop fix this ugliness of handling globals in a file with no keys...;
 
 #alias map_refresh {
@@ -89,6 +81,17 @@
 
 #alias mapr { map_refresh }
 
+#nop When 'running' disable refresh, it makes the 'run' much faster;
+
+#alias map_run {
+  #format {run_to} {%l} {%1};
+  #unevent {MAP ENTER ROOM};
+  #map run $run_to;
+  track_map_on_enter;
+  map_refresh;
+  #unvar run_to;
+}
+
 #alias map_save {
   #map write $map_path;
   #showme Map saved to $map_path;
@@ -108,6 +111,8 @@
 }
 
 #alias map_undo {#nop;}
+
+#alias run {map_run %0}
 
 #alias track_map_on_enter {
   #event {MAP ENTER ROOM} {
@@ -147,11 +152,4 @@
   !s;
 
   #map jump -5 -6;
-}
-#nop 'Private' aliases used internally;
-
-#alias chaos_area_port {
-  #showme porting to $chaos_port_location!;
-  #map goto $chaos_port_location;
-  #var chaos_port_location {};
 }

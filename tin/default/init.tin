@@ -2,7 +2,8 @@
 #nop excludes the map files and any other init files (including itself);
 
 #script {default_tin_files} {
-  find ./tin/default -iwholename '*.tin' | grep -v '/map/' | grep -v 'init'
+  find ./tin/default -iwholename '*.tin' | grep -v 'init';
+  find ./tin/stepper -iwholename '*.tin' | grep -v 'init';
 };
 
 #foreach { $default_tin_files[%*] } {file} {
