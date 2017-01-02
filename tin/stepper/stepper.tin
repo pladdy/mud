@@ -3,6 +3,7 @@
 # nop Room Short trigger
 #action {^[RS] %1$} {
   #list seen_monsters clear;
+  #var under_attack false;
 }
 
 #action {^[M] %1.} {
@@ -19,17 +20,14 @@
 }
 
 #action {^%1 gasps for breath, then slumps into death.$} {
-  #showme <170> Called with %1;
   remove_seen_monster %1;
 }
 
 #action {^%1 screeches in agony and falls to the ground, dead.$} {
-  #showme <170> Called with %1;
   remove_seen_monster %1;
 }
 
 #action {^%1 gurgles in its own blood as %2 dies.$} {
-  #showme <170> Called with %1;
   remove_seen_monster %1;
 }
 
@@ -76,11 +74,13 @@
     !aset room_short white+[RS] +reset;
     !aset look_monster hired+[M] +reset;
     !aset look_player higreen+[P] +reset;
+    !brief on no;
   } {
     #showme <170>Disabling tracking. 'tracker on' to re-enable.;
     !aset room_short;
     !aset look_monster;
     !aset look_player;
+    !brief on yes;
   }
 }
 

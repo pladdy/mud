@@ -56,7 +56,7 @@
   #showme Map is Read only.;
   #map flag static on;
   #alias map_undo {#nop;};
-  !brief on yes;
+  #nop !brief on yes;
 }
 
 

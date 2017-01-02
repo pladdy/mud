@@ -1,5 +1,8 @@
 #alias use_corpse {
-  #if {$hp >= $hp_max && $sp >= $sp_max} {
+  #math {pct_hp} {($hp * 1.00)/ $hp_max * 100};
+  #math {pct_sp} {($sp * 1.00)/ $sp_max * 100};
+
+  #if {$pct_hp >= 97 && $pct_sp >= 97} {
     !evoke corpse drain;
   } {
     !hp;
@@ -18,7 +21,7 @@
   #loop 2 12 i {!sell all from bag $i};
 }
 
-#alias gb {
+#alias gbl {
   !unkeep blast;
   !activate blast;
   !give blast to %0;
@@ -26,4 +29,9 @@
 
 #alias regen {
   run el_apex;
+}
+
+#alias recd {
+  !unwrap corpse;
+  use_corpse;
 }
