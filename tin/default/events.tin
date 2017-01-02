@@ -4,7 +4,6 @@
 #event {MAP EXIT ROOM} {
   #var map[current_room] %1;
   #var map[last_room] %0;
-  #list seen_monsters clear;
 }
 
 #nop Logging;

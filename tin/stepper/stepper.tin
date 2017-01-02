@@ -1,5 +1,10 @@
 #nop Track monsters when stepping through rooms;
 
+# nop Room Short trigger
+#action {^[RS] %1$} {
+  #list seen_monsters clear;
+}
+
 #action {^[M] %1.} {
   under_attack %1;
   #script {monster_name} {./bin/monster_name "%1"};
@@ -13,12 +18,29 @@
   #unvar monster_name;
 }
 
+#action {^%1 gasps for breath, then slumps into death.$} {
+  #showme <170> Called with %1;
+  remove_seen_monster %1;
+}
+
+#action {^%1 screeches in agony and falls to the ground, dead.$} {
+  #showme <170> Called with %1;
+  remove_seen_monster %1;
+}
+
+#action {^%1 gurgles in its own blood as %2 dies.$} {
+  #showme <170> Called with %1;
+  remove_seen_monster %1;
+}
+
 #nop If a mob is no longer present, remove from list;
 
 #action {There is no %1 here.} {
   #regexp {%1} {reason to} {} {
     #list {seen_monsters} {find} {%1} {mob_index};
-    #list {seen_monsters} {delete} {$mob_index};
+    #if {$mob_index > 0} {
+      #list {seen_monsters} {delete} {$mob_index};
+    };
   }
 }
 
@@ -33,15 +55,30 @@
   }
 }
 
+#nop Given a monster, try to remove from seen_monster list;
+
+#alias remove_seen_monster {
+  #format {mob_to_remove} {%l} {%0};
+  #list {seen_monsters} {find} {$mob_to_remove} {mob_index};
+
+  #if {$mob_index > 0} {
+    #list {seen_monsters} {delete} {$mob_index};
+  };
+  #unvar mob_to_remove;
+  #unvar mob_index;
+}
+
 #nop Simple wrapper alias to enable/disable tracking of mobs/players;
 
 #alias tracker {
   #if {"%0" == "on"} {
     #showme <170>Enabling tracking. 'tracker off' to disable.;
+    !aset room_short white+[RS] +reset;
     !aset look_monster hired+[M] +reset;
     !aset look_player higreen+[P] +reset;
   } {
     #showme <170>Disabling tracking. 'tracker on' to re-enable.;
+    !aset room_short;
     !aset look_monster;
     !aset look_player;
   }
