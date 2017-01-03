@@ -1,6 +1,7 @@
 #nop Track monsters when stepping through rooms;
 
-# nop Room Short trigger
+# nop Room Short trigger;
+
 #action {^[RS] %1$} {
   #list seen_monsters clear;
   #var under_attack false;
@@ -27,7 +28,7 @@
   remove_seen_monster %1;
 }
 
-#action {^%1 gurgles in its own blood as %2 dies.$} {
+#action {^%1 gurgles in %2 own blood as %3 dies.$} {
   remove_seen_monster %1;
 }
 
@@ -45,12 +46,10 @@
 #alias ak {auto_kill}
 
 #alias auto_kill {
-  #delay {0.5} {
-    #list {seen_monsters} {size} {seen_monster_count};
-    #if {$seen_monster_count > 0 & $under_attack == "false"} {
-      !kill $seen_monsters[1];
-    };
-  }
+  #list {seen_monsters} {size} {seen_monster_count};
+  #if {$seen_monster_count > 0 & $under_attack == "false"} {
+    !kill $seen_monsters[1];
+  };
 }
 
 #nop Given a monster, try to remove from seen_monster list;

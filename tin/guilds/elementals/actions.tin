@@ -1,6 +1,7 @@
 #action {^ HP:%1/%2 C:%3  NRG:%4/%5(%6)  SP:%7/%8  B:%9(%10) G2N:%11} {
   #var hp {%1};
   #regexp {%2} {%d} {#var hp_max &1};
+  #math {pct_hp} {($hp * 1.00)/ $hp_max * 100};
 
   #var gp1 {%4};
   #var gp1_max {%5};
@@ -10,6 +11,7 @@
 
   #var sp {%7};
   #var sp_max {%8};
+  #math {pct_sp} {($sp * 1.00)/ $sp_max * 100};
 
   #regexp {%11} {%d} {#var gxp &1};
   #regexp {%11} {T:%+:%d%%$} {#var enemy &2} {#var enemy 0};

@@ -20,7 +20,7 @@
   map_run morgue;
   !acquire coffin;
   !donate coffin;
-  #var coffin_status {Empty};
+  #var coffin_status {not_full};
   #var corpses 0;
   map_run home;
 }
