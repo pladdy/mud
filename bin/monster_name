@@ -2,29 +2,21 @@
 
 use strict;
 
-# open my $log, '>', "./monster_name.log";
-
 my $raw_string = join(" ", @ARGV);
-# print $log "$raw_string\n";
 
 # tintin doesn't do well with curly braces; it outputs them as escape sequences
 $raw_string =~ s/\\x7B/{/g;
-# print $log "$raw_string\n";
 
 $raw_string =~ s/\\x7D/}/g;
-# print $log "$raw_string\n";
 
 # remove bracketed, curlied, or parenthesied strings
 $raw_string =~ s/ [\[|\{|\(].+[\]|\}|\)]//g;
-# print $log "$raw_string\n";
 
 # remove attacking
 $raw_string =~ s/ attacking you!//;
-# print $log "$raw_string\n";
 
 # remove puncuation
 $raw_string =~ s/\.$//;
-# print $log "$raw_string\n";
 
-# print but with no newline
+# print but with no newline; tt++ picks this up and stores in a list
 print "$raw_string";
