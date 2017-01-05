@@ -56,7 +56,6 @@
   #showme Map is Read only.;
   #map flag static on;
   #alias map_undo {#nop;};
-  #nop !brief on yes;
 }
 
 
@@ -106,8 +105,6 @@
   #showme Map is writable.;
   #map flag static off;
   #alias map_undo { #map undo; };
-  #nop !brief on no;
-  #nop map_show;
 }
 
 #alias map_undo {#nop;}
