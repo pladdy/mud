@@ -31,6 +31,7 @@ alias ed evoke energy drain
 alias ed_on evoke perform as combat ed:99,ed:99,ed:99,ed_on
 alias ob evoke obfuscate
 alias pr evoke preservation at
+alias rg release gem
 alias ts evoke trap the soul
 
 alias gs escore
