@@ -27,7 +27,7 @@
   #if {$damage_left > 0} {
     #math {average_dmg} {$damage_so_far / $rounds_in_combat};
     #math {rounds_left} {$damage_left / $average_dmg};
-    #if {$rounds_left < 1.0} {!ts};
+    #if {$rounds_left < 1.0 && $gp1 > 50} {!ts};
   };
 
   show_status_bar;
