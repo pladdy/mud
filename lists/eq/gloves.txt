@@ -6,4 +6,4 @@ Gloves:
 
 Ravenloft:
   undead_dragon # drops razor warrior, kill for glass gloves (somtimes)
-  oathmaker     # kill marcus, then run tullaris drops tarnished gauntlets
+  oathmaker     # kill marcus, then run tullaris, drops tarnished gauntlets
