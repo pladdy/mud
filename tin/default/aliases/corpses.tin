@@ -9,7 +9,7 @@
 }
 
 #alias wrap_or_use_corpse {
-  #if {"$coffin_status" == "FULL" || @length{$coffin_status} == 0} {
+  #if {"$coffin_status" == "full" || @length{$coffin_status} == 0} {
     use_corpse;
   } {
     !wrap corpse;
@@ -20,7 +20,7 @@
   map_run morgue;
   !acquire coffin;
   !donate coffin;
-  #var coffin_status {Empty};
+  #var coffin_status {not_full};
   #var corpses 0;
   map_run home;
 }

@@ -30,4 +30,3 @@ aset flapchat yellow
 aset ctrade yellow
 aset craft yellow
 aset atalk yellow
-

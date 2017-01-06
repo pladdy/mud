@@ -1,8 +1,20 @@
 #nop Coffin stuff;
 
-#action {^ 1 An enchanted coffin (%1 corpse%?) [%2] [%3].$} {
+#action {^The Mortician says: Very well, here is your own personal coffin!$} {
+  #var corpses 0;
+  #var coffin_status {not_full};
+}
+
+#action {^ 1 %?%?An enchanted coffin (%1 corpse%?) [%2] %3} {
   #var corpses %1;
   #var coffin_status %3;
+  #format {coffin_status} {%l} {$coffin_status};
+
+  #if {"$coffin_status" == "[full]."} {
+    #var coffin_status {full};
+  } {
+    #var coffin_status {not_full};
+  }
 }
 
 #action {^wrap it up into the coffin's protective hold!$} {
@@ -15,7 +27,7 @@
 }
 
 #action {^The coffin is full!$} {
-  #var coffin_status {FULL};
+  #var coffin_status {full};
 }
 
 #action {^You relinquish your control of the enchanted coffin and it vanishes} {

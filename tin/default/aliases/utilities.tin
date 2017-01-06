@@ -46,7 +46,8 @@
 }
 
 #alias reload_tin {
-  #read tin/default/init.tin
+  #read tin/default/init.tin;
+  read_tin_files $map_dir;
 }
 
 #alias quit {

@@ -12,7 +12,7 @@
   #regexp {%1} {%i{$character|$mage_summons|$mimic|Pogo}} {
     !glance;
     wrap_or_use_corpse;
-    !divvy gold;
+    #if {"$party_status" == "yes"} {!divvy gold};
     #if {"$flying" == "true"} {!swoop all} {!get all};
   };
 

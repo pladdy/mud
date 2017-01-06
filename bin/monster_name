@@ -1,0 +1,22 @@
+#!/usr/bin/env perl
+
+use strict;
+
+my $raw_string = join(" ", @ARGV);
+
+# tintin doesn't do well with curly braces; it outputs them as escape sequences
+$raw_string =~ s/\\x7B/{/g;
+
+$raw_string =~ s/\\x7D/}/g;
+
+# remove bracketed, curlied, or parenthesied strings
+$raw_string =~ s/ [\[|\{|\(].+[\]|\}|\)]//g;
+
+# remove attacking
+$raw_string =~ s/ attacking you!//;
+
+# remove puncuation
+$raw_string =~ s/\.$//;
+
+# print but with no newline; tt++ picks this up and stores in a list
+print "$raw_string";

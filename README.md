@@ -3,8 +3,10 @@
 These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 
 ## Dependencies
-- 'Nix based OS (all this stuff runs on mac os)
+- Unix based OS (all this stuff runs on mac os)
   - cygwin seems to work if you're using windows (tested by Wag)
+- Perl; this should already be installed with non Window OS'.  Text parsing is hard
+  in tintin so I opt to use Perl for some things
 - TinTin++ Mud Client: http://tintin.sourceforge.net/
 - Tmux (can install via brew on mac, unsure on cygwin)
   - this is only if you want to use the -t option when you './play'
