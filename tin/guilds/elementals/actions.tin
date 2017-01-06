@@ -14,9 +14,27 @@
   #math {pct_sp} {($sp * 1.00)/ $sp_max * 100};
 
   #regexp {%11} {%d} {#var gxp &1};
-  #regexp {%11} {T:%+:%d%%$} {#var enemy &2} {#var enemy 0};
+  #regexp {%11} {T:%+:%d%%$} {
+    #var enemy &2;
+    #math {rounds_in_combat} {$rounds_in_combat + 1};
+  } {
+    #var enemy 0;
+    #var rounds_in_combat 0;
+  };
+
+  #math {damage_left} {$enemy};
+  #math {damage_so_far} {100.0 - $enemy};
+  #if {$damage_left > 0} {
+    #math {average_dmg} {$damage_so_far / $rounds_in_combat};
+    #math {rounds_left} {$damage_left / $average_dmg};
+    #if {$rounds_left < 1.0} {!ts};
+  };
 
   show_status_bar;
 }
 
 #action {^%imass triad spam:} {run home}
+
+#action {^As the last bit of life force escapes your enemy you quickly capture its$} {
+  !keep soul gem;
+}

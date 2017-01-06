@@ -85,10 +85,18 @@
 #alias map_run {
   #format {run_to} {%l} {%1};
   #unevent {MAP ENTER ROOM};
+  #if {"$tracker" == "on"} {
+    !ansi off;
+    #list seen_monsters clear;
+  };
   #map run $run_to;
-  track_map_on_enter;
+  refresh_map_on_enter;
   map_refresh;
   #unvar run_to;
+  #if {"$tracker" == "on"} {
+    !ansi on;
+    !glance;
+  };
 }
 
 #alias map_save {
@@ -111,7 +119,7 @@
 
 #alias run {map_run %0}
 
-#alias track_map_on_enter {
+#alias refresh_map_on_enter {
   #event {MAP ENTER ROOM} {
     #delay {0} {map_refresh};
   }

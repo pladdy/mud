@@ -1,11 +1,14 @@
 #nop Track monsters when stepping through rooms;
 
-# nop Room Short trigger;
+#nop Room Short trigger;
 
 #action {^[RS] %1$} {
   #list seen_monsters clear;
   #var under_attack false;
+  #var tracker on;
 }
+
+#nop Monster trigger;
 
 #action {^[M] %1.} {
   under_attack %1;
@@ -19,6 +22,8 @@
   };
   #unvar monster_name;
 }
+
+#nop Monster deaths;
 
 #action {^%1 gasps for breath, then slumps into death.$} {
   remove_seen_monster %1;
@@ -70,12 +75,14 @@
 #alias tracker {
   #if {"%0" == "on"} {
     #showme <170>Enabling tracking. 'tracker off' to disable.;
+    #var tracker on;
     !aset room_short white+[RS] +reset;
     !aset look_monster hired+[M] +reset;
     !aset look_player higreen+[P] +reset;
     !brief on no;
   } {
     #showme <170>Disabling tracking. 'tracker on' to re-enable.;
+    #var tracker off;
     !aset room_short;
     !aset look_monster;
     !aset look_player;
