@@ -32,3 +32,13 @@
   !unwrap corpse;
   use_corpse;
 }
+
+#alias trap_souls {
+  #if {"$trap_souls" != "yes"} {
+    #var trap_souls yes;
+    #showme <170>Trapping souls enabled.;
+  } {
+    #var trap_souls no;
+    #showme <170>Trapping souls disabled.;
+  }
+}
