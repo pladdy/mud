@@ -9,7 +9,7 @@ read_tin_files $map_dir;
 
 #map read $map_path;
 map_lock;
-track_map_on_enter;
+refresh_map_on_enter;
 
 #nop Go to last known room if possible;
 
