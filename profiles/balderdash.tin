@@ -1,7 +1,7 @@
 #nop Set up environment.
 
 #var character {balderdash};
-#var guild {changelings};
+#var guild {priests};
 
 #read tin/default/init.tin;
 status_bar on

@@ -1,0 +1,31 @@
+#alias use_corpse {
+  !hp;
+  !offer corpse;
+  !hp;
+  !get all;
+}
+
+#alias f10 {use_corpse}
+
+#alias f12 {
+  #if {$map[current_room] == 22052} {
+    #loop 2 12 i {
+      !get all from bag $i;
+      !sacrifice all;
+    };
+  }
+}
+
+#alias commands_after_corpse {
+  !meditate;
+}
+
+#alias m {
+  !paction off;
+  !meditate;
+}
+
+#alias reof {
+  !unwrap corpse;
+  !offer corpse;
+}

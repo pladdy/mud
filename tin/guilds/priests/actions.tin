@@ -1,0 +1,15 @@
+#action {^You finish your meditation and stand up.$} {
+  !paction on;
+}
+
+#action {You close your book and stand up, ready to do battle.$} {
+  !paction on;
+}
+
+#action {^You break your meditation!$} {
+  !paction on;
+}
+
+#action {^Your bark-like skin withers away.$} {
+  #if {$enemy != 0} {!barkskin};
+}

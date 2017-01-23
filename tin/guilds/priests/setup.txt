@@ -1,0 +1,29 @@
+aset priest_announce white
+aset priest_chant higreen
+
+alias bk barkskin
+
+alias cc cure critical
+alias cd cure deadly
+alias cl cure light
+alias cs cure serious
+
+alias cw cwindi
+alias com chant
+alias gs gscore
+alias gs2 gscore2
+alias gs3 summary
+alias gs4 summary2
+alias h hammer
+alias id identify
+alias info priest
+alias m meditate
+alias ms mstone
+alias msp priest myspells
+alias pe peace
+alias ps pstatus
+alias r reagents
+alias sac sacrifice
+alias sp spells
+
+hpbar hp#sp#mana#pty#mh#NL#pgxxl#prot#vest#bark
