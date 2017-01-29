@@ -19,6 +19,7 @@ aliasl a ptell
 
 cbrief on mo
 
+aset auction yellow
 aset party brown
 aset shout yellow
 aset profchat white
@@ -29,4 +30,3 @@ aset gam higreen
 aset flapchat yellow
 aset ctrade yellow
 aset craft yellow
-aset atalk yellow

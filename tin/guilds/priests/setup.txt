@@ -10,6 +10,7 @@ alias cs cure serious
 
 alias cw cwindi
 alias com chant
+alias da donate all
 alias gs gscore
 alias gs2 gscore2
 alias gs3 summary
@@ -25,5 +26,6 @@ alias ps pstatus
 alias r reagents
 alias sac sacrifice
 alias sp spells
+alias ve vestment
 
-hpbar hp#sp#mana#pty#mh#NL#pgxxl#prot#vest#bark
+hpbar hp#sp#mana#sto#mend2#mh#NL#pgxxl#pty#prot#vest#bark
