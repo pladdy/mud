@@ -1,6 +1,6 @@
 #nop Rasta's Hell;
 
-#nop Dirs to map:
+#nop Dirs to map;
   #nop thisway;
   #nop thatway;
 
@@ -10,23 +10,21 @@
   #nop overthere;
   #nop overhere;
 
-  # doing overhere
-
 #alias hell_map_on {
-  #showme <110>Hell mappings are turned on.;
+  #showme <110>Hell direction aliases are turned on!;
 
-  #alias e {!thatway;#map move e};
-  #alias w {!overhere;#map move w};
+  #alias e {!anotherway;#map move e};
+  #alias w {!thisway;#map move w};
 
-  #alias n {!overthere;#map move n};
-  #alias s {!anotherway;#map move s};
+  #alias n {!overhere;#map move n};
+  #alias s {!yonder;#map move s};
 
-  #alias d {!thisway;#map move d};
-  #alias u {!yonder;#map move u};
+  #alias d {!overthere;#map move d};
+  #alias u {!thatway;#map move u};
 }
 
 #alias hell_map_off {
-  #showme <120>Hell mappings are turned off.;
+  #showme <120>Hell direction aliases are turned off.;
 
   #unalias n;
   #unalias s;
@@ -36,7 +34,7 @@
   #unalias d;
 }
 
-#alias hell_map_ref {
+#alias hell_map_refresh {
   #showme <130>Refreshing hell mappings...;
 
   #read $map_dir/aliases/hell.tin;

@@ -84,3 +84,9 @@
 #action {^a stream! The sea is gone, you can breath again! But where are you?$} {
   #if {$map[current_room == 21786} {#map go 11692}
 }
+
+#nop The Zodiac;
+
+#action {^Cool!  It has your sign!  Today is a %1....$} {
+  #map goto 22124;
+}
