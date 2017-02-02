@@ -90,3 +90,9 @@
 #action {^Cool!  It has your sign!  Today is a %1....$} {
   #map goto 22124;
 }
+
+#nop The simpsons;
+
+#action {^The Springfield Comments Board} {
+  #map goto 22218;
+}
