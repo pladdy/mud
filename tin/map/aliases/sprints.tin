@@ -45,6 +45,6 @@
   #if { @length{%1} > 0 } {
     map_run shop_%1;
   } {
-    #system cat lists/areas/shops.txt;
+    #system cat notes/lists/areas/shops.txt;
   };
 }
