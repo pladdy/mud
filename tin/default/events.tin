@@ -1,5 +1,5 @@
 #nop MAP ENTER ROOM is defined with an alias so it can be toggled;
-#nop see tin/map/default.tin;
+#nop see tin/map/aliases/default.tin;
 
 #event {MAP EXIT ROOM} {
   #var map[current_room] %1;
