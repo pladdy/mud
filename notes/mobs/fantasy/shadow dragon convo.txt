@@ -1,0 +1,66 @@
+'lair
+You say: lair
+> The Dragon says: Yes, this is my lair. I had to modify it a
+bit, but it is much better than what my previous home had
+become.
+'previous home
+You say: previous home
+> 'home
+You say: home
+> The Dragon says: My previous home was located in the Plane of
+Shadow. It was almost perfect. Lots of shadows to lie about in
+and so much treasure. But, unfortunately, it was destroyed.
+'plane
+You say: plane
+> The Dragon says: It is the birthplace of my kind. Fortunately,
+it is inaccessible to you humans. I don't want to think what might
+happen if humans were allowed access to my homeland.
+'destroyed
+You say: destroyed
+> The Dragon says: It was done by that evil sorcerer and his pet demons.
+One day, when I can again gain access to my homeland, I will go and
+gather the rest of my kind and slay those foul spawns of hell.
+'sorerer
+You say: sorerer
+> 'sorcerer
+You say: sorcerer
+> The Dragon says: His name is Sinistarian Wraithel and he is a very
+powerful sorcerer. Along with his pet demons, he destroyed my lair when
+I was out hunting for food. They then ambushed me when I returned and
+through some foul magic, sent me to this accursed land. Someday I will
+enact my revenge.
+'revenge
+Saving crafting status.
+You say: revenge
+> 'sinistarian
+You say: sinistarian
+> The Dragon says: His name is Sinistarian Wraithel and he is a very
+powerful sorcerer. Along with his pet demons, he destroyed my lair when
+I was out hunting for food. They then ambushed me when I returned and
+through some foul magic, sent me to this accursed land. Someday I will
+enact my revenge.
+'demons
+You say: demons
+> The Dragon says: Sinistarian summoned them from some remote plane of the
+Abyss. Their names are Crag, Tiwa, and Promi.
+'abyss
+You say: abyss
+> 'crag
+You say: crag
+> The Dragon says: It is one of the demons that Sinistarian summoned to
+aid him in his destruction of my homeland. They are truly hideous beings.
+You say: amulet
+> The Dragon says: This amulet was perhaps my most prized treasure.
+The artwork is amazing considering the dwarf who made it was completely
+insane. Sometimes, when the light hits it just right, it will sparkle
+and make the most interesting shadows.
+'dwarf
+You say: dwarf
+> The Dragon says: I believe his name was Dworkin.
+'dworkin
+You say: dworkin
+> The Dragon says: Dworkin was a master armorer and jewelsmith who
+thought he could fashion a suit of armour from my hide. I, naturally,
+objected to him using my hide and decided he would've made a good
+snack. Amazingly, he talked me out of it. He offered to make me
+this amulet in exchange for his life.
