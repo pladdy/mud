@@ -19,6 +19,10 @@
   #elseif {"%1" == "off"} {
     #unsplit
   };
+  #elseif {"%1" == "reset"} {
+    #unsplit;
+    #split {} 2;
+  };
   #else {
     #showme call with 'on' or 'off';
   };

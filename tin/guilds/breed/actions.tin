@@ -1,4 +1,6 @@
 #action {^%?%?H: %1/%2 S: %3/%4 P: %5/%6(%7) F: %8% SA: %9 E: %10 $} {
+  #var using_psidraw {false};
+
   #var hp {%1};
   #var hp_max {%2};
 
@@ -52,8 +54,18 @@
   !daystar 400;
 }
 
+#action {^You channel a fraction of the mental attack into the kulnara crystal.$} {
+  #if {"$using_psidraw" != "true"} {
+   !psidraw 500 from kulnara;
+   #var using_psidraw {true};
+  }
+}
+
 #action {^You try and channel the attack, but the crystal already overflows with energy.$} {
-  !psidraw 500 from kulnara;
+  #if {"$using_psidraw" != "true"} {
+   !psidraw 500 from kulnara;
+   #var using_psidraw {true};
+  }
 }
 
 #action {^%1 has already been drained of psi.$} {
