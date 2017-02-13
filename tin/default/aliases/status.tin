@@ -21,6 +21,7 @@
   };
   #elseif {"%1" == "reset"} {
     #unsplit;
+    !hp;
     #split {} 2;
   };
   #else {
