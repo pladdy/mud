@@ -2,6 +2,9 @@ Shops:
 
 All shops on map should be prefixed with 'shop_'
 
+* prefix means the shop is in a sub area (have to be in main area to sprint to
+it)
+
 cot => Trading Post
 
 Chaos:
@@ -11,6 +14,7 @@ Chaos:
   darkmoore => Darkmoore
   land1     => Revelwood shop
   land2     => ^^ 2.0
+  *simpsons => Simpsons
   techno    => Techno Shop
 
 Fantasy:
