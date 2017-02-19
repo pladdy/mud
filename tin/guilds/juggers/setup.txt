@@ -21,3 +21,5 @@ aset jugg_chirp hiblue
 aset jugg_main higreen
 aset jugg_whine himagenta
 aset jugg_newbie cyan
+
+hp set H: $HP$ S: $SP$ St: $STIM$% He: $HEAT$% C/N: $CP$/$NUKES$ [$RESET$%] Hi: $HITS$ E: $STATUS$ $N$G: $GXP$% A: $AMMO$ JJ: $JJ$ LL: $LL$

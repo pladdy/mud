@@ -43,8 +43,11 @@ usage() {
 }
 
 valid_profiles() {
-  printf "Valid profiles:\n"
-  for profile in $(ls profiles); do echo "  ${profile}"; done
+  printf "Valid profiles, guild for profile:\n"
+  for profile in $(ls profiles); do
+    local guild=$(grep 'var guild ' profiles/${profile} | sed 's/.*{//' | sed 's/};//')
+    echo "  ${profile}, ${guild}"
+  done
 }
 
 while getopts 'thp:' opt; do

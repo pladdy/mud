@@ -36,3 +36,5 @@ aset mage_stoneskin hiblack
 aset mage_rhino_skin hiblack
 aset mage_blink hicyan
 aset mage_improved_shield yellow
+
+confhp H: #$CCH#/#$MHP# S: #$CCS#/#$MSP#(#$CPC#) Ge: #$GEM# S|C: #$CSAT#%|#$CCNC#% G|M: #$NGM#|#$NMI#(#$GPC#)# Sc: #$NSM#(#$SPC#)#$NWL#Gx: #$G2N# P:#$PRO# St: #$ST#

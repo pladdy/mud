@@ -15,10 +15,11 @@ alias hs cast hardened skin
 alias lt cast light
 
 setpanic bandage at 70%
-bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% S: &$S$&(&$SR$&%) E: &$C$& &$NL$&g2n/g2s: @higreen:&$G2N%$&@%/@higreen:&$G2S$&@ A:&$AS$& &$P$
 
 aset bard_attack himagenta
 aset bard_dodge hicyan
 aset bard_heal higreen
 aset bard_dirge hiblack
 aset bard_enhance yellow
+
+bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% S: &$S$&(&$SR$&%) E: &$C$& &$NL$&g2n/g2s: @higreen:&$G2N%$&@%/@higreen:&$G2S$&@ A:&$AS$& &$P$

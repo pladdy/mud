@@ -1,0 +1,2 @@
+hpset H: $HP$/$MAXHP$ S: $SP$/$MAXSP$ P: $PP$/$MAXPP$($CRYSTAL$) F: $FOCUS$% SA: $SA$/$MAXSA$($RESET$%) E: $ENEMY$ $RETURN$C: $CONF$ W: $MAINTAIN$ D: $DUALITY$ T: $TALAR$ A: $AURA$
+hpset *higreen*H*reset*: $HP$/$MAXHP$ *hicyan*S*reset*: $SP$/$MAXSP$ *himagenta*P*reset*: $PP$/$MAXPP$($CRYSTAL$) *hiblack*F*reset*: $FOCUS$% *cyan*SA*reset*: $SA$/$MAXSA$($RESET$%) *red*E*reset*: $ENEMY$ $RETURN$*white*C*reset*: $CONF$ *yellow*W*reset*: $MAINTAIN$ D: $DUALITY$ T: $TALAR$ A: $AURA$

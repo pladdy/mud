@@ -17,3 +17,5 @@ gansi 20 yellow
 gansi 22 hicyan
 gansi 35 higreen
 gansi 23 hiblack
+
+confighp H: $CHP/$MHP S: $CSP/$MSP St: $STA P: $PPM B: $BPL C: $CFX E: $MON $CRTSk: $SKN Gx: $SKP F: $FRM: $FAM St: $STS

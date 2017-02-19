@@ -1,0 +1,1 @@
+confighp hp H: $+CHP$/$MHP$ S: $+CSP$/$MSP$ W: $+CWT$/$MWT$($SWT$) L: $+LMB$% P: $PSN$($+PSR$%) E#: $ATT$ E: $+TRG$ $CRT$Li: $+LTS$ Pa: $+LBP$ Ma: $MPA$($MPC$) Wr: $WCR$ C: $+CCP$ Gt: $GXA$ G: $GXP$
