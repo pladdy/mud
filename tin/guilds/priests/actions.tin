@@ -32,15 +32,18 @@
 
 #action {^You finish your meditation and stand up.$} {
   !paction on;
+  !contingency on;
   !hp;
 }
 
 #action {You close your book and stand up, ready to do battle.$} {
   !paction on;
+  !contingency on;
 }
 
 #action {^You break your meditation!$} {
   !paction on;
+  !contingency on;
 }
 
 #action {^Your bark-like skin withers away.$} {
