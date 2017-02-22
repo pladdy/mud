@@ -16,15 +16,16 @@
     #var enemy_last {0};
   };
 
-  #if {$sp < 50 && "$enemy_str" != "none"} {!inspirit};
+  #nop don't need with contingency at glvl 15;
+  #nop #if {$sp < 50 && "$enemy_str" != "none"} {!inspirit};
   #if {"$haste" == "off"} {!haste};
 }
 
-#action {^GXP%%: [%1%%] PTY: (%2%%) PROT: %3 VEST: %4 BARK: %5} {
+#action {^GXP%%: [%1%%] PTY: (%2%%) CL: [%3%] PROT: %4 VEST: %5 BARK: %6} {
   #var gxp {%1};
   #var gp2 {%2};
   #var gp2_max {100};
-  #var vestment_status {%4};
+  #var vestment_status {%5};
 
   #if {"$vestment_status" == "OFF" && "$enemy_str" != "none"} {!vestment};
   show_status_bar;
@@ -42,6 +43,16 @@
 }
 
 #action {^You break your meditation!$} {
+  !paction on;
+  !contingency on;
+}
+
+#action {^The spell casting disrupts your meditation, and the spell fails!$} {
+  !paction on;
+  !contingency on;
+}
+
+#action {^%?%sYou do not need to meditate.$} {
   !paction on;
   !contingency on;
 }

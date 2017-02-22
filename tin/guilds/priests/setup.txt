@@ -28,4 +28,4 @@ alias sac sacrifice
 alias sp spells
 alias ve vestment
 
-hpbar hp#sp#mana#sto#mend2#mh#NL#pgxxl#pty#prot#vest#bark
+hpbar hp#sp#mana#sto#mend2#mh#NL#pgxxl#pty#cl#prot#vest#bark

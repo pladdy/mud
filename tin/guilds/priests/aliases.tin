@@ -8,7 +8,7 @@
 #alias f10 {use_corpse}
 
 #alias f12 {
-  #if {$map[current_room] == 22052} {
+  #if {$map[current_room] == 22052 || $map[current_room] == 22577} {
     #loop 2 12 i {
       !get all from bag $i;
       !sacrifice all;
@@ -21,8 +21,12 @@
 }
 
 #alias m {
-  !paction off;
-  !meditate;
+  #nop you can meditate in combat...turning paction off can kill;
+  #if {"$enemy_str" == "none"} {
+    !paction off;
+    !contingency off;
+    !meditate;
+  };
 }
 
 #alias reof {
