@@ -43,10 +43,12 @@ usage() {
 }
 
 valid_profiles() {
-  printf "Valid profiles, guild for profile:\n"
+  printf "Valid profile : guild for profile:\n"
+
   for profile in $(ls profiles); do
+    local profile_name=$(echo ${profile} | sed 's/.tin//')
     local guild=$(grep 'var guild ' profiles/${profile} | sed 's/.*{//' | sed 's/};//')
-    echo "  ${profile}, ${guild}"
+    echo "  ${profile_name} : ${guild}"
   done
 }
 
