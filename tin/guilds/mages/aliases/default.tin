@@ -7,7 +7,6 @@
 }
 
 #alias tap_corpse {
-  #showme <170>tap_corpse called with $gp1_raw;
   #if {$gp1_raw < 93} {!cast spell tap on corpse};
 }
 
