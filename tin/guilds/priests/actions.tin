@@ -28,6 +28,7 @@
   #var vestment_status {%5};
 
   #if {"$vestment_status" == "OFF" && "$enemy_str" != "none"} {!vestment};
+  #if {"$blade" == "off" && "$enemy_str" != "none"} {!blade};
   show_status_bar;
 }
 
@@ -61,6 +62,8 @@
   #if {$enemy != 0} {!barkskin};
 }
 
+#nop Haste;
+
 #action {^'Wise and powerful %1, hasten my reflexes and quicken my body!'} {
   #var haste {on};
 }
@@ -68,4 +71,19 @@
 #action {^You feel yourself slow back down to normal speed.$} {
   #var {haste} {off};
   #if {$enemy != 0} {!haste};
+}
+
+#nop Blade;
+
+#action {^Small razor-sharp blades hiss as they begin to revolve around your body$} {
+  #var blade {on};
+}
+
+#action {^You are already encircled by a maelstrom of gyrating razor-sharp blades.$} {
+  #var blade {on};
+}
+
+#action {^The blades stop swirling and shimmer into nothingness.$} {
+  #var {blade} {off};
+  #if {$enemy != 0} {!blade};
 }
