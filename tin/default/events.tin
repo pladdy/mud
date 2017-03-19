@@ -8,8 +8,7 @@
 
 #nop Logging;
 
-#event {SESSION ACTIVATED} {#log o {./last_log.log}}
-#event {SESSION CONNECTED} {#log a {./last_log.log}}
+#event {SESSION CONNECTED} {#log o {./3k_session.log}}
 
 #nop Define guild_session alias here to make available to events below;
 

@@ -22,7 +22,7 @@
   #elseif {"%1" == "reset"} {
     #unsplit;
     !hp;
-    #split {} 2;
+    #delay {2} {#split {} 2};
   };
   #else {
     #showme call with 'on' or 'off';
