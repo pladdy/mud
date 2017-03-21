@@ -21,12 +21,8 @@
 }
 
 #alias m {
-  #nop you can meditate in combat...turning paction off can kill;
-  #if {"$enemy_str" == "none"} {
-    !paction off;
-    !contingency off;
-    !meditate;
-  };
+  !contingency off;
+  !meditate;
 }
 
 #alias reof {

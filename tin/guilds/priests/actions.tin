@@ -33,28 +33,23 @@
 }
 
 #action {^You finish your meditation and stand up.$} {
-  !paction on;
   !contingency on;
   !hp;
 }
 
 #action {You close your book and stand up, ready to do battle.$} {
-  !paction on;
   !contingency on;
 }
 
 #action {^You break your meditation!$} {
-  !paction on;
   !contingency on;
 }
 
 #action {^The spell casting disrupts your meditation, and the spell fails!$} {
-  !paction on;
   !contingency on;
 }
 
 #action {^%?%sYou do not need to meditate.$} {
-  !paction on;
   !contingency on;
 }
 
