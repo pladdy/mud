@@ -124,3 +124,9 @@
 #action {^Exhilarated! You look back up the slope, and ponder doing it again.$} {
   #if {$map[current_room] == 20702} {#map goto 20703};
 }
+
+#nop Jigokudani;
+
+#action {^-=(~ ~Jigokudani~ ~)=- (nw,d)$} {
+  #if {$map[current_room] == 5396} {#map goto 22743};
+}
