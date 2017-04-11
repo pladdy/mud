@@ -1,0 +1,4 @@
+#nop If using Cyberpope amulet, this keeps it on;
+#action {^The force field surrounding you dies out.$} {
+  #if {$enemy > 0} {pbm};
+}
