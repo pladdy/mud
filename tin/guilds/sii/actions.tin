@@ -1,0 +1,26 @@
+#action {^H: %1/%2 [R: %3 O: %4 (%5)] S: %6/%7 F: %8/%9 C: %10 E: %11} {
+  #var hp {%1};
+  #var hp_max {%2};
+
+  #var sp {%6};
+  #var sp_max {%7};
+
+  #var gp1 {%8};
+  #var gp1_max {%9};
+
+  #var gp2 {%10};
+  #var gp2_max {100};
+
+  #var enemy_str {%11};
+  #regexp {$enemy_str} {(%d} {#var enemy &1};
+
+  #if {"$enemy_str" == "None"} {
+    #var enemy {0};
+    #var enemy_last {0};
+  };
+}
+
+#action {^Gx: %1 LG} {
+  #var gxp {%1};
+  show_status_bar;
+}

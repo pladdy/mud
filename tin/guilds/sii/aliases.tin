@@ -1,0 +1,13 @@
+#alias use_corpse {
+  !hp;
+  !eat corpse;
+  !hp;
+  !get all;
+}
+
+#alias f10 {use_corpse}
+
+#alias reet {
+  !unwrap corpse;
+  !eat corpse;
+}

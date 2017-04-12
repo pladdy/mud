@@ -1,0 +1,8 @@
+alias gs siiscore
+alias gs2 siiscore combat
+alias gs3 siiscore forms
+alias gs4 siiscore skills
+alias info siihelp
+alias rcost siiscore stat cost
+
+gset hpbar H: $HP$ [R: $REG$ O: $OVER$] S: $SP$ F: $FORT$ C: $CON$ E: $FOE$$NL$Gx: $CL$ LG: $GXP$ Bo: $BST$ B/P/R: $BR$/$PERC$/$RT$ Ch: $CHO$ Br: $BROOD$

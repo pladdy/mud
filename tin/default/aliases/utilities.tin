@@ -46,6 +46,7 @@
 }
 
 #alias reload_tin {
+  #class $guild kill;
   #read tin/default/init.tin;
   read_tin_files $map_dir;
 }

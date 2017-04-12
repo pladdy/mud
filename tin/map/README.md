@@ -18,10 +18,11 @@ Map actions are actions that move your character in some way.
   - Area specific events: for example you kill a specific mob and want to move somewhere.  These
     get logged under their specific area file.  Take a look in *actions/* for more details.
 
-## Utilities/Aliases
+## Aliases
 - **gmap**
-  takes a string and uses `grep` to search the map for that string.  handy to find
-  mobs, items, etc. (think map search)
+  lets you grep the map for text.  useful for finding room names or items so you
+  can sprint to the room that has it.  it returns tt++ formatted map lines (
+  #help map to learn more about tt++ map)
 
 - **map_write**
     open the map for writing; basically new rooms get added to the map.

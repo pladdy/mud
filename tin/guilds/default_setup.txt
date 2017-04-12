@@ -1,4 +1,5 @@
 ralias ALL
+repeat off
 
 eq -reset
 
@@ -24,9 +25,9 @@ aset party brown
 aset shout yellow
 aset profchat white
 aset hm himagenta
-aset house chat hicyan
+aset house hicyan
 aset gshout yellow
 aset gam higreen
 aset flapchat yellow
 aset ctrade yellow
-aset craft yellow
+aset crafting yellow
