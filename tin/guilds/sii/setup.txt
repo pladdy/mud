@@ -6,3 +6,18 @@ alias info siihelp
 alias rcost siiscore stat cost
 
 gset hpbar H: $HP$ [R: $REG$ O: $OVER$] S: $SP$ F: $FORT$ C: $CON$ E: $FOE$$NL$Gx: $CL$ LG: $GXP$ Bo: $BST$ B/P/R: $BR$/$PERC$/$RT$ Ch: $CHO$ Br: $BROOD$
+
+alias bl bloodrush
+alias bo boost
+alias br brood
+alias cd collect dna from corpse
+alias com psi
+alias en envelop
+alias enc envelop corpse
+alias eq siiquip
+alias fr focus regeneration
+alias fr1 focus regeneration normal
+alias fr2 focus regeneration quick
+alias gwho siiwho
+alias gwho2 siiwho2
+alias pe perceive

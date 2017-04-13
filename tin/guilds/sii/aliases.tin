@@ -1,6 +1,7 @@
 #alias use_corpse {
   !hp;
-  !eat corpse;
+  !envelop corpse;
+  !collect dna from corpse;
   !hp;
   !get all;
 }
@@ -10,4 +11,15 @@
 #alias reet {
   !unwrap corpse;
   !eat corpse;
+}
+
+#alias reinf {
+  !unwrap corpse 1;
+  !infest;
+}
+
+#alias reen {
+  !unwrap corpse;
+  !envelop corpse;
+  !collect dna from corpse;
 }
