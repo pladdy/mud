@@ -8,6 +8,15 @@
 
 #alias f10 {use_corpse}
 
+#alias f12 {
+  #if {$map[current_room] == 22754} {
+    #loop 2 8 i {
+      !get all from bag $i;
+      !feed all;
+    };
+  }
+}
+
 #alias reet {
   !unwrap corpse;
   !eat corpse;
