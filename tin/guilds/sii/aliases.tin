@@ -27,7 +27,7 @@
   !infest;
 }
 
-#alias reen {
+#alias reenc {
   !unwrap corpse;
   !envelop corpse;
   !collect dna from corpse;
