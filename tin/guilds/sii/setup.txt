@@ -7,7 +7,7 @@ alias info siihelp
 alias pv put $* in vault
 alias rcost siiscore stat cost
 
-gset hpbar H: $HP$ [R: $REG$ O: $OVER$] S: $SP$ F: $FORT$ C: $CON$ E: $FOE$$NL$Gx: $CL$ LG: $GXP$ Bo: $BST$ B/P/R: $BR$/$PERC$/$RT$ Ch: $CHO$ Br: $BROOD$
+gset hpbar H: $HP$ [R: $REG$ O: $OVER$] S: $SP$ F: $FORT$ C: $CON$ E: $FOE$$NL$Gx: $CL$ LG: $GXP$ Bo: $BST$ B/P/R: $BR$/$PERC$/$RT$ Ch: $CHO$ Br: $BROOD$ Sh: $PS$
 
 alias bl bloodrush
 alias bo boost
