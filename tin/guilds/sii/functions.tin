@@ -1,7 +1,19 @@
+#function long_regen_name {
+  #switch {"%1"} {
+    #case {"No"} {#var result normal};
+    #case {"Qu"} {#var result quick};
+    #case {"Ra"} {#var result rapid};
+    #case {"Fa"} {#var result fast};
+    #case {"Hy"} {#var result hyper};
+  };
+}
+
 #function regen_level {
   #switch {"%1"} {
     #case {"normal"} {#var result 0};
     #case {"quick"} {#var result 1};
     #case {"rapid"} {#var result 2};
-  };
+    #case {"fast"} {#var result 3};
+    #case {"hyper"} {#var result 4};
+ };
 }

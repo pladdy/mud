@@ -19,19 +19,27 @@
     #var enemy_last {0};
   };
 
-  #nop Pick a regen rate based on hp percent;
+  #nop Pick a regen rate based on current hp percent and regen setting;
   #math {hp_as_pct} {($hp * 1.00)/ $hp_max * 100};
-  #var current_regen_level @regen_level{$regen_rate};
 
-  #if {$hp_as_pct > 95 && $current_regen_level > 0} {
+  #var regen_rate @long_regen_name{%3};
+  #var regen_level @regen_level{$regen_rate};
+
+  #if {$hp_as_pct > 95 && $regen_level > 0} {
     !focus regeneration normal;
   };
   #else {
-    #if {$hp_as_pct < 95 && $current_regen_level < 1} {
+    #if {$hp_as_pct < 95 && $regen_level < 1} {
       !focus regeneration quick;
     };
-    #elseif {$hp_as_pct < 90 && $current_regen_level < 2} {
+    #elseif {$hp_as_pct < 90 && $regen_level < 2} {
       !focus regeneration rapid;
+    };
+    #elseif {$hp_as_pct < 85 && $regen_level < 3} {
+      !focus regeneration fast;
+    };
+    #elseif {$hp_as_pct < 80 && $regen_level < 4} {
+      !focus regeneration hyper;
     };
   };
 }
@@ -42,9 +50,9 @@
 }
 
 #action {^%?%sYou %1 your metabolism, and focus on regenerating at a %2 rate.%s$} {
-  #var regen_rate {%2};
+  #nop #var regen_rate {%2};
 }
 
 #action {^%?%sYour metabolism is already regenerating at a %1 rate.%s$} {
-  #var regen_rate {%1};
+  #nop #var regen_rate {%1};
 }
