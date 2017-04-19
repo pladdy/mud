@@ -3,7 +3,6 @@
   !envelop corpse;
   !collect dna from corpse;
   !hp;
-  !get all;
 }
 
 #alias f10 {use_corpse}

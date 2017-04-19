@@ -41,10 +41,10 @@
   show_status_bar;
 }
 
-#action {^You %1 your metabolism, and focus on regenerating at a %2 rate.%s$} {
+#action {^%?%sYou %1 your metabolism, and focus on regenerating at a %2 rate.%s$} {
   #var regen_rate {%2};
 }
 
-#action {^Your metabolism is already regenerating at a %1 rate.%s$} {
+#action {^%?%sYour metabolism is already regenerating at a %1 rate.%s$} {
   #var regen_rate {%1};
 }

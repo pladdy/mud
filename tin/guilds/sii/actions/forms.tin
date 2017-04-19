@@ -1,0 +1,9 @@
+#action {^The Form Smiths slowly extract you from your current form.} {
+  #var flying false;
+}
+
+#action {^You merge with the form of a %1;} {
+  #switch {%1} {
+    #case {"siierek"} {#var flying true};
+  }
+}
