@@ -42,6 +42,10 @@
       !focus regeneration hyper;
     };
   };
+
+  #nop Warn if control is low;
+  #math {control_as_pct} {($gp2 * 1.00)/ $gp2_max * 100};
+  #if {$control_as_pct < 10} {#showme <110>CONTROL IS LOW!!!};
 }
 
 #action {^Gx: %1 LG} {
