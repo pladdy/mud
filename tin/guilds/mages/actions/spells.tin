@@ -41,3 +41,11 @@
 #action {^You feel slower as the haste wears off.!} {}
 
 #action {^The magic of your stoneskin fades over time.} {}
+
+#action {^You wave your hands and *POOF*} {
+  #var phantasmal_killer casted;
+}
+
+#action {^-*> The something begins to fizzle as the illusion is discovered! <*-$} {
+  #var phantasmal_killer discovered;
+}
