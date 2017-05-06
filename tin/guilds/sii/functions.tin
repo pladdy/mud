@@ -5,6 +5,7 @@
     #case {"Ra"} {#var result rapid};
     #case {"Fa"} {#var result fast};
     #case {"Hy"} {#var result hyper};
+    #case {"Bl"} {#var result blazing};
   };
 }
 
@@ -15,5 +16,6 @@
     #case {"rapid"} {#var result 2};
     #case {"fast"} {#var result 3};
     #case {"hyper"} {#var result 4};
+    #case {"blazing"} {#var result 5};
  };
 }

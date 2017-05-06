@@ -32,13 +32,16 @@
     #if {$hp_as_pct < 95 && $regen_level < 1} {
       !focus regeneration quick;
     };
-    #elseif {$hp_as_pct < 90 && $regen_level < 2} {
+    #elseif {$hp_as_pct < 91 && $regen_level < 2} {
       !focus regeneration rapid;
     };
-    #elseif {$hp_as_pct < 85 && $regen_level < 3} {
+    #elseif {$hp_as_pct < 87 && $regen_level < 3} {
       !focus regeneration fast;
     };
-    #elseif {$hp_as_pct < 80 && $regen_level < 4} {
+    #elseif {$hp_as_pct < 83 && $regen_level < 4} {
+      !focus regeneration hyper;
+    };
+    #elseif {$hp_as_pct < 79 && $regen_level < 5} {
       !focus regeneration hyper;
     };
   };

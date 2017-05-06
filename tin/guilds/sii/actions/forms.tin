@@ -1,5 +1,6 @@
 #action {^The Form Smiths slowly extract you from your current form.} {
   #var flying false;
+  #var wielded_weapon {};
 }
 
 #action {^You merge with the form of a %1;} {
