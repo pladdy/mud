@@ -22,4 +22,7 @@
     echo \#var {wielded_weapon} {$wielded_weapon} >> last_session.tin;
   };
   #if { "$quit" != "true" } { guild_session; }
+  #system {
+    tmux kill-session tintin;
+  };
 }

@@ -27,7 +27,7 @@
 #CONFIG           {AUTO TAB}  {5000}
 #CONFIG           {BUFFER SIZE}  {25000}
 #CONFIG           {CHARSET}  {ASCII}
-#CONFIG           {COLOR PATCH}  {OFF}
+#CONFIG           {COLOR PATCH}  {ON}
 #CONFIG           {COMMAND COLOR}  {<078>}
 #CONFIG           {COMMAND ECHO}  {ON}
 #CONFIG           {CONNECT RETRY}  {15}
