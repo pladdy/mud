@@ -1,10 +1,19 @@
+#nop This action only fires when there's distance between me and a mob;
+
 #action {^Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
   #var angel[distance] @length{%3};
+
+  #nop Only engage if for some reason not using disengage;
 
   #if {@length{%3} > 0 && "$disengaging" == "false"} {
     !engage;
     #math {angel[distance]} {@length{%3} - 1};
-  }
+  };
 
+  #nop Based on distance boundary, set if disengage is possible;
   #regexp {%0} {{\|P|P\|}} {#var can_disengage false} {#var can_disengage true};
+
+  #if {"$can_disengage" == "false" && "$parried" == "true"} {
+    !traverse toward;
+  };
 }

@@ -1,13 +1,13 @@
 #nop Map is loaded based on successful login.
 
 #action {^Your character is currently logged in and } {
-  #read $map_dir/init.tin;
+  #read $map_dir/.bootstrap.tin;
   !hp;
   !i;
 }
 
 #action {^You are login #%1 this boot.$} {
-  #read $map_dir/init.tin;
+  #read $map_dir/.bootstrap.tin;
   login_commands;
 }
 

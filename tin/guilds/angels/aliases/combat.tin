@@ -1,3 +1,13 @@
+#alias awe_at {
+  #if {@length{%1} > 0} {
+    #showme Setting awe_at_hp_pct to %1;
+    #var awe_at_hp_pct %1;
+  } {
+    #showme To set what hp % you awe at, pass in an int 1-100.;
+    #showme Current awe_at_hp_pct: $awe_at_hp_pct%.;
+  }
+}
+
 #alias awe_foes {
   #if {"$awe_foes" == "true"} {
     #showme <170>Turning awe off.;
@@ -9,6 +19,22 @@
 }
 
 #alias awf {awe_foes};
+
+#alias disengage_foes {
+  #if {"$disengage_foes" == "true"} {
+    #showme <170>No longer disengaging foes.;
+    #var {disengage_foes} {false};
+  } {
+    #showme <170>Disengaging foes.;
+    #var {disengage_foes} {true};
+  };
+}
+
+#alias disf {disengage_foes}
+
+#alias decrement_ts {
+  #math {time_slices} {$time_slices - %1};
+}
 
 #alias deup {
   !aegis;
@@ -29,15 +55,14 @@
   #var disengaging false;
 }
 
-#alias slice_at {
+#alias min_ts {
   #if {@length{%1} > 0} {
-    #showme Setting slice_at_ts to %1;
-    #var slice_at_ts %1;
+    #showme Setting min_ts to %1;
+    #var min_ts %1;
   } {
     #showme To set what TS count you attack at, pass in an int > 0;
-    #showme Current slice_at_ts: $slice_at_ts;
+    #showme Current min_ts: $min_ts;
   }
-
 }
 
 #alias swing_at {

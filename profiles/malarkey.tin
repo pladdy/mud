@@ -3,7 +3,7 @@
 #var character {malarkey};
 #var guild {breed};
 
-#read tin/default/init.tin;
+#read tin/default/.bootstrap.tin;
 status_bar on;
 
 #nop NOTE: the map can't be loaded until a session is started.  we connect first and load the

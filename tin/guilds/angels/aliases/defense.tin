@@ -44,7 +44,9 @@
 
 #alias dqc {!defensequeue clear;}
 
-#alias dqo {dq_gxp}
+#alias dqo {
+  !defensequeue parry,riposte,void,block;
+};
 
 #alias dqd {
   !defensequeue void,block,parry,riposte;

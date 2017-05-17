@@ -4,6 +4,7 @@
 }
 
 #nop Define session variables i want exported;
+
 #alias guild_session {
  #system {
     echo \#var {flying} {$flying} >> last_session.tin;

@@ -1,10 +1,3 @@
-#nop use 'swing_at' function to change default value of when to take a swing;
-#var swing_at_adv {90};
-#nop use 'slice_at' to change default value;
-#var slice_at_ts {3};
-#nop use 'awe_at' to specify at what ratio of hps you awe for regen buffer;
-#var awe_at_hp_pct {.9};
-
 #action {^HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 G: %9} {
   #var gxp {%9};
   #replace {gxp} {%} {};
@@ -17,75 +10,10 @@
     #var advantages[lo] %5;
     #var advantages[li] %7;
 
-    #nop sort them in descending order by value (k: location, v: advantage);
-
-    #var i {1};
     #var adv_sort {};
-
-    #forall {ho;hi;lo;li} {
-      #if {$i == 1} {
-        #var adv_sort[$i] { {1}{&0}{2}{$advantages[&0]} };
-      } {
-        #var j {1};
-        #var found {0};
-
-        #foreach $adv_sort[%*] {item} {
-          #if { $advantages[&0] > $adv_sort[$j][2] } {
-            #list adv_sort insert $j { {1}{&0}{2}{$advantages[&0]} };
-            #var found {1};
-            #break;
-          };
-
-          #math {j} {$j + 1};
-          #replace {j} {.00} {};
-        };
-
-        #if {$found == 0} {
-          #list adv_sort add $j;
-          #list adv_sort insert $j { {1}{&0}{2}{$advantages[&0]} };
-          #list adv_sort delete -1;
-        };
-      };
-
-      #math {i} {$i + 1};
-    };
-
-    #nop to hit or not to hit, that is the question;
-
-    #if {$angel[distance] == 0
-         && $adv_sort[1][2] > $swing_at_adv
-         && $time_slices > $slice_at_ts} {
-
-      #math {pct_hp} {$hp / $hp_max * 1.0};
-
-      #if {"$awe_foes" == "true"
-           || (($gp1 < 50 || $pct_hp <= $awe_at_hp_pct)
-           && "$awed" == "false")} {
-        !awe $adv_sort[1][1];
-      };
-      #elseif {$retributions > 4} {
-        !retribution $adv_sort[1][1];
-      };
-      #else {
-        !divine strike $adv_sort[1][1];
-      };
-
-      #nop DS/awe takes half your advantage away and costs 2 TS;
-      #math {time_slices} {$time_slices - 2};
-      #math {adv_sort[1][2]} {$adv_sort[1][2] / 2};
-    };
-
-    #nop Presage;
-
-    #if {$angel[distance] == 0
-         && $adv_sort[1][2] > 20
-         && $time_slices >= $slice_at_ts} {
-      !presage $adv_sort[1][1];
-      #math {time_slices} {$time_slices - 1};
-    };
-
-    #if {$time_slices < $slice_at_ts && "$can_disengage" == "true"} {
-      !disengage;
-    };
+    sort_advantages;
+    attempt_swing;
+    attempt_presage;
+    attempt_disengage;
   };
 }

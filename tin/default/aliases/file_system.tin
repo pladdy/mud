@@ -50,7 +50,7 @@
 
 #alias read_tin_files {
   #script {tin_list} {
-    find ./%1 -wholename '*.tin' | grep -v init
+    find ./%1 -wholename '*.tin' | grep -v '.bootstrap.tin';
   };
 
   #foreach { $tin_list[%*] } {file} {

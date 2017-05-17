@@ -45,5 +45,6 @@
     wrap_or_use_corpse;
     #if {"$flying" == "true"} {!swoop all} {!get all};
   };
+
   #var {awed} {false};
 }

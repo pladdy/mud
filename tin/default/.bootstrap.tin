@@ -2,8 +2,8 @@
 #nop excludes the map files and any other init files (including itself);
 
 #script {default_tin_files} {
-  find ./tin/default -iwholename '*.tin' | grep -v 'init';
-  find ./tin/stepper -iwholename '*.tin' | grep -v 'init';
+  find ./tin/default -iwholename '*.tin' | grep -v '.bootstrap.tin';
+  find ./tin/stepper -iwholename '*.tin' | grep -v '.bootstrap.tin';
 };
 
 #foreach { $default_tin_files[%*] } {file} {
@@ -16,6 +16,7 @@
 
 #if {"$guild" != ""} {
   #showme Setting up class for $guild;
+  #class $guild kill;
   #class $guild open;
   read_tin_files tin/guilds/$guild;
   #class $guild close;
