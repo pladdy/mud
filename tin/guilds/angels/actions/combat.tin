@@ -39,6 +39,7 @@
 #action {^You parry %1 attack.$} {
   #var parried true;
   decrement_ts 1;
+  #if {"$can_disengage" == "false"} {!traverse toward};
 }
 
 #action {^You void %1 attack.$} {

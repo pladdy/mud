@@ -12,8 +12,4 @@
 
   #nop Based on distance boundary, set if disengage is possible;
   #regexp {%0} {{\|P|P\|}} {#var can_disengage false} {#var can_disengage true};
-
-  #if {"$can_disengage" == "false" && "$parried" == "true"} {
-    !traverse toward;
-  };
 }
