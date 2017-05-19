@@ -21,5 +21,13 @@
     echo \#var {chaos_port_location} {$chaos_port_location} >> last_session.tin;
     echo \#var {wielded_weapon} {$wielded_weapon} >> last_session.tin;
   };
+
   #if { "$quit" != "true" } { guild_session; }
+}
+
+#event {PROGRAM TERMINATION} {
+  #system {
+    ls ./ | grep tmux-server | sed 's/tmux-server-//' | sed 's/.log//' | xargs kill
+    rm ./tmux*.log
+  };
 }

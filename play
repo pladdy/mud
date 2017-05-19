@@ -18,7 +18,7 @@ play_with_tmux() {
     exit 1
   fi
 
-  tmux new-session -d -s tintin "tt++ profiles/${profile}"
+  tmux -v new-session -d -s tintin "tt++ profiles/${profile}"
   tmux split-window -h -l 120 -t tintin "./watch-map"
   tmux select-pane -t 0
   tmux -2 attach-session -t tintin
