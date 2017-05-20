@@ -28,9 +28,9 @@
 #event {PROGRAM TERMINATION} {
   #system {
     pid=$(ls ./ | grep tmux-server | sed 's/tmux-server-//' | sed 's/.log//');
-    if [ -n "${pid}" ]; then
+    if [ -n "$pid" ]; then
       rm ./tmux*.log;
-      kill ${pid};
+      kill $pid;
     fi
   };
 }
