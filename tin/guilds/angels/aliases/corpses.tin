@@ -42,6 +42,7 @@
 #alias commands_after_corpse {
   #nop Riposte makes mobs kill themselves...;
   #if {"$last_killer" == "$last_kill"} {
+    !glance;
     wrap_or_use_corpse;
     #if {"$flying" == "true"} {!swoop all} {!get all};
   };

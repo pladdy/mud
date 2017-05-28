@@ -27,7 +27,7 @@
       !awe $adv_sort[1][1];
       decrement_ts 2;
     };
-    #elseif {$retributions > 4} {
+    #elseif {$retributions > 0} {
       !retribution $adv_sort[1][1];
       decrement_ts 1;
     };
