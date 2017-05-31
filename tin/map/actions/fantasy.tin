@@ -26,25 +26,25 @@
 
 #nop Fantasy Ferry;
 
-#action {^-= Wayhaven Dock =- (n,w)} {
+#action {-= Wayhaven Dock =- (n,w)} {
   #if {$map[current_room] == 2553} {#map goto 1933};
 }
 
-#action {^The World of Serinth Board} {
+#action {The World of Serinth Board} {
   #if {$map[current_room] == 2553} {#map goto 2554};
 }
 
-#action {^** The Docks of Ao ** (se)} {
+#action {** The Docks of Ao ** (se)} {
   #if {$map[current_room] == 2553} {#map goto 5068};
 }
 
-#action {^Gamal Islands (w,n)} {
+#action {Gamal Islands (w,n)} {
   #if {$map[current_room] == 2553} {#map goto 8439};
 }
 
 #nop Underdark trap door;
 
-#action {^Small Side Chamber (e)} {
+#action {Small Side Chamber (e)} {
   #if {$map[current_room] == 12434} {#map goto 12296};
 }
 
@@ -127,6 +127,6 @@
 
 #nop Jigokudani;
 
-#action {^-=(~ ~Jigokudani~ ~)=- (nw,d)$} {
+#action {-=(~ ~Jigokudani~ ~)=- (nw,d)$} {
   #if {$map[current_room] == 5396} {#map goto 22743};
 }
