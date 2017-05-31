@@ -12,6 +12,30 @@
   #map goto 8371;
 }
 
+#action {^The captain announces: Welcome to The Midways Space Station.$} {
+  #map goto 24040;
+}
+
+#action {^The captain announces: Welcome to Transpacific Terminal.$} {
+  #map goto 24036;
+}
+
+#action {^The doors close and the train shoots out of the station.$} {
+  #map goto 24042;
+}
+
+#action {^The train comes to a halt at the Mega-Tokyo station.  The train doors open.$} {
+  #map goto 24043;
+}
+
+#action {^The train comes to a halt at the Trans-Pacific station.  The train doors open.$} {
+  #map goto 24041;
+}
+
+#action {^The train comes to a halt at the Houston station.  The train doors open.$} {
+  #map goto 24049;
+}
+
 #nop Battlestar Galatica;
 
 #action {^You step to the center of the docking bay, eager to explore this} {
