@@ -21,12 +21,11 @@
 }
 
 #action {^Ef:%1 Ed:%2 B:[ %3% | %4% ] Gx:%5(%6%) Rc:%7} {
-  #var {gxp1} {%5};
-  #math {gxp1_delta} {$gxp_1_last - gx1};
-  #var {gpx1_last} {gxp1};
+  #nop Ordered gentech gxp goes backwards (down);
+  #nop orders are also 1M gxp, so need to flip the gxp so it "grows";
 
+  #var {gxp1} {1000000 - %5};
   #var {gxp2} {%7};
-
   #math {gxp} {$gxp1 + $gxp2};
 
   show_status_bar;

@@ -114,6 +114,3 @@
   !reclaim;
   !recharge;
 }
-
-#nop Gentech provide an autokill already;
-#unalias ak;
