@@ -17,7 +17,7 @@
 
 #action {^As you fly through the air, your body reassumes its normal shape, no$} {
   #if {$map[current_room] == 11729} {
-    #map goto 11730;
+    #map goto 23057;
   }
 }
 

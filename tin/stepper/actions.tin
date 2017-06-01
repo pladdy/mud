@@ -2,7 +2,7 @@
 
 #nop Room Short trigger;
 
-#action {^%?%?%?%?[RS] %1$} {
+#action {^%?[RS] %1$} {
   #list seen_monsters clear;
   #list {seen_monsters} {size} {seen_monster_count};
   #var under_attack false;

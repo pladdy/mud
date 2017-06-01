@@ -8,11 +8,6 @@
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
     !kill $seen_monsters[1];
   };
-  #else {
-    #showme <170>Can't auto-attack.  Valid Monsters: $seen_monster_count;
-    #showme <170>Under attack?: $under_attack;
-    #showme <170>Player present?: $player_present;
-  };
 }
 
 #alias ak {auto_kill}
@@ -22,10 +17,11 @@
 
   #forall {$available_exits} {
     #if {"&0" == "n" || "&0" == "s" || "&0" == "w" || "&0" == "e" ||
-         "&0" == "nw" || "&0" == "sw" || "&0" == "ne" || "&0" == "nw"}  {
+         "&0" == "nw" || "&0" == "sw" || "&0" == "ne" || "&0" == "se"}  {
       #list cardinal_exits add &0;
     };
   }
+
 }
 
 #alias parse_exits {
