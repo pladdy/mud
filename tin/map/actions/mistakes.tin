@@ -28,9 +28,10 @@
 #action {^Strike Guard jumps up over your head and lands directly in your path!!$} {map_undo;}
 #action {^You would have to fly to go that way.$} {map_undo}
 #action {^You would need to be able to fly or swim to go that way.$} {map_undo}
-#action {^You lose your footing and wind up flat on your butt!$} {map_undo}
 
 #action {^There is no ship here to board.$} {#map undo;}
 #action {^You would surely drown if you left while the ship was at sea.$} {
   #map undo;
 }
+#action {^You lose your footing and wind up flat on your butt!$} {#map undo}
+
