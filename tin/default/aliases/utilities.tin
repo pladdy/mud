@@ -45,14 +45,18 @@
   !search %0;
 }
 
-#alias reload_tin {
-  #read tin/default/.bootstrap.tin;
-}
-
 #alias quit {
   #var quit true;
   !quit;
   #gts #var quit true;
+}
+
+#alias reload_map {
+  read_tin_fies tin/map;
+}
+
+#alias reload_tin {
+  #read tin/default/.bootstrap.tin;
 }
 
 #alias unfollow {

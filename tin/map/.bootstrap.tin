@@ -2,7 +2,11 @@
 
 #var map_path $map_dir/map.txt;
 
+#showme Setting up map class;
+#class map kill;
+#class map open;
 read_tin_files $map_dir;
+#class map close;
 
 #nop Backup map;
 #system cp $map_path $map_dir/backup_map.txt;
