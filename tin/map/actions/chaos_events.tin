@@ -44,7 +44,7 @@
 #action {^The taco grabs you and THROWS you out of the room!$} {
   #if {$map[current_room] == 12491} {
     #delay 2 {
-      #show me <fca>You got chucked...figure out what room you're in and go back.;
+      #show me <fca>You got thrown from room: figure out where you are and come back.;
     }
   }
 }
@@ -66,17 +66,6 @@
 
 #action {^You open the huge refrigerator and step inside.$} {
   #map goto 20497;
-}
-
-#nop Princess Bride;
-
-#action {^Florin Dock (ne)} {
-  #if {$map[current_room] == 20624} { #map go 20620; }
-}
-
-#action {^Cliffs of Insanity} {
-  #if {$map[current_room] == 20624} { #map go 20625; }
-
 }
 
 #nop R'lyeh;

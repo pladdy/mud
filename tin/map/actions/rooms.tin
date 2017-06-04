@@ -1,0 +1,70 @@
+#nop Chaos;
+#nop Princess Bride;
+
+#action {Florin Dock (ne)} {
+  #if {$map[current_room] == 20624} { #map go 20620; }
+}
+
+#action {Cliffs of Insanity} {
+  #if {$map[current_room] == 20624} { #map go 20625; }
+}
+
+#nop Science;
+#nop Borg;
+
+#action {Corner of the Borg Cube.} {
+  #if {$map[current_room] == 21521} {#map goto 21522}
+}
+
+#nop Dune;
+
+#action {Archway to Spacing Guild (d,exit)} {
+  #if {$map[current_room] == 9073} { #map goto 9074; }
+}
+
+#nop Living Planets;
+
+#action {In the gravity well (u,d)} {
+  #if {$map[current_room] == 10033} { #map goto 10034; }
+}
+
+#nop Fantasy;
+#nop Fantasy Ferry;
+
+#action {-= Wayhaven Dock =- (n,w)} {
+  #if {$map[current_room] == 2553} {#map goto 1933};
+}
+
+#action {The World of Serinth Board} {
+  #if {$map[current_room] == 2553} {#map goto 2554};
+}
+
+#action {** The Docks of Ao ** (se)} {
+  #if {$map[current_room] == 2553} {#map goto 5068};
+}
+
+#action {Gamal Islands (w,n)} {
+  #if {$map[current_room] == 2553} {#map goto 8439};
+}
+
+#nop Jigokudani;
+
+#action {-=(~ ~Jigokudani~ ~)=- (nw,d)$} {
+  #if {$map[current_room] == 5396} {#map goto 22743};
+}
+
+#nop Taslen;
+
+#action {Dock (e)$} {
+  #if {$map[last_room] == 21069} { #map goto 21205; }
+}
+
+#action {Dock (w)$} {
+  #if {$map[last_room] == 21069} { #map goto 5205; }
+}
+
+#nop Underdark trap door;
+
+#action {Small Side Chamber (e)} {
+  #if {$map[current_room] == 12434} {#map goto 12296};
+}

@@ -3,25 +3,42 @@
 
 #script {default_tin_files} {
   find ./tin/default -iwholename '*.tin' | grep -v '.bootstrap.tin';
-  find ./tin/stepper -iwholename '*.tin' | grep -v '.bootstrap.tin';
 };
+
+#showme Setting up default class;
+
+#class default kill;
+#class default open;
 
 #foreach { $default_tin_files[%*] } {file} {
   #showme Reading in file: $file;
   #if {"$file" != ""} {#read $file};
 };
+
+#class default close;
 #unvar default_tin_files;
+
+#nop set up stepper in class;
+
+#showme Setting up stepper class;
+#class stepper kill;
+#class stepper open;
+read_tin_files tin/stepper
+#class stepper close;
+#unvar stepper_files;
 
 #nop Set up the guild logic in a class;
 
 #if {"$guild" != ""} {
-  #showme Setting up class for $guild;
+  #showme Setting up $guild class;
   #class $guild kill;
   #class $guild open;
   read_tin_files tin/guilds/$guild;
   #class $guild close;
 };
 
+#nop Map is initialized on login so that there's a session connected before the;
+#nop map is loaded.  see tin/default/actions/login.tin
 #var {map_dir} {tin/map};
 
 #CONFIG           {256 COLORS}  {ON}
