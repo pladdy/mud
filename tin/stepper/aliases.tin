@@ -2,11 +2,19 @@
   remove_blacklisted_monsters;
   #list {seen_monsters} {size} {seen_monster_count};
 
-  #if {"$stepper" == "on" && ($seen_monster_count == 0 || "$player_present" == "true")} {
+  #if {"$stepper" == "on" && "$player_present" == "true"} {
+    take_a_step;
+  };
+  #elseif {"$stepper" == "on" && $seen_monster_count == 0} {
     take_a_step;
   };
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
-    !kill $seen_monsters[1];
+    #if {$seen_monster_count > 0} {
+      #showme <170>Player?: $player_present;
+      #showme <170>Monster?: $seen_monster_count;
+      #showme <170>Attacked?: $under_attack;
+      !kill $seen_monsters[1];
+    };
   };
 }
 

@@ -52,7 +52,11 @@
 }
 
 #alias reload_map {
-  read_tin_fies tin/map;
+  #showme Setting up map class;
+  #class map kill;
+  #class map open;
+  read_tin_files $map_dir;
+  #class map close;
 }
 
 #alias reload_tin {
