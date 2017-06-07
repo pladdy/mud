@@ -38,7 +38,7 @@
   #unvar monster_name;
 }
 
-#action {^[P] %1.} {
+#action {^[P] %1} {
   #var player_present {true};
 }
 
