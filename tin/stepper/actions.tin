@@ -2,7 +2,7 @@
 
 #nop Room Short trigger;
 
-#action {^{(> )+}$} {
+#action {^{(> )+}} {
   #if {"$tried_to_auto_kill" == "false"} {
     #if {"$stepper" == "on"} {
       auto_kill;
