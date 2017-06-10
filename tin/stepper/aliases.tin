@@ -9,9 +9,6 @@
     take_a_step;
   };
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
-    #showme <170>Player?: $player_present;
-    #showme <170>Monster?: $seen_monster_count;
-    #showme <170>Attacked?: $under_attack;
     !kill $seen_monsters[1];
   };
 }

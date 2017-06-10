@@ -61,6 +61,7 @@
 
 #alias reload_tin {
   #read tin/default/.bootstrap.tin;
+  reload_map;
 }
 
 #alias unfollow {

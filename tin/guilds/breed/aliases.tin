@@ -1,6 +1,8 @@
 #alias commands_after_corpse {
   #var mindsink_empty {false};
   #var contact_impossible {false};
+  #var conflict {false};
+  #var conflict_attempts {0};
 }
 
 #alias use_corpse {
