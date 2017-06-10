@@ -18,3 +18,4 @@ village wisewoman
 %+ ferryman
 %+ the manshi
 %+ the valithyn
+%+ the grimare
