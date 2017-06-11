@@ -82,6 +82,8 @@
 
 #action {^You delve into the subconcious of} {#var conflict true};
 #action {^%1 has become resistant to your will.$} {#var conflict true};
+#action {^That is far too strong for your mind to attack.$} {#var conflict true};
+
 #action {^You attempt to create conflict within} {
   #math {conflict_attempts} {$conflict_attepts + 1};
 };
