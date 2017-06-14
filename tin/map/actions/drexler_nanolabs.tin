@@ -1,4 +1,4 @@
-#nop Door codes for drexler nanolabs;
+#nop Door codes for drexler nanolabs.  You get these by reading a thing in the secretary's room;
 
 #action {^     Today's main door code is: %1$$} {
   #var drexler[main] %1;

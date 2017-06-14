@@ -1,0 +1,146 @@
+#alias auto_kill {
+  remove_blacklisted_monsters;
+  #list {seen_monsters} {size} {seen_monster_count};
+
+  #if {"$stepper" == "on" && "$player_present" == "true"} {
+    take_a_step;
+  };
+  #elseif {"$stepper" == "on" && $seen_monster_count == 0} {
+    take_a_step;
+  };
+  #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
+    !kill $seen_monsters[1];
+  };
+}
+
+#alias ak {auto_kill}
+
+#alias keep_cardinal_dirs {
+  #list cardinal_exits clear;
+
+  #forall {$available_exits} {
+    #if {"&0" == "n" || "&0" == "s" || "&0" == "w" || "&0" == "e" ||
+         "&0" == "nw" || "&0" == "sw" || "&0" == "ne" || "&0" == "se"}  {
+      #list cardinal_exits add &0;
+    };
+  }
+
+}
+
+#alias parse_exits {
+  #var available_exits {};
+  #var room_string %0;
+  #var exit_str "";
+
+  #regexp {$room_string} {(%+)$} {#var exit_str &1};
+
+  #if {"$exit_str" != ""} {
+    #replace {exit_str} {,} {;};
+  };
+  #var available_exits $exit_str;
+
+  #unvar room_string;
+  #unvar exit_str;
+}
+
+#alias remove_seen_monster {
+  #format {mob_to_remove} {%l} {%0};
+
+  #foreach $seen_monsters[] {index} {
+    #regexp {$seen_monsters[$index]} {$mob_to_remove} {
+      #list seen_monsters {delete} {$index};
+    };
+  };
+
+  #unvar mob_to_remove;
+  #unvar mob_index;
+}
+
+#alias remove_blacklisted_monsters {
+  #script {monster_blacklist} {while read line; do echo "$line"; done < ./tin/stepper/blacklist.txt};
+
+  #foreach $seen_monsters[%*] {seen_monster} {
+    #foreach $monster_blacklist[%*] {monster} {
+      #regexp {$seen_monster} {$monster} {remove_seen_monster $seen_monster};
+    };
+  };
+
+  #unvar monster_blacklist;
+  #unvar seen_monster;
+  #unvar monster;
+}
+
+#alias set_entered_from {
+  #switch {"$step_dir"} {
+    #case {"n"} {#var entered_from s};
+    #case {"s"} {#var entered_from n};
+    #case {"w"} {#var entered_from e};
+    #case {"e"} {#var entered_from w};
+    #case {"nw"} {#var entered_from se};
+    #case {"ne"} {#var entered_from sw};
+    #case {"sw"} {#var entered_from ne};
+    #case {"se"} {#var entered_from nw};
+    #default {#unvar entered_from};
+  }
+}
+
+#alias stepper {
+  #if {"%0" == "on"} {
+    #showme <170>Enabling stepping. 'stepper off' to disable.;
+    tracker on;
+    #var stepper on;
+    #unvar step_dir;
+    #unvar entered_from;
+    !glance;
+  } {
+    #showme <170>Disabling stepping. 'stepper on' to re-enable.;
+    tracker off;
+    #var stepper off;
+  }
+}
+
+#alias take_a_step {
+  keep_cardinal_dirs;
+
+  set_entered_from;
+  #list cardinal_exits find $entered_from entered_from_index;
+
+  #if {$entered_from_index > 0} {
+    #list cardinal_exits delete $entered_from_index;
+  };
+
+  #list cardinal_exits size cardinal_exit_count;
+  #var dir_to_go @choose_a_dir{$cardinal_exits};
+
+  #if {$cardinal_exit_count > 0} {
+    #var step_dir $dir_to_go;
+    $dir_to_go;
+  } {
+    #var step_dir $entered_from;
+    $entered_from;
+  };
+
+  #unvar entered_from_index;
+}
+
+#alias tracker {
+  #if {"%0" == "on"} {
+    #showme <170>Enabling tracking. 'tracker off' to disable.;
+    #var tracker on;
+    !aset room_short white+[RS] +reset;
+    !aset look_monster hired+[M] +reset;
+    !aset look_player higreen+[P] +reset;
+    !brief on no;
+  } {
+    #showme <170>Disabling tracking. 'tracker on' to re-enable.;
+    #var tracker off;
+    !aset room_short;
+    !aset look_monster;
+    !aset look_player;
+    !brief on yes;
+  }
+}
+
+#alias set_under_attack {
+  #regexp {%0} { attacking you!} {#var under_attack true};
+}

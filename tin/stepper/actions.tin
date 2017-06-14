@@ -1,0 +1,67 @@
+#nop Track monsters when stepping through rooms;
+
+#nop Room Short trigger;
+
+#action {^{(> )+}} {
+  #if {"$tried_to_auto_kill" == "false"} {
+    #if {"$stepper" == "on"} {
+      auto_kill;
+      #var tried_to_auto_kill true;
+    };
+  };
+}
+
+#action {^{(> )*}[RS] {.*}} {
+  #list seen_monsters clear;
+  #list {seen_monsters} {size} {seen_monster_count};
+  #var under_attack false;
+  #var player_present false;
+  #var tracker on;
+  #var tried_to_auto_kill false;
+
+  parse_exits %3;
+}
+
+#action {^[M] %1} {
+  set_under_attack %1;
+  #script {monster_name} {./bin/monster_name "%1"};
+
+  #var monster_name $monster_name[1];
+  #format {monster_name} {%l} {$monster_name};
+
+  #list {seen_monsters} {find} {$monster_name} {index_if_seen};
+
+  #if {$index_if_seen == 0} {
+    #list {seen_monsters} {add} {$monster_name};
+  };
+
+  #unvar monster_name;
+}
+
+#action {^[P] %1} {
+  #var player_present {true};
+}
+
+#action {^%1 gasps for breath, then slumps into death.$} {
+  remove_seen_monster "%1";
+}
+
+#action {^%1 screeches in agony and falls to the ground, dead.$} {
+  remove_seen_monster "%1";
+}
+
+#action {^%1 gurgles in %2 own blood as %3 dies.$} {
+  remove_seen_monster "%1";
+}
+
+#action {^There is no %1 here.} {
+  #regexp {%1} {reason to} {} {
+    #list {seen_monsters} {find} {%1} {mob_index};
+
+    #if {$mob_index > 0} {
+      #list {seen_monsters} {delete} {$mob_index};
+    };
+
+    ak;
+  };
+}

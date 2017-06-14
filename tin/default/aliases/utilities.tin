@@ -45,14 +45,23 @@
   !search %0;
 }
 
-#alias reload_tin {
-  #read tin/default/.bootstrap.tin;
-}
-
 #alias quit {
   #var quit true;
   !quit;
   #gts #var quit true;
+}
+
+#alias reload_map {
+  #showme Setting up map class;
+  #class map kill;
+  #class map open;
+  read_tin_files $map_dir;
+  #class map close;
+}
+
+#alias reload_tin {
+  #read tin/default/.bootstrap.tin;
+  reload_map;
 }
 
 #alias unfollow {

@@ -1,0 +1,6 @@
+#function {choose_a_dir} {
+  #list cardinal_exits size index_count;
+
+  #math {random_index} {1 d $index_count};
+  #return $cardinal_exits[$random_index];
+}
