@@ -2,3 +2,7 @@
 #action {^The force field surrounding you dies out.$} {
   #if {$enemy > 0} {pbm};
 }
+
+#action {^You wear the %1.} {
+  !keep %1;
+}
