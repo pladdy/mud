@@ -1,5 +1,6 @@
 #nop Combat triggers;
 
+#nop Cow King;
 #action {^Your body spasms, and you juggle your things about!$} {
   !get all;
   !keep all;
@@ -7,15 +8,28 @@
   !wield sword;
 }
 
+#nop Crysmal;
+#nop immune to energy damage;
+#action {^Crysmal, Prismatic God of Crystals (%1) } {
+  #if {"$character" == "shenanigans"} {fi};
+}
+
+#action {^In a mighty shattering, The %1 casing cracks apart from Crysmal!$} {
+  #if {"$character" == "shenanigans"} {fi};
+}
+
+#nop Cryohydra;
 #action {^The cryohydra's head smacks you hard, sending you flying off the mountain$} {
   #map goto cryo_fall;
   #delay {2} {run cryohydra; w;};
 }
 
+#nop HC;
 #action {^The High Colonic steps out from a vortex of light!$} {
   !kill mage;
 }
 
+#nop Rasta Castle;
 #action {^Galmog casts fear on you!$} {e}
 
 #action {^Sauk casts fear at you!} {w}
