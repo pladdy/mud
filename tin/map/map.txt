@@ -9,7 +9,7 @@ F 11
 
 I 2
 
-L * # # # | # x          
+L * # # # | # x
 
 
 R {    1} {0} {<020>} {home} { } {} {House} {} {} {} {1.000}
@@ -70030,7 +70030,7 @@ R {14338} {0} {} {} { } {} {} {} {} {} {1.000}
 E {14337} {sw} {sw} {12} {0} {}
 E {14339} {s} {s} {4} {0} {}
 
-R {14339} {0} {<110>} {crysmal} { } {} {} {glass boots at boot; has 6 shades and then the real hps (7 times to kill)} {} {} {1.000}
+R {14339} {0} {<110>} {crysmal} { } {} {} {glass boots; immune to energy; shades: garnet->quartz->sapphire->jade->spinel->nothing} {} {} {1.000}
 E {14338} {n} {n} {1} {0} {}
 E {14340} {s} {s} {4} {0} {}
 
