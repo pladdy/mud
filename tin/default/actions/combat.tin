@@ -69,6 +69,7 @@
   #showme <110>Wimpy firing!;
   !hp;
   wimpy_commands;
+  #if {"$stepper" == "on"} {stepper off};
 }
 
 #action {^Your legs run away with you %1.$} {
