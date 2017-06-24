@@ -21,12 +21,12 @@
   !eat corpse;
 }
 
-#alias reinf {
+#alias rein {
   !unwrap 1;
   !infest;
 }
 
-#alias reenc {
+#alias reen {
   !unwrap corpse;
   !envelop corpse;
   !collect dna from corpse;

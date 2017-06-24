@@ -42,7 +42,7 @@
       !focus regeneration hyper;
     };
     #elseif {$hp_as_pct < 79 && $regen_level < 5} {
-      !focus regeneration hyper;
+      !focus regeneration blazing;
     };
   };
 
