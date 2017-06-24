@@ -15,6 +15,7 @@ These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 
 ### Install TinTin++ on Mac
 - Assuming macOS Siera, 10.12.5
+- Install homebrew if you haven't: https://brew.sh/
 - In a terminal:
 ```sh
 brew install tintin
@@ -25,6 +26,7 @@ brew link --overwrite tintin
 ### Install TinTin++ from source
 - Download source from http://tintin.sourceforge.net/download.php
 - Check install instructions here: http://tintin.sourceforge.net/install.php
+- God speed
 
 ## Install Repo
 `git clone git@github.com:pladdy/mud.git`
