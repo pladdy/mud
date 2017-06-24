@@ -25,26 +25,25 @@
   };
 }
 
-#nop #action {^Your rhino skin has been depleted!$} {!cast rhino skin;}
+#nop #action {^Your rhino skin has been depleted!$} {!cast rhino skin;};
+
 #action {^Your stoneskin has depeleted!$} {!cast stoneskin;}
 
 #action {^Your minor globe has ended.$} {
-  #if { @length{$enemy} > 0 } {!cast minor globe;};
+  #if { @length{$enemy} > 0 } {!cast minor globe};
 }
 
 #action {^Your form has solidified.$} {
-  #if {@length{$enemy} > 0} {!cast blink;};
+  #if {@length{$enemy} > 0} {!cast blink};
 }
 
-#action {^Your immersion has expired.$} {!cast spell tap always;}
+#action {^Your immersion has expired.$} {!cast spell tap always}
 
-#action {^You feel slower as the haste wears off.!} {}
+#nop #action {^You feel slower as the haste wears off.!} {}
 
-#action {^The magic of your stoneskin fades over time.} {}
+#nop #action {^The magic of your stoneskin fades over time.} {}
 
-#action {^You wave your hands and *POOF*} {
-  #var phantasmal_killer casted;
-}
+#action {^You wave your hands and *POOF*} {#var phantasmal_killer casted}
 
 #action {^-*> The something begins to fizzle as the illusion is discovered! <*-$} {
   #var phantasmal_killer discovered;

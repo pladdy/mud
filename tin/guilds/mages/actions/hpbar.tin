@@ -19,7 +19,7 @@
   #if {%7 >= 95} {
     !cast deactivate;
     !cast secure shelter;
-    #delay {2} {regen}
+    #delay {2} {regen};
   };
 
   #if {%8 >= 80} {#showme <110>CONCENTRATION IS HIGH!!!};
@@ -28,6 +28,13 @@
 
 #action {^Gx: %1% P:%2 St:%3 Mon(%4):%5} {
   #var gxp {%1};
+
+  #format spell_tap_status {%p} {%3};
+  #replace {spell_tap_status} { } {};
+  #format spell_taps {%L} {$spell_tap_status};
+
+  #nop keep some corpses tapped to handle saturation accumulation;
+  #if {$spell_taps < 2 && $gp1 < 50 && $corpses > 0} {rebl};
 
   #var enemy {%5};
   #replace {enemy} {%} {};
