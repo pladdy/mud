@@ -7,18 +7,28 @@
   };
 
   #script {fshow_files} {
-    grep -rliI --exclude '*map.txt' --exclude '*.git*' --exclude '*.tin*' --exclude '*.log' '%0' ./;
+    grep -rliI --exclude-dir .git --exclude-dir tin --exclude '*.log' '%0' ./;
   };
 
   #foreach { $fshow_files[%*] } {file} {
     #if {"$file" != ""} {
       #showme <170>File: $file;
+
+      #script {matches} {
+        grep -rihI --exclude-dir .git --exclude-dir tin --exclude '*.log' '%0' ./;
+      };
+
+      #foreach { $matches[%*] } {match} {#showme <170>  $match};
     }
   }
   #showme <130>'fcat' <file> to see file.;
+
+  #unvar fshow_files;
+  #unvar matches;
+  #unvar match;
 }
 
-#nop Look for specific files and show them;
+#nop Given a file, dump it to screen;
 
 #alias fcat {
   #if {"%1" == ""} {
@@ -42,10 +52,6 @@
     };
     #unvar first_file_found;
   };
-}
-
-#alias grep {
-  #if {"%1" != ""} { #system grep -r '%1' ./%2; }
 }
 
 #alias read_tin_files {

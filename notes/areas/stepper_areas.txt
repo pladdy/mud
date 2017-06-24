@@ -1,0 +1,14 @@
+Areas that are isolated or big to make it less intrusive to step about
+
+Chaos:
+  alphabet
+  chaos sewers
+  mahjongg
+
+Fantasy:
+  pol1
+  xtals (levels 2 down)
+
+Science:
+  jail in ny?
+  aegis
