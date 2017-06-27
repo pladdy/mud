@@ -15,16 +15,16 @@
       #showme <170>File: $file;
 
       #script {matches} {
-        grep -rihI --exclude-dir .git --exclude-dir tin --exclude '*.log' '%0' ./;
+        grep -rihI --exclude-dir .git --exclude-dir tin --exclude '*.log' '%0' "$file";
       };
 
       #foreach { $matches[%*] } {match} {#showme <170>  $match};
+      #unvar matches;
     }
   }
   #showme <130>'fcat' <file> to see file.;
 
   #unvar fshow_files;
-  #unvar matches;
   #unvar match;
 }
 
