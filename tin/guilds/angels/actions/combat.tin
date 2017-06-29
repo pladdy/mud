@@ -10,10 +10,6 @@
   !circle;
 }
 
-#action {^You divine strike} {
-  #var circle {true};
-}
-
 #action {^Not enough time slices to %1!$} {
   #if {"$circle" != "true"} {
     #showme <170>Trying to circle...;
@@ -39,7 +35,10 @@
 #action {^You parry %1 attack.$} {
   #var parried true;
   decrement_ts 1;
-  #if {"$can_disengage" == "false"} {!traverse toward};
+  #if {"$can_disengage" == "false"} {
+    !traverse toward;
+    decrement_ts 1;
+  };
 }
 
 #action {^You void %1 attack.$} {

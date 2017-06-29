@@ -32,10 +32,6 @@
 
 #alias disf {disengage_foes}
 
-#alias decrement_ts {
-  #math {time_slices} {$time_slices - %1};
-}
-
 #alias deup {
   !aegis;
   !manifest wings;
