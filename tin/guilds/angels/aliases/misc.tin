@@ -18,16 +18,16 @@
 
 #alias scales_bot {
   #if {"%1" == "on"} {
-    #showme Activating scales bot.;
+    #showme <170>Activating scales bot.;
     #var scales_bot on;
     #4 scales against $character;
 
-    #showme Using scales bot again in 20 seconds.;
+    #showme <170>Using scales bot again in 20 seconds.;
     #delay {20} {
       #if {"$scales_bot" == "on"} {scales_bot on}
     };
   } {
-    #showme Deactivating scales bot.;
+    #showme <170>Deactivating scales bot.;
     #var scales_bot off;
   }
 }

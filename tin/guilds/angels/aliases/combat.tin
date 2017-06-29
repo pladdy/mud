@@ -1,10 +1,10 @@
 #alias awe_at {
   #if {@length{%1} > 0} {
-    #showme Setting awe_at_hp_pct to %1;
+    #showme <170>Setting awe_at_hp_pct to %1;
     #var awe_at_hp_pct %1;
   } {
-    #showme To set what hp % you awe at, pass in an int 1-100.;
-    #showme Current awe_at_hp_pct: $awe_at_hp_pct%.;
+    #showme <170>To set what hp % you awe at, pass in an int 1-100.;
+    #showme <170>Current awe_at_hp_pct: $awe_at_hp_pct%.;
   }
 }
 
@@ -53,21 +53,21 @@
 
 #alias min_ts {
   #if {@length{%1} > 0} {
-    #showme Setting min_ts to %1;
+    #showme <170>Setting min_ts to %1;
     #var min_ts %1;
   } {
-    #showme To set what TS count you attack at, pass in an int > 0;
-    #showme Current min_ts: $min_ts;
+    #showme <170>To set what TS count you attack at, pass in an int > 0;
+    #showme <170>Current min_ts: $min_ts;
   }
 }
 
 #alias swing_at {
   #if {@length{%1} > 0} {
-    #showme Setting swing_at_adv to %1;
+    #showme <170>Setting swing_at_adv to %1;
     #var swing_at_adv %1;
   } {
-    #showme To set what advantage % you attack at, pass in an int 1-100.;
-    #showme Current swing_at_adv: $swing_at_adv%.;
+    #showme <170>To set what advantage % you attack at, pass in an int 1-100.;
+    #showme <170>Current swing_at_adv: $swing_at_adv%.;
   }
 }
 
