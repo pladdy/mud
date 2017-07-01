@@ -14,6 +14,41 @@
     sort_advantages;
     attempt_swing;
     attempt_presage;
-    attempt_disengage;
   };
+}
+
+#action {^{(> )*}You divine strike {.+} {high|low} and {inside|outside}.} {
+  #local first_letter @first_letter{%4};
+  #local second_letter @first_letter{%5};
+
+  #nop a divine strike consumes half the advantage in the area;
+
+  #math {advantages[$first_letter$second_letter]} {
+    $advantages[$first_letter$second_letter] / 2
+  };
+
+  #var circle {true};
+}
+
+#action {^{(> )*}Your %1 presage at %2 misses.$} {
+  attempt_disengage;
+};
+
+#action {^{(> )*}You presage {.+} {high|low} and {inside|outside}.} {
+  #local first_letter @first_letter{%4};
+  #local second_letter @first_letter{%5};
+
+  #if {"$first_letter" == "h"} {#local opposite_first_letter l};
+  #else {#local opposite_first_letter h};
+
+  #nop cut advantage in half and apply +50% to opposite (rough estimate);
+
+  #math {advantages[$first_letter$second_letter]} {
+    $advantages[$first_letter$second_letter] / 2
+  };
+  #math {advantages[$opposite_first_letter$second_letter]} {
+    $advantages[$opposite_first_letter$second_letter] * 1.5
+  };
+
+  attempt_providence;
 }

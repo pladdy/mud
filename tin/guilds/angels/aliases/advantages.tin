@@ -1,7 +1,8 @@
 #alias attempt_disengage {
   #if {$angel[distance] == 0 &&
        "$can_disengage" == "true" &&
-       "$disengage_foes" == "true"} {
+       "$disengage_foes" == "true" &&
+       $time_slices > 0} {
     !disengage;
     decrement_ts 1;
   };
@@ -14,6 +15,21 @@
     !presage $adv_sort[1][1];
     decrement_ts 1;
   };
+  #else {
+    attempt_disengage;
+  };
+}
+
+#alias attempt_providence {
+  #if {$angel[distance] == 0 && $time_slices >= $min_ts} {
+    sort_advantages;
+    #if {$adv_sort[1][2] > $swing_at_adv} {
+      !providence $adv_sort[1][1];
+      decrement_ts 1;
+    };
+  };
+
+  attempt_disengage;
 }
 
 #alias attempt_swing {
@@ -27,7 +43,7 @@
       !awe $adv_sort[1][1];
       decrement_ts 2;
     };
-    #elseif {$retributions > 0} {
+    #elseif {$retributions > $retribution_at} {
       !retribution $adv_sort[1][1];
       decrement_ts 1;
     };
@@ -39,6 +55,10 @@
     #nop DS/awe takes half your advantage away and costs 2 TS;
     #math {adv_sort[1][2]} {$adv_sort[1][2] / 2};
   };
+}
+
+#alias decrement_ts {
+  #math {time_slices} {$time_slices - %1};
 }
 
 #alias sort_advantages {

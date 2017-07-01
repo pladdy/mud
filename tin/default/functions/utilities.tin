@@ -1,3 +1,7 @@
+#function first_letter {
+  #regexp {%0} {%.} {#return &1};
+}
+
 #function length {
   #var result 0;
 
