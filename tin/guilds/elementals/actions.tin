@@ -33,7 +33,22 @@
   show_status_bar;
 }
 
-#action {^%imass triad spam:} {run home}
+#action {^You are too weak to keep up your assault.$} {
+  #if {"$stepper" == "on"} {
+    stepper off;
+    #var last_room_i_was_in $map[current_room];
+    run el_apex;
+  };
+}
+
+#action {^%imass triad spam:} {
+  run home;
+  #if {$last_room_i_was_in > 0} {
+    run $last_room_i_was_in;
+    #unvar last_room_i_was_in;
+    stepper on;
+  };
+}
 
 #action {^As the last bit of life force escapes your enemy you quickly capture its$} {
   !keep soul gem;

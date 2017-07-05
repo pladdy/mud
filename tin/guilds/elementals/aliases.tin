@@ -1,11 +1,5 @@
 #alias use_corpse {
-  #if {$pct_hp >= 95 && $pct_sp >= 95} {
-    !evoke corpse drain;
-  } {
-    !hp;
-    !eat corpse;
-    !hp;
-  }
+  !evoke corpse drain;
 }
 
 #alias f10 {
@@ -18,10 +12,17 @@
   #loop 2 12 i {!sell all from bag $i};
 }
 
+#alias cbl {
+  !evoke create blast;
+  !keep blast;
+}
+
 #alias gbl {
-  !unkeep blast;
-  !activate blast;
-  !give blast to %0;
+  #if {"%0" != ""} {
+    !unkeep blast;
+    !activate blast;
+    !give blast to %0;
+  }
 }
 
 #alias regen {
