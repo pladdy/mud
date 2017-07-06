@@ -2,8 +2,8 @@
 
 #alias aliases {
   #var sed_str {s/#alias[[:space:]]*([a-zA-Z0-9_]+)[[:space:]].+/\1/p};
-  #system egrep -r '#alias' tin/guilds/$guild | sed -En '$sed_str';
   #system egrep -r '#alias' tin/default | sed -En '$sed_str';
+  #system egrep -r '#alias' tin/guilds/$guild | sed -En '$sed_str';
   #unvar sed_str;
 }
 
