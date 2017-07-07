@@ -1,7 +1,6 @@
 #action {^ HP:%1/%2 C:%3  NRG:%4/%5(%6)  SP:%7/%8  B:%9(%10) G2N:%11} {
   #var hp {%1};
   #regexp {%2} {%d} {#var hp_max &1};
-  #math {pct_hp} {($hp * 1.00)/ $hp_max * 100};
 
   #var gp1 {%4};
   #var gp1_max {%5};
@@ -11,7 +10,6 @@
 
   #var sp {%7};
   #var sp_max {%8};
-  #math {pct_sp} {($sp * 1.00)/ $sp_max * 100};
 
   #regexp {%11} {%d} {#var gxp &1};
   #regexp {%11} {T:%+:%d%%$} {
@@ -22,14 +20,7 @@
     #var rounds_in_combat 0;
   };
 
-  #math {damage_left} {$enemy};
-  #math {damage_so_far} {100.0 - $enemy};
-  #if {$damage_left > 0} {
-    #math {average_dmg} {$damage_so_far / $rounds_in_combat};
-    #math {rounds_left} {$damage_left / $average_dmg};
-    #if {$rounds_left < 1.0 && $gp1 > 100 && "$trap_souls" == "yes"} {!ts};
-  };
-
+  attempt_trap_soul;
   show_status_bar;
 }
 
@@ -48,6 +39,14 @@
     #unvar last_room_i_was_in;
     stepper on;
   };
+}
+
+#action {^You reach out with a thin elemental tether and prepare to trap the soul} {
+  #var trapping_soul true;
+}
+
+#action {^You combine a %1 soul gem with %2 soul gem.$} {
+  !keep soul gem;
 }
 
 #action {^As the last bit of life force escapes your enemy you quickly capture its$} {

@@ -1,5 +1,34 @@
-#alias use_corpse {
-  !evoke corpse drain;
+#alias attempt_trap_soul {
+  #math {damage_left} {$enemy};
+  #math {damage_so_far} {100.0 - $enemy};
+
+  #if {$damage_left > 0} {
+    #math {average_dmg} {$damage_so_far / $rounds_in_combat};
+    #math {rounds_left} {$damage_left / $average_dmg};
+    #if {$rounds_left < 2.0 &&
+         $gp1 > 75 &&
+         "$trap_souls" == "yes" &&
+         "$trapping_soul" != "true"} {
+      !ts
+    };
+  };
+}
+
+#alias cbl {
+  !evoke create blast;
+  !keep blast;
+}
+
+#alias commands_before_corpse {
+  #var trapping_soul false;
+}
+
+#alias gbl {
+  #if {"%0" != ""} {
+    !unkeep blast;
+    !activate blast;
+    !give blast to %0;
+  }
 }
 
 #alias f10 {
@@ -12,19 +41,6 @@
   #loop 2 12 i {!sell all from bag $i};
 }
 
-#alias cbl {
-  !evoke create blast;
-  !keep blast;
-}
-
-#alias gbl {
-  #if {"%0" != ""} {
-    !unkeep blast;
-    !activate blast;
-    !give blast to %0;
-  }
-}
-
 #alias regen {
   run el_apex;
 }
@@ -32,6 +48,11 @@
 #alias recd {
   !unwrap corpse;
   use_corpse;
+}
+
+#alias rg {
+  !get gem from vortex;
+  !release gem;
 }
 
 #alias trap_souls {
@@ -43,3 +64,8 @@
     #showme <170>Trapping souls disabled.;
   }
 }
+
+#alias use_corpse {
+  !evoke corpse drain;
+}
+
