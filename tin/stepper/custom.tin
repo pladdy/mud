@@ -1,0 +1,12 @@
+#alias stepper_pol2 {
+  run pol2;
+  stepper on;
+
+  #showme <170>Adding to blacklist...;
+  #nop avoid guards and warriors (mist);
+  blacklist_add black;
+  blacklist_add %+ guard;
+  blacklist_add shadow;
+  blacklist_add warrior;
+  blacklist_add %+ demon;
+}

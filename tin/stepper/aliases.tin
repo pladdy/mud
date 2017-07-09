@@ -1,3 +1,7 @@
+#alias blacklist_add {
+  #list {monster_blacklist} {add} {%0};
+}
+
 #alias auto_kill {
   remove_blacklisted_monsters;
   #list {seen_monsters} {size} {seen_monster_count};
@@ -57,15 +61,12 @@
 }
 
 #alias remove_blacklisted_monsters {
-  #script {monster_blacklist} {while read line; do echo "$line"; done < ./tin/stepper/blacklist.txt};
-
   #foreach $seen_monsters[%*] {seen_monster} {
     #foreach $monster_blacklist[%*] {monster} {
       #regexp {$seen_monster} {$monster} {remove_seen_monster $seen_monster};
     };
   };
 
-  #unvar monster_blacklist;
   #unvar seen_monster;
   #unvar monster;
 }
@@ -88,6 +89,7 @@
   #if {"%0" == "on"} {
     #showme <170>Enabling stepping. 'stepper off' to disable.;
     tracker on;
+    #script {monster_blacklist} {while read line; do echo "$line"; done < ./tin/stepper/blacklist.txt};
     #var stepper on;
     #unvar step_dir;
     #unvar entered_from;
@@ -96,6 +98,7 @@
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
     tracker off;
     #var stepper off;
+    #unvar monster_blacklist;
   }
 }
 
