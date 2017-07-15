@@ -21,13 +21,15 @@ aliasl a ptell
 cbrief on mo
 
 aset auction yellow
-aset party brown
-aset shout yellow
-aset profchat white
+aset crafting yellow
+aset ctrade yellow
+aset flapchat yellow
+aset gam higreen
+aset gshout yellow
 aset hm himagenta
 aset house hicyan
-aset gshout yellow
-aset gam higreen
-aset flapchat yellow
-aset ctrade yellow
-aset crafting yellow
+aset newbie white
+aset party brown
+aset profchat white
+aset shout yellow
+

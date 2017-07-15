@@ -20,6 +20,11 @@
     #var rounds_in_combat 0;
   };
 
+  #if {"$mind_depleted" != "true" && $sp < 50} {
+    !evoke mental depletion;
+    #var mind_depleted true;
+  };
+
   attempt_trap_soul;
   show_status_bar;
 }
@@ -51,4 +56,8 @@
 
 #action {^As the last bit of life force escapes your enemy you quickly capture its$} {
   !keep soul gem;
+}
+
+#action {^That mind cannot be depleted again, by you.$} {
+  #var mind_depleted true;
 }
