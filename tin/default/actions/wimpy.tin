@@ -1,0 +1,32 @@
+#alias _default_wimpy_commands {
+  #showme <110>Wimpy firing!;
+  !hp;
+  #if {"$stepper" == "on"} {stepper off};
+}
+
+#action {^Your legs tried to run away, but failed.$} {
+  _default_wimpy_commands;
+  wimpy_commands;
+}
+
+#action {^Your legs run away with you %1.$} {
+  _default_wimpy_commands;
+
+  #switch {"%1"} {
+    #case "north" {#map move n};
+    #case "south" {#map move s};
+    #case "east" {#map move e};
+    #case "west" {#map move w};
+    #case "northwest" {#map move nw};
+    #case "northeast" {#map move ne};
+    #case "southwest" {#map move sw};
+    #case "southeast" {#map move se};
+    #case "up" {#map move u};
+    #case "down" {#map move d};
+    #default {#map move %1};
+  };
+
+  wimpy_commands;
+}
+
+

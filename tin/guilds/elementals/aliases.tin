@@ -21,6 +21,7 @@
 
 #alias commands_before_corpse {
   #var trapping_soul false;
+  #var mind_depleted false;
 }
 
 #alias gbl {

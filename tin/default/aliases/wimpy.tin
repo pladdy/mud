@@ -1,7 +1,6 @@
 #nop Wimpy aliases;
 
 #nop Define wimpy_commands per guild profile;
-
 #alias wimpy_commands {#nop;}
 
 #alias wd {
