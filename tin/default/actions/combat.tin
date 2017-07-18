@@ -63,35 +63,6 @@
   !k spider;
 }
 
-#nop Wimpy;
-
-#action {^Your legs tried to run away, but failed.$} {
-  #showme <110>Wimpy firing!;
-  !hp;
-  wimpy_commands;
-  #if {"$stepper" == "on"} {stepper off};
-}
-
-#action {^Your legs run away with you %1.$} {
-  !hp;
-
-  #switch {"%1"} {
-    #case "north" {#map move n};
-    #case "south" {#map move s};
-    #case "east" {#map move e};
-    #case "west" {#map move w};
-    #case "northwest" {#map move nw};
-    #case "northeast" {#map move ne};
-    #case "southwest" {#map move sw};
-    #case "southeast" {#map move se};
-    #case "up" {#map move u};
-    #case "down" {#map move d};
-    #default {#map move %1};
-  };
-
-  wimpy_commands;
-}
-
 #nop Death Taco area;
 
 #action {^The melting cheese finally evaporates from %1.$} {
