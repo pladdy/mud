@@ -20,7 +20,10 @@
     #var rounds_in_combat 0;
   };
 
-  #if {"$mind_depleted" != "true" && $sp < 50} {!evoke mental depletion};
+  #if {"$mind_depleted" != "true" && $sp < 50 && $enemy > 0} {
+    !evoke mental depletion;
+  };
+
   attempt_trap_soul;
   show_status_bar;
 }
