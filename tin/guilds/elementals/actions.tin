@@ -20,11 +20,7 @@
     #var rounds_in_combat 0;
   };
 
-  #if {"$mind_depleted" != "true" && $sp < 50} {
-    !evoke mental depletion;
-    #var mind_depleted true;
-  };
-
+  #if {"$mind_depleted" != "true" && $sp < 50} {!evoke mental depletion};
   attempt_trap_soul;
   show_status_bar;
 }
@@ -56,6 +52,10 @@
 
 #action {^As the last bit of life force escapes your enemy you quickly capture its$} {
   !keep soul gem;
+}
+
+#action {^You focus inward, reaching back through the Astral plane to your home$} {
+  #var mind_depleted true;
 }
 
 #action {^That mind cannot be depleted again, by you.$} {
