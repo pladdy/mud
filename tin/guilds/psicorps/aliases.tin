@@ -19,12 +19,9 @@
 }
 
 #alias pause_active_stepper {
-  #if {($enemy > 0 &&
-        "$stepper" == "on" &&
-        "$pause" != "true") &&
-       $gp1 < 250 ||
-       $gp2 < 102} {
-    dtrig stepper off,#delay 80 {stepper on;#unvar pause};
+  #if {($enemy > 0 && "$stepper" == "on" && "$pause" != "true") &&
+       ($gp1 < 250 || $gp2 < 102)} {
+    dtrig stepper off,#delay 70 {stepper on;#unvar {pause}};
     #var pause true;
   };
 }
