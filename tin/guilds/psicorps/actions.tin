@@ -21,10 +21,8 @@
   #math {max_convert} {$sp / 10};
   #math {gp1_delta} {$gp1_max - $gp1};
 
-  #if {$sp >= $sp_max && $gp1_delta > 200} {
-    !convert;
-  };
-
+  #if {$sp >= $sp_max && $gp1_delta > 200} {!convert};
+  pause_active_stepper;
   show_status_bar;
 }
 
