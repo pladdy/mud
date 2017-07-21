@@ -5,6 +5,12 @@
 }
 
 #alias fr {
+  #if {"%0" == "reset"} {
+    #unvar fold_reality_check;
+    #unvar fold_reality_location;
+    #return;
+  };
+
   #if {"$fold_reality_check" == "true"} {
     !fold reality;
     #map goto $fold_reality_location;

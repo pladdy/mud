@@ -51,14 +51,15 @@
     #regex {$powers_str} { Bf} {#nop;} {!bf};
 
     #nop Offense;
-    #regex {$powers_str} { Bc} {#nop;} {!bcl};
+    #regex {$powers_str} { Cg} {#nop;} {!cg};
     #regex {$powers_str} { Bo} {#nop;} {!bo};
-    #regex {$powers_str} { Ij} {#nop;} {!ij};
-    #nop #regex {$powers_str} { bc} {#nop;} {!bc};
+    #nop #regex {$powers_str} { Ij} {#nop;} {!ij};
+    #regex {$powers_str} { bc} {#nop;} {!bc};
 
     #nop Perks;
     #regex {$powers_str} { Vg} {#nop;} {!vg};
     #regex {$powers_str} { Vv} {#nop;} {!vv};
+    #regex {$powers_str} { AA} {#nop;} {!aa bull};
   };
 }
 
