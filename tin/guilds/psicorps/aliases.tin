@@ -19,9 +19,13 @@
 }
 
 #alias pause_active_stepper {
+  #local MIN_PSI 250;
+  #local MIN_STAM 102;
+  #local REGEN_SECONDS 60;
+
   #if {($enemy > 0 && "$stepper" == "on" && "$pause" != "true") &&
-       ($gp1 < 250 || $gp2 < 102)} {
-    dtrig stepper off,#delay 70 {stepper on;#unvar {pause}};
+       ($gp1 < $MIN_PSI || $gp2 < $MIN_STAM)} {
+    dtrig stepper off,#delay $REGEN_SECONDS {stepper on;#unvar pause};
     #var pause true;
   };
 }
