@@ -1,7 +1,7 @@
 #nop Set up environment.
 
 #var character {balderdash};
-#var guild {sii};
+#var guild {cyborgs};
 
 #read tin/default/.bootstrap.tin;
 status_bar on

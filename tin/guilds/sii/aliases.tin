@@ -1,10 +1,3 @@
-#alias use_corpse {
-  !hp;
-  !envelop corpse;
-  !collect dna from corpse;
-  !hp;
-}
-
 #alias f10 {use_corpse}
 
 #alias f12 {
@@ -14,6 +7,41 @@
       !feed all;
     };
   }
+}
+
+#alias pause_active_stepper {
+  #local MIN_CONTROL 10;
+
+  #if {($enemy > 0 && "$stepper" == "on" && "$pause" != "true") &&
+       $control_as_pct < $MIN_CONTROL} {
+    dtrig stepper off,#delay $REGEN_SECONDS {stepper on;#unvar pause};
+    #var pause true;
+  };
+}
+
+#alias pick_regen_rate {
+  #math {hp_as_pct} {($hp * 1.00)/ $hp_max * 100};
+
+  #if {$hp_as_pct > 95 && $regen_level > 0} {
+    !focus regeneration normal;
+  };
+  #else {
+    #if {$hp_as_pct < 95 && $regen_level < 1} {
+      !focus regeneration quick;
+    };
+    #elseif {$hp_as_pct < 91 && $regen_level < 2} {
+      !focus regeneration rapid;
+    };
+    #elseif {$hp_as_pct < 87 && $regen_level < 3} {
+      !focus regeneration fast;
+    };
+    #elseif {$hp_as_pct < 83 && $regen_level < 4} {
+      !focus regeneration hyper;
+    };
+    #elseif {$hp_as_pct < 79 && $regen_level < 5} {
+      !focus regeneration blazing;
+    };
+  };
 }
 
 #alias reet {
@@ -31,3 +59,16 @@
   !envelop corpse;
   !collect dna from corpse;
 }
+
+#alias use_corpse {
+  !hp;
+  !envelop corpse;
+  !collect dna from corpse;
+  !hp;
+}
+
+#alias warn_when_low_control {
+  #math {control_as_pct} {($gp2 * 1.00)/ $gp2_max * 100};
+  #if {$control_as_pct < 10} {#showme <110>CONTROL IS LOW!!!};
+}
+

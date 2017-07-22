@@ -2,6 +2,9 @@
   #var hp {%1};
   #var hp_max {%2};
 
+  #var regen_rate @long_regen_name{%3};
+  #var regen_level @regen_level{$regen_rate};
+
   #var sp {%6};
   #var sp_max {%7};
 
@@ -19,36 +22,9 @@
     #var enemy_last {0};
   };
 
-  #nop Pick a regen rate based on current hp percent and regen setting;
-  #math {hp_as_pct} {($hp * 1.00)/ $hp_max * 100};
-
-  #var regen_rate @long_regen_name{%3};
-  #var regen_level @regen_level{$regen_rate};
-
-  #if {$hp_as_pct > 95 && $regen_level > 0} {
-    !focus regeneration normal;
-  };
-  #else {
-    #if {$hp_as_pct < 95 && $regen_level < 1} {
-      !focus regeneration quick;
-    };
-    #elseif {$hp_as_pct < 91 && $regen_level < 2} {
-      !focus regeneration rapid;
-    };
-    #elseif {$hp_as_pct < 87 && $regen_level < 3} {
-      !focus regeneration fast;
-    };
-    #elseif {$hp_as_pct < 83 && $regen_level < 4} {
-      !focus regeneration hyper;
-    };
-    #elseif {$hp_as_pct < 79 && $regen_level < 5} {
-      !focus regeneration blazing;
-    };
-  };
-
-  #nop Warn if control is low;
-  #math {control_as_pct} {($gp2 * 1.00)/ $gp2_max * 100};
-  #if {$control_as_pct < 10} {#showme <110>CONTROL IS LOW!!!};
+  pick_regen_rate;
+  warn_when_low_control;
+  pause_active_stepper;
 }
 
 #action {^Gx: %1 LG} {

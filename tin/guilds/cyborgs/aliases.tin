@@ -1,0 +1,4 @@
+#alias use_corpse {
+  !eat corpse;
+  !hp;
+}
