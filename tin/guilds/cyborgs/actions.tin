@@ -6,7 +6,7 @@
   #var gp1_max {%5};
 
   #nop flip the values so it gets red when heat goes up;
-  #var gp2 {100 - %7};
+  #math gp2 {100 - %7};
   #var gp2_max {100};
 
   #var gxp {%8};

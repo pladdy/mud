@@ -1,3 +1,12 @@
+#alias f12 {
+  #loop 2 12 i {!sell all from bag $i};
+}
+
+#alias re_et {
+  !unwrap corpse;
+  !eat corpse
+}
+
 #alias use_corpse {
   !eat corpse;
   !hp;

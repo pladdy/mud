@@ -1,0 +1,5 @@
+alias ac activate
+alias co configure
+alias de deactivate
+
+aset cyborg_com higreen

@@ -1,18 +1,33 @@
-#alias use_corpse {
-  #if {"$coffin_status" == "FULL" && ($gp1 < 80 || $gp1 < 80 || $bioplasts > 25)} {
-    !hp;
-    !absorb;
-    !hp;
-  };
-  #else {
-    !bioextract;
-    !keep bioplast;
-  }
-}
-
 #alias f10 {
   use_corpse;
   #if {"$flying" == "true"} {!swoop all} {!get all}
+}
+
+#alias fu {
+  #if {"%2" == ""} { !fuse %1 and %1 };
+  #elseif { "%1" == "all" } { !fuse all %2 }
+  #else { !fuse %1 and %2 };
+
+  !keep all bioplast;
+}
+
+#nop Define session variables i want exported;
+#alias guild_session {
+ #system {
+    echo \#var {flying} {$flying} >> last_session.tin;
+  };
+}
+
+#nop morph alias to set different vars;
+#alias m {
+  #if {"%0" != ""} {
+    #switch {%0} {
+      #case {owl} {#var flying true};
+      #case {owlet} {#var flying true};
+      #default {#var flying false};
+    }
+  };
+  !morph %0;
 }
 
 #alias reab {
@@ -37,29 +52,16 @@
   !keep bioplast;
 }
 
-#nop Define session variables i want exported;
-#alias guild_session {
- #system {
-    echo \#var {flying} {$flying} >> last_session.tin;
+#alias use_corpse {
+  #if {"$coffin_status" == "FULL" && ($gp1 < 80 || $gp1 < 80 || $bioplasts > 25)} {
+    !hp;
+    !absorb;
+    !hp;
   };
+  #else {
+    !bioextract;
+    !keep bioplast;
+  }
 }
 
-#nop morph alias to set different vars;
-#alias m {
-  #if {"%0" != ""} {
-    #switch {%0} {
-      #case {owl} {#var flying true};
-      #case {owlet} {#var flying true};
-      #default {#var flying false};
-    }
-  };
-  !morph %0;
-}
 
-#alias fu {
-  #if {"%2" == ""} { !fuse %1 and %1 };
-  #elseif { "%1" == "all" } { !fuse all %2 }
-  #else { !fuse %1 and %2 };
-
-  !keep all bioplast;
-}
