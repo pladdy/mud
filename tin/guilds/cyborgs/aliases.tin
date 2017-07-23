@@ -1,13 +1,25 @@
+#alias cos {
+  !unwield $wielded_weapon;
+  !configure strategy %0;
+  !wield $wielded_weapon;
+}
+
 #alias f12 {
   #loop 2 12 i {!sell all from bag $i};
 }
 
-#alias re_et {
+#alias redc {
   !unwrap corpse;
-  !eat corpse
+  !decompose;
+}
+
+#alias reet {
+  !unwrap corpse;
+  !eat corpse;
 }
 
 #alias use_corpse {
-  !eat corpse;
+  #if {$gp1 == $gp1_max} {!eat corpse};
+  #else {!decompose};
   !hp;
 }

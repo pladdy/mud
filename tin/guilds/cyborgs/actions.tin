@@ -10,6 +10,8 @@
   #var gp2_max {100};
 
   #var gxp {%8};
+
+  #if {$gp1 < 10} {redc};
 }
 
 #action {^C: [%1] %2} {
