@@ -8,6 +8,22 @@
   #loop 2 12 i {!sell all from bag $i};
 }
 
+#alias pause_active_stepper {
+  #local MIN_AVAILABLE_HEAT 25;
+  #local REGEN_SECONDS 20;
+  #local MIN_POWER 50;
+
+  #if {$enemy > 0 && "$stepper" == "on" && "$pause" != "true"} {
+    #if {$gp2 < $MIN_AVAILABLE_HEAT} {
+      dtrig stepper off,#delay $REGEN_SECONDS {stepper on;#unvar pause};
+      #var pause true;
+    };
+    #elseif {$gp1 < $MIN_POWER && $corpses == 0} {
+      stepper off;
+    };
+  };
+}
+
 #alias redc {
   !unwrap corpse;
   !decompose;

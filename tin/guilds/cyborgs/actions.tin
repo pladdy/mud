@@ -11,7 +11,8 @@
 
   #var gxp {%8};
 
-  #if {$gp1 < 10} {redc};
+  #if {$corpses > 0 && $gp1 < 10} {redc};
+  pause_active_stepper;
 }
 
 #action {^C: [%1] %2} {

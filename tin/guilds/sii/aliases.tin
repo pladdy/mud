@@ -12,10 +12,9 @@
 #alias pause_active_stepper {
   #local MIN_CONTROL 10;
 
-  #if {($enemy > 0 && "$stepper" == "on" && "$pause" != "true") &&
+  #if {($enemy > 0 && "$stepper" == "on") &&
        $control_as_pct < $MIN_CONTROL} {
-    dtrig stepper off,#delay $REGEN_SECONDS {stepper on;#unvar pause};
-    #var pause true;
+    dtrig stepper off;
   };
 }
 
