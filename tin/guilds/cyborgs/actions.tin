@@ -1,4 +1,6 @@
 #action {^HP: %1[%2](%3) PWR: %4[%5](%6) HT: [%7%] SI: [%8%]} {
+  #local MIN_POWER 25;
+
   #var hp {%1};
   #var hp_max {%2};
 
@@ -11,7 +13,7 @@
 
   #var gxp {%8};
 
-  #if {$corpses > 0 && $gp1 < 10} {redc};
+  #if {$corpses > 0 && $gp1 < $MIN_POWER} {redc};
   pause_active_stepper;
 }
 
