@@ -1,5 +1,5 @@
 #action {^HP: %1[%2](%3) PWR: %4[%5](%6) HT: [%7%] SI: [%8%]} {
-  #local MIN_POWER 25;
+  #local MIN_POWER 40;
 
   #var hp {%1};
   #var hp_max {%2};
@@ -17,8 +17,8 @@
   pause_active_stepper;
 }
 
-#action {^C: [%1] %2} {
-  #regexp {%2} {TARG: %d%%$} {
+#action {^ND: %1 C: [%2] %3} {
+  #regexp {%3} {TARG: %d%%$} {
     #var enemy &1;
   } {
     #var enemy 0;
