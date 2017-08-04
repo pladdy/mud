@@ -1,0 +1,23 @@
+# patterns
+configure pattern add expansive hip augmentation/compact torch/extensible electroprod
+
+configure pattern add neural disruptor/expansive hip augmentation/compact torch
+configure pattern add neural disruptor/expansive hip augmentation/extensible electroprod
+configure pattern add neural disruptor/compact torch/extensible electroprod
+
+configure pattern add knee spike/expansive hip augmentation/compact torch
+configure pattern add knee spike/expansive hip augmentation/extensible electroprod
+configure pattern add knee spike/compact torch/extensible electroprod
+
+configure pattern add unstructured energy array/compact torch/extensible electroprod
+
+
+# strategies
+# most expensive
+configure strategy set 8/2/6/2/8/6/2/6
+
+# least expensive
+configure strategy set 1
+
+# mediums & lights (no hip)
+configure strategy set 4/7
