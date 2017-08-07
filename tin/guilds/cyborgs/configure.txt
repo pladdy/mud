@@ -21,3 +21,6 @@ configure strategy set 1
 
 # mediums & lights (no hip)
 configure strategy set 4/7
+
+# mediums, hip, lights
+configure strategy set 2/6/3/7
