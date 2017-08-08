@@ -1,0 +1,15 @@
+Chessboard is a dungeon that scales.  Each mob after a certain scale (40?)
+will have specials:
+
+(thanks to Killergate for the info he got from someone else :))
+::COM::Killergate :        Pawn:           (ice special)
+::COM::Killergate :        Charioteer:     (edged special)
+::COM::Killergate :        Priest:         (mental special)
+::COM::Killergate :        Elephant:       (blunt special)
+::COM::Killergate :        Horseman:       (fire special)
+::COM::Killergate :        Horse:          (edged special)
+::COM::Killergate :        Counsellor:     (energy special)
+::COM::Killergate :        King:           (radiation special)
+::COM::Killergate :        Medic:          (acid special)
+::COM::Killergate :        Refugee:        (poison special)
+::COM::Killergate :        Correspondent:  (electric special)
