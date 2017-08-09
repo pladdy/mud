@@ -1,3 +1,7 @@
+#alias activate_stepper_ttl {
+  #if {"$stepper" == "on"} {stepper_ttl on};
+}
+
 #alias blacklist_add {
   #list {monster_blacklist} {add} {%0};
 }
@@ -14,7 +18,10 @@
   };
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
     !kill $seen_monsters[1];
+    #var under_attack true;
   };
+
+  #if {"$under_attack" == "true"} {stepper_ttl off};
 }
 
 #alias ak {auto_kill}
@@ -48,6 +55,7 @@
 }
 
 #alias remove_seen_monster {
+  #local mob_to_remove;
   #format {mob_to_remove} {%l} {%0};
 
   #foreach $seen_monsters[] {index} {
@@ -55,9 +63,6 @@
       #list seen_monsters {delete} {$index};
     };
   };
-
-  #unvar mob_to_remove;
-  #unvar mob_index;
 }
 
 #alias remove_blacklisted_monsters {
@@ -99,7 +104,19 @@
     tracker off;
     #var stepper off;
     #unvar monster_blacklist;
+    #undelay stepper_ttl;
   }
+}
+
+#alias stepper_ttl {
+  #local TIME_TO_LIVE 60;
+
+  #if {"%0" == "on"} {
+    #delay {stepper_ttl} {stepper off} {$TIME_TO_LIVE};
+  };
+  #else {
+    #undelay stepper_ttl;
+  };
 }
 
 #alias take_a_step {

@@ -1,6 +1,4 @@
 #action {^HP: %1[%2](%3) PWR: %4[%5](%6) HT: [%7%] SI: [%8%]} {
-  #local MIN_POWER 40;
-
   #var hp {%1};
   #var hp_max {%2};
 
@@ -13,15 +11,23 @@
 
   #var gxp {%8};
 
+  #local MIN_POWER 100;
   #if {$corpses > 0 && $gp1 < $MIN_POWER} {redc};
   pause_active_stepper;
 }
 
 #action {^ND: %1 C: [%2] %3} {
+  #regexp {%3} {[%+]} {
+    #var implants &1;
+  };
+
+  #regex {$implants} {IPP} {#nop;} {!activate intrinsic preservation proxy};
+
   #regexp {%3} {TARG: %d%%$} {
     #var enemy &1;
   } {
     #var enemy 0;
   };
+
   show_status_bar;
 }

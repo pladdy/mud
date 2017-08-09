@@ -51,6 +51,11 @@
   use_corpse;
 }
 
+#alias reet {
+  !unwrap corpse;
+  !eat corpse;;
+}
+
 #alias rg {
   !get gem from vortex;
   !release gem;
