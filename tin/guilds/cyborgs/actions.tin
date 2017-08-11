@@ -17,9 +17,7 @@
 }
 
 #action {^ND: %1 C: [%2] %3} {
-  #regexp {%3} {[%+]} {
-    #var implants &1;
-  };
+  #regexp {%3} {[%+]} {#var implants &1} {#var implants []};
 
   #regex {$implants} {IPP} {#nop;} {!activate intrinsic preservation proxy};
 
