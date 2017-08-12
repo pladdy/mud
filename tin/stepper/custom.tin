@@ -10,3 +10,13 @@
   blacklist_add warrior;
   blacklist_add %+ demon;
 }
+
+#nop Assumes you're in plane of fire;
+#alias stepper_pof {
+  stepper on;
+
+  #showme <170>Adding to blacklist...;
+  blacklist_add large fire elemental;
+  blacklist_add huge fire elemental;
+  blacklist_add fire dragon;
+}

@@ -26,6 +26,12 @@
 
 #alias ak {auto_kill}
 
+#alias create_monster_blacklist {
+  #script {monster_blacklist} {
+    while read line; do echo "$line"; done < ./tin/stepper/blacklist.txt
+  };
+}
+
 #alias keep_cardinal_dirs {
   #list cardinal_exits clear;
 
@@ -94,7 +100,7 @@
   #if {"%0" == "on"} {
     #showme <170>Enabling stepping. 'stepper off' to disable.;
     tracker on;
-    #script {monster_blacklist} {while read line; do echo "$line"; done < ./tin/stepper/blacklist.txt};
+    create_monster_blacklist;
     #var stepper on;
     #unvar step_dir;
     #unvar entered_from;
