@@ -1,14 +1,10 @@
-drop tiers
-1-49 50-74 75-91 92+
+scaler 45 classes:
+shell 63k, lettuce 68k, tomoatoes 69k, cheese 83k, meat ?, sour cream 328k, guacomole 259k, hot sauce 449k
+cheesy taco 208k, death taco: 3.2M
 
 scaler 70 classes:
-shell 330k
-lettuce 380k
-tomoatoes 400k
-cheese 600k
-meat 600k
-veggie taco 800k
-cheesy taco 1.2M
+shell 330k, lettuce 380k, tomoatoes 400k, cheese 600k, meat 600k
+veggie taco 800k, cheesy taco 1.2M
 
 Mobs you can make:
 -= DEATH TACO ASSEMBLY INSTRUCTIONS =-
@@ -22,15 +18,17 @@ DEATH TACO    =  works taco + hot sauce
 just 'assemble <type> taco'
 
 Mobs:
+  shells - shell fragments special, bleed damage, no wimpy
+  lettuce - tank forced to lower level
+  tomato - tomato juice special damage
+  cheese - unwield weapon until cheese evaporates
+  meat - temporary short duration -con, stacking (nasty)
+  sour cream - big special (hurts), regens
+  guacamole - forced to remove equipment for short period, cannot re-equip
+  hot sauce - blinds you
 
-shells - shell fragments special, bleed damage, no wimpy
-lettuce - tank forced to lower level
-tomato - tomato juice special damage
-cheese - unwield weapon until cheese evaporates
-meat - temporary short duration -con, stacking (nasty)
-sour cream - big special (hurts), regens
-guacamole - forced to remove equipment for short period, cannot re-equip
-hot sauce - ?
+drop tiers
+1-49, 50-74, 75-91, 92+
 
 veggie taco # straightforard, class 785k
   A Cervesa(, , , refreshing, strong)  = +3 con, +4 con, 100% overmax sp x 3
@@ -39,14 +37,13 @@ veggie taco # straightforard, class 785k
   A large pop: sp heals, can be refilled
 
 cheesy taco
-  Foil wrapper (tattered, , smooth, shiny) = radiation and mind ac
-  nacho cheese (, , large, huge) = ice and acid ac
-  meat paste (, , handful, brick) = edged and energy ac
-  sour cream (, , large, huge) = fire and electric ac
+  foil wrapper (crinkled, tattered, smooth, shiny) = radiation and mind ac
+  nacho cheese (small, , large, huge) = ice and acid ac
+  meat paste (tiny, , handful, brick) = edged and energy ac
+  sour cream (small, , large, huge) = fire and electric ac
   refried beans (tiny, , handful, brick) = blunt and poison ac
 
 ## Not ready for these!
-
 meat taco
   wet wipe (tiny, , ,) - stops combat
   Sliced jalapenos (limp, thick, ,) - +hp regen (meat taco or death taco?)
@@ -60,6 +57,7 @@ works taco
   Packet of hot sauce  +fire WC to a weapon
 
 death taco
+- these have multiple lives and suck a lot
   Shot of Tequila      Fire damage in a room
   Spork                A weapon (lance)
   Quesadilla Codpiece  An other (to be worn)- AC across all types
