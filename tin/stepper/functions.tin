@@ -1,6 +1,13 @@
-#function {choose_a_dir} {
+#function choose_a_dir {
   #list cardinal_exits size index_count;
 
   #math {random_index} {1 d $index_count};
   #return $cardinal_exits[$random_index];
+}
+
+#function transform_mob {
+  #local transform_string $monster_transforms[%0];
+
+  #if {"$transform_string" == ""} {#return %0};
+  #else {#return $transform_string};
 }

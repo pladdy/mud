@@ -17,7 +17,7 @@
     take_a_step;
   };
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
-    !kill $seen_monsters[1];
+    !kill @transform_mob{$seen_monsters[1]};
     #var under_attack true;
   };
 
