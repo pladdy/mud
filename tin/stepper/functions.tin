@@ -6,5 +6,8 @@
 }
 
 #function transform_mob {
-  #nop farts;
+  #local transform_string $monster_transforms[%0];
+
+  #if {"$transform_string" == ""} {#return %0};
+  #else {#return $transform_string};
 }
