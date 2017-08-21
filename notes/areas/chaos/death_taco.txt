@@ -39,7 +39,7 @@ veggie taco # straightforard, class 785k
 cheesy taco
   foil wrapper (crinkled, tattered, smooth, shiny) = radiation and mind ac
   nacho cheese (small, , large, huge) = ice and acid ac
-  meat paste (tiny, , handful, brick) = edged and energy ac
+  meat paste (small, , handful, brick) = edged and energy ac
   sour cream (small, , large, huge) = fire and electric ac
   refried beans (tiny, , handful, brick) = blunt and poison ac
 
