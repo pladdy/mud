@@ -1,10 +1,14 @@
 scaler 45 classes:
 shell 63k, lettuce 68k, tomoatoes 69k, cheese 83k, meat ?, sour cream 328k, guacomole 259k, hot sauce 449k
-cheesy taco 208k, death taco: 3.2M
+veggie taco ?, cheesy taco 208k, meat taco ?, works taco ?, death taco: 3.2M
+
+scaler 49 classes:
+shell 75k, lettuce 82k, tomatoes 84k, cheese 170k, meet ?, sour cream ?, guacomole ?, hot sauce ?
+veggie taco ?, cheesy taco 335k, meat taco ?, works taco ?, death taco ?
 
 scaler 70 classes:
 shell 330k, lettuce 380k, tomoatoes 400k, cheese 600k, meat 600k
-veggie taco 800k, cheesy taco 1.2M
+veggie taco 800k, cheesy taco 1.2M, meat taco ?, works taco ?, death taco ?
 
 Mobs you can make:
 -= DEATH TACO ASSEMBLY INSTRUCTIONS =-
