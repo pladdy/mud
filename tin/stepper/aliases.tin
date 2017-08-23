@@ -169,4 +169,5 @@
 
 #alias set_under_attack {
   #regexp {%0} { attacking you!} {#var under_attack true};
+  #regexp {%0} { [%d%] attacking } {#var under_attack true};
 }
