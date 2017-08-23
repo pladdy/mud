@@ -16,7 +16,8 @@ configure pattern remove 1
 configure pattern add expansive hip augmentation/compact torch/extensible electroprod
 
 # heavy
-configure pattern add unstructured energy array/compact torch/extensible electroprod
+configure pattern add unstructured energy array/expansive hip augmentation/compact torch
+configure pattern add unstructured energy array/expansive hip augmentation/extensible electroprod
 
 # mediums
 configure pattern add knee spike [0]/neural disruptor/expansive hip augmentation
@@ -25,7 +26,7 @@ configure pattern add knee spike [1]/ocular laser/expansive hip augmentation
 
 # strategies
 # most expensive
-configure strategy set 2/3/4/3/2/4/3/4
+configure strategy set 2/4/5/4/3/5/4/5
 
 # least expensive
 configure strategy set 1
