@@ -2,7 +2,7 @@
 #alias dungeon {
   #if {"%2" == ""} {
     #showme <170>Usage: 'dungeon <dungeon> <scaler>';
-    #showme <170>Balderdash: alphabet 60, chessboard 53, death_taco 55, puppies 60;
+    #showme <170>Balderdash: alphabet 63, chessboard 53, death_taco 55, puppies 63;
     #showme <170>Fiddlestix: alphabet 35, chessboard 35;
     #showme <170>Highjinx: alphabet 36, chessboard 36;
     #showme <170>Malarkey: chessboard 55, death_taco 55, puppies 55;

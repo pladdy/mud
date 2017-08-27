@@ -3,3 +3,4 @@
 #var monster_transforms[a purple splotted four legged bush] {bush};
 #var monster_transforms[funk on the move] {funk};
 #var monster_transforms[a wadded up lump of pure funk] {funk};
+#var monster_transforms[drow patrol guard] {guard};
