@@ -14,18 +14,25 @@ configure pattern remove 1
 
 # light
 configure pattern add expansive hip augmentation/compact torch/extensible electroprod
+alias 1 configure strategy set 1
 
-# mediums
+# mediums, fire, edged, mind, blunt, ice, energy
 configure pattern add blazer/knee spike [0]/neural disruptor/expansive hip augmentation
 configure pattern add freon injector/knee spike [1]/ocular laser/expansive hip augmentation
+alias 2 configure strategy set 2/3
 
-# no e/b
+# no e/b, fire, mind, ice, energy, electric
 configure pattern add blazer/neural disruptor/compact torch/extensible electroprod
 configure pattern add freon injector/ocular laser/compact torch/extensible electroprod
+alias 3 configure strategy set 4/5
 
-# strategies
-# most expensive
-configure strategy set 2/3
+# no energy/mind/elec, crysmal, edged, fire, blunt, ice
+configure pattern add blazer/knee spike [0]/expansive hip augmentation/compact torch
+configure pattern add freon injector/knee spike [1]/expansive hip augmentation/compact torch
+alias 4 configure strategy set 6/7
 
-# least expensive
-configure strategy set 1
+# no edged, arachnus
+configure pattern add blazer/neural disruptor/expansive hip augmentation/extensible electroprod
+configure pattern add freon injector/ocular laser/expansive hip augmentation/compact torch
+alias 5 configure strategy set 7/8
+

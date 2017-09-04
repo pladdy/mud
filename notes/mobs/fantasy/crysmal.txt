@@ -1,11 +1,23 @@
 Crysmal, Prismatic God of Crystals
 
-Class: 3M?
+Class: 2.5M - 3M
+
+Items/Eq: Glass boots (once at boot, then random)
+
+Immunities:
+  - highly resistant to electric
+  - immune to energy
+  - immune to mind
 
 Notes:
-  have to kill each shade of crystal
-    quartz, garnet, saphire, ..., spinel
-  immune to energy, others?
+  has 6 lives, each one is noted by a shade of crystal
+  garnet
+  quartz
+  sapphire
+  jade
+  spinel
+  nothing
 
-Items:
-  has glass boots at boot (unique)
+Strategies:
+  - gentech: use fire and edged/blunt weapon
+  - cyborg: don't use electric, mind, energy
