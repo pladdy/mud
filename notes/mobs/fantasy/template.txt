@@ -1,0 +1,12 @@
+mob name
+
+Class:
+
+Items/Eq:
+
+Defense:
+
+Specials:
+
+Notes:
+

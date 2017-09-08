@@ -9,6 +9,10 @@ Immunities:
   - immune to energy
   - immune to mind
 
+Specials:
+  - does some kind of mind dmg randomly? nothing big
+  - like all crystals does reflective dmg
+
 Notes:
   has 6 lives, each one is noted by a shade of crystal
   garnet

@@ -1,0 +1,22 @@
+Zelligar, the <title> Golem Master
+
+Class: Scalaing based on dungeon level
+  Level, Title, Class, Head band, Stat Boost
+  55, Apprentice, 1.8M, =(0)=, +3
+
+Items/Eq:
+  Headband (based on scaler); type 'Unknown' (no slot)
+  - stat boost (int/wis)
+  - stuns
+  - regen
+  - DR
+
+Defense:
+  - can dodge
+
+Specials:
+  summons golems (up to 3)
+
+Notes:
+  He hits hard. blunt dmg
+
