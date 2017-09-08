@@ -72139,7 +72139,7 @@ R {14821} {0} {} {} { } {} {} {} {} {} {1.000}
 E {14820} {s} {s} {4} {0} {}
 E {14822} {nw} {nw} {9} {0} {}
 
-R {14822} {0} {<130>} {} { } {} {} {with gloves of acid protection, 'get key'} {} {} {1.000}
+R {14822} {0} {<130>} {zelligar_key} { } {} {} {with gloves of acid protection, 'get key'} {} {} {1.000}
 E {14821} {se} {se} {6} {0} {}
 E {14823} {n} {n} {1} {0} {}
 E {14825} {e} {e} {2} {0} {}
@@ -72180,7 +72180,7 @@ R {14830} {0} {} {} { } {} {} {} {} {} {1.000}
 E {14829} {n} {n} {1} {0} {}
 E {14831} {s} {s} {4} {0} {}
 
-R {14831} {0} {<130>} {} { } {} {} {ls ledges -> gloves of acid protection & east exit} {} {} {1.000}
+R {14831} {0} {<130>} {zelligar_gloves} { } {} {} {ls ledges -> gloves of acid protection & east exit} {} {} {1.000}
 E {14830} {n} {n} {1} {0} {}
 E {14800} {e} {e} {2} {0} {}
 
@@ -111166,7 +111166,7 @@ R {22801} {0} {} {} { } {} {} {} {} {} {1.000}
 E {22800} {n} {n} {1} {0} {}
 E {22802} {s} {s} {4} {0} {}
 
-R {22802} {0} {<130>} {} { } {} {} {door locked, need key in acid pool} {} {} {1.000}
+R {22802} {0} {<130>} {erig} { } {} {} {door locked, need key in acid pool} {} {} {1.000}
 E {22801} {n} {n} {1} {0} {}
 E {22803} {w} {unlock door;open door;w} {8} {0} {}
 
