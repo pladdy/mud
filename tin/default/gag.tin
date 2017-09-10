@@ -1,0 +1,19 @@
+#alias gag {
+  #script {gags} {cat tin/default/gags.txt};
+
+  #if {"%0" == "on"} {
+    #showme <170>Gagging lines.  'gag off' to ungag.;
+    #foreach { $gags[%*] } {gag} {
+      #gag {$gag};
+    };
+  };
+  #else {
+    #showme <170>Un-Gagging lines.  'gag on' to gag.;
+    #foreach { $gags[%*] } {gag} {
+      #ungag {$gag};
+    };
+  };
+
+  #unvar gags;
+  #unvar gag;
+}

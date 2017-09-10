@@ -1,0 +1,27 @@
+Balderdash:
+  alphabet 65
+  chessboard 57
+  death_taco 65
+  puppies 65
+  zelligars 55
+
+Fiddlestix:
+  alphabet 35
+  chessboard 35
+
+Highjinx:
+  alphabet 36
+  chessboard 36
+
+Malarkey:
+  chessboard 55
+  death_taco 55
+  puppies 55
+
+Shenanigans:
+  chessboard 85
+  death_taco 75
+  puppies 90
+
+Tomfoolery:
+

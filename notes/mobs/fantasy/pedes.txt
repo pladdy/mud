@@ -41,14 +41,13 @@ There's a trick to them: similar to the up/down at center of pedes the entrance 
 - to enter some, their corresponding peded must be alive
 - these rooms are safe from pedes hunting you (not pedelings)
 - only open if corresponding pede is alive
+- hide here and aggro'd pedes/pedelings will die after X rounds
 
 Specific Pede Notes:
 Pallatu:
-- the NW exterior pede pallatau is immune to gosh darn near everything
-- mineral pede
+- mineral pede; only ice/acid dmg work
 
 Who blocks what?
 - pedes in the e/s/w/n directions block down
 - interior diagonals block up two of the up blockers require fire dmg
-
 
