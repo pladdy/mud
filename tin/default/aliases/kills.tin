@@ -15,14 +15,15 @@
   #replace {dtrig} {,} {;};
 }
 
-#alias ktrig_off {
-  #showme <110>Turning ktrig off, ktrig_on to reactivate.;
-  #unaction {^%1 dealt the killing blow to %+.};
-}
-
-#alias ktrig_on {
-  #showme <120>Turning ktrig back on.;
-  #read tin/default/actions/kills.tin;
+#alias ktrig {
+  #if {"%0" == "off"} {
+    #showme <110>Turning ktrig off, 'ktrig on' to reactivate.;
+    #var ktrig_status off;
+  };
+  #if {"%0" == "on"} {
+    #showme <120>Turning ktrig back on.;
+    #var ktrig_status on;
+  };
 }
 
 #alias kk {

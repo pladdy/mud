@@ -2,12 +2,16 @@
 
 #action {^Your character is currently logged in and } {
   #read $map_dir/.bootstrap.tin;
+  gag on;
   !hp;
   !i;
 }
 
 #action {^You are login #%1 this boot.$} {
   #read $map_dir/.bootstrap.tin;
+  gag on;
+  !hp;
+  !i;
   login_commands;
 }
 

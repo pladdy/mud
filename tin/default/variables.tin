@@ -1,5 +1,6 @@
 #nop Default variables;
 
-#var dtrig {};
 #var btrig {};
+#var dtrig {};
+#var ktrig_status on;
 #var coffin_status {};

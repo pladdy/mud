@@ -19,25 +19,30 @@ Map actions are actions that move your character in some way.
     get logged under their specific area file.  Take a look in *actions/* for more details.
 
 ## Aliases
+- **dungeon**
+  Usage: `dungeon <dungeon> <level>`
+  Using the map, will run you to a dungeon and set the scaler before entering to <level>.
+
 - **gmap**
-  lets you grep the map for text.  useful for finding room names or items so you
-  can sprint to the room that has it.  it returns tt++ formatted map lines (
+  Usage: `gmap <text>`
+  Lets you grep the map for text.  Useful for finding room names or items so you
+  can sprint to the room that has it.  It returns tt++ formatted map lines (
   #help map to learn more about tt++ map)
 
 - **map_write**
-    open the map for writing; basically new rooms get added to the map.
+  Open the map for writing; basically new rooms get added to the map.
 
 - **map_save**
-    save change to map file (this is auto run at logout/session ld to save the map).
+  save change to map file (this is auto run at logout/session ld to save the map).
 
 - **map_lock**
-    lock the map so you stop making new rooms
+  Lock the map so you stop making new rooms
 
 - **rshop**
-  used to run to shops.  i originally used `shop` but that conflicts with some mud
-  rooms.  i renamed to rshop (for run shop).  `rshop` with no parameter shows a list
+  Used to run to shops.  I originally used `shop` but that conflicts with some mud
+  rooms.  I renamed to rshop (for run shop).  `rshop` with no parameter shows a list
   of shops by reading the *../lists/areas/shops.txt* file.
 
 - **run**
-  let's you sprint to different rooms given a 'roomname'.  useful for running between
+  Let's you sprint to different rooms given a 'roomname'.  Useful for running between
   areas and boot-running.

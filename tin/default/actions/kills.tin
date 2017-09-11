@@ -1,32 +1,34 @@
 #action {^%1 dealt the killing blow to %2.} {
-  #var {last_kill} {%2};
-  #var {last_killer} {%1};
+  #if {"$ktrig_status" == "on"} {
+    #var {last_kill} {%2};
+    #var {last_killer} {%1};
 
-  #if { @length{$btrig} > 0 } {
-    #forall {$btrig} {&0;};
-    #var btrig {};
-  };
+    #if { @length{$btrig} > 0 } {
+      #forall {$btrig} {&0;};
+      #var btrig {};
+    };
 
-  commands_before_corpse;
+    commands_before_corpse;
 
-  #regexp {%1} {%i{$character|$mage_summons|$mimic|Pogo}} {
-    !glance;
-    wrap_or_use_corpse;
-    #if {"$party_status" == "yes"} {!divvy gold};
-    #if {"$flying" == "true"} {!swoop all} {!get all};
-    #if {"$stepper" == "on"} {pba};
-  };
+    #regexp {%1} {%i{$character|$mage_summons|$mimic|Pogo}} {
+      !glance;
+      wrap_or_use_corpse;
+      #if {"$party_status" == "yes"} {!divvy gold};
+      #if {"$flying" == "true"} {!swoop all} {!get all};
+      #if {"$stepper" == "on"} {pba};
+    };
 
-  commands_after_corpse;
+    commands_after_corpse;
 
-  #if { @length{$dtrig} > 0 } {
-    #forall {$dtrig} {&0;};
-    #var dtrig {};
-  };
+    #if { @length{$dtrig} > 0 } {
+      #forall {$dtrig} {&0;};
+      #var dtrig {};
+    };
 
-  #nop Kill Sprints...places to run after a mob dies;
+    #nop Kill Sprints...places to run after a mob dies;
 
-  #switch {"%2"} {
-    #case "Cryohydra" {run verbeeg_chief;};
+    #switch {"%2"} {
+      #case "Cryohydra" {run verbeeg_chief;};
+    };
   };
 }

@@ -48,3 +48,6 @@ file.
 - **watch-map** : quick utility to launch tail on the map so i can watch it in the window
   - you can pass in a width and a height so that the map will be rendered to that dimension
   - if you use the tmux option in play, the tmux session will get a pane devoted to the map
+
+## Docs
+If you want to learn more about what commands are available while playing, check the tin/* README.md files.
