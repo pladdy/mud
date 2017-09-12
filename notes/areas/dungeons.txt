@@ -1,9 +1,9 @@
 Balderdash:
   alphabet 65
-  chessboard 60
+  chessboard 65
   death_taco 65
   puppies 65
-  zelligars 60
+  zelligars 65
 
 Fiddlestix:
   alphabet 35
