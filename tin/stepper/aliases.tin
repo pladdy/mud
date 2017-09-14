@@ -100,7 +100,6 @@
   #if {"%0" == "on"} {
     #showme <170>Enabling stepping. 'stepper off' to disable.;
     tracker on;
-    create_monster_blacklist;
     #var stepper on;
     #unvar step_dir;
     #unvar entered_from;
@@ -109,7 +108,6 @@
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
     tracker off;
     #var stepper off;
-    #unvar monster_blacklist;
     #undelay stepper_ttl;
   }
 }
@@ -153,6 +151,7 @@
   #if {"%0" == "on"} {
     #showme <170>Enabling tracking. 'tracker off' to disable.;
     #var tracker on;
+    create_monster_blacklist;
     !aset room_short white+[RS] +reset;
     !aset look_monster hired+[M] +reset;
     !aset look_player higreen+[P] +reset;
@@ -160,6 +159,7 @@
   } {
     #showme <170>Disabling tracking. 'tracker on' to re-enable.;
     #var tracker off;
+    #unvar monster_blacklist;
     !aset room_short;
     !aset look_monster;
     !aset look_player;

@@ -1,4 +1,4 @@
-#action {^H: %1/%2 S: %3/%4(%5%) Ge: %6% S|C: %7%|%8%} {
+#action {^H: %1/%2 S: %3/%4(%5%) Ge: %6% S|C: %7%|%8% G|M: %9|%10(%11)} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -6,24 +6,20 @@
   #var sp_max {%4};
   #replace {sp_max} {S} {};
 
-  #var {gp1_raw} {%7};
   #nop flip the percentages for status bar;
   #math {gp1} {(%7 - 100) * -1};
   #var gp1_max {100};
 
-  #nop flip the percentages for status bar;
   #math {gp2} {(%8 - 100) * -1};
   #var gp2_max {100};
 
-  #if {%7 >= 90} {#showme <110>SATURATION IS HIGH!!!};
-  #if {%7 >= 95} {
-    !cast deactivate;
-    !cast secure shelter;
-    #delay {2} {regen};
-  };
+  #var golems %9;
+  #var mystic_immersions %10;
 
-  #if {%8 >= 80} {#showme <110>CONCENTRATION IS HIGH!!!};
-  #if {%8 >= 85} {!shoo};
+  saturation_check;
+  concentration_check;
+  attempt_mystic_immersion;
+  stepper_check;
 }
 
 #action {^Gx: %1% P:%2 St:%3 Mon(%4):%5} {
@@ -40,17 +36,14 @@
   #replace {enemy} {%} {};
 
   #var dspells {%2};
-
   #regex {$dspells} { A} {#nop} {!cast armor};
-  #nop #regex {$dspells} { S} {#nop} {!cast shield};
   #regex {$dspells} { MS} {#nop} {!cast magnificent shield};
-  #nop #regex {$dspells} { RS} {#nop} {!cast rhino skin};
   #regex {$dspells} { SS} {#nop} {!cast stoneskin};
   #regex {$dspells} { MG} {#nop} {!cast major globe};
   #regex {$dspells} { B}  {#nop} {!cast blink};
+  #regex {$dspells} { *I} {#var immersed true} {#var immersed false};
 
   #nop Spells to monitor if i enabled them;
-  #nop #if {"$spells[mg]" == "on"} {#regex {$dspells} { mg} {#nop} {mg}};
   #if {"$spells[pg]" == "on"} {#regex {$dspells} { PG} {#nop} {pg}};
   #if {"$spells[pe]" == "on"} {#regex {$dspells} { PE} {#nop} {pe}};
   show_status_bar;

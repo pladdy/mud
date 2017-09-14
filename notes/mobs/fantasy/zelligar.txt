@@ -1,7 +1,8 @@
 Zelligar, the <title> Golem Master
 
 Class: Scalaing based on dungeon level
-  Level, Title, Class, Head band, Stat Boost
+  Dungeon Level, Title, Class, Head band, Stat Boost
+  41, Novice, 196K, -(*)-, +2
   55, Apprentice, 1.8M, =(0)=, +3
 
 Items/Eq:
