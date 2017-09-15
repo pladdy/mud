@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$(cd $(dirname $0) && pwd)
+PROFILES_DIR=${SCRIPT_DIR}/../profiles
+
+if [ -z $1 ]; then
+  echo "No characther name specified.  Usage: $0 [character name] [guild]"
+  exit 1
+else
+  PROFILE_PATH=${PROFILES_DIR}/$1.tin
+  cp ${PROFILES_DIR}/profile_example.tin ${PROFILE_PATH}
+fi
+
+if [ -z $2 ]; then
+  echo "No guild specified.  Usage: $0 [character name] [guild]"
+  rm ${PROFILE_PATH}
+  exit 1
+else
+  sed -i.bak "s/put your guild here/$2/" ${PROFILE_PATH}
+  if [ $? == 0 ]; then
+    rm ${PROFILE_PATH}.bak
+  fi
+fi
+
