@@ -1,6 +1,3 @@
-(%+ golem) [tank]
-a tame little shrew
-a %+ of %+ broodling
 an old dwarven smith
 arundin
 bryant
@@ -33,9 +30,4 @@ the grand elemental
 the grand monk
 valerie, the lobby ambassador
 village wisewoman
-%+ storm servant
-%+ broodling
 %+ ferryman
-%+ the manshi
-%+ the valithyn
-%+ the grimare

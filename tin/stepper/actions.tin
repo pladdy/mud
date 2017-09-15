@@ -24,15 +24,19 @@
 
 #action {^[M] %1} {
   set_under_attack %1;
-  #script {monster_name} {./bin/monster_name "%1"};
+  #local guild_summon_status {@is_guild_summon{%1}};
 
-  #local monster_name $monster_name[1];
-  #format {monster_name} {%l} {$monster_name};
+  #if {"$guild_summon_status" == "false"} {
+    #script {monster_name} {./bin/monster_name "%1"};
 
-  #list {seen_monsters} {find} {$monster_name} {index_if_seen};
+    #local monster_name $monster_name[1];
+    #format {monster_name} {%l} {$monster_name};
 
-  #if {$index_if_seen == 0} {
-    #list {seen_monsters} {add} {$monster_name};
+    #list {seen_monsters} {find} {$monster_name} {index_if_seen};
+
+    #if {$index_if_seen == 0} {
+      #list {seen_monsters} {add} {$monster_name};
+    };
   };
 }
 
