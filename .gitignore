@@ -2,7 +2,8 @@
 3kingdoms.dbm
 tmux*.log
 
-areas/*
+profiles/*.tin
+!profiles/profile_example.tin
 
 3k_session.log
 last_session.tin
