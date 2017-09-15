@@ -66,7 +66,7 @@ while getopts 'thp:' opt; do
   esac
 done
 
-if [ $# -gt 0 ] && [ -f "${PROFILE_FILE}" ]; then
+if [ $# -gt 0 ] && [ -f "profiles/${PROFILE_FILE}" ]; then
   rm -f tin/map/map_globals.txt
 
   if [ "${USE_TMUX}" == "1" ]; then
