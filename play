@@ -58,18 +58,21 @@ while getopts 'thp:' opt; do
       usage
       exit 0
       ;;
-    p) PROFILE="${OPTARG}.tin";;
+    p)
+      PROFILE="${OPTARG}"
+      PROFILE_FILE=${PROFILE}.tin
+      ;;
     t) USE_TMUX=1;;
   esac
 done
 
-if [ $# -gt 0 ] && [ -f "profiles/${PROFILE}" ]; then
+if [ $# -gt 0 ] && [ -f "profiles/${PROFILE_FILE}" ]; then
   rm -f tin/map/map_globals.txt
 
   if [ "${USE_TMUX}" == "1" ]; then
-    play_with_tmux ${PROFILE}
+    PROFILE=${PROFILE} play_with_tmux ${PROFILE_FILE}
   else
-    tt++ profiles/${PROFILE}
+    PROFILE=${PROFILE} tt++ profiles/${PROFILE_FILE}
   fi
 else
   printf "Need a valid profile name.\n\n"
