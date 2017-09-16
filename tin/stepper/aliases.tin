@@ -103,7 +103,7 @@
     #var stepper on;
     #unvar step_dir;
     #unvar entered_from;
-    !glance;
+    #delay {1} {!glance};
   } {
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
     tracker off;
