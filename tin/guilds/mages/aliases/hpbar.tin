@@ -26,7 +26,7 @@
 
 #alias stepper_check {
   #if {"$stepper" == "on"} {
-    #if {$corpses == 0 || $sp < 750} {
+    #if {($corpses == 0 && $spell_taps < 2) || $sp < 750} {
       stepper off;
     };
   };

@@ -5,6 +5,26 @@
   #return $cardinal_exits[$random_index];
 }
 
+#function is_guild_summon {
+  #local monster %0;
+  #local guild_summons;
+  #local guild_summon;
+  #var guild_summon_status false;
+
+  #script {guild_summons} {
+    while read line; do echo "$line"; done < ./tin/stepper/guild_summons.txt
+  };
+
+  #foreach $guild_summons[%*] {guild_summon} {
+    #regexp {$monster} {%i$guild_summon} {#replace guild_summon_status {false} {true}};
+    #if {"$guild_summon_status" == "true"} {#break};
+  };
+
+  #var result $guild_summon_status;
+  #unvar guild_summon_status;
+  #return $result;
+}
+
 #function transform_mob {
   #local transform_string $monster_transforms[%0];
 

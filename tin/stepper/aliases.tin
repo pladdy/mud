@@ -73,13 +73,13 @@
 
 #alias remove_blacklisted_monsters {
   #foreach $seen_monsters[%*] {seen_monster} {
-    #foreach $monster_blacklist[%*] {monster} {
-      #regexp {$seen_monster} {$monster} {remove_seen_monster $seen_monster};
+    #foreach $monster_blacklist[%*] {blacklisted_monster} {
+      #regexp {$seen_monster} {$blacklisted_monster} {remove_seen_monster $seen_monster};
     };
   };
 
   #unvar seen_monster;
-  #unvar monster;
+  #unvar blacklisted_monster;
 }
 
 #alias set_entered_from {
@@ -103,7 +103,7 @@
     #var stepper on;
     #unvar step_dir;
     #unvar entered_from;
-    !glance;
+    #delay {1} {!glance};
   } {
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
     tracker off;
