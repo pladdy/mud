@@ -1,7 +1,7 @@
 Balderdash:
   alphabet 65
   chessboard 65
-  death_taco 65
+  death_taco 70
   puppies 65
   zelligars 65
 
