@@ -1,6 +1,5 @@
 #var awe_at_hp_pct {90};
 #var awe_foes false;
-#var disengage_foes true;
 #var min_ts {4};
 #var retribution_at {2};
 #var swing_at_adv {90};

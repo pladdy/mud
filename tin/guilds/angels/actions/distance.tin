@@ -3,13 +3,25 @@
 #action {^Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
   #var angel[distance] @length{%3};
 
+  #if {$angel[distance] > 0} {
+    #math {rounds_disengaged} {$rounds_disengaged + 1};
+  } {
+    #var rounds_disengaged 0;
+  };
+
   #nop Only engage if for some reason not using disengage;
 
-  #if {@length{%3} > 0 && "$disengaging" == "false"} {
+  #if {$angel[distance] > 0 && $rounds_disengaged > 2} {
     !engage;
-    #math {angel[distance]} {@length{%3} - 1};
+    #math {angel[distance]} {$angel[distance] - 1};
   };
 
   #nop Based on distance boundary, set if disengage is possible;
   #regexp {%0} {{\|P|P\|}} {#var can_disengage false} {#var can_disengage true};
+}
+
+#action {%1 advances!} {
+  #if {$angel[distance] > 0} {
+    #math {angel[distance]} {$angel[distance] - 1}
+  };
 }

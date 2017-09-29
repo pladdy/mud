@@ -1,7 +1,6 @@
 #alias attempt_disengage {
   #if {$angel[distance] == 0 &&
        "$can_disengage" == "true" &&
-       "$disengage_foes" == "true" &&
        $time_slices > 0} {
     !disengage;
     decrement_ts 1;

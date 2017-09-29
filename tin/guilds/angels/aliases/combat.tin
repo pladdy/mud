@@ -20,18 +20,6 @@
 
 #alias awf {awe_foes};
 
-#alias disengage_foes {
-  #if {"$disengage_foes" == "true"} {
-    #showme <170>No longer disengaging foes.;
-    #var {disengage_foes} {false};
-  } {
-    #showme <170>Disengaging foes.;
-    #var {disengage_foes} {true};
-  };
-}
-
-#alias disf {disengage_foes}
-
 #alias deup {
   !aegis;
   !manifest wings;
@@ -42,13 +30,11 @@
 #alias dis {
   #if {"%1" == ""} {!disengage 1};
   #else {!disengage %1};
-  #var disengaging true;
 }
 
 #alias en {
   #if {"%1" == ""} {!engage 1};
   #else {!engage %1};
-  #var disengaging false;
 }
 
 #alias min_ts {
