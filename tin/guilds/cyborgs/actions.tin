@@ -11,7 +11,7 @@
 
   #var gxp {%8};
 
-  #local MIN_POWER 100;
+  #local MIN_POWER 200;
   #if {$corpses > 0 && $gp1 < $MIN_POWER} {redc};
   pause_active_stepper;
 }

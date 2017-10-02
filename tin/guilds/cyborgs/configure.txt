@@ -9,11 +9,9 @@ configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
-configure pattern remove 1
-configure pattern remove 1
 
 # light
-configure pattern add expansive hip augmentation/compact torch/extensible electroprod
+configure pattern add attack/expansive hip augmentation/compact torch/extensible electroprod
 alias 1 configure strategy set 1
 
 # mediums, fire, edged, mind, blunt, ice, energy
@@ -34,5 +32,5 @@ alias 4 configure strategy set 6/7
 # no edged, arachnus
 configure pattern add blazer/neural disruptor/expansive hip augmentation/extensible electroprod
 configure pattern add freon injector/ocular laser/expansive hip augmentation/compact torch
-alias 5 configure strategy set 7/8
+alias 5 configure strategy set 8/9
 

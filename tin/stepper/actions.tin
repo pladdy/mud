@@ -61,7 +61,7 @@
 
 #action {^There is no %1 here.} {
   #regexp {%1} {reason to}
-    {take_a_step}
+    {}
     {
       #list {seen_monsters} {find} {%1} {mob_index};
 
