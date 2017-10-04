@@ -28,10 +28,6 @@
   #delay {$awe_length} {#var {awed} {false};};
 }
 
-#action {^You block %1 attack.$} {
-  decrement_ts 1;
-}
-
 #action {^You parry %1 attack.$} {
   #var parried true;
   decrement_ts 1;
@@ -41,18 +37,12 @@
   };
 }
 
-#action {^You void %1 attack.$} {
-  decrement_ts 1;
-}
+#action {^You void %1 attack.$} {decrement_ts 1}
 
-#action {^You fail to block %1 attack!$} {
-  decrement_ts 1;
-}
+#action {^You block %1 attack.$} {decrement_ts 1}
 
-#action {^You fail to parry %1 attack!$} {
-  decrement_ts 1;
-}
+#action {^You fail to block %1 attack!$} {decrement_ts 1}
 
-#action {^You fail to void %1 attack!$} {
-  decrement_ts 1;
-}
+#action {^You fail to parry %1 attack!$} {decrement_ts 1}
+
+#action {^You fail to void %1 attack!$} {decrement_ts 1}

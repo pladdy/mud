@@ -9,9 +9,7 @@
     #var rounds_disengaged 0;
   };
 
-  #nop Only engage if for some reason not using disengage;
-
-  #if {$angel[distance] > 0 && $rounds_disengaged > 2} {
+  #if {$angel[distance] > 0 && $rounds_disengaged > 1} {
     !engage;
     #math {angel[distance]} {$angel[distance] - 1};
   };
