@@ -1,4 +1,4 @@
-#nop MAP ENTER ROOM is defined with an alias so it can be toggled;
+#nop MAP ENTER ROOM is set with an alias so it can be toggled;
 #nop see tin/map/aliases/default.tin;
 
 #event {MAP EXIT ROOM} {
@@ -8,7 +8,8 @@
 
 #nop Logging;
 
-#event {SESSION CONNECTED} {#log o {./3k_session.log}}
+#var {session_log} {./3k_session.log};
+#event {SESSION CONNECTED} {#log o {$session_log}}
 
 #nop Define guild_session alias here to make available to events below;
 
@@ -22,14 +23,22 @@
     echo \#var {wielded_weapon} {$wielded_weapon} >> last_session.tin;
   };
 
-  #if { "$quit" != "true" } { guild_session; }
+  #if { "$quit" != "true" } { guild_session; };
+  #else {
+    #showme <170>Session disconnecting...;
+    #system { tail -n 20 $session_log };
+  };
 }
 
 #event {PROGRAM TERMINATION} {
+  #showme <170>Program closing in 3s...;
+
+  #nop Clean up and shut down tmux;
   #system {
     pid=$(ls ./ | grep tmux-server | sed 's/tmux-server-//' | sed 's/.log//');
     if [ -n "$pid" ]; then
       rm ./tmux*.log;
+      sleep 3;
       kill $pid;
     fi
   };
