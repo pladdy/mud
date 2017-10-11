@@ -1,1 +1,0 @@
-hpset hpbar H: $HP$/$HPMAX$ S: $SP$/$SPMAX$ T: $TS$/$TSMAX$($TSU$) D: $DV$/$DVMAX$ E: $EN$/$ENMAX$ R: $RET$ En: $ENEMY$ $NL$Di: $DIST$ F: $FLAGS$ Yi: $YIN$ Ya: $YANG$/$YANGMAX$ RB: $RB$/$RBM$ ($RBR$%) $NL$HO: $ADVHO$/$WKHO$ HI: $ADVHI$/$WKHI$ LO: $ADVLO$/$WKLO$ LI: $ADVLI$/$WKLI$ G: $FOCUSGXP$

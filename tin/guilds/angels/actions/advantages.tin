@@ -11,7 +11,6 @@
     #var advantages[li] %7;
 
     #var adv_sort {};
-    sort_advantages;
     attempt_swing;
     attempt_presage;
   };

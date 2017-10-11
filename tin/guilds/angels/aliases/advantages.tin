@@ -8,6 +8,7 @@
 }
 
 #alias attempt_presage {
+  sort_advantages;
   #if {$angel[distance] == 0 &&
        $adv_sort[1][2] > 20 &&
        $time_slices >= $min_ts} {
@@ -32,27 +33,31 @@
 }
 
 #alias attempt_swing {
+  sort_advantages;
+
   #if {$angel[distance] == 0 &&
        $adv_sort[1][2] > $swing_at_adv &&
        $time_slices > $min_ts} {
     #math {pct_hp} {$hp / $hp_max * 100.0};
+    #local {area} {$adv_sort[1][1]};
 
     #if {"$awed" != "true" &&
          ("$awe_foes" == "true" || $pct_hp <= $awe_at_hp_pct)} {
-      !awe $adv_sort[1][1];
+      !awe $area;
       decrement_ts 2;
     };
     #elseif {$retributions > $retribution_at} {
-      !retribution $adv_sort[1][1];
+      !retribution $area;
       decrement_ts 1;
     };
     #else {
-      !divine strike $adv_sort[1][1];
+      !divine strike $area;
       decrement_ts 2;
     };
 
     #nop DS/awe takes half your advantage away and costs 2 TS;
-    #math {adv_sort[1][2]} {$adv_sort[1][2] / 2};
+    #math {advantages[$area]} {$advantages[$area] / 2};
+    attempt_swing;
   };
 }
 
@@ -63,6 +68,7 @@
 #alias sort_advantages {
   #nop sort them in descending order by value (k: location, v: advantage);
   #var i {1};
+  #list adv_sort clear;
 
   #forall {ho;hi;lo;li} {
     #if {$i == 1} {
