@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+install_on_linux() {
+  target="tintin-2.01.3.tar.gz"
+
+  if which apt-get > /dev/null 2>&1; then
+    sudo apt-get install zlib1g-devel
+    sudo apt-get install libpcre++-dev
+  elif which yum > /dev/null 2>&1; then
+    sudo yum install zlib-devel
+    sudo yum install pcre-devel
+  fi
+
+  wget http://downloads.sourceforge.net/tintin/${target}
+  tar -xzf ${target}
+  ./tt/src/configure
+  sudo make install
+  rm -rf ${target} tt/
+}
+
+install_on_mac() {
+  echo "Installing dependecies for mac..."
+
+  if which brew > /dev/null 2>&1; then
+    echo "Updating homebrew..."
+    brew update
+  else
+    echo "Installing homebrew..."
+    echo "  Visit https://brew.sh/ for more details about Homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  echo "Installing tintin..."
+  brew install tintin
+}
+
+os=`uname -o | tr '[:upper:]' '[:lower:]'`
+
+case "${os}" in
+"darwin")
+  install_on_mac
+  ;;
+*)
+  install_on_linux
+  ;;
+esac
