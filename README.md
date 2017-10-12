@@ -34,7 +34,9 @@ Example: `bin/create_profile gilead angels`
 
 ## Usage
 `./play -p <character name>`
+
 Or to have a window for playing and a window for a map:
+
 `./play -t -p <character name>`
 
 The play executable will automatically search the *profiles/* directory for the given character
