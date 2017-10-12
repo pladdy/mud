@@ -27,12 +27,15 @@ These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 - God speed
 
 ## Setup a profile to play
-The *profiles/* directory houses profiles.  These are my files that handle setting up the session when I want to log in with a specific character.
+The *profiles/* directory houses profiles.  These are the files that handle setting up the session when loggin in with a specific character.
 
-To set up your own profile you can copy and replace with your character name.  Make sure to change your 'chracter' and 'guild' directory variables.
+To set up a profile run `bin/create_profile <char name> <guild name>`
+Example: `bin/create_profile gilead angels`
 
 ## Usage
-`./play -p <your profile>`
+`./play -p <character name>`
+Or to have a window for playing and a window for a map:
+`./play -t -p <character name>`
 
 The play executable will automatically search the *profiles/* directory for the given character
 file.
