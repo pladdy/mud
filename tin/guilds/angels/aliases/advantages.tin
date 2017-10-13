@@ -23,7 +23,7 @@
 #alias attempt_providence {
   #if {$angel[distance] == 0 && $time_slices >= $min_ts} {
     sort_advantages;
-    #if {$adv_sort[1][2] > $swing_at_adv} {
+    #if {$adv_sort[1][2] > $providence_at} {
       !providence $adv_sort[1][1];
       decrement_ts 1;
     };
@@ -36,7 +36,7 @@
   sort_advantages;
 
   #if {$angel[distance] == 0 &&
-       $adv_sort[1][2] > $swing_at_adv &&
+       $adv_sort[1][2] > $swing_at &&
        $time_slices > $min_ts} {
     #math {pct_hp} {$hp / $hp_max * 100.0};
     #local {area} {$adv_sort[1][1]};
