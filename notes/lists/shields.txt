@@ -1,7 +1,7 @@
 Shields:
   cryohydra    # random
   drinishok    # warhaft shield, decent
-  drinishok2   # defense bias 134...big specials
+  drinishok2   # warhaft shield 2.0, defense bias 134...big specials
   green_shield # alythra area
   gnome_shield # guiles forest area, gnome bone shield
   hk           # high e/b + one of the below \/

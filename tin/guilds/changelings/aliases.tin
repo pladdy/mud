@@ -11,13 +11,6 @@
   !keep all bioplast;
 }
 
-#nop Define session variables i want exported;
-#alias guild_session {
- #system {
-    echo \#var {flying} {$flying} >> last_session.tin;
-  };
-}
-
 #nop morph alias to set different vars;
 #alias m {
   #if {"%0" != ""} {

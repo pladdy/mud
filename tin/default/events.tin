@@ -11,34 +11,45 @@
 #var {session_log} {./3k_session.log};
 #event {SESSION CONNECTED} {#log o {$session_log}}
 
-#nop Define guild_session alias here to make available to events below;
+#nop Define alias here to make available to events below;
 
-#alias guild_session {}
-
-#event {SESSION DISCONNECTED} {
-  map_save;
+#alias export_session {
   #system {
     echo \#var {map[current_room]} {$map[current_room]} > last_session.tin;
     echo \#var {chaos_port_location} {$chaos_port_location} >> last_session.tin;
     echo \#var {wielded_weapon} {$wielded_weapon} >> last_session.tin;
   };
 
-  #if { "$quit" != "true" } { guild_session; };
+  #if {"$flying" == "true"} {
+    #system {
+      echo \#var {flying} {$flying} >> last_session.tin;
+    };
+  }
+}
+
+#event {SESSION DISCONNECTED} {
+  map_save;
+
+  #if { "$quit" != "true" } {
+    #unvar flying;
+  };
   #else {
     #showme <170>Session disconnecting...;
     #system { tail -n 20 $session_log };
   };
+
+  export_session;
 }
 
 #event {PROGRAM TERMINATION} {
-  #showme <170>Program closing in 3s...;
+  #showme <170>Program closing in 2s...;
 
   #nop Clean up and shut down tmux;
   #system {
     pid=$(ls ./ | grep tmux-server | sed 's/tmux-server-//' | sed 's/.log//');
     if [ -n "$pid" ]; then
       rm ./tmux*.log;
-      sleep 3;
+      sleep 2;
       kill $pid;
     fi
   };
