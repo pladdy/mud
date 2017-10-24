@@ -39,8 +39,13 @@ install_on_mac() {
   brew install tintin
   brew link --overwrite tintin
 
-  echo "Installing tmux..."
-  brew install tmux
+  if which tmux > /dev/null 2>&1; then
+    echo "Upgrading tmux..."
+    brew upgrade tmux
+  else
+    echo "Installing tmux..."
+    brew install tmux
+  fi
 }
 
 os=""

@@ -9,7 +9,7 @@ PROFILE=""
 PROFILE_FILE=""
 
 ##
-# thanks to Killergate on 3k for the below commands!
+# thanks to Killergate on 3k for the below tmux commands!
 ##
 play_with_tmux() {
   local profile=$1
@@ -19,8 +19,12 @@ play_with_tmux() {
     exit 1
   fi
 
-  tmux -v new-session -d -s tintin "tt++ profiles/${profile}"
-  tmux split-window -h -l 120 -t tintin "./watch-map"
+  # in tmux 2.6, without a sleep the output renders in ~20 columns until
+  # you log in which looks erroneous; sleep gets around that
+  tmux -v new-session -d -s tintin "sleep 1 && tt++ profiles/${profile}"
+
+  # switching to percent, -l option not working (on mac)
+  tmux split-window -h -p 60 -t tintin "./watch-map"
   tmux select-pane -t 0
   tmux -2 attach-session -t tintin
 }

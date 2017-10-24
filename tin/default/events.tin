@@ -42,14 +42,14 @@
 }
 
 #event {PROGRAM TERMINATION} {
-  #showme <170>Program closing in 2s...;
+  #showme <170>Program shutting down...;
 
   #nop Clean up and shut down tmux;
   #system {
     pid=$(ls ./ | grep tmux-server | sed 's/tmux-server-//' | sed 's/.log//');
     if [ -n "$pid" ]; then
       rm ./tmux*.log;
-      sleep 2;
+      sleep 1;
       kill $pid;
     fi
   };
