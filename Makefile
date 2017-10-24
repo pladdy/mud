@@ -1,4 +1,4 @@
-.PHONY: tags install
+.PHONY: install tags
 
 install:
 	bin/install
