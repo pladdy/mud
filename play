@@ -6,6 +6,7 @@ IFS=$'\n\t'
 
 USE_TMUX=0
 PROFILE=""
+PROFILE_FILE=""
 
 ##
 # thanks to Killergate on 3k for the below commands!
