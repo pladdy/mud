@@ -43,7 +43,13 @@ install_on_mac() {
   brew install tmux
 }
 
-os=`uname -o | tr '[:upper:]' '[:lower:]'`
+os=""
+
+if uname -o > /dev/null 2>&1; then
+  os=`uname -o | tr '[:upper:]' '[:lower:]'`
+else
+  os=`uname -s | tr '[:upper:]' '[:lower:]'`
+fi
 
 case "${os}" in
 "darwin")
