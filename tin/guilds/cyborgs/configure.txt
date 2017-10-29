@@ -3,34 +3,13 @@ configure strategy set 0
 configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
-configure pattern remove 1
-configure pattern remove 1
-configure pattern remove 1
-configure pattern remove 1
-configure pattern remove 1
-configure pattern remove 1
 
 # light
-configure pattern add elbow spike/expansive hip augmentation/compact torch/extensible electroprod
+configure pattern add expansive hip augmentation/elbow spike/compact torch/extensible electroprod
 alias 1 configure strategy set 1
 
-# fire, mind, blunt, ice, energy, edged
-configure pattern add blazer/neural disruptor/expansive hip augmentation/elbow spike
-configure pattern add freon injector/ocular laser/expansive hip augmentation/elbow spike
+# energy, ice, blunt, edge, fire, electric
+configure pattern add palm laser/expansive hip augmentation/elbow spike/compact torch
+configure pattern add freon injector/expansive hip augmentation/elbow spike/extensible electroprod
 alias 2 configure strategy set 2/3
-
-# no e/b, fire, mind, ice, energy, electric
-configure pattern add blazer/neural disruptor/compact torch/extensible electroprod
-configure pattern add freon injector/ocular laser/compact torch/extensible electroprod
-alias 3 configure strategy set 4/5
-
-# no energy/mind/elec, crysmal, edged, fire, blunt, ice
-configure pattern add blazer/expansive hip augmentation/compact torch/elbow spike
-configure pattern add freon injector/expansive hip augmentation/compact torch/elbow spike
-alias 4 configure strategy set 6/7
-
-# no edged, arachnus
-configure pattern add blazer/neural disruptor/expansive hip augmentation/extensible electroprod
-configure pattern add freon injector/ocular laser/expansive hip augmentation/compact torch
-alias 5 configure strategy set 8/9
 
