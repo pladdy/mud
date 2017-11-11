@@ -1,7 +1,7 @@
 #alias concentration_check {
   #nop when hpbar processes gp vars, it 'flips' them;
-  #if {$gp2 <= 20} {#showme <110>CONCENTRATION IS HIGH!!!};
-  #if {$gp2 <= 15} {!shoo};
+  #if {$gp2 <= 30} {#showme <110>CONCENTRATION IS HIGH!!!};
+  #if {$gp2 <= 30} {!shoo};
 }
 
 #alias attempt_mystic_immersion {
