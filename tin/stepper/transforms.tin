@@ -7,3 +7,6 @@
 #var monster_transforms[a wadded up lump of pure funk] {funk};
 #var monster_transforms[drow patrol guard] {guard};
 #var monster_transforms[ragged peasant] {peasant};
+#var monster_transforms[skittlebrau player] {player};
+#var monster_transforms[deuces wild player] {player};
+#var monster_transforms[a spectator] {spectator};
