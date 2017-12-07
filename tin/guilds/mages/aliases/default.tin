@@ -23,6 +23,10 @@
   !get all;
 }
 
+#alias f12 {
+  #loop 2 12 i {!sell all from bag $i};
+}
+
 #alias rebl {
   !unwrap corpse;
   tap_corpse;

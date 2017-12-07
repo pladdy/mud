@@ -1,0 +1,11 @@
+aset bladesinger_announce white
+aset bladesinger_tell higreen
+aset bladesinger_action hiblack
+aset bladesinger_combat himagenta
+
+alias b bury
+alias com bt
+alias de default
+alias fr freeform
+alias re revalrie
+alias sl salute

@@ -1,0 +1,30 @@
+#action {^H: %1/%2 S: %3/%4 So: %5/%6 Ne: %7/%8 G: %9 E: %10} {
+  #var hp {%1};
+  #var hp_max {%2};
+
+  #var sp {%3};
+  #var sp_max {%4};
+
+  #var gp1 {%5};
+  #var gp1_max {%6};
+
+  #var gp2 {%7};
+  #var gp2_max {%8};
+
+  #var gxp {%9};
+
+  #var enemy {%10};
+  #replace {enemy} { } {};
+  #replace {enemy} {%} {};
+
+  #if {"$enemy" == "None"} {
+    #var enemy {0};
+    #var enemy_last {0};
+  };
+}
+
+#action {^M: %1} {
+  show_status_bar;
+}
+
+
