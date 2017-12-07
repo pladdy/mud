@@ -2,6 +2,16 @@
   use_corpse;
 }
 
+#alias pi {
+  !remove %1;
+  !pinscribe %1 on %2;
+}
+
+#alias pp {
+  !remove %1;
+  !pprepare %1;
+}
+
 #alias resl {
   !unwrap;
   use_corpse

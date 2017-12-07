@@ -85,3 +85,8 @@
 #action {^The walls of the cube are fading.} {
   #nop #if {$map[current_room] == 21594} {#map goto };
 }
+
+#nop Star Trek;
+#action {^A Transporter Room (door,beam)} {
+  #if {$map[current_room] == 24879} {#map goto 24880};
+}
