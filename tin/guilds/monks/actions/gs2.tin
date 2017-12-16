@@ -2,6 +2,10 @@
   #var focus {%3};
 }
 
+#action {^ Peace Level: Your mind is %1(%2/%3)} {
+  #var gp2_max %3;
+}
+
 #action {^Your inner energies are too tapped to repeat this action.$} {
   #var {focus} {0};
 }
