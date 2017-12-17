@@ -1,5 +1,5 @@
 #alias attempt_enervate {
-  #local MIN_CHI 10;
+  #local MIN_CHI 20;
   #if {$gp1 < ${MIN_CHI}} {en};
 }
 
@@ -11,16 +11,6 @@
 #alias attempt_pressure {
   #if {$enemy > 0 && "$pressure" == "off"} {!pressure};
 }
-
-#alias use_corpse {
-  !hp;
-  !study corpse;
-  !eat corpse;
-  !hp;
-  !get all;
-}
-
-#alias f10 {use_corpse}
 
 #alias commands_after_corpse {
   #var pressure {off};
@@ -37,6 +27,19 @@
   !study corpse;
   !eat corpse;
 }
+
+#alias resp {reet}
+#alias resps {#loop 1 5 loop {reet};}
+
+#alias use_corpse {
+  !hp;
+  !study corpse;
+  !eat corpse;
+  !hp;
+  !get all;
+}
+
+#alias f10 {use_corpse}
 
 #alias wimpy_commands {
   #delay 2 {!meditate;}

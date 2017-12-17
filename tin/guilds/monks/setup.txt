@@ -27,6 +27,7 @@ alias mtt method tiger
 alias mts method serpent
 alias mtc method crane
 alias mtd method dragon
+alias t throw
 
 mset always_warn 1
 mset attack white
