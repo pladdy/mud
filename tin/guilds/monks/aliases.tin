@@ -1,50 +1,3 @@
-#alias attempt_enervate {
-  #local MIN_CHI 20;
-  #if {$gp1 < ${MIN_CHI}} {en};
-}
-
-#alias attempt_focus {
-  #local MIN_MIND 180;
-  #if {$enemy > 0 && $gp2 < $MIN_MIND && $focus > 0} {!focus 10};
-}
-
-#alias attempt_pressure {
-  #if {$enemy > 0 && "$pressure" == "off"} {!pressure};
-}
-
-#alias commands_after_corpse {
-  #var pressure {off};
-  !meditate;
-}
-
-#alias en {
-  !enervate 80;
-  #2 {!hands};
-}
-
-#alias reet {
-  !unwrap;
-  !study corpse;
-  !eat corpse;
-}
-
-#alias resp {reet}
-#alias resps {#loop 1 5 loop {reet};}
-
-#alias use_corpse {
-  !hp;
-  !study corpse;
-  !eat corpse;
-  !hp;
-  !get all;
-}
-
-#alias f10 {use_corpse}
-
-#alias wimpy_commands {
-  #delay 2 {!meditate;}
-}
-
 #alias ansi {
   !ansi %1;
 
@@ -70,3 +23,59 @@
     mset throw brown;
   }
 }
+
+#alias attempt_enervate {
+  #local MIN_CHI 20;
+  #if {$gp1 < ${MIN_CHI}} {en};
+}
+
+#alias attempt_focus {
+  #local MIN_MIND 180;
+  #if {$enemy > 0 && $gp2 < $MIN_MIND && $focus > 0} {
+    !focus 10;
+    !enervate 25;
+  };
+}
+
+#alias attempt_pressure {
+  #if {$enemy > 0 && "$pressure" == "off"} {!pressure};
+}
+
+#alias commands_after_corpse {
+  #var pressure {off};
+  !meditate;
+}
+
+#alias en {
+  !enervate 80;
+  #2 {!hands};
+}
+
+#alias reet {
+  !unwrap;
+  !study corpse;
+  !eat corpse;
+}
+
+#alias resp {reet}
+
+#alias resps {#loop 1 5 loop {reet};}
+
+#alias f10 {use_corpse}
+
+#alias f12 {
+  #loop 2 12 loop {!sell all from bag $loop};
+}
+
+#alias use_corpse {
+  !study corpse;
+  !eat corpse;
+  !hp;
+  !get all;
+}
+
+#alias wimpy_commands {
+  #delay 2 {!meditate;}
+}
+
+
