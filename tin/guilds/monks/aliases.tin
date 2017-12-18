@@ -2,6 +2,7 @@
   !ansi %1;
 
   #if {"%1" == "off"} {
+    !ansi off;
     mset attack bkblack;
     mset dodge bkblack;
     mset pressure bkblack;
@@ -12,6 +13,7 @@
     mset crit bkblack;
     mset throw bkblack;
   } {
+    !ansi on;
     mset attack white;
     mset dodge hicyan;
     mset pressure hiblack;

@@ -20861,7 +20861,7 @@ R { 3778} {0} {} {} { } {} {} {} {} {} {1.000}
 E { 3777} {s} {s} {4} {0} {}
 E { 3779} {e} {e} {2} {0} {}
 
-R { 3779} {0} {} {serpent_dragon} { } {} {color <130>} {serpent dragon -> ring of heroism} {} {} {1.000}
+R { 3779} {0} {<130>} {serpent_dragon} { } {} {} {serpent dragon -> ring of heroism} {} {} {1.000}
 E { 3778} {w} {w} {8} {0} {}
 
 R { 3780} {0} {} {} { } {} {} {} {} {} {1.000}
