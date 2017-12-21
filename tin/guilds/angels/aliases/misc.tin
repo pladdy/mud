@@ -25,8 +25,6 @@
 }
 
 #alias train {
-  #if {$map[current_room] == 221} {
-    !train %0;
-    #unvar angel_train;
-  }
+  !train %0;
+  #unvar angel_train;
 }

@@ -29,6 +29,18 @@ Map actions are actions that move your character in some way.
   can sprint to the room that has it.  It returns tt++ formatted map lines (
   #help map to learn more about tt++ map)
 
+- **map**
+  Show the map.
+
+- **map key**
+  Show the map key/legend.
+
+- **map set <command>**
+  Set the room color/symbol based on the command.  `map set` to see help.  Also allows you to add
+  an optional note.
+  Example: mark the room i'm in as a note because there's an item here:
+  `map note this room has a cool thing`
+
 - **map_write**
   Open the map for writing; basically new rooms get added to the map.
 

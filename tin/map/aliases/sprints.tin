@@ -12,6 +12,8 @@
   }
 }
 
+#alias f2 { map_run home; }
+
 #nop Sprints that require commands in the middle;
 #alias run_kimlark {
   run kimlark;
@@ -50,4 +52,38 @@
   } {
     #system cat notes/lists/areas/shops.txt;
   };
+}
+
+#alias ut_mow {
+  map_run ultimate_tournament;
+  #2 !w;
+  #3 !s;
+  !k player;
+  !s;
+  !k player;
+  !s;
+  !k player;
+
+  !w;
+  !k player;
+
+  !w;
+  !k player;
+  !s;
+  !k player;
+  #2 !n;
+  kk player, player 2;
+  #2 !n;
+  !k player;
+  !n;
+  !k player;
+
+  !w;
+  #2 !s;
+  kk player, player 2;
+  #2 !s;
+  kk player, player 2;
+  !s;
+
+  #map jump -5 -6;
 }

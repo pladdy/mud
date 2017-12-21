@@ -1,0 +1,97 @@
+#alias map {
+  #switch {"%1"} {
+    #case {"key"} {
+      #showme <170>Map Key/Legend:;
+      #showme <020>  [X]<170>: Exit that leads towards pinnacle;
+      #showme <fca>  [S]<170>: Exit that leads to subarea;
+      #showme <130>  [ ]<170>: Note that room has something of interest;
+      #showme <acf>  [ ]<170>: Room has something special, more than 'Note' worthy;
+      #showme <150>  [ ]<170>: Room is quest/puzzle/mission related;
+      #showme <110>  [!]<170>: Warning! something dangerous is in/near this room;
+      #showme <160>  [P]<170>: A pub;
+      #showme <120>  [$]<170>: A shop;
+    };
+    #case {"name"} {
+      #map set roomname %2;
+    };
+    #case {"set"} {
+      #local options %0;
+      #replace options {%1 %2} {};
+      map_set %2 $options;
+    };
+    #case {"help"} {
+      #showme <170>Command: Description;
+      #showme <090>  help: this content;
+      #showme <090>  key: Show a key to describe room colors and symbols;
+      #showme <090>  set: Set the room color/symbol based on a defined setting;
+      #showme <090>  <no command>: show the map and your location;
+    };
+    #default {
+      #map map;
+    };
+  };
+}
+
+#alias map_set {
+  #local command %1;
+  #local note %0;
+  #replace note {%1} {};
+  map_set_reset;
+
+  #switch {"%1"} {
+    #case {"exit"} {
+      #map set roomcolor <020>;
+      #map set roomsymbol X;
+    };
+    #case {"note"} {
+      #map set roomcolor <130>;
+    };
+    #case {"pub"} {
+      #map set roomcolor <160>;
+      #map set roomsymbol P;
+    };
+    #case {"quest"} {
+      #map set roomcolor <150>;
+    };
+    #case {"reset"} {#showme Room reset on map};
+    #case {"shop"} {
+      #map set roomcolor <120>;
+      #map set roomsymbol $;
+    };
+    #case {"special"} {
+      #map set roomcolor <acf>;
+    };
+    #case {"subarea"} {
+      #map set roomcolor <fca>;
+      #map set roomsymbol S;
+    };
+    #case {"warn"} {
+      #map set roomcolor <110>;
+      #map set roomsymbol !;
+    };
+    #default {
+      #showme Available set commands:;
+      #showme <090>  exit:    mark room as an exit back towards pinnacle;
+      #showme <090>  note:    note that room has something interesting;
+      #showme <090>  pub:     mark room as a pub;
+      #showme <090>  quest:   mark room as quest related;
+      #showme <090>  reset:   reset color to default and remove symbol;
+      #showme <090>  shop:    mark room as a shop;
+      #showme <090>  special: mark room as special (more than special than a note);
+      #showme <090>  subarea: set room as a subarea entrance;
+      #showme <090>  warn:    mark room as dangerous;
+      #showme <090>    the 'roomnote' property is set to any addtional arguments passed in to 'map set <command>';
+    };
+  };
+
+  #if {"$note" != " " && @length{$note} > 0} {
+    #replace note {  } {};
+    #map set roomnote $command: $note;
+  };
+}
+
+#alias map_set_reset {
+  #map set roomcolor <170>;
+  #map set roomsymbol;
+  #map set roomnote;
+}
