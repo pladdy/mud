@@ -87,7 +87,7 @@
   };
 
   #if {"$note" != " " && @length{$note} > 0} {
-    #replace note {  } {};
+    #format {note} {%p} {$note};
     #map set roomnote $command: $note;
   };
 }
