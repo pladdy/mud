@@ -1,5 +1,14 @@
 #alias map {
   #switch {"%1"} {
+    #case {"help"} {
+      #showme <170>Command: Description;
+      #showme <090>  help: this content;
+      #showme <090>  info: info for the room you're in (same as #map i);
+      #showme <090>  key: Show a key to describe room colors and symbols;
+      #showme <090>  set: Set the room color/symbol based on a defined setting;
+      #showme <090>  <no command>: show the map and your location;
+    };
+    #case {"info"} {#map i};
     #case {"key"} {
       #showme <170>Map Key/Legend:;
       #showme <020>  [X]<170>: Exit that leads towards pinnacle;
@@ -18,13 +27,6 @@
       #local options %0;
       #replace options {%1 %2} {};
       map_set %2 $options;
-    };
-    #case {"help"} {
-      #showme <170>Command: Description;
-      #showme <090>  help: this content;
-      #showme <090>  key: Show a key to describe room colors and symbols;
-      #showme <090>  set: Set the room color/symbol based on a defined setting;
-      #showme <090>  <no command>: show the map and your location;
     };
     #default {
       #map map;
@@ -70,7 +72,7 @@
       #map set roomsymbol !;
     };
     #default {
-      #showme Available set commands:;
+      #showme <170>Available set commands:;
       #showme <090>  exit:    mark room as an exit back towards pinnacle;
       #showme <090>  note:    note that room has something interesting;
       #showme <090>  pub:     mark room as a pub;
