@@ -14,7 +14,8 @@ alias ak akill
 alias aka akill all
 alias pr pressure
 alias hi hide of the dragon
-alias st study corpse
+alias stc study corpse
+alias st study
 alias iw iron will
 alias z daze
 alias cf chiforce
