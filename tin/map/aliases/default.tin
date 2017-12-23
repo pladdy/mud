@@ -4,18 +4,6 @@
   #var chaos_port_location {};
 }
 
-#alias f2 { map_run home; }
-
-#nop Grep the map for text;
-
-#alias gmap {
-  #if {@length{%0} > 0} {
-    #system grep "%0" $map_path;
-  } {
-    #showme <170>Need to provide something to search for.;
-  }
-}
-
 #alias nn { #10 n; }
 #alias ww { #10 w; }
 #alias ee { #10 e; }
@@ -25,35 +13,11 @@
 #alias sse { #10 se; }
 #alias ssw { #10 sw; }
 
-#nop Peek in a room to see it's data;
-
-#alias pmap {
-  #switch {"%1"} {
-    #case "n" {#map jump 0 1; #map info; #map jump 0 -1;};
-    #case "s" {#map jump 0 -1; #map info; #map jump 0 1;};
-    #case "w" {#map jump -1 0; #map info; #map jump 1 0;};
-    #case "e" {#map jump 1 0; #map info; #map jump -1 0;};
-    #case "nw" {#map jump -1 1; #map info; #map jump 1 -1;};
-    #case "se" {#map jump 1 -1; #map info; #map jump -1 1;};
-    #case "ne" {#map jump 1 1; #map info; #map jump -1 -1;};
-    #case "sw" {#map jump -1 -1; #map info; #map jump 1 1;};
-  }
-}
-
-#alias map { #map map; }
-
 #alias map_load {
   #map read $map_path;
   #map goto home;
   #showme Map loaded, set to home.;
 }
-
-#alias map_lock {
-  #showme Map is Read only.;
-  #map flag static on;
-  #alias map_undo {#nop;};
-}
-
 
 #nop fix this ugliness of handling globals in a file with no keys...;
 
@@ -95,23 +59,26 @@
   };
 }
 
-#alias map_save {
-  #map write $map_path;
-  #showme Map saved to $map_path;
-}
-
 #alias map_show {
   #split 16 1;
   #map flag vtmap on;
 }
 
-#alias map_write {
-  #showme Map is writable.;
-  #map flag static off;
-  #alias map_undo { #map undo; };
-}
 
-#alias map_undo {#nop;}
+#nop Peek in a room to see it's data;
+
+#alias pmap {
+  #switch {"%1"} {
+    #case "n" {#map jump 0 1; #map info; #map jump 0 -1;};
+    #case "s" {#map jump 0 -1; #map info; #map jump 0 1;};
+    #case "w" {#map jump -1 0; #map info; #map jump 1 0;};
+    #case "e" {#map jump 1 0; #map info; #map jump -1 0;};
+    #case "nw" {#map jump -1 1; #map info; #map jump 1 -1;};
+    #case "se" {#map jump 1 -1; #map info; #map jump -1 1;};
+    #case "ne" {#map jump 1 1; #map info; #map jump -1 -1;};
+    #case "sw" {#map jump -1 -1; #map info; #map jump 1 1;};
+  }
+}
 
 #alias run {map_run %0}
 
@@ -121,36 +88,3 @@
   }
 }
 
-#alias ut_mow {
-  map_run ultimate_tournament;
-  #2 !w;
-  #3 !s;
-  !k player;
-  !s;
-  !k player;
-  !s;
-  !k player;
-
-  !w;
-  !k player;
-
-  !w;
-  !k player;
-  !s;
-  !k player;
-  #2 !n;
-  kk player, player 2;
-  #2 !n;
-  !k player;
-  !n;
-  !k player;
-
-  !w;
-  #2 !s;
-  kk player, player 2;
-  #2 !s;
-  kk player, player 2;
-  !s;
-
-  #map jump -5 -6;
-}
