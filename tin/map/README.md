@@ -4,6 +4,8 @@ The map is super helpful for sprinting about and charting your location on 3K.  
 items, mobs, death traps, etc.  I use anything from roomnotes, roomnames, and colors to designate
 different things.
 
+`map key` to see what colors mean what
+
 The map file and the .tin files that supply map oriented actions/aliases are in the *map/* directory.
 The actions and aliases setup a framework to handle actions and provide aliases to use the map
 more effectively.
@@ -23,32 +25,24 @@ Map actions are actions that move your character in some way.
   Usage: `dungeon <dungeon> <level>`
   Using the map, will run you to a dungeon and set the scaler before entering to <level>.
 
-- **gmap**
-  Usage: `gmap <text>`
-  Lets you grep the map for text.  Useful for finding room names or items so you
-  can sprint to the room that has it.  It returns tt++ formatted map lines (
-  #help map to learn more about tt++ map)
-
 - **map**
-  Show the map.
-
-- **map key**
-  Show the map key/legend.
+  Show the different map commands available.
+  - edit
+  - help
+  - info
+  - key
+  - lock
+  - name
+  - save
+  - search
+  - set
+  - undo
 
 - **map set <command>**
   Set the room color/symbol based on the command.  `map set` to see help.  Also allows you to add
   an optional note.
   Example: mark the room i'm in as a note because there's an item here:
   `map note this room has a cool thing`
-
-- **map_write**
-  Open the map for writing; basically new rooms get added to the map.
-
-- **map_save**
-  save change to map file (this is auto run at logout/session ld to save the map).
-
-- **map_lock**
-  Lock the map so you stop making new rooms
 
 - **rshop**
   Used to run to shops.  I originally used `shop` but that conflicts with some mud

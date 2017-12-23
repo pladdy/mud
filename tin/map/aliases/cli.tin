@@ -1,12 +1,25 @@
+#alias gmap {
+  #if {@length{%0} > 0} {
+    #system grep "%0" $map_path;
+  } {
+    #showme <170>Need to provide something to search for.;
+  }
+}
+
 #alias map {
   #switch {"%1"} {
+    #case {"edit"} {map_write};
     #case {"help"} {
       #showme <170>Command: Description;
+      #showme <090>  edit: open map for editing (adding rooms);
       #showme <090>  help: this content;
       #showme <090>  info: info for the room you're in (same as #map i);
       #showme <090>  key: Show a key to describe room colors and symbols;
+      #showme <090>  lock: close map for editing (no new rooms);
+      #showme <090>  name: set a name for the room you're in;
+      #showme <090>  save: save map to disk;
       #showme <090>  set: Set the room color/symbol based on a defined setting;
-      #showme <090>  <no command>: show the map and your location;
+      #showme <090>  show: show the map on screen;
     };
     #case {"info"} {#map i};
     #case {"key"} {
@@ -20,18 +33,37 @@
       #showme <160>  [P]<170>: A pub;
       #showme <120>  [$]<170>: A shop;
     };
-    #case {"name"} {
-      #map set roomname %2;
+    #case {"lock"} {map_lock};
+    #case {"name"} {#map set roomname %2};
+    #case {"save"} {map_save};
+    #case {"search"} {
+      #local args %0;
+      #var options "";
+
+      #regexp {$args} {^%1 {.*}} {#var options &1};
+      #if {"$options" != ""} {gmap $options};
+      #unvar options;
     };
     #case {"set"} {
       #local options %0;
       #replace options {%1 %2} {};
       map_set %2 $options;
     };
-    #default {
-      #map map;
-    };
+    #case {"show"} {#map map};
+    #case {"undo"} {map_undo};
+    #default {map help};
   };
+}
+
+#alias map_lock {
+  #showme Map is Read only.;
+  #map flag static on;
+  #alias map_undo {#nop;};
+}
+
+#alias map_save {
+  #map write $map_path;
+  #showme Map saved to $map_path;
 }
 
 #alias map_set {
@@ -72,17 +104,19 @@
       #map set roomsymbol !;
     };
     #default {
-      #showme <170>Available set commands:;
+      #showme <170>Command: Description;
       #showme <090>  exit:    mark room as an exit back towards pinnacle;
       #showme <090>  note:    note that room has something interesting;
       #showme <090>  pub:     mark room as a pub;
       #showme <090>  quest:   mark room as quest related;
       #showme <090>  reset:   reset color to default and remove symbol;
-      #showme <090>  shop:    mark room as a shop;
+      #showme <090>  shop:    mark room as a shop.  `map name shop_<name>` to use `rshop` to sprint to this shop;
       #showme <090>  special: mark room as special (more than special than a note);
       #showme <090>  subarea: set room as a subarea entrance;
       #showme <090>  warn:    mark room as dangerous;
-      #showme <090>    the 'roomnote' property is set to any addtional arguments passed in to 'map set <command>';
+      #showme <090>;
+      #showme <090>  NOTE: the 'roomnote' property is set to any addtional arguments passed in to 'map set <command>';
+      #showme <090>  Example: `map set note this room is great` will add a roomnote of 'note: this room is great';
     };
   };
 
@@ -97,3 +131,12 @@
   #map set roomsymbol;
   #map set roomnote;
 }
+
+#alias map_undo {#nop;}
+
+#alias map_write {
+  #showme Map is writable.;
+  #map flag static off;
+  #alias map_undo { #map undo; };
+}
+
