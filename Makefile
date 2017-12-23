@@ -15,11 +15,11 @@ ifndef $(type)
 endif
 ifeq ("$(type)","major")
 	$(eval bump = $(shell echo $(major) + 1 | bc))
-	$(eval new_version = $(shell echo $(bump).$(minor).$(patch)))
+	$(eval new_version = $(shell echo $(bump).0.0))
 endif
 ifeq ("$(type)","minor")
 	$(eval bump = $(shell echo $(minor) + 1 | bc))
-	$(eval new_version = $(shell echo $(major).$(bump).$(patch)))
+	$(eval new_version = $(shell echo $(major).$(bump).0))
 endif
 ifeq ("$(type)","patch")
 	$(eval bump = $(shell echo $(patch) + 1 | bc))
