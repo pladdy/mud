@@ -1,8 +1,8 @@
-#action {^You find a pressure point and bore down!$} {
+#action {^%WYou find a pressure point and bore down!$} {
   #var pressure on;
 }
 
-#action {^You cannot pressure point attack that creature again!$} {
+#action {^%WYou cannot pressure point attack that creature again!$} {
   #var pressure on;
 }
 

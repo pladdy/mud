@@ -55,6 +55,10 @@
   #2 {!hands};
 }
 
+#alias linkdie_commands {
+  !gs;
+};
+
 #alias reet {
   !unwrap;
   !study corpse;

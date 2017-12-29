@@ -6,3 +6,4 @@ The sword drains some of your life energy as you attack!
 reduces your attack with his intrinsic preservation proxy.
 mostly evades your attack with his intrinsic preservation proxy.
 The planar creature blinks away in a flash of blue light.
+Bonehead, you're at max hit points already.

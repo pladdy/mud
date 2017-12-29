@@ -13,7 +13,7 @@
       #showme <170>Command: Description;
       #showme <090>  edit: open map for editing (adding rooms);
       #showme <090>  help: this content;
-      #showme <090>  info: info for the room you're in (same as #map i);
+      #showme <090>  info or i: info for the room you're in (same as #map i);
       #showme <090>  key: Show a key to describe room colors and symbols;
       #showme <090>  lock: close map for editing (no new rooms);
       #showme <090>  name: set a name for the room you're in;
@@ -22,10 +22,12 @@
       #showme <090>  show: show the map on screen;
     };
     #case {"info"} {#map i};
+    #case {"i"} {#map i};
     #case {"key"} {
       #showme <170>Map Key/Legend:;
       #showme <020>  [X]<170>: Exit that leads towards pinnacle;
       #showme <fca>  [S]<170>: Exit that leads to subarea;
+      #showme <caf>  [G]<170>: Guild entrance;
       #showme <130>  [ ]<170>: Note that room has something of interest;
       #showme <acf>  [ ]<170>: Room has something special, more than 'Note' worthy;
       #showme <150>  [ ]<170>: Room is quest/puzzle/mission related;
@@ -68,14 +70,23 @@
 
 #alias map_set {
   #local command %1;
-  #local note %0;
-  #replace note {%1} {};
+  #local args %0;
+  #var note "";
+
+  #if {"$args" != "%1 "} {
+    #regexp {$args} {^%1 {.*}} {#var note &1};
+  };
+
   map_set_reset;
 
   #switch {"%1"} {
     #case {"exit"} {
       #map set roomcolor <020>;
       #map set roomsymbol X;
+    };
+    #case {"guild"} {
+      #map set roomcolor <caf>;
+      #map set roomsymbol G;
     };
     #case {"note"} {
       #map set roomcolor <130>;
@@ -106,6 +117,7 @@
     #default {
       #showme <170>Command: Description;
       #showme <090>  exit:    mark room as an exit back towards pinnacle;
+      #showme <090>  guild:   mark room as a guild entrance;
       #showme <090>  note:    note that room has something interesting;
       #showme <090>  pub:     mark room as a pub;
       #showme <090>  quest:   mark room as quest related;
@@ -124,6 +136,7 @@
     #format {note} {%p} {$note};
     #map set roomnote $command: $note;
   };
+  #unvar note;
 }
 
 #alias map_set_reset {

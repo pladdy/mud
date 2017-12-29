@@ -5,6 +5,7 @@
   gag on;
   !hp;
   !i;
+  linkdie_commands;
 }
 
 #action {^You are login #%1 this boot.$} {

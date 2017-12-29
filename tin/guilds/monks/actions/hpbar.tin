@@ -8,11 +8,12 @@
   #var gp1 %5;
   #var gp1_max %6;
 
-  #local MIN_MIND 100;
-  #if {gp2 < MIN_MIND} {#showme <110>Mind is low!};
-
   #var gxp %7;
   #var gp2 {%8};
+
+  #local MIN_MIND 100;
+  #if {$gp2 < $MIN_MIND} {#showme <110>Mind is low!};
+  #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {stepper off};
 
   #regexp {%11} {T: %d%?$} {#var enemy &1} {#var enemy 0};
 
