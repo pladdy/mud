@@ -17,6 +17,9 @@
 
   #regexp {%11} {T: %d%?$} {#var enemy &1} {#var enemy 0};
 
+  #local MIN_SP 100;
+  #if {$sp < $MIN_SP && $corpses > 0 && $enemy > 0} {resp};
+
   attempt_focus;
   attempt_pressure;
   attempt_enervate;

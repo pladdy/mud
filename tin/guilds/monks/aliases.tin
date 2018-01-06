@@ -32,8 +32,8 @@
 }
 
 #alias attempt_focus {
-  #nop mind goes to 'seldom wanders' at 180;
-  #local MIN_MIND 181;
+  #nop mind drops to 'clear' at 180;
+  #local MIN_MIND 201;
   #local FOCUS_AMOUNT 10;
 
   #if {$enemy > 0 && $gp2 < $MIN_MIND && $focus > 0} {

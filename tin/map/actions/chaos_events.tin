@@ -80,8 +80,28 @@
   #map goto 22124;
 }
 
-#nop The simpsons;
+#nop Chaos TV: The simpsons;
 
-#action {^The Springfield Comments Board} {
-  #map goto 22218;
+#action {^The Springfield Comments Board} {#map goto 22218}
+
+#nop Chaos TV: dexter's lab;
+
+#action {^You feel your matter being erased and redrawn less realistically$} {
+  #map goto 25048;
 }
+
+#nop Myth Area;
+
+#action {^When you manage to open them, your surroundings have changed completely!$} {
+  #var chaos_port_location {$map[current_room]};
+  #map goto myth_area;
+  #map link leave $chaos_port_location;
+  #var chaos_port_location {};
+}
+
+#nop Illumanit Pyramid;
+
+#action {^Pyramid Entrance (n,out)} {
+  #map goto 25090;
+}
+

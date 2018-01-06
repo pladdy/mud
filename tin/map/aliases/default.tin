@@ -1,5 +1,5 @@
 #alias chaos_area_port {
-  #showme porting to $chaos_port_location!;
+  #showme <170>Porting to $chaos_port_location!;
   #map goto $chaos_port_location;
   #var chaos_port_location {};
 }
@@ -26,7 +26,7 @@
   #script {mud_map_width} {
     grep 'width' $map_dir/map_globals.txt 2> /dev/null | sed 's/width://'
   };
-  #if {! $mud_map_width[1] > 0} {#var {mud_map_width[1]} 100};
+  #if {! $mud_map_width[1] > 0} {#var {mud_map_width[1]} 120};
 
   #script {mud_map_height} {
     grep 'height'  $map_dir/map_globals.txt 2> /dev/null | sed 's/height://'

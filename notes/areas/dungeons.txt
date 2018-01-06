@@ -1,17 +1,26 @@
 Balderdash:
   alphabet 65
   chessboard 65
-  death_taco 70
+  death_taco 65
+  halo 65
   puppies 65
   zelligars 65
 
 Fiddlestix:
-  alphabet 35
-  chessboard 35
+  alphabet 40
+  chessboard 40
+  death_taco 40
+  halo 40
+  puppies 40
+  zelligars 40
 
 Highjinx:
   alphabet 36
   chessboard 36
+  death_taco 36
+  halo 36
+  puppies 36
+  zelligars 36
 
 Malarkey:
   chessboard 55
@@ -19,10 +28,18 @@ Malarkey:
   puppies 55
 
 Shenanigans:
+  alphabet 75
   chessboard 85
   death_taco 75
+  halo 90
   puppies 90
+  zelligars 73
 
 Tomfoolery:
   alphabet 36
+  chessboard 36
+  death_taco 36
+  halo 36
+  puppies 36
+  zelligars 36
 

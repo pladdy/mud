@@ -10,7 +10,7 @@ $raw_string =~ s/\\x7B/{/g;
 $raw_string =~ s/\\x7D/}/g;
 
 # remove bracketed, curlied, or parenthesied strings
-$raw_string =~ s/ [\[|\{|\(].+[\]|\}|\)]//g;
+$raw_string =~ s/ <\^>|[\[|\{|\(].+[\]|\}|\)]//g;
 
 # remove attacking
 $raw_string =~ s/ attacking you!//;
