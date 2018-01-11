@@ -1,8 +1,11 @@
-Commands to implement/be aware of:
+Areas to map/explore:
+  hotel transylvania
+  androids
 
-panic
-repeat
-flee
+Commands to implement/be aware of:
+  panic
+  repeat
+  flee
 
 investiage the reflex mskill for any char (that needs server triggers)
 

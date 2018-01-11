@@ -105,3 +105,8 @@
   #map goto 25090;
 }
 
+#nop WWF;
+
+#action {^You ring the bell, but nothing happens.  You've won!} {
+  #map goto 25903;
+}
