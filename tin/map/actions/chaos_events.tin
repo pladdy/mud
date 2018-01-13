@@ -110,3 +110,13 @@
 #action {^You ring the bell, but nothing happens.  You've won!} {
   #map goto 25903;
 }
+
+#nop Lost city;
+
+#action {^With a final THUD, you fly out into a pile of metal!} {
+  #map goto 25919;
+}
+
+#action {^With a bit of difficulty you make your way back up the shaft} {
+  #map goto 25917;
+}
