@@ -1,68 +1,61 @@
 scaler 45 classes:
-shell 63k, lettuce 68k, tomoatoes 69k, cheese 83k, meat ?, sour cream 328k, guacomole 259k, hot sauce 449k
-veggie taco ?, cheesy taco 208k, meat taco ?, works taco ?, death taco: 3.2M
+mob,         45 class, 49 class, 70 class, 73 class
+shell,       63k,      75k,      330k,     416k
+lettuce,     68k,      82k,      380k,     338k
+tomoatoes,   69k,      84k,      400k,     486k
+cheese,      83k,      170k,     600k,     641k
+meat,        ?,        ?,        600k,     688k
+sour cream,  328k,     ?,        ?,        1.8M
+guacomole,   259k,     ?,        ?,        1.6M
+hot sauce,   449k      ?,        ?,        2.4M
+veggie taco, ?,        ?,        800k,     ?
+cheesy taco, 208k,     335k,     1.2M,     ?
+meat taco,   ?,        ?,        ?,        ?
+works taco,  ?,        ?,        ?,        5.4M
+death taco,  3.2M      ?,        ?,        16M
 
-scaler 49 classes:
-shell 75k, lettuce 82k, tomatoes 84k, cheese 170k, meet ?, sour cream ?, guacomole ?, hot sauce ?
-veggie taco ?, cheesy taco 335k, meat taco ?, works taco ?, death taco ?
-
-scaler 70 classes:
-shell 330k, lettuce 380k, tomoatoes 400k, cheese 600k, meat 600k
-veggie taco 800k, cheesy taco 1.2M, meat taco ?, works taco ?, death taco ?
-
-Mobs you can make:
--= DEATH TACO ASSEMBLY INSTRUCTIONS =-
-
-veggie taco   =  shell + lettuce + tomatoes
-cheesy taco   =  veggie taco + cheese
-meat taco     =  cheesy taco + meat
-works taco    =  meat taco + sour cream + guacamole
-DEATH TACO    =  works taco + hot sauce
-
-just 'assemble <type> taco'
-
-Mobs:
-  shells - shell fragments special, bleed damage, no wimpy
-  lettuce - tank forced to lower level
-  tomato - tomato juice special damage
-  cheese - unwield weapon until cheese evaporates
-  meat - temporary short duration -con, stacking (nasty)
-  sour cream - big special (hurts), regens
-  guacamole - forced to remove equipment for short period, cannot re-equip
-  hot sauce - blinds you
+Mob Specials:
+  shells:     shell fragments special, bleed damage, no wimpy
+  lettuce:    tank forced to lower level
+  tomato:     tomato juice special damage
+  cheese:     unwield weapon until cheese evaporates
+  meat:       temporary short duration -con, stacking (nasty)
+  sour cream: big special (hurts), regens
+  guacamole:  removes equipment, cannot re-equip for duration
+  hot sauce:  blinds you
 
 drop tiers
 1-49, 50-74, 75-91, 92+
 
-veggie taco # straightforard, class 785k
-  A Cervesa(, , , refreshing, strong)  = +3 con, +4 con, 100% overmax sp x 3
-  A side of rice (moist, steaming). = 50% overmap hp/sp
-  A veggie taco (plain, crisp): +3, +4 wis, overmax 1000 hp per 'eat' x 3
-  A large pop: sp heals, can be refilled
+veggie taco
+  A Cervesa(, , , refreshing, strong): +3 con, +4 con, 100% overmax sp x 3
+  A side of rice (moist, steaming):    50% overmap hp/sp
+  A veggie taco (plain, crisp):        +3, +4 wis, overmax 1000 hp per 'eat' x 3
+  A large pop:                         sp heals, can be refilled
 
 cheesy taco
-  foil wrapper (crinkled, tattered, smooth, shiny) = radiation and mind ac
-  nacho cheese (small, , large, huge) = ice and acid ac
-  meat paste (small, , handful, brick) = edged and energy ac
-  sour cream (small, , large, huge) = fire and electric ac
-  refried beans (tiny, , handful, brick) = blunt and poison ac
+  foil wrapper (crinkled, tattered, smooth, shiny): radiation and mind ac
+  nacho cheese (small, , large, huge):              ice       and acid ac
+  meat paste (small, , handful, brick):             edged     and energy ac
+  sour cream (small, , large, huge):                fire      and electric ac
+  refried beans (tiny, , handful, brick):           blunt     and poison ac
 
-## Not ready for these!
 meat taco
-  wet wipe (tiny, , ,) - stops combat
-  Sliced jalapenos (limp, thick, ,) - +hp regen (meat taco or death taco?)
-  Cinnamon twists (stale, , , ) - throw for damage
-  Side of Beans        Room damage for short time
+  wet wipe (tiny, , ,):              stops combat
+  Sliced jalapenos (limp, thick, ,): +hp regen (meat taco or death taco?)
+  Cinnamon twists (stale, , , ):     throw for damage
+  Side of Beans ( , , , ):           Room damage for short time
 
 works taco
-  Lime Wedge           +acid WC to a weapon
-  Cup of Salsa         +wis (+4 dex, +4 int, +2 wis, +2 cha?)
-  Lettuce Leaf        Used to change WC to blunt
-  Packet of hot sauce  +fire WC to a weapon
+  - heals a lot
+  Lime Wedge (, , , ):          +acid WC to a weapon
+  Cup of Salsa (, , large, ):   +wis (+4 dex, +4 int, +2 wis, +2 cha?)
+  Lettuce Leaf (, , , ):        Used to change WC to blunt
+  Packet of hot sauce (, , , ): +fire WC to a weapon
 
 death taco
-- these have multiple lives and suck a lot
-  Shot of Tequila      Fire damage in a room
-  Spork                A weapon (lance)
-  Quesadilla Codpiece  An other (to be worn)- AC across all types
-  Guacamole skin       Damage reduction treatment
+  - 3 lives, has all specials
+  Shot of Tequila ( , , , ):     Fire damage in a room
+  Spork Lance ( , , sharp, ):    A weapon (lance), randomly heals hp/sp, does specials
+  Quesadilla Codpiece ( , , , ): An other (to be worn)- AC across all types
+  Guacamole skin ( , , , ):      Damage reduction treatment

@@ -1,6 +1,7 @@
 Areas to map/explore:
   hotel transylvania
   androids
+  temple of light, near wforest portal or desert
 
 Commands to implement/be aware of:
   panic
@@ -8,11 +9,6 @@ Commands to implement/be aware of:
   flee
 
 investiage the reflex mskill for any char (that needs server triggers)
-
-build hardcore char just to play other guilds?  can wipe/remake!
-  fremen
-  mages
-  changelings
 
 build blood thorn:
   12:24 Caesar : bloodthorn you assemble from parts mosty in the treant

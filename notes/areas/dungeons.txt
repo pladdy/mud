@@ -1,16 +1,20 @@
 Balderdash:
-  alphabet 65
+  alphabet 63
+  androids 63
   chessboard 65
   death_taco 65
   halo 65
+  hotel 65
   puppies 65
   zelligars 65
 
 Fiddlestix:
   alphabet 40
+  androids 40
   chessboard 40
   death_taco 40
   halo 40
+  hotel 40
   puppies 40
   zelligars 40
 
@@ -28,12 +32,15 @@ Malarkey:
   puppies 55
 
 Shenanigans:
-  alphabet 75
-  chessboard 85
+  alphabet 115
+  androids 115
+  carnegie 90
+  chessboard 115
   death_taco 75
-  halo 90
-  puppies 90
-  zelligars 73
+  halo 115
+  hotel 90
+  puppies 115
+  zelligars 75
 
 Tomfoolery:
   alphabet 36
@@ -42,4 +49,3 @@ Tomfoolery:
   halo 36
   puppies 36
   zelligars 36
-

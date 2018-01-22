@@ -20,7 +20,7 @@
   #if {$gp1 < 2000 && $corpses > 0} {repu;};
 }
 
-#action {^Ef:%1 Ed:%2 B:[ %3% | %4% ] Gx:%5(%6%) Rc:%7} {
+#action {^Ef:%1 Ed:%2 B:%. %3% | %4% %. Gx:%5(%6%) Rc:%7} {
   #nop Ordered gentech gxp goes backwards (down);
   #nop orders are also 1M gxp, so need to flip the gxp so it "grows";
 
