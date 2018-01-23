@@ -34,11 +34,11 @@ Malarkey:
 Shenanigans:
   alphabet 115
   androids 115
-  carnegie 90
+  carnegie 85
   chessboard 115
   death_taco 75
   halo 115
-  hotel 90
+  hotel 85
   puppies 115
   zelligars 75
 
