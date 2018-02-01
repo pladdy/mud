@@ -58,4 +58,4 @@ death taco
   Shot of Tequila ( , , , ):     Fire damage in a room
   Spork Lance ( , , sharp, ):    A weapon (lance), randomly heals hp/sp, does specials
   Quesadilla Codpiece ( , , , ): An other (to be worn)- AC across all types
-  Guacamole skin ( , , , ):      Damage reduction treatment
+  Guacamole skin ( , , large, ): Damage reduction treatment
