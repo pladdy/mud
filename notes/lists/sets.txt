@@ -7,3 +7,11 @@ Sets:
   pol2_eq (other, helmet)
   trans1
   tree_of_life # spirit eq
+
+Glass Set:
+  glass helmet -> portrait in ravenloft castle
+  glass main   -> king tharon in derthalas dungeon?
+  glass gloves -> undead dragon (ravenloft)
+  glass boots  -> crysmal (xtals)
+  glass ring   -> victor (mordenheim)
+  glass cloak  -> not a thing
