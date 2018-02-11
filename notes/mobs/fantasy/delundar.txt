@@ -1,0 +1,21 @@
+Delundar the Emancipator
+
+Class: ~5M
+
+Items/Eq:
+  - WispShield
+    - no ac, blocks all dmg types up to a % then has to recharge
+  - Ring of Wonder
+  - Bracelet of Ulmedea x 2
+    - +5 int / +5 con
+  - random sword x 2
+  - random ring x 2
+
+Immunities:
+
+Specials:
+
+Notes:
+  - does electric dmg
+
+Strategies:
