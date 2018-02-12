@@ -36,6 +36,10 @@
 
 #nop Ravenloft;
 
+#action {^You recover your senses and look around.$} {
+  #if {$map[current_room] == 4935} {#map goto 26463};
+}
+
 #action {^You find yourself complete once more.$} {
   #if {$map[current_room] == 4935} {#map goto 4936}
 }
