@@ -34,28 +34,28 @@ veggie taco
   A large pop:                         sp heals, can be refilled
 
 cheesy taco
-  foil wrapper (crinkled, tattered, smooth, shiny): radiation and mind ac
-  nacho cheese (small, , large, huge):              ice       and acid ac
-  meat paste (small, , handful, brick):             edged     and energy ac
-  sour cream (small, , large, huge):                fire      and electric ac
-  refried beans (tiny, , handful, brick):           blunt     and poison ac
+  foil wrapper  (crinkled, tattered, smooth, shiny): radiation and mind ac
+  nacho cheese  (small, , large, huge):              ice       and acid ac
+  meat paste    (small, , handful, brick):           edged     and energy ac
+  sour cream    (small, , large, huge):              fire      and electric ac
+  refried beans (tiny, , handful, brick):            blunt     and poison ac
 
 meat taco
-  wet wipe (tiny, , ,):              stops combat
+  wet wipe         (tiny, , ,):      stops combat
   Sliced jalapenos (limp, thick, ,): +hp regen (meat taco or death taco?)
-  Cinnamon twists (stale, , , ):     throw for damage
-  Side of Beans ( , , , ):           Room damage for short time
+  Cinnamon twists  (stale, , , ):    throw for damage
+  Side of Beans    ( , , , ):        Room damage for short time
 
 works taco
   - heals a lot
-  Lime Wedge (, , , ):          +acid WC to a weapon
-  Cup of Salsa (, , large, ):   +wis (+4 dex, +4 int, +2 wis, +2 cha?)
-  Lettuce Leaf (, , , ):        Used to change WC to blunt
-  Packet of hot sauce (, , , ): +fire WC to a weapon
+  Lime Wedge          (, , , ):      +acid WC to a weapon
+  Cup of Salsa        (, , large, ): +wis (+4 dex, +4 int, +2 wis, +2 cha?)
+  Lettuce Leaf        (, , , ):      Used to change WC to blunt
+  Packet of hot sauce (, , , ):      +fire WC to a weapon
 
 death taco
   - 3 lives, has all specials
-  Shot of Tequila ( , , , ):     Fire damage in a room
-  Spork Lance ( , , sharp, ):    A weapon (lance), randomly heals hp/sp, does specials
-  Quesadilla Codpiece ( , , , ): An other (to be worn)- AC across all types
-  Guacamole skin ( , , large, ): Damage reduction treatment
+  Shot of Tequila ( , , , ):            Fire damage in a room
+  Spork Lance ( , , sharp, ):           A weapon (lance), randomly heals hp/sp, does specials
+  Quesadilla Codpiece ( , , , massive): An other (to be worn)- AC across all types
+  Guacamole skin ( , , large, ):        Temporary Damage reduction treatment
