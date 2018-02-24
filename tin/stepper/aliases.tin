@@ -2,12 +2,7 @@
   #if {"$stepper" == "on"} {stepper_ttl on};
 }
 
-#alias blacklist_add {
-  #list {monster_blacklist} {add} {%0};
-}
-
 #alias auto_kill {
-  remove_blacklisted_monsters;
   #list {seen_monsters} {size} {seen_monster_count};
 
   #if {"$stepper" == "on" && "$player_present" == "true"} {
@@ -25,12 +20,6 @@
 }
 
 #alias ak {auto_kill}
-
-#alias create_monster_blacklist {
-  #script {monster_blacklist} {
-    while read line; do echo "$line"; done < ./tin/stepper/blacklist.txt
-  };
-}
 
 #alias keep_cardinal_dirs {
   #list cardinal_exits clear;
@@ -69,17 +58,6 @@
       #list seen_monsters {delete} {$index};
     };
   };
-}
-
-#alias remove_blacklisted_monsters {
-  #foreach $seen_monsters[%*] {seen_monster} {
-    #foreach $monster_blacklist[%*] {blacklisted_monster} {
-      #regexp {$seen_monster} {$blacklisted_monster} {remove_seen_monster $seen_monster};
-    };
-  };
-
-  #unvar seen_monster;
-  #unvar blacklisted_monster;
 }
 
 #alias set_entered_from {
@@ -151,7 +129,6 @@
   #if {"%0" == "on"} {
     #showme <170>Enabling tracking. 'tracker off' to disable.;
     #var tracker on;
-    create_monster_blacklist;
     !aset room_short white+[RS] +reset;
     !aset look_monster hired+[M] +reset;
     !aset look_player higreen+[P] +reset;
@@ -159,11 +136,11 @@
   } {
     #showme <170>Disabling tracking. 'tracker on' to re-enable.;
     #var tracker off;
-    #unvar monster_blacklist;
     !aset room_short;
     !aset look_monster;
     !aset look_player;
     !brief on yes;
+    #unvar non_monsters;
   }
 }
 

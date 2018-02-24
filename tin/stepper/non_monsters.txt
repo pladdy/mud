@@ -1,3 +1,14 @@
+(%w golem)
+%+'s esquire
+%+ storm servant
+%+ broodling
+%+ ferryman
+%+ the manshi
+%+ the valithyn
+%+ the grimare
+a %+ of %+ broodling
+a tame little shrew
+a tiny wandering spider
 an old dwarven smith
 arundin
 bryant
@@ -30,5 +41,4 @@ the grand elemental
 the grand monk
 valerie, the lobby ambassador
 village wisewoman
-%+ ferryman
 tournament judge

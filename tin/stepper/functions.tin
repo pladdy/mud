@@ -5,23 +5,25 @@
   #return $cardinal_exits[$random_index];
 }
 
-#function is_guild_summon {
+#nop TODO: using an indexed aray...it's faster to use an associative array;
+
+#function is_non_monster {
   #local monster %0;
-  #local guild_summons;
-  #local guild_summon;
-  #var guild_summon_status false;
+  #local non_monsters;
+  #local non_monster;
+  #var non_monster_status false;
 
-  #script {guild_summons} {
-    while read line; do echo "$line"; done < ./tin/stepper/guild_summons.txt
+  #script {non_monsters} {
+    while read line; do echo "$line"; done < ./tin/stepper/non_monsters.txt
   };
 
-  #foreach $guild_summons[%*] {guild_summon} {
-    #regexp {$monster} {%i$guild_summon} {#replace guild_summon_status {false} {true}};
-    #if {"$guild_summon_status" == "true"} {#break};
+  #foreach $non_monsters[%*] {non_monster} {
+    #regexp {$monster} {%i$non_monster} {#replace non_monster_status {false} {true}};
+    #if {"$non_monster_status" == "true"} {#break};
   };
 
-  #var result $guild_summon_status;
-  #unvar guild_summon_status;
+  #var result $non_monster_status;
+  #unvar non_monster_status;
   #return $result;
 }
 

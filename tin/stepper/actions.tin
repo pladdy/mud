@@ -2,15 +2,6 @@
 
 #nop Room Short trigger;
 
-#action {^{(> )+}} {
-  #if {"$tried_to_auto_kill" == "false"} {
-    #if {"$stepper" == "on"} {
-      auto_kill;
-      #var tried_to_auto_kill true;
-    };
-  };
-}
-
 #action {^{(> )*}[RS] {.*}} {
   #list seen_monsters clear;
   #list {seen_monsters} {size} {seen_monster_count};
@@ -22,11 +13,13 @@
   parse_exits %3;
 }
 
+#nop Monster trigger;
+
 #action {^[M] %1} {
   set_under_attack %1;
-  #local guild_summon_status {@is_guild_summon{%1}};
+  #local non_monster_status {@is_non_monster{%1}};
 
-  #if {"$guild_summon_status" == "false"} {
+  #if {"$non_monster_status" == "false"} {
     #script {monster_name} {./bin/monster_name "%1"};
 
     #local monster_name $monster_name[1];
@@ -36,6 +29,17 @@
 
     #if {$index_if_seen == 0} {
       #list {seen_monsters} {add} {$monster_name};
+    };
+  };
+}
+
+#nop Room Prompt;
+
+#action {^{(> )+}} {
+  #if {"$tried_to_auto_kill" == "false"} {
+    #if {"$stepper" == "on"} {
+      auto_kill;
+      #var tried_to_auto_kill true;
     };
   };
 }
