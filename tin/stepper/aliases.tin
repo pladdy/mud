@@ -30,7 +30,6 @@
       #list cardinal_exits add &0;
     };
   }
-
 }
 
 #alias parse_exits {
