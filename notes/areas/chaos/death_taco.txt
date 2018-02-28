@@ -33,7 +33,7 @@ veggie taco
   A veggie taco (plain, crisp):        +3, +4 wis, overmax 1000 hp per 'eat' x 3
   A large pop:                         sp heals, can be refilled
 
-cheesy taco
+cheesy taco (, , , deadly)
   foil wrapper  (crinkled, tattered, smooth, shiny): radiation and mind ac
   nacho cheese  (small, , large, huge):              ice       and acid ac
   meat paste    (small, , handful, brick):           edged     and energy ac
