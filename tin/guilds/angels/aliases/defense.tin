@@ -29,7 +29,7 @@
                            { !defensequeue $dq_string;      };
     };
   } {
-    #showme <170>To change, pass in an ordered list of powers.  Ex: dq v p b ri;
+    #showme <170>To change, pass in an ordered list of powers.  Ex: dq v p b re ri;
     !defensequeue;
   }
   #unvar dq_list;
@@ -39,10 +39,14 @@
   !defensequeue parry,riposte,block,void;
 }
 
+#alias dqa {
+  !defensequeue reversal,void,block,parry,riposte;
+}
+
 #alias dqc {!defensequeue clear;}
 
 #alias dqo {
-  !defensequeue parry,riposte,void,block;
+  !defensequeue reversal,parry,riposte,void,block;
 };
 
 #alias dqd {
