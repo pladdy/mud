@@ -5,7 +5,8 @@
   #return $cardinal_exits[$random_index];
 }
 
-#nop TODO: using an indexed aray...it's faster to use an associative array;
+#nop This does a loop on all non monsters.  It's done this way because the key;
+#nop can be a wild card match for a monster name;
 
 #function is_non_monster {
   #local monster %0;
