@@ -1,11 +1,15 @@
 Zelligar, the <title> Golem Master
 
+Titles switch at 70, 90, and 130
+
 Class: Scalaing based on dungeon level
   Dungeon Level, Title, Class, Head band, Stat Boost
   41, Novice, 196K, -(*)-, +2
   43, Novice, 293K, -(*)-, +2
   55, Apprentice, 1.8M, =(0)=, +3
   73, Learned, 4.2M, =({.})=, +4
+  80, Learned, 4.2M, =({.})=, +4
+  85, Learned, 16M
 
 Items/Eq:
   Headband (based on scaler); type 'Unknown' (no slot)

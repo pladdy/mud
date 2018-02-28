@@ -18,6 +18,9 @@ Fiddlestix:
   puppies 40
   zelligars 40
 
+Gilead:
+  alphabet 57
+
 Highjinx:
   alphabet 36
   chessboard 36
