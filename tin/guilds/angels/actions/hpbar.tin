@@ -21,20 +21,13 @@
   #if {"$enemy" == ""} {#var enemy {0}};
 
   #var circle {false};
+  #var parried false;
 
   #if {$gp1 < 50 && $corpses > 0 && $enemy > 0} {redi};
   #if {$gp2 < 20 && $corpses > 0 && $enemy > 0} {reri};
 
-  #list angel_train size angel_trainings;
-
-  #if {$angel_trainings > 0} {
-    #foreach { $angel_train[%*] } {skill} {
-      #if { @length{$skill} > 0 } { #showme <fca>Go Train $skill; };
-    };
-    #unvar skill;
-  };
-
-  #unvar angel_trainings;
-
-  #var parried false;
+  attempt_bt;
+  attempt_rl;
+  show_trainings;
+  check_stepper;
 }

@@ -13,8 +13,10 @@
 }
 
 #alias redi {
+  !hp;
   !unwrap;
   !disperse;
+  !hp;
 }
 
 #alias redi_quiet {
@@ -28,15 +30,17 @@
   };
   #else {
     #if {$corpses < 5} {#var max_to_use $corpses} {#var max_to_use 5}
-    #if {$corpses > 0} {#loop 1 $max_to_use $loop {redi_quiet};};
+    #if {$corpses > 0} {#loop 1 $max_to_use $loop {redi_quiet}};
     #unvar max_to_use;
   };
 }
 
 #alias reri {
+  !hp;
   !unwrap;
   !rites;
   !disperse;
+  !hp;
 }
 
 #alias commands_after_corpse {
