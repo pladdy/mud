@@ -21,8 +21,8 @@
       #showme <090>  set: Set the room color/symbol based on a defined setting;
       #showme <090>  show: show the map on screen;
     };
-    #case {"info"} {#map i};
     #case {"i"} {#map i};
+    #case {"info"} {#map i};
     #case {"key"} {
       #showme <170>Map Key/Legend:;
       #showme <020>  [X]<170>: Exit that leads towards pinnacle;
@@ -35,6 +35,7 @@
       #showme <160>  [P]<170>: A pub;
       #showme <120>  [$]<170>: A shop;
     };
+    #case {"l"} {#map map};
     #case {"lock"} {map_lock};
     #case {"name"} {#map set roomname %2};
     #case {"save"} {map_save};
