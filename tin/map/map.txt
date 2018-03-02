@@ -117643,7 +117643,7 @@ R {24309} {0} {} {} { } {} {} {} {} {} {1.000}
 E {24308} {w} {w} {8} {0} {}
 E {24310} {e} {e} {2} {0} {}
 
-R {24310} {0} {<130>} {} {} {} {} {note: crank rod -> 'drink water', 'make wish' and 'toss coin'} {} {} {1.000}
+R {24310} {0} {<130>} {} {} {} {} {note: crank rod -> 'drink water', 'toss coin', 'make wish' -> +1 random stat} {} {} {1.000}
 E {24309} {w} {w} {8} {0} {}
 E {24311} {e} {e} {2} {0} {}
 
