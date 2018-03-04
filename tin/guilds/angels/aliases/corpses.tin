@@ -12,31 +12,29 @@
   #if {"$flying" == "true"} {!swoop all} {!get all};
 }
 
+#nop Don't use hp in this alias, it messes with angel actions;
 #alias redi {
-  !unwrap;
-  !disperse;
-}
-
-#alias redi_quiet {
   !unwrap;
   !disperse;
 }
 
 #alias redis {
   #if {"%1" != ""} {
-    #loop 1 %1 $loop {redi_quiet};
+    #loop 1 %1 $loop {redi};
   };
   #else {
     #if {$corpses < 5} {#var max_to_use $corpses} {#var max_to_use 5}
-    #if {$corpses > 0} {#loop 1 $max_to_use $loop {redi_quiet};};
+    #if {$corpses > 0} {#loop 1 $max_to_use $loop {redi}};
     #unvar max_to_use;
   };
 }
 
 #alias reri {
+  !hp;
   !unwrap;
   !rites;
   !disperse;
+  !hp;
 }
 
 #alias commands_after_corpse {

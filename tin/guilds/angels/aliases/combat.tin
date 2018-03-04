@@ -49,7 +49,7 @@
 #alias providence_at {
   #if {@length{%1} > 0} {
     #showme <170>Setting to %1;
-    #var swing_at %1;
+    #var providence_at %1;
   } {
     #showme <170>Current setting: $providence_at%.;
   }

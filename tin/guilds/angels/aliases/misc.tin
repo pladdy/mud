@@ -1,3 +1,22 @@
+#alias attempt_bt {
+   #if {$gp1 > 150 && $time_slices < 6} {
+    !manifest beyond time;
+  };
+
+}
+
+#alias attempt_rl {
+   #if {$gp1 > 150 && $gp2 < 100} {
+    !manifest renewed light;
+  };
+}
+
+#alias check_stepper {
+  #if {$gp2 < 50 && $corpses == 0} {
+    stepper off;
+  };
+}
+
 #alias f12 {
   #if {$map[current_room] == 220} {#loop 2 12 i {!junk all from bag $i}};
   #else {#loop 2 12 i {!sell all from bag $i}}
@@ -24,7 +43,21 @@
   }
 }
 
+#alias show_trainings {
+  #list angel_train size angel_trainings;
+
+  #if {$angel_trainings > 0} {
+    #foreach { $angel_train[%*] } {skill} {
+      #if { @length{$skill} > 0 } { #showme <fca>Go Train $skill; };
+    };
+    #unvar skill;
+  };
+
+  #unvar angel_trainings;
+}
+
 #alias train {
   !train %0;
   #unvar angel_train;
 }
+
