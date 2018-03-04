@@ -78610,7 +78610,7 @@ E {16206} {nw} {nw} {9} {0} {}
 R {16206} {0} {} {} { } {} {} {} {} {} {1.000}
 E {16205} {se} {se} {6} {0} {}
 
-R {16207} {0} {} {alphabet} { } {} {} {dungeon scales with level} {} {} {1.000}
+R {16207} {0} {<130>} {alphabet} {} {} {} {note: 'mission ask' -> will give stat boosts} {} {} {1.000}
 E {  142} {u} {u} {16} {1} {}
 E {16208} {s} {s} {4} {0} {}
 
