@@ -1,13 +1,9 @@
 #action {^HP: %1/%2 SP: %3/%4 C:%s%5% F:%s%6% D: %7/%8|%9% [%10] E:%11 } {
   #var hp {%1};
   #var hp_max {%2};
-  #math {hp_delta} {$hp - $hp_last};
-  #var hp_last {$hp};
-  #format hp_pct {%f} {$hp / $hp_max};
 
   #var sp {%3};
   #var sp_max {%4};
-  #format sp_pct {%f} {$sp / $sp_max};
 
   #var gp1 {%5};
   #var gp1_max {100};
@@ -16,17 +12,23 @@
   #var gp2_max {100};
 
   #var enemy {%11};
+  #if {"$enemy" == ""} {#var enemy {0}};
   #replace {enemy} {%} {};
 
   #nop Force actions;
 
-  #if {$gp2 > 50 && $corpses > 0 && $release_force == "false"} {refo;};
-  #if {$gp2 > 75} { #showme <110>FORCE SATURATION IS HIGH!; };
+  #if {$gp2 > 50 && $corpses > 0 && $release_force == "false"} {refo};
+  #if {$gp2 > 75} {#showme <110>FORCE SATURATION IS HIGH!};
 
   #if {"$mindblock" == "no" && $enemy > 0} {
-    !focus mindblock;
+    #nop !focus mindblock;
     #var mindblock {yes};
   }
+}
+
+#action {^Def:%1 Wm:%2 Wc:%s%3% Gx:%s%4%} {
+  #var {gxp} {%4};
+  show_status_bar;
 }
 
 #nop Release force;

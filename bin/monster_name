@@ -18,5 +18,8 @@ $raw_string =~ s/ attacking you!//;
 # remove puncuation
 $raw_string =~ s/\.$//;
 
+# trim
+$raw_string =~ s/\s*$/$1/;
+
 # print but with no newline; tt++ picks this up and stores in a list
 print "$raw_string";

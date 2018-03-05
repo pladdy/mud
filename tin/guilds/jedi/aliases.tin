@@ -1,34 +1,22 @@
+#alias drl {
+  !sheath;
+  !draw lightsaber;
+  !activate lightsaber;
+  !focus mode /guide;
+}
+
+#alias drd {
+  !sheath;
+  !draw lightdaggers;
+  !activate lightdaggers;;
+  !focus mode /flurry;
+}
+
 #alias f10 {
   !hp;
   !eat corpse;
   !hp;
   !get all;
-}
-
-#alias healup {
-  #forall {0;2;4;6;8} { #delay {&0} {!ri; hp;}; }
-}
-
-#alias commands_after_corpse {
-  #var mindblock {no};
-
-  #if {$gp1 < 75 && $gp2 < 50} {
-    !focus meditation;
-  } {
-    !focus hibernation trance;
-  }
-}
-
-#alias use_corpse {!focus release force;}
-
-#alias refo {
-  !unwrap corpse;
-  !focus release force;
-}
-
-#alias reeat {
-  !unwrap corpse;
-  !eat corpse;
 }
 
 #nop Force trance alias for spells;
@@ -55,11 +43,36 @@
   }
 }
 
-#alias drl {
-  !draw lightsaber;
-  !activate lightsaber;
-  !focus mode /guide;
+#alias healup {
+  #forall {0;2;4;6;8} { #delay {&0} {!ri; hp;}; }
 }
+
+#alias commands_after_corpse {
+  #var mindblock {no};
+
+  #if {$gp1 < 75 && $gp2 < 50} {
+    !focus meditation;
+  } {
+    !focus hibernation trance;
+  }
+}
+
+#alias reab {
+  !unwrap corpse;
+  !focus absorb energy;
+}
+
+#alias refo {
+  !unwrap corpse;
+  !focus release force;
+}
+
+#alias reet {
+  !unwrap corpse;
+  !eat corpse;
+}
+
+#alias use_corpse {!focus absorb energy;}
 
 #alias wimpy_commands {
   #delay 2 {!focus reduce injury};

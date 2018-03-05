@@ -28,5 +28,6 @@ aset jedi_dodge hicyan
 aset jedi_lfs white
 aset jedi_gfs yellow
 aset jedi_r_i higreen
+aset jedi_absorb himagenta
 
 focus hpconfigure /HP: #hp/#mhp SP: #sp/#msp C:#c F:#f D: #dn/#dm|#dr [#ng] E:#es #nlDef:#df Wm:#sm Wc:#%c Gx:#gxp

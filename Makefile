@@ -34,3 +34,6 @@ endif
 
 tags:
 	git tag --sort=-v:refname
+
+test:
+	bin/monster_name_test
