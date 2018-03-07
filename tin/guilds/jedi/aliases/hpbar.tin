@@ -1,0 +1,12 @@
+#alias attempt_mindblock {
+  #if {"$mindblock" == "no" && $enemy > 0} {
+    focus mindblock;
+    #var mindblock {yes};
+  }
+}
+
+#alias check_stepper {
+  #if {"$stepper" == "on" && $gp1 < 10} {
+    stepper off;
+  }
+}

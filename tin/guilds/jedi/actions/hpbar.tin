@@ -15,15 +15,11 @@
   #if {"$enemy" == ""} {#var enemy {0}};
   #replace {enemy} {%} {};
 
-  #nop Force actions;
-
   #if {$gp2 > 50 && $corpses > 0 && $release_force == "false"} {refo};
   #if {$gp2 > 75} {#showme <110>FORCE SATURATION IS HIGH!};
 
-  #if {"$mindblock" == "no" && $enemy > 0} {
-    #nop !focus mindblock;
-    #var mindblock {yes};
-  }
+  attempt_mindblock;
+  check_stepper;
 }
 
 #action {^Def:%1 Wm:%2 Wc:%s%3% Gx:%s%4%} {

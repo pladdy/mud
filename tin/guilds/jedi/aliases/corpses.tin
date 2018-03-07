@@ -1,0 +1,35 @@
+#alias f10 {
+  !hp;
+  !eat corpse;
+  !hp;
+  !get all;
+}
+
+#alias commands_after_corpse {
+  #var mindblock {no};
+
+  #if {$gp1 < 75 && $gp2 < 50} {
+    !focus meditation;
+  } {
+    !focus hibernation trance;
+  }
+}
+
+#alias reab {
+  !unwrap corpse;
+  !focus absorb energy;
+}
+
+#alias refo {
+  !unwrap corpse;
+  !focus release force;
+}
+
+#alias reet {
+  !unwrap corpse;
+  !eat corpse;
+}
+
+#alias use_corpse {!focus absorb energy;}
+
+
