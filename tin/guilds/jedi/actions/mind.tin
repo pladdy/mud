@@ -1,0 +1,24 @@
+#action {^You seize control of %1 thoughts and paralyze %2.$} {
+  #delay {10} {
+    !focus confusion;
+  }
+}
+
+#action {^%1 mind resists your attempt to mindblock it!$} {
+  !focus confusion;
+}
+
+#action {^%1 mind resists your attempt to confuse it!$} {
+  #local max_confusion_attempts 5;
+
+  #if {$confusion_attempts < $max_confusion_attempts} {
+    !focus confusion;
+    #math {confusion_attempts} {$confusion_attempts + 1};
+  };
+}
+
+#action {^With care you jumble his thoughts and send him reeling in confusion.$} {
+  #var confusion_attempts 0;
+}
+
+

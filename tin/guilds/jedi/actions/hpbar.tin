@@ -8,15 +8,16 @@
   #var gp1 {%5};
   #var gp1_max {100};
 
-  #var gp2 {%6};
+  #nop flip the percentages for status bar;
+  #math {gp2} {(%6 - 100) * -1};
   #var gp2_max {100};
 
   #var enemy {%11};
   #if {"$enemy" == ""} {#var enemy {0}};
   #replace {enemy} {%} {};
 
-  #if {$gp2 > 50 && $corpses > 0 && $release_force == "false"} {refo};
-  #if {$gp2 > 75} {#showme <110>FORCE SATURATION IS HIGH!};
+  #if {$gp2 < 50 && $corpses > 0 && $release_force == "false"} {refo};
+  #if {$gp2 < 25} {#showme <110>FORCE SATURATION IS HIGH!};
 
   attempt_mindblock;
   check_stepper;

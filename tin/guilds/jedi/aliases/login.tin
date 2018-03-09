@@ -1,0 +1,7 @@
+#alias linkdie_commands {
+  #var mindblock no;
+}
+
+#alias login_commands {
+  #var mindblock no;
+}

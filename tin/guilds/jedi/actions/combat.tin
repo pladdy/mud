@@ -1,0 +1,8 @@
+#action {^Your lightdagger's casing flares nearly white hot as the battery melts} {
+  drl;
+}
+
+#action {^Your lightsaber's casing flares nearly white hot as the battery melts} {
+  drd;
+}
+
