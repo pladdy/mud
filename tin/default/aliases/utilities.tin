@@ -19,7 +19,7 @@
 }
 
 #alias f12 {
-  #loop 2 8 i {!sell all from bag $i};
+  #loop 2 12 i {!sell all from bag $i};
 }
 
 #nop HighMortal powers;

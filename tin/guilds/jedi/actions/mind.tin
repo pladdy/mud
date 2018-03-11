@@ -1,5 +1,5 @@
 #action {^You seize control of %1 thoughts and paralyze %2.$} {
-  #delay {10} {
+  #delay {14} {
     !focus confusion;
   }
 }
