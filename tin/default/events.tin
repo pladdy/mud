@@ -30,27 +30,21 @@
 #event {SESSION DISCONNECTED} {
   map_save;
 
-  #if { "$quit" != "true" } {
+  #if { "$quit" == "true" } {
     #unvar flying;
+    export_session;
+    shutdown_tmux;
   };
   #else {
     #showme <170>Session disconnecting...;
     #system { tail -n 20 $session_log };
+    export_session;
   };
-
-  export_session;
 }
+
+#nop when you type '#end' this event is fired;
 
 #event {PROGRAM TERMINATION} {
   #showme <170>Program shutting down...;
-
-  #nop Clean up and shut down tmux;
-  #system {
-    pid=$(ls ./ | grep tmux-server | sed 's/tmux-server-//' | sed 's/.log//');
-    if [ -n "$pid" ]; then
-      rm ./tmux*.log;
-      sleep 1;
-      kill $pid;
-    fi
-  };
+  shutdown_tmux;
 }

@@ -33,11 +33,8 @@
 }
 
 #alias l {
-  #if {@length{%1} > 0} {
-    !look at %0;
-  } {
-    !look;
-  };
+  #if {@length{%1} > 0} {!look at %0};
+  #else                 {!look};
 }
 
 #alias ls {
@@ -48,6 +45,7 @@
 #alias quit {
   #var quit true;
   !quit;
+  #nop set a var in gts (global telnet session);
   #gts #var quit true;
 }
 

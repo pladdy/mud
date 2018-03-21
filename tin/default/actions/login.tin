@@ -21,7 +21,9 @@
 #nop 3k relog;
 
 #action {'gts' ACTIVATED.$} {
+  #nop if not quitting, try to relog;
   #if {"$quit" != "true"} {
     #delay 1 {#session 3k 3k.org 3000;$character};
-  }
+  };
+  #else {#end};
 }

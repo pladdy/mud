@@ -23,9 +23,9 @@
   #delay {5} {!surge};
   #delay {6} {!surge};
   #delay {7} {
-    !wimpy 50;
+    !wimpy 40;
     !autoguild surge;
-    !pheal 1000 surge;
+    !pheal 1100 surge;
   }
 }
 

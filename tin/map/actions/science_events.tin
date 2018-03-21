@@ -20,6 +20,22 @@
   #map goto 24036;
 }
 
+#action {^The captain announces: Welcome to The Cytel Corporation Earth base.$} {
+  #map goto 26646;
+}
+
+#action {^The captain announces: Welcome to The Martian Colony.$} {
+  #nop Note: space shuttle in space is 8373;
+
+  #nop from cytel ore shuttle;
+  #if {$mars_shuttle == 26646} {#map goto 26647};
+
+  #nop from midway;
+  #if {$mars_shuttle == 24040} {#map goto 26657};
+}
+
+#nop Science Train;
+
 #action {^The doors close and the train shoots out of the station.$} {
   #map goto 24042;
 }

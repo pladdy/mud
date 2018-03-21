@@ -1,16 +1,16 @@
 List of potential bootrun items I like to get; order of relevant to all chars
 
 Misc:
-  Bags (from Crydee),                       run crydee
-  Black potion with little yellow floaties, run rabbit_hole
   Holy torch (in bag 1)                     run holy_torch
   Grimlark's helmet (in bag 1)              run grimlark
+  Bags (from Crydee),                       run crydee
+  Black potion with little yellow floaties, run rabbit_hole
   Crystal blue stone                        run underdark, big_ugly
   Book of hope                              run stone_cloak (in that area)
 
 Other:
   force-shield assembly belt (uniqure per char),          run halo
-  WWF Heavy Weight Championship belt (low ac, 1/1 regen), run ?
+  WWF Heavy Weight Championship belt (low ac, 1/1 regen), run wwf
   Skinsuit of the damned (burning),                       run pol2_eq
   Spiderskin Codpiece,                                    run xaxis
 
@@ -19,13 +19,14 @@ Unknowns:
   Blue pointy hat from Hich Colonic, run hc
 
 Cloaks:
-  Battleshroud
-  Spider Carapace
+  Battleshroud    run battleshroud
+  Spider Carapace run underdark, run ud_maze2, ud_maze3, ud_maze4
   Stone Cloak,    run stone_cloak (dests after duration)
 
 Weapons:
-  Sword of Ascension
-  Barbarian High Lord Sword
+  Sword of Ascension                        run zaldaen
+  Barbarian High Lord Sword                 run highlord_sword
+  Sword of Light / Short sword of quickness run hc
 
 Mains:
   Shimmering Octochromatic Dragon Armour, run way_dock, charter serinth
@@ -34,10 +35,10 @@ Mains:
   Big Pig armor,                          run bigpig
 
 Gloves:
-  Glass gloves
+  Glass gloves run ravenloft, run undead_dragon
 
 Boots:
-  Glass boots
+  Glass boots run crysmal
 
 Rings:
   Ogre ring

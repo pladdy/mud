@@ -1,7 +1,5 @@
-#action {^You seize control of %1 thoughts and paralyze %2.$} {
-  #delay {14} {
-    !focus confusion;
-  }
+#action {%1 casts aside your paralyzing control over his thoughts!$} {
+  !focus confusion;
 }
 
 #action {^%1 mind resists your attempt to mindblock it!$} {
