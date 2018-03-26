@@ -2,3 +2,5 @@ Others:
   cronos
   crystalline_warriore # warriors randomly drop e/b/en (decent)
   pol2_eq              # guardians have skin suit (burning) rarely
+
+  force shield module in dune
