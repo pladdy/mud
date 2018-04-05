@@ -8,6 +8,9 @@ Sets:
   trans1
   tree_of_life # spirit eq
 
+Pitch Black:
+  Sopen, Skeletal lord
+
 Glass Set:
   glass helmet -> portrait in ravenloft castle
   glass main   -> king tharon in derthalas dungeon?

@@ -4,6 +4,13 @@ Gloves:
   spiritual_gloves
   trans1           # southron can drop gloves
 
+Serinth:
+  Sopem:
+    skeletal lord has pitch black (gloves)
+    Dorthinick -> gloves of lucanus
+
 Ravenloft:
   undead_dragon # drops razor warrior, kill for glass gloves (somtimes)
-  oathmaker     # kill marcus, then run tullaris, drops tarnished gauntlets
+
+  Abbey:
+    tullaris -> tranished gloves # kill marcus, then run tullaris
