@@ -6,7 +6,8 @@
 }
 
 #alias check_stepper {
-  #if {"$stepper" == "on" && $gp1 < 10} {
+  #local MIN_CONC 15;
+  #if {"$stepper" == "on" && $gp1 < $MIN_CONC} {
     stepper off;
   }
 }
