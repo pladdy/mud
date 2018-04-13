@@ -48590,6 +48590,7 @@ E {   39} {board fantasy} {board fantasy} {0} {0} {}
 E {   90} {board chaos} {board chaos} {0} {0} {}
 E {   84} {board gypsy} {board gypsy} {0} {0} {}
 E {   62} {board science} {board science} {0} {0} {}
+E {26767} {board tatooine} {board tatooine} {0} {0} {}
 
 R { 9583} {0} {} {} { } {} {} {} {} {} {1.000}
 E { 9582} {s} {s} {4} {0} {}
@@ -128269,3 +128270,6 @@ E {26766} {s} {s} {4} {0} {}
 
 R {26766} {0} {} {} { } {} {} {} {} {} {1.000}
 E {26765} {n} {n} {1} {0} {}
+
+R {26767} {0} {} {} { } {} {} {} {} {} {1.000}
+E { 9582} {board shuttle} {board shuttle} {0} {0} {}
