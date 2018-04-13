@@ -26,6 +26,10 @@
 #action {^Def:%1 Wm:%2 Wc:%s%3% Gx:%s%4%} {
   #var {gxp} {%4};
   show_status_bar;
+
+  #if {"%2" == "n"} {
+    #showme <110>Warning!  In neutral mode, pick a combat mode!;
+  };
 }
 
 #nop Release force;
