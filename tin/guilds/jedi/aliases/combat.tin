@@ -1,5 +1,7 @@
 #alias drl {
   !focus force trance /off;
+  !focus impulse for c at 100;
+
   !sheath;
   !draw lightsaber;
   !activate lightsaber;
@@ -8,6 +10,8 @@
 
 #alias drd {
   !focus force trance /ik,repeat;
+  !focus impulse for si at 100;
+
   !sheath;
   !draw lightdaggers;
   !activate lightdaggers;;
