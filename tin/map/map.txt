@@ -48515,7 +48515,7 @@ E { 9553} {se} {se} {6} {0} {}
 R { 9562} {0} {<130>} {} { } {} {} {} {} {} {1.000}
 E { 9554} {ne} {ne} {3} {0} {}
 
-R { 9563} {0} {<130>} {} {} {} {} {note: high colonic mage, silver earring -> regen} {} {} {1.000}
+R { 9563} {0} {<130>} {} {} {} {} {note: high colonic mage -> silver-earring (regen), blue and yellow pointy hat, potion of regeneration, tome (disintegrate spell)} {} {} {1.000}
 E { 9548} {s} {s} {4} {0} {}
 
 R { 9564} {0} {<130>} {} { } {} {} {install bar to go up} {} {} {1.000}

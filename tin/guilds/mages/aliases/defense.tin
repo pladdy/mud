@@ -33,27 +33,26 @@
 
 #alias deup {
   #var i {0};
-  #regexp {$dspells} { A } {#nop;} {
-    #delay {$i} {!cast armor}; #math {i} {$i + 2};
-  };
-  #regexp {$dspells} { MS } {#nop;} {
-    #delay {$i} {!cast magnificent shield}; #math {i} {$i + 2};
-  };
+
   #regexp {$dspells} { SS } {#nop;} {
     #delay {$i} {!cast stoneskin}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { MG } {#nop;} {
     #delay {$i} {!cast major globe}; #math {i} {$i + 2};
   };
+  #regexp {$dspells} { MS } {#nop;} {
+    #delay {$i} {!cast magnificent shield}; #math {i} {$i + 2};
+  };
   #regexp {$dspells} { B } {#nop;} {
     #delay {$i} {!cast blink}; #math {i} {$i + 2};
   };
-
-
-  #if {"$spells[MG]" == "on"} {
-    #delay {$i} {MG};
-    #math {i} {$i + 2};
+  #regexp {$dspells} { A } {#nop;} {
+    #delay {$i} {!cast armor}; #math {i} {$i + 2};
   };
+  #regexp {$dspells} { PA } {#nop;} {
+    #delay {$i} {!cast prismatic aura}; #math {i} {$i + 2};
+  };
+
   #if {"$spells[pe]" == "on"} {
     #delay {$i} {!cast protection from evil};
     #math {i} {$i + 2};

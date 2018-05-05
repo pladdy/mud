@@ -36,11 +36,12 @@
   #replace {enemy} {%} {};
 
   #var dspells {%2};
-  #regex {$dspells} { A} {#nop} {!cast armor};
-  #regex {$dspells} { MS} {#nop} {!cast magnificent shield};
   #regex {$dspells} { SS} {#nop} {!cast stoneskin};
   #regex {$dspells} { MG} {#nop} {!cast major globe};
+  #regex {$dspells} { MS} {#nop} {!cast magnificent shield};
   #regex {$dspells} { B}  {#nop} {!cast blink};
+  #regex {$dspells} { PA} {#nop} {!cast prismatic aura};
+  #regex {$dspells} { A} {#nop} {!cast armor};
   #regex {$dspells} { *I} {#var immersed true} {#var immersed false};
 
   #nop Spells to monitor if i enabled them;

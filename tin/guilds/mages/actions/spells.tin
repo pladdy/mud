@@ -37,6 +37,10 @@
   #if {@length{$enemy} > 0} {!cast blink};
 }
 
+#action {^Your skin ceases its colorful displays.$} {
+  #if {@length{$enemy} > 0} {!cast prismatic aura};
+}
+
 #action {^Your immersion has expired.$} {!cast spell tap always}
 
 #nop #action {^You feel slower as the haste wears off.!} {}
