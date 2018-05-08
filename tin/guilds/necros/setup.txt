@@ -1,0 +1,8 @@
+recover
+gmore on
+gore 10
+highlight 3
+
+hpbar insert 20 above 5
+
+alias ng necrogram

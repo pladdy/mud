@@ -38,8 +38,14 @@
 }
 
 #alias ls {
-  !look at %0;
-  !search %0;
+  #if {"%0" == ""} {
+    !look;
+    !search;
+  };
+  #else {
+    !look at %0;
+    !search %0;
+  }
 }
 
 #alias quit {

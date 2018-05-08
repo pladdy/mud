@@ -1,0 +1,50 @@
+#alias attempt_dart {
+  #math gp1p {($gp1 * 1.00) / ($gp1_max * 1.00)};
+  #math spp {($sp * 1.00) / ($sp_max * 1.00)};
+
+  #if {$enemy > 0 && "$can_dart" != "false" && $gp1p > $spp} {cd};
+
+  #unvar gp1p;
+  #unvar spp;
+}
+
+#alias cd {
+  !create dart 100;
+  !dart;
+}
+
+#alias commands_after_corpse {
+  #var familiar_called false;
+}
+
+#alias f12 {
+  #if {$map[current_room] == 26817} {
+    #loop 2 12 i {
+      !donate all from bag $i;
+    };
+  } {
+    #loop 1 12 i {
+      !sell all from bag $k;
+    };
+  };
+}
+
+#alias reab {
+  !unwrap corpse;
+  !ab;
+}
+
+#alias reabb {
+  !unwrap corpse;
+  !abb;
+}
+
+#alias repr {
+  !unwrap corpse;
+  !p;
+}
+
+#alias use_corpse {
+  #if {$ncorpses < 10} {p};
+  #else {!ab};
+}
