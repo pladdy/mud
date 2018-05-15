@@ -12,7 +12,7 @@
 }
 
 #alias check_stepper {
-  #if {$gp2 < 50 && $corpses == 0} {
+  #if {"$stepper" == "on" && $gp2 < 50 && $corpses == 0} {
     stepper off;
   };
 }
