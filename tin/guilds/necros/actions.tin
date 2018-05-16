@@ -1,8 +1,8 @@
-#action {^%?%?HP[%1(%9)/%2] SP[%3(%10)/%4] NP[%5/%6|%7c] E[%8]} {
-  #var hp {%1};
+#action {^%?%?HP[%1/%2] SP[%3/%4] NP[%5/%6|%7c] E[%8]} {
+  #regexp {%1} {%d(%d)} {#var hp &1} {#var hp %1};
   #var hp_max {%2};
 
-  #var sp {%3};
+  #regexp {%3} {%d(%d)} {#var sp &1} {#var sp %3};
   #var sp_max {%4};
 
   #var gp1 {%5};
@@ -14,7 +14,9 @@
   #if {"$enemy" == "none"} {#var enemy {0}};
   #regexp {%8} {%+:%d%} {#var enemy &2};
 
-  attempt_dart;
+  #nop attempt_dart;
+  attempt_call;
+  attempt_dream;
 }
 
 #action {^Status[w%9\%|p%10|v%11|r%12\%]} {
@@ -47,6 +49,10 @@
 }
 
 #action {^  You don't have create dart memorized this cycle.$} {
+  #var can_dart false;
+}
+
+#action {^Master, you have used your last create dart.$} {
   #var can_dart false;
 }
 

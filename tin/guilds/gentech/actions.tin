@@ -17,7 +17,8 @@
 
   #nop triggers based on stats;
 
-  #if {$gp1 < 2000 && $corpses > 0} {repu;};
+  #if {$gp1 < 2000 && $corpses > 0} {repu};
+  #if {$corpses < 1 && "$stepper" == "on"} {!stepper off};
 }
 
 #action {^Ef:%1 Ed:%2 B:%. %3% | %4% %. Gx:%5(%6%) Rc:%7} {
