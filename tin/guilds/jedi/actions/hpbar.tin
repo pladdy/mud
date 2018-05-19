@@ -16,10 +16,7 @@
   #if {"$enemy" == ""} {#var enemy {0}};
   #replace {enemy} {%} {};
 
-  #if {$gp2 < 50 && $corpses > 0 && $release_force == "false"} {
-    refo;
-    #var release_force true;
-  };
+  #if {$gp2 < 50 && $corpses > 0 && "$release_force" == "false"} {refo};
   #if {$gp2 < 25} {#showme <110>FORCE SATURATION IS HIGH!};
 
   attempt_mindblock;
