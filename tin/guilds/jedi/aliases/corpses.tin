@@ -23,6 +23,7 @@
 #alias refo {
   !unwrap corpse;
   !focus release force;
+  #var release_force true;
 }
 
 #alias reet {
