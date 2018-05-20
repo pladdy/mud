@@ -1,3 +1,5 @@
+#var MAX_NECRO_CORPSES 7;
+
 #alias attempt_call {
   #if {$enemy > 0 && "$familiar_called" != "true"} {
     !call;
@@ -60,6 +62,6 @@
 }
 
 #alias use_corpse {
-  #if {$ncorpses < 10} {p};
+  #if {$ncorpses < $MAX_NECRO_CORPSES} {p};
   #else {!ab};
 }
