@@ -19,6 +19,7 @@
 %+ the quarin
 %+ the mohrg
 %+ the grimare
+%+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling
 a tame little shrew
