@@ -1,44 +1,21 @@
+#alias attempt_mindsink {
+  #local MINDSINK_AT_PCT .5;
+
+  #math mindsink_chk {$gp1 / $gp1_max * 1.0};
+
+  #if {"$contact_impossible" != "true"} {
+    #if {$enemy > 0 && "$mindsink_empty" != "true"} {
+      #if     {$mindsink_chk <= $MINDSINK_AT_PCT} {!mindsink};
+      #elseif {$enemy <= 10 && $mindsink_chk <= .9} {!mindsink};
+    };
+  };
+}
+
 #alias commands_after_corpse {
   #var mindsink_empty {false};
   #var contact_impossible {false};
   #var conflict {false};
   #var conflict_attempts {0};
-}
-
-#alias use_corpse {
-  !hp;
-  !disperse corpse;
-  !hp;
-}
-
-#alias f10 {
-  use_corpse;
-  !get all;
-}
-
-#alias f12 {
-  #loop 2 12 i {!sell all from bag $i};
-}
-
-#alias pu {
-  !purge;
-  !fluxtap 100;
-}
-
-#alias redi {
-  !unwrap;
-  !disperse corpse;
-}
-
-#alias redis {
-  #if {$corpses >0} {
-    #if {$corpses < 5} {#var to_use {$corpses}} {#var to_use {5}};
-    #loop 1 $to_use $loop {
-      !unwrap;
-      !disperse corpse;
-    };
-    #unvar to_use;
-  }
 }
 
 #alias eg {
@@ -64,6 +41,51 @@
       #case "d" {!egress down %2 %3};
     }
   };
+}
+
+#alias f10 {
+  use_corpse;
+  !get all;
+}
+
+#alias f12 {
+  #loop 2 12 i {!sell all from bag $i};
+}
+
+#alias heal_low_psi {
+  #local MIN_GP1 750;
+
+  #if {$enemy > 0 && $gp1 < $MIN_GP1} {
+    #if {$corpses > 0} { redis };
+    #elseif {$reserve_psi > 0} { !pdo };
+  };
+}
+
+#alias pu {
+  !purge;
+  !fluxtap 100;
+}
+
+#alias redi {
+  !unwrap;
+  !disperse corpse;
+}
+
+#alias redis {
+  #if {$corpses >0} {
+    #if {$corpses < 5} {#var to_use {$corpses}} {#var to_use {5}};
+    #loop 1 $to_use $loop {
+      !unwrap;
+      !disperse corpse;
+    };
+    #unvar to_use;
+  }
+}
+
+#alias use_corpse {
+  !hp;
+  !disperse corpse;
+  !hp;
 }
 
 #nop when breed wimpies hit order can change and contact has to re-target;
