@@ -6,3 +6,6 @@ Helmets:
   pol2_eq       # archdemon skull on lesser demon, random
   trans1        # northron can drop helmet
   winged_helmet
+
+Ravenloft
+  xenocles -> mask of gemino mortis (doubles corpses on kill)

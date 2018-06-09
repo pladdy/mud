@@ -10,3 +10,10 @@ tigger          # ring of speed
 
 Ravenloft
   mordenheim # do mini quest to kill victor, sometimes has glass ring
+
+Queen of hearts
+  ring provides good ac, DR and boosts skills
+    +1 shieldblock, critical hit, survival
+
+Carnegie 2
+  mel in upper leve, DR onyx ring

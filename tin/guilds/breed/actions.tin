@@ -97,3 +97,8 @@
 #action {^The weakness of your mind crosses the plane of thought and} {
   #if {$corpses > 0} {redis};
 }
+
+#action {^From afar, %1 pings you.$} {
+  #format {requesting_player} {%l} {%1};
+  !str $requesting_player;
+}

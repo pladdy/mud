@@ -4,3 +4,4 @@ Others:
   pol2_eq              # guardians have skin suit (burning) rarely
 
   force shield module in dune
+  pair of <color> shades # carnegie 2.0, bono, aqua, blue, purple
