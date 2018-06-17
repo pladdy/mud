@@ -1,4 +1,4 @@
-#var MAX_NECRO_CORPSES 7;
+#var MAX_NECRO_CORPSES 5;
 
 #alias attempt_call {
   #if {$enemy > 0 && "$familiar_called" != "true"} {
