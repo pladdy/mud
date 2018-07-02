@@ -102,7 +102,24 @@
   #nop #if {$map[current_room] == 21594} {#map goto };
 }
 
+#action {^You are assimilated by the Borg!!$} {
+  !resist;
+}
+
 #nop Star Trek;
 #action {^A Transporter Room (door,beam)} {
   #if {$map[current_room] == 24879} {#map goto 24880};
+}
+
+#nop Fuzzy Aliens;
+#action {^You gaze about as the room solidifies sround you, and you realize$} {
+  #if {$map[current_room] == 27093} {#map goto 27094};
+}
+
+#action {^The shuttle lifts off with a jerk and a bump.$} {
+  #if {$map[current_room] == 27096} {#map goto 27097};
+}
+
+#action {^The shuttle lifts off with a jerk and a bump.$} {
+  #if {$map[current_room] == 27097} {#map goto 27096};
 }

@@ -1,5 +1,10 @@
 List of potential bootrun items I like to get; order of relevant to all chars
 
+Stats:
+  Einstein's brain (+3 int)
+  lift weights in silicon wraiths (+1 str)
+  drink liquid in chicken guards (+2 random stat)
+
 Misc:
   Holy torch (in bag 1)                     run holy_torch
   Grimlark's helmet (in bag 1)              run grimlark
@@ -20,6 +25,7 @@ Unknowns:
 
 Cloaks:
   Battleshroud    run battleshroud
+  Mantis wings    run mantis_wings
   Spider Carapace run underdark, run ud_maze2, ud_maze3, ud_maze4
   Stone Cloak,    run stone_cloak (dests after duration)
 
