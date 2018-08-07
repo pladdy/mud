@@ -1,4 +1,4 @@
-scaler 45 classes:
+scaler classes:
 mob,         45 class, 49 class, 70 class, 73 class
 shell,       63k,      75k,      330k,     416k
 lettuce,     68k,      82k,      380k,     338k
@@ -9,7 +9,7 @@ sour cream,  328k,     ?,        ?,        1.8M
 guacomole,   259k,     ?,        ?,        1.6M
 hot sauce,   449k      ?,        ?,        2.4M
 veggie taco, ?,        ?,        800k,     ?
-cheesy taco, 208k,     335k,     1.2M,     ?
+cheesy taco, 208k,     335k,     1.2M,     1.4M
 meat taco,   ?,        ?,        ?,        ?
 works taco,  ?,        ?,        ?,        5.4M
 death taco,  3.2M      ?,        ?,        16M
