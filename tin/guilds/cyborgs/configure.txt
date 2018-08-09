@@ -8,14 +8,14 @@ configure pattern remove 1
 
 # heavy
 configure pattern add unstructured energy array/freon injector/hypothermic inducer/expansive hip augmentation
-configure pattern add blazer/compact torch/elbow spike/expansive hip augmentation
-configure pattern add freon injector/hypothermic inducer/elbow spike/expansive hip augmentation
+configure pattern add blazer/compact torch/knee spike [0]/expansive hip augmentation
+configure pattern add freon injector/hypothermic inducer/knee spike [1]/expansive hip augmentation
 alias 1 configure strategy set 1/2/3/2
 
 # medium
 alias 2 configure strategy set 2/3
 
 # light
-configure pattern add expansive hip augmentation/elbow spike/compact torch/hypothermic inducer
+configure pattern add expansive hip augmentation/compact torch/hypothermic inducer
 alias 3 configure strategy set 4
 
