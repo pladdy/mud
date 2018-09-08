@@ -1,7 +1,10 @@
-Others:
-  cronos
-  crystalline_warriore # warriors randomly drop e/b/en (decent)
-  pol2_eq              # guardians have skin suit (burning) rarely
-
-  force shield module in dune
-  pair of <color> shades # carnegie 2.0, bono, aqua, blue, purple
+type, area, room_name, mob, item, ac, notes
+=====================================
+other, ant cave,   crystalline, crystalline warrior, crystalline blob,              e/b/en,     neg elec ac
+other, balooga,    billirubin,  cronos,              bracers of magical resistance, e/b/m/en,   n/a
+other, balooga,    cronos,      cronos,              bracers of protection +2,      e/b/f/i/en, n/a
+other, carnegie 2, n/a,         bono,                pair of <color> shades,        n/a,        kill mobs in order (bono last)
+other, dune,       n/a,         baron vladimir,      force shield module,           ?,          ?
+other, hole,       kunzit,      kunzit,              kunzit's eye (glowing),        n/a,        'discovery mystery': 1/1 regen for 1 hour
+other, pol 2,      pol2_eq,     guardian,            skin suit (burning),           ?,          kill blocking mobs to get to them
+other, xaxis,      xaxis,       xaxis warrior,       spiderskin codpiece,           ?,          n/a

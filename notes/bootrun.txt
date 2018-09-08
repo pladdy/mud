@@ -3,7 +3,7 @@ List of potential bootrun items I like to get; order of relevant to all chars
 Stats:
   Einstein's brain (+3 int)
   lift weights in silicon wraiths (+1 str)
-  drink liquid in chicken guards (+2 random stat)
+  drink liquid in chicken guards (+1 or +2 random stat)
 
 Misc:
   Holy torch (in bag 1)                     run holy_torch
