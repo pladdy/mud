@@ -1,0 +1,3 @@
+#action {^Your inner energies are too tapped to repeat this action.$} {
+  #if {"$stepper" == "on"} {stepper off};
+}

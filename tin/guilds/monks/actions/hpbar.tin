@@ -20,9 +20,10 @@
   #local MIN_SP 100;
   #if {$sp < $MIN_SP && $corpses > 0 && $enemy > 0} {resp};
 
+  attempt_enervate;
   attempt_focus;
   attempt_pressure;
-  attempt_enervate;
+  attempt_throw;
   show_status_bar;
 }
 

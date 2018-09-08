@@ -11,5 +11,5 @@
 }
 
 #action {^Mental energies pour into you from the power of the Ancients.$} {
-  #var {focus} {42};
+  #var {focus} {135};
 }

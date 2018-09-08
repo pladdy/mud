@@ -27,7 +27,7 @@
 }
 
 #alias attempt_enervate {
-  #local MIN_CHI 20;
+  #local MIN_CHI 40;
   #if {$gp1 < ${MIN_CHI}} {en};
 }
 
@@ -42,7 +42,16 @@
 }
 
 #alias attempt_pressure {
-  #if {$enemy > 0 && "$pressure" == "off"} {!pressure};
+  #if {$enemy > 0 && "$pressure" == "off"} {
+    !pressure;
+    #nop reduce sp so i don't throw same round i pressure;
+    #math {sp} {$sp - 1};
+  };
+}
+
+#alias attempt_throw {
+  #local MIN_CHI 35;
+  #if {$sp == $sp_max && $gp1 > $MIN_CHI && $enemy > 0} {!throw};
 }
 
 #alias commands_after_corpse {
@@ -69,7 +78,10 @@
 
 #alias resps {#loop 1 5 loop {reet};}
 
-#alias f10 {use_corpse}
+#alias f10 {
+  use_corpse;
+  !get all;
+}
 
 #alias f12 {
   #loop 2 12 loop {!sell all from bag $loop};
@@ -79,7 +91,6 @@
   !study corpse;
   !eat corpse;
   !hp;
-  !get all;
 }
 
 #alias wimpy_commands {
