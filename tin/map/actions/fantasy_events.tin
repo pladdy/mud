@@ -58,9 +58,16 @@
   #if {$map[current_room] == 15342} {#map goto 15556};
 }
 
-#nop Mordenheim mansion
+#nop Mordenheim mansion;
+
 #action {^You suddenly lose your balance...$} {
   #if {$map[current_room] == 15432 || $map[current_room] == 15440} {#map goto 15573};
+}
+
+#nop Rampage;
+
+#action {^You have opened the door of pain.$} {
+  #if {$map[current_room] == 27382} {#map goto 27383};
 }
 
 #nop Serinth, sopem;

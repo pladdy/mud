@@ -1,0 +1,24 @@
+#nop once 's' is aliased below, it somehow disrupts the 'command' feature of map;
+#nop the action below is to turn rampage dirs off when you get to the room after the water;
+#action {^A small entrance. (n,s)} {
+  rampage_dirs_off;
+}
+
+#alias rampage_dirs_on {
+  #showme <110>Rampage direction aliases are turned on!;
+
+  #alias e {swim e;#map move e};
+  #alias w {swim w;#map move w};
+
+  #alias n {swim n;#map move n};
+  #alias s {swim s;#map move s};
+}
+
+#alias rampage_dirs_off {
+  #showme <120>Rampage direction aliases are turned off.;
+
+  #unalias n;
+  #unalias s;
+  #unalias w;
+  #unalias e;
+}

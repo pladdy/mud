@@ -6,3 +6,7 @@
 #action {^You wear the %1.} {
   !keep %1;
 }
+
+#action {Skipping: %1 will bind on pickup.$} {
+  !engulf 1;
+}
