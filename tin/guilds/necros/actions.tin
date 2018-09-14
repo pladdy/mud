@@ -17,6 +17,7 @@
   #nop attempt_dart;
   attempt_call;
   attempt_dream;
+  attempt_preserve;
 }
 
 #action {^Status[w%9\%|p%10|v%11|r%12\%]} {

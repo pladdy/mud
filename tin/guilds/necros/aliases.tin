@@ -25,6 +25,12 @@
   #unvar spp;
 }
 
+#alias attempt_preserve {
+  #if {$ncorpses < $MAX_NECRO_CORPSES && $corpses >0} {
+    repr;
+  };
+}
+
 #alias cd {
   !create dart 100;
   !dart;
