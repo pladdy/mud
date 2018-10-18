@@ -4,12 +4,15 @@ Stats:
   Einstein's brain (+3 int)
   lift weights in silicon wraiths (+1 str)
   drink liquid in chicken guards (+1 or +2 random stat)
+  pooki (+1-2 wis)
+  alphabet miniquest (+1 all stats, +1 dex)
+  Black potion with little yellow floaties, run rabbit_hole
 
 Misc:
   Holy torch (in bag 1)                     run holy_torch
   Grimlark's helmet (in bag 1)              run grimlark
-  Bags (from Crydee),                       run crydee
-  Black potion with little yellow floaties, run rabbit_hole
+  Bags (from Crydee)                       run crydee
+    - use breed bags (annulus)
   Crystal blue stone                        run underdark, big_ugly
   Book of hope                              run stone_cloak (in that area)
 
@@ -20,8 +23,8 @@ Other:
   Spiderskin Codpiece,                                    run xaxis
 
 Unknowns:
-  Zelligars head bands,              run zelligars
-  Blue pointy hat from Hich Colonic, run hc
+  Zelligars head band               run zelligars
+  Blue pointy hat from Hich Colonic run hc
 
 Cloaks:
   Battleshroud    run battleshroud
