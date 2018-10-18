@@ -1,6 +1,4 @@
 Areas to map/explore:
-  hotel transylvania
-  androids
   temple of light, near wforest portal or desert
 
 Commands to implement/be aware of:
@@ -8,10 +6,10 @@ Commands to implement/be aware of:
   repeat
   flee
 
-investiage the reflex mskill for any char (that needs server triggers)
+investigate the reflex mskill for any char (that needs server triggers)
 
 build blood thorn:
-  12:24 Caesar : bloodthorn you assemble from parts mosty in the treant
+  12:24 Caesar : bloodthorn you assemble from parts mostly in the treant
                  section n of barovia
   12:25 Caesar : there is one piece just outside of the area, in the west
                  room with the fireplace
