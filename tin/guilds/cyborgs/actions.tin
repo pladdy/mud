@@ -29,3 +29,8 @@
 
   show_status_bar;
 }
+
+#action {^Psiodampening Insulator deactivated.$} {
+  !wear helmet;
+}
+

@@ -1,4 +1,5 @@
 Helmets:
+  bigpig        # can drop Duke Nukem's helmet (e/b + sp regen)
   cryohydra     # random
   cyberpope     # cyberpope hat
   green_helmet
