@@ -628,7 +628,7 @@ E {12867} {climb tower} {climb tower} {0} {0} {}
 E {13635} {enter fog} {enter fog} {0} {0} {}
 E {13660} {leap into haze} {leap into haze} {0} {0} {}
 
-R {  140} {0} {<fca>} {} {S} {} {} {subarea: e -> leprechuan village} {} {} {1.000}
+R {  140} {0} {<130>} {} {} {} {} {note: subarea e -> leprechaun village, turn flag -> rampage of the piggies} {} {} {1.000}
 E {  137} {n} {n} {1} {0} {}
 E { 5801} {e} {e} {2} {1} {}
 E { 5802} {s} {s} {4} {0} {}
@@ -48821,7 +48821,7 @@ E { 9632} {d} {d} {32} {0} {}
 R { 9632} {0} {} {nethack} { } {} {} {} {} {} {1.000}
 E { 9631} {u} {u} {16} {0} {}
 
-R { 9633} {0} {} {} { } {} {} {w -> chaos musuem, n -> old london (quest), d -> laboratory maze} {} {} {1.000}
+R { 9633} {0} {<fca>} {} {S} {} {} {subarea: w -> chaos musuem, n -> old london (quest), d -> laboratory maze} {} {} {1.000}
 E { 2041} {s} {s} {4} {0} {}
 E { 9634} {w} {w} {8} {1} {}
 E { 9635} {n} {n} {1} {1} {}
@@ -109022,12 +109022,12 @@ E {22265} {enter} {enter} {0} {0} {}
 R {22265} {0} {<160>} {} { } {} {} {moe's tavern (pub)} {} {} {1.000}
 E {22264} {out} {out} {0} {0} {}
 
-R {22266} {0} {<020>} {} { } {} {} {simpsons house, way out} {} {} {1.000}
+R {22266} {0} {<020>} {} {X} {} {} {exit: simpson's house (way out)} {} {} {1.000}
 E {22218} {s} {s} {4} {0} {}
 E {22267} {enter} {enter} {0} {0} {}
 E {22270} {e} {e} {2} {0} {}
 
-R {22267} {0} {} {} { } {} {} {} {} {} {1.000}
+R {22267} {0} {<020>} {} {X} {} {} {exit: stairs to get out} {} {} {1.000}
 E {22266} {out} {out} {0} {0} {}
 E {22268} {stairs} {stairs} {0} {0} {}
 E {22275} {w} {w} {8} {0} {}
