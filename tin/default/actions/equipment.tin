@@ -7,8 +7,12 @@
   !keep %1;
 }
 
+#action {^You wield %1.$} {
+  !keep %1;
+}
+
 #action {Skipping: %1 will bind on pickup.$} {
   #nop try to engulf (annulus) or pickup (kanga's pouch);
   !engulf 1;
-  !pickup;
+  !pickup all;
 }

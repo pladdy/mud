@@ -1,0 +1,77 @@
+parchment journal (closed): Ok.
+> open journal
+The old leather of the book creaks as it is opened.
+
+read journal
+
+Erthorpion.  I could kill him.  I roam the realms for him like
+a petty slave, searching for his benefit.
+
+Today I have stumbled upon a tower hidden well in the forest.  I
+don't see it on any current maps that we have.  Sections of the
+base are stained a red color and the upper areas are black
+granite.
+
+The rest of the page has been destroyed.
+
+You turn the page to page 2.
+> read journal
+
+I am amazed at the power Necromancers wield.  Erthorpion was right
+in attempting to find out more about them.  Their power could quite
+possibly change the tides of this war in our favor.
+
+Entering this tower proved to be a challenge.  I believe it was
+secured for two reasons.  The first is to keep whatever secrets
+that are inside secure and the second is to keep prying eyes out.
+I must investigate more....
+
+You turn the page to page 3.
+> read journal
+
+I have investigated the tower a bit.  It appears that this tower
+was, or is, used for rituals or summonings of some type.  It also
+houses a beautiful library and scribing chamber.  Most of the books
+seem to have been relocated, but I found a few here to study.
+
+One of the books appears to be some sort of theogony about one of
+their gods.  It seems to have some good information, but a lot of
+it may be based upon fables and lore.
+
+Another book I've paged through speaks of ancient runes and symbols
+and their uses in rituals and summonings.  Now this looks like what
+we may be seeking.
+
+You turn the page to page 4.
+> read journal
+
+I begin the long journey back to Erthorpion to report my findings.
+I will also restock supplies and request for assistance.  I am
+confident this will be worth the expen.....
+
+The bottom portion of this page is torn off...
+
+You turn the page to page 5.
+> read journal
+
+Tonight I meet with Erthorpion to discuss my findings at the
+Alizarian Tower.  Meager as they might be, I have faith that this
+will propel us to victory.
+
+I have returned to my quarters after meeting with Erthorpion.  He
+appeared very excited about my findings.  Alas, not excited enough
+to commit to sending me a small contingent of troops.  So, tonight
+I prepare myself for the long journey back to the tower and the
+beginning of my studies there.
+
+You turn the page to page 6.
+> read journal
+
+This page is missing.
+
+You turn the page to page 7.
+> read journal
+
+This page is missing.
+
+You are at the end of the journal.

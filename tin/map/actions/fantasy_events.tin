@@ -1,3 +1,43 @@
+#nop Alizarian Tower;
+#action {^The current pulls you south and you struggle to breathe!$} {
+  #if {$map[current_room] == 28781} {#map goto 15662};
+}
+
+#nop Crystals of Ao;
+#nop the rooms below will port/warp you, i don't have them all captured below;
+#action {^You begin to lose your sense of direction, confused by the} {
+  #if {$map[current_room] == 28667} {#map goto 28661};
+  #if {$map[current_room] == 28675} {#map goto 28664};
+  #if {$map[current_room] == 28706} {#map goto 28694};
+  #if {$map[current_room] == 28710} {#map goto 28696};
+  #if {$map[current_room] == 28704} {#map goto 28699};
+  #if {$map[current_room] == 28695 && $map[last_room] == 28694} {
+    #map goto 28705
+  };
+  #if {$map[current_room] == 28695 && $map[last_room] == 28699} {
+    #map goto 28702
+  };
+  #if {$map[current_room] == 28713 && $map[last_room] == 29715} {
+    #map goto 28714
+  };
+  #if {$map[current_room] == 28713 && $map[last_room] == 29714} {
+    #map goto 28719
+  };
+  #if {$map[current_room] == 28727} {#map goto 28722};
+  #if {$map[current_room] == 28717} {#map goto 28727};
+  #if {$map[current_room] == 28720} {#map goto 28715};
+  #if {$map[current_room] == 28730} {#map goto 28729};
+  #if {$map[current_room] == 28750} {#map goto 28749};
+  #if {$map[current_room] == 28761} {#map goto 28762};
+  #if {$map[current_room] == 28763} {#map goto 28758};
+}
+
+#nop Great Well of Crenda;
+
+#action {^A strange glow surrounds you, and the torch vanishes from your hand!$} {
+  #if {$map[current_room] == 6436} {#map goto 6437};
+}
+
 #action {^Two large canine humanoids rush out from the encampment and growl a} {
   #if {$map{current_room} == 1756} {map_undo;};
 }

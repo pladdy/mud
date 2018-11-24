@@ -1,54 +1,76 @@
 List of potential bootrun items I like to get; order of relevant to all chars
 
-Stats:
-  Einstein's brain (+3 int)
-  lift weights in silicon wraiths (+1 str)
-  drink liquid in chicken guards (+1 or +2 random stat)
-  pooki (+1-2 wis)
-  alphabet miniquest (+1 all stats, +1 dex)
-  Black potion with little yellow floaties, run rabbit_hole
+Weapons:
+  Sword of Ascension                        run zaldaen
+  Barbarian High Lord Sword                 run highlord_sword
+  Sword of Light / Short sword of quickness run hc
+  Obsidian Rapier                           run ravenloft, run aiden
 
 Misc:
   Holy torch (in bag 1)                     run holy_torch
   Grimlark's helmet (in bag 1)              run grimlark
-  Bags (from Crydee)                       run crydee
+  Kanga's pouch                             run kanga
+    - good for BOPs
+  Bags (from Crydee)                        run crydee
     - use breed bags (annulus)
   Crystal blue stone                        run underdark, big_ugly
   Book of hope                              run stone_cloak (in that area)
 
+Helmet:
+  Horned Archdemon Skull  run pol3_eq
+  Plumed Helmet           run plumed_helmet
+
+Amulet:
+  Greenstone Amulet  run greenstone_amulet
+  Diablo 2           run diablo2 (hell, nightmare, normal)
+
+Mains:
+  Armour of the Magus (glowing)          run cata2 (2nd floor)
+  Shimmering Octochromatic Dragon Armour run way_dock, charter serinth
+  Valor of Arachnus                      run arachnus
+  Orc Chief main                         run orc_chief
+  Big Pig armor                          run bigpig
+
+Cloaks:
+  Battleshroud             run battleshroud
+  Mantis wings             run mantis_wings
+  Spider Carapace          run underdark, run ud_maze2, ud_maze3, ud_maze4
+  Stone Cloak,             run stone_cloak (dests after duration)
+  A druid's robe (glowing) run wand_of_power2
+
+Gloves:
+  Glass gloves       run ravenloft, run undead_dragon
+  Pitch Black gloves run way_dock, charter serinth, run sopem
+  Spiritual Gloves   run spiritual_gloves
+
+Boots:
+  Boots of Lightning Speed run greyfox
+  Glass boots              run crysmal
+  Pitch Black Boots        run way_dock, charter serinth, run sopem
+
+Rings:
+  Ogre ring       run ogre_ring
+  Fire giant ring run fire_giant_ring
+
+Shields:
+  Wide shield of the <type>  run hk
+  Warhaft shield (augmented) run drinishok2
+
 Other:
-  force-shield assembly belt (uniqure per char),          run halo
-  WWF Heavy Weight Championship belt (low ac, 1/1 regen), run wwf
-  Skinsuit of the damned (burning),                       run pol2_eq
-  Spiderskin Codpiece,                                    run xaxis
+  force-shield assembly belt (uniqure per char)          run halo
+  WWF Heavy Weight Championship belt (low ac, 1/1 regen) run wwf
+  Skinsuit of the damned (burning)                       run pol2_eq
+  Spiderskin Codpiece                                    run xaxis
 
 Unknowns:
   Zelligars head band               run zelligars
   Blue pointy hat from Hich Colonic run hc
 
-Cloaks:
-  Battleshroud    run battleshroud
-  Mantis wings    run mantis_wings
-  Spider Carapace run underdark, run ud_maze2, ud_maze3, ud_maze4
-  Stone Cloak,    run stone_cloak (dests after duration)
+Stats:
+  Einstein's brain (+3 int)
+  lift weights in silicon wraiths (+1 str)
+  drink liquid in chicken guards (+1|+2 random stat)
+  pooki (+1-2 wis)                          run way_dock, charter ao
+  alphabet miniquest (+1 all stats, +1 dex) run r
+  Black potion with little yellow floaties  run rabbit_hole
 
-Weapons:
-  Sword of Ascension                        run zaldaen
-  Barbarian High Lord Sword                 run highlord_sword
-  Sword of Light / Short sword of quickness run hc
-
-Mains:
-  Shimmering Octochromatic Dragon Armour, run way_dock, charter serinth
-  Valor of Arachnus,                      run arachnus
-  Orc Chief main,                         run orc_chief
-  Big Pig armor,                          run bigpig
-
-Gloves:
-  Glass gloves run ravenloft, run undead_dragon
-
-Boots:
-  Glass boots run crysmal
-
-Rings:
-  Ogre ring
-  Fire giant ring
