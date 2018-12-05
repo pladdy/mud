@@ -17,8 +17,10 @@ Misc:
   Book of hope                              run stone_cloak (in that area)
 
 Helmet:
+  Archdemon Skull         run pol2_eq
   Horned Archdemon Skull  run pol3_eq
   Plumed Helmet           run plumed_helmet
+  Winged Helmet           run winged_helmet
 
 Amulet:
   Greenstone Amulet  run greenstone_amulet
@@ -60,6 +62,7 @@ Other:
   force-shield assembly belt (uniqure per char)          run halo
   WWF Heavy Weight Championship belt (low ac, 1/1 regen) run wwf
   Skinsuit of the damned (burning)                       run pol2_eq
+  Skinsuit of the damned (keening)                       run pol3_eq
   Spiderskin Codpiece                                    run xaxis
 
 Unknowns:
