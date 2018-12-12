@@ -53,6 +53,7 @@ Boots:
 Rings:
   Ogre ring       run ogre_ring
   Fire giant ring run fire_giant_ring
+  Glass ring      run ravenloft, run mordenheim
 
 Shields:
   Wide shield of the <type>  run hk
