@@ -5,7 +5,9 @@ Balderdash:
   death_taco 65
   halo 65
   hotel 65
+  mahjong 65 # not scaling
   puppies 65
+  smurfs 65
   zelligars 65
 
 Fiddlestix:

@@ -1,0 +1,21 @@
+Sets:
+  crimson_eq
+  cryohydra
+  cyberpope
+  hk
+  orc_chief
+  pol2_eq (other, helmet)
+  trans1
+  tree_of_life # spirit eq
+
+Pitch Black:
+  Sopem, Skeletal lord
+
+Glass Set:
+  glass helmet  -> portrait in ravenloft castle, 1 spawn at boot
+  glass main    -> king tharon in derthalas dungeon?
+  glass gloves  -> undead dragon (ravenloft)
+  glass boots   -> crysmal (xtals)
+  glass ring    -> victor (mordenheim)
+  glass cloak   -> not a thing
+  glass bracers -> oak golem (near ravenloft castle entrance?), 1 spawn at boot

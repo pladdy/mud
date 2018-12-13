@@ -53,8 +53,10 @@ Boots:
 Rings:
   Ogre ring       run ogre_ring
   Fire giant ring run fire_giant_ring
+  Glass ring      run ravenloft, run mordenheim
 
 Shields:
+  Desert Shield              run sheikh
   Wide shield of the <type>  run hk
   Warhaft shield (augmented) run drinishok2
 
@@ -76,4 +78,3 @@ Stats:
   pooki (+1-2 wis)                          run way_dock, charter ao
   alphabet miniquest (+1 all stats, +1 dex) run r
   Black potion with little yellow floaties  run rabbit_hole
-
