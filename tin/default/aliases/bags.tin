@@ -25,6 +25,6 @@
 }
 
 #alias pba {
-  #loop 2 12 i { !put all in bag $i }
+  #loop 2 12 i { !put all in bag $i };
   #var i 0;
 }
