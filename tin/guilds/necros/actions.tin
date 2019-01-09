@@ -20,11 +20,13 @@
   attempt_preserve;
 }
 
-#action {^Status[w%9\%|p%10|v%11|r%12\%]} {
-  #var gp2 {%12};
+#action {^Status[w%1\%|p%2|v%3|r%4\%]} {
+  #var gp2 {%4};
   #var gp2_max 100;
 
+  #var protection %2;
   show_status_bar;
+  attempt_protection;
 }
 
 #action {^Coffin%s[%s%1/%s%2|%3\%|%s%4c]} {

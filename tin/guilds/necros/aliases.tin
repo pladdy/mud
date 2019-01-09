@@ -31,6 +31,10 @@
   };
 }
 
+#alias attempt_protection {
+  #if {$enemy > 0 && "$protection" == "OFF"} {!pro};
+}
+
 #alias cd {
   !create dart 100;
   !dart;
