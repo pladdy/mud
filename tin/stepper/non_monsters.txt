@@ -28,11 +28,14 @@ a %+ wandering spider
 an old dwarven smith
 arctic wolf
 arundin
+bray the alchemist
 bryant
 cairn
 cancer the tradesman
+cerdon
 cold tiro
 cur, trademan's dog
+duncan, keeper of the dead
 gabriel, the angel smith
 grom
 hey you
@@ -58,6 +61,7 @@ the gypsy
 the alphabet serial killer
 the grand elemental
 the grand monk
+theela
 valerie, the lobby ambassador
 village wisewoman
 tournament judge
