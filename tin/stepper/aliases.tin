@@ -1,3 +1,13 @@
+#nop build a map of valid dirs;
+#var valid_stepper_dirs[n] {valid};
+#var valid_stepper_dirs[s] {valid};
+#var valid_stepper_dirs[e] {valid};
+#var valid_stepper_dirs[w] {valid};
+#var valid_stepper_dirs[nw] {valid};
+#var valid_stepper_dirs[ne] {valid};
+#var valid_stepper_dirs[sw] {valid};
+#var valid_stepper_dirs[se] {valid};
+
 #alias activate_stepper_ttl {
   #if {"$stepper" == "on"} {stepper_ttl on};
 }
@@ -24,10 +34,9 @@
 #alias keep_cardinal_dirs {
   #list cardinal_exits clear;
 
-  #forall {$available_exits} {
-    #if {"&0" == "n" || "&0" == "s" || "&0" == "w" || "&0" == "e" ||
-         "&0" == "nw" || "&0" == "sw" || "&0" == "ne" || "&0" == "se"}  {
-      #list cardinal_exits add &0;
+  #foreach {$available_exits} {exit} {
+    #if {"$valid_stepper_dirs[$exit]" == "valid"} {
+      #list cardinal_exits add $exit;
     };
   }
 }
