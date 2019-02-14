@@ -71,9 +71,9 @@
   #var i {1};
   #list adv_sort clear;
 
-  #forall {ho;hi;lo;li} {
+  #foreach {ho;hi;lo;li} {loc} {
     #if {$i == 1} {
-      #var adv_sort[$i] { {1}{&0}{2}{$advantages[&0]} };
+      #var adv_sort[$i] { {1}{$loc}{2}{$advantages[$loc]} };
     } {
       #var j {1};
       #var found {0};

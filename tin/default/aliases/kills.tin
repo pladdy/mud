@@ -33,7 +33,7 @@
     #var kk_list {%0};
     #replace {kk_list} {,} {;};
 
-    #forall {$kk_list} { !k &0 };
+    #foreach {$kk_list} {kk} {!k $kk};
 
     #nop #unvar kk_list;
   }

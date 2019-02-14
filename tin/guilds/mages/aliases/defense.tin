@@ -1,16 +1,16 @@
 #alias dedn {
   #replace {dspells} { } {;};
 
-  #forall {$dspells} {
-    #if { @length{&0} > 0 } {
-      #list {spells_to_deplete} {add} {&0}
+  #foreach {$dspells} {spell} {
+    #if { @length{$spell} > 0 } {
+      #list {spells_to_deplete} {add} {$spell}
     };
   };
 
   #nop Identify spells to keep active and remove from list to depelte;
 
-  #forall {SS;<P>;MB;A;ST} {
-    #list {spells_to_deplete} find {&0} {deplete_index};
+  #foreach {SS;<P>;MB;A;ST} {stat} {
+    #list {spells_to_deplete} find {$stat} {deplete_index};
     #if {$deplete_index > 0} {
       #list {spells_to_deplete} delete {$deplete_index};
     };

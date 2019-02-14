@@ -43,7 +43,7 @@
 }
 
 #alias healup {
-  #forall {0;2;4;6;8} { #delay {&0} {!ri; hp;}; }
+  #foreach {0;2;4;6;8} {delay} {#delay {$delay} {!ri; hp;}}
 }
 
 #alias wimpy_commands {
