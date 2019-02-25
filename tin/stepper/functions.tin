@@ -8,23 +8,16 @@
 #nop This does a loop on all non monsters.  It's done this way because the key;
 #nop can be a wild card match for a monster name;
 
-#function is_non_monster {
+#function mob_is_blacklisted {
   #local monster %0;
-  #local non_monsters;
   #local non_monster;
-  #var non_monster_status false;
-
-  #script {non_monsters} {
-    while read line; do echo "$line"; done < ./tin/stepper/non_monsters.txt
-  };
+  #var result false;
 
   #foreach $non_monsters[%*] {non_monster} {
-    #regexp {$monster} {%i$non_monster} {#replace non_monster_status {false} {true}};
-    #if {"$non_monster_status" == "true"} {#break};
+    #regexp {$monster} {%i$non_monster} {#replace result {false} {true}};
+    #if {"$result" == "true"} {#break};
   };
 
-  #var result $non_monster_status;
-  #unvar non_monster_status;
   #return $result;
 }
 
@@ -34,3 +27,4 @@
   #if {"$transform_string" == ""} {#return %0};
   #else {#return $transform_string};
 }
+

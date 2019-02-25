@@ -41,6 +41,15 @@
   }
 }
 
+#alias load_non_monsters {
+  #var non_monsters;
+
+  #script {non_monsters} {
+    while read line; do echo "$line"; done < ./tin/stepper/non_monsters.txt
+  };
+}
+
+
 #alias parse_exits {
   #var available_exits {};
   #var room_string %0;
@@ -141,6 +150,7 @@
     !aset look_monster hired+[M] +reset;
     !aset look_player higreen+[P] +reset;
     !brief on no;
+    load_non_monsters;
   } {
     #showme <170>Disabling tracking. 'tracker on' to re-enable.;
     #var tracker off;
@@ -148,11 +158,15 @@
     !aset look_monster;
     !aset look_player;
     !brief on yes;
-    #unvar non_monsters;
+    unload_non_monsters;
   }
 }
 
 #alias set_under_attack {
   #regexp {%0} { attacking you!} {#var under_attack true};
   #regexp {%0} { [%d%] attacking} {#var under_attack true};
+}
+
+#alias unload_non_monsters {
+  #unvar non_monsters;
 }

@@ -3,12 +3,13 @@
   stepper on;
 
   #showme <170>Adding to blacklist...;
+
   #nop avoid guards and warriors (mist);
-  blacklist_add black;
-  blacklist_add %+ guard;
-  blacklist_add shadow;
-  blacklist_add warrior;
-  blacklist_add %+ demon;
+  #list non_monsters add {black};
+  #list non_monsters add {%+ guard};
+  #list non_monsters add {shadow};
+  #list non_monsters add {warrior};
+  #list non_monsters add {%+ demon};
 }
 
 #nop Assumes you're in plane of fire;
@@ -16,7 +17,7 @@
   stepper on;
 
   #showme <170>Adding to blacklist...;
-  blacklist_add large fire elemental;
-  blacklist_add huge fire elemental;
-  blacklist_add fire dragon;
+  #list non_monsters add {large fire elemental};
+  #list non_monsters add {huge fire elemental};
+  #list non_monsters add {fire dragon};
 }

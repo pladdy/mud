@@ -32,7 +32,7 @@
 
 #alias regen_stop {
   #showme Stopping regen...;
-  #for {25;50;75;100} {#undelay delay_&0};
+  #foreach {25;50;75;100} {quartile} {#undelay delay_$quartile};
   !hp;
   deup;
 }
