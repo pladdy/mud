@@ -1,4 +1,5 @@
 (%w golem)
+'s french bulldog
 %+'s esquire
 %+ storm servant
 %+ broodling
