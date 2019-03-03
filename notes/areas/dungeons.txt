@@ -1,14 +1,15 @@
 Balderdash:
-  alphabet 63
-  androids 63
-  chessboard 65
-  death_taco 65
-  halo 65
-  hotel 65
-  mahjong 65 # not scaling
-  puppies 65
-  smurfs 65
-  zelligars 65
+  alphabet 75
+  androids 66
+  carnegie 75
+  chessboard 75
+  death_taco 66
+  halo 75
+  hotel 66
+  mahjongg 1 # doesn't scale
+  puppies 66
+  smurfs 66  # scales at 101
+  zelligars 66
 
 Fiddlestix:
   alphabet 40
@@ -44,6 +45,7 @@ Shenanigans:
   death_taco 75
   halo 115
   hotel 85
+  mahjongg 1 # doesn't scale
   puppies 115
   zelligars 75
 

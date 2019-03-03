@@ -4,7 +4,7 @@
     #showme <170>Usage: 'dungeon <dungeon> <scaler>';
     #local dungeons_file {notes/areas/dungeons.txt};
     #showme <170>Dungeon levels list (from $dungeons_file);
-    #system {grep -A 9 -i $character $dungeons_file};
+    #system {grep -A 12 -i $character $dungeons_file};
   };
   #else {
     !scaler %2;
@@ -72,7 +72,7 @@
   #if { @length{%1} > 0 } {
     map_run shop_%1;
   } {
-    #system cat notes/lists/areas/shops.txt;
+    #system cat notes/areas/shops.txt;
   };
 }
 
