@@ -14,28 +14,54 @@ Balderdash:
 Fiddlestix:
   alphabet 40
   androids 40
+  carnegie 40
   chessboard 40
   death_taco 40
   halo 40
   hotel 40
+  mahjongg 1 # doesn't scale
   puppies 40
+  smurfs 50  # scales at 101
   zelligars 40
 
 Gilead:
-  alphabet 57
+  alphabet 50
+  androids 50
+  carnegie 50
+  chessboard 50
+  death_taco 50
+  halo 50
+  hotel 50
+  mahjongg 1 # doesn't scale
+  puppies 50
+  smurfs 50  # scales at 101
+  zelligars 50
 
 Highjinx:
-  alphabet 36
-  chessboard 36
-  death_taco 36
-  halo 36
-  puppies 36
-  zelligars 36
+  alphabet 50
+  androids 50
+  carnegie 50
+  chessboard 50
+  death_taco 50
+  halo 50
+  hotel 50
+  mahjongg 1 # doesn't scale
+  puppies 50
+  smurfs 50  # scales at 101
+  zelligars 50
 
 Malarkey:
-  chessboard 55
-  death_taco 55
-  puppies 55
+  alphabet 60
+  androids 60
+  carnegie 60
+  chessboard 60
+  death_taco 60
+  halo 60
+  hotel 60
+  mahjongg 1 # doesn't scale
+  puppies 60
+  smurfs 60  # scales at 101
+  zelligars 60
 
 Shenanigans:
   alphabet 115
@@ -47,12 +73,19 @@ Shenanigans:
   hotel 85
   mahjongg 1 # doesn't scale
   puppies 115
+  smurfs 50  # scales at 101
   zelligars 75
 
 Tomfoolery:
-  alphabet 36
-  chessboard 36
-  death_taco 36
-  halo 36
-  puppies 36
-  zelligars 36
+  alphabet 50
+  androids 50
+  carnegie 50
+  chessboard 50
+  death_taco 50
+  halo 50
+  hotel 50
+  mahjongg 1 # doesn't scale
+  puppies 50
+  smurfs 50  # scales at 101
+  zelligars 50
+
