@@ -88,6 +88,7 @@
 #action {^You take advantage of your egress and take refuge from battle.$} {
   #map move $egress_dir;
   !contact stop;
+  stepper off;
 }
 
 #action {^You are mentally too tired to perform this task.} {
