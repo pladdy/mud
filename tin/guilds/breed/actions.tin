@@ -103,3 +103,10 @@
   #format {requesting_player} {%l} {%1};
   !str $requesting_player;
 }
+
+#action {^You feel the force of a mental assault on your mind.$} {
+  #if {"$contain_active" != "true"} {
+    !contain;
+    #var contain_active true;
+  }
+}

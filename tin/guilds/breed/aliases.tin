@@ -13,6 +13,7 @@
 
 #alias commands_after_corpse {
   #var mindsink_empty {false};
+  #var contain_active {false};
   #var contact_impossible {false};
   #var conflict {false};
   #var conflict_attempts {0};
