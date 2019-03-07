@@ -11,6 +11,8 @@
   #var gxp %7;
   #var gp2 {%8};
 
+  #var ancient_energy %9;
+
   #local MIN_MIND 100;
   #if {$gp2 < $MIN_MIND} {#showme <110>Mind is low!};
   #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {stepper off};
@@ -22,6 +24,7 @@
 
   attempt_enervate;
   attempt_focus;
+  attempt_palm;
   attempt_pressure;
   attempt_throw;
   show_status_bar;
@@ -42,6 +45,8 @@
   #var gxp %7;
   #var gp2 {%8};
 
+  #var ancient_energy %9;
+
   #switch {"$gp2"} {
     #case "seld" { #var gp2 {180}; };
     #case "clea" { #var gp2 {200}; };
@@ -53,9 +58,11 @@
 
   #regexp {%11} {T: %d%?$} {#var enemy &1} {#var enemy 0};
 
-  attempt_focus;
-  attempt_pressure;
   attempt_enervate;
+  attempt_focus;
+  attempt_palm;
+  attempt_pressure;
+  attempt_throw;
   show_status_bar;
 }
 

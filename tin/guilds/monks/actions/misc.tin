@@ -1,3 +1,23 @@
-#action {^Your inner energies are too tapped to repeat this action.$} {
+#action {^{(> )*}Your inner energies are too tapped to repeat this action.$} {
   #if {"$stepper" == "on"} {stepper off};
+}
+
+#nop Palm actions;
+
+#action {^{(> )*}The vibrations have ceased on %1.$} {
+  #nop do i want to auto palm until a thing dies? it's inefficient;
+  #nop could add a threshold (don't palm if below 50% health);
+  #nop #var palm_active false;
+}
+
+#action {^{(> )*}You cannot re-palm this monster.$} {
+  #var palm_active true;
+}
+
+#action {^{(> )*}You do not possess the internal strength to exude such power.$} {
+  #var ancient_energy 0;
+}
+
+#action {^{(> )*}You reach out and touch your foe, sending death bringing vibrations$} {
+  #var palm_active true;
 }

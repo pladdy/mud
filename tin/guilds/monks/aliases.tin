@@ -41,6 +41,15 @@
   };
 }
 
+#alias attempt_palm {
+  #if {$enemy > 0
+       && "$auto_palm" == "true"
+       && $ancient_energy > 0
+       && "$palm_active" != "true"} {
+    !palm;
+  };
+}
+
 #alias attempt_pressure {
   #if {$enemy > 0 && "$pressure" == "off"} {
     !pressure;
@@ -54,8 +63,20 @@
   #if {$sp == $sp_max && $gp1 > $MIN_CHI && $enemy > 0} {!throw};
 }
 
+#alias auto_palm {
+  #if {"$auto_palm" != "true"} {
+    #showme <170>Auto palm enabled.;
+    #var auto_palm true;
+  };
+   #else {
+    #showme <170>Auto palm disabled.;
+    #var auto_palm false;
+  }
+}
+
 #alias commands_after_corpse {
   #var pressure {off};
+  #var palm_active {false};
   !meditate;
 }
 
