@@ -15,7 +15,7 @@ Items/Eq:
   Headband (based on scaler); type 'Unknown' (no slot)
   - stat boost (int/wis)
   - stuns
-  - regen
+  - hp/sp regen
   - DR
 
 Defense:

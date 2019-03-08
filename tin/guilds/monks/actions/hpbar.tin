@@ -13,7 +13,7 @@
 
   #var ancient_energy %9;
 
-  #local MIN_MIND 100;
+  #local MIN_MIND 170;
   #if {$gp2 < $MIN_MIND} {#showme <110>Mind is low!};
   #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {stepper off};
 
