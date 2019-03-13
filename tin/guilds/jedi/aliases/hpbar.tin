@@ -1,3 +1,14 @@
+#alias attempt_dissipate_attack {
+  #local MIN_ENERGY 1000;
+
+  #if {"$dissipating" == "false"
+       && $enemy > 0
+       && $dissipates > 0
+       && $energy > MIN_ENERGY} {
+    !focus dissipate on attack;
+  };
+}
+
 #alias attempt_mindblock {
   #if {"$mindblock" == "no" && $enemy > 0} {
     focus mindblock;
