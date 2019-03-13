@@ -37,6 +37,10 @@
 
   #if {"%2" == "n"} {
     #showme <110>Warning!  In neutral mode, pick a combat mode!;
+    #if {"$stepper" == "on"} {
+      stepper off;
+      f2;
+    };
   };
 }
 
