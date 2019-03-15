@@ -4,7 +4,7 @@
   #if {"$dissipating" == "false"
        && $enemy > 0
        && $dissipates > 0
-       && $energy > MIN_ENERGY} {
+       && $energy > $MIN_ENERGY} {
     !focus dissipate on attack;
   };
 }

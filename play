@@ -21,7 +21,7 @@ play_with_tmux() {
 
   # in tmux 2.6, without a sleep the output renders in ~20 columns until
   # you log in which looks erroneous; sleep gets around that
-  tmux -v new-session -d -s tintin "sleep 1 && tt++ profiles/${profile}"
+  tmux new-session -d -s tintin "sleep 1 && tt++ profiles/${profile}"
 
   # switching to percent, -l option not working (on mac)
   tmux split-window -h -p 60 -t tintin "./watch-map"
