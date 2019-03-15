@@ -3,12 +3,5 @@
 #alias relog_commands {#nop;}
 
 #alias shutdown_tmux {
-  #system {
-    pid=$(ls ./ | grep tmux-server | sed 's/tmux-server-//' | sed 's/.log//');
-    if [ -n "$pid" ]; then
-      rm ./tmux*.log;
-      sleep 1;
-      kill $pid;
-    fi
-  };
+  #system {tmux kill-session -t tintin};
 }
