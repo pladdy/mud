@@ -1,4 +1,4 @@
-#action {%1 casts aside your paralyzing control over his thoughts!$} {
+#action {%1 casts aside your paralyzing control over %2 thoughts!$} {
   !focus confusion;
 }
 
