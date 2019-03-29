@@ -19,3 +19,7 @@
 #action {^The Force flows through you and soothes your thoughts.$} {
   !hp;
 }
+
+#action {^Your meditation has cleared your thoughts and strengthened your$} {
+  !focus hibernation trance;
+}

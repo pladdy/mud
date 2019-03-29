@@ -1,5 +1,5 @@
 #alias attempt_dissipate_attack {
-  #local MIN_ENERGY 1000;
+  #local MIN_ENERGY 2000;
 
   #if {"$dissipating" == "false"
        && $enemy > 0
