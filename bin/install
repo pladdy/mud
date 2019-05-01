@@ -3,7 +3,7 @@
 install_on_linux() {
   echo "Install tintin dependencies and tmux..."
   if which apt-get > /dev/null 2>&1; then
-    sudo apt-get install zlib1g-devel
+    sudo apt-get install zlib1g-dev
     sudo apt-get install libpcre++-dev
     sudo apt-get install tmux
   elif which yum > /dev/null 2>&1; then
@@ -17,8 +17,10 @@ install_on_linux() {
   target="tintin-2.01.3.tar.gz"
   wget http://downloads.sourceforge.net/tintin/${target}
   tar -xzf ${target}
-  ./tt/src/configure
+  cd ./tt/src/
+  ./configure
   sudo make install
+  cd ../..
   rm -rf ${target} tt/
 
 }

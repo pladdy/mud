@@ -1,3 +1,17 @@
+#alias 1 {
+  #local MIN_SP 100;
+  !focus force trance /iks,repeat;
+  !focus impulse for si at $MIN_SP;
+  !aset jedi_injure hiblack;
+}
+
+#alias 2 {
+  #local MIN_SP 100;
+  !focus force trance /ikc,repeat;
+  !focus impulse for si at $MIN_SP;
+  !aset jedi_injure white;
+}
+
 #alias drl {
   !focus force trance /off;
   !focus impulse for c at 100;
@@ -9,13 +23,11 @@
 }
 
 #alias drd {
-  !focus force trance /ik,repeat;
-  !focus impulse for si at 100;
-
   !sheath;
   !draw lightdaggers;
-  !activate lightdaggers;;
+  !activate lightdaggers;
   !focus mode /flurry;
+  1;
 }
 
 #nop Force trance alias for spells;
