@@ -50,3 +50,11 @@ file.
 
 ## Docs
 If you want to learn more about what commands are available while playing, check the tin/* README.md files.
+
+## Tagging
+Can add tags via makefile:
+```
+make tag type=patch # will create a patch: 0.5.0 -> 0.5.1 for example
+# after creating tag
+git push <tag>
+```
