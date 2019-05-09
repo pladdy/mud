@@ -12,6 +12,13 @@
   !aset jedi_injure white;
 }
 
+#alias 3 {
+  #local MIN_SP 100;
+  !focus force trance /ikb,repeat;
+  !focus impulse for si at $MIN_SP;
+  !aset jedi_injure hired;
+}
+
 #alias drl {
   !focus force trance /off;
   !focus impulse for c at 100;
