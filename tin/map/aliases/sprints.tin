@@ -68,6 +68,14 @@
   #map move {enter mist};
 }
 
+#alias ratm {
+  #if { @length{%1} > 0 } {
+    map_run atm_%1;
+  } {
+    #system cat notes/areas/atms.txt;
+  };
+}
+
 #alias rshop {
   #if { @length{%1} > 0 } {
     map_run shop_%1;

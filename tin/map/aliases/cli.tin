@@ -81,6 +81,10 @@
   map_set_reset;
 
   #switch {"%1"} {
+    #case {"atm"} {
+      #map set roomcolor <130>;
+      #map set roomsymbol $;
+    };
     #case {"exit"} {
       #map set roomcolor <020>;
       #map set roomsymbol X;
@@ -117,6 +121,7 @@
     };
     #default {
       #showme <170>Command: Description;
+      #showme <090>  atm:     mark room as an atm.  `map name atm_<name>` to use `ratm` to sprint to this atm;
       #showme <090>  exit:    mark room as an exit back towards pinnacle;
       #showme <090>  guild:   mark room as a guild entrance;
       #showme <090>  note:    note that room has something interesting;

@@ -1,0 +1,9 @@
+Mob, Class, Dmg Types, Notes
+Elf Warden, 1.5M, edged/blunt,
+Elf fighter {focused}, 1.4M, edged/blunt,
+Elf Priest, 1.3M, edged/blunt/radiation,
+Elf Ranger, 1.1M, edged/blunt/acid,
+Elf Champion, 3.4M, edged/blunt,
+Elf Guard, 715K, edged/blunt,
+Elf Defender, ???!!!, edged/blunt, blicked shenanigans
+Elf High Champion, 4.2M, edged/blunt, big blunt special
