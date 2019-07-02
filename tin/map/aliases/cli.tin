@@ -10,7 +10,10 @@
   #switch {"%1"} {
     #case {"edit"} {map_write};
     #case {"help"} {
-      #showme <170>Command: Description;
+      #showme <170>Usage:;
+      #showme <090>  map <command>;
+      #showme;
+      #showme <170> Command: Description;
       #showme <090>  edit: open map for editing (adding rooms);
       #showme <090>  help: this content;
       #showme <090>  info or i: info for the room you're in (same as #map i);
@@ -120,6 +123,9 @@
       #map set roomsymbol !;
     };
     #default {
+      #showme <170>Usage:;
+      #showme <090>  room set <sub command> <optional note to set on the room>;
+      #showme;
       #showme <170>Command: Description;
       #showme <090>  atm:     mark room as an atm.  `map name atm_<name>` to use `ratm` to sprint to this atm;
       #showme <090>  exit:    mark room as an exit back towards pinnacle;
