@@ -1,9 +1,34 @@
+General Notes:
+- classes are approximate, mobs have a range
+- mobs with {adjective} are bigger than normal
+
+Elf Notes:
+- most elf mobs seem to have a edge (polearm) and blunt (shield or mace) special
+
 Mob, Class, Dmg Types, Notes
-Elf Warden, 1.5M, edged/blunt,
-Elf fighter {focused}, 1.4M, edged/blunt,
+----------------------------
+Elf Apprentice, 300K, edged/blunt
+Elf Cadet, 500K, edged/blunt
+Elf Conjurer, 4.2M, fire/ice
+Elf Champion, 3.4M, edged/blunt,
+Elf Commander, ?, ?
+Elf Defender, ???!!!, edged/blunt, blicked shenanigans
+Elf Fighter, 1M, edged/blunt
+Elf Fighter {focused}, 1.4M, edged/blunt,
+Elf Guard, 715K, edged/blunt,
+Elf High Champion, 4.2M, edged/blunt, big blunt special
+Elf Phalanx, 1.2M, edged/blunt
 Elf Priest, 1.3M, edged/blunt/radiation,
 Elf Ranger, 1.1M, edged/blunt/acid,
-Elf Champion, 3.4M, edged/blunt,
-Elf Guard, 715K, edged/blunt,
-Elf Defender, ???!!!, edged/blunt, blicked shenanigans
-Elf High Champion, 4.2M, edged/blunt, big blunt special
+Elf Royal Champion, 4.9M, edged/blunt
+Elf Sentinel, 2.2M, edged/blunt
+Elf Warden, 1.5M, edged/blunt,
+
+Orc Notes:
+- orcs have a massive blunt special (mace)
+
+Mob, Class, Dmg Types, Notes
+----------------------------
+Orc High Warlord, ?, ?, blicked shenanigans
+Orc Scout, 600K, edged/blunt
+Orc Warlord, 5M, edged/blunt
