@@ -11,12 +11,15 @@ Elf Apprentice, 300K, edged/blunt
 Elf Cadet, 500K, edged/blunt
 Elf Conjurer, 4.2M, fire/ice
 Elf Champion, 3.4M, edged/blunt,
-Elf Commander, ?, ?
+Elf Commander, 5.1M, edged/blunt
 Elf Defender, ???!!!, edged/blunt, blicked shenanigans
 Elf Fighter, 1M, edged/blunt
 Elf Fighter {focused}, 1.4M, edged/blunt,
+Elf Fighter {relentless}, 4.5M, edged/blunt,
 Elf Guard, 715K, edged/blunt,
+Elf Guard {focused}, 1.4M, edged/blunt
 Elf High Champion, 4.2M, edged/blunt, big blunt special
+Elf Keeper, 3.1M, edged/blunt
 Elf Phalanx, 1.2M, edged/blunt
 Elf Priest, 1.3M, edged/blunt/radiation,
 Elf Ranger, 1.1M, edged/blunt/acid,
@@ -30,5 +33,10 @@ Orc Notes:
 Mob, Class, Dmg Types, Notes
 ----------------------------
 Orc High Warlord, ?, ?, blicked shenanigans
+Orc Lieutenant, 4.1M, edged/blunt
+Orc General, 4.3M, edged/blunt
 Orc Scout, 600K, edged/blunt
+Orc Scout {bloodlust}, 3.7M, edged/blunt
+Orc Stone Guard, 1.6M, edged/blunt
+Orc Warlock, 3.7M, energy/mind
 Orc Warlord, 5M, edged/blunt
