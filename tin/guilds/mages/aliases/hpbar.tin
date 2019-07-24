@@ -1,7 +1,5 @@
-#alias concentration_check {
-  #nop when hpbar processes gp vars, it 'flips' them;
-  #if {$gp2 <= 30} {#showme <110>CONCENTRATION IS HIGH!!!};
-  #if {$gp2 <= 30} {!shoo};
+#alias attempt_slow {
+  #if {$enemy > 0 && $slowed != 1} {!cast slow};
 }
 
 #alias attempt_mystic_immersion {
@@ -11,6 +9,12 @@
        && $sp < 1000} {
     mim;
   };
+}
+
+#alias concentration_check {
+  #nop when hpbar processes gp vars, it 'flips' them;
+  #if {$gp2 <= 30} {#showme <110>CONCENTRATION IS HIGH!!!};
+  #if {$gp2 <= 30} {!shoo};
 }
 
 #alias saturation_check {

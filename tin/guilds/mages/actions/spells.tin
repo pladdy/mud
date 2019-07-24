@@ -47,8 +47,17 @@
 
 #nop #action {^The magic of your stoneskin fades over time.} {}
 
+#nop Phantasmal Killer;
 #action {^You wave your hands and *POOF*} {#var phantasmal_killer casted}
 
 #action {^-*> The something begins to fizzle as the illusion is discovered! <*-$} {
   #var phantasmal_killer discovered;
 }
+
+#nop Slow;
+#action {^You raise your arms and suddenly %1 is moving much slower!$} {
+  #var slowed 1;
+}
+
+#action {^%1 is already slowed.$} {#var slowed 1}
+

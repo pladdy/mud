@@ -1,6 +1,7 @@
 #alias commands_before_corpse {
   !study spellbook;
   #var phantasmal_killer reset;
+  #var slowed 0;
   #nop spell tap if in party in case it's not my kill;
   #if {"$party_status" == "yes" && "$coffin_status" == "full"} {
     tap_corpse;
