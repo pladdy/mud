@@ -1,2 +1,3 @@
 #var regen_multiplier {14};
 #var mage_summons {.* golem|Something};
+#var slowed {0};
