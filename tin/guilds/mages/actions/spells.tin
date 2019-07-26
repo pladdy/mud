@@ -61,3 +61,7 @@
 
 #action {^%1 is already slowed.$} {#var slowed 1}
 
+#action {^%1 seems to speed up...$} {
+  #var slowed 0;
+  !cast slow;
+}
