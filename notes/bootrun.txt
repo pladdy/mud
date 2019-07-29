@@ -61,6 +61,7 @@ Shields:
   Warhaft shield (augmented) run drinishok2
 
 Other:
+  Bracers of Protection +2                               run cronos
   force-shield assembly belt (uniqure per char)          run halo
   WWF Heavy Weight Championship belt (low ac, 1/1 regen) run wwf
   Skinsuit of the damned (burning)                       run pol2_eq
@@ -74,7 +75,7 @@ Unknowns:
 Stats:
   Einstein's brain (+3 int)
   lift weights in silicon wraiths (+1 str)
-  drink liquid in chicken guards (+1|+2 random stat)
+  drink liquid in chicken guards (+1-3 random stat, usually dex/str)
   pooki (+1-2 wis)                          run way_dock, charter ao
   alphabet miniquest (+1 all stats, +1 dex) run r
   Black potion with little yellow floaties  run rabbit_hole
