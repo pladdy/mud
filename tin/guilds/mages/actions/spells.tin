@@ -65,3 +65,5 @@
   #var slowed 0;
   !cast slow;
 }
+
+#action {^That creature cannot be affected!.$} {#var slowed 1}

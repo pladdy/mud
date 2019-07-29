@@ -1,28 +1,29 @@
+#var regen_rounds {14};
+
 #alias regen {
   #showme Stopping to regen.  'regen_stop' to cancel;
   #if {@length{%1} > 0} {
-    #showme Setting regen_multiplier %1;
-    #var regen_multiplier {%1};
+    #showme Setting regen_rounds %1;
+    #var regen_rounds {%1};
   };
 
-  dedn
   !hp;
   !study spellbook;
 
-  #math {seconds} {$regen_multiplier * 1};
+  #math {seconds} {$regen_rounds * 1};
   #delay {delay_25} {#showme 25% done; !hp;} {$seconds};
 
-  #math {seconds} {$regen_multiplier * 2};
+  #math {seconds} {$regen_rounds * 2};
   #delay {delay_50} {#showme 50% done; !hp;} {$seconds};
 
-  #math {seconds} {$regen_multiplier * 3};
+  #math {seconds} {$regen_rounds * 3};
   #delay {delay_75} {
     #showme 75% done;
     !hp;
     #delay {1} { #if {@regen_done{} == 1} {regen_stop} }
   } {$seconds};
 
-  #math {seconds} {$regen_multiplier * 4};
+  #math {seconds} {$regen_rounds * 4};
   #delay {delay_100} {#showme 100% done; !hp; deup} {$seconds};
 }
 
