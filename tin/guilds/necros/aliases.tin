@@ -51,7 +51,7 @@
     };
   } {
     #loop 1 12 i {
-      !sell all from bag $k;
+      !sell all from bag $i;
     };
   };
 }
