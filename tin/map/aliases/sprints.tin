@@ -15,56 +15,57 @@
 #alias f2 { map_run home; }
 
 #nop Sprints that require commands in the middle;
+#nop NOTE: mud commands should not use a '!'.  If they do you won't move on the map;
 
 #alias run_einsteins {
   run einsteins;
-  !climb gate;
-  !w;
-  !search tree;
-  !get key;
-  !e;
-  !e;
-  !n;
-  !n;
-  !enter;
-  !unlock paperholder;
-  !turn paperholder;
-  !stand bench;
-  !stagedive;
-  !s;
-  !s;
-  !w;
-  !enter;
+  climb gate;
+  w;
+  search tree;
+  get key;
+  e;
+  e;
+  n;
+  n;
+  enter;
+  unlock paperholder;
+  turn paperholder;
+  stand bench;
+  stagedive;
+  s;
+  s;
+  w;
+  n;
 }
 
 #alias run_kimlark {
   run kimlark;
-  !embark;
-  !fore;
-  !bridge;
-  !tell captain kimlark;
-  !deck;
-  !fore;
-  !disembark;
+  embark;
+  fore;
+  bridge;
+  tell captain kimlark;
+  deck;
+  fore;
+  disembark;
   run gnome_warlord;
-  !kill thief;
+  kill thief;
 }
 
 #alias run_kimlark_home {
   run kimlark_dock;
-  !embark;
-  !aft;
-  !bridge;
-  !tell captain mainland;
-  !deck;
-  !aft;
-  !disembark;
+  embark;
+  aft;
+  bridge;
+  tell captain mainland;
+  deck;
+  aft;
+  disembark;
   run home;
 }
 
 #alias run_rloft {
   run ravenloft;
-  !enter mist;
+  enter mist;
   #map move {enter mist};
 }
 
