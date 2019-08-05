@@ -21,11 +21,7 @@
 
   #regex {$implants} {IPP} {#nop;} {!activate intrinsic preservation proxy};
 
-  #regexp {%3} {TARG: %d%%$} {
-    #var enemy &1;
-  } {
-    #var enemy 0;
-  };
+  #regexp {%3} {TARG: %d%%$} {#var enemy &1} {#var enemy 0};
 
   show_status_bar;
 }

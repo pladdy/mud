@@ -1,28 +1,32 @@
 #action {^H: %1/%2 S: %3/%4 W: %5/%6(%7) L: %8% P: %9(%10%) E#: %11 E: %12 $} {
   #var hp {%1};
   #var hp_max {%2};
-  #math {hp_delta} {$hp - $hp_last};
-  #var hp_last {$hp};
-  #format hp_pct {%f} {$hp / $hp_max};
 
   #var sp {%3};
   #var sp_max {%4};
-  #format sp_pct {%f} {$sp / $sp_max};
 
   #var gp1 {%5};
   #var gp1_max {%6};
-  #format gp1_pct {%f} {$gp1 / $gp1_max};
-  #var suit_water {%7};
 
+  #var suit_water {%7};
   #math {total_water} {$gp1 + $suit_water};
   #format total_water_pct {%f} {$total_water / $gp1_max};
 
   #var enemy {%12};
+  #if {"$enemy" == "none"} {#var enemy 0};
+  #replace {enemy} {%} {};
+
+  show_status_bar;
 }
 
-#action {^Li: %1 Pa: %2 Ma: %3(%4)} {
-  #if {"$enemy" != "none" && "%3" != "--"} {
-    #if {%3 == 1 && %4 > 0} {!mload};
+#action {^Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 G:%7} {
+  #var gxp %7;
+
+  #local ammo %4;
+  #local ammo_max %5;
+
+  #if {"$enemy" != "none" && "$ammo" != "--"} {
+    #if {$ammo == 1 && $ammo_max > 0} {!mload};
   }
 }
 

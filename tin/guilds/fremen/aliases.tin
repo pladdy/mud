@@ -31,6 +31,13 @@
   !mode assault:all litany:half weirding attacks:normal reflexes;
 }
 
+#alias drp {
+  !sheathe;
+  !holster;
+  !draw pulse sword;
+  !mode assault:all litany:half weirding attacks:normal reflexes;
+}
+
 #alias use_corpse {
   !glance;
   !hp;

@@ -1,1 +1,34 @@
-confighp hp H: $+CHP$/$MHP$ S: $+CSP$/$MSP$ W: $+CWT$/$MWT$($SWT$) L: $+LMB$% P: $PSN$($+PSR$%) E#: $ATT$ E: $+TRG$ $CRT$Li: $+LTS$ Pa: $+LBP$ Ma: $MPA$($MPC$) Wr: $WCR$ C: $+CCP$ Gt: $GXA$ G: $GXP$
+confighp hp H: $+CHP$/$MHP$ S: $+CSP$/$MSP$ W: $+CWT$/$MWT$($SWT$) L: $+LMB$% P: $PSN$($+PSR$%) E#: $ATT$ E: $+TRG$ $CRT$Li: $+LTS$ Sp: $SPC$ Pa: $+LBP$ Ma: $MPA$($MPC$) Wr: $WCR$ C: $+CCP$ Gt: $GXA$ G: $GXP$
+
+alias aa acquire all
+alias ab acquire belt
+alias ag agony
+alias aq aquameter
+alias bo board ornithopter
+alias cb check belt
+alias da donate all
+alias fa fill all
+alias gfinger frecall -r
+alias gl globe
+alias gwho fremen
+alias hi hide
+alias ho holster
+alias info fhelp
+alias lm load maula pistol
+alias m ambush
+alias mi mindstorm
+alias rc reclaim
+alias rcost check cost
+alias sh sheathe
+alias st stun
+alias su suspend
+alias v voice
+alias vtp voice $1 to peace
+
+aset frem_agony himagenta
+aset frem_ambush hired
+aset frem_hide hiblack
+aset frem_litany hiblack
+aset frem_reflexes hicyan
+aset frem_stun yellow
+aset frem_voice hiblack
