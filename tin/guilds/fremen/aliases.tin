@@ -7,14 +7,14 @@
   !sheathe;
   !holster;
   !draw crysknife;
-  !mode litany:half weirding:all assault attacks:quick reflexes;
+  !mode litany:half weirding:all assault attacks:fast reflexes;
 }
 
 #alias drcp {
   !sheathe;
   !holster;
   !draw crysknife;
-  !mode pain:some litany:half weirding:all assault attacks:normal reflexes;
+  !mode pain:most litany:half weirding:most attacks:normal reflexes;
 }
 
 #alias drl {
@@ -41,7 +41,7 @@
 #alias use_corpse {
   !glance;
   !hp;
-  #if {$total_water_pct < 1.15} {!reclaim} {!fai};
+  #if {$total_water_pct < 1.2} {!reclaim} {!fai};
   !hp;
   !get all;
 }
