@@ -1,34 +1,3 @@
-#nop #prompt and #showme are used in events to display information from 'showd';
-#nop when it's invoked.  #showme is being used for my gentech hp monitor based;
-#nop on the second hpbar triggering for example;
-
-#alias show_status_bar {
-  calculate_deltas;
-  colorize_pcts;
-  build_deltas;
-
-  #nop thanks for the tip from Kyoujin: wrap the text in color codes to help;
-  #nop stop the ansi bleed/parse issue from showing with the prompt on;
-  #showme {<070>$deltas<070>} {1};
-}
-
-#alias status_bar {
-  #if {"%1" == "on"} {
-    #split {} 2
-  };
-  #elseif {"%1" == "off"} {
-    #unsplit
-  };
-  #elseif {"%1" == "reset"} {
-    #unsplit;
-    !hp;
-    #delay {2} {#split {} 2};
-  };
-  #else {
-    #showme call with 'on' or 'off';
-  };
-}
-
 #alias build_deltas {
   #var deltas {H: $hp_delta ($hp_pct) S: $sp_delta ($sp_pct) Gp1: $gp1_delta};
   #var deltas {$deltas ($gp1_pct) Gp2: $gp2_delta ($gp2_pct) E:};
@@ -60,6 +29,18 @@
   #var gxp_last {$gxp};
 }
 
+#alias clear_status_bar {
+  #format {screen_width} {%C};
+  #var clear_string {};
+  #math i 0;
+
+  #while {$i < $screen_width} {
+    #var clear_string { $clear_string};
+    #math i $i + 1;
+  }
+  #showme {$clear_string} {1};
+}
+
 #alias colorize_pcts {
   #var hp_pct {@colorize_pct_100{$hp_pct}$hp_pct%<070>};
   #var sp_pct {@colorize_pct_100{$sp_pct}$sp_pct%<070>};
@@ -68,3 +49,30 @@
   #var enemy_pct {@colorize_pct_100{$enemy_pct}$enemy_pct%<070>};
 }
 
+#alias show_status_bar {
+  calculate_deltas;
+  colorize_pcts;
+  build_deltas;
+
+  #nop thanks for the tip from Kyoujin: wrap the text in color codes to help;
+  #nop stop the ansi bleed/parse issue from showing with the prompt on;
+  clear_status_bar;
+  #showme {<070>$deltas<070>} {1};
+}
+
+#alias status_bar {
+  #if {"%1" == "on"} {
+    #split {} 2
+  };
+  #elseif {"%1" == "off"} {
+    #unsplit
+  };
+  #elseif {"%1" == "reset"} {
+    #unsplit;
+    !hp;
+    #delay {2} {#split {} 2};
+  };
+  #else {
+    #showme call with 'on' or 'off';
+  };
+}
