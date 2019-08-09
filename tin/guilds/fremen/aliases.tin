@@ -1,47 +1,51 @@
 #alias am {
   !hide;
-  #delay {2} {!ambush %0};
+  !ambush %0;
+}
+
+#alias holster_weapons {
+  !sheathe;
+  !holster;
+  !do clear;
 }
 
 #alias drc {
-  !sheathe;
-  !holster;
+  holster_weapons;
   !draw crysknife;
-  !mode litany:half weirding:all assault attacks:fast reflexes;
+  !mode litany:half weirding:all assault attacks:lightning reflexes;
 }
 
 #alias drcp {
-  !sheathe;
-  !holster;
+  holster_weapons;
   !draw crysknife;
-  !mode pain:most litany:half weirding:most attacks:normal reflexes;
+  !mode pain:most litany:half weirding:most assault attacks:normal reflexes;
+  !do loop combat agony;
 }
 
 #alias drl {
-  !sheathe;
-  !holster;
+  holster_weapons;
   !draw lasgun;
   !mode assault:all litany:half weirding attacks:normal reflexes;
 }
 
 #alias drm {
-  !sheathe;
-  !holster;
+  holster_weapons;
   !draw maula pistol;
   !mode assault:all litany:half weirding attacks:normal reflexes;
 }
 
 #alias drp {
-  !sheathe;
-  !holster;
+  holster_weapons;
   !draw pulse sword;
-  !mode assault:all litany:half weirding attacks:normal reflexes;
+  !mode assault:all litany:some weirding attacks:lightning reflexes;
 }
 
 #alias use_corpse {
+  #local MAX_WATER_RATIO 1.2;
+
   !glance;
   !hp;
-  #if {$total_water_pct < 1.2} {!reclaim} {!fai};
+  #if {$total_water_pct < $MAX_WATER_RATIO} {!reclaim} {!fai};
   !hp;
   !get all;
 }

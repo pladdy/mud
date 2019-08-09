@@ -19,21 +19,16 @@
   #showme Map loaded, set to home.;
 }
 
-#nop fix this ugliness of handling globals in a file with no keys...;
-
 #alias map_refresh {
-  #nop Try to read mud_map_height from env or set to a default;
-  #script {mud_map_width} {
-    grep 'width' $map_dir/map_globals.txt 2> /dev/null | sed 's/width://'
-  };
-  #if {! $mud_map_width[1] > 0} {#var {mud_map_width[1]} 120};
+  #format map_height_fraction {%R};
+  #math {map_height} {$map_height_fraction / .9};
+  #format {map_height} {%d} {$map_height};
 
-  #script {mud_map_height} {
-    grep 'height'  $map_dir/map_globals.txt 2> /dev/null | sed 's/height://'
-  };
-  #if {! $mud_map_height[1] > 0} {#var {mud_map_height[1]} 55};
+  #format map_width_fraction {%C};
+  #math {map_width} {$map_width_fraction / .4 * .5};
+  #format {map_width} {%d} {$map_width};
 
-  #format {map_dimensions} {%sx%s} {$mud_map_width[1]} {$mud_map_height[1]};
+  #format {map_dimensions} {%sx%s} {$map_width} {$map_height};
   #system { echo > $map_dir/current_map.txt };
   #map map $map_dimensions $map_dir/current_map.txt;
 }
@@ -45,14 +40,17 @@
 #alias map_run {
   #format {run_to} {%l} {%1};
   #unevent {MAP ENTER ROOM};
+
   #if {"$tracker" == "on"} {
     !ansi off;
     #list seen_monsters clear;
   };
+
   #map run $run_to;
   refresh_map_on_enter;
   map_refresh;
   #unvar run_to;
+
   #if {"$tracker" == "on"} {
     !ansi on;
     !glance;
@@ -87,4 +85,3 @@
     #delay {0} {map_refresh};
   }
 }
-
