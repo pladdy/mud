@@ -12,7 +12,7 @@
 #alias drc {
   holster_weapons;
   !draw crysknife;
-  !mode litany:half weirding:all assault attacks:fast reflexes;
+  !mode litany:half weirding:all assault attacks:lightning reflexes;
 }
 
 #alias drcp {
@@ -37,7 +37,7 @@
 #alias drp {
   holster_weapons;
   !draw pulse sword;
-  !mode assault:all litany:half weirding attacks:normal reflexes;
+  !mode assault:all litany:some weirding attacks:lightning reflexes;
 }
 
 #alias use_corpse {

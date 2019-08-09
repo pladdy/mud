@@ -19,7 +19,7 @@
   show_status_bar;
 }
 
-#action {^Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 G:%7} {
+#action {^Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 Gt:%7 G:} {
   #var gxp %7;
 
   #local ammo %4;
