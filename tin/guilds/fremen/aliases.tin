@@ -67,3 +67,7 @@
   !unwrap;
   !fai;
 }
+
+#alias wimpy_commands {
+  !suspend;
+}
