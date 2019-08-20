@@ -91,6 +91,12 @@
   }
 }
 
+#alias set_under_attack {
+  #regexp {%0} { attacking you!} {#var under_attack true};
+  #regexp {%0} { [%d%] attacking} {#var under_attack true};
+}
+
+
 #alias stepper {
   #if {"%0" == "on"} {
     #showme <170>Enabling stepping. 'stepper off' to disable.;
@@ -98,7 +104,7 @@
     #var stepper on;
     #unvar step_dir;
     #unvar entered_from;
-    #delay {1} {!glance};
+    #delay {2} {!glance};
   } {
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
     tracker off;
@@ -160,11 +166,6 @@
     !brief on yes;
     unload_non_monsters;
   }
-}
-
-#alias set_under_attack {
-  #regexp {%0} { attacking you!} {#var under_attack true};
-  #regexp {%0} { [%d%] attacking} {#var under_attack true};
 }
 
 #alias unload_non_monsters {
