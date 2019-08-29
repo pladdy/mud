@@ -98,6 +98,7 @@
     };
     #case {"note"} {
       #map set roomcolor <130>;
+      #map set roomsymbol !;
     };
     #case {"pub"} {
       #map set roomcolor <160>;
@@ -105,6 +106,7 @@
     };
     #case {"quest"} {
       #map set roomcolor <150>;
+      #map set roomsymbol Q;
     };
     #case {"reset"} {#showme Room reset on map};
     #case {"shop"} {
@@ -113,6 +115,7 @@
     };
     #case {"special"} {
       #map set roomcolor <acf>;
+      #map set roomsymbol !;
     };
     #case {"subarea"} {
       #map set roomcolor <fca>;
