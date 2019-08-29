@@ -24,6 +24,7 @@ Helmet:
 
 Amulet:
   Greenstone Amulet  run greenstone_amulet
+  Hirebrand Amulet   run asuraka2
   Diablo 2           run diablo2 (hell, nightmare, normal)
 
 Mains:

@@ -1,8 +1,11 @@
 Amulets:
   baby_cow_king
-  hirebrand_amulet
   normal_cow_king
   storm_amulet
+
+  Greenstone Amulet,    run greenstone_amulet
+  Hirebrand Amulet 1.0, run hirebrand_amulet
+  Hirebrand Amulet 2.0, run asuraka2
 
 Notes:
   Nightmare cow king has sparkling ammy at boot (x3)
