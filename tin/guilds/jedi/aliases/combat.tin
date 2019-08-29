@@ -1,32 +1,27 @@
 #alias 1 {
-  #local MIN_SP 100;
   !focus force trance /iks,repeat;
-  !focus impulse for si at $MIN_SP;
   !aset jedi_injure hiblack;
 }
 
 #alias 2 {
-  #local MIN_SP 100;
   !focus force trance /ikc,repeat;
-  !focus impulse for si at $MIN_SP;
   !aset jedi_injure white;
 }
 
 #alias 3 {
-  #local MIN_SP 100;
   !focus force trance /ikb,repeat;
-  !focus impulse for si at $MIN_SP;
   !aset jedi_injure hired;
 }
 
 #alias drl {
   !focus force trance /off;
-  !focus impulse for c at 100;
 
   !sheath;
   !draw lightsaber;
   !activate lightsaber;
   !focus mode /guide;
+
+  imp_cm;
 }
 
 #alias drd {
@@ -34,7 +29,9 @@
   !draw lightdaggers;
   !activate lightdaggers;
   !focus mode /flurry;
+
   1;
+  imp_cm;
 }
 
 #nop Force trance alias for spells;
@@ -63,6 +60,16 @@
 
 #alias healup {
   #foreach {0;2;4;6;8} {delay} {#delay {$delay} {!ri; hp;}}
+}
+
+#alias imp_cm {
+  #local MIN_SP 100;
+  !focus impulse for c at $MIN_SP;
+}
+
+#alias imp_si {
+  #local MIN_SP 100;
+  !focus impulse for si at $MIN_SP;
 }
 
 #alias wimpy_commands {

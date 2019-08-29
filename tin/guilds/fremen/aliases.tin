@@ -23,11 +23,17 @@
 #alias drl {
   holster_weapons;
   !draw lasgun;
+  !attacks normal;
+  !reflexes blinding;
+  !attacks;
 }
 
 #alias drm {
   holster_weapons;
   !draw maula pistol;
+  !attacks normal;
+  !reflexes blinding;
+  !attacks;
 }
 
 #alias drp {
