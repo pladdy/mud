@@ -3,10 +3,8 @@
   !ambush %0;
 }
 
-#alias holster_weapons {
-  !sheathe;
-  !holster;
-  !do clear;
+#alias commands_after_corpse {
+  !suspend;
 }
 
 #alias drc {
@@ -41,20 +39,26 @@
   !draw pulse sword;
 }
 
-#alias use_corpse {
-  #local MAX_WATER_RATIO 1.2;
-
-  !glance;
-  !hp;
-  #if {$total_water_pct < $MAX_WATER_RATIO} {!reclaim} {!fai};
-  !hp;
-  !get all;
-}
-
 #alias f10 {use_corpse}
 
-#alias commands_after_corpse {
-  !suspend;
+#alias f12 {
+  #if {$map[current_room] == 8187} {
+    #showme <170>Keeping all to avoid donating wrong things!;
+    !keep all;
+    #loop 2 12 i {
+      !get all from bag $i;
+      !donate all;
+    };
+  };
+  #else {
+    #loop 2 12 i {!sell all from bag $i};
+  };
+}
+
+#alias holster_weapons {
+  !sheathe;
+  !holster;
+  !do clear;
 }
 
 #alias rerc {
@@ -67,6 +71,16 @@
 #alias refi {
   !unwrap;
   !fai;
+}
+
+#alias use_corpse {
+  #local MAX_WATER_RATIO 1.2;
+
+  !glance;
+  !hp;
+  #if {$total_water_pct < $MAX_WATER_RATIO} {!reclaim} {!fai};
+  !hp;
+  !get all;
 }
 
 #alias wimpy_commands {
