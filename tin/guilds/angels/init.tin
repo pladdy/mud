@@ -1,8 +1,23 @@
-#var awe_at_hp_pct {90};
+#nop feature flags, if false power won't fire, if true it will fire when;
+#nop conditions are met (enough TS, enough distance, etc.);
+
+#var use_awe {false};
+#var use_beyond_time {false};
+#var use_circle {true};
+#var use_disengage {false};
+#var use_disperse {false};
+#var use_presage {true};
+#var use_providence {false};
+#var use_renewed_light {false};
+#var use_retribution {false};
+
+#nop settings to gate when powers are triggered;
+
+#var awe_at_hp_pct {85};
 #var awe_foes false;
 #var min_ts {4};
-#var providence_at {60};
+#var providence_at {70};
 #var retribution_at {2};
-#var swing_at {90};
+#var swing_at {80};
 
-hpset hpbar H: $HP$/$HPMAX$ S: $SP$/$SPMAX$ T: $TS$/$TSMAX$($TSU$) D: $DV$/$DVMAX$ E: $EN$/$ENMAX$ R: $RET$ En: $ENEMY$ $NL$Di: $DIST$ F: $FLAGS$ Yi: $YIN$ Ya: $YANG$/$YANGMAX$ RB: $RB$/$RBM$ ($RBR$%) $NL$HO: $ADVHO$/$WKHO$ HI: $ADVHI$/$WKHI$ LO: $ADVLO$/$WKLO$ LI: $ADVLI$/$WKLI$ G: $FOCUSGXP$
+

@@ -1,0 +1,45 @@
+alias bo battle overview
+alias ds divine strike
+alias gwho angels
+alias h radiance
+alias ja junk all
+
+aset angel_highlight1 higreen
+aset angel_highlight2 hiblack
+aset angel_highlight3 hicyan
+aset angel_highlight4 white
+aset angel_highlight5 grey
+
+aset angel_chat higreen
+aset angel_ann white
+
+aset angel_wings yellow
+aset angel_halo yellow
+aset angel_aegis yellow
+aset angel_deva yellow
+
+aset angel_engage white
+aset angel_dive white
+aset angel_fly white
+aset angel_circle white
+aset angel_presage white
+
+aset angel_divine_strike himagenta
+aset angel_retribution himagenta
+aset angel_shine himagenta
+
+aset angel_disperse hiblack
+aset angel_rites hiblack
+
+aset angel_radiance higreen
+
+aset angel_block hicyan
+aset angel_void hicyan
+aset angel_riposte hicyan
+aset angel_parry hicyan
+
+aset angel_soar hiblue
+
+aset angel_awe brown
+
+hpset hpbar H: $HP$/$HPMAX$ S: $SP$/$SPMAX$ T: $TS$/$TSMAX$($TSU$) D: $DV$/$DVMAX$ E: $EN$/$ENMAX$ R: $RET$ En: $ENEMY$ $NL$Di: $DIST$ F: $FLAGS$ Yi: $YIN$ Ya: $YANG$/$YANGMAX$ RB: $RB$/$RBM$ ($RBR$%) $NL$HO: $ADVHO$/$WKHO$ HI: $ADVHI$/$WKHI$ LO: $ADVLO$/$WKLO$ LI: $ADVLI$/$WKLI$ G: $FOCUSGXP$
