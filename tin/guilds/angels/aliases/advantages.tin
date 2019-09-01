@@ -1,19 +1,42 @@
-#alias attempt_disengage {
-  #if {$angel[distance] == 0 &&
-       "$can_disengage" == "true" &&
-       $time_slices > 0} {
-    !disengage;
-    decrement_ts 1;
+#alias attempt_awe {
+  #if {"$use_awe" == "true" &&
+       @enough_distance_and_time{} &&
+       "$awed" != "true" &&
+       ("$awe_foes" == "true" || $pct_hp <= $awe_at_hp_pct)} {
+    !awe $highest_area;
+    decrement_ts 2;
+    reduce_sort;
   };
 }
 
+#alias attempt_disengage {
+  #if {"$use_disengage" == "true" &&
+       @enough_distance_and_time{} &&
+       "$can_disengage" == "true"} {
+    !disengage;
+    decrement_ts 1;
+    reduce_sort;
+  };
+}
+
+#alias attempt_divine_strike {
+  #if {@should_swing{} == 1} {
+    !divine strike $highest_area;
+    decrement_ts 2;
+    reduce;
+  }
+}
+
 #alias attempt_presage {
+  #local MIN_ADV 20;
   sort_advantages;
-  #if {$angel[distance] == 0 &&
-       $adv_sort[1][2] > 20 &&
-       $time_slices >= $min_ts} {
+
+  #if {"$use_presage" == "true" &&
+       @enough_distance_and_time{} &&
+       $adv_sort[1][2] > $MIN_ADV} {
     !presage $adv_sort[1][1];
     decrement_ts 1;
+    reduce_sort;
   };
   #else {
     attempt_disengage;
@@ -21,49 +44,71 @@
 }
 
 #alias attempt_providence {
-  #if {$angel[distance] == 0 && $time_slices >= $min_ts} {
+  #if {"$use_providence" == "true" &&
+       @enough_distance_and_time{}} {
     sort_advantages;
 
     #if {$adv_sort[1][2] > $providence_at} {
       !providence $adv_sort[1][1];
       decrement_ts 1;
+      reduce_sort;
     };
   };
 
   attempt_disengage;
 }
 
+#alias attempt_retribution {
+  #if {"$use_retribution" == "true" &&
+       @should_swing{} == 1 &&
+       $retributions > $retribution_at} {
+    !retribution $highest_area;
+    decrement_ts 1;
+    reduce_sort;
+  };
+}
+
 #alias attempt_swing {
   sort_advantages;
+  #var highest_area $adv_sort[1][1];
 
-  #if {$angel[distance] == 0 &&
-       $adv_sort[1][2] > $swing_at &&
-       $time_slices > $min_ts} {
+  #if {@should_swing{} == 1} {
     #math {pct_hp} {$hp / $hp_max * 100.0};
-    #local {area} {$adv_sort[1][1]};
 
-    #if {"$awed" != "true" &&
-         ("$awe_foes" == "true" || $pct_hp <= $awe_at_hp_pct)} {
-      !awe $area;
-      decrement_ts 2;
-    };
-    #elseif {$retributions > $retribution_at} {
-      !retribution $area;
-      decrement_ts 1;
-    };
-    #else {
-      !divine strike $area;
-      decrement_ts 2;
-    };
-
-    #nop DS/awe takes half your advantage away and costs 2 TS;
-    #math {advantages[$area]} {$advantages[$area] / 2};
+    attempt_awe;
+    attempt_retribution;
+    attempt_divine_strike;
     attempt_swing;
   };
 }
 
 #alias decrement_ts {
   #math {time_slices} {$time_slices - %1};
+}
+
+#function enough_distance_and_time {
+  #if {$angel[distance] == 0 && $time_slices >= $min_ts} {
+    #return 1;
+  } {
+    #return 0;
+  };
+}
+
+#alias reduce {
+  #math {advantages[$highest_area]} {$advantages[$highest_area] / 2};
+}
+
+#alias reduce_sort {
+  reduce;
+  sort_advantages;
+}
+
+#function should_swing {
+  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $swing_at} {
+    #return 1;
+  } {
+    #return 0;
+  };
 }
 
 #alias sort_advantages {
@@ -79,8 +124,8 @@
       #var found {0};
 
       #foreach $adv_sort[%*] {item} {
-        #if { $advantages[&0] > $adv_sort[$j][2] } {
-          #list adv_sort insert $j { {1}{&0}{2}{$advantages[&0]} };
+        #if { $advantages[$loc] > $adv_sort[$j][2] } {
+          #list adv_sort insert $j { {1}{$loc}{2}{$advantages[$loc]} };
           #var found {1};
           #break;
         };
@@ -91,7 +136,7 @@
 
       #if {$found == 0} {
         #list adv_sort add $j;
-        #list adv_sort insert $j { {1}{&0}{2}{$advantages[&0]} };
+        #list adv_sort insert $j { {1}{&0}{2}{$advantages[$loc]} };
         #list adv_sort delete -1;
       };
     };
@@ -99,4 +144,3 @@
     #math {i} {$i + 1};
   };
 }
-
