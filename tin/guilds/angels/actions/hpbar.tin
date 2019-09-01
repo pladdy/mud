@@ -23,11 +23,14 @@
   #var circle {false};
   #var parried false;
 
-  #if {$gp1 < 50 && $corpses > 0 && $enemy > 0} {redi};
-  #if {$gp2 < 20 && $corpses > 0 && $enemy > 0} {reri};
+  #local MIN_DIV 50;
+  #local MIN_END 20;
 
-  attempt_bt;
-  attempt_rl;
+  #if {$gp1 < $MIN_DIV && $corpses > 0 && $enemy > 0} {redi};
+  #if {$gp2 < $MIN_END && $corpses > 0 && $enemy > 0} {reri};
+
+  attempt_beyond_time;
+  attempt_renewed_light;
   show_trainings;
   check_stepper;
 }
