@@ -1,16 +1,3 @@
-#alias attempt_bt {
-   #if {$gp1 > 150 && $time_slices < 6} {
-    !manifest beyond time;
-  };
-
-}
-
-#alias attempt_rl {
-   #if {$gp1 > 150 && $gp2 < 100} {
-    !manifest renewed light;
-  };
-}
-
 #alias check_stepper {
   #if {"$stepper" == "on" && $gp2 < 50 && $corpses == 0} {
     stepper off;
