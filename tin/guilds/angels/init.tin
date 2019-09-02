@@ -11,6 +11,9 @@
 #var use_renewed_light {false};
 #var use_retribution {false};
 
+#nop use a spoon to 'eat' corpses ti dest them instead of 'disperse';
+#var use_spoon {true};
+
 #nop settings to gate when powers are triggered;
 
 #var awe_at_hp_pct {85};

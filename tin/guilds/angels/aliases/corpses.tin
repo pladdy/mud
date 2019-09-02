@@ -1,9 +1,15 @@
 #alias use_corpse {
-  #if {$gp1_pct < $gp2_pct && 0 == 1} {
-    #if {"$use_disperse" == "true"} {!disperse};
+  #if {$gp1_pct < $gp2_pct && "$use_disperse" == "true"} {
+    !disperse;
   } {
     !rites;
-    #if {"$use_disperse" == "true"} {!disperse} {!eat corpse};
+    #if {"$use_disperse" == "true"} {
+      !disperse;
+    } {
+      #if {"$use_spoon" == "true"} {
+        !eat corpse;
+      };
+    };
   };
 }
 
