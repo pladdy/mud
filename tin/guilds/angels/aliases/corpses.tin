@@ -1,5 +1,8 @@
 #alias use_corpse {
-  #if {$gp1_pct < $gp2_pct && "$use_disperse" == "true"} {
+  #math {gp1_pct_raw} {($gp1 * 1.00) / $gp1_max * 100};
+  #math {gp2_pct_raw} {($gp2 * 1.00) / $gp2_max * 100};
+
+  #if {$gp1_pct_raw < $gp2_pct_raw && "$use_disperse" == "true"} {
     !disperse;
   } {
     !rites;

@@ -1,18 +1,18 @@
-#nop feature flags, if false power won't fire, if true it will fire when;
-#nop conditions are met (enough TS, enough distance, etc.);
+#nop feature flags, if 'false', the power won't fire in aliases,
+#nop if 'true', it will fire when conditions are met (enough TS, distance, etc.);
 
 #var use_awe {false};
 #var use_beyond_time {false};
 #var use_circle {true};
 #var use_disengage {false};
-#var use_disperse {false};
+#var use_disperse {true};
 #var use_presage {true};
 #var use_providence {false};
 #var use_renewed_light {false};
 #var use_retribution {false};
 
 #nop use a spoon to 'eat' corpses ti dest them instead of 'disperse';
-#var use_spoon {true};
+#var use_spoon {false};
 
 #nop settings to gate when powers are triggered;
 
