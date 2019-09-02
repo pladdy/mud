@@ -1,3 +1,18 @@
+#alias attempt_circle {
+  #if {"$circle" != "true"} {
+    #showme <170>Trying to circle...;
+    !circle;
+    #var circle {true};
+  };
+}
+
+#alias attempt_traverse {
+  #if {"$can_disengage" == "false"} {
+    !traverse toward;
+    decrement_ts 1;
+  };
+}
+
 #alias awe_at {
   #if {@length{%1} > 0} {
     #showme <170>Setting awe_at_hp_pct to %1;

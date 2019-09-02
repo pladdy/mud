@@ -21,7 +21,6 @@
   #local second_letter @first_letter{%5};
 
   #nop a divine strike consumes half the advantage in the area;
-
   #math {advantages[$first_letter$second_letter]} {
     $advantages[$first_letter$second_letter] / 2
   };

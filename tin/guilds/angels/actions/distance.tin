@@ -1,6 +1,7 @@
 #nop This action only fires when there's distance between me and a mob;
 
 #action {^Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
+  #local MAX_ROUNDS_DISENGAGED 0;
   #var angel[distance] @length{%3};
 
   #if {$angel[distance] > 0} {
@@ -9,7 +10,7 @@
     #var rounds_disengaged 0;
   };
 
-  #if {$angel[distance] > 0 && $rounds_disengaged > 1} {
+  #if {$angel[distance] > 0 && $rounds_disengaged > $MAX_ROUNDS_DISENGAGED} {
     !engage;
     #math {angel[distance]} {$angel[distance] - 1};
   };

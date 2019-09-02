@@ -1,0 +1,21 @@
+#alias attempt_beyond_time {
+  #local MIN_TS_FOR_BT 6;
+  #local MIN_DIV_FOR_BT 150;
+
+  #if {"$use_beyond_time" == "true" &&
+       $gp1 > $MIN_DIV_FOR_BT &&
+       $time_slices < $MIN_TS_FOR_BT} {
+    !manifest beyond time;
+  };
+}
+
+#alias attempt_renewed_light {
+  #local MIN_END_FOR_RL 100;
+  #local MIN_DIV_FOR_RL 150;
+
+  #if {"$use_renewed_light" == "true" &&
+       $gp1 > $MIN_DIV_FOR_RL &&
+       $gp2 < $MIN_END_FOR_RL} {
+    !manifest renewed light;
+  };
+}

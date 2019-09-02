@@ -7,15 +7,11 @@
 }
 
 #action {^You don't have that many time slices available.$} {
-  !circle;
+  attempt_circle;
 }
 
 #action {^Not enough time slices to %1!$} {
-  #if {"$circle" != "true"} {
-    #showme <170>Trying to circle...;
-    !circle;
-    #var circle {true};
-  };
+  attempt_circle;
 }
 
 #nop Awe emotes to track if a mob is stunned;
@@ -31,10 +27,7 @@
 #action {^You parry %1 attack.$} {
   #var parried true;
   decrement_ts 1;
-  #if {"$can_disengage" == "false"} {
-    !traverse toward;
-    decrement_ts 1;
-  };
+  attempt_traverse;
 }
 
 #action {^You void %1 attack.$} {decrement_ts 1}
