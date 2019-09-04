@@ -1,8 +1,10 @@
 # Guild .tin files
+
 Guild specific .tin files are in these directories.  Each guild has it's own set of actions,
 aliases, variables, etc.
 
 ## To be implemented per guild:
+
 - a 'use_corpse' alias; this alias gets called by killing blow actions so it
   needs to be set up so it will do something with a corpse for the guild
 
