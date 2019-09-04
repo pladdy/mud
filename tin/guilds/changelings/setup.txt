@@ -9,13 +9,15 @@ alias di digest
 alias gs3 skills
 alias gs4 forms
 
-gansi 24 hiblack
+gansi 7 higreen
+gansi 8 white
 gansi 17 hicyan
-gansi 32 norm
 gansi 19 hired
 gansi 20 yellow
 gansi 22 hicyan
-gansi 35 higreen
 gansi 23 hiblack
+gansi 24 hiblack
+gansi 32 norm
+gansi 35 higreen
 
 confighp H: $CHP/$MHP S: $CSP/$MSP St: $STA P: $PPM B: $BPL C: $CFX E: $MON $CRTSk: $SKN Gx: $SKP F: $FRM: $FAM St: $STS

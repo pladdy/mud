@@ -37,4 +37,6 @@ aset say hicyan
 aset soul green
 aset shout yellow
 aset tell himagenta
-
+aset xp1 higreen
+aset xp2 hicyan
+aset xp3 yellow
