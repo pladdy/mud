@@ -1,0 +1,73 @@
+#nop aliases for mapping out the biome...;
+
+#alias mforest {
+  #map set roomcolor <020>;
+  #map set roomsymbol <002>*;
+}
+
+#alias mgrass {
+  #map set roomcolor <120>;
+  #map set roomsymbol <002>.;
+}
+
+#alias micel {
+  #map set roomcolor <270>;
+  #map set roomsymbol <177>.;
+}
+
+#alias micep {
+  #map set roomcolor <270>;
+  #map set roomsymbol <107>.;
+}
+
+#alias mlake {
+  #map set roomcolor <140>;
+  #map set roomsymbol <160>.;
+}
+
+#alias mlakes {
+  #map set roomcolor <140>;
+  #map set roomsymbol <100>.;
+}
+
+#alias mmountain {
+  #map set roomcolor <030>;
+  #map set roomsymbol <073>^;
+}
+
+#alias mmtn {mmountain}
+
+#alias mmtnb {
+  #map set roomcolor <030>;
+  #map set roomsymbol <003>^;
+}
+
+#alias mocean {
+  #map set roomcolor <140>;
+  #map set roomsymbol <144>~;
+}
+
+#alias mrapids {
+  #map set roomcolor <140>;
+  #map set roomsymbol <174>.;
+}
+
+#alias mriver {
+  #map set roomcolor <140>;
+  #map set roomsymbol <144>.;
+}
+
+#alias msand {
+  #map set roomcolor <130>;
+  #map set roomsymbol <103>.;
+}
+
+#alias msnow {
+  #map set roomcolor <170>;
+  #map set roomsymbol <007>.;
+}
+
+#alias mwoods {
+  #map set roomcolor <020>;
+  #map set roomsymbol <172>*;
+}
