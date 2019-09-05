@@ -1,13 +1,15 @@
-alias sk mskills
-alias ff swoop
-alias h morph
 alias ab absorb
+alias ad adrenalize
 alias bi bioextract
 alias cfs confighp showskill
 alias cb consume bioplast
 alias di digest
+alias ff swoop
 alias gs3 skills
 alias gs4 forms
+alias h morph
+alias int intrinsics
+alias sk mskills
 
 gansi 7 higreen
 gansi 8 white

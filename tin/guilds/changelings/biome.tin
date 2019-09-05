@@ -22,7 +22,7 @@
 
 #alias mlake {
   #map set roomcolor <140>;
-  #map set roomsymbol <160>.;
+  #map set roomsymbol <164>.;
 }
 
 #alias mlakes {
