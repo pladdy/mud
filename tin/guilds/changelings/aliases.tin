@@ -46,7 +46,11 @@
 }
 
 #alias use_corpse {
-  #if {$gp1 < 80 || $gp2 < 80 || $bioplasts > 25} {
+  #local MAX_BIOPLASTS 20;
+  #local MIN_STAM 80;
+  #local MIN_PROTO 80;
+
+  #if {$gp1 < $MIN_STAM || $gp2 < $MIN_PROTO || $bioplasts >= $MAX_BIOPLASTS} {
     !hp;
     !absorb;
     !hp;
