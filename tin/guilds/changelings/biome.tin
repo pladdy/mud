@@ -10,6 +10,11 @@
   #map set roomsymbol <122>";
 }
 
+#alias mforestt {
+  #map set roomcolor <020>;
+  #map set roomsymbol <002>^;
+}
+
 #alias mgrass {
   #map set roomcolor <120>;
   #map set roomsymbol <002>.;
@@ -94,8 +99,12 @@
   #map set roomsymbol <002>~;
 }
 
-
 #alias mwoods {
   #map set roomcolor <020>;
   #map set roomsymbol <172>*;
+}
+
+#alias mwoodst {
+  #map set roomcolor <020>;
+  #map set roomsymbol <172>^;
 }
