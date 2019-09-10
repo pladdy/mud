@@ -19,12 +19,6 @@
     echo \#var {chaos_port_location} {$chaos_port_location} >> last_session.tin;
     echo \#var {wielded_weapon} {$wielded_weapon} >> last_session.tin;
   };
-
-  #if {"$flying" == "true"} {
-    #system {
-      echo \#var {flying} {$flying} >> last_session.tin;
-    };
-  }
 }
 
 #event {SESSION DISCONNECTED} {

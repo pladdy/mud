@@ -11,16 +11,8 @@
   !keep all bioplast;
 }
 
-#nop morph alias to set different vars;
-#alias m {
-  #if {"%0" != ""} {
-    #switch {%0} {
-      #case {owl} {#var flying true};
-      #case {owlet} {#var flying true};
-      #default {#var flying false};
-    }
-  };
-  !morph %0;
+#alias login_commands {
+  !mimic;
 }
 
 #alias reab {
