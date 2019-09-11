@@ -1,6 +1,6 @@
 #alias f10 {
   use_corpse;
-  #if {"$flying" == "true"} {!swoop all} {!get all}
+  !swoop;
 }
 
 #alias fu {

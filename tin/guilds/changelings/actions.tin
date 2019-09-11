@@ -35,15 +35,21 @@
 #nop Mimic changes who deals a killing blow from character name to thing being;
 
 #action {^You reach out a slimy tendril towards %1,} {
-  #var {old_character} {$character};
   #var {character} {%1};
 }
 
 #action {^You are currently mimicking %1.$} {
-  #var {old_character} {$character};
   #var {character} {%1};
 }
 
 #action {^You flow back into your natural form.$} {
-  #var {character} $old_character;
+  #var {character} $profile_character;
+}
+
+#action {^You morph into %1!} {
+  #var {character} $profile_character;
+}
+
+#action {^Your wounds close as you morph into %1!} {
+  #var {character} $profile_character;
 }
