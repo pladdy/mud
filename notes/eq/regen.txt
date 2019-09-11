@@ -1,6 +1,4 @@
-type, area, room_name, mob, item, ac, notes
-=====================================
-n/a
-n/a,   swede research center, n/a,    n/a,    globe of pure energy,   n/a, nee a crowbar; gives sp regen for an hour
-other, hole,                  kunzit, kunzit, kunzit's eye (glowing), n/a, 'discovery mystery': 1/1 regen for 1 hour
+eq slot, area, room_name, mob, item, ac, notes
+n/a, swede research center, globe_pure_energy, n/a, globe of pure energy, n/a, need a crowbar; gives sp regen for an hour
+other, hole, kunzit, kunzit, kunzit's eye (glowing), n/a, 'discovery mystery': 1/1 regen for 1 hour
 

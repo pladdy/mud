@@ -35,7 +35,7 @@
 }
 
 #alias use_corpse {
-  #if {$gp1 == $gp1_max} {!eat corpse};
+  #if {$gp1 == $gp1_max && "$use_spoon" == "true"} {!eat corpse};
   #else {!decompose};
   !hp;
 }
