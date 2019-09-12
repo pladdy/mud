@@ -81,8 +81,6 @@
     #regexp {$args} {^%1 {.*}} {#var note &1};
   };
 
-  map_set_reset;
-
   #switch {"%1"} {
     #case {"atm"} {
       #map set roomcolor <130>;
@@ -108,7 +106,10 @@
       #map set roomcolor <150>;
       #map set roomsymbol Q;
     };
-    #case {"reset"} {#showme Room reset on map};
+    #case {"reset"} {
+      #showme Room reset on map;
+      map_set_reset;
+    };
     #case {"shop"} {
       #map set roomcolor <120>;
       #map set roomsymbol $;
@@ -149,6 +150,7 @@
 
   #if {"$note" != " " && @length{$note} > 0} {
     #format {note} {%p} {$note};
+    #replace {note} {\\;} {;};
     #map set roomnote $command: $note;
   };
   #unvar note;
