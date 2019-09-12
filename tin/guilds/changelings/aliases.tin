@@ -11,7 +11,7 @@
   !keep all bioplast;
 }
 
-#alias login_commands {
+#alias linkdie_commands {
   !mimic;
 }
 

@@ -34,11 +34,11 @@
 
 #nop Mimic changes who deals a killing blow from character name to thing being;
 
-#action {^You reach out a slimy tendril towards %1,} {
+#action {^{(> )*}You reach out a slimy tendril towards %1,} {
   #var {character} {%1};
 }
 
-#action {^You are currently mimicking %1.$} {
+#action {^{(> )*}You are currently mimicking %1.$} {
   #var {character} {%1};
 }
 
