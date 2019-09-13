@@ -1,9 +1,9 @@
 Balderdash:
-  alphabet 90
+  alphabet 100
   androids 70
   carnegie 75
-  chessboard 80
-  death_taco 70
+  chessboard 88
+  death_taco 91
   halo 88
   hotel 70
   mahjongg 1 # doesn't scale
