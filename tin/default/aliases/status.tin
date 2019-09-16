@@ -38,7 +38,7 @@
     #var clear_string { $clear_string};
     #math i $i + 1;
   }
-  #showme {$clear_string} {1};
+  #showme {$clear_string} {-2};
 }
 
 #alias colorize_pcts {
@@ -50,27 +50,30 @@
 }
 
 #alias show_status_bar {
-  calculate_deltas;
-  colorize_pcts;
-  build_deltas;
+  #if {$SHOW_STATUS == 1} {
+    calculate_deltas;
+    colorize_pcts;
+    build_deltas;
 
-  #nop thanks for the tip from Kyoujin: wrap the text in color codes to help;
-  #nop stop the ansi bleed/parse issue from showing with the prompt on;
-  clear_status_bar;
-  #showme {<070>$deltas<070>} {1};
+    #nop thanks for the tip from Kyoujin: wrap the text in color codes to help;
+    #nop stop the ansi bleed/parse issue from showing with the prompt on;
+    clear_status_bar;
+    #showme {<070>$deltas<070>} {-2};
+  }
 }
 
 #alias status_bar {
   #if {"%1" == "on"} {
-    #split {} 2
+    #split {} 2;
+    #var SHOW_STATUS 1;
   };
   #elseif {"%1" == "off"} {
     #unsplit
+    #var SHOW_STATUS 0;
   };
   #elseif {"%1" == "reset"} {
-    #unsplit;
-    !hp;
-    #delay {2} {#split {} 2};
+    status_bar off;
+    status_bar on;
   };
   #else {
     #showme call with 'on' or 'off';

@@ -20,6 +20,9 @@
 }
 
 #alias map_refresh {
+  #local MAP_FILE $map_dir/current_map.txt;
+
+  #nop height/width are unused currently but might figure out how to use...;
   #format map_height_fraction {%R};
   #math {map_height} {$map_height_fraction / .9};
   #format {map_height} {%d} {$map_height};
@@ -28,9 +31,8 @@
   #math {map_width} {$map_width_fraction / .4 * .5};
   #format {map_width} {%d} {$map_width};
 
-  #format {map_dimensions} {%sx%s} {$map_width} {$map_height};
-  #system { echo > $map_dir/current_map.txt };
-  #map map $map_dimensions $map_dir/current_map.txt;
+  #map map 0 0 variable current_map;
+  #system { echo "$current_map" > $MAP_FILE };
 }
 
 #alias mapr { map_refresh }

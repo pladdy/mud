@@ -4,23 +4,17 @@ configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
-configure pattern remove 1
 
 # heavy
-configure pattern add unstructured energy array/freon injector [0]/freon injector [1]/expansive hip augmentation
+configure pattern add cryo irradiator [0]/freon injector [0]/freon injector [1]/expansive hip augmentation
 configure pattern add unstructured energy array/blazer [0]/blazer [1]/expansive hip augmentation
+configure pattern add cryo irradiator [1]/freon injector [0]/freon injector [1]/expansive hip augmentation
 
 # medium
-configure pattern add blazer [0]/blazer [1]/knee spike [1]/expansive hip augmentation
-configure pattern add freon injector [0]/freon injector [1]/knee spike [0]/expansive hip augmentation
-
-# light
-configure pattern add expansive hip augmentation
+configure pattern add blazer [0]/blazer [1]/knee spike [0]/knee spike [1]
 
 # aliases
-alias 1 configure strategy set 1/3/4/3/1/3/4/3
-alias 2 configure strategy set 3/4
-alias 3 configure strategy set 5
+alias 1 configure strategy set 1/2/3/4
 
 # set default strategy
 1

@@ -84,27 +84,27 @@
   #switch {"%1"} {
     #case {"atm"} {
       #map set roomcolor <130>;
-      #map set roomsymbol $;
+      #map set roomsymbol <130>$;
     };
     #case {"exit"} {
       #map set roomcolor <020>;
-      #map set roomsymbol X;
+      #map set roomsymbol <020>X;
     };
     #case {"guild"} {
       #map set roomcolor <caf>;
-      #map set roomsymbol G;
+      #map set roomsymbol <caf>G;
     };
     #case {"note"} {
       #map set roomcolor <130>;
-      #map set roomsymbol !;
+      #map set roomsymbol <130>!;
     };
     #case {"pub"} {
       #map set roomcolor <160>;
-      #map set roomsymbol P;
+      #map set roomsymbol <160>P;
     };
     #case {"quest"} {
       #map set roomcolor <150>;
-      #map set roomsymbol Q;
+      #map set roomsymbol <150>Q;
     };
     #case {"reset"} {
       #showme Room reset on map;
@@ -112,19 +112,19 @@
     };
     #case {"shop"} {
       #map set roomcolor <120>;
-      #map set roomsymbol $;
+      #map set roomsymbol <120>$;
     };
     #case {"special"} {
       #map set roomcolor <acf>;
-      #map set roomsymbol !;
+      #map set roomsymbol <acf>!;
     };
     #case {"subarea"} {
       #map set roomcolor <fca>;
-      #map set roomsymbol S;
+      #map set roomsymbol <fca>S;
     };
     #case {"warn"} {
       #map set roomcolor <110>;
-      #map set roomsymbol !;
+      #map set roomsymbol <110>!;
     };
     #default {
       #showme <170>Usage:;
