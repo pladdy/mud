@@ -24,14 +24,14 @@
 
   #nop height/width are unused currently but might figure out how to use...;
   #format map_height_fraction {%R};
-  #math {map_height} {$map_height_fraction / .9};
+  #math {map_height} {$map_height_fraction * 1.1};
   #format {map_height} {%d} {$map_height};
 
   #format map_width_fraction {%C};
-  #math {map_width} {$map_width_fraction / .4 * .5};
+  #math {map_width} {$map_width_fraction * 1.1};
   #format {map_width} {%d} {$map_width};
 
-  #map map 0 0 variable current_map;
+  #map map $map_height $map_width variable current_map;
   #system { echo "$current_map" > $MAP_FILE };
 }
 
