@@ -5,7 +5,6 @@
 #script {character} {echo $PROFILE};
 #var character {$character[1]};
 #read tin/default/.bootstrap.tin;
-status_bar on;
 
 #nop NOTE: the map can't be loaded until a session is started.  we connect first and load the
 #nop       map based on whether we connect or not (see default/actions/login.tin).

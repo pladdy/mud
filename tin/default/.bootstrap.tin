@@ -37,6 +37,8 @@ read_tin_files tin/stepper
   #class $guild close;
 };
 
+status_bar on;
+
 #nop Map is initialized on login so that there's a session connected before the;
 #nop map is loaded.  see tin/default/actions/login.tin
 #var {map_dir} {tin/map};

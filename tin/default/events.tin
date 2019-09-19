@@ -22,23 +22,22 @@
 }
 
 #event {SESSION DISCONNECTED} {
+  #showme <170>Session disconnecting...;
   map_save;
+  export_session;
 
-  #if { "$quit" == "true" } {
-    #unvar flying;
-    export_session;
-    shutdown_tmux;
-  };
-  #else {
-    #showme <170>Session disconnecting...;
-    #system { tail -n 20 $session_log };
-    export_session;
-  };
+  #if {"$quit" == "true"} {#unvar flying};
+  #else {#system {tail -n 20 $session_log}};
 }
 
 #nop when you type '#end' this event is fired;
 
 #event {PROGRAM TERMINATION} {
   #showme <170>Program shutting down...;
-  shutdown_tmux;
+  #system {
+    tmux ls > /dev/null 2>&1;
+    if [ $? -eq 0 ]; then
+      tmux kill-session -t tintin;
+    fi;
+  };
 }

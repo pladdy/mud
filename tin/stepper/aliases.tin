@@ -101,9 +101,9 @@
   #if {"%0" == "on"} {
     #showme <170>Enabling stepping. 'stepper off' to disable.;
     tracker on;
-    #var stepper on;
     #unvar step_dir;
     #unvar entered_from;
+    #var stepper on;
     #delay {2} {!glance};
   } {
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
