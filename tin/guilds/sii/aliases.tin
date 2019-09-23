@@ -29,16 +29,16 @@
       !focus regeneration quick;
     };
     #elseif {$hp_as_pct < 91 && $regen_level < 2} {
-      !focus regeneration rapid;
+      !focus regeneration quick;
     };
     #elseif {$hp_as_pct < 87 && $regen_level < 3} {
-      !focus regeneration fast;
+      !focus regeneration quick;
     };
     #elseif {$hp_as_pct < 83 && $regen_level < 4} {
-      !focus regeneration hyper;
+      !focus regeneration quick;
     };
     #elseif {$hp_as_pct < 79 && $regen_level < 5} {
-      !focus regeneration blazing;
+      !focus regeneration quick;
     };
   };
 }
