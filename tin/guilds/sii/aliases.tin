@@ -2,20 +2,16 @@
 
 #alias f12 {
   #if {$map[current_room] == 22754} {
-    #loop 2 8 i {
+    #loop 2 12 i {
       !get all from bag $i;
       !feed all;
     };
-  }
-}
-
-#alias pause_active_stepper {
-  #local MIN_CONTROL 10;
-
-  #if {($enemy > 0 && "$stepper" == "on") &&
-       $control_as_pct < $MIN_CONTROL} {
-    dtrig stepper off;
   };
+  #else {
+    #loop 2 12 i {
+      !sell all from bag $i;
+    };
+  }
 }
 
 #alias pick_regen_rate {
@@ -29,18 +25,26 @@
       !focus regeneration quick;
     };
     #elseif {$hp_as_pct < 91 && $regen_level < 2} {
-      !focus regeneration quick;
+      !focus regeneration rapid;
     };
     #elseif {$hp_as_pct < 87 && $regen_level < 3} {
-      !focus regeneration quick;
+      !focus regeneration fast;
     };
     #elseif {$hp_as_pct < 83 && $regen_level < 4} {
-      !focus regeneration quick;
+      !focus regeneration fast;
     };
     #elseif {$hp_as_pct < 79 && $regen_level < 5} {
-      !focus regeneration quick;
+      !focus regeneration fast;
     };
   };
+}
+
+#alias fplan {
+  #switch {"%0"} {
+  #case {"charge"} {focus plan charge,,,,,};
+  #case {"stomp"} {focus plan stomp,,,,,};
+  #default {focus plan clear};
+ }
 }
 
 #alias reet {
@@ -66,8 +70,15 @@
   !hp;
 }
 
-#alias warn_when_low_control {
+#alias when_low_control_warn {
   #math {control_as_pct} {($gp2 * 1.00)/ $gp2_max * 100};
   #if {$control_as_pct < 10} {#showme <110>CONTROL IS LOW!!!};
 }
 
+#alias when_low_control_stop_stepper {
+  #local MIN_CONTROL 10;
+
+  #if {$enemy > 0 && "$stepper" == "on" && $control_as_pct < $MIN_CONTROL} {
+    stepper off;
+  };
+}

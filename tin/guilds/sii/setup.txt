@@ -12,6 +12,7 @@ alias eq siiquip
 alias fr focus regeneration
 alias fr1 focus regeneration normal
 alias fr2 focus regeneration quick
+alias gfinger siifinger
 alias gwho siiwho
 alias gwho2 siiwho2
 alias gs siiscore

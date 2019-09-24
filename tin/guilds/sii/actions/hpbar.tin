@@ -23,8 +23,8 @@
   };
 
   pick_regen_rate;
-  warn_when_low_control;
-  pause_active_stepper;
+  when_low_control_warn;
+  when_low_control_stop_stepper;
 }
 
 #action {^Gx: %1 LG} {
