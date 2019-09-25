@@ -31,10 +31,10 @@
       !focus regeneration fast;
     };
     #elseif {$hp_as_pct < 83 && $regen_level < 4} {
-      !focus regeneration fast;
+      !focus regeneration hyper;
     };
     #elseif {$hp_as_pct < 79 && $regen_level < 5} {
-      !focus regeneration fast;
+      !focus regeneration hyper;
     };
   };
 }
