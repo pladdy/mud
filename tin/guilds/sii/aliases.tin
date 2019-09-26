@@ -33,7 +33,7 @@
     #elseif {$hp_as_pct < 83 && $regen_level < 4} {
       !focus regeneration hyper;
     };
-    #elseif {$hp_as_pct < 79 && $regen_level < 5} {
+    #elseif {$hp_as_pct < 79 && $regen_level < 4} {
       !focus regeneration hyper;
     };
   };
