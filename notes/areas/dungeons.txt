@@ -1,15 +1,15 @@
 Balderdash:
-  alphabet 100
+  alphabet 111
   androids 70
   carnegie 75
-  chessboard 88
+  chessboard 95
   death_taco 91
   halo 88
-  hotel 70
+  hotel 75
   mahjongg 1 # doesn't scale
-  puppies 75
-  smurfs 101  # scales at 101
-  zelligars 75
+  puppies 111
+  smurfs 111  # scales at 101
+  zelligars 100 # use lowest for headband, high for golems
 
 Fiddlestix:
   alphabet 40
