@@ -106,7 +106,12 @@
 }
 
 #alias f12 {
-  #loop 2 12 loop {!sell all from bag $loop};
+  #if {$map[current_room] == 11358} {
+    #loop 2 12 loop {!sacrifice all from bag $loop};
+  };
+  #else {
+    #loop 2 12 loop {!sell all from bag $loop};
+  };
 }
 
 #alias use_corpse {
