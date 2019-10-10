@@ -2,6 +2,10 @@
   #if {"$stepper" == "on"} {stepper off};
 }
 
+#action {^That monster is not attacking you.$} {
+  #var can_throw false;
+}
+
 #nop Palm actions;
 
 #action {^{(> )*}The vibrations have ceased on %1.$} {

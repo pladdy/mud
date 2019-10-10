@@ -60,7 +60,12 @@
 
 #alias attempt_throw {
   #local MIN_CHI 35;
-  #if {$sp == $sp_max && $gp1 > $MIN_CHI && $enemy > 0} {!throw};
+  #if {$sp == $sp_max
+       && $gp1 > $MIN_CHI
+       && $enemy > 0
+       && "$can_throw" == "true"} {
+    !throw;
+  };
 }
 
 #alias auto_palm {
@@ -77,6 +82,7 @@
 #alias commands_after_corpse {
   #var pressure {off};
   #var palm_active {false};
+  #var can_throw {true};
   !meditate;
 }
 
@@ -106,7 +112,15 @@
 }
 
 #alias f12 {
-  #loop 2 12 loop {!sell all from bag $loop};
+  #if {$map[current_room] == 11358} {
+    #loop 2 12 loop {
+      !get all from bag $loop;
+      !sacrifice all;
+    };
+  };
+  #else {
+    #loop 2 12 loop {!sell all from bag $loop};
+  };
 }
 
 #alias use_corpse {
