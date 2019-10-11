@@ -24,9 +24,10 @@
 %+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling
-a tame little shrew
+a %+ puddle of slime
 a %+ grizzly bear
 a %+ wandering spider
+a tame little shrew
 an old dwarven smith
 arctic wolf
 arundin

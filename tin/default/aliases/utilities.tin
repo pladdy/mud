@@ -18,6 +18,8 @@
   }
 }
 
+#alias bootrun {fcat notes/bootrun.txt}
+
 #alias f12 {
   #loop 2 12 i {!sell all from bag $i};
 }
