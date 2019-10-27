@@ -74,9 +74,11 @@ Unknowns:
   Blue pointy hat from Hich Colonic run hc
 
 Stats:
-  Einstein's brain (+3 int)
-  lift weights in silicon wraiths (+1 str)
-  drink liquid in chicken guards (+1-3 random stat, usually dex/str)
-  pooki (+1-2 wis)                          run way_dock, charter ao
   alphabet miniquest (+1 all stats, +1 dex) run r
+  arcanarton books
   Black potion with little yellow floaties  run rabbit_hole
+  drink liquid in chicken guards (+1-3 random stat, usually dex/str)
+  Einstein's brain (+3 int)                 run_einsteins
+  lift weights in silicon wraiths (+1 str)  run lift_weights
+  pooki (+1-2 wis)                          run way_dock, charter ao
+
