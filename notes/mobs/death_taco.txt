@@ -1,0 +1,32 @@
+Death Taco
+
+Created in death taco area by killing 1 of each ingredient and then 'assemble death taco'
+
+It has all the specials of the ingredients + 3 lives
+
+- can bleed you with a taco shell (taco)
+- can blind you (hot sauce)
+- can throw you from room (lettuce)
+- can poison you (meat)
+- can dodge (tomatoes)
+- can make you unwield (cheese)
+- can make you unwear eq (guacamole)
+
+- does NOT regen like sour cream...
+
+Equipment:
+
+It drops one of the below:
+
+- Shot of Tequila ( , , , ):            Fire damage in a room
+- Spork Lance ( , , sharp, wicked):     A weapon (lance), randomly heals hp/sp, does specials
+- Quesadilla Codpiece ( , , , massive): An other (to be worn) - AC across all types
+- Guacamole skin ( , , large, huge):    Temporary Damage reduction treatment
+
+Classes:
+
+Class is dependent on 'scaler' setting:
+
+- 45: ~3M
+- 73: ~16M
+- 91: ~37M

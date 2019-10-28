@@ -16,8 +16,8 @@ death taco,  3.2M      ?,        ?,        16M
 
 Mob Specials:
   shells:     shell fragments special, bleed damage, no wimpy
-  lettuce:    tank forced to lower level
-  tomato:     tomato juice special damage
+  lettuce:    tank booted from room
+  tomato:     tomato juice special damage and dodges
   cheese:     unwield weapon until cheese evaporates
   meat:       temporary short duration -con, stacking (nasty)
   sour cream: big special (hurts), regens
@@ -25,7 +25,7 @@ Mob Specials:
   hot sauce:  blinds you
 
 drop tiers
-1-49, 50-74, 75-91, 92+
+1-49, 50-74, 75-90, 91+
 
 veggie taco
   A Cervesa      (, , , refreshing, strong): +3 con, +4 con, 100% overmax sp x 3
@@ -53,9 +53,5 @@ works taco
   Lettuce Leaf        (, , , ):      Used to change WC to blunt
   Packet of hot sauce (, , , ):      +fire WC to a weapon
 
-death taco
-  - 3 lives, has all specials
-  Shot of Tequila ( , , , ):            Fire damage in a room
-  Spork Lance ( , , sharp, ):           A weapon (lance), randomly heals hp/sp, does specials
-  Quesadilla Codpiece ( , , , massive): An other (to be worn)- AC across all types
-  Guacamole skin ( , , large, ):        Temporary Damage reduction treatment
+death taco:
+  see notes/mobs/death_taco.txt
