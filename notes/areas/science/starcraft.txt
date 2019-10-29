@@ -1,7 +1,10 @@
 Area scales up as boot progresses, each 24 hour period that passes mobs get
 bigger.
 
-7-day firebat is class 2B (Billion, not Million)
+1 CMC armour is dropped per day
+Each hour or so classes go up
+  - 7-day firebat is class 2B (Billion, not Million)
+  - drops best CMC armour
 
 Mob scaling:
 
@@ -26,10 +29,15 @@ Mobs:
 
 Classes:
 
+~1 day 10 hours
   - Terran SCV -{menacing}-, 3.2M
   - Terran Marine -{menacing}-, 2.8M
   - Terran Firebat -{menacing}-, 3.7M
   - Huge Terran Firebat -{meancing}-, 9.5M
+
+~1 day 15 hours
+  - Terran SCV -{menacing}-, 5.2M
+  - Terran Marine -{menacing}-, 5.2M
 
 After killing Huge Terran Firebat:
 A surge of powerful electricity runs screaming through your veins
