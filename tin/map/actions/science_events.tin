@@ -69,7 +69,7 @@
 #nop Brood Wars;
 
 #action {^A Starcraft Expansion Shuttle Bay (e)} {
-  #if {$map[current_room] == 10045} { #map goto 10046; }
+  #if {$map[current_room] == 10045} { #map goto 29567; }
 }
 
 #nop Silicon Wraiths;
