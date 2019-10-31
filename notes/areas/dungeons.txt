@@ -12,17 +12,17 @@ Balderdash:
   zelligars 100 # use lowest for headband, high for golems
 
 Fiddlestix:
-  alphabet 40
+  alphabet 55
   androids 40
   carnegie 40
-  chessboard 40
-  death_taco 40
-  halo 40
-  hotel 40
+  chessboard 55
+  death_taco 50
+  halo 50
+  hotel 50
   mahjongg 1 # doesn't scale
-  puppies 40
+  puppies 50
   smurfs 50  # scales at 101
-  zelligars 40
+  zelligars 50
 
 Gilead:
   alphabet 50
