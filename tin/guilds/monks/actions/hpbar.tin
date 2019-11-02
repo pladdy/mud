@@ -71,7 +71,7 @@
 }
 
 #action {^You need not meditate further, type 'stopmed' to stop.$} {
-  #if {$hp == $hp_max && $sp == $sp_max} {
+  #if {$hp >= $hp_max && $sp >= $sp_max} {
     !stopmed;
   } {
     !hp ;
