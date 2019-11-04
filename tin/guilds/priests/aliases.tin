@@ -1,8 +1,11 @@
-#alias use_corpse {
+#alias commands_after_corpse {
+  m;
+}
+
+#alias enable_panics {
+  !contingency on;
+  !paction on;
   !hp;
-  !offer corpse;
-  !hp;
-  !get all;
 }
 
 #alias f10 {use_corpse}
@@ -13,19 +16,26 @@
       !get all from bag $i;
       !sacrifice all;
     };
+  };
+  #else {
+    #loop 2 12 i {!sell all from bag $i};
   }
-}
-
-#alias commands_after_corpse {
-  !meditate;
 }
 
 #alias m {
   !contingency off;
+  !paction off;
   !meditate;
 }
 
 #alias reof {
   !unwrap corpse;
   !offer corpse;
+}
+
+#alias use_corpse {
+  !hp;
+  !offer corpse;
+  !hp;
+  !get all;
 }

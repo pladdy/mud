@@ -1,31 +1,36 @@
 aset priest_announce white
 aset priest_chant higreen
 
+alias ar aretrieve
+alias be beseech
 alias bk barkskin
-
 alias cc cure critical
 alias cd cure deadly
 alias cl cure light
 alias cs cure serious
-
 alias cw cwindi
 alias com chant
 alias da donate all
+alias en entangle
 alias gs gscore
 alias gs2 gscore2
 alias gs3 summary
 alias gs4 summary2
 alias h hammer
+alias ha haste
 alias id identify
 alias info priest
+alias inv invigorate
 alias m meditate
 alias ms mstone
 alias msp priest myspells
 alias pe peace
 alias ps pstatus
 alias r reagents
+alias ra radiance
 alias sac sacrifice
 alias sp spells
 alias ve vestment
+alias wo word
 
-hpbar hp#sp#mana#sto#mend2#mh#NL#pgxxl#pty#cl#prot#vest#bark
+hpbar hp#sp#mana#sto#mend#mh#NL#pgxxl#pty#cl3#prot#vest#bark#haste

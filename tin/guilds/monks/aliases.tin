@@ -88,7 +88,7 @@
 
 #alias en {
   #if {%0 > 0 } {!enervate %0};
-  #else {!enervate 80};
+  #else {!enervate 200};
   #2 {!hands};
 }
 
