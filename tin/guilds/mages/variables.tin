@@ -1,2 +1,2 @@
-#var mage_summons {.* golem|Something};
+#var summons {.* golem|Something};
 #var slowed {0};

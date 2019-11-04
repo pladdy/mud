@@ -1,11 +1,23 @@
+#alias attempt_meditate {
+  #local MAX_PIETY 100;
+  #math {min_mana_for_meditate} {$gp1_max * .8};
+
+  #nop don't meditate if fighting, and mana is < 80% of max or piety is not max;
+  #if {$enemy == 0 && ($gp1 < $min_mana_for_meditate || $gp2 < $MAX_PIETY)} {m};
+}
+
+#alias attempt_psummon {
+  #if {"$psummon" == "off" && $enemy > 0 && $sp > 200} {!psummon};
+}
+
 #alias commands_after_corpse {
-  m;
+  attempt_meditate;
+  #var psummon off;
 }
 
 #alias enable_panics {
   !contingency on;
   !paction on;
-  !hp;
 }
 
 #alias f10 {use_corpse}
@@ -34,8 +46,11 @@
 }
 
 #alias use_corpse {
-  !hp;
   !offer corpse;
   !hp;
   !get all;
+}
+
+#alias wimpy_commands {
+  #delay 2 {attempt_meditate};
 }

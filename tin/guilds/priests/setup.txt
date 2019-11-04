@@ -25,6 +25,7 @@ alias m meditate
 alias ms mstone
 alias msp priest myspells
 alias pe peace
+alias pro protection
 alias ps pstatus
 alias r reagents
 alias ra radiance

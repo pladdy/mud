@@ -10,8 +10,9 @@
 }
 
 #action {^Your legs run away with you!} {
+  #showme <110>Wimpy was a random direction!;
   _default_wimpy_commands;
-  #showme <110>Wimpy was to random direction!;
+  wimpy_commands;
 }
 
 #action {^Your legs run away with you %1.$} {
