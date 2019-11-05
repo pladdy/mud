@@ -1,2 +1,5 @@
+#var blade {OFF};
+#var psummon {OFF};
+#var pshift {OFF};
 #var summons {cloud elemental}; #nop selene psummon
-#var blade {off}; #nop assume blade is off;
+

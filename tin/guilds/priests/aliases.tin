@@ -1,18 +1,27 @@
 #alias attempt_meditate {
   #local MAX_PIETY 100;
-  #math {min_mana_for_meditate} {$gp1_max * .8};
+  #math {min_mana_for_meditate} {$gp1_max * .7};
 
   #nop don't meditate if fighting, and mana is < 80% of max or piety is not max;
-  #if {$enemy == 0 && ($gp1 < $min_mana_for_meditate || $gp2 < $MAX_PIETY)} {m};
+  #if {$gp1 < $min_mana_for_meditate || $gp2 < $MAX_PIETY} {m};
+}
+
+#alias attempt_protection {
+  #if {"$protection_status" == "OFF" && $enemy > 0 && $sp > 150} {!protection};
+}
+
+#alias attempt_pshift {
+  #if {"$pshift" == "OFF" && $enemy > 0 && $sp > 200} {!planeshift};
 }
 
 #alias attempt_psummon {
-  #if {"$psummon" == "off" && $enemy > 0 && $sp > 200} {!psummon};
+  #if {"$psummon" == "OFF" && $enemy > 0 && $sp > 200} {!psummon};
 }
 
 #alias commands_after_corpse {
   attempt_meditate;
-  #var psummon off;
+  #var psummon OFF;
+  #var pshift OFF;
 }
 
 #alias enable_panics {

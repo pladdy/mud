@@ -1,6 +1,7 @@
 (%w golem)
 's french bulldog
 's golden dun akhal-teke
+%+'s aerial servant
 %+'s esquire
 %+ storm servant
 %+ broodling

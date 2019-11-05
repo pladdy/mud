@@ -23,6 +23,8 @@
   #var gp2 {%2};
   #var gp2_max {100};
 
+  #var protection_status {%4};
+  #format {protection_status} {%p} {$protection_status};
   #var vestment_status {%5};
   #format {vestment_status} {%p} {$vestment_status};
   #var barkskin_status {%6};
@@ -33,8 +35,10 @@
   #if {"$barkskin_status" == "OFF" && $enemy > 0} {!barkskin};
   #if {"$vestment_status" == "OFF" && $enemy > 0} {!vestment};
   #if {"$haste_status" == "OFF" && $enemy > 0} {!haste};
-  #if {"$blade" == "off" && $enemy > 0} {!blade};
+  #if {"$blade" == "OFF" && $enemy > 0} {!blade};
+  attempt_protection;
   attempt_psummon;
+  #nop attempt_pshift;
 
   show_status_bar;
 }
@@ -55,7 +59,7 @@
   enable_panics;
 }
 
-#action {^{(> )*}The sudden attack by Wyvern breaks your meditation!} {
+#action {^{(> )*}The sudden attack by %1 breaks your meditation!} {
   enable_panics;
 }
 
@@ -86,15 +90,15 @@
 #nop Blade;
 
 #action {^{(> )*}Small razor-sharp blades hiss as they begin to revolve around your body$} {
-  #var blade {on};
+  #var blade {ON};
 }
 
 #action {^{(> )*}You are already encircled by a maelstrom of gyrating razor-sharp blades.$} {
-  #var blade {on};
+  #var blade {ON};
 }
 
 #action {^{(> )*}The blades stop swirling and shimmer into nothingness.$} {
-  #var {blade} {off};
+  #var {blade} {OFF};
   #if {$enemy > 0} {!blade};
 }
 
@@ -105,14 +109,30 @@
   !mend $player;
 }
 
+#nop Plane shift;
+
+#action {^{(> )*}Selene, aid my struggle with a gate to the nether planes!$} {
+  #var pshift ON;
+}
+
+#action {^{(> )*}There is already a plane rift present.$} {
+  #var pshift ON;
+}
+
+#nop Protection;
+
+#action {^{(> )*}The strands of your protective aura begin to break apart, then fade away.$} {
+  attempt_protection;
+}
+
 #nop Psummon;
 
 #action {^{(> )*}Suddenly, a cloud elemental arrives from the plane of air to} {
-  #var psummon {on};
+  #var psummon {ON};
 }
 
 #action {^{(> )*}You have already summoned help.$} {
-  #var psummon {on};
+  #var psummon {ON};
 }
 
 #nop Vestment
