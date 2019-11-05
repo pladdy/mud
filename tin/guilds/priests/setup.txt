@@ -21,6 +21,8 @@ alias ha haste
 alias id identify
 alias info priest
 alias inv invigorate
+alias lf lifeforce
+alias lts lightningstrike
 alias m meditate
 alias ms mstone
 alias msp priest myspells
