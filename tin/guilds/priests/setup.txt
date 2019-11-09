@@ -37,3 +37,4 @@ alias ve vestment
 alias wo word
 
 hpbar hp#sp#mana#sto#mend#mh#NL#pgxxl#pty#cl3#prot#vest#bark#haste
+hpbar hp#sp#mana#sto#mend#mh#NL#pgxxl#pty#cl3#spells

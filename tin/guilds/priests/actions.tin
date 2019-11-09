@@ -18,6 +18,19 @@
   #nop #if {$sp < 50 && $enemy > 0} {#2 ins};
 }
 
+#action {^GXP%%: [%1%%] PTY: (%2%%) CL: [%3%] D:[%4]} {
+  #var spells {%4};
+  #regex {$spells} {PR} {#nop} {!protection};
+  #regex {$spells} {VE} {#nop} {!vestment};
+  #regex {$spells} {BA} {#nop} {!barkskin};
+  #regex {$spells} {HA} {#nop} {!haste};
+  #regex {$spells} {BL} {#nop} {!bless};
+
+  attempt_psummon;
+  #nop attempt_pshift;
+  show_status_bar;
+}
+
 #action {^GXP%%: [%1%%] PTY: (%2%%) CL: [%3%] PROT: %4 VEST: %5 BARK: %6 HASTE: %7} {
   #var gxp {%1};
   #var gp2 {%2};
@@ -36,10 +49,10 @@
   #if {"$vestment_status" == "OFF" && $enemy > 0} {!vestment};
   #if {"$haste_status" == "OFF" && $enemy > 0} {!haste};
   #if {"$blade" == "OFF" && $enemy > 0} {!blade};
+
   attempt_protection;
   attempt_psummon;
   #nop attempt_pshift;
-
   show_status_bar;
 }
 
