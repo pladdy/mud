@@ -1,9 +1,7 @@
 #alias attempt_meditate {
-  #local MAX_PIETY 100;
   #math {min_mana_for_meditate} {$gp1_max * .7};
-
-  #nop don't meditate if fighting, and mana is < 80% of max or piety is not max;
-  #if {$gp1 < $min_mana_for_meditate || $gp2 < $MAX_PIETY} {m};
+  #nop don't meditate if mana is high enough or piety is not max;
+  #if {$gp1 < $min_mana_for_meditate || $gp2 < $gp2_max} {m};
 }
 
 #alias attempt_protection {

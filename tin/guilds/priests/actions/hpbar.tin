@@ -1,0 +1,64 @@
+#action {HP: %1/%2 SP: %3/%4 MANA: %5/%6 %7 E: [%8]} {
+  #var hp {%1};
+  #var hp_max {%2};
+
+  #var sp {%3};
+  #var sp_max {%4};
+
+  #var gp1 {%5};
+  #var gp1_max {%6};
+
+  #var enemy_str {%8};
+  #regexp {$enemy_str} {: %d} {#var enemy &1};
+
+  #if {"$enemy_str" == "none"} {#var enemy {0}};
+  #replace {enemy} {%} {};
+
+  #nop don't need with contingency at glvl 15;
+  #nop #if {$sp < 50 && $enemy > 0} {#2 ins};
+}
+
+#action {^GXP%%: [%1%%] PTY: (%2%%) CL: [%3%] C: %4/%5 D:[%6]} {
+  #var gxp {%1};
+  #var gp2 {%2};
+  #var gp2_max {100};
+  #var corpses %4;
+  #var spells {%6};
+
+  #regex {$spells} {PR} {#nop} {!protection};
+  #regex {$spells} {VE} {#nop} {!vestment};
+  #regex {$spells} {BA} {#nop} {!barkskin};
+  #regex {$spells} {HA} {#nop} {!haste};
+  #regex {$spells} {BL} {#nop} {!bless};
+
+  attempt_psummon;
+  #nop attempt_pshift;
+
+  #if {$gp1 < 100 && $corpses > 0} {reof};
+  show_status_bar;
+}
+
+#action {^GXP%%: [%1%%] PTY: (%2%%) CL: [%3%] PROT: %4 VEST: %5 BARK: %6 HASTE: %7} {
+  #var gxp {%1};
+  #var gp2 {%2};
+  #var gp2_max {100};
+
+  #var protection_status {%4};
+  #format {protection_status} {%p} {$protection_status};
+  #var vestment_status {%5};
+  #format {vestment_status} {%p} {$vestment_status};
+  #var barkskin_status {%6};
+  #format {barkskin_status} {%p} {$barkskin_status};
+  #var haste_status {%7};
+  #format {haste_status} {%p} {$haste_status};
+
+  #if {"$barkskin_status" == "OFF" && $enemy > 0} {!barkskin};
+  #if {"$vestment_status" == "OFF" && $enemy > 0} {!vestment};
+  #if {"$haste_status" == "OFF" && $enemy > 0} {!haste};
+  #if {"$blade" == "OFF" && $enemy > 0} {!blade};
+
+  attempt_protection;
+  attempt_psummon;
+  #nop attempt_pshift;
+  show_status_bar;
+}

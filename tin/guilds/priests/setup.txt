@@ -1,4 +1,5 @@
 aset priest_announce white
+aset priest_bitch red
 aset priest_chant higreen
 
 alias ar aretrieve
@@ -32,9 +33,11 @@ alias ps pstatus
 alias r reagents
 alias ra radiance
 alias sac sacrifice
+alias sf soulforce
 alias sp spells
+alias su sunray
 alias ve vestment
 alias wo word
 
 hpbar hp#sp#mana#sto#mend#mh#NL#pgxxl#pty#cl3#prot#vest#bark#haste
-hpbar hp#sp#mana#sto#mend#mh#NL#pgxxl#pty#cl3#spells
+hpbar hp#sp#mana#sto#mend#mh#NL#pgxxl#pty#cl3#coffin#spells
