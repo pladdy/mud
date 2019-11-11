@@ -4,7 +4,9 @@ aset priest_chant higreen
 
 alias ar aretrieve
 alias be beseech
+alias ben beneficense
 alias bk barkskin
+alias bl bless
 alias cc cure critical
 alias cd cure deadly
 alias cl cure light
@@ -36,7 +38,9 @@ alias sac sacrifice
 alias sf soulforce
 alias sp spells
 alias su sunray
+alias tw twister
 alias ve vestment
+alias wi wings
 alias wo word
 
 hpbar hp#sp#mana#sto#mend#mh#NL#pgxxl#pty#cl3#prot#vest#bark#haste

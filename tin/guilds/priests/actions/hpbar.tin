@@ -30,6 +30,7 @@
   #regex {$spells} {BA} {#nop} {!barkskin};
   #regex {$spells} {HA} {#nop} {!haste};
   #regex {$spells} {BL} {#nop} {!bless};
+  #if {"$blade" == "OFF" && $enemy > 0} {!blade};
 
   attempt_psummon;
   #nop attempt_pshift;
