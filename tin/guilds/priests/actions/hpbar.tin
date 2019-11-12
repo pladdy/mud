@@ -25,12 +25,14 @@
   #var corpses %4;
   #var spells {%6};
 
-  #regex {$spells} {PR} {#nop} {!protection};
-  #regex {$spells} {VE} {#nop} {!vestment};
-  #regex {$spells} {BA} {#nop} {!barkskin};
-  #regex {$spells} {HA} {#nop} {!haste};
-  #regex {$spells} {BL} {#nop} {!bless};
-  #if {"$blade" == "OFF" && $enemy > 0} {!blade};
+  #if {$enemy > 0} {
+    #regex {$spells} {PR} {#nop} {!protection};
+    #regex {$spells} {VE} {#nop} {!vestment};
+    #regex {$spells} {BA} {#nop} {!barkskin};
+    #regex {$spells} {HA} {#nop} {!haste};
+    #regex {$spells} {BL} {#nop} {!bless};
+    #if {"$blade" == "OFF" && $enemy > 0} {!blade};
+  };
 
   attempt_psummon;
   #nop attempt_pshift;

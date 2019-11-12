@@ -1,27 +1,7 @@
-#nop Meditation;
+#nop Curse;
 
-#action {^{(> )*}You finish your meditation and stand up.$} {
-  enable_panics;
-}
-
-#action {^{(> )*}You close your book and stand up, ready to do battle.$} {
-  enable_panics;
-}
-
-#action {^{(> )*}You break your meditation!$} {
-  enable_panics;
-}
-
-#action {^{(> )*}The spell casting disrupts your meditation, and the spell fails!$} {
-  enable_panics;
-}
-
-#action {^{(> )*}The sudden attack by %1 breaks your meditation!} {
-  enable_panics;
-}
-
-#action {^{(> )*}You do not need to meditate.$} {
-  enable_panics;
+#action {^{(> )*}Uttering a word to Selene, you curse %1!$} {
+  #var curse ON;
 }
 
 #nop Barkskin;
@@ -59,7 +39,35 @@
   #if {$enemy > 0} {!haste};
 }
 
-# nop Mends;
+#nop Meditation;
+
+#action {^{(> )*}You finish your meditation and stand up.$} {
+  enable_panics;
+}
+
+#action {^{(> )*}You close your book and stand up, ready to do battle.$} {
+  enable_panics;
+}
+
+#action {^{(> )*}You break your meditation!$} {
+  enable_panics;
+}
+
+#action {^{(> )*}The spell casting disrupts your meditation, and the spell fails!$} {
+  enable_panics;
+}
+
+#action {^{(> )*}The sudden attack by %1 breaks your meditation!} {
+  enable_panics;
+}
+
+#action {^{(> )*}You do not need to meditate.$} {
+  enable_panics;
+}
+
+
+#nop Mends;
+
 !afk 'high5' me for mends;
 
 #action {^%1 gives you a high-five!} {

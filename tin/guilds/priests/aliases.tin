@@ -18,6 +18,7 @@
 
 #alias commands_after_corpse {
   attempt_meditate;
+  #var curse OFF;
   #var psummon OFF;
   #var pshift OFF;
 }
