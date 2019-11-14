@@ -23,9 +23,13 @@
     #var enemy_last {0};
   };
 
-  #if {$gp1 <= 25 && $corpses> 0} {!reab};
-  #if {$gp1 <= 5 && $bioplasts > 0} {!consume bioplast};
+  #if {$enemy > 0} {
+    #if {$gp1 <= 25 && $corpses> 0} {reab};
+    #elseif {$gp1 <= 5 && $bioplasts > 0} {!consume bioplast};
+  };
+
   #if {$chaos_flux == 99 & $relinquishes > 0} {!relinquish};
+  stepper_check;
 }
 
 #action {^Sk: %1 Gx: %2% F: %3: %4% St: %5$} {
