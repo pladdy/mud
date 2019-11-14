@@ -23,12 +23,20 @@
     #var enemy_last {0};
   };
 
+  #if {$gp1 <= 25 && $corpses> 0} {!reab};
   #if {$gp1 <= 5 && $bioplasts > 0} {!consume bioplast};
   #if {$chaos_flux == 99 & $relinquishes > 0} {!relinquish};
 }
 
 #action {^Sk: %1 Gx: %2% F: %3: %4% St: %5$} {
-  #var gxp {%2};
+  #var gxp %2;
+  #var status %5;
+
+  #nop if relinquish is active, don't try to activate hyperproliferate;
+  #regex {$status} {R} {#nop} {
+    #regex {$status} {H} {#nop} {!hyperproliferate};
+  };
+
   show_status_bar;
 }
 
