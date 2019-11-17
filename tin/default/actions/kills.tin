@@ -14,7 +14,8 @@
       !glance;
       wrap_or_use_corpse;
       #if {"$party_status" == "yes"} {!divvy gold};
-      #if {"$flying" == "true"} {!swoop all} {!get all};
+      #nop assumes an alias 'f' exists to 'get all';
+      !f;
       #if {"$stepper" == "on"} {pba};
     };
 
