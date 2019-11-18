@@ -5,9 +5,8 @@
 
 #alias fu {
   #if {"%2" == ""} { !fuse %1 and %1 };
-  #elseif { "%1" == "all" } { !fuse all %2 }
+  #elseif { "%1" == "all" } { !fuse all %2 };
   #else { !fuse %1 and %2 };
-
   !keep all bioplast;
 }
 
