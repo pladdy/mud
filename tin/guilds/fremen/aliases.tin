@@ -1,6 +1,6 @@
 #alias am {
   !hide;
-  !ambush %0;
+  !fk m %0;
 }
 
 #alias commands_after_corpse {

@@ -1,4 +1,4 @@
-#action {^H: %1/%2 S: %3/%4 W: %5/%6(%7) L: %8% P: %9(%10%) E#: %11 E: %12 $} {
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 W: %5/%6(%7) L: %8% P: %9(%10%) E#: %11 E: %12 $} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -19,21 +19,38 @@
   show_status_bar;
 }
 
-#action {^Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 Gt:%7 G:} {
+#action {^%!{[> ]*}Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 Gt:%7 G:} {
   #var gxp %7;
 
+  #local spice %2;
   #local ammo %4;
   #local ammo_max %5;
 
-  #if {"$enemy" != "none" && "$ammo" != "--"} {
+  #if {$enemy > 0 && "$ammo" != "--"} {
     #if {$ammo == 1 && $ammo_max > 0} {!mload};
-  }
+  };
+
+  #if {$enemy > 0 && "$spice" == "Withdrawal" && "$have_spice" == "true"} {
+    !take spice;
+  };
 }
 
-#action {^Again, the trip is short, the hatch opens and you step out onto the$} {
+#action {^%!{[> ]*}Again, the trip is short, the hatch opens and you step out onto the$} {
   #if {$map[last_room] == 8164} {
     #map goto 63;
   } {
     #map goto 8164;
   }
+}
+
+#action {^%!{[> ]*}There is no spice here.$} {
+  #var have_spice false;
+}
+
+#action {^%!{[> ]*}You pay %1 gold coins for pure spice.$} {
+  #var have_spice true;
+}
+
+#action {Spice Melange (Pure).$} {
+  #var have_spice true;
 }

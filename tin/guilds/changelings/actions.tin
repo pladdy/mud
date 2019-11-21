@@ -41,6 +41,7 @@
     #regex {$status} {H} {#nop} {!hyperproliferate};
   };
 
+  attempt_perseverance;
   show_status_bar;
 }
 

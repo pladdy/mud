@@ -1,3 +1,16 @@
+#alias attempt_perseverance {
+  #math {gp_ratio} {$gp1 / $gp2};
+
+  #if {$gp_ratio > 4} {
+    #nop toggle on;
+    #regex {$status} {V} {#nop} {!perseverance};
+  };
+  #elseif {$gp_ratio < 2} {
+    #nop toggle off;
+    #regex {$status} {V} {!perseverance};
+  }
+}
+
 #alias f10 {
   use_corpse;
   !swoop;
