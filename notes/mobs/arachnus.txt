@@ -5,7 +5,12 @@ Class: 3.7M
 Notes:
   have to kill it several times (5?)
   does edged, acid, and poison dmg
-  is edged immune (other dmg types?)
+
+Immunities:
+  - is edged immune (other dmg types?)
+
+Specials:
+  - 'anti-pet' ; kills followers instantly (Tensor code to stop mages?)
 
 Items:
   drops manidbles of arachnus (unique); good exotic, poison dmg

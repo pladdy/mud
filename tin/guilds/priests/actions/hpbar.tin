@@ -1,4 +1,4 @@
-#action {HP: %1/%2 SP: %3/%4 MANA: %5/%6 %7 E: [%8]} {
+#action {^%!{[> ]*}HP: %1/%2 SP: %3/%4 MANA: %5/%6 %7 E: [%8]} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -18,30 +18,43 @@
   #nop #if {$sp < 50 && $enemy > 0} {#2 ins};
 }
 
-#action {^GXP%%: [%1%%] PTY: (%2%%) CL: [%3%] C: %4/%5 D:[%6]} {
+#nop without a coffin second hpbar changes, below two actions account for it;
+
+#alias attempt_all_the_things {
+  attempt_effects;
+  attempt_psummon;
+  #nop attempt_pshift;
+  attempt_offer;
+  attempt_beseech;
+}
+
+#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%] C: %5/%6 D:[%7]} {
   #var gxp {%1};
   #var gp2 {%2};
   #var gp2_max {100};
-  #var corpses %4;
-  #var spells {%6};
+  #var beseeches %3;
+  #var corpses %5;
+  #var spells {%7};
 
-  #if {$enemy > 0} {
-    #regex {$spells} {PR} {#nop} {!protection};
-    #regex {$spells} {VE} {#nop} {!vestment};
-    #regex {$spells} {BA} {#nop} {!barkskin};
-    #regex {$spells} {HA} {#nop} {!haste};
-    #regex {$spells} {BL} {#nop} {!bless};
-    #if {"$blade" == "OFF" && $enemy > 0} {!blade};
-  };
-
-  attempt_psummon;
-  #nop attempt_pshift;
-
-  #if {$gp1 < 100 && $corpses > 0} {reof};
+  attempt_all_the_things;
   show_status_bar;
 }
 
-#action {^GXP%%: [%1%%] PTY: (%2%%) CL: [%3%] PROT: %4 VEST: %5 BARK: %6 HASTE: %7} {
+#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%] D:[%5]} {
+  #var gxp {%1};
+  #var gp2 {%2};
+  #var gp2_max {100};
+  #var beseeches %3;
+  #var spells {%5};
+
+  attempt_all_the_things;
+  show_status_bar;
+}
+
+#nop while a noob priest, you can't have all spells on hpbar (annoying);
+#nop below has each hpbar entry listed;
+
+#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3%] PROT: %4 VEST: %5 BARK: %6 HASTE: %7} {
   #var gxp {%1};
   #var gp2 {%2};
   #var gp2_max {100};

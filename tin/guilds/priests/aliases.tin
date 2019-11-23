@@ -1,7 +1,26 @@
+#alias attempt_beseech {
+  #if {$gp1 < 50 && $beseeches > 0} {!beseech};
+}
+
+#alias attempt_effects {
+  #if {$enemy > 0} {
+    #regex {$spells} {PR} {#nop} {!protection};
+    #regex {$spells} {VE} {#nop} {!vestment};
+    #regex {$spells} {BA} {#nop} {!barkskin};
+    #regex {$spells} {HA} {#nop} {!haste};
+    #regex {$spells} {BL} {#nop} {!bless};
+    #if {"$blade" == "OFF" && $enemy > 0} {!blade};
+  };
+}
+
 #alias attempt_meditate {
   #math {min_mana_for_meditate} {$gp1_max * .7};
   #nop don't meditate if mana is high enough or piety is not max;
   #if {$gp1 < $min_mana_for_meditate || $gp2 < $gp2_max} {m};
+}
+
+#alias attempt_offer {
+  #if {$gp1 < 150 && $corpses > 0} {reof};
 }
 
 #alias attempt_protection {

@@ -12,6 +12,7 @@ Immunities:
 Specials:
   - does some kind of mind dmg randomly? nothing big
   - like all crystals does reflective dmg
+  - 'anti-pet' ; kills followers instantly (Tensor code to stop mages?)
 
 Notes:
   has 6 lives, each one is noted by a shade of crystal
