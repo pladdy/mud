@@ -37,6 +37,7 @@
   #system {
     tmux ls > /dev/null 2>&1;
     if [ $? -eq 0 ]; then
+      sleep 1;
       tmux kill-session -t tintin;
     fi;
   };

@@ -103,6 +103,7 @@
 }
 
 #alias resp {reet}
+#alias rest {reet}
 
 #alias resps {#loop 1 5 loop {reet};}
 
