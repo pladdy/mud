@@ -36,4 +36,8 @@
 #var monster_transforms[a normal golden dragons gang member] {member};
 #var monster_transforms[a tough golden dragons gang member] {member};
 #var monster_transforms[a scary golden dragons gang member] {member};
-
+#var monster_transforms[a deep one] {deep one};
+#var monster_transforms[a midget deep one] {deep one};
+#var monster_transforms[a huge deep one] {deep one};
+#var monster_transforms[a deep one with three legs] {deep one};
+#var monster_transforms[an environmentalist fanatic] {fanatic};
