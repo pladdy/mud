@@ -70,7 +70,7 @@
   #local mob_to_remove;
   #format {mob_to_remove} {%l} {%0};
 
-  #foreach $seen_monsters[] {index} {
+  #foreach *seen_monsters[] {index} {
     #regexp {$seen_monsters[$index]} {$mob_to_remove} {
       #list seen_monsters {delete} {$index};
     };
