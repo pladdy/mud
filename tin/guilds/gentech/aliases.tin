@@ -110,3 +110,7 @@
   !reclaim;
   !recharge;
 }
+
+#alias wimpy_commands {
+  !surge;
+}
