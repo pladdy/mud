@@ -9,7 +9,6 @@
 #var monster_transforms[ragged peasant] {peasant};
 #var monster_transforms[skittlebrau player] {player};
 #var monster_transforms[deuces wild player] {player};
-#var monster_transforms[a spectator] {spectator};
 #var monster_transforms[a zombie waiter offering drinks] {zombie};
 #var monster_transforms[a zombie cook looking for something to chop] {zombie};
 #var monster_transforms[a zombie bell hop waiting to carry your things] {zombie};
@@ -36,7 +35,6 @@
 #var monster_transforms[a normal golden dragons gang member] {member};
 #var monster_transforms[a tough golden dragons gang member] {member};
 #var monster_transforms[a scary golden dragons gang member] {member};
-#var monster_transforms[a deep one] {deep one};
 #var monster_transforms[a midget deep one] {deep one};
 #var monster_transforms[a huge deep one] {deep one};
 #var monster_transforms[a deep one with three legs] {deep one};
