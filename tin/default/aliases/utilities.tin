@@ -51,10 +51,8 @@
 }
 
 #alias quit {
-  #var quit true;
   !quit;
-  #nop set a var in gts (global telnet session);
-  #gts #var quit true;
+  #end;
 }
 
 #alias reload_map {

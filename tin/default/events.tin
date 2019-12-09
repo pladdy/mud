@@ -25,9 +25,7 @@
   #showme <170>Session disconnecting...;
   map_save;
   export_session;
-
-  #if {"$quit" == "true"} {#unvar flying};
-  #else {#system {tail -n 20 $session_log}};
+  #system {tail -n 20 $session_log};
 }
 
 #nop when you type '#end' this event is fired;
@@ -37,7 +35,8 @@
   #system {
     tmux ls > /dev/null 2>&1;
     if [ $? -eq 0 ]; then
-      sleep 1;
+      echo "Killing tmux session, check $session_log for logout messages";
+      sleep 2;
       tmux kill-session -t tintin;
     fi;
   };

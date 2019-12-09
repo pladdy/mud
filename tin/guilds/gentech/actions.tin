@@ -1,6 +1,6 @@
-#nop temp action until clone is levelled up to follow;
+#nop temp action until clone is levelled up to 10 when it can follow;
 #action {You attack} {
-  !=call;
+  #nop !=call;
 }
 
 #action {^Hp:%1/%2 Sp:%3/%4 Pu:%5/%6(%7) C:%8 E:%9(%10)} {
