@@ -1,4 +1,4 @@
-#action {^H: %1/%2 S: %3/%4 St: %5% P: %6% B: %7 C: %8/%9% E:%10} {
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 St: %5% P: %6% B: %7 C: %8/%9% E:%10} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -32,7 +32,7 @@
   stepper_check;
 }
 
-#action {^Sk: %1 Gx: %2% F: %3: %4% St: %5$} {
+#action {^%!{[> ]*}^Sk: %1 Gx: %2% F: %3: %4% St: %5$} {
   #var gxp %2;
   #var status %5;
 
@@ -47,22 +47,22 @@
 
 #nop Mimic changes who deals a killing blow from character name to thing being;
 
-#action {^{(> )*}You reach out a slimy tendril towards %1,} {
+#action {^%!{[> ]*}You reach out a slimy tendril towards %1,} {
   #var {character} {%3};
 }
 
-#action {^{(> )*}You are currently mimicking %1.$} {
+#action {^%!{[> ]*}You are currently mimicking %1.$} {
   #var {character} {%3};
 }
 
-#action {^{(> )*}You flow back into your natural form.$} {
+#action {^%!{[> ]*}You flow back into your natural form.$} {
   #var {character} $profile_character;
 }
 
-#action {^You morph into %1!} {
+#action {^%!{[> ]*}You morph into %1!} {
   #var {character} $profile_character;
 }
 
-#action {^Your wounds close as you morph into %1!} {
+#action {^%!{[> ]*}Your wounds close as you morph into %1!} {
   #var {character} $profile_character;
 }
