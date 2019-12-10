@@ -1,7 +1,7 @@
 #alias attempt_defenses {
   #math {gp_ratio} {$gp1 / $gp2};
 
-  #if {$gp_ratio > 4} {
+  #if {$gp_ratio > 3} {
     #nop toggle on;
     #regex {$status} {V} {#nop} {!perseverance};
     #regex {$status} {D} {#nop} {!dissipate};

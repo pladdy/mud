@@ -32,7 +32,7 @@
   stepper_check;
 }
 
-#action {^%!{[> ]*}^Sk: %1 Gx: %2% F: %3: %4% St: %5$} {
+#action {^%!{[> ]*}Sk: %1 Gx: %2% F: %3: %4% St: %5$} {
   #var gxp %2;
   #var status %5;
 
