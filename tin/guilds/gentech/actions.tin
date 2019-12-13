@@ -3,7 +3,12 @@
   #nop !=call;
 }
 
-#action {^Hp:%1/%2 Sp:%3/%4 Pu:%5/%6(%7) C:%8 E:%9(%10)} {
+#action {^%!{[> ]*}pattern buffer for storage. Your cloning was a success!$} {
+  !=afollow on;
+  !=akill on;
+}
+
+#action {^%!{[> ]*}Hp:%1/%2 Sp:%3/%4 Pu:%5/%6(%7) C:%8 E:%9(%10)} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -26,7 +31,7 @@
   #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
 }
 
-#action {^Ef:%1 Ed:%2 B:%. %3% | %4% %. Gx:%5(%6%) Rc:%7} {
+#action {^%!{[> ]*}Ef:%1 Ed:%2 B:%. %3% | %4% %. Gx:%5(%6%) Rc:%7} {
   #nop Ordered gentech gxp goes backwards (down);
   #nop orders are also 1M gxp, so need to flip the gxp so it "grows";
 
@@ -37,10 +42,10 @@
   show_status_bar;
 }
 
-#action {^        BIAS CONFORMATION HAS REACHED SPECIFIED DIFFERENTIAL} {
+#action {^%!{[> ]*}BIAS CONFORMATION HAS REACHED SPECIFIED DIFFERENTIAL} {
   !biaslock;
 }
 
-#action {^[> Attacks <] [%1] [%2] [%3] [%4]$} {
+#action {^%!{[> ]*}[> Attacks <] [%1] [%2] [%3] [%4]$} {
   #if {"%3" == "--------"} {!sya};
 }
