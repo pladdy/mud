@@ -1,6 +1,18 @@
 #nop temp action until clone is levelled up to 10 when it can follow;
-#action {You attack} {
+#action {^%!{[> ]*}You attack} {
   #nop !=call;
+}
+
+#action {^%!{[> ]*}Shenanigans's eyes glow bright green upon the fallen} {
+  !drop corpse;
+  #if {"$coffin_status" == "full" && $enemy > 0} {
+    use_corpse;
+    !f;
+  };
+  #elseif {"$coffin_status" != "full"} {
+    !wrap;
+    !f;
+  };
 }
 
 #action {^%!{[> ]*}pattern buffer for storage. Your cloning was a success!$} {

@@ -1,3 +1,19 @@
+#alias =call {
+  !=call;
+  !=afollow on;
+}
+
+#alias =send {
+  !=afollow off;
+  !=send;
+}
+
+#alias commands_after_corpse {
+  !repair;
+  !stabilize;
+  !tactical;
+}
+
 #alias conform_bias {
   #if {@length{%2} > 0} {
     !biaslock;
@@ -9,6 +25,13 @@
 
 #alias cona {conform_bias attack %1;}
 #alias cond {conform_bias defense %1;}
+
+#alias en {
+  !switchddb sonic;
+  !switch sonicator;
+  !aset synthorg himagenta;
+  !aset ddb himagenta;
+}
 
 #alias f6 {
   !wimpy 0;
@@ -29,7 +52,6 @@
   }
 }
 
-#alias tme {f6 emergency}
 
 #alias f8 {
   #map run smithy;
@@ -67,25 +89,12 @@
   !get all;
 }
 
-#alias commands_after_corpse {
-  !repair;
-  !stabilize;
-  !tactical;
-}
-
 #alias f12 {
   #if {$map[current_room] == 676} {
     #loop 2 12 i {!trash all from bag $i};
   } {
     #loop 2 12 i {!sell all from bag $i};
   }
-}
-
-#alias en {
-  !switchddb sonic;
-  !switch sonicator;
-  !aset synthorg himagenta;
-  !aset ddb himagenta;
 }
 
 #alias fi {
@@ -110,6 +119,8 @@
   !reclaim;
   !recharge;
 }
+
+#alias tme {f6 emergency}
 
 #alias wimpy_commands {
   !surge;
