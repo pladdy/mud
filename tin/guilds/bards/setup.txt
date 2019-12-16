@@ -1,25 +1,36 @@
-alias com bchat bard
-
-alias h bandage
+alias band perform leader of the band
+alias bk backstab
+alias c cast
 alias cc chilling chord
+alias ce cease
+alias com bchat bard
+alias f get all
+alias h bandage
+alias hi hide in shadows
+alias hs cast hardened skin
 alias id identify
 alias kt karma tap
-
-alias p perform
-alias ce cease
-alias o perform o muse
-alias band perform leader of the bands
-
-alias c cast
-alias hs cast hardened skin
 alias lt cast light
-
-setpanic bandage at 70%
+alias o perform o muse
+alias p perform
+alias ps pstats
+alias ps2 pstats2
+alias tb thunderous bellow
 
 aset bard_attack himagenta
-aset bard_dodge hicyan
-aset bard_heal higreen
+aset bard_blink hicyan
+aset bard_cacophony hiblack
+aset bard_color1 higreen
+aset bard_color2 yellow
+aset bard_color3 himagenta
 aset bard_dirge hiblack
+aset bard_dodge hicyan
 aset bard_enhance yellow
+aset bard_fail flash+hired
+aset bard_heal higreen
+aset bard_main higren
+aset bard_song hicyan
 
 bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% S: &$S$&(&$SR$&%) E: &$C$& &$NL$&g2n/g2s: @higreen:&$G2N%$&@%/@higreen:&$G2S$&@ A:&$AS$& &$P$
+
+setpanic bandage at 75%

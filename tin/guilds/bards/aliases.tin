@@ -1,10 +1,12 @@
-#alias use_corpse {
-  !hp;
-  !cease;
-  #if {$gp1 == $gp1_max} {!kt};
-  di;
-  !hp;
-  !get all;
+#alias band {
+  !remove shield;
+  !perform leader of the band;
+}
+
+#alias di {
+  !remove shield;
+  !perform dirge;
+  !wear shield;
 }
 
 #alias f10 {use_corpse}
@@ -17,12 +19,21 @@
   }
 }
 
-#alias di {
-  !remove shield;
-  !perform dirge;
-  !wear shield;
+#alias kt {
+  #local MIN_KARMA_TAP 20;
+  #if {%1} {!karma tap %1} {!karma tap $MIN_KARMA_TAP};
 }
 
-#alias kt {
-  #if {%1} {!karma tap %1} {!karma tap 20};
+#alias redi {
+  !unwrap;
+  use_corpse;
+}
+
+#alias use_corpse {
+  !hp;
+  !cease;
+  #if {$gp1 == $gp1_max} {kt};
+  di;
+  !hp;
+  !f;
 }

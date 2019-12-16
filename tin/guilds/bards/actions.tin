@@ -1,4 +1,4 @@
-#action {^H: %1/%2 S: %3/%4 K: %5/%6 V: %7/100% S: %8(%9%) E: %10%?$} {
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 K: %5/%6 V: %7/100%% S: %8(%9%%) E: %10} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -8,26 +8,39 @@
   #var gp1 {%5};
   #var gp1_max {%6};
 
-  #var gp2 {%6};
+  #var gp2 {%7};
   #var gp2_max {100};
 
-  #var enemy {%10};
-  #replace {enemy} {%} {};
+  #local enemy_raw {%10};
+  #replace {enemy_raw} {T:} {};
+  #replace {enemy_raw} {% } {};
+  #if {"$enemy_raw" == " "} {#var enemy 0} {#var enemy $enemy_raw};
 }
 
-#action {^g2n/g2s: %1%/%2 A:%3$} {
+#action {^%!{[> ]*}g2n/g2s: %1%%/%2 A:%3} {
+  #var gxp %2;
+
   #var {effects} %3;
   #replace {effects} {[} {};
   #replace {effects} {]} {};
 
   #nop Capture song/spell effects;
-
   #regexp {$effects} { O:%d } {#var songs[o_muse] &1} {#var songs[o_muse] 0};
   #regexp {$effects} { HS:%d } {#var spells[hard_skin] &1}
                                {#var spells[hard_skin] 0};
 
-  #if {@length{$enemy} > 0} {
-    #if {$spells[hard_skin] <= 3 && $sp > 80} {!cast hardened skin};
+  #if {$enemy > 0} {
+    #if {$spells[hard_skin] <= 5 && $sp > 80} {!cast hardened skin};
     #if {$songs[o_muse] <= 10} {!perform o muse};
-  }
+  };
+
+  show_status_bar;
+}
+
+#action {^%!{[> ]*}You cease your performance of} {
+  !wear shield;
+}
+
+#action {^%!{[> ]*}You finish your performance with a bow.} {
+  !wear shield;
 }
