@@ -1,0 +1,18 @@
+Xenolocles (dark prophet)
+
+Class: 3.7M
+
+Notes:
+  Has 4 lives, his robes reflect them (white -> emerald -> azure -> red)
+  does blunt, energy, mind, poison dmg
+
+Immunities:
+  - n/a
+
+Specials:
+  - hits around, kills followers
+  - more players in the room the more he regens heals
+  - dmg is capped on him, use energy well 
+
+Items:
+  drops mask of gemino mortis
