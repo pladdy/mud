@@ -1,9 +1,13 @@
+alias b bandage
 alias band perform leader of the band
 alias bk backstab
 alias c cast
 alias cc chilling chord
 alias ce cease
 alias com bchat bard
+alias cu cast cure
+alias da donate all
+alias en enthrall
 alias f get all
 alias h bandage
 alias hi hide in shadows

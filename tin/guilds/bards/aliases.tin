@@ -1,3 +1,7 @@
+#alias attempt_tb {
+  #if {$gp1 == $gp1_max && $enemy > 0} {!thunderous bellow};
+}
+
 #alias band {
   !remove shield;
   !perform leader of the band;
