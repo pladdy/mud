@@ -1,4 +1,5 @@
 alias b bandage
+alias bf cast blinding flash
 alias band perform leader of the band
 alias bk backstab
 alias c cast
@@ -15,10 +16,12 @@ alias hs cast hardened skin
 alias id identify
 alias kt karma tap
 alias lt cast light
+alias numb perform comfortably numb
 alias o perform o muse
 alias p perform
 alias ps pstats
 alias ps2 pstats2
+alias re resume
 alias tb thunderous bellow
 
 aset bard_attack himagenta

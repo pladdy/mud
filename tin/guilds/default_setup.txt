@@ -3,20 +3,22 @@ repeat off
 
 eq -reset
 
+alias .login jump
+aliasl a ptell
 alias adv advance
-alias px put $* in box
+alias ch chit
 alias f get all
 alias k kill
 alias g glimpse
 alias gx get $* from box
 alias gab get all from bag
-alias .login jump
+alias id identify
 alias l look at
+alias li lineofsight
+alias px put $* in box
+alias re reply
 alias sa sell all
 alias sk skills
-alias li lineofsight
-alias id identify
-aliasl a ptell
 
 cbrief on mo
 
