@@ -3,6 +3,7 @@ alias bf cast blinding flash
 alias band perform leader of the band
 alias bk backstab
 alias c cast
+alias ca cacophony
 alias cc chilling chord
 alias ce cease
 alias com bchat bard
@@ -11,11 +12,13 @@ alias da donate all
 alias en enthrall
 alias f get all
 alias h bandage
+alias ka cast know alignment at
 alias hi hide in shadows
 alias hs cast hardened skin
 alias id identify
 alias kt karma tap
 alias lt cast light
+alias mg cast mystic guardian
 alias numb perform comfortably numb
 alias o perform o muse
 alias p perform

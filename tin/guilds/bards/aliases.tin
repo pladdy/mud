@@ -1,5 +1,9 @@
 #alias attempt_tb {
-  #if {$gp1 == $gp1_max && $enemy > 0} {!thunderous bellow};
+  #if {$gp1 == $gp1_max
+       && "$performing" == != "true"
+       && $enemy > 0} {
+    !thunderous bellow
+  };
 }
 
 #alias band {
@@ -17,9 +21,9 @@
 
 #alias f12 {
   #if {$map[current_room] == 13692} {
-    #loop 2 8 i {!donate all from bag $i};
+    #loop 2 12 i {!donate all from bag $i};
   } {
-    #loop 2 8 i {!sell all from bag $i};
+    #loop 2 12 i {!sell all from bag $i};
   }
 }
 
