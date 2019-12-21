@@ -16,34 +16,72 @@
   #replace {enemy_raw} {% } {};
   #if {"$enemy_raw" == " "} {#var enemy 0} {#var enemy $enemy_raw};
 
-  attempt_tb;
+  #if {$enemy > 0} {
+    attempt_hypnotic_pattern;
+    attempt_tb;
+  };
 }
 
 #action {^%!{[> ]*}g2n/g2s: %1%%/%2 A:%3} {
   #var gxp %2;
-
   #var {effects} %3;
   #replace {effects} {[} {};
   #replace {effects} {]} {};
 
   #nop Capture song/spell effects;
-  #regexp {$effects} { O:%d } {#var songs[o_muse] &1} {#var songs[o_muse] 0};
+  #regexp {$effects} { O:%d } {#var songs[o_muse] &1}
+                              {#var songs[o_muse] 0};
+  #regexp {$effects} { P\w:%d } {#var spells[protection] &1}
+                                {#var spells[protection] 0};
   #regexp {$effects} { HS:%d } {#var spells[hard_skin] &1}
                                {#var spells[hard_skin] 0};
-  #regexp {$effects} { P:%d } {#var performing true} {#var performing false};
+  #regexp {$effects} { P:%d } {#var performing true}
+                              {#var performing false};
+  #regexp {$effects} { MB } {#var spells[mind_blank] 1}
+                            {#var spells[mind_blank] 0};
 
   #if {$enemy > 0} {
-    #if {$spells[hard_skin] <= 5 && $sp > 80} {!cast hardened skin};
-    #if {$songs[o_muse] <= 10} {!perform o muse};
+    attempt_hardened_skin;
+    attempt_protection;
+    attempt_mind_blank;
+    attempt_o_muse;
   };
-
   show_status_bar;
 }
 
-#action {^%!{[> ]*}You cease your performance of} {
-  !wear shield;
+#nop Protection from <alignment> spells;
+
+#action {^%!{[> ]*}Your protection from %1 has faded.$} {
+  #var protection[%1] off;
 }
 
-#action {^%!{[> ]*}You finish your performance with a bow.} {
-  !wear shield;
+#action {^%!{[> ]*}Your protection from %1 has been dispelled!$} {
+  #var protection[%1] off;
 }
+
+#action {^%!{[> ]*}You cast protection from %1 on yourself!$} {
+  #var protection[%1] on;
+}
+
+#nop Hypnotic pattern;
+
+#action {^%!{[> ]*}%1 stands around staring at the magical pattern!$} {
+  #var hypnotic_pattern on;
+}
+
+#action {^%!{[> ]*}That has no chance of affecting such a creature.$} {
+  #var hypnotic_pattern on;
+}
+
+#nop Mind Blank;
+
+#action {^%!{[> ]*}Your mind feels suddenly more vulnerable$} {
+  attempt_mind_blank;
+}
+
+#nop re-wear shield;
+
+#action {^%!{[> ]*}You cease your performance of} {!wear shield}
+#action {^%!{[> ]*}You finish your performance with a bow.} {!wear shield}
+
+

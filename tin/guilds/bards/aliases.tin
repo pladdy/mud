@@ -1,14 +1,52 @@
-#alias attempt_tb {
-  #if {$gp1 == $gp1_max
-       && "$performing" == != "true"
-       && $enemy > 0} {
-    !thunderous bellow
+#alias attempt_hardened_skin {
+  #local MIN_ROUNDS 10;
+  #local MIN_SP 80;
+  #if {$spells[hard_skin] <= $MIN_ROUNDS && $sp > $MIN_SP} {
+    !cast hardened skin;
   };
+}
+
+#alias attempt_hypnotic_pattern {
+  #local MIN_SP 100;
+  #if {$sp > $MIN_SP && "$hypnotic_pattern" != "on"} {
+    !cast hypnotic pattern;
+  }
+}
+
+#alias attempt_mind_blank {
+  #local MIN_SP 100;
+  #if {$spells[mind_blank] <= 0 && $sp > $MIN_SP} {
+    !cast mind blank;
+  };
+}
+
+#alias attempt_o_muse {
+  #local MIN_ROUNDS 10;
+  #if {$songs[o_muse] <= $MIN_ROUNDS} {!perform o muse};
+}
+
+#alias attempt_protection {
+  #local MIN_ROUNDS 10;
+  #local MIN_SP 40;
+
+  #if {$sp > $MIN_SP && $spells[protection] < $MIN_ROUNDS} {
+    #if {"$protection[evil]" == "on"} {pe};
+    #if {"$protection[good]" == "on"} {pg};
+    #if {"$protection[neutral]" == "on"} {pn};
+  };
+}
+
+#alias attempt_tb {
+  #if {$gp1 == $gp1_max} {!thunderous bellow};
 }
 
 #alias band {
   !remove shield;
   !perform leader of the band;
+}
+
+#alias commands_after_corpse {
+  #var hypnotic_pattern off;
 }
 
 #alias di {
@@ -31,6 +69,12 @@
   #local MIN_KARMA_TAP 20;
   #if {%1} {!karma tap %1} {!karma tap $MIN_KARMA_TAP};
 }
+
+#alias pe {!pe}
+
+#alias pg {!pg}
+
+#alias pn {!pn}
 
 #alias redi {
   !unwrap;

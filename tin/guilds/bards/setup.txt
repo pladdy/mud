@@ -15,13 +15,18 @@ alias h bandage
 alias ka cast know alignment at
 alias hi hide in shadows
 alias hs cast hardened skin
+alias hyp cast hypnotic pattern
 alias id identify
 alias kt karma tap
 alias lt cast light
+alias mb cast mind blank
 alias mg cast mystic guardian
 alias numb perform comfortably numb
 alias o perform o muse
 alias p perform
+alias pe cast protection from evil
+alias pg cast protection from good
+alias pn cast protection from neutral
 alias ps pstats
 alias ps2 pstats2
 alias re resume
