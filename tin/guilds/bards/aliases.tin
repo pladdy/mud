@@ -2,21 +2,21 @@
   #local MIN_ROUNDS 10;
   #local MIN_SP 80;
   #if {$spells[hard_skin] <= $MIN_ROUNDS && $sp > $MIN_SP} {
-    !cast hardened skin;
+    ccr hardened skin;
   };
 }
 
 #alias attempt_hypnotic_pattern {
   #local MIN_SP 100;
   #if {$sp > $MIN_SP && "$hypnotic_pattern" != "on"} {
-    !cast hypnotic pattern;
+    ccr hypnotic pattern;
   }
 }
 
 #alias attempt_mind_blank {
   #local MIN_SP 100;
   #if {$spells[mind_blank] <= 0 && $sp > $MIN_SP} {
-    !cast mind blank;
+    ccr mind blank;
   };
 }
 
@@ -25,14 +25,30 @@
   #if {$songs[o_muse] <= $MIN_ROUNDS} {!perform o muse};
 }
 
-#alias attempt_protection {
+#alias attempt_protection_align {
   #local MIN_ROUNDS 10;
   #local MIN_SP 40;
 
-  #if {$sp > $MIN_SP && $spells[protection] < $MIN_ROUNDS} {
-    #if {"$protection[evil]" == "on"} {pe};
-    #if {"$protection[good]" == "on"} {pg};
-    #if {"$protection[neutral]" == "on"} {pn};
+  #if {$sp > $MIN_SP && $spells[protection_align] < $MIN_ROUNDS} {
+    #if {"$protection_align[evil]" == "on"} {ccr protection from evil};
+    #if {"$protection_align[good]" == "on"} {ccr protection from good};
+    #if {"$protection_align[neutral]" == "on"} {ccr protection from neutral};
+  };
+}
+
+#alias attempt_protection_frost {
+  #local MIN_ROUNDS 10;
+  #local MIN_SP 200;
+  #if {$spells[protection_frost] <= $MIN_ROUNDS && $sp > $MIN_SP} {
+    ccr protection from frost;
+  };
+}
+
+#alias attempt_protection_heat {
+  #local MIN_ROUNDS 10;
+  #local MIN_SP 200;
+  #if {$spells[protection_heat] <= $MIN_ROUNDS && $sp > $MIN_SP} {
+    ccr protection from heat;
   };
 }
 
@@ -43,6 +59,13 @@
 #alias band {
   !remove shield;
   !perform leader of the band;
+}
+
+#nop cease, cast, resume;
+#alias ccr {
+  !cease;
+  !cast %0;
+  !resume;
 }
 
 #alias commands_after_corpse {
@@ -70,11 +93,30 @@
   #if {%1} {!karma tap %1} {!karma tap $MIN_KARMA_TAP};
 }
 
-#alias pe {!pe}
+#alias pacid {
+  !remove shield;
+  !perform acid rock;
+}
 
-#alias pg {!pg}
+#alias phero {
+  !remove shield;
+  !perform hero;
+}
 
-#alias pn {!pn}
+#alias pns {
+  !remove shield;
+  !perform naked sunday;
+}
+
+#alias psmile {
+  !remove shield;
+  !perform smile;
+}
+
+#alias psol {
+  !remove shield;
+  !perform shower of light;
+}
 
 #alias redi {
   !unwrap;

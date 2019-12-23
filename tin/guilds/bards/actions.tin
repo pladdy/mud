@@ -31,10 +31,14 @@
   #nop Capture song/spell effects;
   #regexp {$effects} { O:%d } {#var songs[o_muse] &1}
                               {#var songs[o_muse] 0};
-  #regexp {$effects} { P\w:%d } {#var spells[protection] &1}
-                                {#var spells[protection] 0};
+  #regexp {$effects} { P\w:%d } {#var spells[protection_align] &1}
+                                {#var spells[protection_align] 0};
   #regexp {$effects} { HS:%d } {#var spells[hard_skin] &1}
                                {#var spells[hard_skin] 0};
+  #regexp {$effects} { PF:%d } {#var spells[protection_frost] &1}
+                               {#var spells[protection_frost] 0};
+  #regexp {$effects} { PH:%d } {#var spells[protection_heat] &1}
+                               {#var spells[protection_heat] 0};
   #regexp {$effects} { P:%d } {#var performing true}
                               {#var performing false};
   #regexp {$effects} { MB } {#var spells[mind_blank] 1}
@@ -42,8 +46,10 @@
 
   #if {$enemy > 0} {
     attempt_hardened_skin;
-    attempt_protection;
+    attempt_protection_heat;
+    attempt_protection_frost;
     attempt_mind_blank;
+    attempt_protection_align;
     attempt_o_muse;
   };
   show_status_bar;
@@ -52,15 +58,15 @@
 #nop Protection from <alignment> spells;
 
 #action {^%!{[> ]*}Your protection from %1 has faded.$} {
-  #var protection[%1] off;
+  #var protection_align[%1] off;
 }
 
 #action {^%!{[> ]*}Your protection from %1 has been dispelled!$} {
-  #var protection[%1] off;
+  #var protection_align[%1] off;
 }
 
 #action {^%!{[> ]*}You cast protection from %1 on yourself!$} {
-  #var protection[%1] on;
+  #var protection_align[%1] on;
 }
 
 #nop Hypnotic pattern;
@@ -73,9 +79,13 @@
   #var hypnotic_pattern on;
 }
 
+#action {^%!{[> ]*}You lose your song.$} {
+  !resume;
+}
+
 #nop Mind Blank;
 
-#action {^%!{[> ]*}Your mind feels suddenly more vulnerable$} {
+#action {^%!{[> ]*}Your mind feels suddenly more vulnerable.$} {
   attempt_mind_blank;
 }
 
