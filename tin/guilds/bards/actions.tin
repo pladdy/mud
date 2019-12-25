@@ -45,12 +45,14 @@
 
   #if {$enemy > 0} {
     attempt_hardened_skin;
+    attempt_protection_align;
     #nop attempt_protection_heat;
     #nop attempt_protection_frost;
     #nop attempt_mind_blank;
-    attempt_protection_align;
-    attempt_hypnotic_pattern;
+
+    attempt_noxious_cloud;
     attempt_combat_spell;
+
     attempt_o_muse;
   };
   show_status_bar;
@@ -105,4 +107,14 @@
 #nop #action {^%!{[> ]*}You cease your performance of} {!wear shield}
 #action {^%!{[> ]*}You finish your performance with a bow.} {!wear shield}
 
+#action {^%!{[> ]*}You wave your hands around, make swooshing and farting sounds, and spit$} {
+  #var noxious_cloud on;
+}
 
+#action {^%!{[> ]*}That creature is already somewhat spasmodic.$} {
+  #var spasmodic_shuffle on;
+}
+
+#action {^%!{[> ]*}With a few quick mystical words you send Sylvan Elf into a spastic fit!$} {
+  #var spasmodic_shuffle on;
+}

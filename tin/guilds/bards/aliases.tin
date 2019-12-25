@@ -1,3 +1,10 @@
+#alias attempt_noxious_cloud {
+  #local MIN_SP 100;
+  #if {$sp > $MIN_SP && "$noxious_cloud" != "on"} {
+    ceca noxious cloud;
+  }
+}
+
 #alias attempt_combat_spell {
   #if {"$combat_spell" == "on"} {
     #math {min_combat_spell_sps} {$sp_max * .4};
@@ -62,6 +69,14 @@
   };
 }
 
+#alias attempt_spasmodic_shuffle {
+  #local MIN_SP 100;
+  #if {$sp > $MIN_SP && "$spasmodic_shuffle" != "on"} {
+    ceca spasmodic shuffle;
+  }
+}
+
+
 #alias attempt_tb {
   #if {$gp1 == $gp1_max} {!thunderous bellow};
 }
@@ -79,6 +94,7 @@
 
 #alias commands_after_corpse {
   #var hypnotic_pattern off;
+  #var noxious_cloud off;
 }
 
 #alias di {
@@ -114,6 +130,15 @@
 
 #alias pacid {
   perform_instrumental_attack pacid;
+}
+
+#nop Orinoco flow ports you and stops interaction with mud...brief me is changed;
+#nop so it's easier to tell how many rounds of song have elapsed.;
+#alias pflow {
+  !remove shield;
+  !bset briefme 0;
+  !perform orinoco flow;
+  #delay {60} {!bset briefme 1};
 }
 
 #alias phero {
