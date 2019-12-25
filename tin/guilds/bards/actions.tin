@@ -17,7 +17,6 @@
   #if {"$enemy_raw" == " "} {#var enemy 0} {#var enemy $enemy_raw};
 
   #if {$enemy > 0} {
-    attempt_hypnotic_pattern;
     attempt_tb;
   };
 }
@@ -46,10 +45,12 @@
 
   #if {$enemy > 0} {
     attempt_hardened_skin;
-    attempt_protection_heat;
-    attempt_protection_frost;
-    attempt_mind_blank;
+    #nop attempt_protection_heat;
+    #nop attempt_protection_frost;
+    #nop attempt_mind_blank;
     attempt_protection_align;
+    attempt_hypnotic_pattern;
+    attempt_combat_spell;
     attempt_o_muse;
   };
   show_status_bar;
@@ -89,9 +90,19 @@
   attempt_mind_blank;
 }
 
-#nop re-wear shield;
+#nop Shield actions;
 
-#action {^%!{[> ]*}You cease your performance of} {!wear shield}
+#action {^%!{[> ]*}You can't play a song with an instrument and use a shield at the same time!$} {
+  !remove shield;
+  !resume;
+}
+
+#action {^%!{[> ]*}Not while you're carrying a shield!$} {
+  !remove shield;
+  !resume;
+}
+
+#nop #action {^%!{[> ]*}You cease your performance of} {!wear shield}
 #action {^%!{[> ]*}You finish your performance with a bow.} {!wear shield}
 
 

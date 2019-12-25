@@ -1,22 +1,32 @@
+#alias attempt_combat_spell {
+  #if {"$combat_spell" == "on"} {
+    #math {min_combat_spell_sps} {$sp_max * .4};
+    #math {min_combat_spell_hps} {$hp_max * .75};
+    #if {$sp > $min_combat_spell_sps && $hp > $min_combat_spell_hps} {
+      !0;
+    };
+  }
+}
+
 #alias attempt_hardened_skin {
   #local MIN_ROUNDS 10;
   #local MIN_SP 80;
   #if {$spells[hard_skin] <= $MIN_ROUNDS && $sp > $MIN_SP} {
-    ccr hardened skin;
+    ceca hardened skin;
   };
 }
 
 #alias attempt_hypnotic_pattern {
   #local MIN_SP 100;
   #if {$sp > $MIN_SP && "$hypnotic_pattern" != "on"} {
-    ccr hypnotic pattern;
+    ceca hypnotic pattern;
   }
 }
 
 #alias attempt_mind_blank {
   #local MIN_SP 100;
   #if {$spells[mind_blank] <= 0 && $sp > $MIN_SP} {
-    ccr mind blank;
+    ceca mind blank;
   };
 }
 
@@ -30,9 +40,9 @@
   #local MIN_SP 40;
 
   #if {$sp > $MIN_SP && $spells[protection_align] < $MIN_ROUNDS} {
-    #if {"$protection_align[evil]" == "on"} {ccr protection from evil};
-    #if {"$protection_align[good]" == "on"} {ccr protection from good};
-    #if {"$protection_align[neutral]" == "on"} {ccr protection from neutral};
+    #if {"$protection_align[evil]" == "on"} {ceca protection from evil};
+    #if {"$protection_align[good]" == "on"} {ceca protection from good};
+    #if {"$protection_align[neutral]" == "on"} {ceca protection from neutral};
   };
 }
 
@@ -40,7 +50,7 @@
   #local MIN_ROUNDS 10;
   #local MIN_SP 200;
   #if {$spells[protection_frost] <= $MIN_ROUNDS && $sp > $MIN_SP} {
-    ccr protection from frost;
+    ceca protection from frost;
   };
 }
 
@@ -48,7 +58,7 @@
   #local MIN_ROUNDS 10;
   #local MIN_SP 200;
   #if {$spells[protection_heat] <= $MIN_ROUNDS && $sp > $MIN_SP} {
-    ccr protection from heat;
+    ceca protection from heat;
   };
 }
 
@@ -61,11 +71,10 @@
   !perform leader of the band;
 }
 
-#nop cease, cast, resume;
-#alias ccr {
+#nop cease and cast;
+#alias ceca {
   !cease;
   !cast %0;
-  !resume;
 }
 
 #alias commands_after_corpse {
@@ -93,9 +102,18 @@
   #if {%1} {!karma tap %1} {!karma tap $MIN_KARMA_TAP};
 }
 
+#alias mgp {
+  #nop arg1: hp/sp, arg2: percentage, arg3: command;
+
+  #if {"%1" == "hp"} {#math {mystic_guardian_points} {$hp_max * %2 / 100}};
+  #elseif {"%1" == "sp"} {#math {mystic_guardian_points} {$sp_max * %2 / 100}};
+
+  #format {mystic_guardian_points} {%d} {$mystic_guardian_points};
+  !mg at %1/$mystic_guardian_points/%3;
+}
+
 #alias pacid {
-  !remove shield;
-  !perform acid rock;
+  perform_instrumental_attack pacid;
 }
 
 #alias phero {
@@ -113,10 +131,35 @@
   !perform smile;
 }
 
-#alias psol {
-  !remove shield;
-  !perform shower of light;
+#nop Takes 1 arg, a mud alias that should be for performing a song;
+#alias perform_instrumental_attack {
+  #local song %0;
+
+  #if {"$performing_instrumental_attack" != "on"} {
+    #showme <170>Performing '$song';
+
+    !setpanic cu at 90%;
+    !remove shield;
+    !$song;
+    alias ras rhythmic actions 1 $song:5/ras;
+    !ras;
+
+    #var performing_instrumental_attack on;
+    #var combat_spell on;
+  };
+  #elseif {"$performing_instrumental_attack" == "on"} {
+    #showme <170>Stopping '$song';
+
+    !setpanic bandage at 75%;
+    !cease;
+    !wear shield;
+    !rhythmic actions 1 cease;
+    #var performing_instrumental_attack off;
+    #var combat_spell off;
+  };
 }
+
+#alias psol {perform_instrumental_attack psol}
 
 #alias redi {
   !unwrap;
