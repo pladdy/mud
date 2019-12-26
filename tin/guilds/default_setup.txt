@@ -19,6 +19,8 @@ alias px put $* in box
 alias re reply
 alias sa sell all
 alias sk skills
+alias sk2 skills solarpeak
+alias sk3 skills slime
 
 cbrief on mo
 
