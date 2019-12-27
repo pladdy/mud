@@ -146,6 +146,11 @@
   !perform hero;
 }
 
+#alias pmemory {
+  !remove shield;
+  !perform memory;
+}
+
 #alias pns {
   !remove shield;
   !perform naked sunday;
