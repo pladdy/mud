@@ -45,7 +45,7 @@ status_bar on;
 
 #CONFIG           {256 COLORS}  {ON}
 #CONFIG           {AUTO TAB}  {5000}
-#CONFIG           {BUFFER SIZE}  {25000}
+#CONFIG           {BUFFER SIZE}  {10000}
 #CONFIG           {CHARSET}  {ASCII}
 #CONFIG           {COLOR PATCH}  {ON}
 #CONFIG           {COMMAND COLOR}  {<078>}
@@ -53,7 +53,7 @@ status_bar on;
 #CONFIG           {CONNECT RETRY}  {15}
 #CONFIG           {HISTORY SIZE}  {1000}
 #CONFIG           {LOG}  {PLAIN}
-#CONFIG           {PACKET PATCH}  {0.25}
+#CONFIG           {PACKET PATCH}  {0.75}
 #CONFIG           {REPEAT CHAR}  {!}
 #CONFIG           {REPEAT ENTER}  {OFF}
 #CONFIG           {SCROLL LOCK}  {ON}
