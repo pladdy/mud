@@ -1,11 +1,11 @@
 #nop Alizarian Tower;
-#action {^The current pulls you south and you struggle to breathe!$} {
+#action {^%!{[> ]*}The current pulls you south and you struggle to breathe!$} {
   #if {$map[current_room] == 28781} {#map goto 15662};
 }
 
 #nop Crystals of Ao;
 #nop the rooms below will port/warp you, i don't have them all captured below;
-#action {^You begin to lose your sense of direction, confused by the} {
+#action {^%!{[> ]*}You begin to lose your sense of direction, confused by the} {
   #if {$map[current_room] == 28667} {#map goto 28661};
   #if {$map[current_room] == 28675} {#map goto 28664};
   #if {$map[current_room] == 28706} {#map goto 28694};
@@ -34,21 +34,21 @@
 
 #nop Great Well of Crenda;
 
-#action {^A strange glow surrounds you, and the torch vanishes from your hand!$} {
+#action {^%!{[> ]*}A strange glow surrounds you, and the torch vanishes from your hand!$} {
   #if {$map[current_room] == 6436} {#map goto 6437};
 }
 
-#action {^Two large canine humanoids rush out from the encampment and growl a} {
+#action {^%!{[> ]*}Two large canine humanoids rush out from the encampment and growl a} {
   #if {$map{current_room} == 1756} {map_undo;};
 }
 
-#action {^With a screaming run, you leap out of the Entrance room} {
+#action {^%!{[> ]*}With a screaming run, you leap out of the Entrance room} {
   #map goto cot;
 }
 
 #nop Overlands portal;
 
-#action {^You open your eyes and... everything has changed!$} {
+#action {^%!{[> ]*}You open your eyes and... everything has changed!$} {
   #if {$map[current_room] == 9062 && $map[last_room] == 3719} {
     #map goto 8056;
   } {
@@ -56,7 +56,7 @@
   }
 }
 
-#action {^After an unknown amount of time, you wake up and find yourself on$} {
+#action {^%!{[> ]*}After an unknown amount of time, you wake up and find yourself on$} {
   #if {$map[current_room] == 14567 && $map[last_room] == 14566} {
     #map goto 14568;
   } {
@@ -66,78 +66,78 @@
 
 #nop Rohm Giddor;
 
-#action {^You manage to pull yourself onto the rocks...$} {
+#action {^%!{[> ]*}You manage to pull yourself onto the rocks...$} {
   #if {$map[current_room] == 12873} {#map goto 12872;}
 }
 
-#action {^You grab onto the water wheel and climb out onto the rock shelf...$} {
+#action {^%!{[> ]*}You grab onto the water wheel and climb out onto the rock shelf...$} {
   #if {$map[current_room] == 12873} {#map goto 11614};
 }
 
 #nop Ravenloft;
 
-#action {^You recover your senses and look around.$} {
+#action {^%!{[> ]*}You recover your senses and look around.$} {
   #if {$map[current_room] == 4935} {#map goto 26463};
 }
 
-#action {^You find yourself complete once more.$} {
+#action {^%!{[> ]*}You find yourself complete once more.$} {
   #if {$map[current_room] == 4935} {#map goto 4936}
 }
 
-#action {^The carriage screeches as it pulls up to the castle gatehouses.$} {
+#action {^%!{[> ]*}The carriage screeches as it pulls up to the castle gatehouses.$} {
   #if {$map[current_room] == 15485} {#map goto 15486};
 }
 
-#action {^You then step out of the coach and find yourself back$} {
+#action {^%!{[> ]*}You then step out of the coach and find yourself back$} {
   #if {$map[current_room] == 15489} {#map goto 13212};
 }
 
 #nop Temple of the zombie god;
 
-#action {^You find yourself 'elsewhere'$} {
+#action {^%!{[> ]*}You find yourself 'elsewhere'$} {
   #if {$map[current_room] == 15342} {#map goto 15556};
 }
 
 #nop Mordenheim mansion;
 
-#action {^You suddenly lose your balance...$} {
+#action {^%!{[> ]*}You suddenly lose your balance...$} {
   #if {$map[current_room] == 15432 || $map[current_room] == 15440} {#map goto 15573};
 }
 
 #nop Rampage;
 
-#action {^You have opened the door of pain.$} {
+#action {^%!{[> ]*}You have opened the door of pain.$} {
   #if {$map[current_room] == 27382} {#map goto 27383};
 }
 
 #nop Serinth, sopem;
 
-#action {^You finally wake up again after drifting through time and space} {
+#action {^%!{[> ]*}You finally wake up again after drifting through time and space} {
   #if {$map[current_room] == 10018} {#map goto 14459};
 }
 
-#action {^The floor drops away, causing you to fall!$} {
+#action {^%!{[> ]*}The floor drops away, causing you to fall!$} {
   #if {$map[current_room] == 14459} {#map goto 14460};
 }
 
 #nop Tensor's Hell;
 
-#action {^You land on the hard stone ground with a *THUMP!!*$} {
+#action {^%!{[> ]*}You land on the hard stone ground with a *THUMP!!*$} {
   #if {$map[current_room] == 16536} {#map goto 16537};
 }
 
-#action {^You finally reach the top of the shaft.$} {
+#action {^%!{[> ]*}You finally reach the top of the shaft.$} {
   #if {$map[current_room] == 16536} {#map goto 16535};
 }
 
 #nop Underdark;
 
-#action {^You get sucked into the vortex!!!!$} {
+#action {^%!{[> ]*}You get sucked into the vortex!!!!$} {
   #if {$map[current_room] == 4700} {#map goto 17242};
 }
 
 #nop Winter Wonderland;
 
-#action {^Exhilarated! You look back up the slope, and ponder doing it again.$} {
+#action {^%!{[> ]*}Exhilarated! You look back up the slope, and ponder doing it again.$} {
   #if {$map[current_room] == 20702} {#map goto 20703};
 }
