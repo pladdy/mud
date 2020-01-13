@@ -146,7 +146,7 @@
   !perform hero;
 }
 
-#alias pmemory {
+#alias pmem {
   !remove shield;
   !perform memory;
 }
@@ -159,6 +159,11 @@
 #alias psmile {
   !remove shield;
   !perform smile;
+}
+
+#alias pson {
+  !remove shield;
+  !perform son of man;
 }
 
 #nop Takes 1 arg, a mud alias that should be for performing a song;
