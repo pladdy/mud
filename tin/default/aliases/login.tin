@@ -2,6 +2,12 @@
 #alias login_commands {#nop;}
 #alias relog_commands {#nop;}
 
+#alias quit {
+  #var quit true;
+  !quit;
+  #gts #var quit true;
+}
+
 #alias shutdown_tmux {
   #system {tmux kill-session -t tintin};
 }
