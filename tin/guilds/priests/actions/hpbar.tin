@@ -23,6 +23,7 @@
 #alias attempt_all_the_things {
   attempt_effects;
   attempt_psummon;
+  attempt_curse;
   #nop attempt_pshift;
   attempt_offer;
   attempt_beseech;

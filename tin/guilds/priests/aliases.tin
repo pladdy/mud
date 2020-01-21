@@ -2,6 +2,10 @@
   #if {$gp1 < 50 && $beseeches > 0} {!beseech};
 }
 
+#alias attempt_curse {
+  #if {"$curse" == "OFF" && $enemy > 0 && $sp > 150} {!curse};
+}
+
 #alias attempt_effects {
   #if {$enemy > 0} {
     #regex {$spells} {PR} {#nop} {!protection};

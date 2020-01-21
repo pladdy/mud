@@ -4,6 +4,10 @@
   #var curse ON;
 }
 
+#action {^%!{[> ]*}Selene will not allow you to curse %1.$} {
+  #var curse ON;
+}
+
 #nop Barkskin;
 
 #action {^%!{[> ]*}*Your barkskin has worn off!*$} {

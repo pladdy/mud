@@ -29,6 +29,7 @@ a %+ of %+ broodling
 a %+ puddle of slime
 a %+ grizzly bear
 a %+ wandering spider
+a %+ owlet
 a %+ platypus
 a tame little shrew
 an old dwarven smith
