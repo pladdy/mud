@@ -34,6 +34,10 @@
   !eat corpse;
 }
 
+#alias reload_configure {
+  #textin tin/guilds/cyborgs/configure.txt
+}
+
 #alias use_corpse {
   #if {$gp1 == $gp1_max && "$use_spoon" == "true"} {!eat corpse};
   #else {!decompose};
