@@ -9,10 +9,10 @@
   #var gp1_max {%6};
 
   #var enemy_str {%8};
-  #regexp {$enemy_str} {: %d} {#var enemy &1};
+  #regexp {$enemy_str} {: %d} {#var enemy &1} {#var enemy_str none};
 
   #if {"$enemy_str" == "none"} {#var enemy {0}};
-  #replace {enemy} {%} {};
+  #else {#replace {enemy} {%} {}};
 
   #nop don't need with contingency at glvl 15;
   #nop #if {$sp < 50 && $enemy > 0} {#2 ins};
