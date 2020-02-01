@@ -1,3 +1,7 @@
-#action {"accept" or "refuse"} {
+#action {^%!{[> ]*}"accept" or "refuse" this chance quickly, for pressing matters} {
   !accept;
+}
+
+#action {^%!{[> ]*}Galan booms: Then it shall be so!$} {
+  #map goto 3k_chapel;
 }

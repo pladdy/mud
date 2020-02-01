@@ -56,8 +56,8 @@
 }
 
 #alias holster_weapons {
-  !sheathe;
-  !holster;
+  !sheathe knife;
+  !holster gun;
   !do clear;
 }
 
