@@ -4,26 +4,92 @@ eq -hide heavy body
 eq -hide hands
 eq -hide head
 
-alias .login jump/study spellbook/cast monitor/cast mindblank/1/cast activate combat
-alias com mage
-alias gwho mages
-alias c cast
-alias 1 cast perform as 200/cast burning hands
-alias st study spellbook
-alias ff cast find familiar
-alias lt cast light
-alias cb cast corpse blast
-alias imm cast mystic immersion
-alias fri cast friends
-alias con as cast contingency
-alias id cast identify
-alias dp cast deeppockets
-alias ex cast extension 1
-alias str cast strength
-alias ppa put all in pocket
-alias p cast perform as $1/cast $2-
-alias sh cast shield
+alias .login jump/study spellbook/cast monitor/cast mindblank/0/cast activate combat
+alias 0 cast perform as 600/cast disintegrate
+alias 1 cast perform as 400/cast lightning bolt
+alias 2 cast perform as 400/cast cone of cold
+alias 3 cast perform as 400/cast clenched fist
+alias 4 cast perform as 600/cast venomous spray
+alias 5 cast perform as 600/cast prismatic spray
+alias 6 cast perform as 600/cast disintegrate
+alias a ptell
+alias aa cast acid arrow
+alias ac cast activate combat
+alias adv advance
+alias an anchor
 alias ar cast armor
+alias c cast
+alias cb cast corpse blast
+alias cf cast clenched fist
+alias ch cast charm monster
+alias cm cast charm monster
+alias co cast confusion
+alias com mage
+alias con cast contingency
+alias dc cast deactivate
+alias def say tank, defend me
+alias di cast disintegrate
+alias dis cast dispel magic
+alias disj cast disjunction on
+alias dp cast deeppockets
+alias ed cast energy drain
+alias esp cast esp
+alias ex cast extension 3
+alias f get all
+alias fb cast feeblemind
+alias fc flapchat
+alias fe cast fear
+alias ff cast find familiar
+alias fi cast fireball
+alias fm cast focus mind
+alias fr cast friends
+alias fu cast fumble
+alias g glimpse
+alias gab get all from bag
+alias gstr cast giant strength
+alias gwho mages
+alias gx get $* from box
+alias h heal tomfoolery
+alias haste cast haste
+alias ho cast hold monster
+alias ice cast ice storm
+alias id cast identify on
+alias imm cast mystic immersion
+alias k kill
+alias ka cast know alignment on
+alias l look at
+alias lb cast lightning bolt
+alias li lineofsight
+alias lt cast light
+alias mf cast monstrous fortitude on
+alias mg cast major globe
+alias ms cast monster summoning 5
+alias p cast perform as $1/cast $2-
+alias pa cast prismatic aura
+alias pe cast protection from evil
+alias pg cast protection from good
+alias pk cast phantasmal killer
+alias pl cast planewalk
+alias po cast polymorph other on
+alias ppa put all in pocket
+alias pws cast power word stun
+alias px put $* in box
+alias r reply
+alias rcost cast rcost
+alias sa sell all
+alias sh cast magnificent shield
+alias shel cast secure shelter
+alias sk skills
+alias sl cast slow
+alias slow cast slow
+alias sp cast spell tap
+alias spc cast spell tap on corpse
+alias st cast stoneskin
+alias str cast strength
+alias sts study spellbook
+alias swarm cast summon swarm
+alias tent cast black tentacles
+alias vs cast venomous spray
 
 aset spell himagenta
 aset mage_armor yellow

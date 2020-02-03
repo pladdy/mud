@@ -30,6 +30,7 @@
   #else {
     #showme <170>Session disconnecting...;
     #system { tail -n 20 $session_log };
+    #gts #delay 3 {#ses 3k 3k.org 3000;$character};
   };
 }
 

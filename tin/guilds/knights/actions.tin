@@ -1,0 +1,23 @@
+#action {^%!{[> ]*}H: %1/%2 %3 S: %4/%5 %6 St: %7/%8 %9 Sn: %10 (%11) E: %12} {
+  #var hp {%1};
+  #var hp_max {%2};
+
+  #var sp {%4};
+  #var sp_max {%5};
+
+  #var gp1 {%7};
+  #var gp1_max {%8};
+
+  #var gp2 {%10};
+  #var gp2_max 200;
+
+  #var enemy_str {%12};
+  #regexp {$enemy_str} {{\d+}} {#var enemy &1} {#var enemy 0};
+}
+
+#action {^%!{[> ]*}G: %1 C: %2} {
+  #var gxp %1;
+  #var corpses %2;
+  show_status_bar;
+}
+

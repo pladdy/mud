@@ -1,0 +1,25 @@
+#alias commands_after_corpse {
+  !rest;
+}
+
+#alias f10 {
+  use_corpse;
+  get all;
+}
+
+#alias rebc {
+  !unwrap corpse;
+  !bury corpse;
+}
+
+#alias reload_settings {
+  #textin tin/guilds/knights/setup.txt;
+}
+
+#alias use_corpse {
+  !bury corpse;
+}
+
+#alias wimpy_commands {
+  #delay 2 {!rest};
+}
