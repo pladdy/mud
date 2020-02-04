@@ -9,8 +9,11 @@ alias js jstats
 alias r rest
 alias scw secondwind
 
+aset knight_announce white
 aset knight_tel higreen
 aset knight_melee white
 aset knight_staunch higreen
 
 hpconfig H: #CHP#/#MHP# (#HP%#%) S: #CSP#/#MSP# (#SP%#%) St: #CST#/#MST# (#ST%#%) Sn: #STN# (#STL#) E: #MOB##NLN#G: #G2N# C: #CCP# St:Met: #SSN#:#SMT# Scw: #SEC# Sk: [E: #END# P: #PRE# S: #STD#]
+setspam hits full
+setspam misses half

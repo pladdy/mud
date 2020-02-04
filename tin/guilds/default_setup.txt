@@ -22,6 +22,7 @@ alias sk mskills
 alias sk2 mskills solarpeak
 alias sk3 mskills slime
 
+brief on yes
 cbrief on mo
 
 aset attack white
