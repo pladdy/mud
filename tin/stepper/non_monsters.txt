@@ -6,7 +6,9 @@
 %+ storm servant
 %+ broodling
 %+ ferryman
+%+ red roan nag
 %+ shenanigans
+%+ shetland pony
 %+ the skeleton
 %+ the zombie
 %+ the ghoul

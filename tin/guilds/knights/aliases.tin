@@ -1,3 +1,11 @@
+#alias attempt_prepare {
+  #if {$enemy > 0 && "$prepare" == "n"} {!prepare on};
+}
+
+#alias attempt_will {
+  #if {$enemy > 0 && $pct_stamina < 90 && $pct_sp > 90} {!will};
+}
+
 #alias commands_after_corpse {
   !rest;
 }

@@ -40,7 +40,11 @@ aset party brown
 aset profchat white
 aset say hicyan
 aset soul green
+aset shield_block flash+hicyan
 aset shout yellow
+aset skill_crit flash+hired
+aset skill_dodge flash+hicyan
+aset skill_freecast flash+higreen
 aset tell himagenta
 aset xp1 higreen
 aset xp2 hicyan
