@@ -1,3 +1,74 @@
+#nop Amazon Research Center
+
+#action {^Stretching your somewhat stiff legs you head out of the plane.} {
+  #if {$map[current_room] == 14413 && $map[last_room] == 14414} {#map goto 4130}
+  #if {$map[current_room] == 14413 && $map[last_room] == 4130} {#map goto 14414}
+}
+
+#nop Battlestar Galatica;
+
+#action {^You step to the center of the docking bay, eager to explore this} {
+  #if {$map[current_room] == 21011} { #map goto 21012; }
+}
+
+#action {^The Raptor pilot announces: Welcome to Galactica.} {
+  #if {$map[current_room] == 21013} { #map goto 21014; }
+}
+
+#action {^The Raptor pilot announces: Welcome back to Midways.} {
+  #if {$map[current_room] == 21014} { #map goto 21013; }
+}
+
+#nop Brood Wars;
+
+#action {^A Starcraft Expansion Shuttle Bay (e)} {
+  #if {$map[current_room] == 10045} { #map goto 29567; }
+}
+
+#nop Carnegie 2.0;
+
+#action {^You flash your ticket at one of the ushers as you head into the hall.$} {
+  #if {$map[current_room] == 13483} {#map goto 13484}
+}
+
+#nop Fuzzy Aliens;
+#action {^You gaze about as the room solidifies sround you, and you realize$} {
+  #if {$map[current_room] == 27093} {#map goto 27094};
+}
+
+#action {^The shuttle lifts off with a jerk and a bump.$} {
+  #if {$map[current_room] == 27096} {#map goto 27097};
+}
+
+#action {^The shuttle lifts off with a jerk and a bump.$} {
+  #if {$map[current_room] == 27097} {#map goto 27096};
+}
+
+#nop Lost city;
+
+#action {^With a final THUD, you fly out into a pile of metal!} {
+  #map goto 25919;
+}
+
+#action {^With a bit of difficulty you make your way back up the shaft} {
+  #map goto 25917;
+}
+
+#nop Nastar;
+
+#action {^You land in a village...$} {
+  #if {$map[current_room] == 19132} {#map goto 19133}
+}
+
+#nop might not need these events for borg cube;
+#action {^The walls of the cube are fading.} {
+  #nop #if {$map[current_room] == 21594} {#map goto };
+}
+
+#action {^You are assimilated by the Borg!!$} {
+  !resist;
+}
+
 #nop Science Shuttle;
 
 #action {^The engines fire loudly and the shuttle blasts off.$} {
@@ -52,58 +123,10 @@
   #map goto 24049;
 }
 
-#nop Battlestar Galatica;
-
-#action {^You step to the center of the docking bay, eager to explore this} {
-  #if {$map[current_room] == 21011} { #map goto 21012; }
-}
-
-#action {^The Raptor pilot announces: Welcome to Galactica.} {
-  #if {$map[current_room] == 21013} { #map goto 21014; }
-}
-
-#action {^The Raptor pilot announces: Welcome back to Midways.} {
-  #if {$map[current_room] == 21014} { #map goto 21013; }
-}
-
-#nop Brood Wars;
-
-#action {^A Starcraft Expansion Shuttle Bay (e)} {
-  #if {$map[current_room] == 10045} { #map goto 29567; }
-}
-
 #nop Silicon Wraiths;
 
 #action {^Imogen whispers: %1, your code is %2.$} {
   #if {$map[current_room] == 2994} {#var silicon_wraiths[code] %2}
-}
-
-#nop Carnegie 2.0;
-
-#action {^You flash your ticket at one of the ushers as you head into the hall.$} {
-  #if {$map[current_room] == 13483} {#map goto 13484}
-}
-
-#nop Amazon Research Center
-
-#action {^Stretching your somewhat stiff legs you head out of the plane.} {
-  #if {$map[current_room] == 14413 && $map[last_room] == 14414} {#map goto 4130}
-  #if {$map[current_room] == 14413 && $map[last_room] == 4130} {#map goto 14414}
-}
-
-#nop Nastar;
-
-#action {^You land in a village...$} {
-  #if {$map[current_room] == 19132} {#map goto 19133}
-}
-
-#nop might not need these events for borg cube;
-#action {^The walls of the cube are fading.} {
-  #nop #if {$map[current_room] == 21594} {#map goto };
-}
-
-#action {^You are assimilated by the Borg!!$} {
-  !resist;
 }
 
 #nop Star Trek;
@@ -111,15 +134,4 @@
   #if {$map[current_room] == 24879} {#map goto 24880};
 }
 
-#nop Fuzzy Aliens;
-#action {^You gaze about as the room solidifies sround you, and you realize$} {
-  #if {$map[current_room] == 27093} {#map goto 27094};
-}
 
-#action {^The shuttle lifts off with a jerk and a bump.$} {
-  #if {$map[current_room] == 27096} {#map goto 27097};
-}
-
-#action {^The shuttle lifts off with a jerk and a bump.$} {
-  #if {$map[current_room] == 27097} {#map goto 27096};
-}

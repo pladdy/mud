@@ -1,8 +1,3 @@
-#action {^As you read the runes, you being to feel yourself being pulled$} {
-  #var chaos_port_location {$map[current_room]};
-  #map goto midgard;
-}
-
 #nop Atlantis;
 
 #action {^The airlock door swings open, you quickly step out.$} {
@@ -53,6 +48,13 @@
   #map goto 12492;
 }
 
+#nop Midgard;
+
+#action {^As you read the runes, you being to feel yourself being pulled$} {
+  #var chaos_port_location {$map[current_room]};
+  #map goto midgard;
+}
+
 #nop Silver/Blue;
 
 #action {^A soft jerk, the balloon rises slowly, but the landscape below fades$} {
@@ -90,6 +92,18 @@
   #map goto 25048;
 }
 
+#nop Ice Cream Truck;
+
+#action {^%!{[> ]*}You enter the truck with one thing on your mind... ICE CREAM!} {
+  #map goto 29955;
+}
+
+#nop Illumanit Pyramid;
+
+#action {^Pyramid Entrance (n,out)} {
+  #map goto 25090;
+}
+
 #nop Myth Area;
 
 #action {^When you manage to open them, your surroundings have changed completely!$} {
@@ -99,24 +113,8 @@
   #var chaos_port_location {};
 }
 
-#nop Illumanit Pyramid;
-
-#action {^Pyramid Entrance (n,out)} {
-  #map goto 25090;
-}
-
 #nop WWF;
 
 #action {^You ring the bell, but nothing happens.  You've won!} {
   #map goto 25903;
-}
-
-#nop Lost city;
-
-#action {^With a final THUD, you fly out into a pile of metal!} {
-  #map goto 25919;
-}
-
-#action {^With a bit of difficulty you make your way back up the shaft} {
-  #map goto 25917;
 }
