@@ -28,6 +28,7 @@
   #var knight_skills %5;
   #regexp {$knight_skills} {P: {\w}} {#var prepare &1};
 
+  #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
   attempt_stamina_recovery;
   attempt_strain_recovery;
   attempt_prepare;
