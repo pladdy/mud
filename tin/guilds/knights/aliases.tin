@@ -2,17 +2,44 @@
   #if {$enemy > 0 && "$prepare" == "n"} {!prepare on};
 }
 
+#alias attempt_stamina_recovery {
+  #if {$enemy > 0 && $pct_stamina < 50} {
+    #if {$scw > 50} {!scw};
+    #elseif {$corpses > 0} {rebc};
+  };
+}
+
+
+#alias attempt_strain_recovery {
+  #nop gp2 is string left (so 200 - current strain);
+  #if {$enemy > 0 && $gp2 < 100 && $corpses > 0} {rebc};
+}
+
 #alias attempt_will {
-  #if {$enemy > 0 && $pct_stamina < 90 && $pct_sp > 90} {!will};
+  #if {$enemy > 0 && $pct_sp > 90 && ($pct_stamina < 90 || $gp2 < 160)}  {
+    #2 !will;
+  };
 }
 
 #alias commands_after_corpse {
   !rest;
 }
 
+#alias deup {
+  !stance defense;
+  !parry;
+  !dodge;
+  !prepare on;
+}
+
 #alias f10 {
   use_corpse;
   get all;
+}
+
+#alias neup {
+  !stance neutral;
+  !prepare on;
 }
 
 #alias rebc {

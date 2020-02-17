@@ -25,6 +25,6 @@ aset knight_tel higreen
 aset knight_truce yellow
 aset knight_will higreen
 
-hpconfig H: #CHP#/#MHP# (#HP%#%) S: #CSP#/#MSP# (#SP%#%) St: #CST#/#MST# (#ST%#%) Sn: #STN# (#STL#) E: #MOB##NLN#G: #G2N# C: #CCP# St:Met: #SSN#:#SMT# Scw: #SEC# Sk: [B: #BRL# E: #END# P: #PRE# S: #STD#]
+hpconfig H: #CHP#/#MHP# (#HP%#%) S: #CSP#/#MSP# (#SP%#%) St: #CST#/#MST# (#ST%#%) Sn: #STN# (#STL#) E: #MOB##NLN#G: #G2N# C: #CCP# St:Met: #SSN#:#SMT# Scw: #SEC# Sk: [B: #BRL# D: #DDG# E: #END# P: #PRE# Pr: #PRY# S: #STD#]
 setspam hits full
 setspam misses half

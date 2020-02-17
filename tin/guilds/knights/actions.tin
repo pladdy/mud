@@ -19,13 +19,17 @@
   attempt_will;
 }
 
-#action {^%!{[> ]*}G: %1 C: %2 St:Met: %3 Scw: %4 Sk: [%4]$} {
+#action {^%!{[> ]*}G: %1 C: %2 St:Met: %3 Scw: %4 Sk: [%5]$} {
   #var gxp %1;
   #var corpses %2;
 
-  #var knight_skills %4;
+  #var scw %4;
+
+  #var knight_skills %5;
   #regexp {$knight_skills} {P: {\w}} {#var prepare &1};
 
+  attempt_stamina_recovery;
+  attempt_strain_recovery;
   attempt_prepare;
   show_status_bar;
 }

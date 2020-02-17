@@ -5,14 +5,12 @@
   #var coffin_status {not_full};
 }
 
-#action {^%!{[ ]*}1%!{[ ]*}An enchanted coffin (%1 corpse%?) [%2] %3} {
+#action {^%!{\s*}1%!{\s*}An enchanted coffin (%1 corpse%?) [%2] [%3]} {
   #var corpses %1;
   #var coffin_status %3;
   #format {coffin_status} {%l} {$coffin_status};
 
-  #regexp {$coffin_status} {full} {
-    #var coffin_status {full};
-  } {
+  #if {"$coffin_status" !== "full"} {
     #var coffin_status {not_full};
   }
 }
