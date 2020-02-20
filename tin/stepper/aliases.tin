@@ -117,7 +117,7 @@
   #local TIME_TO_LIVE 60;
 
   #if {"%0" == "on"} {
-    #delay {stepper_ttl} {stepper off} {$TIME_TO_LIVE};
+    #delay {stepper_ttl} {stepper off;f2} {$TIME_TO_LIVE};
   };
   #else {
     #undelay stepper_ttl;

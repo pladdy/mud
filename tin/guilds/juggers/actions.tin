@@ -1,4 +1,4 @@
-#action {^H: %1/%2 S: %3/%4 St: %5% He: %6% C/N: %7/%8 [%9%] Hi: %10 E: %11%?$} {
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 St: %5% He: %6% C/N: %7/%8 [%9%] Hi: %10 E: %11%?$} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -8,7 +8,7 @@
   #var gp1 {%5};
   #var gp1_max {100};
 
-  #var gp2 {%6};
+  #var gp2 {100 - %6};
   #var gp2_max {100};
 
   #var enemy {%11};
@@ -17,7 +17,14 @@
   #if {$gp1 < 20 && $corpses > 0} {rede};
 
   #nop Use up excess sps on heat if i'm at full;
-  #if {$gp2 > 40 && $sp == $sp_max} {!dissipate};
+  #nop #if {$gp2 < 50 && $sp == $sp_max} {!dissipate};
+}
+
+#action {^%!{[> ]*}G: %1% A: %2 JJ: %3 LL: %4} {
+  #var gxp %1;
+  #var jugger_ammo %2;
+
+  show_status_bar;
 }
 
 #action {^%1 rawrs menacingly at you.  RAAWWWRRR!} {

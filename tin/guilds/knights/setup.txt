@@ -16,8 +16,11 @@ alias wi will
 aset knight_announce white
 aset knight_brawl himagenta
 aset knight_charge white
+aset knight_dodge hicyan
 aset knight_endure hiblack
+aset knight_honors white
 aset knight_melee white
+aset knight_parry hicyan
 aset knight_peace higreen
 aset knight_staunch higreen
 aset knight_study red
@@ -25,6 +28,6 @@ aset knight_tel higreen
 aset knight_truce yellow
 aset knight_will higreen
 
-hpconfig H: #CHP#/#MHP# (#HP%#%) S: #CSP#/#MSP# (#SP%#%) St: #CST#/#MST# (#ST%#%) Sn: #STN# (#STL#) E: #MOB##NLN#G: #G2N# C: #CCP# St:Met: #SSN#:#SMT# Scw: #SEC# Sk: [B: #BRL# D: #DDG# E: #END# P: #PRE# Pr: #PRY# S: #STD#]
+hpconfig H: #CHP#/#MHP# (#HP%#%) S: #CSP#/#MSP# (#SP%#%) St: #CST#/#MST# (#ST%#%) Sn: #STN# (#STL#) Scw: #SEC# E: #MOB##NLN#G: #G2N# C: #CCP# St:Met: #SSN#:#SMT# Sk: [B: #BRL# De: #DFL# Do: #DDG# E: #END# Pa: #PRY# Pr: #PRE# Sh: #SHB# St: #STD#]
 setspam hits full
 setspam misses half

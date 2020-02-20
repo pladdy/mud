@@ -1,4 +1,4 @@
-#action {^%!{[> ]*}H: %1/%2 %3 S: %4/%5 (%6%%) St: %7/%8 (%9%%) Sn: %10 (%11) E: %12$} {
+#action {^%!{[> ]*}H: %1/%2 %3 S: %4/%5 (%6%%) St: %7/%8 (%9%%) Sn: %10 (%11) Scw: %12 E: %13$} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -13,20 +13,20 @@
   #math {gp2} {200 - %10};
   #var gp2_max 200;
 
-  #var enemy_str {%12};
+  #var knight_scw %12;
+
+  #var enemy_str {%13};
   #regexp {$enemy_str} {{\d+}} {#var enemy &1} {#var enemy 0};
 
-  attempt_will;
+  #nop attempt_will;
 }
 
-#action {^%!{[> ]*}G: %1 C: %2 St:Met: %3 Scw: %4 Sk: [%5]$} {
+#action {^%!{[> ]*}G: %1 C: %2 St:Met: %3 Sk: [%4]$} {
   #var gxp %1;
   #var corpses %2;
+  #var knight_skills %4;
 
-  #var scw %4;
-
-  #var knight_skills %5;
-  #regexp {$knight_skills} {P: {\w}} {#var prepare &1};
+  #regexp {$knight_skills} {Pr: {\w}} {#var prepare &1};
 
   #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
   attempt_stamina_recovery;

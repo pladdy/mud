@@ -8,4 +8,5 @@
   #format sp_pct {%f} {$sp / $sp_max};
 
   #if {$hp_pct <= 0.8} {!salve};
+  show_status_bar;
 }

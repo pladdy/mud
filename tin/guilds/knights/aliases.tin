@@ -4,8 +4,8 @@
 
 #alias attempt_stamina_recovery {
   #if {$enemy > 0 && $pct_stamina < 50} {
-    #if {$scw > 50} {!scw};
-    #elseif {$corpses > 0} {rebc};
+    #nop #if {$knight_scw > 50} {!scw};
+    #if {$corpses > 0} {rebc};
   };
 }
 

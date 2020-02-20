@@ -1,25 +1,28 @@
-alias h enhance
-alias r rounds
-alias re reinforce
-alias de deener
-alias fb flipbird
 alias ana analyze
+alias com ju
+alias da donate all
+alias de fdeener
+alias di dissipate
+alias em empower
+alias ev eval
+alias fb flipbird
+alias fba flipbird all
 alias gwho juggs
 alias gwho2 juggs2
 alias jj jumpjet
 alias jjd jumpjet dodge
-alias di dissipate
-alias da donate all
-alias ev eval
-alias em empower
+alias h enhance
+alias r rounds
+alias re reinforce
 
+aset jugg_chirp hiblue
+aset jugg_pdeff himagenta
+aset jugg_main higreen
 aset jugg_mount himagenta
 aset jugg_mount_miss himagenta
 aset jugg_physical yellow
 aset jugg_pdef hicyan
-aset jugg_chirp hiblue
-aset jugg_main higreen
+aset jugg_newbie hicyan
 aset jugg_whine himagenta
-aset jugg_newbie cyan
 
 hp set H: $HP$ S: $SP$ St: $STIM$% He: $HEAT$% C/N: $CP$/$NUKES$ [$RESET$%] Hi: $HITS$ E: $STATUS$ $N$G: $GXP$% A: $AMMO$ JJ: $JJ$ LL: $LL$

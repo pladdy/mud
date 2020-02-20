@@ -1,7 +1,6 @@
 #alias stepper_pol_blacklist {
   #showme <170>Adding to blacklist...;
   #nop avoid guards and warriors (mist);
-  #list non_monsters add {black};
   #list non_monsters add {%+ guard};
   #list non_monsters add {shadow};
   #list non_monsters add {warrior};
