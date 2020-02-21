@@ -4,14 +4,13 @@
 
 #alias attempt_stamina_recovery {
   #if {$enemy > 0 && $pct_stamina < 50} {
-    #nop #if {$knight_scw > 50} {!scw};
-    #if {$corpses > 0} {rebc};
+    #if {$knight_scw > 50} {!scw};
+    #elseif {$corpses > 0} {rebc};
   };
 }
 
-
 #alias attempt_strain_recovery {
-  #nop gp2 is string left (so 200 - current strain);
+  #nop gp2 value is available strain (ie: 200 - current strain);
   #if {$enemy > 0 && $gp2 < 100 && $corpses > 0} {rebc};
 }
 
@@ -25,11 +24,18 @@
   !rest;
 }
 
+#alias default_skills {
+  !endure on;
+  !prepare on;
+}
+
 #alias deup {
   !stance defense;
-  !parry;
-  !dodge;
-  !prepare on;
+  !method melee;
+  default_skills;
+  !dodge on;
+  !parry on;
+  !shieldblock on;
 }
 
 #alias f10 {
@@ -39,7 +45,16 @@
 
 #alias neup {
   !stance neutral;
-  !prepare on;
+  !method melee;
+  default_skills;
+  !brawl on;
+  !shieldblock on;
+}
+
+#alias ofup {
+  !stance offense;
+  default_skills;
+  !brawl on;
 }
 
 #alias rebc {

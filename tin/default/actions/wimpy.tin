@@ -1,6 +1,7 @@
 #alias _default_wimpy_commands {
   #showme <110>Wimpy firing!;
   !hp;
+  !wake $character;
   #if {"$stepper" == "on"} {stepper off};
 }
 

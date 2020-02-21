@@ -9,6 +9,7 @@ alias js jstats
 alias ms mountstats
 alias pe peace
 alias r rest
+alias sb shieldblock
 alias scw secondwind
 alias tr truce
 alias wi will

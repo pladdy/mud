@@ -49,7 +49,6 @@
   };
 }
 
-
 #alias parse_exits {
   #var available_exits {};
   #var room_string %0;
@@ -109,6 +108,7 @@
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
     tracker off;
     #var stepper off;
+    #unvar seen_monster_count;
     #undelay stepper_ttl;
   }
 }

@@ -18,7 +18,7 @@
   #var enemy_str {%13};
   #regexp {$enemy_str} {{\d+}} {#var enemy &1} {#var enemy 0};
 
-  #nop attempt_will;
+  attempt_will;
 }
 
 #action {^%!{[> ]*}G: %1 C: %2 St:Met: %3 Sk: [%4]$} {

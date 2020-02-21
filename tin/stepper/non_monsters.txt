@@ -6,7 +6,7 @@
 %+ storm servant
 %+ broodling
 %+ ferryman
-%+ red roan nag
+%+, %+'s %+ nag
 %+ shenanigans
 %+ shetland pony
 %+ the skeleton
