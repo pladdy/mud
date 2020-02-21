@@ -19,6 +19,7 @@ aset knight_brawl himagenta
 aset knight_charge white
 aset knight_dodge hicyan
 aset knight_endure hiblack
+aset knight_focus white
 aset knight_honors white
 aset knight_melee white
 aset knight_parry hicyan
