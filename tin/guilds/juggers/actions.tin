@@ -8,22 +8,24 @@
   #var gp1 {%5};
   #var gp1_max {100};
 
-  #var gp2 {100 - %6};
+  #math gp2 {100 - %6};
   #var gp2_max {100};
 
-  #var enemy {%11};
-  #replace {enemy} {%} {};
+  #var enemy_str {%11};
+  #regexp {$enemy_str} {{\d+}} {#var enemy &1} {#var enemy 0};
 
-  #if {$gp1 < 20 && $corpses > 0} {rede};
+  #if {$enemy > 0 && $gp1 < 20 && $corpses > 0} {rede};
 
   #nop Use up excess sps on heat if i'm at full;
-  #nop #if {$gp2 < 50 && $sp == $sp_max} {!dissipate};
+  #if {$enemy > 0 && $gp2 < 80 && $sp >= $sp_max} {!dissipate};
 }
 
-#action {^%!{[> ]*}G: %1% A: %2 JJ: %3 LL: %4} {
+#action {^%!{[> ]*}G: %1% A: %2 C: %3 JJ: %4 LL: %5} {
   #var gxp %1;
   #var jugger_ammo %2;
+  #var corpses %3;
 
+  #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
   show_status_bar;
 }
 

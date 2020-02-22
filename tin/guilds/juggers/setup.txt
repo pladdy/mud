@@ -16,13 +16,14 @@ alias r rounds
 alias re reinforce
 
 aset jugg_chirp hiblue
-aset jugg_pdeff himagenta
+aset jugg_pdeff yellow
 aset jugg_main higreen
 aset jugg_mount himagenta
 aset jugg_mount_miss himagenta
 aset jugg_physical yellow
-aset jugg_pdef hicyan
 aset jugg_newbie hicyan
 aset jugg_whine himagenta
 
-hp set H: $HP$ S: $SP$ St: $STIM$% He: $HEAT$% C/N: $CP$/$NUKES$ [$RESET$%] Hi: $HITS$ E: $STATUS$ $N$G: $GXP$% A: $AMMO$ JJ: $JJ$ LL: $LL$
+hp set H: $HP$ S: $SP$ St: $STIM$% He: $HEAT$% C/N: $CP$/$NUKES$ [$RESET$%] Hi: $HITS$ E: $STATUS$ $N$G: $GXP$% A: $AMMO$ C: $CORP$ JJ: $JJ$ LL: $LL$
+
+gmess @white:`@\_(@hicyan:"@/)_/@white:`@
