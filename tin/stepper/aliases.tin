@@ -99,12 +99,14 @@
 #alias stepper {
   #if {"%0" == "on"} {
     #showme <170>Enabling stepping. 'stepper off' to disable.;
-    tracker on;
     #unvar step_dir;
     #unvar entered_from;
-    #var stepper on;
-    #delay {2} {!glance};
-  } {
+    #delay {2} {
+      #var stepper on;
+      !glance
+    };
+    tracker on;
+} {
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
     tracker off;
     #var stepper off;
@@ -151,20 +153,20 @@
 #alias tracker {
   #if {"%0" == "on"} {
     #showme <170>Enabling tracking. 'tracker off' to disable.;
-    #var tracker on;
     !aset room_short white+[RS] +reset;
     !aset look_monster hired+[M] +reset;
     !aset look_player higreen+[P] +reset;
     !brief on no;
     load_non_monsters;
+    #var tracker on;
   } {
     #showme <170>Disabling tracking. 'tracker on' to re-enable.;
-    #var tracker off;
     !aset room_short;
     !aset look_monster;
     !aset look_player;
     !brief on yes;
     unload_non_monsters;
+    #var tracker off;
   }
 }
 

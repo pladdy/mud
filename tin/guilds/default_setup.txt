@@ -36,7 +36,7 @@ aset hm himagenta
 aset house hicyan
 aset melee bkblue
 aset newbie white
-aset party brown
+aset party yellow
 aset profchat white
 aset say hicyan
 aset soul green

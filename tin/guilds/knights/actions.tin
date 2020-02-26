@@ -35,3 +35,6 @@
   show_status_bar;
 }
 
+#nop gag staunch warnings;
+#gag {^%!{[> ]*}Your wounds are not so severe as to require staunching.$}
+#gag {^%!{[> ]*}You are not bleeding from any wounds.$}
