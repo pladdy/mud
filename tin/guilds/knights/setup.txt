@@ -6,6 +6,7 @@ alias gs2 skills
 alias h staunch
 alias info knight
 alias js jstats
+alias ml mountlist
 alias ms mountstats
 alias pe peace
 alias r rest

@@ -25,6 +25,7 @@
   #var jugger_ammo %2;
   #var corpses %3;
 
+  #if {$jugger_ammo < 100} {!truck ammo buy projectile 2 1 10000};
   #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
   show_status_bar;
 }

@@ -25,6 +25,7 @@
 }
 
 #alias default_skills {
+  !brawl on;
   !endure on;
   !prepare on;
 }
@@ -42,6 +43,21 @@
 #alias f10 {
   use_corpse;
   get all;
+}
+
+#alias mc {
+  !method charge;
+  ofup;
+}
+
+#alias mf {
+  !method focus;
+  ofup;
+}
+
+#alias mm {
+  !method melee;
+  neup;
 }
 
 #alias neup {
