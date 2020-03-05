@@ -50,6 +50,7 @@
 }
 
 #alias parse_exits {
+  #nop #showme DEBUG: parse_exists called with %0;
   #var available_exits {};
   #var room_string %0;
   #var exit_str "";
@@ -66,7 +67,6 @@
 }
 
 #alias remove_seen_monster {
-  #local mob_to_remove;
   #format {mob_to_remove} {%l} {%0};
 
   #foreach *seen_monsters[] {index} {

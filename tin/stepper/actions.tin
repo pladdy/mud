@@ -2,7 +2,7 @@
 
 #nop Room Short trigger;
 
-#action {^{(> )*}[RS] {.*}} {
+#action {^%!{[> ]*}[RS] %1} {
   #list seen_monsters clear;
   #var seen_monster_count 0;
   #var under_attack false;
@@ -10,12 +10,12 @@
   #var tracker on;
   #var tried_to_auto_kill false;
 
-  parse_exits %3;
+  parse_exits %1;
 }
 
 #nop Monster trigger;
 
-#action {^[M] %1} {
+#action {^%!{[> ]*}[M] %1} {
   set_under_attack %1;
   #local mob_on_blacklist {@mob_is_blacklisted{%1}};
 

@@ -10,12 +10,15 @@
 
 #function mob_is_blacklisted {
   #local monster %0;
-  #local non_monster;
   #var result false;
 
   #foreach $non_monsters[%*] {non_monster} {
+    #nop #showme DEBUG: checking if $monster is blacklisted;
     #regexp {$monster} {%i$non_monster} {#replace result {false} {true}};
-    #if {"$result" == "true"} {#break};
+    #if {"$result" == "true"} {
+      #nop #showme DEBUG: $monster is blacklisted, rule $non_monster, skipping;
+      #break;
+    };
   };
 
   #return $result;
