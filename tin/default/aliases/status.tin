@@ -30,7 +30,7 @@
 }
 
 #alias clear_status_bar {
-  #format {screen_width} {%C};
+  #screen get cols screen_width;
   #var clear_string {};
   #math i 0;
 
