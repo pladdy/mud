@@ -18,6 +18,10 @@
   #var enemy_str {%13};
   #regexp {$enemy_str} {{\d+}} {#var enemy &1} {#var enemy 0};
 
+  #nop some mobs health can't be scanned, their healt will start as 'perfect';
+  #format enemy_str_len %L $enemy_str;
+  #if {$enemy_str_len > 3} {#var enemy 100};
+
   attempt_will;
 }
 
