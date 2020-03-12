@@ -14,6 +14,7 @@ alias jjd jumpjet dodge
 alias h enhance
 alias r rounds
 alias re reinforce
+alias su support
 
 aset jugg_chirp hiblue
 aset jugg_pdeff yellow

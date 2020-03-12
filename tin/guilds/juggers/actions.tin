@@ -21,7 +21,7 @@
   #if {$enemy > 0 && $gp1 < 20 && $corpses > 0} {rede};
 
   #nop Use up excess sps on heat if i'm at full;
-  #if {$enemy > 0 && $gp2 < 80 && $sp >= $sp_max} {!dissipate};
+  #if {$enemy > 0 && $gp2 < 75 && $sp >= $sp_max} {!dissipate};
 }
 
 #action {^%!{[> ]*}G: %1% A: %2 C: %3 JJ: %4 LL: %5} {
@@ -29,8 +29,8 @@
   #var jugger_ammo %2;
   #var corpses %3;
 
-  #if {$jugger_ammo < 100} {!truck ammo vbuy projectile 7 1 10000};
-  #if {"$stepper" == "on" && $corpses < 1 && $gp1 < 80} {stepper off};
+  #if {$jugger_ammo < 100} {!truck ammo vbuy projectile 2 1 10000};
+  #if {"$stepper" == "on" && $corpses < 1 && $gp1 < 20} {stepper off};
   show_status_bar;
 }
 
