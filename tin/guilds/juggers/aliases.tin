@@ -24,7 +24,7 @@
     #case {11438} {
       #loop 2 12 i {!donate all from bag $i};
     };
-    #default { #loop 2 8 i {!sell all from bag $i} };
+    #default { #loop 2 12 i {!sell all from bag $i} };
   };
 }
 
