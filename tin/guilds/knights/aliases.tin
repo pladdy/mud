@@ -64,7 +64,6 @@
   !stance neutral;
   !method melee;
   default_skills;
-  !brawl on;
   !wear shield;
   !shieldblock on;
 }
@@ -72,7 +71,6 @@
 #alias ofup {
   !stance offense;
   default_skills;
-  !brawl on;
 }
 
 #alias rebc {

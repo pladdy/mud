@@ -3,6 +3,7 @@
 's golden dun akhal-teke
 %+'s aerial servant
 %+'s esquire
+%+ cob
 %+ storm servant
 %+ broodling
 %+ ferryman
@@ -23,6 +24,7 @@
 %+ the valithyn
 %+ the bayen
 %+ the quarin
+%+ a mohrg
 %+ the mohrg
 %+ the grimare
 %+'s%+Controller Alfred
