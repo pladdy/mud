@@ -1,4 +1,4 @@
-#action {^%!{[> ]*}"accept" or "refuse" this chance quickly, for pressing matters} {
+#action {Please "accept" or "refuse"} {
   !accept;
 }
 

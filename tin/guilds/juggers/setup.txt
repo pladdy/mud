@@ -28,3 +28,8 @@ aset jugg_whine himagenta
 hp set H: $HP$ S: $SP$ St: $STIM$% He: $HEAT$% C/N: $CP$/$NUKES$ [$RESET$%] Hi: $HITS$ E: $STATUS$ $N$G: $GXP$% A: $AMMO$ C: $CORP$ JJ: $JJ$ LL: $LL$
 
 gmess @white:`@\_(@hicyan:"@/)_/@white:`@
+
+panic enhance/99%/3
+reflex add hp 99% enhance
+reflex start
+
