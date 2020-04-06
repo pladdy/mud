@@ -1,0 +1,14 @@
+Toxyilia the Wasp Daemoness
+
+Class: 1.1M
+
+Equipment:
+
+  Stinger of Toxyilia
+    - polearm
+    - poison damage
+
+Notes:
+
+  - On the way to here, there are about 200 1-2k mobs that aggro/hunt.
+  - Edged/Blunt immune

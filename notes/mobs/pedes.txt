@@ -1,53 +1,89 @@
 They hurt, bad.
 
 Lore:
-Tensor mandated that Riekl upgrade them in such a way to be anti-gentech, but also basically anti
-everyone on the mud.
+
+  Tensor mandated that Riekl upgrade them in such a way to be anti-gentech, but also basically anti
+  everyone on the mud.
 
 Strategy/Notes:
-- ideally you need to keep your average damage in the 800-1000/rnd total range
-- go much above that and they fury (it increases their damage dramatically)
-- fury stacks
-- go below or too high the avg dmg and they summon pedelings, 1 per round, up until 32 are in the
-  room
-- pedelings range from 50k - 700k
-- if more than one pede is in the room with each other, they go beserk.  That was an anti-gen/jugger
-  change, they used to stack pedes and kill 2 at a time.
 
-When the pedes will randomly summon a stray pedeling or two it's in your interest to switch targets
-and kill it because when the pede gets < 20% hp, it will eat the pedeling for an hp heal.
+  - you need to keep your average damage in the 800-1000/rnd total range
+  - go much above that and they fury (it increases their damage dramatically)
+    - fury stacks
+  - go below or too high the avg dmg and they summon pedelings, 1 per round, up until 32 are in the
+    room
+    - pedelings range from 50k - 700k
+  - if more than one pede is in the room with each other, they go beserk.  That was an anti-gen/jugger
+    change, they used to stack pedes and kill 2 at a time.
+  - if you hit them too hard too often, they dest
 
-This interacts with another mechanic: when the pede hits 20%, it will emote a dark blue colored
-message about link to the plane fading.
+  When the pedes will randomly summon a stray pedeling or two it's in your interest to switch targets
+  and kill it because when the pede gets < 20% hp, it will eat the pedeling for an hp heal.
 
-The number of rounds it takes you to get to the 20% mark defines the pace you have for the last 20%.
-If it heals, you don't make the pace.  Ideally, you would need the ability to ramp up damage after
-that message in order to secure a kill without securing a kill, the pede will randomly dest.
+  This interacts with another mechanic: when the pede hits 20%, it will emote a dark blue colored
+  message about link to the plane fading.
 
-Gentech note:
-- good rule of thumb, each 10% bias equates to about 100 dmg/rnd for your cap
+  The number of rounds it takes you to get to the 20% mark defines the pace you have for the last 20%.
+  If it heals, you don't make the pace.  Ideally, you would need the ability to ramp up damage after
+  that message in order to secure a kill; without securing a kill, the pede will randomly dest.
 
 Damage Notes:
-- mud damage is separate
-- average above or below 800-1k/rnd, you trigger the summoning of 1 pedeling/rnd ad infinitum;
-  it caps around 32 pedelings they range from 50k to 700kish
+
+  - mud damage is separate
+  - average above or below 800-1k/rnd
+    - hit too hard, they fury and do more dmg
+    - hit too weak, they summon pedelings; you trigger the summoning of 1 pedeling/rnd ad infinitum;
+      - it caps around 32 pedelings they range from 50k to 700kish
+  - if you do too much dmg enough, they dest
+    - Example: "Tempus spreads his arms apart, screaming in ultimate pain."
+
+Guild Notes:
+
+  Gentech note:
+
+    - good rule of thumb, each 10% bias equates to about 100 dmg/rnd for your cap
+
+  Cyborg notes:
+
+    - as a corps, use 1 medium weapon with assault animus on
+    - when you see the warning the pede is losing their link, add expansive hip augmentation to the fight
+      - as a corps subguild, with assault animus on
+        - can kill vestral with expansive hip augmentation
+          - if i use EXA with a medium weapon he furies!
+      - EXA + Medium dests the pedes and they fury over time
+      - Need to try with a light and an EXA or two light weapons
+    - some pedes can be deconstructed (wistana, solaris, vestral)
 
 Big Pedes:
-Hydronius, Guardinal Mantid of water guards the path to bigpedes.
-- another mini area with pedes that grow as boot proceeds (like starcraft area)
+
+  Hydronius, Guardinal Mantid of water guards the path to bigpedes.
+  - another mini area with pedes that grow as boot proceeds (like starcraft area)
 
 Weird dir rooms:
-There's a trick to them: similar to the up/down at center of pedes the entrance can be blocked.
-- to enter some, their corresponding peded must be alive
-- these rooms are safe from pedes hunting you (not pedelings)
-- only open if corresponding pede is alive
-- hide here and aggro'd pedes/pedelings will die after X rounds
+
+  There's a trick to them: similar to the up/down at center of pedes the entrance can be blocked.
+  - to enter some, their corresponding peded must be alive
+  - these rooms are safe from pedes hunting you (not pedelings)
+  - only open if corresponding pede is alive
+  - hide here and aggro'd pedes/pedelings will die after X rounds
 
 Specific Pede Notes:
-Pallatu:
-- mineral pede; only ice/acid dmg work
+  Azuria:
+
+    - ice immune
+
+  Pallatu:
+
+    - immune to all but ice or acid
+
+  Wistana:
+
+    - edged/fire immune
+
+  Sinder:
+
+    - edged/fire/ice immune
 
 Who blocks what?
 - pedes in the e/s/w/n directions block down
 - interior diagonals block up two of the up blockers require fire dmg
-
