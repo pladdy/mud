@@ -33,7 +33,7 @@ ifdef $(type)
 endif
 
 tags:
-	git tag --sort=-v:refname
+	@git tag --sort=-v:refname
 
 test:
 	bin/monster_name_test
