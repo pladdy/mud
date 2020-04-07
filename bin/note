@@ -1,0 +1,54 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use List::Util 'first';
+
+my @TYPES = qw(area eq item mob);
+my $DIR = "notes";
+
+sub type_is_valid {
+  my $type = $_[0];
+
+  my $match = first { /$type/ } @TYPES;
+  if ( defined($match) ) {
+    return 1;
+  }
+  return 0;
+}
+
+sub usage {
+  my $types = valid_types();
+  die <<"  USAGE";
+
+  Usage:
+    $0 [type] [note-name]
+
+    Valid [type]: $types
+  USAGE
+}
+
+sub valid_types {
+  return "'" . (join "', '", @TYPES) . "'";
+}
+
+# main script
+my ($type, $note_name) = @ARGV;
+$note_name =~ s/_|\s/-/g;
+
+print "$type\n";
+print "$note_name\n";
+
+unless ( type_is_valid($type) ) {
+  print "Invalid type of note specified: '$type'\n";
+  print "Valid types of notes: ", valid_types(), "\n";
+  die usage();
+}
+
+my $path = join "/", $DIR, $type . "s", $note_name . ".txt";
+print "Path: $path\n";
+
+if (-e $path) {
+  print "note exists\n";
+}
