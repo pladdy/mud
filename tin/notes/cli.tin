@@ -1,0 +1,7 @@
+#alias nfind {
+  #showme nfind stub;
+}
+
+#alias nread {
+  #showme nread stub;
+}

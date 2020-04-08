@@ -55,6 +55,21 @@
   #end;
 }
 
+#alias read_tin_files {
+  #script {tin_list} {
+    find ./%1 -wholename '*.tin' | grep -v '.bootstrap.tin';
+  };
+
+  #foreach { $tin_list[%*] } {file} {
+    #if {@length{$file} > 0} {
+      #showme reading $file;
+      #read $file;
+    };
+  };
+
+  #unvar tin_list;
+}
+
 #alias reload_map {
   #showme Setting up map class;
   #class map kill;
@@ -66,15 +81,6 @@
 #alias reload_tin {
   #read tin/default/.bootstrap.tin;
   reload_map;
-}
-
-#alias unfollow {
-  !unfollow %0;
-
-  #list {followers} {find} {%1} {follower_index};
-  #if {$follower_index > 0} {
-    #list {followers} {delete} {$follower_index};
-  };
 }
 
 #alias wield {

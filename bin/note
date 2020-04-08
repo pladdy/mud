@@ -1,12 +1,77 @@
 #!/usr/bin/env perl
 
+##
+# provide simple CLI to create a note stub to be filled in
+##
+
 use strict;
 use warnings;
 
 use List::Util 'first';
 
-my @TYPES = qw(area eq item mob);
-my $DIR = "notes";
+my %STUB_HASH = (
+  'area' => \&area_stub,
+  'eq' => \&eq_stub,
+  'item' => \&item_stub,
+  'mob' => \&mob_stub
+);
+my @TYPES = keys %STUB_HASH;
+my $NOTES_DIR = "notes";
+my $NOTE_EXTENSION = "md";
+
+sub area_stub {
+  return <<"  STUB";
+## Area Name
+
+### Realm
+
+### Mobs
+
+### Notable Items/EQ
+
+### Notes
+  STUB
+}
+
+sub eq_stub {
+  return <<"  STUB";
+## Item Name
+
+### Realm, Area, Mob
+
+### Slot, AC Types, Specials
+
+### Notes
+  STUB
+}
+
+sub item_stub {
+  return <<"  STUB";
+## Item Name
+
+### Realm, Area, Mob
+
+### Specials
+
+### Notes
+  STUB
+}
+
+sub mob_stub {
+  return <<"  STUB";
+## Mob Name
+
+### Realm and Area
+
+### Class
+
+### Combat
+
+### Notable Items/EQ
+
+### Notes
+  STUB
+}
 
 sub type_is_valid {
   my $type = $_[0];
@@ -37,8 +102,8 @@ sub valid_types {
 my ($type, $note_name) = @ARGV;
 $note_name =~ s/_|\s/-/g;
 
-print "$type\n";
-print "$note_name\n";
+print "Type: $type\n";
+print "Note Name: $note_name\n";
 
 unless ( type_is_valid($type) ) {
   print "Invalid type of note specified: '$type'\n";
@@ -46,9 +111,21 @@ unless ( type_is_valid($type) ) {
   die usage();
 }
 
-my $path = join "/", $DIR, $type . "s", $note_name . ".txt";
-print "Path: $path\n";
+my $note_dir = join "/", $NOTES_DIR, $type . "s";
+my $note_path = join "/", $note_dir, $note_name . "." . $NOTE_EXTENSION;
+print "Path: $note_path\n";
 
-if (-e $path) {
-  print "note exists\n";
+# create directory in $NOTES_DIR if it doesn't exist
+unless (-e $note_dir) {
+  mkdir $note_dir;
 }
+
+if (-e $note_path) {
+  print "Note $note_path exists already, not re-creating.  Please edit the file instead\n";
+} {
+  open(my $fh, '>', $note_path) or die "Failed to open file '$note_path', $!\n";
+  print $fh $STUB_HASH{$type}();
+  close $fh;
+}
+
+system("open $note_path");
