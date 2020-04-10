@@ -2,17 +2,18 @@
 
 These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 
-## Install Repo
+## Install
 
-`git clone git@github.com:pladdy/mud.git`
+Clone the repo: `git clone git@github.com:pladdy/mud.git`
 
 - this has been tested to run on a Mac; I've made some efforts to make it nix' compatible but it might need more love
+- windows users can install cygwin and then install this in your cygwin environment
 
 ## Install deps on osX
 
 `make install`
 
-- This might work on ubuntu/fedora which use apt-get and yum...not tested yet
+- This might work on ubuntu/fedora which uses apt-get and yum...not tested yet
 
 ### Dependency Notes
 
@@ -23,8 +24,8 @@ These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
   in tintin so I opt to use Perl for some things
 - TinTin++ (2.01.2) Mud Client: http://tintin.sourceforge.net/
 - Tmux (can install via brew on mac, unsure on cygwin)
-  - this is only if you want to use the -t option when you './play'
-  - if you'd rather not, there's a helper script in bin/ that let's you "watch" the map in another pane/window
+  - this is only if you want to use the -t option when you `./play`
+  - if you'd rather not use tmux, you can use `./watch-map` in another terminal to have the map up
 
 ### Install TinTin++ from source
 
@@ -34,7 +35,7 @@ These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 
 ## Setup a profile to play
 
-The *profiles/* directory houses profiles.  These are the files that handle setting up the session when loggin in with
+The *profiles/* directory houses profiles.  These are the files that handle setting up the session when logging in with
 a specific character.
 
 To set up a profile run `bin/create_profile <char name> <guild name>`
