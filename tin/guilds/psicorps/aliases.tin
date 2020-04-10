@@ -20,7 +20,7 @@
     #var fold_reality_location {$map[current_room]};
     #var fold_reality_check {true};
     !fold reality;
-    #map goto psicorps
+    #map goto psicorps_gh;
   }
 }
 

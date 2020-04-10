@@ -48,18 +48,19 @@
   #if {@length{$enemy} > 1} {
     #nop Defense first;
     #regex {$powers_str} { Vr} {#nop;} {!vr};
-    #regex {$powers_str} { Bf} {#nop;} {!bf};
+    #nop #regex {$powers_str} { Bf} {#nop;} {!bf};
 
     #nop Offense;
-    #regex {$powers_str} { Cg} {#nop;} {!cg};
-    #regex {$powers_str} { Bo} {#nop;} {!bo};
+    #regex {$powers_str} { Tl} {#nop;} {!tl};
+    #nop #regex {$powers_str} { Cg} {#nop;} {!cg};
+    #nop #regex {$powers_str} { Bo} {#nop;} {!bo};
     #nop #regex {$powers_str} { Ij} {#nop;} {!ij};
-    #regex {$powers_str} { bc} {#nop;} {!bc};
+    #nop #regex {$powers_str} { bc} {#nop;} {!bc};
 
     #nop Perks;
-    #regex {$powers_str} { Vg} {#nop;} {!vg};
+    #nop #regex {$powers_str} { Vg} {#nop;} {!vg};
     #regex {$powers_str} { Vv} {#nop;} {!vv};
-    #regex {$powers_str} { AA} {#nop;} {!aa bull};
+    #nop #regex {$powers_str} { AA} {#nop;} {!aa bull};
   };
 }
 
