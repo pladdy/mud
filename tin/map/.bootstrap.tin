@@ -4,7 +4,7 @@
 
 reload_map
 
-#nop Backup map;
+#nop Backup map on startup;
 #system cp $map_path $map_dir/backup_map.txt;
 
 #map read $map_path;

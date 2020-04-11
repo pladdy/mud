@@ -64,7 +64,12 @@
 
 #alias status_bar {
   #if {"%1" == "on"} {
-    #split {} 2;
+    #local WIDTH_OFFSET 100;
+    #screen get rows screen_height;
+    #math {split_width} {$rows - $WIDTH_OFFSET};
+
+    #nop create a box for mud text, allows another box for map to use;
+    #split 1 2 1 $split_width;
     #var SHOW_STATUS 1;
   };
   #elseif {"%1" == "off"} {

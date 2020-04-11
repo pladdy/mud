@@ -7,8 +7,6 @@ profiles/*.tin
 !profiles/profile_example.tin
 
 last_session.tin
-tin/map/current_map.txt
-tin/map/backup_map.txt
 tin/map/map_globals.txt
 
 .vagrant
