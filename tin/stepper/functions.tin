@@ -12,15 +12,19 @@
   #local monster %0;
   #var result false;
 
-  #foreach $non_monsters[%*] {non_monster} {
+  #foreach { $non_monsters[%*] } {non_monster} {
+    #if {"$non_monster" == ""} {#continue};
+
     #nop #showme DEBUG: checking if $monster is blacklisted;
-    #regexp {$monster} {%i$non_monster} {#replace result {false} {true}};
+    #regexp {$monster} {$non_monster} {#replace result {false} {true}};
+
     #if {"$result" == "true"} {
-      #nop #showme DEBUG: $monster is blacklisted, rule $non_monster, skipping;
+      #nop #showme <170>DEBUG: $monster is blacklisted, rule $non_monster, skipping;
       #break;
     };
   };
 
+  #unvar non_monster;
   #return $result;
 }
 
@@ -32,4 +36,3 @@
   };
   #else {#return $transform_string};
 }
-

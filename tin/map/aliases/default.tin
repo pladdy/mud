@@ -31,6 +31,7 @@
   #math map_height {$screen_height - $SPLIT_ADJUSTMENT};
   #math map_width {$screen_width - $WIDTH_OFFSET};
   #map map $map_height $map_width variable current_map;
+  #replace {current_map} {\\} {\\};
 
   #math box_height {$map_height + 1};
   #var box_width $screen_width;
@@ -42,6 +43,8 @@
 #nop When 'running' disable refresh, it makes the 'run' much faster;
 
 #alias map_run {
+  #if {"$stepper" == "on"} {stepper off};
+
   #format {run_to} {%l} {%1};
   #unevent {MAP ENTER ROOM};
 

@@ -16,8 +16,12 @@
 #nop Monster trigger;
 
 #action {^%!{[> ]*}[M] %1} {
+  #nop #showme <170>DEBUG: monster trigger firing;
+
   set_under_attack %1;
   #local mob_on_blacklist {@mob_is_blacklisted{%1}};
+
+  #nop #showme <170>DEBUG: mob_on_blacklist? $mob_on_blacklist;
 
   #if {"$mob_on_blacklist" == "false"} {
     #script {monster_name} {./bin/monster_name "%1"};

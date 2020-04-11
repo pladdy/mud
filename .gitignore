@@ -8,6 +8,7 @@ profiles/*.tin
 
 last_session.tin
 tin/map/map_globals.txt
+tin/map/backup_map.txt
 
 .vagrant
 *.log
