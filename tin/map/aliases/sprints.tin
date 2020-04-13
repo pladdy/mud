@@ -5,8 +5,7 @@
     #showme <170>Usage: 'dungeon <dungeon> <scaler>';
     #local dungeons_file {notes/areas/dungeons.txt};
     #showme <170>Dungeon levels list (from $dungeons_file);
-    #script {content} {grep -A 12 -i $character $dungeons_file};
-    #foreach { $content[%*] } {line} {#showme $line};
+    print_system_output grep -A 12 -i $character $dungeons_file;
   };
   #else {
     !scaler %2;
@@ -75,8 +74,7 @@
   #if { @length{%1} > 0 } {
     map_run atm_%1;
   } {
-    #script {content} {cat notes/areas/atms.txt};
-    #foreach { $content[%*] } {line} {#showme $line};
+    print_system_output cat notes/areas/atms.txt;
   };
 }
 
@@ -84,8 +82,7 @@
   #if { @length{%1} > 0 } {
     map_run shop_%1;
   } {
-    #script {content} {cat notes/areas/shops.txt};
-    #foreach { $content[%*] } {line} {#showme $line};
+    print_system_output cat notes/areas/shops.txt;
   };
 }
 

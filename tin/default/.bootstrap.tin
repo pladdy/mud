@@ -54,7 +54,7 @@ status_bar on;
 #CONFIG           {CONNECT RETRY}  {15}
 #CONFIG           {HISTORY SIZE}  {1000}
 #CONFIG           {LOG}  {PLAIN}
-#CONFIG           {PACKET PATCH}  {0}
+#CONFIG           {PACKET PATCH}  {0.25}
 #CONFIG           {REPEAT CHAR}  {!}
 #CONFIG           {REPEAT ENTER}  {OFF}
 #CONFIG           {SCROLL LOCK}  {ON}
