@@ -15,8 +15,8 @@
   #foreach { $non_monsters[%*] } {non_monster} {
     #if {"$non_monster" == ""} {#continue};
 
-    #nop #showme DEBUG: checking if $monster is blacklisted;
-    #regexp {$monster} {$non_monster} {#replace result {false} {true}};
+    #regexp {$monster} {%i$non_monster} {#replace result {false} {true}};
+    #nop #showme DEBUG: checking '$monster' vs '$non_monster', match? '$result';
 
     #if {"$result" == "true"} {
       #nop #showme <170>DEBUG: $monster is blacklisted, rule $non_monster, skipping;

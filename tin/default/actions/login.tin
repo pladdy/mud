@@ -7,7 +7,9 @@
   !i;
   linkdie_commands;
   status_bar on;
-  mapr;
+  #nop This is gross, but it looks like `#split` may run asynchronously and there's;
+  #nop not enough width to show the map when `mapr` is called.  So use a delay.;
+  #delay 1 mapr;
 }
 
 #action {^You are login #%1 this boot.$} {

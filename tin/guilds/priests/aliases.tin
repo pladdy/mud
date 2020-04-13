@@ -13,7 +13,7 @@
     #regex {$spells} {BA} {#nop} {!barkskin};
     #regex {$spells} {HA} {#nop} {!haste};
     #regex {$spells} {BL} {#nop} {!bless};
-    #regex {$spells} {BE} {#nop} {!beneficense};
+    #regex {$spells} {BE} {#nop} {!beneficence};
     #if {"$blade" == "OFF" && $enemy > 0} {!blade};
   };
 }
