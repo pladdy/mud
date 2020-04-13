@@ -15,7 +15,11 @@
 
   #local MIN_MIND 170;
   #if {$gp2 < $MIN_MIND} {#showme <110>Mind is low!};
-  #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {stepper off};
+
+  #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {
+    #showme Turnning stepper off.  Mind: $gp2, Stepper: $stepper;
+    stepper off;
+  };
 
   #regexp {%11} {T: %d%?$} {#var enemy &1} {#var enemy 0};
 
