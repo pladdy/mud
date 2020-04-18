@@ -10,7 +10,7 @@
 
     commands_before_corpse;
 
-    #regexp {%1} {%i{$character|$summons|$my_dog}} {
+    #regexp {%1} {%i{$character|$summons|$my_dog|tree}} {
       !glance;
       wrap_or_use_corpse;
       #if {"$party_status" == "yes"} {!divvy gold};
