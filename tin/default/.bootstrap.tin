@@ -44,7 +44,6 @@ status_bar on;
 #nop map is loaded.  see tin/default/actions/login.tin
 #var {map_dir} {tin/map};
 
-#CONFIG           {256 COLORS}  {ON}
 #CONFIG           {AUTO TAB}  {5000}
 #CONFIG           {BUFFER SIZE}  {10000}
 #CONFIG           {CHARSET}  {ASCII}
