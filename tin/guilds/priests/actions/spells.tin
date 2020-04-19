@@ -46,6 +46,16 @@
   #var curse on;
 }
 
+#nop Growth;
+
+#action {^%!{[> ]*}Suddenly, Cloud Elemental grows to mammoth size!$} {
+  #var growth ON;
+}
+
+#action {^%!{[> ]*}Animal Growth has already been cast on Cloud Elemental.$} {
+  #var growth ON;
+}
+
 #nop Haste;
 
 #action {^%!{[> ]*}'Wise and powerful %1, hasten my reflexes and quicken my body!'} {
@@ -61,6 +71,11 @@
 #gag {^%!{[> ]*}You are already full of life.$}
 
 #nop Mends;
+
+#action {^%!{[> ]*}%1 pings you.$} {
+  #format {player} {%l} {%1};
+  !mend $player;
+}
 
 #action {^%!{[> ]*}%1 gives you a high-five!$} {
   #format {player} {%l} {%1};

@@ -1,5 +1,11 @@
-#while {1} {
-  !afk Mends: 'healme' / HP, 'nosp' / SP, 'high5' / GP;
+#var blade {OFF};
+#var curse OFF;
+#var growth OFF;
+#var psummon {OFF};
+#var pshift {OFF};
+#var summons {cloud elemental}; #nop selene psummon
 
+#while {1} {
+  !afk Mends: 'ping', HP: 'healme', SP: 'nosp', GP: 'high5';
   #break;
 }
