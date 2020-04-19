@@ -2,13 +2,17 @@ aset psi_main higreen
 aset psicorps_pkin yellow
 aset psicorps_pmeta himagenta
 
+alias bf biofeedback
+alias bc biocurrent
 alias c convert
 alias com psichat main
 alias gs3 train
+alias h [body adjustment
 alias tl talons
+alias vg vigor
 alias vr valor
 alias ve verve
 
 pset motto @higreen:M@@white:e@@yellow:t@@hicyan:a @@flash:-@ @hired:Y@@hiblue:o@@himagenta:d@@green:a@@brown:w@@white:g@
-pset custom_hp H: &$HP2$& S: &$SP2$& P: &$PE2$& St: &$ST2$& G: &$G2N$&(&$G2N%$&%) En: &$EC$& E: &$C$&&$NL$&Sc: &$G2S$& A: &$AS$&
+#delay 2 {pset custom_hp H: &$HP2$& S: &$SP2$& P: &$PE2$& St: &$ST2$& G: &$G2N$&(&$G2N%$&%) En: &$EC$& E: &$C$&&$NL$&Sc: &$G2S$& A: &$AS$&}
 

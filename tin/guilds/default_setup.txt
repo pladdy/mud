@@ -34,6 +34,7 @@ aset gam higreen
 aset gshout yellow
 aset hm himagenta
 aset house hicyan
+aset lottery yellow
 aset melee bkblue
 aset newbie white
 aset party yellow

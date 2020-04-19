@@ -1,4 +1,4 @@
-#action {^H: %1/%2 S: %3/%4 P: %5/%6 St: %8/%9 G: %10(%11%) En: %12 E: %13$} {
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 P: %5/%6 St: %8/%9 G: %10(%11%) En: %12 E: %13$} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -20,13 +20,13 @@
 
   #math {max_convert} {$sp / 10};
   #math {gp1_delta} {$gp1_max - $gp1};
+  #if {$sp >= $sp_max && $gp1_delta > $max_convert} {!convert};
 
-  #if {$sp >= $sp_max && $gp1_delta > 200} {!convert};
   pause_active_stepper;
   show_status_bar;
 }
 
-#action {^Sc: %1 A: %2$} {
+#action {^%!{[> ]*}Sc: %1 A: %2$} {
   #var powers_str {%2};
 
   #var power_list {%2};
@@ -48,7 +48,7 @@
   #if {@length{$enemy} > 1} {
     #nop Defense first;
     #regex {$powers_str} { Vr} {#nop;} {!vr};
-    #nop #regex {$powers_str} { Bf} {#nop;} {!bf};
+    #regex {$powers_str} { Bf} {#nop;} {!bf};
 
     #nop Offense;
     #regex {$powers_str} { Tl} {#nop;} {!tl};
@@ -58,16 +58,16 @@
     #nop #regex {$powers_str} { bc} {#nop;} {!bc};
 
     #nop Perks;
-    #nop #regex {$powers_str} { Vg} {#nop;} {!vg};
+    #regex {$powers_str} { Vg} {#nop;} {!vg};
     #regex {$powers_str} { Vv} {#nop;} {!vv};
     #nop #regex {$powers_str} { AA} {#nop;} {!aa bull};
   };
 }
 
-#action {^Your %1 has expired.$} {
+#action {^%!{[> ]*}Your %1 has expired.$} {
   #if {@length{$enemy} > 1 && $sp > 40 && $gp1 > 40} {!actuate %1;}
 }
 
-#action {^You can't focus on folding while fighting.$} {
+#action {^%!{[> ]*}You can't focus on folding while fighting.$} {
   #map undo;
 }
