@@ -1,20 +1,20 @@
 #nop Map is loaded based on successful login.
 
 #action {^Your character is currently logged in and } {
-  #read $map_dir/.bootstrap.tin;
   gag on;
   !hp;
   !i;
   linkdie_commands;
+  #read $map_dir/.bootstrap.tin;
   status_bar on;
 }
 
 #action {^You are login #%1 this boot.$} {
-  #read $map_dir/.bootstrap.tin;
   gag on;
   !hp;
   !i;
   login_commands;
+  #read $map_dir/.bootstrap.tin;
   status_bar on;
 }
 

@@ -1,5 +1,7 @@
 #nop Initialize the mapping stuff;
 
+#map flag vtmap off;
+
 #var map_path $map_dir/map.txt;
 
 reload_map

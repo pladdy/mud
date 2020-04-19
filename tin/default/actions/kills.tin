@@ -8,18 +8,18 @@
       #var btrig {};
     };
 
-    commands_before_corpse;
-
     #regexp {%1} {%i{$character|$summons|$my_dog|tree}} {
+      commands_before_corpse;
+
       !glance;
       wrap_or_use_corpse;
       #if {"$party_status" == "yes"} {!divvy gold};
       #nop assumes an alias 'f' exists to 'get all';
       !f;
       #if {"$stepper" == "on"} {pba};
-    };
 
-    commands_after_corpse;
+      commands_after_corpse;
+    };
 
     #if { @length{$dtrig} > 0 } {
       #foreach {$dtrig} {d} {$d;};

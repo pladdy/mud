@@ -16,10 +16,10 @@
     #if {"$non_monster" == ""} {#continue};
 
     #regexp {$monster} {%i$non_monster} {#replace result {false} {true}};
-    #nop #showme DEBUG: checking '$monster' vs '$non_monster', match? '$result';
+    debug checking '$monster' vs '$non_monster', match? '$result';
 
     #if {"$result" == "true"} {
-      #nop #showme <170>DEBUG: $monster is blacklisted, rule $non_monster, skipping;
+      debug $monster is blacklisted, rule $non_monster, skipping;
       #break;
     };
   };

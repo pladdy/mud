@@ -16,15 +16,15 @@
   #list {seen_monsters} {size} {seen_monster_count};
 
   #if {"$stepper" == "on" && "$player_present" == "true"} {
-    #nop #showme <170>DEBUG: player present;
+    debug player present;
     take_a_step;
   };
   #elseif {"$stepper" == "on" && $seen_monster_count == 0} {
-    #nop #showme <170>DEBUG: no monsters present;
+    debug no monsters present;
     take_a_step;
   };
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
-    #nop #showme <170>DEBUG: monster present, attack;
+    debug monster present, attack;
     !kill @transform_mob{$seen_monsters[1]};
     #var under_attack true;
   };
@@ -50,7 +50,7 @@
 }
 
 #alias parse_exits {
-  #nop #showme DEBUG: parse_exists called with %0;
+  debug parse_exists called with %0;
   #var available_exits {};
   #var room_string %0;
   #var exit_str "";
