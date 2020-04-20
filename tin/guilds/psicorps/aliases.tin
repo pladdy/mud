@@ -25,8 +25,8 @@
 }
 
 #alias pause_active_stepper {
-  #local MIN_PSI 250;
-  #local MIN_STAM 102;
+  #local MIN_PSI 100;
+  #local MIN_STAM 50;
   #local REGEN_SECONDS 60;
 
   #if {($enemy > 0 && "$stepper" == "on" && "$pause" != "true") &&

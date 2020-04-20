@@ -38,8 +38,8 @@
   #list powers clear;
   #foreach {$power_list} {power} {
     #regexp {$power} {%w:%d} {
-      #var powers[&1] &2;
       #format {actuate} {%l} {&1};
+      #var powers[$actuate] &2;
     };
 
     #if {$powers[$power] < 20} { !$actuate; };
