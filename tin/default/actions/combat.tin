@@ -57,6 +57,12 @@
   }
 }
 
+#nop Pedelings;
+
+#action {^%!{[> ]*}Through the planar portal steps forth an avatar of the centipedal gods!$} {
+  !kill pedeling;
+}
+
 #nop Vasyrach;
 
 #action {^The Demon Spider emits a horrid screech!  A large creature approaches$} {
