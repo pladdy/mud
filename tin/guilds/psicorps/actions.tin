@@ -48,13 +48,13 @@
   #if {@length{$enemy} > 1} {
     #nop Defense first;
     #regex {$powers_str} { Vr} {#nop;} {!vr};
-    #regex {$powers_str} { Bf} {#nop;} {!bf};
+    #nop #regex {$powers_str} { Bf} {#nop;} {!bf};
 
     #nop Offense;
     #regex {$powers_str} { Tl} {#nop;} {!tl};
     #nop #regex {$powers_str} { Cg} {#nop;} {!cg};
     #nop #regex {$powers_str} { Bo} {#nop;} {!bo};
-    #nop #regex {$powers_str} { Ij} {#nop;} {!ij};
+    #regex {$powers_str} { Ij} {#nop;} {!ij};
     #nop #regex {$powers_str} { bc} {#nop;} {!bc};
 
     #nop Perks;
@@ -68,6 +68,31 @@
   #if {@length{$enemy} > 1 && $sp > 40 && $gp1 > 40} {!actuate %1;}
 }
 
+#nop Fold Reality;
+
+#action {^%!{[> ]*}Psicorps Entrance (d)$} {
+  #map goto psicorps_gh;
+  #var fold_reality_active true;
+};
+
 #action {^%!{[> ]*}You can't focus on folding while fighting.$} {
-  #map undo;
+  #var fold_reality_active false;
+  #var fold_reality_from {0};
+}
+
+#action {^%!{[> ]*}The psicrystals generate too much interference to fold reality here.$} {
+  #var fold_reality_active true;
+}
+
+#action {^%!{[> ]*}You reach out, tear the fabric of reality and then fold it around yourself.$} {
+  #if {"$fold_reality_active" == "true"} {
+    #map goto $fold_reality_from;
+    #var fold_reality_from {0};
+    #var fold_reality_active {false}
+  };
+  #else {
+    #var fold_reality_from $map[current_room];
+    #var fold_reality_active {true};
+    #map goto psicorps_gh;
+  };
 }

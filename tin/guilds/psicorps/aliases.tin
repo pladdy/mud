@@ -6,22 +6,12 @@
 
 #alias fr {
   #if {"%0" == "reset"} {
-    #unvar fold_reality_check;
+    #unvar fold_reality_active;
     #unvar fold_reality_location;
     #return;
   };
 
-  #if {"$fold_reality_check" == "true"} {
-    !fold reality;
-    #map goto $fold_reality_location;
-    #var fold_reality_location {0};
-    #var fold_reality_check {false};
-  } {
-    #var fold_reality_location {$map[current_room]};
-    #var fold_reality_check {true};
-    !fold reality;
-    #map goto psicorps_gh;
-  }
+  !fold reality;
 }
 
 #alias pause_active_stepper {
