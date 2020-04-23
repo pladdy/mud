@@ -18,7 +18,5 @@ refresh_map_on_enter;
 #read last_session.tin;
 
 #regexp {$map[current_room]} {{[0-9]+}} {
-  #map goto $map[current_room]
-} {
-  #map goto
+  #delay 1 {#map goto $map[current_room]}
 };

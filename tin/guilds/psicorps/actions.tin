@@ -42,26 +42,10 @@
       #var powers[$actuate] &2;
     };
 
-    #if {$powers[$power] < 20} { !$actuate; };
+    #if {$powers[$actuate] < 20} { !$actuate; };
   }
 
-  #if {@length{$enemy} > 1} {
-    #nop Defense first;
-    #regex {$powers_str} { Vr} {#nop;} {!vr};
-    #nop #regex {$powers_str} { Bf} {#nop;} {!bf};
-
-    #nop Offense;
-    #regex {$powers_str} { Tl} {#nop;} {!tl};
-    #nop #regex {$powers_str} { Cg} {#nop;} {!cg};
-    #nop #regex {$powers_str} { Bo} {#nop;} {!bo};
-    #regex {$powers_str} { Ij} {#nop;} {!ij};
-    #nop #regex {$powers_str} { bc} {#nop;} {!bc};
-
-    #nop Perks;
-    #regex {$powers_str} { Vg} {#nop;} {!vg};
-    #regex {$powers_str} { Vv} {#nop;} {!vv};
-    #nop #regex {$powers_str} { AA} {#nop;} {!aa bull};
-  };
+  #if {@length{$enemy} > 1} {attempt_actuation};
 }
 
 #action {^%!{[> ]*}Your %1 has expired.$} {

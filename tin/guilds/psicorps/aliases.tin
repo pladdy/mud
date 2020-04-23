@@ -1,3 +1,21 @@
+#alias attempt_actuation {
+    #nop Defense first;
+    #regex {$powers_str} { Vr} {#nop;} {!vr};
+    #nop #regex {$powers_str} { Bf} {#nop;} {!bf};
+
+    #nop Offense;
+    #regex {$powers_str} { Tl} {#nop;} {!tl};
+    #nop #regex {$powers_str} { Cg} {#nop;} {!cg};
+    #nop #regex {$powers_str} { Bo} {#nop;} {!bo};
+    #regex {$powers_str} { Ij} {#nop;} {!ij};
+    #regex {$powers_str} { bc} {#nop;} {!bc};
+
+    #nop Perks;
+    #nop #regex {$powers_str} { Vg} {#nop;} {!vg};
+    #regex {$powers_str} { Vv} {#nop;} {!vv};
+    #nop #regex {$powers_str} { AA} {#nop;} {!aa bull};
+}
+
 #alias f10 {use_corpse};
 
 #alias f12 {

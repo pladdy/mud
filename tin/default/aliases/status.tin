@@ -69,7 +69,7 @@
     #math {split_width} {$rows - $WIDTH_OFFSET};
 
     #nop create a box for mud text, allows another box for map;
-    #delay 1 {#split 1 2 1 $split_width};
+    #split 1 2 1 $split_width;
     #nop #split 0 2;
     #var SHOW_STATUS 1;
   };
