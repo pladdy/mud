@@ -1,3 +1,21 @@
+#alias attempt_actuation {
+    #nop Defense first;
+    #regex {$powers_str} { Vr} {#nop;} {!vr};
+    #nop #regex {$powers_str} { Bf} {#nop;} {!bf};
+
+    #nop Offense;
+    #regex {$powers_str} { Tl} {#nop;} {!tl};
+    #nop #regex {$powers_str} { Cg} {#nop;} {!cg};
+    #nop #regex {$powers_str} { Bo} {#nop;} {!bo};
+    #regex {$powers_str} { Ij} {#nop;} {!ij};
+    #regex {$powers_str} { bc} {#nop;} {!bc};
+
+    #nop Perks;
+    #nop #regex {$powers_str} { Vg} {#nop;} {!vg};
+    #regex {$powers_str} { Vv} {#nop;} {!vv};
+    #nop #regex {$powers_str} { AA} {#nop;} {!aa bull};
+}
+
 #alias f10 {use_corpse};
 
 #alias f12 {
@@ -6,27 +24,17 @@
 
 #alias fr {
   #if {"%0" == "reset"} {
-    #unvar fold_reality_check;
+    #unvar fold_reality_active;
     #unvar fold_reality_location;
     #return;
   };
 
-  #if {"$fold_reality_check" == "true"} {
-    !fold reality;
-    #map goto $fold_reality_location;
-    #var fold_reality_location {0};
-    #var fold_reality_check {false};
-  } {
-    #var fold_reality_location {$map[current_room]};
-    #var fold_reality_check {true};
-    !fold reality;
-    #map goto psicorps
-  }
+  !fold reality;
 }
 
 #alias pause_active_stepper {
-  #local MIN_PSI 250;
-  #local MIN_STAM 102;
+  #local MIN_PSI 100;
+  #local MIN_STAM 50;
   #local REGEN_SECONDS 60;
 
   #if {($enemy > 0 && "$stepper" == "on" && "$pause" != "true") &&

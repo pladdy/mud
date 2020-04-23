@@ -1,4 +1,4 @@
-#action {Please "accept" or "refuse"} {
+#action {Resurrection tithe required: %1 coins} {
   !accept;
 }
 

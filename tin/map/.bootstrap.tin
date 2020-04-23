@@ -1,10 +1,12 @@
 #nop Initialize the mapping stuff;
 
+#map flag vtmap off;
+
 #var map_path $map_dir/map.txt;
 
 reload_map
 
-#nop Backup map;
+#nop Backup map on startup;
 #system cp $map_path $map_dir/backup_map.txt;
 
 #map read $map_path;
@@ -16,7 +18,5 @@ refresh_map_on_enter;
 #read last_session.tin;
 
 #regexp {$map[current_room]} {{[0-9]+}} {
-  #map goto $map[current_room]
-} {
-  #map goto
+  #delay 1 {#map goto $map[current_room]}
 };

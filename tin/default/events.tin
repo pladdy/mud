@@ -29,21 +29,6 @@
   #if { "$quit" != "true" } { guild_session; };
   #else {
     #showme <170>Session disconnecting...;
-    #system { tail -n 20 $session_log };
     #gts #delay 3 {#ses 3k 3k.org 3000;$character};
-  };
-}
-
-#nop when you type '#end' this event is fired;
-
-#event {PROGRAM TERMINATION} {
-  #showme <170>Program shutting down...;
-  #system {
-    tmux ls > /dev/null 2>&1;
-    if [ $? -eq 0 ]; then
-      echo "Killing tmux session, check $session_log for logout messages";
-      sleep 2;
-      tmux kill-session -t tintin;
-    fi;
   };
 }

@@ -4,30 +4,8 @@
 set -o errexit -o nounset -o pipefail
 IFS=$'\n\t'
 
-USE_TMUX=0
 PROFILE=""
 PROFILE_FILE=""
-
-##
-# thanks to Killergate on 3k for the below tmux commands!
-##
-play_with_tmux() {
-  local profile=$1
-
-  if [ -z $(which tmux) ]; then
-    echo "Need to install tmux to play with -t option"
-    exit 1
-  fi
-
-  # in tmux 2.6, without a sleep the output renders in ~20 columns until
-  # you log in which looks erroneous; sleep gets around that
-  tmux new-session -d -s tintin "sleep 1 && tt++ profiles/${profile}"
-
-  # switching to percent, -l option not working (on mac)
-  tmux split-window -h -p 60 -t tintin "./watch-map"
-  tmux select-pane -t 0
-  tmux -2 attach-session -t tintin
-}
 
 usage() {
   declare -a lines=(
@@ -37,12 +15,9 @@ usage() {
     "Options:"
     "  -h this message"
     "  -p [required] the profile you want to use"
-    "  -t use tmux to split screen; map will be on the right and session"
-    "     on the left"
     ""
     "Examples"
-    "  $0 -p foo_bar    # play 3k with the foo_bar profile"
-    "  $0 -t -p foo_bar # play 3k with the foo_bar profile in tmux"
+    "  $0 -p foo_bar # play 3k with the foo_bar profile"
   )
   for line in "${lines[@]}"; do echo "${line}"; done
 }
@@ -57,7 +32,7 @@ valid_profiles() {
   done
 }
 
-while getopts 'thp:' opt; do
+while getopts 'hp:' opt; do
   case "${opt}" in
     h)
       usage
@@ -67,18 +42,12 @@ while getopts 'thp:' opt; do
       PROFILE="${OPTARG}"
       PROFILE_FILE=${PROFILE}.tin
       ;;
-    t) USE_TMUX=1;;
   esac
 done
 
 if [ $# -gt 0 ] && [ -f "profiles/${PROFILE_FILE}" ]; then
   rm -f tin/map/map_globals.txt
-
-  if [ "${USE_TMUX}" == "1" ]; then
-    PROFILE=${PROFILE} play_with_tmux ${PROFILE_FILE}
-  else
-    PROFILE=${PROFILE} tt++ profiles/${PROFILE_FILE}
-  fi
+  PROFILE=${PROFILE} tt++ profiles/${PROFILE_FILE}
 else
   printf "Need a valid profile name.\n\n"
   valid_profiles
@@ -86,4 +55,3 @@ else
   usage
   exit 1
 fi
-

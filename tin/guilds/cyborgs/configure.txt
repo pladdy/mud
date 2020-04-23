@@ -13,6 +13,8 @@ configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
+configure pattern remove 1
+configure pattern remove 1
 
 configure pattern add expansive hip augmentation/freon injector [0]/freon injector [1]/knee spike [0]
 configure pattern add expansive hip augmentation/blazer [0]/blazer [1]/knee spike [1]

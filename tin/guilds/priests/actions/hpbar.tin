@@ -24,6 +24,7 @@
   attempt_effects;
   attempt_psummon;
   attempt_curse;
+  attempt_growth;
   #nop attempt_pshift;
   attempt_offer;
   attempt_beseech;

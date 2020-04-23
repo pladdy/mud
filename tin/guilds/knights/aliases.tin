@@ -45,6 +45,8 @@
   get all;
 }
 
+#nop method aliases;
+
 #alias mc {
   !method charge;
   ofup;
@@ -56,7 +58,6 @@
 }
 
 #alias mm {
-  !method melee;
   neup;
 }
 

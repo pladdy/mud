@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
 install_on_linux() {
-  echo "Install tintin dependencies and tmux..."
+  echo "Install tintin dependencies"
   if which apt-get > /dev/null 2>&1; then
     sudo apt-get install zlib1g-dev
     sudo apt-get install libpcre++-dev
-    sudo apt-get install tmux
   elif which yum > /dev/null 2>&1; then
     sudo yum install zlib-devel
     sudo yum install pcre-devel
-    sudo yum install tmux
   fi
 
   echo "Installing tintin..."
@@ -40,14 +38,6 @@ install_on_mac() {
   echo "Installing tintin..."
   brew install tintin
   brew link --overwrite tintin
-
-  if which tmux > /dev/null 2>&1; then
-    echo "Upgrading tmux..."
-    brew upgrade tmux
-  else
-    echo "Installing tmux..."
-    brew install tmux
-  fi
 }
 
 os=""

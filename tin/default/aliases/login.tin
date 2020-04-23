@@ -7,7 +7,3 @@
   !quit;
   #gts #var quit true;
 }
-
-#alias shutdown_tmux {
-  #system {tmux kill-session -t tintin};
-}
