@@ -5,7 +5,6 @@
   !hp;
   !i;
   linkdie_commands;
-  #delay 1 status_bar on;
   #read $map_dir/.bootstrap.tin;
 }
 
@@ -14,9 +13,7 @@
   !hp;
   !i;
   login_commands;
-  #delay 1 status_bar on;
   #read $map_dir/.bootstrap.tin;
-  #map goto cot;
 }
 
 #action {^You must wait %1 seconds to log in.$} { #end }

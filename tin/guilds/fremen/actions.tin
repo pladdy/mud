@@ -30,7 +30,7 @@
     #if {$ammo == 1 && $ammo_max > 0} {!mload};
   };
 
-  #if {$enemy > 0 && "$spice" == "Withdrawal" && "$have_spice" == "true"} {
+  #if {$enemy > 0 && "$spice" == "Withdrawal" && "$have_pure_spice" == "true"} {
     !take spice;
   };
 }
@@ -44,13 +44,13 @@
 }
 
 #action {^%!{[> ]*}There is no spice here.$} {
-  #var have_spice false;
+  #var have_pure_spice false;
 }
 
 #action {^%!{[> ]*}You pay %1 gold coins for pure spice.$} {
-  #var have_spice true;
+  #var have_pure_spice true;
 }
 
 #action {Spice Melange (Pure).$} {
-  #var have_spice true;
+  #var have_pure_spice true;
 }

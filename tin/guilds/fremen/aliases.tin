@@ -1,3 +1,18 @@
+#alias adjust_litany {
+  #math {hp_ratio} {($hp * 1.00) / $hp_max};
+
+  #nop Litany settings: low, some, minor, half, major, most, high, all;
+
+  #switch {$hp_ratio} {
+    #case {$hp_ratio > .90} {
+      #showme Looking good: $hp_ratio;
+    };
+    #default {
+      #showme Looking bad: $hp_ratio;
+    }
+  }
+}
+
 #alias am {
   !hide;
   !fk m %0;
@@ -57,6 +72,7 @@
 
 #alias holster_weapons {
   !sheathe knife;
+  !sheathe sword;
   !holster gun;
   !do clear;
 }
