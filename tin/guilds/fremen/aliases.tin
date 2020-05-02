@@ -1,20 +1,38 @@
 #alias adjust_litany {
-  #math {hp_ratio} {($hp * 1.00) / $hp_max};
+  #if {"$adjust_litany" == "on"} {
+    #var adjust_litany off;
+  };
+  #else {
+    #var adjust_litany on;
+  }
+}
+
+#alias attempt_adjust_litany {
+  #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
 
   #nop Litany settings: low, some, minor, half, major, most, high, all;
 
-  #switch {$hp_ratio} {
-    #case {$hp_ratio > .90} {
-      #showme Looking good: $hp_ratio;
-    };
-    #default {
-      #showme Looking bad: $hp_ratio;
-    }
-  }
+  #if {$hp_as_pct < 0.90 && $hp_as_pct >= 0.80 && $adjusted_litany_leve != 1} {
+    !assault none;litany major;assault;
+    #var adjusted_litany_level 1;
+  };
+  #elseif {$hp_as_pct < 0.80 && $hp_as_pct >= 0.70 && $adjusted_litany_leve != 2} {
+    !assault none;litany most;assault;
+    #var adjusted_litany_level 2;
+  };
+  #elseif {$hp_as_pct < 0.70 && $hp_as_pct >= 0.60 && $adjusted_litany_leve != 3} {
+    !assault none;litany high;assault;
+    #var adjusted_litany_level 3;
+  };
+  #elseif {$hp_as_pct < 0.60 && $adjusted_litany_leve != 4} {
+    !assault none;litany all;assault;
+    #var adjusted_litany_level 4;
+  };
 }
 
 #alias am {
   !hide;
+  !poison;
   !fk m %0;
 }
 

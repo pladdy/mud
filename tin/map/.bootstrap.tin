@@ -11,7 +11,6 @@ reload_map
 
 #map read $map_path;
 map_lock;
-refresh_map_on_enter;
 
 #nop Go to last known room if possible;
 
@@ -19,8 +18,15 @@ refresh_map_on_enter;
 
 #delay 1 {
   status_bar on;
-  !hp;
+
   #regexp {$map[current_room]} {{[0-9]+}} {#map goto $map[current_room]}
                                           {#map goto home};
-  #delay 1 mapr;
+
+  #nop This refreshes the map, delay it ti avoid error from #draw;
+  #delay 1 {
+    hp;
+    refresh_map_on_enter;
+    #nop Yodawg...;
+    #delay 1 mapr;
+  };
 };
