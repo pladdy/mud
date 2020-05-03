@@ -17,8 +17,8 @@
       #script {matches} {
         grep -rihI --exclude-dir .git --exclude-dir tin --exclude '*.log' '%0' "$file";
       };
-
       #foreach { $matches[%*] } {match} {#showme <170>  $match};
+
       #unvar matches;
     }
   }
@@ -32,14 +32,15 @@
 
 #alias fcat {
   #if {"%1" == ""} {
-    #system { ls -al };
+    print_system_output ls -al;
   };
   #else {
     #script {files_found} {
       find ./ -wholename "*%1*" | grep -v .git | head -n 1
     };
     #var first_file_found $files_found[1];
-    #system {
+
+    #script {content} {
       if [ -n "${first_file_found}" ]; then
         msg="first file found: ${first_file_found}";
         printf "\e[97m$msg\e[0m\n";
@@ -50,6 +51,20 @@
         cat %1;
       fi;
     };
+    #foreach { $content[%*] } {line} {#showme $line};
+
     #unvar first_file_found;
+    #unvar content;
   };
+
+
+}
+
+#nop Print the output of given script command;
+
+#alias print_system_output {
+  debug Output from '%0';
+  #script {content} {%0};
+  #foreach { $content[%*] } {line} {#showme $line};
+  #unvar content;
 }

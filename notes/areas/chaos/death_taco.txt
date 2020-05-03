@@ -1,17 +1,25 @@
+Realm: Chaos
+
+This area is a dungeon that scales with level (modify it with scaler).
+
+This file documents the different classes of mobs and overall area info.
+
+For specific data on mobs, check notes/mobs/<mob>.txt (if it exists).
+
 scaler classes:
-mob,         45 class, 49 class, 70 class, 73 class
-shell,       63k,      75k,      330k,     416k
-lettuce,     68k,      82k,      380k,     338k
-tomoatoes,   69k,      84k,      400k,     486k
-cheese,      83k,      170k,     600k,     641k
-meat,        ?,        ?,        600k,     688k
-sour cream,  328k,     ?,        ?,        1.8M
-guacomole,   259k,     ?,        ?,        1.6M
-hot sauce,   449k      ?,        ?,        2.4M
+mob,         45 class, 49 class, 70 class, 73 class, 91 class
+shell,       63k,      75k,      330k,     416k,     1M,
+lettuce,     68k,      82k,      380k,     338k,     800k,
+tomoatoes,   69k,      84k,      400k,     486k,     1.2M,
+cheese,      83k,      170k,     600k,     641k,     1.8M,
+meat,        ?,        ?,        600k,     688k,     1.6M,
+sour cream,  328k,     ?,        ?,        1.8M,     4.1M,
+guacomole,   259k,     ?,        ?,        1.6M,     3.8M,
+hot sauce,   449k      ?,        ?,        2.4M,     4.8M,
 veggie taco, ?,        ?,        800k,     ?
-cheesy taco, 208k,     335k,     1.2M,     1.4M
-meat taco,   ?,        ?,        ?,        ?
-works taco,  ?,        ?,        ?,        5.4M
+cheesy taco, 208k,     335k,     1.2M,     1.4M,     3.2M,
+meat taco,   ?,        ?,        ?,        ?,        4.8M,
+works taco,  ?,        ?,        ?,        5.4M,
 death taco,  3.2M      ?,        ?,        16M
 
 Mob Specials:
@@ -27,6 +35,9 @@ Mob Specials:
 drop tiers
 1-49, 50-74, 75-90, 91+
 
+taco tiers
+?, ?, ?, deadly
+
 veggie taco
   A Cerveza      (, , refreshing, strong): +3 con, +4 con, 100% overmax sp x 3
   A side of rice (moist, steaming):        50% overmap hp/sp
@@ -34,17 +45,17 @@ veggie taco
   A large pop:                             sp heals, can be refilled
 
 cheesy taco (, , , deadly)
-  foil wrapper  (crinkled, tattered, smooth, shiny): radiation and mind ac
-  nacho cheese  (small, , large, huge):              ice       and acid ac
-  meat paste    (small, , handful, brick):           edged     and energy ac
-  sour cream    (small, , large, huge):              fire      and electric ac
-  refried beans (tiny, , handful, brick):            blunt     and poison ac
+  foil wrapper  (crinkled, tattered, smooth, shiny): mind  and radiation ac
+  nacho cheese  (small, , large, huge):              ice   and acid ac
+  meat paste    (small, , handful, brick):           edged and energy ac
+  sour cream    (small, , large, huge):              fire  and electric ac
+  refried beans (tiny, , handful, brick):            blunt and poison ac
 
 meat taco
-  wet wipe         (tiny, , ,):      stops combat
-  Sliced jalapenos (limp, thick, ,): +hp regen (meat taco or death taco?)
-  Cinnamon twists  (stale, , , ):    throw for damage
-  Side of Beans    ( , , , ):        Room damage for short time
+  wet wipe         (tiny, , , giant): stops combat
+  Sliced jalapenos (limp, thick, ,):  +hp regen (meat taco or death taco?)
+  Cinnamon twists  (stale, , , ):     throw for damage
+  Side of Beans    ( , , , ):         Room damage for short time
 
 works taco
   - heals a lot

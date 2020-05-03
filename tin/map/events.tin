@@ -1,0 +1,8 @@
+#nop wrap map refresh in an alias so map refresh can be disabled when sprinting;
+
+#alias set_map_enter_room_event {
+  #event {MAP ENTER ROOM} {
+    #nop see aliases.tin for definition;
+    map_refresh;
+  }
+}

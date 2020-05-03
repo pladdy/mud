@@ -1,31 +1,33 @@
 #nop Map is loaded based on successful login.
 
 #action {^Your character is currently logged in and } {
-  #read $map_dir/.bootstrap.tin;
   gag on;
   !hp;
   !i;
   linkdie_commands;
-  status_bar on;
+  #read $map_dir/.bootstrap.tin;
 }
 
 #action {^You are login #%1 this boot.$} {
-  #read $map_dir/.bootstrap.tin;
   gag on;
   !hp;
   !i;
   login_commands;
-  status_bar on;
+  #read $map_dir/.bootstrap.tin;
+  #delay 1 {#map goto cot};
 }
 
 #action {^You must wait %1 seconds to log in.$} { #end }
 
 #nop 3k relog;
 
-#action {'gts' ACTIVATED.$} {
+#action {'gts' ACTIVATED} {
   #nop if not quitting, try to relog;
+
   #if {"$quit" != "true"} {
     #delay 1 {#session 3k 3k.org 3000;$character};
   };
-  #else {#end};
+  #else {
+    #delay 1 #end;
+  };
 }

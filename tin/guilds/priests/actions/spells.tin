@@ -33,6 +33,29 @@
   #if {$enemy > 0} {!blade};
 }
 
+#nop Channel;
+
+#action {^%!{[> ]*}%1 tugs on your sleeve persistently.$} {
+  #format {player} {%l} {%1};
+  !channel $player 200;
+}
+
+#nop Curse;
+
+#action {^%!{[> ]*}%1 is already cursed.$} {
+  #var curse on;
+}
+
+#nop Growth;
+
+#action {^%!{[> ]*}Suddenly, Cloud Elemental grows to mammoth size!$} {
+  #var growth ON;
+}
+
+#action {^%!{[> ]*}Animal Growth has already been cast on Cloud Elemental.$} {
+  #var growth ON;
+}
+
 #nop Haste;
 
 #action {^%!{[> ]*}'Wise and powerful %1, hasten my reflexes and quicken my body!'} {
@@ -41,6 +64,32 @@
 
 #action {^%!{[> ]*}You feel yourself slow back down to normal speed.$} {
   #if {$enemy > 0} {!haste};
+}
+
+#nop Lifeforce;
+
+#gag {^%!{[> ]*}You are already full of life.$}
+
+#nop Mends;
+
+#action {^%!{[> ]*}%1 pings you.$} {
+  #format {player} {%l} {%1};
+  !mend $player;
+}
+
+#action {^%!{[> ]*}%1 gives you a high-five!$} {
+  #format {player} {%l} {%1};
+  !mend $player gp;
+}
+
+#action {^%!{[> ]*}%1 politely asks you for a heal.$} {
+  #format {player} {%l} {%1};
+  !mend $player hp;
+}
+
+#action {^%!{[> ]*}%1 explains to you that he is out of spell points.$} {
+  #format {player} {%l} {%1};
+  !mend $player sp;
 }
 
 #nop Meditation;
@@ -67,16 +116,6 @@
 
 #action {^%!{[> ]*}You do not need to meditate.$} {
   enable_panics;
-}
-
-
-#nop Mends;
-
-!afk 'high5' me for mends;
-
-#action {^%1 gives you a high-five!} {
-  #format {player} {%l} {%1};
-  !mend $player;
 }
 
 #nop Plane shift;
@@ -107,6 +146,6 @@
 
 #nop Vestment
 
-#action {^The magical vestment fades into nothingness...$} {
+#action {^%!{[> ]*}The magical vestment fades into nothingness...$} {
   #if {$enemy > 0} {!vestment};
 }

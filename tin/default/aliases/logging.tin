@@ -1,0 +1,3 @@
+#alias debug {
+  #if {"$LOG_LEVEL" == "DEBUG"} {#showme <170>DEBUG: %0};
+}

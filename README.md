@@ -9,62 +9,47 @@ Clone the repo: `git clone git@github.com:pladdy/mud.git`
 - this has been tested to run on a Mac; I've made some efforts to make it nix' compatible but it might need more love
 - windows users can install cygwin and then install this in your cygwin environment
 
-## Install deps on osX
+## Install Dependencies
 
 `make install`
 
-- This might work on ubuntu/fedora which uses apt-get and yum...not tested yet
-
-### Dependency Notes
-
-- Unix based OS
-  - all tested and built on macOS (Yosemite then Siera)
-  - cygwin seems to work if you're using windows (tested by Wag)
-- Perl; this should already be installed with non Window OS'.  Text parsing is hard
-  in tintin so I opt to use Perl for some things
-- TinTin++ (2.01.2) Mud Client: http://tintin.sourceforge.net/
-- Tmux (can install via brew on mac, unsure on cygwin)
-  - this is only if you want to use the -t option when you `./play`
-  - if you'd rather not use tmux, you can use `./watch-map` in another terminal to have the map up
-
-### Install TinTin++ from source
-
-- Download source from http://tintin.sourceforge.net/download.php
-- Check install instructions here: http://tintin.sourceforge.net/install.php
-- God speed
+- This might work on ubuntu/fedora which use apt-get and yum...not tested yet
 
 ## Setup a profile to play
 
-The *profiles/* directory houses profiles.  These are the files that handle setting up the session when logging in with
-a specific character.
-
 To set up a profile run `bin/create_profile <char name> <guild name>`
 
-Example: `bin/create_profile gilead angels`
+Example: `bin/create_profile gilead necros`
+
+The `profiles/` directory houses profiles.  These are the files that handle setting up the session when loggin in with a specific character.
 
 ## Usage
 
 `./play -p <character name>`
 
-Or to have a window for playing and a window for a map:
-
-`./play -t -p <character name>`
-
-The play executable will automatically search the *profiles/* directory for the given character
-file.
-
-## Executables
-
-- **play**      : wrapper to start tintin session.  ./play -h for help
-- **watch-map** : quick utility to launch tail on the map so i can watch it in the window
-  - you can pass in a width and a height so that the map will be rendered to that dimension
-  - if you use the tmux option in play, the tmux session will get a pane devoted to the map
+- The play script will automatically search the *profiles/* directory for the given character file.
+- The map that loads is displayed on the right of the client screen.  Currently the client screen
+  is set to a hard coded width of 101.  Any remaining screen width will be used for the map.
+  - I use this client with a terminal screen of 230 width, I haven't tested it with resizing or
+    smaller widths.
 
 ## Docs
 
-If you want to learn more about what commands are available while playing, check the tin/* README.md files.
+If you want to learn more about what commands are available while playing, check the `tin/*` directory README.md files.
 
-## Tagging
+## Notes
+
+### Dependency Notes
+
+- Mac/Unix based OS
+- Cygwin seems to work as an OS platform if you're using windows (tested by Wag)
+- Perl
+  - This should already be installed by default on non-windows OS' (and in Cygwin)
+- TinTin++ Mud Client: http://tintin.sourceforge.net/
+
+## Development
+
+### Tagging
 
 Can add tags via makefile:
 

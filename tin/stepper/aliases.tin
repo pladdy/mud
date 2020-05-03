@@ -16,12 +16,15 @@
   #list {seen_monsters} {size} {seen_monster_count};
 
   #if {"$stepper" == "on" && "$player_present" == "true"} {
+    debug player present;
     take_a_step;
   };
   #elseif {"$stepper" == "on" && $seen_monster_count == 0} {
+    debug no monsters present;
     take_a_step;
   };
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
+    debug monster present, attack;
     !kill @transform_mob{$seen_monsters[1]};
     #var under_attack true;
   };
@@ -43,14 +46,11 @@
 
 #alias load_non_monsters {
   #var non_monsters;
-
-  #script {non_monsters} {
-    while read line; do echo "$line"; done < ./tin/stepper/non_monsters.txt
-  };
+  #script {non_monsters} {cat tin/stepper/non_monsters.txt};
 }
 
 #alias parse_exits {
-  #nop #showme DEBUG: parse_exists called with %0;
+  debug parse_exists called with %0;
   #var available_exits {};
   #var room_string %0;
   #var exit_str "";
@@ -141,6 +141,9 @@
 
   #if {$cardinal_exit_count > 0} {
     #var step_dir $dir_to_go;
+
+    #nop Use delay so stepper doesn't zip around an area annoyingly fast.;
+    #nop #delay {0.1} {$dir_to_go};
     $dir_to_go;
   } {
     #var step_dir $entered_from;

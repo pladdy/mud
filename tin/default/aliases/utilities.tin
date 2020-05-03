@@ -2,8 +2,19 @@
 
 #alias aliases {
   #var sed_str {s/#alias[[:space:]]*([a-zA-Z0-9_]+)[[:space:]].+/\1/p};
-  #system egrep -r '#alias' tin/default | sed -En '$sed_str';
-  #system egrep -r '#alias' tin/guilds/$guild | sed -En '$sed_str';
+
+  #if {"%1" == "guild"} {
+    #showme <170>Guild aliases:;
+    print_system_output egrep -r '#alias' tin/guilds/$guild | sed -En '$sed_str';
+  };
+  #elseif {"%1" == "default"} {
+    #showme <170>Default aliases:;
+    print_system_output egrep -r '#alias' tin/default | sed -En '$sed_str';
+  };
+  #else {
+    #showme Usage: 'aliases guild|default';
+  }
+
   #unvar sed_str;
 }
 

@@ -1,10 +1,11 @@
-#nop set scaler then sprint to the dungeon;
+#nop Set scaler then sprint to the dungeon;
+
 #alias dungeon {
   #if {"%2" == ""} {
     #showme <170>Usage: 'dungeon <dungeon> <scaler>';
     #local dungeons_file {notes/areas/dungeons.txt};
     #showme <170>Dungeon levels list (from $dungeons_file);
-    #system {grep -A 12 -i $character $dungeons_file};
+    print_system_output grep -A 12 -i $character $dungeons_file;
   };
   #else {
     !scaler %2;
@@ -12,7 +13,7 @@
   }
 }
 
-#alias f2 { map_run home; }
+#alias f2 {map_run home}
 
 #nop Sprints that require commands in the middle;
 #nop NOTE: mud commands should not use a '!'.  If they do you won't move on the map;
@@ -73,7 +74,7 @@
   #if { @length{%1} > 0 } {
     map_run atm_%1;
   } {
-    #system cat notes/areas/atms.txt;
+    print_system_output cat notes/areas/atms.txt;
   };
 }
 
@@ -81,7 +82,7 @@
   #if { @length{%1} > 0 } {
     map_run shop_%1;
   } {
-    #system cat notes/areas/shops.txt;
+    print_system_output cat notes/areas/shops.txt;
   };
 }
 

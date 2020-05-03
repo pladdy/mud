@@ -22,11 +22,13 @@
 
 #nop Set up notes class;
 
-#showme Setting up notes class;
-#class notes kill;
-#class notes open;
-read_tin_files tin/notes
-#class notes close;
+#showme Setting up stepper class;
+
+#class stepper kill;
+#class stepper open;
+read_tin_files tin/stepper
+#class stepper close;
+#unvar stepper_files;
 
 #nop Set up configured guild class;
 
@@ -38,23 +40,12 @@ read_tin_files tin/notes
   #class $guild close;
 };
 
-#nop Set up stepper class;
-
-#showme Setting up stepper class;
-#class stepper kill;
-#class stepper open;
-read_tin_files tin/stepper
-#class stepper close;
-
-status_bar on;
-
-#nop Map is initialized on login so that there's a session connected before the;
-#nop map is loaded.  see tin/default/actions/login.tin
+#nop Session has to be established before a map can be loaded;
+#nop Maps are loaded via login actions: see tin/default/actions/login.tin;
 #var {map_dir} {tin/map};
 
-#CONFIG           {256 COLORS}  {ON}
 #CONFIG           {AUTO TAB}  {5000}
-#CONFIG           {BUFFER SIZE}  {10000}
+#CONFIG           {BUFFER SIZE}  {1000}
 #CONFIG           {CHARSET}  {ASCII}
 #CONFIG           {COLOR PATCH}  {ON}
 #CONFIG           {COMMAND COLOR}  {<078>}
@@ -62,7 +53,7 @@ status_bar on;
 #CONFIG           {CONNECT RETRY}  {15}
 #CONFIG           {HISTORY SIZE}  {1000}
 #CONFIG           {LOG}  {PLAIN}
-#CONFIG           {PACKET PATCH}  {0.75}
+#CONFIG           {PACKET PATCH}  {0.25}
 #CONFIG           {REPEAT CHAR}  {!}
 #CONFIG           {REPEAT ENTER}  {OFF}
 #CONFIG           {SCROLL LOCK}  {ON}

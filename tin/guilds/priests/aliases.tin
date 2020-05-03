@@ -13,8 +13,14 @@
     #regex {$spells} {BA} {#nop} {!barkskin};
     #regex {$spells} {HA} {#nop} {!haste};
     #regex {$spells} {BL} {#nop} {!bless};
-    #regex {$spells} {BE} {#nop} {!beneficense};
+    #regex {$spells} {BE} {#nop} {!beneficence};
     #if {"$blade" == "OFF" && $enemy > 0} {!blade};
+  };
+}
+
+#alias attempt_growth {
+  #if {"$psummon" == "ON" && "$growth" == "OFF" && $enemy > 0 && $sp > 200} {
+    !growth elemental;
   };
 }
 
@@ -45,6 +51,7 @@
   #var curse OFF;
   #var psummon OFF;
   #var pshift OFF;
+  #var growth OFF;
 }
 
 #alias enable_panics {

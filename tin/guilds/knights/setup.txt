@@ -13,6 +13,7 @@ alias r rest
 alias sb shieldblock
 alias scw secondwind
 alias tr truce
+alias use_repeat repeat combat/staunch/0/1
 alias wi will
 
 aset knight_announce white
@@ -34,3 +35,6 @@ aset knight_will higreen
 hpconfig H: #CHP#/#MHP# (#HP%#%) S: #CSP#/#MSP# (#SP%#%) St: #CST#/#MST# (#ST%#%) Sn: #STN# (#STL#) Scw: #SEC# E: #MOB##NLN#G: #G2N# C: #CCP# St:Met: #SSN#:#SMT# Sk: [B: #BRL# De: #DFL# Do: #DDG# E: #END# Pa: #PRY# Pr: #PRE# Sh: #SHB# St: #STD#]
 setspam hits full
 setspam misses half
+
+panic staunch/95%/0
+
