@@ -2,6 +2,8 @@
 
 These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 
+![Screenshot](./screenshot.png "Screenshot")
+
 ## Install
 
 Clone the repo: `git clone git@github.com:pladdy/mud.git`
