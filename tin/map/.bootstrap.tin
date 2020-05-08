@@ -1,4 +1,4 @@
-/* Initialize the mapping stuff */
+#nop Initialize the mapping stuff;
 
 #map flag vtmap off;
 
@@ -7,6 +7,7 @@
 reload_map
 
 /* Backup map on startup */
+
 #system cp $map_path $map_dir/backup_map.txt;
 
 #map read $map_path;
@@ -19,7 +20,8 @@ map_lock;
   When status bar is not delayed, the prompt will do a carriage return every mud prompt
   If the status bar is refreshed, the behavior goes away.
 */
-#delay 1 {
+
+#delay 0.5 {
   status_bar on;
   #regexp {$map[current_room]} {{[0-9]+}} {#map goto $map[current_room]}
                                           {#map goto home};

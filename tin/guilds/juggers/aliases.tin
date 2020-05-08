@@ -7,6 +7,12 @@
   }
 }
 
+#alias login_commands {
+  #delay 2 !support summon;
+  #delay 4 !support assault fire;
+  #delay 6 !empower on;
+}
+
 #nop Remote Ammo (via truck) purchase;
 #alias rammo {
   #if {"%1" == ""} {

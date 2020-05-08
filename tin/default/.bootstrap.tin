@@ -40,6 +40,13 @@ read_tin_files tin/stepper
   #class $guild close;
 };
 
+/* Set up notes class */
+
+#class notes kill;
+#class notes open;
+read_tin_files tin/notes;
+#class notes close;
+
 #nop Session has to be established before a map can be loaded;
 #nop Maps are loaded via login actions: see tin/default/actions/login.tin;
 #var {map_dir} {tin/map};

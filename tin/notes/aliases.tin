@@ -42,7 +42,7 @@
 
     #script {content} {
       if [ -n "${first_file_found}" ]; then
-        msg="first file found: ${first_file_found}";
+        msg="First file found: ${first_file_found}";
         printf "\e[97m$msg\e[0m\n";
       fi;
       if [ -d ${first_file_found} ]; then

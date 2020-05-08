@@ -1,7 +1,28 @@
-#alias nfind {
-  #showme nfind stub;
-}
+#alias notes {
+  #switch {"%1"} {
+    #case {"help"} {
+      #showme <170>Usage:;
+      #showme <090>  notes <command>;
+      #showme;
+      #showme <170> Command: Description;
+      #showme <090>  read [note]:     given a path to a note, show it on screen;
+      #showme <090>  search [search]: search for given string in the notes;
+    };
+    #case {"read"} {
+      #local args %0;
+      #var note_read "";
+      #regexp {$args} {^%1 {.*}} {#var note_read &1};
+      fcat $note_read;
+      #unvar note_read;
+    };
+    #case {"search"} {
+      #local args %0;
+      #var note_search "";
+      #regexp {$args} {^%1 {.*}} {#var note_search &1};
 
-#alias nread {
-  #showme nread stub;
+      #if {"$note_search" != ""} {gfiles $note_search};
+      #unvar note_search;
+    };
+    #default {notes help};
+  };
 }
