@@ -9,6 +9,7 @@ patch = $(lastword $(version_list))
 install:
 	bin/install
 
+# this seems over the top... TODO: find a simpler way?
 new-tag:
 ifndef $(type)
 	@echo Specify 'type' as major, minor, or patch
@@ -32,8 +33,11 @@ ifdef $(type)
 	git tag -a $(new_version) -m '$(new_version)'
 endif
 
+release:
+	git push && git push --tags
+
 tags:
-	git tag --sort=-v:refname
+	@git tag --sort=-v:refname
 
 test:
-	bin/monster_name_test
+	bin/tests/monster_name_test

@@ -33,3 +33,7 @@
     };
   };
 }
+
+#action {^%!{[> ]*}Everything slowly fades into blackness...$} {
+  #map goto cemetery;
+}

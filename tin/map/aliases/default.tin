@@ -43,7 +43,7 @@
   #map get all map[room_info];
   debug draw box: 1 $WIDTH_OFFSET $box_height $box_width;
   #draw jade box 1 $WIDTH_OFFSET $box_height $box_width {$current_map} {
-    <170>Room Note: $map[room_info][note]
+    <170>Room Name: $map[room_info][name]\n<170>Room Note: $map[room_info][note]
   };
 }
 

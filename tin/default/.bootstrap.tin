@@ -5,6 +5,8 @@
   find ./tin/default -iwholename '*.tin' | grep -v '.bootstrap.tin';
 };
 
+#nop Set up default class;
+
 #showme Setting up default class;
 
 #class default kill;
@@ -18,7 +20,7 @@
 #class default close;
 #unvar default_tin_files;
 
-#nop set up stepper in class;
+#nop Set up notes class;
 
 #showme Setting up stepper class;
 
@@ -28,7 +30,7 @@ read_tin_files tin/stepper
 #class stepper close;
 #unvar stepper_files;
 
-#nop Set up the guild logic in a class;
+#nop Set up configured guild class;
 
 #if {"$guild" != ""} {
   #showme Setting up $guild class;
@@ -37,6 +39,13 @@ read_tin_files tin/stepper
   read_tin_files tin/guilds/$guild;
   #class $guild close;
 };
+
+/* Set up notes class */
+
+#class notes kill;
+#class notes open;
+read_tin_files tin/notes;
+#class notes close;
 
 #nop Session has to be established before a map can be loaded;
 #nop Maps are loaded via login actions: see tin/default/actions/login.tin;

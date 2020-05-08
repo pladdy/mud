@@ -1,0 +1,59 @@
+#nop Grep files for a search pattern;
+
+#alias gfiles {
+  #if {"%1" == ""} {
+    #showme <170>Need to provide something to search for.;
+    #return;
+  };
+
+  #script {fshow_files} {
+    grep -rliI --exclude-dir .git --exclude-dir tin --exclude '*.log' '%0' ./;
+  };
+
+  #foreach { $fshow_files[%*] } {file} {
+    #if {"$file" != ""} {
+      #showme <170>File: $file;
+
+      #script {matches} {
+        grep -rihI --exclude-dir .git --exclude-dir tin --exclude '*.log' '%0' "$file";
+      };
+      #foreach { $matches[%*] } {match} {#showme <170>  $match};
+
+      #unvar matches;
+    }
+  }
+  #showme <130>'fcat' <file> to see file.;
+
+  #unvar fshow_files;
+  #unvar match;
+}
+
+#nop Given a file, dump it to screen;
+
+#alias fcat {
+  #if {"%1" == ""} {
+    print_system_output ls -al;
+  };
+  #else {
+    #script {files_found} {
+      find ./ -wholename "*%1*" | grep -v .git | head -n 1
+    };
+    #var first_file_found $files_found[1];
+
+    #script {content} {
+      if [ -n "${first_file_found}" ]; then
+        msg="First file found: ${first_file_found}";
+        printf "\e[97m$msg\e[0m\n";
+      fi;
+      if [ -d ${first_file_found} ]; then
+        ls -al %1;
+      elif [ -f ${first_file_found} ]; then
+        cat %1;
+      fi;
+    };
+    #foreach { $content[%*] } {line} {#showme $line};
+
+    #unvar first_file_found;
+    #unvar content;
+  };
+}

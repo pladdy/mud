@@ -6,27 +6,31 @@
 
 reload_map
 
-#nop Backup map on startup;
+/* Backup map on startup */
+
 #system cp $map_path $map_dir/backup_map.txt;
 
 #map read $map_path;
 map_lock;
 
-#nop Go to last known room if possible;
-
+/* Go to last known room if possible */
 #read last_session.tin;
 
-#delay 1 {
-  status_bar on;
+/*
+  When status bar is not delayed, the prompt will do a carriage return every mud prompt
+  If the status bar is refreshed, the behavior goes away.
+*/
 
+#delay 0.5 {
+  status_bar on;
   #regexp {$map[current_room]} {{[0-9]+}} {#map goto $map[current_room]}
                                           {#map goto home};
 
-  #nop This refreshes the map, delay it ti avoid error from #draw;
+  #nop This refreshes the map, delay it to avoid error from #draw;
   #delay 1 {
     hp;
     refresh_map_on_enter;
-    #nop Yodawg...;
+    #nop delay map refresh to avoid #draw error;
     #delay 1 mapr;
   };
 };
