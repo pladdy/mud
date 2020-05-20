@@ -29,7 +29,13 @@
   #var jugger_ammo %2;
   #var corpses %3;
 
-  #if {$jugger_ammo < 100} {rammo 4 1};
+  #nop TODO: handle ammo parsing and reload better...;
+  #regexp {$jugger_ammo} {{\d+}} {#var jugger_mounts[0] &1};
+  #regexp {$jugger_ammo} {{\d+}/{\d+}} {#var jugger_mounts[1] &2};
+
+  #if {$jugger_mounts[0] < 100} {rammo 4 1};
+  #if {$jugger_mounts[1] < 100} {rammo 4 2};
+
   #if {"$stepper" == "on" && $corpses < 1 && $gp1 < 20} {
     stepper off;
     run home;
@@ -37,9 +43,15 @@
   show_status_bar;
 }
 
-#action {^%1 rawrs menacingly at you.  RAAWWWRRR!} {
+#action {^%!{[> ]*}%1 rawrs menacingly at you.  RAAWWWRRR!} {
   #format {player} {%l} {%1};
   !frenzy $player;
+  #unvar player;
+}
+
+#action {^%!{[> ]*}%1 gives you a high-five!$} {
+  #format {player} {%l} {%1};
+  !airdrop $player;
   #unvar player;
 }
 

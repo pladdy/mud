@@ -22,7 +22,8 @@
 #action {^%!{[> ]*}Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 Gt:%7 G:} {
   #var gxp %7;
 
-  #local spice %2;
+  #local spice_level %2;
+  #list spice_queue size available_spices;
   #local ammo %4;
   #local ammo_max %5;
 
@@ -30,8 +31,10 @@
     #if {$ammo == 1 && $ammo_max > 0} {!mload};
   };
 
-  #if {$enemy > 0 && "$spice" == "Withdrawal" && "$have_pure_spice" == "true"} {
-    !take spice;
+  #if {$enemy > 0 && "$spice_level" == "Withdrawal" && $available_spices > 0} {
+    #list spice_queue get 1 spice_task;
+    !$spice_task;
+    #list spice_queue delete 1;
   };
 }
 
@@ -43,14 +46,48 @@
   }
 }
 
-#action {^%!{[> ]*}There is no spice here.$} {
-  #var have_pure_spice false;
+#nop Spice purchases and inventory;
+
+#action {^%!{[> ]*}# Item$} {
+  #list spice_queue clear;
+}
+
+#action {^%!{[> ]*}You pay %1 gold coins for %*tea.$} {
+  #list spice_queue add {drink tea};
+}
+
+#action {^%!{[> ]*}You pay %1 gold coins for %*coffee.$} {
+  #list spice_queue add {drink coffee};
+}
+
+#action {^%!{[> ]*}You pay %1 gold coins for %*beer.$} {
+  #list spice_queue add {drink beer};
+}
+
+#action {^%!{[> ]*}You pay %1 gold coins for %*liquor.$} {
+  #list spice_queue add {drink liquor};
 }
 
 #action {^%!{[> ]*}You pay %1 gold coins for pure spice.$} {
-  #var have_pure_spice true;
+  #list spice_queue add {take spice};
 }
 
-#action {Spice Melange (Pure).$} {
-  #var have_pure_spice true;
+#action {^%!{[> ]*}%1 %!{[\*]?}Spice Tea.$} {
+  #%1 #list spice_queue add {drink tea};
+}
+
+#action {^%!{[> ]*}%1 %!{[\*]?}Spice Coffee.$} {
+  #%1 #list spice_queue add {drink coffee};
+}
+
+#action {^%!{[> ]*}%1 %!{[\*]?}Spice Beer.$} {
+  #%1 #list spice_queue add {drink beer};
+}
+
+#action {^%!{[> ]*}%1 %!{[\*]?}Spice Liquor.$} {
+  #%1 #list spice_queue add {drink liquor};
+}
+
+#action {^%!{[> ]*}%1 %!{[\*]?}Spice Melange (Pure).$} {
+  #%1 #list spice_queue add {take spice};
 }

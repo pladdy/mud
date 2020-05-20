@@ -19,6 +19,7 @@
   #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {
     #showme Turnning stepper off.  Mind: $gp2, Stepper: $stepper;
     stepper off;
+    f2;
   };
 
   #regexp {%11} {T: %d%?$} {#var enemy &1} {#var enemy 0};
