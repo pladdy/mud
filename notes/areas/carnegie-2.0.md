@@ -10,13 +10,22 @@ Science -> New York
 
 ### Mobs
 
-- U2
-  - kill them in this order or they will assist: larry, adam, edge, bono
-  - bono makes room a hard wimpy
-  - bono has a big electric special (bigger than the ushers)
+Notable mobs are on the second floor.
+  - they are all hard wimpy
+  - they are randomly placed each boot
 
-- Mel Brooks
-  - throws your eq over the balcony (go downstairs to find in the area)
+2nd Floor Mobs:
+  - Billy Crystal
+  - New York Chief of Police
+  - New York Fire Chief
+  - Al Pacino Jr.
+    - Has a special that blasts you to the first floor and does a ton of damage (1800 for example)
+  - Mel Brooks
+    - throws your eq over the balcony (go downstairs to find in the area)
+  - U2
+    - kill band in this order or they will assist: larry, adam, edge, bono
+    - bono makes room a hard wimpy
+    - bono has a big electric special (bigger than the ushers)
 
 ### Notable Items/EQ
 
@@ -25,5 +34,3 @@ Science -> New York
 ### Notes
 
 - scaling dungeon
-- upstairs, the movie star mobs are in the rooms guarded by ushers
-  - the mobs change where they are randomly (maybe per boot?)
