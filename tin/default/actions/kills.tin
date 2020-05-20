@@ -34,6 +34,10 @@
   };
 }
 
+#action {^%!{[> ]*}You can see your own dead body from above.$} {
+  #map goto cemetery;
+}
+
 #action {^%!{[> ]*}Everything slowly fades into blackness...$} {
   #map goto cemetery;
 }

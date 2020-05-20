@@ -8,8 +8,10 @@
 
 #nop Logging;
 
-#var {session_log} {./3k_session.log};
-#event {SESSION CONNECTED} {#log o {$session_log}}
+#event {SESSION CONNECTED} {
+  #var {session_log} {./3k_session.log};
+  #log append {$session_log};
+}
 
 #nop Define alias here to make available to events below;
 

@@ -38,9 +38,8 @@
   #nop #map map $map_height $map_width draw 1 $WIDTH_OFFSET $box_height $box_width {<170>Map Yo!};
 
   #map map $map_height $map_width variable current_map;
-  #replace {current_map} {\\} {\\};
-
   #map get all map[room_info];
+
   debug draw box: 1 $WIDTH_OFFSET $box_height $box_width;
   #draw jade box 1 $WIDTH_OFFSET $box_height $box_width {$current_map} {
     <170>Room Name: $map[room_info][name]\n<170>Room Note: $map[room_info][note]
