@@ -107,6 +107,8 @@
   !fai;
 }
 
+#alias spices {#var spice_queue};
+
 #alias use_corpse {
   #local MAX_WATER_RATIO 1.2;
 
