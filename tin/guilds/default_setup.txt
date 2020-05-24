@@ -38,7 +38,7 @@ aset lottery yellow
 aset melee bkblue
 aset newbie white
 aset party yellow
-aset profchat white
+aset professions white
 aset say hicyan
 aset soul green
 aset shield_block flash+hicyan

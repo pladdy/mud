@@ -25,7 +25,7 @@
 }
 
 #alias default_skills {
-  !brawl on;
+  !deflect on;
   !endure on;
   !prepare on;
 }
