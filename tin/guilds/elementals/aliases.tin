@@ -38,8 +38,8 @@
 }
 
 #alias f12 {
-  #if {$map[current_room] == 21864} {!sell all from vortex};
   #loop 2 12 i {!sell all from bag $i};
+  !sell all from vortex;
 }
 
 #alias regen {
@@ -58,7 +58,7 @@
 
 #alias rg {
   !get gem from vortex;
-  !release gem;
+  !release soul;
 }
 
 #alias trap_souls {
@@ -74,4 +74,3 @@
 #alias use_corpse {
   !evoke corpse drain;
 }
-
