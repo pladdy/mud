@@ -1,4 +1,4 @@
-#action {^ HP:%1/%2 C:%3  NRG:%4/%5(%6)  SP:%7/%8  B:%9(%10) G2N:%11} {
+#action {^%!{[> ]*}HP:%1/%2 C:%3  NRG:%4/%5(%6)  SP:%7/%8  B:%9(%10) G2N:%11} {
   #var hp {%1};
   #regexp {%2} {%d} {#var hp_max &1};
 
@@ -28,7 +28,7 @@
   show_status_bar;
 }
 
-#action {^You are too weak to keep up your assault.$} {
+#action {^%!{[> ]*}You are too weak to keep up your assault.$} {
   #if {"$stepper" == "on"} {
     stepper off;
     #var last_room_i_was_in $map[current_room];
@@ -36,7 +36,7 @@
   };
 }
 
-#action {^%imass triad spam:} {
+#action {^%!{[> ]*}%imass triad spam:} {
   run home;
   #if {$last_room_i_was_in > 0} {
     run $last_room_i_was_in;
@@ -45,22 +45,22 @@
   };
 }
 
-#action {^You reach out with a thin elemental tether and prepare to trap the soul} {
+#action {^%!{[> ]*}You reach out with a thin elemental tether and prepare to trap the soul} {
   #var trapping_soul true;
 }
 
-#action {^You combine a %1 soul gem with %2 soul gem.$} {
+#action {^%!{[> ]*}You combine a %1 soul gem with %2 soul gem.$} {
   !keep soul gem;
 }
 
-#action {^As the last bit of life force escapes your enemy you quickly capture its$} {
+#action {^%!{[> ]*}As the last bit of life force escapes your enemy you quickly capture its$} {
   !keep soul gem;
 }
 
-#action {^You focus inward, reaching back through the Astral plane to your home$} {
+#action {^%!{[> ]*}You focus inward, reaching back through the Astral plane to your home$} {
   #var mind_depleted true;
 }
 
-#action {^That mind cannot be depleted again, by you.$} {
+#action {^%!{[> ]*}That mind cannot be depleted again, by you.$} {
   #var mind_depleted true;
 }
