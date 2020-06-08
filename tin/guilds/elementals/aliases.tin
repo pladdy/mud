@@ -9,7 +9,9 @@
          $gp1 > 75 &&
          "$trap_souls" == "yes" &&
          "$trapping_soul" != "true"} {
-      !ts
+      !ts;
+      #nop try to store gem in vortex, keep gem in case it can't be stored;
+      btrig put gem in vortex, keep gem;
     };
   };
 }
@@ -39,7 +41,7 @@
 
 #alias f12 {
   #loop 2 12 i {!sell all from bag $i};
-  !sell all from vortex;
+  #nop !sell all from vortex;
 }
 
 #alias regen {
