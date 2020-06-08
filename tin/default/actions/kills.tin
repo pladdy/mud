@@ -1,13 +1,17 @@
 #action {^%!{[> ]*}%1 dealt the killing blow to %2.} {
+  log.info Kill Trigger firing;
+
   #if {"$ktrig_status" == "on"} {
     #var {last_kill} {%2};
     #var {last_killer} {%1};
 
     #if { @length{$btrig} > 0 } {
+      log.debug running btrig commands: $btrig;
       #foreach {$btrig} {b} {$b;};
       #var btrig {};
     };
 
+    log.debug checking %1 against killers (strings) that can use corpse;
     #regexp {%1} {%i{$character|$summons|$my_dog|tree}} {
       commands_before_corpse;
 
@@ -22,6 +26,7 @@
     };
 
     #if { @length{$dtrig} > 0 } {
+      log.debug running dtrig commands: $btrig;
       #foreach {$dtrig} {d} {$d;};
       #var dtrig {};
     };
@@ -32,7 +37,7 @@
       #case "Cryohydra" {run verbeeg_chief;};
     };
   };
-}
+} {1}
 
 #action {^%!{[> ]*}You can see your own dead body from above.$} {
   #map goto cemetery;

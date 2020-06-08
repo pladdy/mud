@@ -1,3 +1,43 @@
-#alias debug {
-  #if {"$LOG_LEVEL" == "DEBUG"} {#showme <170>DEBUG: %0};
+#nop TODO: Make a logger that's not bad...;
+
+#class logging kill;
+#class logging open;
+
+#function set_log_level {
+  #switch {"%1"} {
+    #case "DEBUG" {#return 3};
+    #case "debug" {#return 3};
+    #case "INFO" {#return 2};
+    #case "info" {#return 2};
+    #case "WARN" {#return 1};
+    #case "warn" {#return 1};
+    #case "ERROR" {#return 0};
+    #case "error" {#return 0};
+  };
 }
+
+#alias log.debug {
+  #if {$LOG_LEVEL >= 3} {#showme <160>DEBUG: %0};
+}
+#alias debug {log.debug %0}
+#alias Debug {log.debug %0}
+
+#alias log.info {
+  #if {$LOG_LEVEL >= 2} {#showme <170>INFO: %0};
+}
+#alias Info {log.info %0}
+
+#alias log.warn {
+  #if {$LOG_LEVEL >= 1} {#showme <130>WARN: %0};
+}
+
+#alias log.error {
+  #if {$LOG_LEVEL >= 0} {#showme <110>ERROR: %0};
+}
+
+#alias log_level {
+  #var LOG_LEVEL @set_log_level{%1};
+  #showme <170>Log Level set to: %1 ($LOG_LEVEL);
+}
+
+#class logging close;

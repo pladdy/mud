@@ -66,7 +66,7 @@
 
 #nop Tree of life;
 
-#action {^%!{[> ]*}The light bends into the shape of a doorway.  Through it } {
+#action {^%!{[> ]*}The light bends into the shape of a doorway.  Through it} {
   #map goto 30036;
 }
 
