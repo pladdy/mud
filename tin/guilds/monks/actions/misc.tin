@@ -11,7 +11,7 @@
 #action {^{(> )*}The vibrations have ceased on %1.$} {
   #nop do i want to auto palm until a thing dies? it's inefficient;
   #nop could add a threshold (don't palm if below 50% health);
-  #nop #var palm_active false;
+  #var palm_active false;
 }
 
 #action {^{(> )*}You cannot re-palm this monster.$} {

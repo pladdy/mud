@@ -1,3 +1,9 @@
+#alias attempt_mental_depletion {
+  #if {"$mind_depleted" != "true" && $sp < 50 && $enemy > 0} {
+    !evoke mental depletion;
+  };
+}
+
 #alias attempt_trap_soul {
   #math {damage_left} {$enemy};
   #math {damage_so_far} {100.0 - $enemy};
@@ -42,6 +48,10 @@
 #alias f12 {
   #loop 2 12 i {!sell all from bag $i};
   #nop !sell all from vortex;
+}
+
+#alias md {
+  !evoke mental depletion;
 }
 
 #alias regen {

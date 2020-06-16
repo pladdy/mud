@@ -1,5 +1,5 @@
 #action {^%!{[> ]*}%1 dealt the killing blow to %2.} {
-  log.info Kill Trigger firing;
+  log.info Kill Trigger firing for '%1' who killed '%2';
 
   #if {"$ktrig_status" == "on"} {
     #var {last_kill} {%2};

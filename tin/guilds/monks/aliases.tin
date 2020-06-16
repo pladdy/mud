@@ -42,7 +42,7 @@
 }
 
 #alias attempt_palm {
-  #if {$enemy > 0
+  #if {$enemy > 30
        && "$auto_palm" == "true"
        && $ancient_energy > 0
        && "$palm_active" != "true"} {

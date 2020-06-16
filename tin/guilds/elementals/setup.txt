@@ -34,6 +34,7 @@ alias gs escore
 alias gs2 escore2
 alias gwho ewho
 alias h evoke rebuild
+alias md evoke mental depletion
 alias ob evoke obfuscate
 alias pr evoke preservation at
 alias ps pstats
