@@ -47,6 +47,8 @@ read_tin_files tin/stepper
 read_tin_files tin/notes;
 #class notes close;
 
+log_level info;
+
 #nop Session has to be established before a map can be loaded;
 #nop Maps are loaded via login actions: see tin/default/actions/login.tin;
 #var {map_dir} {tin/map};
@@ -60,7 +62,7 @@ read_tin_files tin/notes;
 #CONFIG           {CONNECT RETRY}  {15}
 #CONFIG           {HISTORY SIZE}  {1000}
 #CONFIG           {LOG}  {PLAIN}
-#CONFIG           {PACKET PATCH}  {0.25}
+#CONFIG           {PACKET PATCH}  {0.5}
 #CONFIG           {REPEAT CHAR}  {!}
 #CONFIG           {REPEAT ENTER}  {OFF}
 #CONFIG           {SCROLL LOCK}  {ON}

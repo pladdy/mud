@@ -36,8 +36,15 @@
 }
 
 #alias log_level {
-  #var LOG_LEVEL @set_log_level{%1};
-  #showme <170>Log Level set to: %1 ($LOG_LEVEL);
+  #local level %1;
+
+  #if {"$level" != "\$level"} {
+    #var LOG_LEVEL @set_log_level{%1};
+    #showme <170>Log Level set to: %1 ($LOG_LEVEL);
+  };
+  #else {
+    #showme <170>Log Level: $LOG_LEVEL;
+  };
 }
 
 #class logging close;

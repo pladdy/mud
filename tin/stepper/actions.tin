@@ -1,5 +1,9 @@
 #nop Track monsters when stepping through rooms;
 
+#nop Note: Mud events for a mob dying are defined in tin/default/kills.tin;
+#nop       removing_seen_monster and activating the TTL are handled in those;
+#nop       events;
+
 #nop Room Short trigger;
 
 #action {^%!{[> ]*}[RS] %1} {
@@ -50,21 +54,6 @@
 
 #action {^[P] %1} {
   #var player_present {true};
-}
-
-#action {^%1 gasps for breath, then slumps into death.$} {
-  remove_seen_monster "%1";
-  activate_stepper_ttl;
-}
-
-#action {^%1 screeches in agony and falls to the ground, dead.$} {
-  remove_seen_monster "%1";
-  activate_stepper_ttl;
-}
-
-#action {^%1 gurgles in %2 own blood as %3 dies.$} {
-  remove_seen_monster "%1";
-  activate_stepper_ttl;
 }
 
 #action {^There is no %1 here.} {

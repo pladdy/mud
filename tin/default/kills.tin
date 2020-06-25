@@ -1,0 +1,112 @@
+#action {^%1 gasps for breath, then slumps into death.$} {
+  log_and_update_stepper %1;
+}
+
+#action {^%1 screeches in agony and falls to the ground, dead.$} {
+  log_and_update_stepper %1;
+}
+
+#action {^%1 gurgles in %2 own blood as %3 dies.$} {
+  log_and_update_stepper %1;
+}
+
+#action {%1 dealt the killing blow to %2} {
+  log.info A kill has been attributed: '%1' killed '%2';
+  respond_to_killing_blow %1 %2;
+}
+
+#action {^%!{[> ]*}%1 dealt the killing blow to %2} {
+  log.info A kill has been attributed: '%1' killed '%2';
+  respond_to_killing_blow %1 %2;
+} {1}
+
+#action {^%!{[> ]*}You can see your own dead body from above.$} {
+  #map goto cemetery;
+}
+
+#action {^%!{[> ]*}Everything slowly fades into blackness...$} {
+  #map goto cemetery;
+}
+
+#alias btrig {
+  #var btrig {%0};
+  #replace {btrig} {,} {;};
+}
+
+#alias dtrig {
+  #var dtrig {%0};
+  #replace {dtrig} {,} {;};
+}
+
+#nop Append to dtrig;
+
+#alias dtriga {
+  #var dtrig {$dtrig,%1};
+  #replace {dtrig} {,} {;};
+}
+
+#alias ktrig {
+  #if {"%0" == "off"} {
+    #showme <110>Turning ktrig off, 'ktrig on' to reactivate.;
+    #var ktrig_status off;
+  };
+  #if {"%0" == "on"} {
+    #showme <120>Turning ktrig back on.;
+    #var ktrig_status on;
+  };
+}
+
+#alias log_and_update_stepper {
+  log.info A mob died: '%1' died;
+  #if {"$stepper" == "on"} {
+    #delay {mob_died_event} {
+      use_corpse;
+      !glance;
+    } {10};
+    remove_seen_monster "%1";
+    activate_stepper_ttl;
+  };
+}
+
+#alias respond_to_killing_blow {
+  #if {"$stepper" == "on"} {
+    #undelay mob_died_event;
+  };
+
+  #if {"$ktrig_status" == "on"} {
+    #var {last_kill} {%2};
+    #var {last_killer} {%1};
+
+    #if { @length{$btrig} > 0 } {
+      log.debug running btrig commands: $btrig;
+      #foreach {$btrig} {b} {$b;};
+      #var btrig {};
+    };
+
+    log.info checking %1 against killers ($character|$summons|$my_dog|tree) that can use corpse;
+    #regexp {%1} {%i{$character|$summons|$my_dog|tree}} {
+      commands_before_corpse;
+
+      !glance;
+      wrap_or_use_corpse;
+      #if {"$party_status" == "yes"} {!divvy gold};
+      #nop assumes an alias 'f' exists to 'get all';
+      !f;
+      #if {"$stepper" == "on"} {pba};
+
+      commands_after_corpse;
+    };
+
+    #if { @length{$dtrig} > 0 } {
+      log.debug running dtrig commands: $btrig;
+      #foreach {$dtrig} {d} {$d;};
+      #var dtrig {};
+    };
+
+    #nop Kill Sprints...places to run after a mob dies;
+
+    #switch {"%2"} {
+      #case "Cryohydra" {run verbeeg_chief;};
+    };
+  };
+}

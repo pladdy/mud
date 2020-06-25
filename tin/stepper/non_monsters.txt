@@ -35,6 +35,7 @@ a %+ grizzly bear
 a %+ wandering spider
 a %+ owlet
 a %+ platypus
+a %+ scorpion
 a cargo truck
 a jeep named
 a tame little shrew

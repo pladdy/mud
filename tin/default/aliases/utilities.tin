@@ -43,6 +43,19 @@
   !hmblast %0;
 }
 
+#alias kk {
+  #if {@length{%0} == 0} {
+    #showme need a target;
+  } {
+    #var kk_list {%0};
+    #replace {kk_list} {,} {;};
+
+    #foreach {$kk_list} {kk} {!k $kk};
+
+    #nop #unvar kk_list;
+  }
+}
+
 #alias l {
   #if {@length{%1} > 0} {!look at %0};
   #else                 {!look};
