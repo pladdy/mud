@@ -22,5 +22,7 @@
   !donate coffin;
   #var coffin_status {not_full};
   #var corpses 0;
-  map_run home;
+  map_run residential;
+  !home;
+  #map move home;
 }

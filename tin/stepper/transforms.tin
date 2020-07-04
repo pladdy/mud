@@ -12,6 +12,7 @@
 #var monster_transforms[a zombie waiter offering drinks] {zombie};
 #var monster_transforms[a zombie cook looking for something to chop] {zombie};
 #var monster_transforms[a zombie bell hop waiting to carry your things] {zombie};
+#var monster_transforms[a mindless vampire] {vampire};
 #var monster_transforms[ice man] {man};
 #var monster_transforms[ice woman] {woman};
 #var monster_transforms[ice youth] {youth};
