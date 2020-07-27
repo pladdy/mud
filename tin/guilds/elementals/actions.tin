@@ -34,7 +34,8 @@
 }
 
 #action {^%!{[> ]*}%imass triad spam:} {
-  run home;
+  run chaos;
+  home;
   #if {$last_room_i_was_in > 0} {
     run $last_room_i_was_in;
     #unvar last_room_i_was_in;
@@ -51,7 +52,7 @@
 }
 
 #action {^%!{[> ]*}As the last bit of life force escapes your enemy you quickly capture its$} {
-  !keep soul gem;
+  #nop !keep soul gem;
 }
 
 #action {^%!{[> ]*}You focus inward, reaching back through the Astral plane to your home$} {

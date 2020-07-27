@@ -40,7 +40,7 @@
 
   #nop triggers based on stats;
 
-  #if {$gp1 < 2000 && $corpses > 0} {repu};
+  #if {$gp1 < 3000 && $corpses > 0} {repu};
   #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
 }
 

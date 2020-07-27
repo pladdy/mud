@@ -1,5 +1,5 @@
 #alias attempt_mental_depletion {
-  #if {"$mind_depleted" != "true" && $sp < 50 && $enemy > 0} {
+  #if {"$mind_depleted" != "true" && $sp < 100 && $enemy > 0} {
     !evoke mental depletion;
   };
 }
@@ -17,7 +17,7 @@
          "$trapping_soul" != "true"} {
       !ts;
       #nop try to store gem in vortex, keep gem in case it can't be stored;
-      btrig put gem in vortex, keep gem;
+      btrig put gem in vortex;
     };
   };
 }

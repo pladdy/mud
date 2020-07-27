@@ -44,6 +44,7 @@ alias pv put $* in vortex
 alias rg release gem
 alias sav sell all from vortex
 alias si evoke siphon
+alias td evoke tidal wave
 alias ts evoke trap the soul
 
 aset gguild white

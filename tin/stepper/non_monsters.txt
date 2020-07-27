@@ -24,7 +24,7 @@
 %+ the valithyn
 %+ the bayen
 %+ the quarin
-%+ a mohrg
+a mohrg
 %+ the mohrg
 %+ the grimare
 %+'s%+Controller Alfred

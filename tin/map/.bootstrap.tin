@@ -20,17 +20,16 @@ map_lock;
   When status bar is not delayed, the prompt will do a carriage return every mud prompt
   If the status bar is refreshed, the behavior goes away.
 */
+status_bar on;
+#delay 1 {status_bar on;}
 
-#delay 0.5 {
-  status_bar on;
-  #regexp {$map[current_room]} {{[0-9]+}} {#map goto $map[current_room]}
-                                          {#map goto home};
+#regexp {$map[current_room]} {{[0-9]+}} {#map goto $map[current_room]}
+                                        {#map goto home};
 
-  #nop This refreshes the map, delay it to avoid error from #draw;
-  #delay 1 {
-    hp;
-    refresh_map_on_enter;
-    #nop delay map refresh to avoid #draw error;
-    #delay 1 mapr;
-  };
+#nop This refreshes the map, delay it to avoid error from #draw;
+#delay 1 {
+  hp;
+  refresh_map_on_enter;
+  #nop delay map refresh to avoid #draw error;
+  #delay 1 mapr;
 };
