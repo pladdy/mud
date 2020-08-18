@@ -56,6 +56,10 @@
   #var growth ON;
 }
 
+#action {^%!{[> ]*}%1 will not be augmented by your spell.$} {
+  #var growth ON;
+}
+
 #nop Haste;
 
 #action {^%!{[> ]*}'Wise and powerful %1, hasten my reflexes and quicken my body!'} {
@@ -118,14 +122,18 @@
   enable_panics;
 }
 
-#nop Plane shift;
+#nop Rift;
 
-#action {^%!{[> ]*}Selene, aid my struggle with a gate to the nether planes!$} {
-  #var pshift ON;
+#action {^%!{[> ]*}Selene, aid my struggle with a tear to the nether planes!$} {
+  #var rift ON;
 }
 
-#action {^%!{[> ]*}There is already a plane rift present.$} {
-  #var pshift ON;
+#action {^%!{[> ]*}You focus intently on the planar rift and begin to chant to Selene. Power wells deep$} {
+  #var rift ON;
+}
+
+#action {^%!{[> ]*}There is already a planar rift here.$} {
+  #var rift ON;
 }
 
 #nop Protection;
@@ -134,14 +142,18 @@
   attempt_protection;
 }
 
-#nop Psummon;
+#nop Beckon;
 
 #action {^%!{[> ]*}Suddenly, a cloud elemental arrives from the plane of air to} {
-  #var psummon {ON};
+  #var beckon {ON};
 }
 
 #action {^%!{[> ]*}You have already summoned help.$} {
-  #var psummon {ON};
+  #var beckon {ON};
+}
+
+#action {^%!{[> ]*}You have already beckoned a being from the rift!$} {
+  #var beckon {ON};
 }
 
 #nop Vestment

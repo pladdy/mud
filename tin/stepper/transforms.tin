@@ -40,3 +40,5 @@
 #var monster_transforms[a huge deep one] {deep one};
 #var monster_transforms[a deep one with three legs] {deep one};
 #var monster_transforms[an environmentalist fanatic] {fanatic};
+#var monster_transforms[marbled reed frog] {frog};
+#var monster_transforms[swamp sparrow] {sparrow};

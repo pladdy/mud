@@ -116,7 +116,6 @@
   !hp;
   #if {$total_water_pct < $MAX_WATER_RATIO} {!reclaim} {!fai};
   !hp;
-  !get all;
 }
 
 #alias wimpy_commands {

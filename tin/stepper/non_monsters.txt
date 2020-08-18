@@ -4,6 +4,7 @@
 %+'s aerial servant
 %+'s esquire
 %+ cob
+%+ palfrey
 %+ storm servant
 %+ broodling
 %+ ferryman
@@ -67,6 +68,7 @@ keshtan
 mistoffolees
 necrotic slake moth
 osurus
+park ranger
 princess qi
 quinton
 rec vaerin

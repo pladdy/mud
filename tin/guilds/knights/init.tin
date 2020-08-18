@@ -1,0 +1,4 @@
+panic staunch/95%/0
+react at 1500 hp with staunch
+doaction @staunch
+repeat combat/staunch/0/1

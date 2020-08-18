@@ -1,8 +1,8 @@
+#var beckon {OFF};
 #var blade {OFF};
 #var curse OFF;
 #var growth OFF;
-#var psummon {OFF};
-#var pshift {OFF};
+#var rift {OFF};
 #var summons {cloud elemental}; #nop selene psummon
 
 #while {1} {

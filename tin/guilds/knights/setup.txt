@@ -34,7 +34,6 @@ aset knight_will higreen
 
 hpconfig H: #CHP#/#MHP# (#HP%#%) S: #CSP#/#MSP# (#SP%#%) St: #CST#/#MST# (#ST%#%) Sn: #STN# (#STL#) Scw: #SEC# E: #MOB##NLN#G: #G2N# C: #CCP# St:Met: #SSN#:#SMT# Sk: [B: #BRL# De: #DFL# Do: #DDG# E: #END# Pa: #PRY# Pr: #PRE# Sh: #SHB# St: #STD#]
 setspam hits full
+setspam deflect off
+setspam endure off
 setspam misses half
-
-panic staunch/95%/0
-

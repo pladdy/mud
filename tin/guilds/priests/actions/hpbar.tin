@@ -22,10 +22,10 @@
 
 #alias attempt_all_the_things {
   attempt_effects;
-  attempt_psummon;
   attempt_curse;
-  attempt_growth;
-  #nop attempt_pshift;
+  #nop attempt_rift;
+  #nop attempt_beckon;
+  #nop attempt_growth;
   attempt_offer;
   attempt_beseech;
 }

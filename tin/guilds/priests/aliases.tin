@@ -19,8 +19,8 @@
 }
 
 #alias attempt_growth {
-  #if {"$psummon" == "ON" && "$growth" == "OFF" && $enemy > 0 && $sp > 200} {
-    !growth elemental;
+  #if {"$beckon" == "ON" && "$growth" == "OFF" && $enemy > 0 && $sp > 200} {
+    !growth demon;
   };
 }
 
@@ -38,20 +38,20 @@
   #if {"$protection_status" == "OFF" && $enemy > 0 && $sp > 150} {!protection};
 }
 
-#alias attempt_pshift {
-  #if {"$pshift" == "OFF" && $enemy > 0 && $sp > 200} {!planeshift};
+#alias attempt_rift {
+  #if {"$rift" == "OFF" && $enemy > 0 && $sp > 400} {!rift};
 }
 
-#alias attempt_psummon {
-  #if {"$psummon" == "OFF" && $enemy > 0 && $sp > 200} {!psummon};
+#alias attempt_beckon {
+  #if {"$beckon" == "OFF" && $enemy > 0 && $sp > 200} {!beckon};
 }
 
 #alias commands_after_corpse {
   attempt_meditate;
   #var curse OFF;
-  #var psummon OFF;
-  #var pshift OFF;
+  #var beckon OFF;
   #var growth OFF;
+  #var rift OFF;
 }
 
 #alias enable_panics {
