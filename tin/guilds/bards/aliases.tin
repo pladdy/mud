@@ -7,7 +7,7 @@
 
 #alias attempt_combat_spell {
   #if {"$combat_spell" == "on"} {
-    #math {min_combat_spell_sps} {$sp_max * .4};
+    #math {min_combat_spell_sps} {$sp_max * .2};
     #math {min_combat_spell_hps} {$hp_max * .75};
     #if {$sp > $min_combat_spell_sps && $hp > $min_combat_spell_hps} {
       !0;
@@ -46,10 +46,10 @@
   #local MIN_ROUNDS 10;
   #local MIN_SP 40;
 
-  #if {$sp > $MIN_SP && $spells[protection_align] < $MIN_ROUNDS} {
-    #if {"$protection_align[evil]" == "on"} {ceca protection from evil};
-    #if {"$protection_align[good]" == "on"} {ceca protection from good};
-    #if {"$protection_align[neutral]" == "on"} {ceca protection from neutral};
+  #if {$sp > $MIN_SP} {
+    #if {$spells[pe] < $MIN_ROUNDS} {ceca protection from evil};
+    #if {$spells[pg] < $MIN_ROUNDS} {ceca protection from good};
+    #if {$spells[pn] < $MIN_ROUNDS} {ceca protection from neutral};
   };
 }
 
@@ -76,20 +76,41 @@
   }
 }
 
+#alias attempt_soothe {
+  #math {min_combat_spell_sps} {$sp_max * .2};
 
-#alias attempt_tb {
-  #if {$gp1 == $gp1_max} {!thunderous bellow};
+  #if {$sp < $min_combat_spell_sps && $gp1 > 20} {
+    cepo soothe;
+  }
 }
 
-#alias band {
-  !remove shield;
-  !perform leader of the band;
+#alias attempt_tb {
+  #local MIN_GP1_RATIO .95;
+  #math {gp1_ratio} { ($gp1 * 1.00) / $gp1_max};
+  #if {$gp1_ratio >= $MIN_GP1_RATIO} {!thunderous bellow};
+}
+
+#alias ce {
+  #if {"$performing_instrumental_attack" == "on" || "$performing_acapella_attack" == "on"} {
+    !setpanic bandage at 75%;
+    !rhythmic actions 1 cease;
+    #var performing_instrumental_attack off;
+    #var performing_acapella_attack off;
+    #var combat_spell off;
+  };
+  !cease;
+  !wear shield;
 }
 
 #nop cease and cast;
 #alias ceca {
   !cease;
   !cast %0;
+}
+
+#alias cepo {
+  !cease;
+  !%0;
 }
 
 #alias commands_after_corpse {
@@ -128,45 +149,36 @@
   !mg at %1/$mystic_guardian_points/%3;
 }
 
-#alias pacid {
-  perform_instrumental_attack pacid;
-}
-
 #nop Orinoco flow ports you and stops interaction with mud...brief me is changed;
 #nop so it's easier to tell how many rounds of song have elapsed.;
 #alias pflow {
-  !remove shield;
   !bset briefme 0;
   !perform orinoco flow;
   #delay {60} {!bset briefme 1};
 }
 
-#alias phero {
-  !remove shield;
-  !perform hero;
+#alias paa {perform_acapella_attack %0}
+
+#alias perform_acapella_attack {
+  #local song %0;
+
+  #if {"$performing_acapella_attack" != "on"} {
+    #showme <170>Performing '$song';
+
+    !setpanic so at 85%;
+    !$song;
+    alias ras rhythmic actions 1 $song:5/ras;
+    !ras;
+
+    #var performing_acapella_attack on;
+  };
+  #elseif {"$performing_acapella_attack" == "on"} {
+    #showme <170>Stopping '$song';
+    ce;
+  };
 }
 
-#alias pmem {
-  !remove shield;
-  !perform memory;
-}
-
-#alias pns {
-  !remove shield;
-  !perform naked sunday;
-}
-
-#alias psmile {
-  !remove shield;
-  !perform smile;
-}
-
-#alias pson {
-  !remove shield;
-  !perform son of man;
-}
-
-#nop Takes 1 arg, a mud alias that should be for performing a song;
+#nop Takes 1 arg, a mud alias to perform a song (Ex: perform toxic blades);
 #alias perform_instrumental_attack {
   #local song %0;
 
@@ -174,7 +186,6 @@
     #showme <170>Performing '$song';
 
     !setpanic cu at 90%;
-    !remove shield;
     !$song;
     alias ras rhythmic actions 1 $song:5/ras;
     !ras;
@@ -184,21 +195,21 @@
   };
   #elseif {"$performing_instrumental_attack" == "on"} {
     #showme <170>Stopping '$song';
-
-    !setpanic bandage at 75%;
-    !cease;
-    !wear shield;
-    !rhythmic actions 1 cease;
-    #var performing_instrumental_attack off;
-    #var combat_spell off;
+    ce;
   };
 }
 
-#alias psol {perform_instrumental_attack psol}
+#alias pia {perform_instrumental_attack %0}
 
 #alias redi {
   !unwrap;
   use_corpse;
+}
+
+#alias resb {
+  !unwrap;
+  !cast soul bead;
+  !keep bead;
 }
 
 #alias use_corpse {

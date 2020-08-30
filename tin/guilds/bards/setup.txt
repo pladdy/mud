@@ -6,6 +6,7 @@ alias c cast
 alias ca cacophony
 alias cc chilling chord
 alias ce cease
+alias cn perform comfortably numb
 alias com bchat bard
 alias cu cast cure
 alias da donate all
@@ -21,7 +22,7 @@ alias kt karma tap
 alias lt cast light
 alias mb cast mind blank
 alias mg cast mystic guardian
-alias numb perform comfortably numb
+alias ns perform naked sunday
 alias o perform o muse
 alias p perform
 alias pe cast protection from evil
@@ -30,6 +31,7 @@ alias pn cast protection from neutral
 alias ps pstats
 alias ps2 pstats2
 alias re resume
+alias sm perform smile
 alias tb thunderous bellow
 
 aset bard_attack himagenta
@@ -43,9 +45,10 @@ aset bard_dodge hicyan
 aset bard_enhance yellow
 aset bard_fail flash+hired
 aset bard_heal higreen
-aset bard_main higren
+aset bard_main higreen
 aset bard_song hicyan
 
 bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% S: &$S$&(&$SR$&%) E: &$C$& &$NL$&g2n/g2s: @higreen:&$G2N%$&@%/@higreen:&$G2S$&@ A:&$AS$& &$P$
+bset gwhomess @white:`@\\_(@hicyan:"@/)_/@white:`@
 
 setpanic bandage at 75%

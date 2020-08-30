@@ -91,9 +91,9 @@
 
 #alias f12 {
   #if {$map[current_room] == 676} {
-    #loop 2 12 i {!trash all from bag $i};
+    #loop 2 24 i {!trash all from bag $i};
   } {
-    #loop 2 12 i {!sell all from bag $i};
+    #loop 2 24 i {!sell all from bag $i};
   }
 }
 
@@ -111,6 +111,11 @@
 
   !switch shocker;
   !aset synthorg yellow;
+}
+
+#alias pba {
+  #loop 2 24 i { !put all in bag $i };
+  #var i 0;
 }
 
 #alias repu {

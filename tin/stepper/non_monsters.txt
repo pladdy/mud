@@ -9,7 +9,7 @@
 %+ broodling
 %+ ferryman
 %+, %+'s %+ nag
-%+ shenanigans
+%*shenanigans
 %+ shetland pony
 %+ the skeleton
 %+ the zombie

@@ -11,6 +11,7 @@
 #event {SESSION CONNECTED} {
   #var {session_log} {./3k_session.log};
   #log append {$session_log};
+  #delay 10 {#echo {Session connected at %t.} {%Y-%m-%d %H:%M:%S}};
 }
 
 #nop Define alias here to make available to events below;
