@@ -119,7 +119,7 @@
 }
 
 #alias repu {
-  !unwrap corpse;
+  !unwrap smallest;
   !recharge;
   !reclaim;
   !recharge;

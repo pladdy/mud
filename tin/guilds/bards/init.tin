@@ -1,1 +1,3 @@
+#var heartening_laugh off;
+#var wings_of_the_phoenix off;
 #gag {^%!{[> ]*}Not so fast.$}

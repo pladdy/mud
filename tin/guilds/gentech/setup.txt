@@ -1,0 +1,1 @@
+genset hpbar Hp:\$hp\$ Sp:\$sp\$ Pu:\$pu\$ C: \$coff\$ CPC:\$cpc-now\$ E:\$ename\$(\$enemy\$)\$nl\$Ef:\$efield\$ min Ed:\$edna\$ B:\$bias\$ Gx:\$g2n\$(\$g2n-pct\$%) Rc:\$rc\$\$nl\$T:\$tslide\$(\$reset-pct\$%):\$e-tslide\$ Te:\$tactical\$ St:\$stabilize\$ Il:\$illum\$

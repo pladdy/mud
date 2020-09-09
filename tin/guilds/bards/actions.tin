@@ -1,4 +1,4 @@
-#action {^%!{[> ]*}H: %1/%2 S: %3/%4 K: %5/%6 V: %7/100%% S: %8(%9%%) E: %10} {
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 K: %5/%6 V: %7/100%% Coffin:%8/%9 g2n/g2s: %10%%/%11 E: %12} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -11,7 +11,14 @@
   #var gp2 {%7};
   #var gp2_max {100};
 
-  #local enemy_raw {%10};
+  #var corpses %8;
+  #var corpses_max %9;
+  #if {$corpses < $corpses_max} {#var coffin_status not_full};
+  #else {#var coffin_status full};
+
+  #var gxp %11;
+
+  #local enemy_raw {%12};
   #replace {enemy_raw} {T:} {};
   #replace {enemy_raw} {% } {};
   #if {"$enemy_raw" == " "} {#var enemy 0} {#var enemy $enemy_raw};
@@ -20,8 +27,7 @@
   #if {$gp1 < 50 && $corpses >0} {redi};
 }
 
-#action {^%!{[> ]*}g2n/g2s: %1%%/%2 A:%3} {
-  #var gxp %2;
+#action {^%!{[> ]*}S: %1(%2%%) Es:%3} {
   #var {effects} %3;
   #replace {effects} {[} {};
   #replace {effects} {]} {};
@@ -50,15 +56,19 @@
     attempt_soothe;
 
     attempt_hardened_skin;
-    attempt_protection_align;
-    #nop attempt_protection_heat;
-    #nop attempt_protection_frost;
+    attempt_protection_evil;
+    attempt_protection_good;
+    attempt_protection_neutral;
+    attempt_protection_heat;
+    attempt_protection_frost;
     attempt_mind_blank;
 
     #nop attempt_hypnotic_pattern;
-    #nop attempt_noxious_cloud;
+    attempt_noxious_cloud;
     attempt_combat_spell;
 
+    attempt_heartening_laugh;
+    attempt_wings;
     attempt_o_muse;
   };
   show_status_bar;
@@ -117,6 +127,10 @@
   #var noxious_cloud on;
 }
 
+#action {^%!{[> ]*}The noxious cloud fades away.$} {
+  #var noxious_cloud off;
+}
+
 #action {^%!{[> ]*}That creature is already somewhat spasmodic.$} {
   #var spasmodic_shuffle on;
 }
@@ -127,4 +141,38 @@
 
 #action {^%!{[> ]*}Perform song for whom?$} {
   ce;
+}
+
+#nop Defensive Harmony;
+
+#action {^%!{[> ]*}Weaving Magic and Song together, you reinforce the strength of your armor,$} {
+  #var defensive_harmony on;
+}
+
+#action {^%!{[> ]*}The mystic harmony woven around you shimmers and fades.$} {
+  #var defensive_harmony off;
+}
+
+#nop Heartening Laugh;
+
+#action {^%!{[> ]*}You let out a deep, loud laugh.  As you laugh, energies in the air begin to$} {
+  #var heartening_laugh on;
+}
+
+#action {^%!{[> ]*}Heartening Laugh fades from you.$} {
+  #var heartening_laugh off;
+}
+
+#nop Wings of the phoenix;
+
+#action {^%!{[> ]*}You invoke the power of the Great Phoenix.$} {
+  #var wings_of_the_phoenix on;
+}
+
+#action {^%!{[> ]*}Calling upon the Great Phoenix, your magic adds strength to your wings!$} {
+  #var wings_of_the_phoenix on;
+}
+
+#action {^%!{[> ]*}Your wings begin to shimmer and fade.  You land gently on the ground.$} {
+  #var wings_of_the_phoenix off;
 }

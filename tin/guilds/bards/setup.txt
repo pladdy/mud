@@ -48,7 +48,7 @@ aset bard_heal higreen
 aset bard_main higreen
 aset bard_song hicyan
 
-bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% S: &$S$&(&$SR$&%) E: &$C$& &$NL$&g2n/g2s: @higreen:&$G2N%$&@%/@higreen:&$G2S$&@ A:&$AS$& &$P$
+bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% &$COF$& g2n/g2s: @higreen:&$G2N%$&@%/@higreen:&$G2S$&@ E: &$C$& &$NL$&S: &$S$&(&$SR$&%) Es:&$AS$& &$P$
 bset gwhomess @white:`@\\_(@hicyan:"@/)_/@white:`@
 
 setpanic bandage at 75%
