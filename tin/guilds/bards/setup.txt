@@ -52,3 +52,4 @@ bset custom_hp H: &$HP2$& S: &$SP2$& K: &$K2$& V: &$V2$&% &$COF$& g2n/g2s: @higr
 bset gwhomess @white:`@\\_(@hicyan:"@/)_/@white:`@
 
 setpanic bandage at 75%
+panic cast cure/70%

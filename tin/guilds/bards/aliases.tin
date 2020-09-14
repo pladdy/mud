@@ -1,3 +1,10 @@
+#alias attempt_blink {
+  #local MIN_SP 200;
+  #if {$spells[blink] <= 0 && $sp > $MIN_SP} {
+    ceca blink;
+  };
+}
+
 #alias attempt_combat_spell {
   #if {"$combat_spell" == "on"} {
     #math {min_combat_spell_sps} {$sp_max * .2};
@@ -108,7 +115,6 @@
   #local MIN_SP 200;
   #if {"$wings_of_the_phoenix" != "on" && $sp > $MIN_SP} {
     ceca wings of the phoenix;
-    !land;
   };
 }
 

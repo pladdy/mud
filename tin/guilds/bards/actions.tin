@@ -49,12 +49,15 @@
                                {#var spells[protection_heat] 0};
   #regexp {$effects} { P:%d } {#var performing true}
                               {#var performing false};
+  #regexp {$effects} { B } {#var spells[blink] 1}
+                           {#var spells[blink] 0};
   #regexp {$effects} { MB } {#var spells[mind_blank] 1}
                             {#var spells[mind_blank] 0};
 
   #if {$enemy > 0} {
     attempt_soothe;
 
+    attempt_blink;
     attempt_hardened_skin;
     attempt_protection_evil;
     attempt_protection_good;
@@ -167,6 +170,7 @@
 
 #action {^%!{[> ]*}You invoke the power of the Great Phoenix.$} {
   #var wings_of_the_phoenix on;
+  !land;
 }
 
 #action {^%!{[> ]*}Calling upon the Great Phoenix, your magic adds strength to your wings!$} {
