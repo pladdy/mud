@@ -5,9 +5,9 @@
   #var coffin_status {not_full};
 }
 
-#action {^%!{\s*}1%!{[Y\s]*}An enchanted coffin (%1 corpse%?) [%2] [%3]} {
-  #var corpses %1;
-  #var coffin_status %3;
+#action {^%!{[> ]*}%!{.*}An enchanted coffin (%2 corpse%?)%!{\s+}[%3]%!{\s+}[%4]} {
+  #var corpses %2;
+  #var coffin_status %4;
   #format {coffin_status} {%l} {$coffin_status};
 
   #if {"$coffin_status" !== "full"} {
@@ -15,7 +15,7 @@
   }
 }
 
-#action {^wrap it up into the coffin's protective hold!$} {
+#action {wrap it up into the coffin's protective hold!$} {
   #math corpses {$corpses + 1};
 }
 
@@ -31,4 +31,9 @@
 #action {^You relinquish your control of the enchanted coffin and it vanishes} {
   #var corpses {};
   #var coffin_status {};
+}
+
+#nop Match if 'icof' is used to display coffin summary;
+#action {^%!{[> ]*}%!{.*}[%1] : %2} {
+  #var corpses %2;
 }

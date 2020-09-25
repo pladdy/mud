@@ -1,5 +1,6 @@
 #alias attempt_mental_depletion {
-  #if {"$mind_depleted" != "true" && $sp < 100 && $enemy > 0} {
+  #local MIN_SP 175;
+  #if {"$mind_depleted" != "true" && $sp < $MIN_SP && $enemy > 0} {
     !evoke mental depletion;
   };
 }

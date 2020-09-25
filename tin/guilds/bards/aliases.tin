@@ -1,3 +1,8 @@
+#alias attempt_amazing_grace {
+  #local MIN_ROUNDS 10;
+  #if {$songs[amazing_grace] <= $MIN_ROUNDS} {!perform amazing grace};
+}
+
 #alias attempt_blink {
   #local MIN_SP 200;
   #if {$spells[blink] <= 0 && $sp > $MIN_SP} {
@@ -31,6 +36,13 @@
   #local MIN_SP 100;
   #if {$sp > $MIN_SP && "$hypnotic_pattern" != "on"} {
     ceca hypnotic pattern;
+  }
+}
+
+#alias attempt_lightning_vortex {
+  #local MIN_SP 100;
+  #if {$sp > $MIN_SP && "$lightning_vortex" != "on"} {
+    ceca lightning vortex;
   }
 }
 
@@ -119,15 +131,18 @@
 }
 
 #alias ce {
-  #if {"$performing_instrumental_attack" == "on" || "$performing_acapella_attack" == "on"} {
+  #if {"$performing_instrumental_attack" == "on"
+       || "$performing_acapella_attack" == "on"
+       || "$performing_both_attack" == "on"
+  } {
     !setpanic bandage at 75%;
     !rhythmic actions 1 cease;
     #var performing_instrumental_attack off;
     #var performing_acapella_attack off;
+    #var performing_both_attack off;
     #var combat_spell off;
   };
   !cease;
-  !wear shield;
 }
 
 #nop cease and cast;
@@ -143,19 +158,20 @@
 
 #alias commands_after_corpse {
   #var hypnotic_pattern off;
+  #var lightning_vortex off;
   #var noxious_cloud off;
 }
 
 #alias deup {
   !hp;
-  attempt_hardened_skin;
-  #delay 2 attempt_protection_evil;
-  #delay 4 attempt_protection_good;
-  #delay 6 attempt_protection_neutral;
-  #delay 8 attempt_protection_heat;
-  #delay 10 attempt_protection_frost;
-  #delay 12 attempt_mind_blank;
-  #delay 14 attempt_o_muse;
+  attempt_blink;
+  #delay 2 attempt_hardened_skin;
+  #delay 4 attempt_protection_evil;
+  #delay 6 attempt_protection_good;
+  #delay 8 attempt_protection_neutral;
+  #delay 10 attempt_protection_heat;
+  #delay 12 attempt_protection_frost;
+  #delay 14 attempt_mind_blank;
 }
 
 #alias di {
@@ -223,6 +239,27 @@
     ce;
   };
 }
+
+#alias perform_both_attack {
+  #local song %0;
+
+  #if {"$performing_both_attack" != "on"} {
+    #showme <170>Performing '$song';
+
+    !setpanic kt at 90%;
+    !$song;
+    alias ras rhythmic actions 1 $song:5/ras;
+    !ras;
+
+    #var performing_both_attack on;
+  };
+  #elseif {"$performing_both_attack" == "on"} {
+    #showme <170>Stopping '$song';
+    ce;
+  };
+}
+
+#alias pbo {perform_both_attack %0}
 
 #nop Takes 1 arg, a mud alias to perform a song (Ex: perform toxic blades);
 #alias perform_instrumental_attack {

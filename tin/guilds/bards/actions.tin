@@ -33,26 +33,28 @@
   #replace {effects} {]} {};
 
   #nop Capture song/spell effects;
-  #regexp {$effects} { O:%d } {#var songs[o_muse] &1}
-                              {#var songs[o_muse] 0};
-  #regexp {$effects} { PE:%d } {#var spells[pe] &1}
-                                {#var spells[pe] 0};
-  #regexp {$effects} { PG:%d } {#var spells[pg] &1}
-                                {#var spells[pg] 0};
-  #regexp {$effects} { PN:%d } {#var spells[pn] &1}
-                                {#var spells[pn] 0};
-  #regexp {$effects} { HS:%d } {#var spells[hard_skin] &1}
-                               {#var spells[hard_skin] 0};
-  #regexp {$effects} { PF:%d } {#var spells[protection_frost] &1}
-                               {#var spells[protection_frost] 0};
-  #regexp {$effects} { PH:%d } {#var spells[protection_heat] &1}
-                               {#var spells[protection_heat] 0};
-  #regexp {$effects} { P:%d } {#var performing true}
-                              {#var performing false};
+  #regexp {$effects} { AG:%d } {#var songs[amazing_grace] &1}
+                               {#var songs[amazing_grace] 0};
   #regexp {$effects} { B } {#var spells[blink] 1}
                            {#var spells[blink] 0};
+  #regexp {$effects} { HS:%d } {#var spells[hard_skin] &1}
+                               {#var spells[hard_skin] 0};
   #regexp {$effects} { MB } {#var spells[mind_blank] 1}
                             {#var spells[mind_blank] 0};
+  #regexp {$effects} { O:%d } {#var songs[o_muse] &1}
+                              {#var songs[o_muse] 0};
+  #regexp {$effects} { P:%d } {#var performing true}
+                              {#var performing false};
+  #regexp {$effects} { PE:%d } {#var spells[pe] &1}
+                               {#var spells[pe] 0};
+  #regexp {$effects} { PF:%d } {#var spells[protection_frost] &1}
+                               {#var spells[protection_frost] 0};
+  #regexp {$effects} { PG:%d } {#var spells[pg] &1}
+                               {#var spells[pg] 0};
+  #regexp {$effects} { PH:%d } {#var spells[protection_heat] &1}
+                               {#var spells[protection_heat] 0};
+  #regexp {$effects} { PN:%d } {#var spells[pn] &1}
+                               {#var spells[pn] 0};
 
   #if {$enemy > 0} {
     attempt_soothe;
@@ -68,10 +70,12 @@
 
     #nop attempt_hypnotic_pattern;
     attempt_noxious_cloud;
+    attempt_lightning_vortex;
     attempt_combat_spell;
 
     attempt_heartening_laugh;
     attempt_wings;
+    attempt_amazing_grace;
     attempt_o_muse;
   };
   show_status_bar;
@@ -179,4 +183,18 @@
 
 #action {^%!{[> ]*}Your wings begin to shimmer and fade.  You land gently on the ground.$} {
   #var wings_of_the_phoenix off;
+}
+
+#nop Blink;
+
+#action {^%!{[> ]*}You are no longer blinking.$} {
+  #var spells[blink] 0;
+}
+
+#action {^%!{[> ]*}You clasp your hands together, speak forth magical energies, and draw upon$} {
+  #var lightning_vortex on;
+}
+
+#action {^%!{[> ]*}You may only have one of these at a time!$} {
+  #var lightning_vortex on;
 }
