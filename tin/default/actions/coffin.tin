@@ -34,6 +34,16 @@
 }
 
 #nop Match if 'icof' is used to display coffin summary;
+
+#action {^%!{[> ]*}%!{.*}[%1]  [%2]} {
+  #if {"%2" == "FULL"} {
+    #var coffin_status {full};
+  };
+  #else {
+    #var coffin_status {not_full};
+  }
+}
+
 #action {^%!{[> ]*}%!{.*}[%1] : %2} {
   #var corpses %2;
 }

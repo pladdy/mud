@@ -1,3 +1,8 @@
 #var pressure off;
 #var can_throw true;
-auto_palm on;
+
+#while {1} {
+  #nop when this is called it won't have been defined yet;
+  #delay 4 auto_palm;
+  #break;
+}
