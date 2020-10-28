@@ -25,9 +25,8 @@
 %+ the valithyn
 %+ the bayen
 %+ the quarin
-a mohrg
-%+ the mohrg
-%+ the grimare
+%+ mohrg
+%+ grimare
 %+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling

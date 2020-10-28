@@ -64,7 +64,7 @@
       !glance;
     } {10};
     remove_seen_monster "%1";
-    activate_stepper_ttl;
+    ttl_stepper on;
   };
 }
 

@@ -8,10 +8,6 @@
 #var valid_stepper_dirs[sw] {valid};
 #var valid_stepper_dirs[se] {valid};
 
-#alias activate_stepper_ttl {
-  #if {"$stepper" == "on"} {stepper_ttl on};
-}
-
 #alias auto_kill {
   #list {seen_monsters} {size} {seen_monster_count};
 
@@ -29,7 +25,7 @@
     #var under_attack true;
   };
 
-  #if {"$under_attack" == "true"} {stepper_ttl off};
+  #if {"$under_attack" == "true"} {ttl_no_monsters off};
 }
 
 #alias ak {auto_kill}
@@ -95,7 +91,6 @@
   #regexp {%0} { [%d%] attacking} {#var under_attack true};
 }
 
-
 #alias stepper {
   #if {"%0" == "on"} {
     #showme <170>Enabling stepping. 'stepper off' to disable.;
@@ -106,23 +101,47 @@
       !glance
     };
     tracker on;
+    ttl_stepper on;
+    #event {RECEIVED INPUT} {
+      log.info Input received.  Refreshing stepper TTL.;
+      ttl_stepper on;
+    };
 } {
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
     tracker off;
     #var stepper off;
     #unvar seen_monster_count;
-    #undelay stepper_ttl;
+    #undelay ttl_stepper;
+    #undelay ttl_no_monsters;
+    #unevent {RECEIVED INPUT};
   }
 }
 
-#alias stepper_ttl {
-  #local TIME_TO_LIVE 60;
+#alias ttl_no_monsters {
+  #local TTL_NO_MONSTERS 60;
 
   #if {"%0" == "on"} {
-    #delay {stepper_ttl} {stepper off;f2} {$TIME_TO_LIVE};
+    #delay {ttl_no_monsters} {stepper off;f2} {$TTL_NO_MONSTERS};
   };
   #else {
-    #undelay stepper_ttl;
+    #undelay ttl_no_monsters;
+  };
+}
+
+#alias ttl_stepper {
+  #nop stay alive for 45 min;
+  #local TTL 2700;
+
+  #if {"%0" == "on"} {
+    log.info Activating stepper TTL for $TTL seconds.;
+    #delay {ttl_stepper} {
+      log.warn No input received in $TTL seconds.  Disabling stepper.;
+      stepper off;
+      f2;
+    } {$TTL};
+  };
+  #else {
+    #undelay ttl_stepper;
   };
 }
 
