@@ -67,3 +67,7 @@
 #action {^%!{[> ]*}[> Attacks <] [%1] [%2] [%3] [%4]$} {
   #if {"%3" == "--------"} {!sya};
 }
+
+#action {^%!{[> ]*}%1 gives you a high-five!$} {
+  #if {"$party_status" == "yes"} {!unwrap}
+}
