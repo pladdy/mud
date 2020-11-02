@@ -50,5 +50,11 @@
 }
 
 #action {^%!{[> ]*}%!{.*}[%1] : %2} {
-  #var corpses %2;
+  #math {corpses} {$corpses + %2};
+  #var last_corpses %2;
+}
+
+#action {^%!{[> ]*}Your enchanted coffin contains:} {
+  #var last_corpses 0;
+  #var corpses 0;
 }

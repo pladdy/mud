@@ -57,17 +57,17 @@
 }
 
 #alias reab {
-  !unwrap corpse;
+  !unwrap smallest;
   !ab;
 }
 
 #alias reabb {
-  !unwrap corpse;
+  !unwrap smallest;
   !abb;
 }
 
 #alias repr {
-  !unwrap corpse;
+  !unwrap smallest;
   !p;
 }
 

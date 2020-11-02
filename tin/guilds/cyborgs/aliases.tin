@@ -25,12 +25,12 @@
 }
 
 #alias redc {
-  !unwrap corpse;
+  !unwrap smallest;
   !decompose;
 }
 
 #alias reet {
-  !unwrap corpse;
+  !unwrap smallest;
   !eat corpse;
 }
 

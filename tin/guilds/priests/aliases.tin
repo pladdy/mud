@@ -80,7 +80,7 @@
 }
 
 #alias reof {
-  !unwrap corpse;
+  !unwrap smallest;
   !offer corpse;
 }
 

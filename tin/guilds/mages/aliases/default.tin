@@ -29,7 +29,7 @@
 }
 
 #alias rebl {
-  !unwrap corpse;
+  !unwrap smallest;
   tap_corpse;
   !cast corpse blast;
 }

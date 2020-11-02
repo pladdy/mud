@@ -76,14 +76,14 @@
 
 #alias pmap {
   #switch {"%1"} {
-    #case "n" {#map jump 0 1; #map info; #map jump 0 -1;};
-    #case "s" {#map jump 0 -1; #map info; #map jump 0 1;};
-    #case "w" {#map jump -1 0; #map info; #map jump 1 0;};
-    #case "e" {#map jump 1 0; #map info; #map jump -1 0;};
-    #case "nw" {#map jump -1 1; #map info; #map jump 1 -1;};
-    #case "se" {#map jump 1 -1; #map info; #map jump -1 1;};
-    #case "ne" {#map jump 1 1; #map info; #map jump -1 -1;};
-    #case "sw" {#map jump -1 -1; #map info; #map jump 1 1;};
+    #case "n" {#map jump 0 1; #map info; #map undo;};
+    #case "s" {#map jump 0 -1; #map info; #map undo;};
+    #case "w" {#map jump -1 0; #map info; #map undo;};
+    #case "e" {#map jump 1 0; #map info; #map undo;};
+    #case "nw" {#map jump -1 1; #map info; #map undo;};
+    #case "se" {#map jump 1 -1; #map info; #map undo;};
+    #case "ne" {#map jump 1 1; #map info; #map undo;};
+    #case "sw" {#map jump -1 -1; #map info; #map undo;};
   }
 }
 

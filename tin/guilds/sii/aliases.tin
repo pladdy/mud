@@ -48,7 +48,7 @@
 }
 
 #alias reet {
-  !unwrap corpse;
+  !unwrap smallest;
   !eat corpse;
 }
 
@@ -58,7 +58,7 @@
 }
 
 #alias reen {
-  !unwrap corpse;
+  !unwrap smallest;
   !envelop corpse;
   !collect dna from corpse;
 }

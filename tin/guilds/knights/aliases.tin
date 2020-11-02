@@ -75,7 +75,7 @@
 }
 
 #alias rebc {
-  !unwrap corpse;
+  !unwrap smallest;
   !bury corpse;
 }
 

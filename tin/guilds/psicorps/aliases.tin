@@ -52,6 +52,6 @@
 }
 
 #alias resp {
-  !unwrap corpse;
+  !unwrap smallest;
   !eat corpse;
 }

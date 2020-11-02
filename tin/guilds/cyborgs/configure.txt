@@ -16,8 +16,8 @@ configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
 
-configure pattern add expansive hip augmentation/freon injector [0]/freon injector [1]/knee spike [0]
-configure pattern add expansive hip augmentation/blazer [0]/blazer [1]/knee spike [1]
+configure pattern add ocular laser [0]/blazer [0]/knee spike [0]/freon injector [0]
+configure pattern add ocular laser [1]/blazer [1]/knee spike [1]/freon injector [1]
 
 # pedes patterns
 configure pattern add expansive hip augmentation
@@ -35,8 +35,8 @@ configure pattern add expansive hip augmentation/knee spike [0]
 configure pattern add expansive hip augmentation/knee spike [1]
 
 # bl/fi
-configure pattern add expansive hip augmentation/blazer [0]
-configure pattern add expansive hip augmentation/blazer [1]
+configure pattern add expansive hip augmentation/incendiary cannon
+configure pattern add expansive hip augmentation
 
 # bl/ic
 configure pattern add expansive hip augmentation/freon injector [0]
@@ -44,12 +44,6 @@ configure pattern add expansive hip augmentation/freon injector [1]
 
 # aliases
 alias 1 configure strategy set 1/2
-alias bl configure strategy set 3
-alias bled configure strategy set 8/9
-alias blfi configure strategy set 10/11
-alias blic configure strategy set 12/13
-alias fi configure strategy set 4/5
-alias ic configure strategy set 6/7
 
 # set default strategy
 1

@@ -25,7 +25,7 @@
     #var under_attack true;
   };
 
-  #if {"$under_attack" == "true"} {ttl_no_monsters off};
+  #if {"$under_attack" == "true"} {ttl_no_monsters};
 }
 
 #alias ak {auto_kill}
@@ -102,6 +102,7 @@
     };
     tracker on;
     ttl_stepper on;
+    ttl_no_monsters on;
     #event {RECEIVED INPUT} {
       log.info Input received.  Refreshing stepper TTL.;
       ttl_stepper on;
@@ -111,37 +112,41 @@
     tracker off;
     #var stepper off;
     #unvar seen_monster_count;
-    #undelay ttl_stepper;
-    #undelay ttl_no_monsters;
+    ttl_stepper;
+    ttl_no_monsters;
     #unevent {RECEIVED INPUT};
   }
 }
 
 #alias ttl_no_monsters {
-  #local TTL_NO_MONSTERS 60;
+  #local TTL 60;
+  #local ticker_name ttl_no_monsters;
 
   #if {"%0" == "on"} {
-    #delay {ttl_no_monsters} {stepper off;f2} {$TTL_NO_MONSTERS};
+    #undelay $ticker_name;
+    #ticker {$ticker_name} {stepper off;f2} {$TTL};
   };
   #else {
-    #undelay ttl_no_monsters;
+    #undelay $ticker_name;
   };
 }
 
 #alias ttl_stepper {
-  #nop stay alive for 45 min;
-  #local TTL 2700;
+  #local TTL 1200;
+  #local ticker_name ttl_stepper;
 
   #if {"%0" == "on"} {
     log.info Activating stepper TTL for $TTL seconds.;
-    #delay {ttl_stepper} {
-      log.warn No input received in $TTL seconds.  Disabling stepper.;
+
+    #undelay $ticker_name;
+    #ticker {$ticker_name} {
+      log.warn No input received in a while.  Disabling stepper.;
       stepper off;
       f2;
     } {$TTL};
   };
   #else {
-    #undelay ttl_stepper;
+    #undelay $ticker_name;
   };
 }
 

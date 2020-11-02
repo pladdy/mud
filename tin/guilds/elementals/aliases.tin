@@ -60,12 +60,12 @@
 }
 
 #alias recd {
-  !unwrap corpse;
+  !unwrap smallest;
   use_corpse;
 }
 
 #alias reet {
-  !unwrap corpse;
+  !unwrap smallest;
   !eat corpse;;
 }
 

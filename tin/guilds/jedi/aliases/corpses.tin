@@ -16,18 +16,18 @@
 }
 
 #alias reab {
-  !unwrap corpse;
+  !unwrap smallest;
   !focus absorb energy;
 }
 
 #alias refo {
-  !unwrap corpse;
+  !unwrap smallest;
   !focus release force;
   #var release_force true;
 }
 
 #alias reet {
-  !unwrap corpse;
+  !unwrap smallest;
   !eat corpse;
 }
 
