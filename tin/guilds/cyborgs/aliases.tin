@@ -11,7 +11,7 @@
 #alias pause_active_stepper {
   #local MIN_AVAILABLE_HEAT 25;
   #local REGEN_SECONDS 24;
-  #local MIN_POWER 50;
+  #local MIN_POWER 400;
 
   #if {$enemy > 0 && "$stepper" == "on" && "$pause" != "true"} {
     #if {$gp2 < $MIN_AVAILABLE_HEAT} {

@@ -15,7 +15,7 @@
   }
 }
 
-#action {wrap it up into the coffin's protective hold!$} {
+#action {^%!{[> ]*}You pick up %1 corpse of %2} {
   #math corpses {$corpses + 1};
 }
 
