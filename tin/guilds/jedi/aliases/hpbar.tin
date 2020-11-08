@@ -5,7 +5,7 @@
        && $enemy > 0
        && $dissipates > 0
        && $energy > $MIN_ENERGY} {
-    !focus dissipate on attack;
+    #send !focus dissipate on attack;
   };
 }
 

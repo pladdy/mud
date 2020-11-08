@@ -21,7 +21,7 @@
   };
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
     debug monster present, attack;
-    !kill @transform_mob{$seen_monsters[1]};
+    #send !kill @transform_mob{$seen_monsters[1]};
     #var under_attack true;
   };
 
@@ -98,7 +98,7 @@
     #unvar entered_from;
     #delay {2} {
       #var stepper on;
-      !glance
+      #send !glance
     };
     tracker on;
     ttl_stepper on;
@@ -180,18 +180,18 @@
 #alias tracker {
   #if {"%0" == "on"} {
     #showme <170>Enabling tracking. 'tracker off' to disable.;
-    !aset room_short white+[RS] +reset;
-    !aset look_monster hired+[M] +reset;
-    !aset look_player higreen+[P] +reset;
-    !brief on no;
+    #send !aset room_short white+[RS] +reset;
+    #send !aset look_monster hired+[M] +reset;
+    #send !aset look_player higreen+[P] +reset;
+    #send !brief on no;
     load_non_monsters;
     #var tracker on;
   } {
     #showme <170>Disabling tracking. 'tracker on' to re-enable.;
-    !aset room_short;
-    !aset look_monster;
-    !aset look_player;
-    !brief on yes;
+    #send !aset room_short;
+    #send !aset look_monster;
+    #send !aset look_player;
+    #send !brief on yes;
     unload_non_monsters;
     #var tracker off;
   }

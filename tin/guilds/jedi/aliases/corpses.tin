@@ -1,36 +1,36 @@
 #alias f10 {
-  !hp;
-  !eat corpse;
-  !hp;
-  !get all;
+  #send !hp;
+  #send !eat corpse;
+  #send !hp;
+  #send !get all;
 }
 
 #alias commands_after_corpse {
   #var mindblock {no};
 
   #if {$gp1 < 75 && $gp2 < 50} {
-    !focus meditation;
+    #send !focus meditation;
   } {
-    !focus hibernation trance;
+    #send !focus hibernation trance;
   }
 }
 
 #alias reab {
-  !unwrap smallest;
-  !focus absorb energy;
+  #send !unwrap smallest;
+  #send !focus absorb energy;
 }
 
 #alias refo {
-  !unwrap smallest;
-  !focus release force;
+  #send !unwrap smallest;
+  #send !focus release force;
   #var release_force true;
 }
 
 #alias reet {
-  !unwrap smallest;
-  !eat corpse;
+  #send !unwrap smallest;
+  #send !eat corpse;
 }
 
-#alias use_corpse {!focus absorb energy;}
+#alias use_corpse {#send !focus absorb energy;}
 
 

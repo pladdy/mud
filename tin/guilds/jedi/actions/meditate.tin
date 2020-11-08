@@ -1,25 +1,25 @@
 #nop 'rests.' doesn't trigger the action...not sure why;
 
 #action {^Tension leaves you as your mind } {
-  !hp;
+  #send !hp;
 }
 
 #action {^Stress and emotion flow away as your mind clears.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^Your meditation techniques calm your mind.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^You void your thoughts and find inner peace.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^The Force flows through you and soothes your thoughts.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^Your meditation has cleared your thoughts and strengthened your$} {
-  !focus hibernation trance;
+  #send !focus hibernation trance;
 }

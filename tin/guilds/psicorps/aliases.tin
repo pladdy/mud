@@ -1,25 +1,25 @@
 #alias attempt_actuation {
     #nop Defense first;
-    #regex {$powers_str} { Vr} {#nop;} {!vr};
-    #nop #regex {$powers_str} { Bf} {#nop;} {!bf};
+    #regex {$powers_str} { Vr} {#nop;} {#send !vr};
+    #nop #regex {$powers_str} { Bf} {#nop;} {#send !bf};
 
     #nop Offense;
-    #regex {$powers_str} { Tl} {#nop;} {!tl};
-    #nop #regex {$powers_str} { Cg} {#nop;} {!cg};
-    #nop #regex {$powers_str} { Bo} {#nop;} {!bo};
-    #regex {$powers_str} { Ij} {#nop;} {!ij};
-    #regex {$powers_str} { bc} {#nop;} {!bc};
+    #regex {$powers_str} { Tl} {#nop;} {#send !tl};
+    #nop #regex {$powers_str} { Cg} {#nop;} {#send !cg};
+    #nop #regex {$powers_str} { Bo} {#nop;} {#send !bo};
+    #regex {$powers_str} { Ij} {#nop;} {#send !ij};
+    #regex {$powers_str} { bc} {#nop;} {#send !bc};
 
     #nop Perks;
-    #nop #regex {$powers_str} { Vg} {#nop;} {!vg};
-    #regex {$powers_str} { Vv} {#nop;} {!vv};
-    #nop #regex {$powers_str} { AA} {#nop;} {!aa bull};
+    #nop #regex {$powers_str} { Vg} {#nop;} {#send !vg};
+    #regex {$powers_str} { Vv} {#nop;} {#send !vv};
+    #nop #regex {$powers_str} { AA} {#nop;} {#send !aa bull};
 }
 
 #alias f10 {use_corpse};
 
 #alias f12 {
-  #loop 2 8 i {!sell all from bag $i};
+  #loop 2 8 i {#send !sell all from bag $i};
 }
 
 #alias fr {
@@ -29,7 +29,7 @@
     #return;
   };
 
-  !fold reality;
+  #send !fold reality;
 }
 
 #alias pause_active_stepper {
@@ -45,13 +45,13 @@
 }
 
 #alias use_corpse {
-  !hp;
-  !eat corpse;
-  !hp;
-  !get all;
+  #send !hp;
+  #send !eat corpse;
+  #send !hp;
+  #send !get all;
 }
 
 #alias resp {
-  !unwrap smallest;
-  !eat corpse;
+  #send !unwrap smallest;
+  #send !eat corpse;
 }

@@ -1,5 +1,5 @@
 #alias attempt_slow {
-  #if {$enemy > 0 && $slowed != 1} {!cast slow};
+  #if {$enemy > 0 && $slowed != 1} {#send !cast slow};
 }
 
 #alias attempt_mystic_immersion {
@@ -14,7 +14,7 @@
 #alias concentration_check {
   #nop when hpbar processes gp vars, it 'flips' them;
   #if {$gp2 <= 30} {#showme <110>CONCENTRATION IS HIGH!!!};
-  #if {$gp2 <= 30} {!shoo};
+  #if {$gp2 <= 30} {#send !shoo};
 }
 
 #alias saturation_check {
@@ -22,8 +22,8 @@
   #if {$gp1 <= 10} {#showme <110>SATURATION IS HIGH!!!};
 
   #if {$gp2 <= 5} {
-    !cast deactivate;
-    !cast secure shelter;
+    #send !cast deactivate;
+    #send !cast secure shelter;
     #delay {2} {regen};
   };
 }

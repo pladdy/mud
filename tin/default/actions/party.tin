@@ -1,6 +1,6 @@
 #action {^[PARTY] %1: refollow} {
   #format {requestor} {%l} {%1};
-  !follow $requestor;
+  #send !follow $requestor;
   #unvar requestor;
 }
 

@@ -4,14 +4,14 @@
 }
 
 #action {^%!{[> ]*}Shenanigans's eyes glow bright green upon the fallen} {
-  !drop corpse;
+  #send !drop corpse;
   #if {"$coffin_status" == "full" && $enemy > 0} {
     use_corpse;
-    !f;
+    #send !f;
   };
   #elseif {"$coffin_status" != "full"} {
-    !wrap;
-    !f;
+    #send !wrap;
+    #send !f;
   };
 }
 
@@ -61,13 +61,13 @@
 }
 
 #action {^%!{[> ]*}BIAS CONFORMATION HAS REACHED SPECIFIED DIFFERENTIAL} {
-  !biaslock;
+  #send !biaslock;
 }
 
 #action {^%!{[> ]*}[> Attacks <] [%1] [%2] [%3] [%4]$} {
-  #if {"%3" == "--------"} {!sya};
+  #if {"%3" == "--------"} {#send !sya};
 }
 
 #action {^%!{[> ]*}%1 gives you a high-five!$} {
-  #if {"$party_status" == "yes"} {!unwrap}
+  #if {"$party_status" == "yes"} {#send !unwrap}
 }

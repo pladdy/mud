@@ -1,8 +1,8 @@
 #alias ansi {
-  !ansi %1;
+  #send !ansi %1;
 
   #if {"%1" == "off"} {
-    !ansi off;
+    #send !ansi off;
     mset attack bkblack;
     mset dodge bkblack;
     mset pressure bkblack;
@@ -13,7 +13,7 @@
     mset crit bkblack;
     mset throw bkblack;
   } {
-    !ansi on;
+    #send !ansi on;
     mset attack white;
     mset dodge hicyan;
     mset pressure hiblack;
@@ -37,7 +37,7 @@
   #local FOCUS_AMOUNT 10;
 
   #if {$enemy > 0 && $gp2 < $MIN_MIND && $focus > 0} {
-    !focus $FOCUS_AMOUNT;
+    #send !focus $FOCUS_AMOUNT;
   };
 }
 
@@ -46,13 +46,13 @@
        && "$auto_palm" == "true"
        && $ancient_energy > 0
        && "$palm_active" != "true"} {
-    !palm;
+    #send !palm;
   };
 }
 
 #alias attempt_pressure {
   #if {$enemy > 0 && "$pressure" == "off"} {
-    !pressure;
+    #send !pressure;
     #nop reduce sp so i don't throw same round i pressure;
     #math {sp} {$sp - 1};
   };
@@ -64,7 +64,7 @@
        && $gp1 > $MIN_CHI
        && $enemy > 0
        && "$can_throw" == "true"} {
-    !throw;
+    #send !throw;
   };
 }
 
@@ -83,23 +83,23 @@
   #var pressure {off};
   #var palm_active {false};
   #var can_throw {true};
-  !meditate;
+  #send !meditate;
 }
 
 #alias en {
-  #if {%0 > 0 } {!enervate %0};
-  #else {!enervate 200};
-  #2 {!hands};
+  #if {%0 > 0 } {#send !enervate %0};
+  #else {#send !enervate 200};
+  #2 {#send !hands};
 }
 
 #alias linkdie_commands {
-  !gs;
+  #send !gs;
 };
 
 #alias reet {
-  !unwrap;
-  !study corpse;
-  !eat corpse;
+  #send !unwrap;
+  #send !study corpse;
+  #send !eat corpse;
 }
 
 #alias resp {reet}
@@ -109,29 +109,29 @@
 
 #alias f10 {
   use_corpse;
-  !get all;
+  #send !get all;
 }
 
 #alias f12 {
   #if {$map[current_room] == 11358} {
     #loop 2 12 loop {
-      !get all from bag $loop;
-      !sacrifice all;
+      #send !get all from bag $loop;
+      #send !sacrifice all;
     };
   };
   #else {
-    #loop 2 12 loop {!sell all from bag $loop};
+    #loop 2 12 loop {#send !sell all from bag $loop};
   };
 }
 
 #alias use_corpse {
-  !study corpse;
-  !eat corpse;
-  !hp;
+  #send !study corpse;
+  #send !eat corpse;
+  #send !hp;
 }
 
 #alias wimpy_commands {
-  #delay 2 {!meditate;}
+  #delay 2 {#send !meditate;}
 }
 
 

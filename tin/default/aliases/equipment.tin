@@ -1,4 +1,4 @@
 #nop Use with Cyberpope medallion;
-#alias pbm {!press button on medallion};
+#alias pbm {#send !press button on medallion};
 
 #alias fixup {run smithy;fix all;f2}

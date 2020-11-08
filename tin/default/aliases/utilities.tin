@@ -18,9 +18,9 @@
 
 #alias auction {
   #if {@length{%3} == 0} {
-    !auction %0;
+    #send !auction %0;
   } {
-    !auction %1;
+    #send !auction %1;
     #send %2;
     #send %3;
     #send %4;
@@ -30,17 +30,17 @@
 #alias bootrun {fcat notes/bootrun.txt}
 
 #alias f12 {
-  #loop 2 12 i {!sell all from bag $i};
+  #loop 2 12 i {#send !sell all from bag $i};
 }
 
 #nop HighMortal powers;
 
 #alias hms {
-  !hmsever;
+  #send !hmsever;
 }
 
 #alias hmb {
-  !hmblast %0;
+  #send !hmblast %0;
 }
 
 #alias kk {
@@ -50,25 +50,25 @@
     #var kk_list {%0};
     #replace {kk_list} {,} {;};
 
-    #foreach {$kk_list} {kk} {!k $kk};
+    #foreach {$kk_list} {kk} {#send !k $kk};
 
     #nop #unvar kk_list;
   }
 }
 
 #alias l {
-  #if {@length{%1} > 0} {!look at %0};
-  #else                 {!look};
+  #if {@length{%1} > 0} {#send !look at %0};
+  #else                 {#send !look};
 }
 
 #alias ls {
   #if {"%0" == ""} {
-    !look;
-    !search;
+    #send !look;
+    #send !search;
   };
   #else {
-    !look at %0;
-    !search %0;
+    #send !look at %0;
+    #send !search %0;
   }
 }
 
@@ -82,7 +82,7 @@
 }
 
 #alias quit {
-  !quit;
+  #send !quit;
   #end;
 }
 
@@ -116,5 +116,5 @@
 
 #alias wield {
   #var {wielded_weapon} {%0};
-  !wield %0;
+  #send !wield %0;
 }

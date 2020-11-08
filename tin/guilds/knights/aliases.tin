@@ -1,10 +1,10 @@
 #alias attempt_prepare {
-  #if {$enemy > 0 && "$prepare" == "n"} {!prepare on};
+  #if {$enemy > 0 && "$prepare" == "n"} {#send !prepare on};
 }
 
 #alias attempt_stamina_recovery {
   #if {$enemy > 0 && $pct_stamina < 50} {
-    #if {$knight_scw > 50} {!scw};
+    #if {$knight_scw > 50} {#send !scw};
     #elseif {$corpses > 0} {rebc};
   };
 }
@@ -16,28 +16,28 @@
 
 #alias attempt_will {
   #if {$enemy > 0 && $pct_sp > 90 && ($pct_stamina < 90 || $gp2 < 160)}  {
-    #2 !will;
+    #2 #send !will;
   };
 }
 
 #alias commands_after_corpse {
-  !rest;
+  #send !rest;
 }
 
 #alias default_skills {
-  !deflect on;
-  !endure on;
-  !prepare on;
+  #send !deflect on;
+  #send !endure on;
+  #send !prepare on;
 }
 
 #alias deup {
-  !stance defense;
-  !method melee;
+  #send !stance defense;
+  #send !method melee;
   default_skills;
-  !dodge on;
-  !parry on;
-  !wear shield;
-  !shieldblock on;
+  #send !dodge on;
+  #send !parry on;
+  #send !wear shield;
+  #send !shieldblock on;
 }
 
 #alias f10 {
@@ -48,12 +48,12 @@
 #nop method aliases;
 
 #alias mc {
-  !method charge;
+  #send !method charge;
   ofup;
 }
 
 #alias mf {
-  !method focus;
+  #send !method focus;
   ofup;
 }
 
@@ -62,21 +62,21 @@
 }
 
 #alias neup {
-  !stance neutral;
-  !method melee;
+  #send !stance neutral;
+  #send !method melee;
   default_skills;
-  !wear shield;
-  !shieldblock on;
+  #send !wear shield;
+  #send !shieldblock on;
 }
 
 #alias ofup {
-  !stance offense;
+  #send !stance offense;
   default_skills;
 }
 
 #alias rebc {
-  !unwrap smallest;
-  !bury corpse;
+  #send !unwrap smallest;
+  #send !bury corpse;
 }
 
 #alias reload_settings {
@@ -84,9 +84,9 @@
 }
 
 #alias use_corpse {
-  !bury corpse;
+  #send !bury corpse;
 }
 
 #alias wimpy_commands {
-  #delay 2 {!rest};
+  #delay 2 {#send !rest};
 }

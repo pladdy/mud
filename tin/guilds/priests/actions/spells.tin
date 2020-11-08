@@ -11,11 +11,11 @@
 #nop Barkskin;
 
 #action {^%!{[> ]*}*Your barkskin has worn off!*$} {
-  #if {$enemy > 0} {!barkskin};
+  #if {$enemy > 0} {#send !barkskin};
 }
 
 #action {^%!{[> ]*}Your bark-like skin begins to itch and soften.$} {
-  #if {$enemy > 0} {!barkskin};
+  #if {$enemy > 0} {#send !barkskin};
 }
 
 #nop Blade;
@@ -30,14 +30,14 @@
 
 #action {^%!{[> ]*}The blades stop swirling and shimmer into nothingness.$} {
   #var {blade} {OFF};
-  #if {$enemy > 0} {!blade};
+  #if {$enemy > 0} {#send !blade};
 }
 
 #nop Channel;
 
 #action {^%!{[> ]*}%1 tugs on your sleeve persistently.$} {
   #format {player} {%l} {%1};
-  !channel $player 200;
+  #send !channel $player 200;
 }
 
 #nop Curse;
@@ -67,7 +67,7 @@
 }
 
 #action {^%!{[> ]*}You feel yourself slow back down to normal speed.$} {
-  #if {$enemy > 0} {!haste};
+  #if {$enemy > 0} {#send !haste};
 }
 
 #nop Lifeforce;
@@ -78,22 +78,22 @@
 
 #action {^%!{[> ]*}%1 pings you.$} {
   #format {player} {%l} {%1};
-  !mend $player;
+  #send !mend $player;
 }
 
 #action {^%!{[> ]*}%1 gives you a high-five!$} {
   #format {player} {%l} {%1};
-  !mend $player gp;
+  #send !mend $player gp;
 }
 
 #action {^%!{[> ]*}%1 politely asks you for a heal.$} {
   #format {player} {%l} {%1};
-  !mend $player hp;
+  #send !mend $player hp;
 }
 
 #action {^%!{[> ]*}%1 explains to you that he is out of spell points.$} {
   #format {player} {%l} {%1};
-  !mend $player sp;
+  #send !mend $player sp;
 }
 
 #nop Meditation;
@@ -159,5 +159,5 @@
 #nop Vestment
 
 #action {^%!{[> ]*}The magical vestment fades into nothingness...$} {
-  #if {$enemy > 0} {!vestment};
+  #if {$enemy > 0} {#send !vestment};
 }

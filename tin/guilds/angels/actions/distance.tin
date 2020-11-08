@@ -11,7 +11,7 @@
   };
 
   #if {$angel[distance] > 0 && $rounds_disengaged > $MAX_ROUNDS_DISENGAGED} {
-    !engage;
+    #send !engage;
     #math {angel[distance]} {$angel[distance] - 1};
   };
 

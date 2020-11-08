@@ -3,13 +3,13 @@
 #alias f12 {
   #if {$map[current_room] == 22754} {
     #loop 2 12 i {
-      !get all from bag $i;
-      !feed all;
+      #send !get all from bag $i;
+      #send !feed all;
     };
   };
   #else {
     #loop 2 12 i {
-      !sell all from bag $i;
+      #send !sell all from bag $i;
     };
   }
 }
@@ -18,23 +18,23 @@
   #math {hp_as_pct} {($hp * 1.00)/ $hp_max * 100};
 
   #if {$hp_as_pct > 95 && $regen_level > 0} {
-    !focus regeneration normal;
+    #send !focus regeneration normal;
   };
   #else {
     #if {$hp_as_pct < 95 && $regen_level < 1} {
-      !focus regeneration quick;
+      #send !focus regeneration quick;
     };
     #elseif {$hp_as_pct < 91 && $regen_level < 2} {
-      !focus regeneration rapid;
+      #send !focus regeneration rapid;
     };
     #elseif {$hp_as_pct < 87 && $regen_level < 3} {
-      !focus regeneration fast;
+      #send !focus regeneration fast;
     };
     #elseif {$hp_as_pct < 83 && $regen_level < 4} {
-      !focus regeneration hyper;
+      #send !focus regeneration hyper;
     };
     #elseif {$hp_as_pct < 79 && $regen_level < 5} {
-      !focus regeneration blazing;
+      #send !focus regeneration blazing;
     };
   };
 }
@@ -48,26 +48,26 @@
 }
 
 #alias reet {
-  !unwrap smallest;
-  !eat corpse;
+  #send !unwrap smallest;
+  #send !eat corpse;
 }
 
 #alias rein {
-  !unwrap 1;
-  !infest;
+  #send !unwrap 1;
+  #send !infest;
 }
 
 #alias reen {
-  !unwrap smallest;
-  !envelop corpse;
-  !collect dna from corpse;
+  #send !unwrap smallest;
+  #send !envelop corpse;
+  #send !collect dna from corpse;
 }
 
 #alias use_corpse {
-  !hp;
-  !envelop corpse;
-  !collect dna from corpse;
-  !hp;
+  #send !hp;
+  #send !envelop corpse;
+  #send !collect dna from corpse;
+  #send !hp;
 }
 
 #alias when_low_control_warn {

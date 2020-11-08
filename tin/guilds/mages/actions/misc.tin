@@ -1,5 +1,5 @@
-#action {^3Kingdoms welcomes you back from linkdeath.$} {
-  !hp;
-  !i;
-  !ff;
+#action {^%!{[> ]*}3Kingdoms welcomes you back from linkdeath.$} {
+  #send !hp;
+  #send !i;
+  #send !ff;
 }

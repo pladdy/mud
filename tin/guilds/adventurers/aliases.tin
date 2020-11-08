@@ -1,13 +1,13 @@
 #alias use_corpse {
-  !hp;
-  !bury corpse;
-  !hp;
-  !get all;
+  #send !hp;
+  #send !bury corpse;
+  #send !hp;
+  #send !get all;
 }
 
 #alias f10 {
   use_corpse;
-  !get all;
+  #send !get all;
 }
 
 

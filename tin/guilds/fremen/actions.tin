@@ -29,7 +29,7 @@
   #local ammo_max %5;
 
   #if {$enemy > 0 && "$ammo" != "--"} {
-    #if {$ammo == 1 && $ammo_max > 0} {!mload};
+    #if {$ammo == 1 && $ammo_max > 0} {#send !mload};
   };
 
   #if {$enemy > 0 && "$spice_level" == "Withdrawal" && $available_spices > 0} {

@@ -18,11 +18,11 @@
 
   #foreach {$spells_to_deplete[%*] } {deplete_spell} {
     #nop b is blur, B is blink. MG is major globe, but mg is minor globe;
-    #if     {"$deplete_spell" == "B"} {!deplete B};
-    #elseif {"$deplete_spell" == "MG"} {!deplete MG};
+    #if     {"$deplete_spell" == "B"} {#send !deplete B};
+    #elseif {"$deplete_spell" == "MG"} {#send !deplete MG};
     #else   {
       #format {deplete_spell} {%l} {$deplete_spell};
-      #if { @length{$deplete_spell} > 0} {!deplete $deplete_spell};
+      #if { @length{$deplete_spell} > 0} {#send !deplete $deplete_spell};
     };
   };
 
@@ -35,30 +35,30 @@
   #var i {0};
 
   #regexp {$dspells} { SS } {#nop;} {
-    #delay {$i} {!cast stoneskin}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast stoneskin}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { MG } {#nop;} {
-    #delay {$i} {!cast major globe}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast major globe}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { MS } {#nop;} {
-    #delay {$i} {!cast magnificent shield}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast magnificent shield}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { B } {#nop;} {
-    #delay {$i} {!cast blink}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast blink}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { A } {#nop;} {
-    #delay {$i} {!cast armor}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast armor}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { PA } {#nop;} {
-    #delay {$i} {!cast prismatic aura}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast prismatic aura}; #math {i} {$i + 2};
   };
 
   #if {"$spells[pe]" == "on"} {
-    #delay {$i} {!cast protection from evil};
+    #delay {$i} {#send !cast protection from evil};
     #math {i} {$i + 2};
   };
   #if {"$spells[pg]" == "on"} {
-    #delay {$i} {!cast protection from good};
+    #delay {$i} {#send !cast protection from good};
     #math {i} {$i + 2};
   };
 

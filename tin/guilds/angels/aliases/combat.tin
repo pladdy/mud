@@ -1,14 +1,14 @@
 #alias attempt_circle {
   #if {"$circle" != "true"} {
     #showme <170>Trying to circle...;
-    !circle;
+    #send !circle;
     #var circle {true};
   };
 }
 
 #alias attempt_traverse {
   #if {"$can_disengage" == "false"} {
-    !traverse toward;
+    #send !traverse toward;
     decrement_ts 1;
   };
 }
@@ -36,20 +36,20 @@
 #alias awf {awe_foes};
 
 #alias deup {
-  !aegis;
-  !manifest wings;
-  !manifest halo;
-  !fly;
+  #send !aegis;
+  #send !manifest wings;
+  #send !manifest halo;
+  #send !fly;
 }
 
 #alias dis {
-  #if {"%1" == ""} {!disengage 1};
-  #else {!disengage %1};
+  #if {"%1" == ""} {#send !disengage 1};
+  #else {#send !disengage %1};
 }
 
 #alias en {
-  #if {"%1" == ""} {!engage 1};
-  #else {!engage %1};
+  #if {"%1" == ""} {#send !engage 1};
+  #else {#send !engage %1};
 }
 
 #alias min_ts {

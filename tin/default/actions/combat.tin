@@ -2,10 +2,10 @@
 
 #nop Cow King;
 #action {^Your body spasms, and you juggle your things about!$} {
-  !get all;
-  !keep all;
-  !wear all;
-  !wield sword;
+  #send !get all;
+  #send !keep all;
+  #send !wear all;
+  #send !wield sword;
 }
 
 #nop Crysmal & Xtals;
@@ -40,7 +40,7 @@
 
 #nop HC;
 #action {^The High Colonic steps out from a vortex of light!$} {
-  !kill mage;
+  #send !kill mage;
 }
 
 #nop Rasta Castle;
@@ -60,20 +60,20 @@
 #nop Pedelings;
 
 #action {^%!{[> ]*}Through the planar portal steps forth an avatar of the centipedal gods!$} {
-  !kill pedeling;
+  #send !kill pedeling;
 }
 
 #nop Vasyrach;
 
 #action {^The Demon Spider emits a horrid screech!  A large creature approaches$} {
-  !k spider;
+  #send !k spider;
 }
 
 #nop Death Taco area;
 
 #action {^The melting cheese finally evaporates from %1.$} {
   #format {target} {%l} {%1};
-  #if {"$target" == "$target"} {!wield $wielded_weapon;}
+  #if {"$target" == "$target"} {#send !wield $wielded_weapon;}
   #unvar target;
 }
 
@@ -82,5 +82,5 @@
 }
 
 #action {^The guacamole coating %1 finally oozes off.} {
-  !wear all;
+  #send !wear all;
 }

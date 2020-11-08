@@ -48,11 +48,11 @@
 }
 
 #action {^%!{[> ]*}You combine a %1 soul gem with %2 soul gem.$} {
-  !keep soul gem;
+  #send !keep soul gem;
 }
 
 #action {^%!{[> ]*}As the last bit of life force escapes your enemy you quickly capture its$} {
-  #nop !keep soul gem;
+  #nop #send !keep soul gem;
 }
 
 #action {^%!{[> ]*}You focus inward, reaching back through the Astral plane to your home$} {

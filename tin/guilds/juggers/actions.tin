@@ -21,7 +21,7 @@
   #if {$enemy > 0 && $gp1 < 20 && $corpses > 0} {rede};
 
   #nop Use up excess sps on heat if i'm at full;
-  #if {$enemy > 0 && $gp2 < 75 && $sp >= $sp_max} {!dissipate};
+  #if {$enemy > 0 && $gp2 < 75 && $sp >= $sp_max} {#send !dissipate};
 }
 
 #action {^%!{[> ]*}G: %1% A: %2 C: %3 JJ: %4 LL: %5} {
@@ -45,13 +45,13 @@
 
 #action {^%!{[> ]*}%1 rawrs menacingly at you.  RAAWWWRRR!} {
   #format {player} {%l} {%1};
-  !frenzy $player;
+  #send !frenzy $player;
   #unvar player;
 }
 
 #action {^%!{[> ]*}%1 gives you a high-five!$} {
   #format {player} {%l} {%1};
-  !airdrop $player;
+  #send !airdrop $player;
   #unvar player;
 }
 

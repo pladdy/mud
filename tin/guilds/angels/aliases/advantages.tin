@@ -3,7 +3,7 @@
        @enough_distance_and_time{} &&
        "$awed" != "true" &&
        ("$awe_foes" == "true" || $pct_hp <= $awe_at_hp_pct)} {
-    !awe $highest_area;
+    #send !awe $highest_area;
     decrement_ts 2;
     reduce_sort;
   };
@@ -13,7 +13,7 @@
   #if {"$use_disengage" == "true" &&
        @enough_distance_and_time{} &&
        "$can_disengage" == "true"} {
-    !disengage;
+    #send !disengage;
     decrement_ts 1;
     reduce_sort;
   };
@@ -21,7 +21,7 @@
 
 #alias attempt_divine_strike {
   #if {@should_swing{} == 1} {
-    !divine strike $highest_area;
+    #send !divine strike $highest_area;
     decrement_ts 2;
     reduce;
   }
@@ -34,7 +34,7 @@
   #if {"$use_presage" == "true" &&
        @enough_distance_and_time{} &&
        $adv_sort[1][2] > $MIN_ADV} {
-    !presage $adv_sort[1][1];
+    #send !presage $adv_sort[1][1];
     decrement_ts 1;
     reduce_sort;
   };
@@ -49,7 +49,7 @@
     sort_advantages;
 
     #if {$adv_sort[1][2] > $providence_at} {
-      !providence $adv_sort[1][1];
+      #send !providence $adv_sort[1][1];
       decrement_ts 1;
       reduce_sort;
     };
@@ -62,7 +62,7 @@
   #if {"$use_retribution" == "true" &&
        @should_swing{} == 1 &&
        $retributions > $retribution_at} {
-    !retribution $highest_area;
+    #send !retribution $highest_area;
     decrement_ts 1;
     reduce_sort;
   };

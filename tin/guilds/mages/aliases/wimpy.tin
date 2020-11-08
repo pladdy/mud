@@ -1,3 +1,3 @@
 #alias wimpy_commands {
-  #if {$sp >= 150} {!cast secure shelter}
+  #if {$sp >= 150} {#send !cast secure shelter}
 }

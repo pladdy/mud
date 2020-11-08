@@ -13,14 +13,14 @@
 #alias hell_map_on {
   #showme <110>Hell direction aliases are turned on!;
 
-  #alias e {!anotherway;#map move e};
-  #alias w {!yonder;#map move w};
+  #alias e {#send !anotherway;#map move e};
+  #alias w {#send !yonder;#map move w};
 
-  #alias s {!thatway;#map move s};
-  #alias n {!thisway;#map move n};
+  #alias s {#send !thatway;#map move s};
+  #alias n {#send !thisway;#map move n};
 
-  #alias d {!overthere;#map move d};
-  #alias u {!overhere;#map move u};
+  #alias d {#send !overthere;#map move d};
+  #alias u {#send !overhere;#map move u};
 }
 
 #alias hell_map_off {

@@ -106,7 +106,7 @@
 }
 
 #action {^%!{[> ]*}You lose your song.$} {
-  !resume;
+  #send !resume;
 }
 
 #nop Mind Blank;
@@ -118,17 +118,17 @@
 #nop Shield actions;
 
 #action {^%!{[> ]*}You can't play a song with an instrument and use a shield at the same time!$} {
-  !remove shield;
-  !resume;
+  #send !remove shield;
+  #send !resume;
 }
 
 #action {^%!{[> ]*}Not while you're carrying a shield!$} {
-  !remove shield;
-  !resume;
+  #send !remove shield;
+  #send !resume;
 }
 
-#nop #action {^%!{[> ]*}You cease your performance of} {!wear shield}
-#nop #action {^%!{[> ]*}You finish your performance with a bow.} {!wear shield}
+#nop #action {^%!{[> ]*}You cease your performance of} {#send !wear shield}
+#nop #action {^%!{[> ]*}You finish your performance with a bow.} {#send !wear shield}
 
 #action {^%!{[> ]*}You wave your hands around, make swooshing and farting sounds, and spit$} {
   #var noxious_cloud on;
@@ -174,7 +174,7 @@
 
 #action {^%!{[> ]*}You invoke the power of the Great Phoenix.$} {
   #var wings_of_the_phoenix on;
-  !land;
+  #send !land;
 }
 
 #action {^%!{[> ]*}Calling upon the Great Phoenix, your magic adds strength to your wings!$} {

@@ -7,24 +7,24 @@
     #var regen_rounds {%1};
   };
 
-  !hp;
-  !study spellbook;
+  #send !hp;
+  #send !study spellbook;
 
   #math {seconds} {$regen_rounds * 1};
-  #delay {delay_25} {#showme 25% done; !hp;} {$seconds};
+  #delay {delay_25} {#showme 25% done; #send !hp;} {$seconds};
 
   #math {seconds} {$regen_rounds * 2};
-  #delay {delay_50} {#showme 50% done; !hp;} {$seconds};
+  #delay {delay_50} {#showme 50% done; #send !hp;} {$seconds};
 
   #math {seconds} {$regen_rounds * 3};
   #delay {delay_75} {
     #showme 75% done;
-    !hp;
+    #send !hp;
     #delay {1} { #if {@regen_done{} == 1} {regen_stop} }
   } {$seconds};
 
   #math {seconds} {$regen_rounds * 4};
-  #delay {delay_100} {#showme 100% done; !hp; deup} {$seconds};
+  #delay {delay_100} {#showme 100% done; #send !hp; deup} {$seconds};
 }
 
 #function regen_done {
@@ -34,6 +34,6 @@
 #alias regen_stop {
   #showme Stopping regen...;
   #foreach {25;50;75;100} {quartile} {#undelay delay_$quartile};
-  !hp;
+  #send !hp;
   deup;
 }

@@ -8,7 +8,7 @@
     print_system_output grep -A 12 -i $character $dungeons_file;
   };
   #else {
-    !scaler %2;
+    #send !scaler %2;
     run %1;
   }
 }
@@ -92,34 +92,34 @@
 
 #alias ut_mow {
   map_run ultimate_tournament;
-  #2 !w;
-  #3 !s;
-  !k player;
-  !s;
-  !k player;
-  !s;
-  !k player;
+  #2 #send !w;
+  #3 #send !s;
+  #send !k player;
+  #send !s;
+  #send !k player;
+  #send !s;
+  #send !k player;
 
-  !w;
-  !k player;
+  #send !w;
+  #send !k player;
 
-  !w;
-  !k player;
-  !s;
-  !k player;
-  #2 !n;
+  #send !w;
+  #send !k player;
+  #send !s;
+  #send !k player;
+  #2 #send !n;
   kk player, player 2;
-  #2 !n;
-  !k player;
-  !n;
-  !k player;
+  #2 #send !n;
+  #send !k player;
+  #send !n;
+  #send !k player;
 
-  !w;
-  #2 !s;
+  #send !w;
+  #2 #send !s;
   kk player, player 2;
-  #2 !s;
+  #2 #send !s;
   kk player, player 2;
-  !s;
+  #send !s;
 
   #map jump -5 -6;
 }

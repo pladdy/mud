@@ -1,5 +1,5 @@
 #alias commands_before_corpse {
-  !study spellbook;
+  #send !study spellbook;
   #var phantasmal_killer reset;
   #var slowed 0;
   #nop spell tap if in party in case it's not my kill;
@@ -9,27 +9,27 @@
 }
 
 #alias tap_corpse {
-  #if {$gp1_raw < 93} {!cast spell tap on corpse};
+  #if {$gp1_raw < 93} {#send !cast spell tap on corpse};
 }
 
 #alias use_corpse {
-  !hp;
+  #send !hp;
   tap_corpse;
-  !cast corpse blast;
-  !hp;
+  #send !cast corpse blast;
+  #send !hp;
 }
 
 #alias f10 {
   use_corpse;
-  !get all;
+  #send !get all;
 }
 
 #alias f12 {
-  #loop 2 12 i {!sell all from bag $i};
+  #loop 2 12 i {#send !sell all from bag $i};
 }
 
 #alias rebl {
-  !unwrap smallest;
+  #send !unwrap smallest;
   tap_corpse;
-  !cast corpse blast;
+  #send !cast corpse blast;
 }

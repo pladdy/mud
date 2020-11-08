@@ -13,63 +13,63 @@
   #nop Litany settings: low, some, minor, half, major, most, high, all;
 
   #if {$hp_as_pct < 0.90 && $hp_as_pct >= 0.80 && $adjusted_litany_leve != 1} {
-    !assault none;litany major;assault;
+    #send !assault none;litany major;assault;
     #var adjusted_litany_level 1;
   };
   #elseif {$hp_as_pct < 0.80 && $hp_as_pct >= 0.70 && $adjusted_litany_leve != 2} {
-    !assault none;litany most;assault;
+    #send !assault none;litany most;assault;
     #var adjusted_litany_level 2;
   };
   #elseif {$hp_as_pct < 0.70 && $hp_as_pct >= 0.60 && $adjusted_litany_leve != 3} {
-    !assault none;litany high;assault;
+    #send !assault none;litany high;assault;
     #var adjusted_litany_level 3;
   };
   #elseif {$hp_as_pct < 0.60 && $adjusted_litany_leve != 4} {
-    !assault none;litany all;assault;
+    #send !assault none;litany all;assault;
     #var adjusted_litany_level 4;
   };
 }
 
 #alias am {
-  !hide;
-  !poison;
-  !fk m %0;
+  #send !hide;
+  #send !poison;
+  #send !fk m %0;
 }
 
 #alias commands_after_corpse {
-  !suspend;
+  #send !suspend;
 }
 
 #alias drc {
   holster_weapons;
-  !draw crysknife;
+  #send !draw crysknife;
 }
 
 #alias drcp {
   holster_weapons;
-  !draw crysknife;
-  !do loop combat agony;
+  #send !draw crysknife;
+  #send !do loop combat agony;
 }
 
 #alias drl {
   holster_weapons;
-  !draw lasgun;
-  !attacks normal;
-  !reflexes blinding;
-  !attacks;
+  #send !draw lasgun;
+  #send !attacks normal;
+  #send !reflexes blinding;
+  #send !attacks;
 }
 
 #alias drm {
   holster_weapons;
-  !draw maula pistol;
-  !attacks normal;
-  !reflexes blinding;
-  !attacks;
+  #send !draw maula pistol;
+  #send !attacks normal;
+  #send !reflexes blinding;
+  #send !attacks;
 }
 
 #alias drp {
   holster_weapons;
-  !draw pulse sword;
+  #send !draw pulse sword;
 }
 
 #alias f10 {use_corpse}
@@ -77,34 +77,34 @@
 #alias f12 {
   #if {$map[current_room] == 8187} {
     #showme <170>Keeping all to avoid donating wrong things!;
-    !keep all;
+    #send !keep all;
     #loop 2 12 i {
-      !get all from bag $i;
-      !donate all;
+      #send !get all from bag $i;
+      #send !donate all;
     };
   };
   #else {
-    #loop 2 12 i {!sell all from bag $i};
+    #loop 2 12 i {#send !sell all from bag $i};
   };
 }
 
 #alias holster_weapons {
-  !sheathe knife;
-  !sheathe sword;
-  !holster gun;
-  !do clear;
+  #send !sheathe knife;
+  #send !sheathe sword;
+  #send !holster gun;
+  #send !do clear;
 }
 
 #alias rerc {
-  !unwrap;
-  !hp;
-  !reclaim;
-  !hp;
+  #send !unwrap;
+  #send !hp;
+  #send !reclaim;
+  #send !hp;
 }
 
 #alias refi {
-  !unwrap;
-  !fai;
+  #send !unwrap;
+  #send !fai;
 }
 
 #alias spices {#var spice_queue};
@@ -112,13 +112,13 @@
 #alias use_corpse {
   #local MAX_WATER_RATIO 1.2;
 
-  !glance;
-  !hp;
-  #if {$total_water_pct < $MAX_WATER_RATIO} {!reclaim} {!fai};
-  !hp;
+  #send !glance;
+  #send !hp;
+  #if {$total_water_pct < $MAX_WATER_RATIO} {#send !reclaim} {#send !fai};
+  #send !hp;
 }
 
 #alias wimpy_commands {
-  !hide;
-  !suspend;
+  #send !hide;
+  #send !suspend;
 }

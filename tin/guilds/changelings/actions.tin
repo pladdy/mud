@@ -25,10 +25,10 @@
 
   #if {$enemy > 0} {
     #if {$gp1 <= 25 && $corpses> 0} {reab};
-    #elseif {$gp1 <= 5 && $bioplasts > 0} {!consume bioplast};
+    #elseif {$gp1 <= 5 && $bioplasts > 0} {#send !consume bioplast};
   };
 
-  #if {$chaos_flux == 99 & $relinquishes > 0} {!relinquish};
+  #if {$chaos_flux == 99 & $relinquishes > 0} {#send !relinquish};
   stepper_check;
 }
 
@@ -38,7 +38,7 @@
 
   #nop if relinquish is active, don't try to activate hyperproliferate;
   #regex {$status} {R} {#nop} {
-    #regex {$status} {H} {#nop} {!hyperproliferate};
+    #regex {$status} {H} {#nop} {#send !hyperproliferate};
   };
 
   attempt_defenses;

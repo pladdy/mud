@@ -1,5 +1,5 @@
 #alias unfollow {
-  !unfollow %0;
+  #send !unfollow %0;
 
   #list {followers} {find} {%1} {follower_index};
   #if {$follower_index > 0} {

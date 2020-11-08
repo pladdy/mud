@@ -1,4 +1,4 @@
-#action {^H: %1/%2 S: %3/%4(%5%) Ge: %6% S|C: %7%|%8% G|M: %9|%10(%11)} {
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4(%5%) Ge: %6% S|C: %7%|%8% G|M: %9|%10(%11)} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -22,7 +22,7 @@
   stepper_check;
 }
 
-#action {^Gx: %1% P:%2 St:%3 Mon(%4):%5} {
+#action {^%!{[> ]*}Gx: %1% P:%2 St:%3 Mon(%4):%5} {
   #var gxp {%1};
 
   #format spell_tap_status {%p} {%3};
@@ -36,23 +36,23 @@
   #replace {enemy} {%} {};
 
   #var dspells {%2};
-  #regex {$dspells} { SS} {#nop} {!cast stoneskin};
-  #regex {$dspells} { MG} {#nop} {!cast major globe};
-  #regex {$dspells} { MS} {#nop} {!cast magnificent shield};
-  #regex {$dspells} { B}  {#nop} {!cast blink};
-  #regex {$dspells} { PA} {#nop} {!cast prismatic aura};
-  #regex {$dspells} { A} {#nop} {!cast armor};
+  #nop #regex {$dspells} { SS} {#nop} {#send !cast stoneskin};
+  #nop #regex {$dspells} { MG} {#nop} {#send !cast major globe};
+  #regex {$dspells} { S} {#nop} {#send !cast shield};
+  #nop #regex {$dspells} { B}  {#nop} {#send !cast blink};
+  #nop #regex {$dspells} { PA} {#nop} {#send !cast prismatic aura};
+  #regex {$dspells} { A} {#nop} {#send !cast armor};
   #regex {$dspells} { *I} {#var immersed true} {#var immersed false};
 
   #nop Spells to monitor if i enabled them;
   #if {"$spells[pg]" == "on"} {#regex {$dspells} { PG} {#nop} {pg}};
   #if {"$spells[pe]" == "on"} {#regex {$dspells} { PE} {#nop} {pe}};
 
-  attempt_slow;
+  #nop attempt_slow;
   show_status_bar;
 } {4}
 
-#action {^Gx: %1% P:%2 St:%3} {
+#action {^%!{[> ]*}Gx: %1% P:%2 St:%3} {
   #var enemy {0};
   #var dspells {%2};
   show_status_bar;

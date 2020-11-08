@@ -72,13 +72,13 @@
 }
 
 #action {^You feel your body and mind relax a little.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^You need not meditate further, type 'stopmed' to stop.$} {
   #if {$hp >= $hp_max && $sp >= $sp_max} {
-    !stopmed;
+    #send !stopmed;
   } {
-    !hp ;
+    #send !hp ;
   }
 }

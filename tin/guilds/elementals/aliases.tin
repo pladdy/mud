@@ -1,7 +1,7 @@
 #alias attempt_mental_depletion {
   #local MIN_SP 175;
   #if {"$mind_depleted" != "true" && $sp < $MIN_SP && $enemy > 0} {
-    !evoke mental depletion;
+    #send !evoke mental depletion;
   };
 }
 
@@ -16,7 +16,7 @@
          $gp1 > 75 &&
          "$trap_souls" == "yes" &&
          "$trapping_soul" != "true"} {
-      !ts;
+      #send !ts;
       #nop try to store gem in vortex, keep gem in case it can't be stored;
       btrig put gem in vortex;
     };
@@ -24,8 +24,8 @@
 }
 
 #alias cbl {
-  !evoke create blast;
-  !keep blast;
+  #send !evoke create blast;
+  #send !keep blast;
 }
 
 #alias commands_before_corpse {
@@ -35,24 +35,24 @@
 
 #alias gbl {
   #if {"%0" != ""} {
-    !unkeep blast;
-    !activate blast;
-    !give blast to %0;
+    #send !unkeep blast;
+    #send !activate blast;
+    #send !give blast to %0;
   }
 }
 
 #alias f10 {
   use_corpse;
-  !get all;
+  #send !get all;
 }
 
 #alias f12 {
-  #loop 2 12 i {!sell all from bag $i};
-  #nop !sell all from vortex;
+  #loop 2 12 i {#send !sell all from bag $i};
+  #nop #send !sell all from vortex;
 }
 
 #alias md {
-  !evoke mental depletion;
+  #send !evoke mental depletion;
 }
 
 #alias regen {
@@ -60,18 +60,18 @@
 }
 
 #alias recd {
-  !unwrap smallest;
+  #send !unwrap smallest;
   use_corpse;
 }
 
 #alias reet {
-  !unwrap smallest;
-  !eat corpse;;
+  #send !unwrap smallest;
+  #send !eat corpse;;
 }
 
 #alias rg {
-  !get gem from vortex;
-  !release soul;
+  #send !get gem from vortex;
+  #send !release soul;
 }
 
 #alias trap_souls {
@@ -85,5 +85,5 @@
 }
 
 #alias use_corpse {
-  !evoke corpse drain;
+  #send !evoke corpse drain;
 }

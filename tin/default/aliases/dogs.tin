@@ -1,20 +1,20 @@
 #alias dhp {
-  !dog hp;
+  #send !dog hp;
 }
 
 #alias refe {
-  !unwrap corpse;
-  !dog feed;
-  !dog pet;
+  #send !unwrap corpse;
+  #send !dog feed;
+  #send !dog pet;
 }
 
 #alias repet {
-  !repet;
+  #send !repet;
   y;
   #delay {2} {
-    !dog monitor;
-    !dog brief;
-    !dog play;
+    #send !dog monitor;
+    #send !dog brief;
+    #send !dog play;
     dog_suitup;
   };
 }
@@ -22,12 +22,12 @@
 #nop get the necessary eq to equip the dog;
 
 #alias dog_suitup {
-  !buy 2;
-  !buy 5; #nop this is chainmail barding;
-  !buy 7;
-  !buy 8;
-  !buy 9;
-  !give all to dog;
+  #send !buy 2;
+  #send !buy 5; #nop this is chainmail barding;
+  #send !buy 7;
+  #send !buy 8;
+  #send !buy 9;
+  #send !give all to dog;
 }
 
 #alias dog {
@@ -38,13 +38,13 @@
     #else {
       #var {dog_location} {0};
     };
-    !dog stay;
+    #send !dog stay;
   };
   #else {
-    !dog %0;
+    #send !dog %0;
   }
 }
 
-#alias dsc {!dog stats}
+#alias dsc {#send !dog stats}
 
-#alias dsi {!dog sicem %0}
+#alias dsi {#send !dog sicem %0}

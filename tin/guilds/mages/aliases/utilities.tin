@@ -1,11 +1,11 @@
 #alias conup {
-  !cast contingency as armor#cast armor;
-  !cast contingency as shield#cast magnificent shield;
-  !cast contingency as major_globe#cast major globe;
-  !cast contingency as stoneskin#cast stoneskin;
+  #send !cast contingency as armor#cast armor;
+  #send !cast contingency as shield#cast magnificent shield;
+  #send !cast contingency as major_globe#cast major globe;
+  #send !cast contingency as stoneskin#cast stoneskin;
 }
 
 #alias imm {
-  !cast mystic immersion;
-  !cast spell tap never;
+  #send !cast mystic immersion;
+  #send !cast spell tap never;
 }

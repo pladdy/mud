@@ -1,6 +1,6 @@
 #alias attempt_amazing_grace {
   #local MIN_ROUNDS 10;
-  #if {$songs[amazing_grace] <= $MIN_ROUNDS} {!perform amazing grace};
+  #if {$songs[amazing_grace] <= $MIN_ROUNDS} {#send !perform amazing grace};
 }
 
 #alias attempt_blink {
@@ -15,7 +15,7 @@
     #math {min_combat_spell_sps} {$sp_max * .2};
     #math {min_combat_spell_hps} {$hp_max * .75};
     #if {$sp > $min_combat_spell_sps && $hp > $min_combat_spell_hps} {
-      !0;
+      #send !0;
     };
   }
 }
@@ -62,7 +62,7 @@
 
 #alias attempt_o_muse {
   #local MIN_ROUNDS 10;
-  #if {$songs[o_muse] <= $MIN_ROUNDS} {!perform o muse};
+  #if {$songs[o_muse] <= $MIN_ROUNDS} {#send !perform o muse};
 }
 
 #alias attempt_protection_evil {
@@ -120,7 +120,7 @@
 #alias attempt_tb {
   #local MIN_GP1_RATIO .95;
   #math {gp1_ratio} { ($gp1 * 1.00) / $gp1_max};
-  #if {$gp1_ratio >= $MIN_GP1_RATIO} {!thunderous bellow};
+  #if {$gp1_ratio >= $MIN_GP1_RATIO} {#send !thunderous bellow};
 }
 
 #alias attempt_wings {
@@ -135,24 +135,24 @@
        || "$performing_acapella_attack" == "on"
        || "$performing_both_attack" == "on"
   } {
-    !setpanic bandage at 75%;
-    !rhythmic actions 1 cease;
+    #send !setpanic bandage at 75%;
+    #send !rhythmic actions 1 cease;
     #var performing_instrumental_attack off;
     #var performing_acapella_attack off;
     #var performing_both_attack off;
     #var combat_spell off;
   };
-  !cease;
+  #send !cease;
 }
 
 #nop cease and cast;
 #alias ceca {
-  !cease;
-  !cast %0;
+  #send !cease;
+  #send !cast %0;
 }
 
 #alias cepo {
-  !cease;
+  #send !cease;
   !%0;
 }
 
@@ -163,7 +163,7 @@
 }
 
 #alias deup {
-  !hp;
+  #send !hp;
   attempt_blink;
   #delay 2 attempt_hardened_skin;
   #delay 4 attempt_protection_evil;
@@ -175,26 +175,26 @@
 }
 
 #alias di {
-  !perform dirge;
+  #send !perform dirge;
 }
 
 #alias f10 {use_corpse}
 
 #alias f12 {
   #if {$map[current_room] == 13692} {
-    #loop 2 12 i {!donate all from bag $i};
+    #loop 2 12 i {#send !donate all from bag $i};
   } {
-    #loop 2 12 i {!sell all from bag $i};
+    #loop 2 12 i {#send !sell all from bag $i};
   }
 }
 
 #alias kt {
   #local MIN_KARMA_TAP 20;
-  #if {%1} {!karma tap %1} {!karma tap $MIN_KARMA_TAP};
+  #if {%1} {#send !karma tap %1} {#send !karma tap $MIN_KARMA_TAP};
 }
 
 #alias hl {
-  !heartening laugh;
+  #send !heartening laugh;
   #delay 3600 {ceca hl};
 }
 
@@ -208,15 +208,15 @@
   #elseif {"%1" == "sp"} {#math {mystic_guardian_points} {$sp_max * %2 / 100}};
 
   #format {mystic_guardian_points} {%d} {$mystic_guardian_points};
-  !mg at %1/$mystic_guardian_points/%3;
+  #send !mg at %1/$mystic_guardian_points/%3;
 }
 
 #nop Orinoco flow ports you and stops interaction with mud...brief me is changed;
 #nop so it's easier to tell how many rounds of song have elapsed.;
 #alias of {
-  !bset briefme 0;
-  !perform orinoco flow;
-  #delay {60} {!bset briefme 1};
+  #send !bset briefme 0;
+  #send !perform orinoco flow;
+  #delay {60} {#send !bset briefme 1};
 }
 
 #alias paa {perform_acapella_attack %0}
@@ -227,10 +227,10 @@
   #if {"$performing_acapella_attack" != "on"} {
     #showme <170>Performing '$song';
 
-    !setpanic so at 85%;
+    #send !setpanic so at 85%;
     !$song;
     alias ras rhythmic actions 1 $song:5/ras;
-    !ras;
+    #send !ras;
 
     #var performing_acapella_attack on;
   };
@@ -246,10 +246,10 @@
   #if {"$performing_both_attack" != "on"} {
     #showme <170>Performing '$song';
 
-    !setpanic kt at 90%;
+    #send !setpanic kt at 90%;
     !$song;
     alias ras rhythmic actions 1 $song:5/ras;
-    !ras;
+    #send !ras;
 
     #var performing_both_attack on;
   };
@@ -268,10 +268,10 @@
   #if {"$performing_instrumental_attack" != "on"} {
     #showme <170>Performing '$song';
 
-    !setpanic cu at 90%;
+    #send !setpanic cu at 90%;
     !$song;
     alias ras rhythmic actions 1 $song:5/ras;
-    !ras;
+    #send !ras;
 
     #var performing_instrumental_attack on;
     #var combat_spell on;
@@ -285,21 +285,21 @@
 #alias pia {perform_instrumental_attack %0}
 
 #alias redi {
-  !unwrap;
+  #send !unwrap;
   use_corpse;
 }
 
 #alias resb {
-  !unwrap;
-  !cast soul bead;
-  !keep bead;
+  #send !unwrap;
+  #send !cast soul bead;
+  #send !keep bead;
 }
 
 #alias use_corpse {
-  !hp;
-  !cease;
+  #send !hp;
+  #send !cease;
   #if {$gp1 == $gp1_max} {kt};
   di;
-  !hp;
-  !f;
+  #send !hp;
+  #send !f;
 }

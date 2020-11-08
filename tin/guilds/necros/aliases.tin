@@ -2,7 +2,7 @@
 
 #alias attempt_call {
   #if {$enemy > 0 && "$familiar_called" != "true"} {
-    !call;
+    #send !call;
     #var familiar_called true;
   };
 }
@@ -20,7 +20,7 @@
 #alias attempt_dream {
   #math spp {($sp * 1.00) / ($sp_max * 1.00)};
   #if {$enemy > 0 && $spp < .3} {
-    !dream;
+    #send !dream;
   };
   #unvar spp;
 }
@@ -32,12 +32,12 @@
 }
 
 #alias attempt_protection {
-  #if {$enemy > 0 && "$protection" == "OFF"} {!pro};
+  #if {$enemy > 0 && "$protection" == "OFF"} {#send !pro};
 }
 
 #alias cd {
-  !create dart 100;
-  !dart;
+  #send !create dart 100;
+  #send !dart;
 }
 
 #alias commands_after_corpse {
@@ -47,31 +47,31 @@
 #alias f12 {
   #if {$map[current_room] == 26817} {
     #loop 2 12 i {
-      !donate all from bag $i;
+      #send !donate all from bag $i;
     };
   } {
     #loop 1 12 i {
-      !sell all from bag $i;
+      #send !sell all from bag $i;
     };
   };
 }
 
 #alias reab {
-  !unwrap smallest;
-  !ab;
+  #send !unwrap smallest;
+  #send !ab;
 }
 
 #alias reabb {
-  !unwrap smallest;
-  !abb;
+  #send !unwrap smallest;
+  #send !abb;
 }
 
 #alias repr {
-  !unwrap smallest;
-  !p;
+  #send !unwrap smallest;
+  #send !p;
 }
 
 #alias use_corpse {
   #if {$ncorpses < $MAX_NECRO_CORPSES} {p};
-  #else {!ab};
+  #else {#send !ab};
 }

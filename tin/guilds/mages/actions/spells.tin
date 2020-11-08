@@ -1,69 +1,69 @@
-#action {^Your shield is shattered from the force of the blow!$} {
-  !cast shield;
+#action {^%!{[> ]*}Your shield is shattered from the force of the blow!$} {
+  #send !cast shield;
 }
 
-#action {^Your magnificent shield is shattered from the force of the blow!$} {
-  !cast magnificent shield;
+#action {^%!{[> ]*}Your magnificent shield is shattered from the force of the blow!$} {
+  #send !cast magnificent shield;
 }
 
-#action {^Your armor spell has dissipated!$} {!cast armor;}
+#action {^%!{[> ]*}Your armor spell has dissipated!$} {#send !cast armor;}
 
-#action {^----*> Your %1 contingency has dissipated!<*----} {
+#action {^%!{[> ]*}----*> Your %1 contingency has dissipated!<*----} {
   #switch {"%1"} {
-    #case {"stoneskin"} {!cast contingency as %1#cast stoneskin};
-    #case {"shield"} {!cast contingency as %1#cast magnificent shield};
-    #case {"blinking"} {!cast contingency as blink#cast blink};
-    #case {"major_globe"} {!cast contingency as major_globe#cast major globe};
-    #default {!cast contingency as %1#cast %1};
+    #case {"stoneskin"} {#send !cast contingency as %1#cast stoneskin};
+    #case {"shield"} {#send !cast contingency as %1#cast magnificent shield};
+    #case {"blinking"} {#send !cast contingency as blink#cast blink};
+    #case {"major_globe"} {#send !cast contingency as major_globe#cast major globe};
+    #default {#send !cast contingency as %1#cast %1};
   };
 }
 
-#action {^Your protection from %1 has ended.$} {
+#action {^%!{[> ]*}Your protection from %1 has ended.$} {
   #if { @length{$enemy} > 0 } {
     #if {"%1" == "good" && "$spells[pg]" == "on"} {pg};
     #if {"%1" == "evil" && "$spells[pe]" == "on"} {pe};
   };
 }
 
-#nop #action {^Your rhino skin has been depleted!$} {!cast rhino skin;};
+#nop #action {^%!{[> ]*}Your rhino skin has been depleted!$} {#send !cast rhino skin;};
 
-#action {^Your stoneskin has depeleted!$} {!cast stoneskin;}
+#action {^%!{[> ]*}Your stoneskin has depeleted!$} {#send !cast stoneskin;}
 
-#action {^Your minor globe has ended.$} {
-  #if { @length{$enemy} > 0 } {!cast minor globe};
+#action {^%!{[> ]*}Your minor globe has ended.$} {
+  #if { @length{$enemy} > 0 } {#send !cast minor globe};
 }
 
-#action {^Your form has solidified.$} {
-  #if {@length{$enemy} > 0} {!cast blink};
+#action {^%!{[> ]*}Your form has solidified.$} {
+  #if {@length{$enemy} > 0} {#send !cast blink};
 }
 
-#action {^Your skin ceases its colorful displays.$} {
-  #if {@length{$enemy} > 0} {!cast prismatic aura};
+#action {^%!{[> ]*}Your skin ceases its colorful displays.$} {
+  #if {@length{$enemy} > 0} {#send !cast prismatic aura};
 }
 
-#action {^Your immersion has expired.$} {!cast spell tap always}
+#action {^%!{[> ]*}Your immersion has expired.$} {#send !cast spell tap always}
 
-#nop #action {^You feel slower as the haste wears off.!} {}
+#nop #action {^%!{[> ]*}You feel slower as the haste wears off.!} {}
 
-#nop #action {^The magic of your stoneskin fades over time.} {}
+#nop #action {^%!{[> ]*}The magic of your stoneskin fades over time.} {}
 
 #nop Phantasmal Killer;
-#action {^You wave your hands and *POOF*} {#var phantasmal_killer casted}
+#action {^%!{[> ]*}You wave your hands and *POOF*} {#var phantasmal_killer casted}
 
-#action {^-*> The something begins to fizzle as the illusion is discovered! <*-$} {
+#action {^%!{[> ]*}-*> The something begins to fizzle as the illusion is discovered! <*-$} {
   #var phantasmal_killer discovered;
 }
 
 #nop Slow;
-#action {^You raise your arms and suddenly %1 is moving much slower!$} {
+#action {^%!{[> ]*}You raise your arms and suddenly %1 is moving much slower!$} {
   #var slowed 1;
 }
 
-#action {^%1 is already slowed.$} {#var slowed 1}
+#action {^%!{[> ]*}%1 is already slowed.$} {#var slowed 1}
 
-#action {^%1 seems to speed up...$} {
+#action {^%!{[> ]*}%1 seems to speed up...$} {
   #var slowed 0;
-  !cast slow;
+  #send !cast slow;
 }
 
-#action {^That creature cannot be affected!.$} {#var slowed 1}
+#action {^%!{[> ]*}That creature cannot be affected!.$} {#var slowed 1}

@@ -57,7 +57,7 @@
   #unevent {MAP ENTER ROOM};
 
   #if {"$tracker" == "on"} {
-    !ansi off;
+    #send !ansi off;
     #list seen_monsters clear;
   };
 
@@ -67,8 +67,8 @@
   #unvar run_to;
 
   #if {"$tracker" == "on"} {
-    !ansi on;
-    !glance;
+    #send !ansi on;
+    #send !glance;
   };
 }
 

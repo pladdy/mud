@@ -3,53 +3,53 @@
 
   #if {$gp_ratio > 3} {
     #nop toggle on;
-    #regex {$status} {V} {#nop} {!perseverance};
-    #regex {$status} {D} {#nop} {!dissipate};
+    #regex {$status} {V} {#nop} {#send !perseverance};
+    #regex {$status} {D} {#nop} {#send !dissipate};
   };
   #elseif {$gp_ratio < 2} {
     #nop toggle off;
-    #regex {$status} {V} {!perseverance};
-    #regex {$status} {D} {!dissipate};
+    #regex {$status} {V} {#send !perseverance};
+    #regex {$status} {D} {#send !dissipate};
   }
 }
 
 #alias f10 {
   use_corpse;
-  !swoop;
+  #send !swoop;
 }
 
 #alias fu {
-  #if {"%2" == ""} {!fuse %1 and %1};
-  #elseif {"%1" == "all"} {!fuse all %2};
-  #else {!fuse %1 and %2};
+  #if {"%2" == ""} {#send !fuse %1 and %1};
+  #elseif {"%1" == "all"} {#send !fuse all %2};
+  #else {#send !fuse %1 and %2};
 
-  !keep all bioplast;
+  #send !keep all bioplast;
 }
 
 #alias linkdie_commands {
-  !mimic;
+  #send !mimic;
 }
 
 #alias reab {
-  !unwrap;
-  !absorb;
+  #send !unwrap;
+  #send !absorb;
 }
 
 #alias reabs {
   #if {$corpses > 0} {
     #if {$corpses < 5} {#var to_use {$corpses}} {#var to_use {5}};
     #loop 1 $to_use $loop {
-      !unwrap;
-      !absorb;
+      #send !unwrap;
+      #send !absorb;
     };
     #unvar to_use;
   }
 }
 
 #alias rebe {
-  !unwrap;
-  !bioextract;
-  !keep bioplast;
+  #send !unwrap;
+  #send !bioextract;
+  #send !keep bioplast;
 }
 
 #alias stepper_check {
@@ -66,13 +66,13 @@
   #local MIN_PROTO 80;
 
   #if {$gp1 < $MIN_STAM || $gp2 < $MIN_PROTO || $bioplasts >= $MAX_BIOPLASTS} {
-    !hp;
-    !absorb;
-    !hp;
+    #send !hp;
+    #send !absorb;
+    #send !hp;
   };
   #else {
-    !bioextract;
-    !keep bioplast;
+    #send !bioextract;
+    #send !keep bioplast;
   }
 }
 

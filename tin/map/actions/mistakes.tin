@@ -35,6 +35,6 @@
 }
 #action {^You lose your footing and wind up flat on your butt!$} {
   #map undo;
-  !glance;
+  #send !glance;
 }
 

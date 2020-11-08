@@ -1,5 +1,5 @@
 #alias gb {
-  !get %1 from bag %2
+  #send !get %1 from bag %2
 }
 
 #alias pb {
@@ -16,7 +16,7 @@
       #var new_args {$new_args $arg};
     };
 
-    !put @join{ $new_args } in bag $bag_num;
+    #send !put @join{ $new_args } in bag $bag_num;
     #unvar arg_list;
     #unvar bag_num;
     #unvar new_args;
@@ -25,6 +25,6 @@
 }
 
 #alias pba {
-  #loop 2 12 i { !put all in bag $i };
+  #loop 2 12 i { #send !put all in bag $i };
   #var i 0;
 }

@@ -4,6 +4,6 @@
 
 #alias quit {
   #var quit true;
-  !quit;
+  #send !quit;
   #gts #var quit true;
 }

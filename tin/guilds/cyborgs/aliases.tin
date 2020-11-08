@@ -1,11 +1,11 @@
 #alias cos {
-  !unwield $wielded_weapon;
-  !configure strategy %0;
-  !wield $wielded_weapon;
+  #send !unwield $wielded_weapon;
+  #send !configure strategy %0;
+  #send !wield $wielded_weapon;
 }
 
 #alias f12 {
-  #loop 2 12 i {!sell all from bag $i};
+  #loop 2 12 i {#send !sell all from bag $i};
 }
 
 #alias pause_active_stepper {
@@ -25,13 +25,13 @@
 }
 
 #alias redc {
-  !unwrap smallest;
-  !decompose;
+  #send !unwrap smallest;
+  #send !decompose;
 }
 
 #alias reet {
-  !unwrap smallest;
-  !eat corpse;
+  #send !unwrap smallest;
+  #send !eat corpse;
 }
 
 #alias reload_configure {
@@ -39,7 +39,7 @@
 }
 
 #alias use_corpse {
-  #if {$gp1 == $gp1_max && "$use_spoon" == "true"} {!eat corpse};
-  #else {!decompose};
-  !hp;
+  #if {$gp1 == $gp1_max && "$use_spoon" == "true"} {#send !eat corpse};
+  #else {#send !decompose};
+  #send !hp;
 }

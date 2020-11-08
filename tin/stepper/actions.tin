@@ -66,6 +66,6 @@
         #list {seen_monsters} {delete} {$mob_index};
       };
 
-      !glance;
+      #send !glance;
   };
 }

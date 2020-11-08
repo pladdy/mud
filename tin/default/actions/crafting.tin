@@ -1,2 +1,2 @@
-#action {^You have created something new!$} {!retrieve all;}
+#action {^You have created something new!$} {#send !retrieve all;}
 

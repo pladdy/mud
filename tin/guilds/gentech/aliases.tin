@@ -9,15 +9,15 @@
 }
 
 #alias commands_after_corpse {
-  !repair;
-  !stabilize;
-  !tactical;
+  #send !repair;
+  #send !stabilize;
+  #send !tactical;
 }
 
 #alias conform_bias {
   #if {@length{%2} > 0} {
-    !biaslock;
-    !conform %1 bias %2;
+    #send !biaslock;
+    #send !conform %1 bias %2;
   } {
     #showme need a number between 0 - 190;
   }
@@ -27,37 +27,37 @@
 #alias cond {conform_bias defense %1;}
 
 #alias en {
-  !switchddb sonic;
-  !switch sonicator;
-  !aset synthorg himagenta;
-  !aset ddb himagenta;
+  #send !switchddb sonic;
+  #send !switch sonicator;
+  #send !aset synthorg himagenta;
+  #send !aset ddb himagenta;
 }
 
 #alias f6 {
-  !wimpy 0;
-  !autoguild surge;
-  !timeslide %1;
-  !pheal 1 hmheal;
+  #send !wimpy 0;
+  #send !autoguild surge;
+  #send !timeslide %1;
+  #send !pheal 1 hmheal;
 
-  !meditate;
-  #delay {2} {!surge};
-  #delay {3} {!surge};
-  #delay {4} {!surge};
-  #delay {5} {!surge};
-  #delay {6} {!surge};
+  #send !meditate;
+  #delay {2} {#send !surge};
+  #delay {3} {#send !surge};
+  #delay {4} {#send !surge};
+  #delay {5} {#send !surge};
+  #delay {6} {#send !surge};
   #delay {7} {
-    !wimpy 40;
-    !autoguild surge;
-    !pheal 1300 surge;
+    #send !wimpy 40;
+    #send !autoguild surge;
+    #send !pheal 1300 surge;
   }
 }
 
 
 #alias f8 {
   #map run smithy;
-  !buy longsword;
-  !keep longsword;
-  !wield longsword;
+  #send !buy longsword;
+  #send !keep longsword;
+  #send !wield longsword;
   dcor;
 }
 
@@ -74,59 +74,59 @@
     buy 4;
     rename backpack to bag;
   }
-  !keep all bag;
+  #send !keep all bag;
 }
 
 #alias use_corpse {
-  !hp;
-  !recharge;
-  !reclaim;
-  !hp;
+  #send !hp;
+  #send !recharge;
+  #send !reclaim;
+  #send !hp;
 }
 
 #alias f10 {
   use_corpse;
-  !get all;
+  #send !get all;
 }
 
 #alias f12 {
   #if {$map[current_room] == 676} {
-    #loop 2 24 i {!trash all from bag $i};
+    #loop 2 24 i {#send !trash all from bag $i};
   } {
-    #loop 2 24 i {!sell all from bag $i};
+    #loop 2 24 i {#send !sell all from bag $i};
   }
 }
 
 #alias fi {
-  !switchddb thermal;
-  !switch laser;
-  !aset synthorg hired;
-  !aset ddb hired;
+  #send !switchddb thermal;
+  #send !switch laser;
+  #send !aset synthorg hired;
+  #send !aset ddb hired;
 }
 
 #nop Useful against HC mage, 3 dmg types to spread out hits;
 #alias hca {
-  !switchddb thermal;
-  !aset ddb hired;
+  #send !switchddb thermal;
+  #send !aset ddb hired;
 
-  !switch shocker;
-  !aset synthorg yellow;
+  #send !switch shocker;
+  #send !aset synthorg yellow;
 }
 
 #alias pba {
-  #loop 2 24 i { !put all in bag $i };
+  #loop 2 24 i { #send !put all in bag $i };
   #var i 0;
 }
 
 #alias repu {
-  !unwrap smallest;
-  !recharge;
-  !reclaim;
-  !recharge;
+  #send !unwrap smallest;
+  #send !recharge;
+  #send !reclaim;
+  #send !recharge;
 }
 
 #alias tme {f6 emergency}
 
 #alias wimpy_commands {
-  !surge;
+  #send !surge;
 }

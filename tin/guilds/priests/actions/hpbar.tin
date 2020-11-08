@@ -70,10 +70,10 @@
   #var haste_status {%7};
   #format {haste_status} {%p} {$haste_status};
 
-  #if {"$barkskin_status" == "OFF" && $enemy > 0} {!barkskin};
-  #if {"$vestment_status" == "OFF" && $enemy > 0} {!vestment};
-  #if {"$haste_status" == "OFF" && $enemy > 0} {!haste};
-  #if {"$blade" == "OFF" && $enemy > 0} {!blade};
+  #if {"$barkskin_status" == "OFF" && $enemy > 0} {#send !barkskin};
+  #if {"$vestment_status" == "OFF" && $enemy > 0} {#send !vestment};
+  #if {"$haste_status" == "OFF" && $enemy > 0} {#send !haste};
+  #if {"$blade" == "OFF" && $enemy > 0} {#send !blade};
 
   attempt_protection;
   attempt_psummon;

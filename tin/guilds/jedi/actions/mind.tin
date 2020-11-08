@@ -1,16 +1,16 @@
 #action {%1 casts aside your paralyzing control over %2 thoughts!$} {
-  !focus confusion;
+  #send !focus confusion;
 }
 
 #action {^%1 mind resists your attempt to mindblock it!$} {
-  !focus confusion;
+  #send !focus confusion;
 }
 
 #action {^%1 mind resists your attempt to confuse it!$} {
   #local max_confusion_attempts 5;
 
   #if {$confusion_attempts < $max_confusion_attempts} {
-    !focus confusion;
+    #send !focus confusion;
     #math {confusion_attempts} {$confusion_attempts + 1};
   };
 }

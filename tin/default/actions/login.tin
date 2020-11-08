@@ -2,16 +2,16 @@
 
 #action {^Your character is currently logged in and } {
   gag on;
-  !hp;
-  !i;
+  #send !hp;
+  #send !i;
   linkdie_commands;
   #read $map_dir/.bootstrap.tin;
 }
 
 #action {^You are login #%1 this boot.$} {
   gag on;
-  !hp;
-  !i;
+  #send !hp;
+  #send !i;
   login_commands;
   #read $map_dir/.bootstrap.tin;
   #delay 1 {#map goto cot};

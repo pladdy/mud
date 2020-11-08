@@ -19,7 +19,7 @@
 #action {^%!{[> ]*}ND: %1 C: [%2] %3} {
   #regexp {%3} {[%+]} {#var implants &1} {#var implants []};
 
-  #regex {$implants} {IPP} {#nop;} {!activate intrinsic preservation proxy};
+  #regex {$implants} {IPP} {#nop;} {#send !activate intrinsic preservation proxy};
 
   #regexp {%3} {TARG: %d%%$} {#var enemy &1} {#var enemy 0};
 
@@ -27,5 +27,5 @@
 }
 
 #action {^%!{[> ]*}Psiodampening Insulator deactivated.$} {
-  !wear helmet;
+  #send !wear helmet;
 }

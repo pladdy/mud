@@ -11,13 +11,15 @@
 }
 
 #action {%1 dealt the killing blow to %2} {
-  log.info A kill has been attributed: '%1' killed '%2';
-  respond_to_killing_blow %1 %2;
+  #var last_killer %1;
+  #var last_killed %2;
+  log_and_respond;
 }
 
 #action {^%!{[> ]*}%1 dealt the killing blow to %2} {
-  log.info A kill has been attributed: '%1' killed '%2';
-  respond_to_killing_blow %1 %2;
+  #var last_killer %1;
+  #var last_killed %2;
+  log_and_respond;
 } {1}
 
 #action {^%!{[> ]*}You can see your own dead body from above.$} {
@@ -56,14 +58,19 @@
   };
 }
 
+#alias log_and_respond {
+  log.info A kill has occurred: '$last_killer' killed '$last_killed';
+  respond_to_killing_blow;
+}
+
 #alias log_and_update_stepper {
-  log.info A mob died: '%1' died;
+  log.info A mob died: '%0' died;
   #if {"$stepper" == "on"} {
     #delay {mob_died_event} {
       use_corpse;
-      !glance;
+      #send !glance;
     } {10};
-    remove_seen_monster "%1";
+    remove_seen_monster "%0";
     ttl_no_monsters on;
   };
 }
@@ -74,24 +81,21 @@
   };
 
   #if {"$ktrig_status" == "on"} {
-    #var {last_kill} {%2};
-    #var {last_killer} {%1};
-
     #if { @length{$btrig} > 0 } {
       log.debug running btrig commands: $btrig;
       #foreach {$btrig} {b} {$b;};
       #var btrig {};
     };
 
-    log.info checking %1 against killers ($character|$summons|$my_dog|tree) that can use corpse;
-    #regexp {%1} {%i{$character|$summons|$my_dog|tree}} {
+    log.info checking $last_killer against killers ($character|$summons|$my_dog|tree) that can use corpse;
+    #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree}} {
       commands_before_corpse;
 
-      !glance;
+      #send !glance;
       wrap_or_use_corpse;
-      #if {"$party_status" == "yes"} {!divvy gold};
+      #if {"$party_status" == "yes"} {#send !divvy gold};
       #nop assumes an alias 'f' exists to 'get all';
-      !f;
+      #send !f;
       #if {"$stepper" == "on"} {pba};
 
       commands_after_corpse;
@@ -105,7 +109,7 @@
 
     #nop Kill Sprints...places to run after a mob dies;
 
-    #switch {"%2"} {
+    #switch {"$last_killed"} {
       #case "Cryohydra" {run verbeeg_chief;};
     };
   };

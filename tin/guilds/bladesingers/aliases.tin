@@ -3,17 +3,17 @@
 }
 
 #alias pi {
-  !remove %1;
-  !pinscribe %1 on %2;
+  #send !remove %1;
+  #send !pinscribe %1 on %2;
 }
 
 #alias pp {
-  !remove %1;
-  !pprepare %1;
+  #send !remove %1;
+  #send !pprepare %1;
 }
 
 #alias resl {
-  !unwrap;
+  #send !unwrap;
   use_corpse
 }
 
@@ -28,10 +28,10 @@
 }
 
 #alias use_corpse {
-  !hp;
-  !salute;
-  !bury;
-  !hp;
+  #send !hp;
+  #send !salute;
+  #send !bury;
+  #send !hp;
 }
 
 

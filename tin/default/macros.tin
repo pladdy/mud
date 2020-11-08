@@ -10,8 +10,8 @@
 #macro {\eOw} {nw}
 
 #macro {\eOu} {
-  !look;
-  !search;
+  #send !look;
+  #send !search;
 }
 
 #nop F2;

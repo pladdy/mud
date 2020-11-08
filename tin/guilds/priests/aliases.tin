@@ -1,26 +1,26 @@
 #alias attempt_beseech {
-  #if {$gp1 < 50 && $beseeches > 0} {!beseech};
+  #if {$gp1 < 50 && $beseeches > 0} {#send !beseech};
 }
 
 #alias attempt_curse {
-  #if {"$curse" == "OFF" && $enemy > 0 && $sp > 150} {!curse};
+  #if {"$curse" == "OFF" && $enemy > 0 && $sp > 150} {#send !curse};
 }
 
 #alias attempt_effects {
   #if {$enemy > 0} {
-    #regex {$spells} {PR} {#nop} {!protection};
-    #regex {$spells} {VE} {#nop} {!vestment};
-    #regex {$spells} {BA} {#nop} {!barkskin};
-    #regex {$spells} {HA} {#nop} {!haste};
-    #regex {$spells} {BL} {#nop} {!bless};
-    #regex {$spells} {BE} {#nop} {!beneficence};
-    #if {"$blade" == "OFF" && $enemy > 0} {!blade};
+    #regex {$spells} {PR} {#nop} {#send !protection};
+    #regex {$spells} {VE} {#nop} {#send !vestment};
+    #regex {$spells} {BA} {#nop} {#send !barkskin};
+    #regex {$spells} {HA} {#nop} {#send !haste};
+    #regex {$spells} {BL} {#nop} {#send !bless};
+    #regex {$spells} {BE} {#nop} {#send !beneficence};
+    #if {"$blade" == "OFF" && $enemy > 0} {#send !blade};
   };
 }
 
 #alias attempt_growth {
   #if {"$beckon" == "ON" && "$growth" == "OFF" && $enemy > 0 && $sp > 200} {
-    !growth demon;
+    #send !growth demon;
   };
 }
 
@@ -35,15 +35,15 @@
 }
 
 #alias attempt_protection {
-  #if {"$protection_status" == "OFF" && $enemy > 0 && $sp > 150} {!protection};
+  #if {"$protection_status" == "OFF" && $enemy > 0 && $sp > 150} {#send !protection};
 }
 
 #alias attempt_rift {
-  #if {"$rift" == "OFF" && $enemy > 0 && $sp > 400} {!rift};
+  #if {"$rift" == "OFF" && $enemy > 0 && $sp > 400} {#send !rift};
 }
 
 #alias attempt_beckon {
-  #if {"$beckon" == "OFF" && $enemy > 0 && $sp > 200} {!beckon};
+  #if {"$beckon" == "OFF" && $enemy > 0 && $sp > 200} {#send !beckon};
 }
 
 #alias commands_after_corpse {
@@ -55,8 +55,8 @@
 }
 
 #alias enable_panics {
-  !contingency on;
-  !paction on;
+  #send !contingency on;
+  #send !paction on;
 }
 
 #alias f10 {use_corpse}
@@ -64,30 +64,30 @@
 #alias f12 {
   #if {$map[current_room] == 22052 || $map[current_room] == 22577} {
     #loop 2 12 i {
-      !get all from bag $i;
-      !sacrifice all;
+      #send !get all from bag $i;
+      #send !sacrifice all;
     };
   };
   #else {
-    #loop 2 12 i {!sell all from bag $i};
+    #loop 2 12 i {#send !sell all from bag $i};
   }
 }
 
 #alias m {
-  !contingency off;
-  !paction off;
-  !meditate;
+  #send !contingency off;
+  #send !paction off;
+  #send !meditate;
 }
 
 #alias reof {
-  !unwrap smallest;
-  !offer corpse;
+  #send !unwrap smallest;
+  #send !offer corpse;
 }
 
 #alias use_corpse {
-  !offer corpse;
-  !hp;
-  !get all;
+  #send !offer corpse;
+  #send !hp;
+  #send !get all;
 }
 
 #alias wimpy_commands {

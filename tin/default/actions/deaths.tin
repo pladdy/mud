@@ -1,5 +1,5 @@
 #action {Resurrection tithe required: %1 coins} {
-  !accept;
+  #send !accept;
 }
 
 #action {^%!{[> ]*}Galan booms: Then it shall be so!$} {

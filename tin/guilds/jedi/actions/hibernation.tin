@@ -1,29 +1,29 @@
 #action {^You are fully rejuvenated and thus exit your trance.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^Your thoughts clear, relaxing your mind.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^The jumble of thoughts in your head dissipate.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^Your mind becomes a blank slate, centering your soul.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^Your mind relaxes from the strain it's been through.$} {
-  !hp;
+  #send !hp;
 }
 
 #action {^You soothe your mind with meditative techniques.$} {
-  !hp;
+  #send !hp;
 }
 
 #nop Meditate after force is gone;
 
 #action {^You are fully rejuvenated and thus exit your trance.$} {
-  !focus meditation;
+  #send !focus meditation;
 }

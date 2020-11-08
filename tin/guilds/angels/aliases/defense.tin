@@ -23,32 +23,32 @@
     };
 
     #if {@length{$dq_string} > 0} {
-      !defensequeue clear;
+      #send !defensequeue clear;
 
-      #if {$dq_count == 1} { !defensequeue $dq_string,none; }
-                           { !defensequeue $dq_string;      };
+      #if {$dq_count == 1} { #send !defensequeue $dq_string,none; }
+                           { #send !defensequeue $dq_string;      };
     };
   } {
     #showme <170>To change, pass in an ordered list of powers.  Ex: dq v p b re ri;
-    !defensequeue;
+    #send !defensequeue;
   }
   #unvar dq_list;
 }
 
 #alias dq_gxp {
-  !defensequeue parry,riposte,block,void;
+  #send !defensequeue parry,riposte,block,void;
 }
 
 #alias dqa {
-  !defensequeue reversal,void,block,parry,riposte;
+  #send !defensequeue reversal,void,block,parry,riposte;
 }
 
-#alias dqc {!defensequeue clear;}
+#alias dqc {#send !defensequeue clear;}
 
 #alias dqo {
-  !defensequeue reversal,parry,riposte,void,block;
+  #send !defensequeue reversal,parry,riposte,void,block;
 };
 
 #alias dqd {
-  !defensequeue void,block,parry,riposte;
+  #send !defensequeue void,block,parry,riposte;
 }

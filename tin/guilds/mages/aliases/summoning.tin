@@ -1,8 +1,8 @@
 #alias sumup {
-  !ms;
-  #delay 2 {!ms};
-  #delay 4 {!ms};
+  #send !ms;
+  #delay 2 {#send !ms};
+  #delay 4 {#send !ms};
   #delay 5 {
-    !say all, you are now in group offense/assist always;
+    #send !say all, you are now in group offense/assist always;
   };
 }

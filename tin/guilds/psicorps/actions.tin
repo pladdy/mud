@@ -20,7 +20,7 @@
 
   #math {max_convert} {$sp / 10};
   #math {gp1_delta} {$gp1_max - $gp1};
-  #if {$sp >= $sp_max && $gp1_delta > $max_convert} {!convert};
+  #if {$sp >= $sp_max && $gp1_delta > $max_convert} {#send !convert};
 
   pause_active_stepper;
   show_status_bar;
@@ -49,7 +49,7 @@
 }
 
 #action {^%!{[> ]*}Your %1 has expired.$} {
-  #if {@length{$enemy} > 1 && $sp > 40 && $gp1 > 40} {!actuate %1;}
+  #if {@length{$enemy} > 1 && $sp > 40 && $gp1 > 40} {#send !actuate %1;}
 }
 
 #nop Fold Reality;

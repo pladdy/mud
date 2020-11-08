@@ -24,7 +24,7 @@
   attempt_mindsink;
   heal_low_psi;
 
-  #if {$enemy > 0 && "$conflict" != "true" && $conflict_attempts < 3} {!conflict};
+  #if {$enemy > 0 && "$conflict" != "true" && $conflict_attempts < 3} {#send !conflict};
   show_status_bar;
 }
 
@@ -33,33 +33,33 @@
 
   #if {"$contact_impossible" != "true"} {
     #if {$enemy > 0 && "$mindsink_empty" != "true"} {
-      #regex {$workings} {Ct} {#nop;} {!contact};
+      #regex {$workings} {Ct} {#nop;} {#send !contact};
     };
   }
 
   #nop Deactivate;
 
   #if {$gp1 < 500 && "$mindsink_empty" == "true"} {
-    #regex {$workings} {Ct} {!contact stop;} {#nop};
-    #regex {$workings} {Re} {!brepeat clear;} {#nop};
+    #regex {$workings} {Ct} {#send !contact stop;} {#nop};
+    #regex {$workings} {Re} {#send !brepeat clear;} {#nop};
   }
 }
 
 #action {^The Glaetal crystal cannot hold anymore energy.$} {
-  !hurl;
-  !daystar 400;
+  #send !hurl;
+  #send !daystar 400;
 }
 
 #action {^You channel a fraction of the mental attack into the kulnara crystal.$} {
   #if {"$using_psidraw" != "true"} {
-   !psidraw 500 from kulnara;
+   #send !psidraw 500 from kulnara;
    #var using_psidraw {true};
   }
 }
 
 #action {^You try and channel the attack, but the crystal already overflows with energy.$} {
   #if {"$using_psidraw" != "true"} {
-   !psidraw 500 from kulnara;
+   #send !psidraw 500 from kulnara;
    #var using_psidraw {true};
   }
 }
@@ -69,7 +69,7 @@
 }
 
 #action {^You are too far away to mindsink.$} {
-  !contact stop;
+  #send !contact stop;
 }
 
 #action {^You can't break through the mental barriers!!} {
@@ -87,7 +87,7 @@
 
 #action {^You take advantage of your egress and take refuge from battle.$} {
   #map move $egress_dir;
-  !contact stop;
+  #send !contact stop;
   stepper off;
 }
 
@@ -101,12 +101,12 @@
 
 #action {^From afar, %1 pings you.$} {
   #format {requesting_player} {%l} {%1};
-  !str $requesting_player;
+  #send !str $requesting_player;
 }
 
 #action {^You feel the force of a mental assault on your mind.$} {
   #if {"$contain_active" != "true"} {
-    !contain;
+    #send !contain;
     #var contain_active true;
   }
 }

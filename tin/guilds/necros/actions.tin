@@ -48,7 +48,7 @@
 }
 
 #action {^Mojo the %1 can't carry that much more.$} {
-  !keep corpse;
+  #send !keep corpse;
 }
 
 #action {^  You don't have create dart memorized this cycle.$} {

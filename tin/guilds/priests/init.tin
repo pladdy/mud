@@ -6,6 +6,6 @@
 #var summons {cloud elemental}; #nop selene psummon
 
 #while {1} {
-  !afk Mends: 'ping', HP: 'healme', SP: 'nosp', GP: 'high5';
+  #send !afk Mends: 'ping', HP: 'healme', SP: 'nosp', GP: 'high5';
   #break;
 }

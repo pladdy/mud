@@ -5,8 +5,8 @@
 
   #if {"$contact_impossible" != "true"} {
     #if {$enemy > 0 && "$mindsink_empty" != "true"} {
-      #if     {$mindsink_chk <= $MINDSINK_AT_PCT} {!mindsink};
-      #elseif {$enemy <= 10 && $mindsink_chk <= .9} {!mindsink};
+      #if     {$mindsink_chk <= $MINDSINK_AT_PCT} {#send !mindsink};
+      #elseif {$enemy <= 10 && $mindsink_chk <= .9} {#send !mindsink};
     };
   };
 }
@@ -21,36 +21,36 @@
 
 #alias eg {
   #if {"%1" == "clear"} {
-    !egress clear;
+    #send !egress clear;
   };
   #elseif {"%1" == "" || @length{%2} == 0} {
     #showme <170>'eg' alias requires a direction, hitpoints, and optional flag;
-    !egress check;
+    #send !egress check;
   };
   #else {
     #var {egress_dir} {%1};
     #switch {"%1"} {
-      #case "n" {!egress north %2 %3};
-      #case "s" {!egress south %2 %3};
-      #case "e" {!egress east %2 %3};
-      #case "w" {!egress west %2 %3};
-      #case "nw" {!egress northwest %2 %3};
-      #case "ne" {!egress northeast %2 %3};
-      #case "sw" {!egress southwest %2 %3};
-      #case "se" {!egress southeast %2 %3};
-      #case "u" {!egress up %2 %3};
-      #case "d" {!egress down %2 %3};
+      #case "n" {#send !egress north %2 %3};
+      #case "s" {#send !egress south %2 %3};
+      #case "e" {#send !egress east %2 %3};
+      #case "w" {#send !egress west %2 %3};
+      #case "nw" {#send !egress northwest %2 %3};
+      #case "ne" {#send !egress northeast %2 %3};
+      #case "sw" {#send !egress southwest %2 %3};
+      #case "se" {#send !egress southeast %2 %3};
+      #case "u" {#send !egress up %2 %3};
+      #case "d" {#send !egress down %2 %3};
     }
   };
 }
 
 #alias f10 {
   use_corpse;
-  !get all;
+  #send !get all;
 }
 
 #alias f12 {
-  #loop 2 12 i {!sell all from bag $i};
+  #loop 2 12 i {#send !sell all from bag $i};
 }
 
 #alias heal_low_psi {
@@ -58,38 +58,38 @@
 
   #if {$enemy > 0 && $gp1 < $MIN_GP1} {
     #if {$corpses > 0} { redis };
-    #elseif {$reserve_psi > 0} { !pdo };
+    #elseif {$reserve_psi > 0} { #send !pdo };
   };
 }
 
 #alias pu {
-  !purge;
-  !fluxtap 100;
+  #send !purge;
+  #send !fluxtap 100;
 }
 
 #alias redi {
-  !unwrap;
-  !disperse corpse;
+  #send !unwrap;
+  #send !disperse corpse;
 }
 
 #alias redis {
   #if {$corpses >0} {
     #if {$corpses < 5} {#var to_use {$corpses}} {#var to_use {5}};
     #loop 1 $to_use $loop {
-      !unwrap;
-      !disperse corpse;
+      #send !unwrap;
+      #send !disperse corpse;
     };
     #unvar to_use;
   }
 }
 
 #alias use_corpse {
-  !hp;
-  !disperse corpse;
-  !hp;
+  #send !hp;
+  #send !disperse corpse;
+  #send !hp;
 }
 
 #nop when breed wimpies hit order can change and contact has to re-target;
 #alias wimpy_commands {
-  !contact stop;
+  #send !contact stop;
 }

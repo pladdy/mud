@@ -3,33 +3,33 @@
   #math {gp2_pct_raw} {($gp2 * 1.00) / $gp2_max * 100};
 
   #if {$gp1_pct_raw < $gp2_pct_raw && "$use_disperse" == "true"} {
-    !disperse;
+    #send !disperse;
   } {
-    !rites;
+    #send !rites;
     #if {"$use_disperse" == "true"} {
-      !disperse;
+      #send !disperse;
     } {
       #if {"$use_spoon" == "true"} {
-        !eat corpse;
+        #send !eat corpse;
       };
     };
   };
 }
 
 #alias f9 {
-  !wrap corpse;
-  #if {"$flying" == "true"} {!swoop all} {!get all};
+  #send !wrap corpse;
+  #if {"$flying" == "true"} {#send !swoop all} {#send !get all};
 }
 
 #alias f10 {
   use_corpse;
-  #if {"$flying" == "true"} {!swoop all} {!get all};
+  #if {"$flying" == "true"} {#send !swoop all} {#send !get all};
 }
 
 #nop Don't use hp in this alias, it messes with angel actions;
 #alias redi {
-  !unwrap;
-  !disperse;
+  #send !unwrap;
+  #send !disperse;
 }
 
 #alias redis {
@@ -44,17 +44,17 @@
 }
 
 #alias reri {
-  !unwrap;
-  !rites;
-  !disperse;
+  #send !unwrap;
+  #send !rites;
+  #send !disperse;
 }
 
 #alias commands_after_corpse {
   #nop Riposte makes mobs kill themselves...;
   #if {"$last_killer" == "$last_kill"} {
-    !glance;
+    #send !glance;
     wrap_or_use_corpse;
-    #if {"$flying" == "true"} {!swoop all} {!get all};
+    #if {"$flying" == "true"} {#send !swoop all} {#send !get all};
   };
 
   #var {awed} {false};
