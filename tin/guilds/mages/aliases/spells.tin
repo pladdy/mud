@@ -16,6 +16,13 @@
   };
 }
 
+#alias conup {
+  #send !cast contingency as armor#cast armor;
+  #send !cast contingency as shield#cast magnificent shield;
+  #send !cast contingency as major_globe#cast major globe;
+  #send !cast contingency as stoneskin#cast stoneskin;
+}
+
 #alias de {
   #send !deplete %1;
   #var spells[%1] {off};
@@ -43,4 +50,13 @@
   #var spells[pe] {off};
   #send !cast protection from good;
   #var spells[pg] {on};
+}
+
+#alias sumup {
+  #send !ms;
+  #delay 2 {#send !ms};
+  #delay 4 {#send !ms};
+  #delay 5 {
+    #send !say all, you are now in group offense/assist always;
+  };
 }

@@ -8,6 +8,25 @@
   }
 }
 
+#alias f10 {
+  use_corpse;
+  #send !get all;
+}
+
+#alias f12 {
+  #loop 2 12 i {#send !sell all from bag $i};
+}
+
+#alias login_commands {
+  conup;
+}
+
+#alias rebl {
+  #send !unwrap smallest;
+  tap_corpse;
+  #send !cast corpse blast;
+}
+
 #alias tap_corpse {
   #if {$gp1_raw < 93} {#send !cast spell tap on corpse};
 }
@@ -19,17 +38,6 @@
   #send !hp;
 }
 
-#alias f10 {
-  use_corpse;
-  #send !get all;
-}
-
-#alias f12 {
-  #loop 2 12 i {#send !sell all from bag $i};
-}
-
-#alias rebl {
-  #send !unwrap smallest;
-  tap_corpse;
-  #send !cast corpse blast;
+#alias wimpy_commands {
+  #if {$sp >= 150} {#send !cast secure shelter}
 }

@@ -87,7 +87,7 @@
       #var btrig {};
     };
 
-    log.info checking $last_killer against killers ($character|$summons|$my_dog|tree) that can use corpse;
+    log.debug checking $last_killer against killers ($character|$summons|$my_dog|tree) that can use corpse;
     #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree}} {
       commands_before_corpse;
 

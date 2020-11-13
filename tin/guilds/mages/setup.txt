@@ -91,7 +91,7 @@ alias swarm cast summon swarm
 alias tent cast black tentacles
 alias vs cast venomous spray
 
-aset spell himagenta
+aset mage higreen
 aset mage_armor yellow
 aset mage_shield yellow
 aset mage_protection_from_evil yellow
@@ -102,5 +102,6 @@ aset mage_stoneskin hiblack
 aset mage_rhino_skin hiblack
 aset mage_blink hicyan
 aset mage_improved_shield yellow
+aset spell himagenta
 
 confhp H: #$CCH#/#$MHP# S: #$CCS#/#$MSP#(#$CPC#) Ge: #$GEM# S|C: #$CSAT#%|#$CCNC#% G|M: #$NGM#|#$NMI#(#$GPC#)# Sc: #$NSM#(#$SPC#)#$NWL#Gx: #$G2N# P:#$PRO# St: #$ST#

@@ -1,20 +1,20 @@
-#alias attempt_slow {
-  #if {$enemy > 0 && $slowed != 1} {#send !cast slow};
-}
-
 #alias attempt_mystic_immersion {
   #if {"$stepper" == "on"
        && "$immersed" == "false"
        && $mystic_immersions > 0
-       && $sp < 1000} {
+       && $sp < 500} {
     mim;
   };
+}
+
+#alias attempt_slow {
+  #if {$enemy > 0 && $slowed != 1} {#send !cast slow};
 }
 
 #alias concentration_check {
   #nop when hpbar processes gp vars, it 'flips' them;
   #if {$gp2 <= 30} {#showme <110>CONCENTRATION IS HIGH!!!};
-  #if {$gp2 <= 30} {#send !shoo};
+  #if {$gp2 <= 20} {#send !shoo};
 }
 
 #alias saturation_check {
@@ -30,8 +30,9 @@
 
 #alias stepper_check {
   #if {"$stepper" == "on"} {
-    #if {($corpses == 0 && $spell_taps < 2) || $sp < 750} {
+    #if {($corpses == 0 && $spell_taps < 2) || $sp < 350} {
       stepper off;
+      f2;
     };
   };
 }

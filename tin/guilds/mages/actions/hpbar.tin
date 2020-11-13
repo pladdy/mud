@@ -36,11 +36,15 @@
   #replace {enemy} {%} {};
 
   #var dspells {%2};
+  #nop #regex {$dspells} { S} {#nop} {#send !cast shield};
+  #regex {$dspells} { RS} {#nop} {#send !cast rhino skin};
+
   #nop #regex {$dspells} { SS} {#nop} {#send !cast stoneskin};
   #nop #regex {$dspells} { MG} {#nop} {#send !cast major globe};
-  #regex {$dspells} { S} {#nop} {#send !cast shield};
+  #regex {$dspells} { MS} {#nop} {#send !cast magnificent shield};
   #nop #regex {$dspells} { B}  {#nop} {#send !cast blink};
   #nop #regex {$dspells} { PA} {#nop} {#send !cast prismatic aura};
+
   #regex {$dspells} { A} {#nop} {#send !cast armor};
   #regex {$dspells} { *I} {#var immersed true} {#var immersed false};
 
@@ -48,7 +52,7 @@
   #if {"$spells[pg]" == "on"} {#regex {$dspells} { PG} {#nop} {pg}};
   #if {"$spells[pe]" == "on"} {#regex {$dspells} { PE} {#nop} {pe}};
 
-  #nop attempt_slow;
+  attempt_slow;
   show_status_bar;
 } {4}
 

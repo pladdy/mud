@@ -1,11 +1,10 @@
 (%w golem)
 's french bulldog
 's golden dun akhal-teke
-%+'s aerial servant
 %+'s esquire
 %+ cob
 %+ palfrey
-%+ storm servant
+storm servant|cloud elemental|aerial servant
 %+ broodling
 %+ ferryman
 %+, %+'s %+ nag
@@ -14,19 +13,9 @@
 %+ the skeleton
 %+ the zombie
 %+ the ghoul
-%+ the valpur
 %+ the ghast
-%+ the manshi
-%+ the bolwyn
-%+ the greesh
 %+ the wight
-%+ the heucuva
-%+ the tholen
-%+ the valithyn
-%+ the bayen
-%+ the quarin
-%+ mohrg
-%+ grimare
+mohrg|grimare|quarin|bayen|valithyn|tholen|heucuva|greesh|bolwyn|manshi|valpur
 %+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling
@@ -36,51 +25,21 @@ a %+ wandering spider
 a %+ owlet
 a %+ platypus
 a %+ scorpion
-a cargo truck
-a jeep named
-a tame little shrew
-a truck named
-an old dwarven smith
+a (cargo truck|jeep|truck) named|jugger support mech
+tame little shrew|brown aardvark
 arctic wolf
-arundin
-binas, the unfettered one
-bray the alchemist
-bryant
-cairn
-cancer the tradesman
-cerdon
-cloud elemental
-cold tiro
-cur, trademan's dog
-duncan, keeper of the dead
-gabriel, the angel smith
-grom
-hey you
-ho-san
-hyven
-intuil
-jenna rosesinger
-johney the little boy
-judge dredd
-jugger support mech
-keshtan
-mistoffolees
-necrotic slake moth
-osurus
-park ranger
-princess qi
-quinton
-rec vaerin
-rikken
-rolan the wise sage
-rocont the scorpion
-sir arruns thelton
-viggen blindsoul
-the gypsy
-the alphabet serial killer
-the grand elemental
-the grand monk
-theela
+binas, the unfettered one|cur, trademan's dog
+duncan, keeper of the dead|theela|bray the alchemist|bryant|cairn|cerdon
+gabriel, the angel smith|grom|hyven
+arundin|an old dwarven smith|ho-san|hey you|cold tiro|cancer the tradesman
+mistoffolees|intuil|jenna rosesinger|the gypsy|johney the little boy
+judge dredd|keshtan|necrotic slake moth|osurus|quinton
+park ranger|princess qi
+rec vaerin|viggen blindsoul|rikken|rolan the wise sage|rocont the scorpion
+sir arruns thelton|the alphabet serial killer|the grand (elemental|monk)
 valerie, the lobby ambassador
-village wisewoman
-tournament judge
+village wisewoman|tournament judge
+an? (manes|orc|giant rat|goblin|kobold|hobgoblin)
+an? (lemure|gnoll|(giant (centipede|toad))|ugly troglodyte|stirge)
+an? (large ogre|smelly bugbear|rotting ghoul|wererat|((huge|large) spider)|giant (lizard|weasel|tick|boring beetle))
+an? (stony gargoyle|froth-mouthed hell hound|carnivorous ape)
