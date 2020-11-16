@@ -38,6 +38,7 @@
   #var dspells {%2};
   #nop #regex {$dspells} { S} {#nop} {#send !cast shield};
   #regex {$dspells} { RS} {#nop} {#send !cast rhino skin};
+  #regex {$dspells} { mg} {#nop} {#send !cast minor globe};
 
   #nop #regex {$dspells} { SS} {#nop} {#send !cast stoneskin};
   #nop #regex {$dspells} { MG} {#nop} {#send !cast major globe};

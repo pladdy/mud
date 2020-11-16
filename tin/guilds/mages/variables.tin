@@ -1,7 +1,7 @@
 #var ms1 {Manes|Giant rat|Goblin|Kobold|Hobgoblin|Orc};
 #var ms2 {Giant centipede|Giant Toad|Stirge|Gnoll|Lemure|Troglodyte};
 #var ms3 {Ogre|Large spider|Boring beetle|Giant lizard|Bugbear|Giant tick};
-#var ms4 {Froth-mouthed Hell Hound|Carnivorous Ape|Stony Gargoyle};
+#var ms4 {5-Headed hydra|Shadow|Werewolf|Hell Hound|Ape|Gargoyle|Ice toad|Giant snake|Poisonous toad};
 
 #var slowed {0};
 
