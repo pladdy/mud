@@ -141,3 +141,13 @@
 #action {^%!{[> ]*}Exhilarated! You look back up the slope, and ponder doing it again.$} {
   #if {$map[current_room] == 20702} {#map goto 20703};
 }
+
+#nop Isle of Equinity;
+
+#action {^%!{[> ]*}The Docks of Equinity (ne)} {
+  #if {$map[current_room] == 31985} {#map goto 31986}
+}
+
+#action {^%!{[> ]*}<< The Docks of Xaxis >> (n)} {
+  #if {$map[current_room] == 31985} {#map goto 6335}
+}

@@ -110,7 +110,7 @@
     #nop Kill Sprints...places to run after a mob dies;
 
     #switch {"$last_killed"} {
-      #case "Cryohydra" {run verbeeg_chief;};
+      #case "Cryohydra." {run verbeeg_chief;};
     };
   };
 }

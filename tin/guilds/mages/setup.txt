@@ -18,6 +18,7 @@ alias ac cast activate combat
 alias adv advance
 alias an anchor
 alias ar cast armor
+alias bl cast blink
 alias c cast
 alias cb cast corpse blast
 alias cf cast clenched fist

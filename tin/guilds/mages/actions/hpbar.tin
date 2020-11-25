@@ -37,13 +37,13 @@
 
   #var dspells {%2};
   #nop #regex {$dspells} { S} {#nop} {#send !cast shield};
-  #regex {$dspells} { RS} {#nop} {#send !cast rhino skin};
+  #nop #regex {$dspells} { RS} {#nop} {#send !cast rhino skin};
   #regex {$dspells} { mg} {#nop} {#send !cast minor globe};
 
-  #nop #regex {$dspells} { SS} {#nop} {#send !cast stoneskin};
+  #regex {$dspells} { SS} {#nop} {#send !cast stoneskin};
   #nop #regex {$dspells} { MG} {#nop} {#send !cast major globe};
   #regex {$dspells} { MS} {#nop} {#send !cast magnificent shield};
-  #nop #regex {$dspells} { B}  {#nop} {#send !cast blink};
+  #regex {$dspells} { B}  {#nop} {#send !cast blink};
   #nop #regex {$dspells} { PA} {#nop} {#send !cast prismatic aura};
 
   #regex {$dspells} { A} {#nop} {#send !cast armor};
