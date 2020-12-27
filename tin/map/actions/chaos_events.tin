@@ -119,6 +119,12 @@
   #var chaos_port_location {};
 }
 
+#nop Section Z;
+
+#action {^%!{[> ]*}You press PAUSE on the game, saving the rest for later.$} {
+  #map goto 32419;
+}
+
 #nop WWF;
 
 #action {^You ring the bell, but nothing happens.  You've won!} {

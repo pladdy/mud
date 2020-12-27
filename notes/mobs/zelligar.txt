@@ -13,6 +13,7 @@ Class: Scalaing based on dungeon level
   73, Learned, 4.2M, =({.})=, +4
   80, Learned, 4.2M, =({.})=, +4
   83, Learned, 21M, =({.})=, +4
+  88, Superior, 22.7M, -~<{8}>~-, +5
 
 Items/Eq:
   Headband (based on scaler); type 'Unknown' (no slot)

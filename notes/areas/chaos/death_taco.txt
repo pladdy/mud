@@ -33,36 +33,34 @@ Mob Specials:
   hot sauce:  blinds you
 
 drop tiers
-1-49, 50-74, 75-90, 91+
+- 1-49, 50-74, 75-90, 91+
+- stat boosts are all boot (indefinite)
 
-taco tiers
-?, ?, ?, deadly
-
-veggie taco
+veggie taco (shell, lettuce, tomatoes)
   A Cerveza      (, , refreshing, strong): +3 con, +4 con, 100% overmax sp x 3
   A side of rice (moist, steaming):        50% overmap hp/sp
   A veggie taco  (plain, crisp):           +3, +4 wis, overmax 100% hp per 'eat' x 3
   A large pop:                             sp heals, can be refilled
 
-cheesy taco (, , , deadly)
+cheesy taco (veggie + cheese)
   foil wrapper  (crinkled, tattered, smooth, shiny): mind  and radiation ac
   nacho cheese  (small, , large, huge):              ice   and acid ac
   meat paste    (small, , handful, brick):           edged and energy ac
   sour cream    (small, , large, huge):              fire  and electric ac
   refried beans (tiny, , handful, brick):            blunt and poison ac
 
-meat taco
+meat taco (cheese + meat)
   wet wipe         (tiny, , , giant): stops combat
-  Sliced jalapenos (limp, thick, ,):  +hp regen (meat taco or death taco?)
+  Sliced jalapenos (limp, thick, ,):  +hp regen
   Cinnamon twists  (stale, , , ):     throw for damage
   Side of Beans    ( , , , ):         Room damage for short time
 
-works taco
+works taco (meat + cream, guacamole)
   - heals a lot
   Lime Wedge          (, , , ):      +acid WC to a weapon
   Cup of Salsa        (, , large, ): +wis (+4 dex, +4 int, +2 wis, +2 cha?)
   Lettuce Leaf        (, , , ):      Used to change WC to blunt
   Packet of hot sauce (, , , ):      +fire WC to a weapon
 
-death taco:
+death taco: (works + hot sauce)
   see notes/mobs/death_taco.txt

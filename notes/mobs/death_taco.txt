@@ -19,7 +19,7 @@ Equipment:
 It drops one of the below:
 
 - Shot of Tequila ( , , , ):            Fire damage in a room
-- Spork Lance ( , , sharp, wicked):     A weapon (lance), randomly heals hp/sp, does specials
+- Spork Lance ( , , sharp, wicked):     High WC lance, randomly heals hp/sp, does specials
 - Quesadilla Codpiece ( , , , massive): An other (to be worn) - AC across all types
 - Guacamole skin ( , , large, huge):    Temporary Damage reduction treatment
 

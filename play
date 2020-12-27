@@ -14,10 +14,9 @@ usage() {
     ""
     "Options:"
     "  -h this message"
-    "  -p [required] the profile you want to use"
     ""
     "Examples"
-    "  $0 -p foo_bar # play 3k with the foo_bar profile"
+    "  $0 foo_bar # play 3k with the foo_bar profile"
   )
   for line in "${lines[@]}"; do echo "${line}"; done
 }
@@ -32,22 +31,24 @@ valid_profiles() {
   done
 }
 
-while getopts 'hp:' opt; do
+while getopts 'h:' opt; do
   case "${opt}" in
     h)
       usage
       exit 0
       ;;
-    p)
-      PROFILE="${OPTARG}"
-      PROFILE_FILE=${PROFILE}.tin
-      ;;
   esac
 done
 
-if [ $# -gt 0 ] && [ -f "profiles/${PROFILE_FILE}" ]; then
-  rm -f tin/map/map_globals.txt
-  PROFILE=${PROFILE} tt++ profiles/${PROFILE_FILE}
+echo $#
+
+if [ $# -gt 0 ]; then
+  PROFILE=$1
+  PROFILE_FILE=${PROFILE}.tin
+  if [ -f "profiles/${PROFILE_FILE}" ]; then
+    rm -f tin/map/map_globals.txt
+    PROFILE=${PROFILE} tt++ profiles/${PROFILE_FILE}
+  fi
 else
   printf "Need a valid profile name.\n\n"
   valid_profiles

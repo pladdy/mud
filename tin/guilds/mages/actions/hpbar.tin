@@ -30,7 +30,7 @@
   #format spell_taps {%L} {$spell_tap_status};
 
   #nop keep some corpses tapped to handle saturation accumulation;
-  #if {$spell_taps < 2 && $gp1 < 50 && $corpses > 0} {rebl};
+  #if {$spell_taps < 3 && $gp1 < 30 && $corpses > 0} {rebl};
 
   #var enemy {%5};
   #replace {enemy} {%} {};
@@ -38,10 +38,10 @@
   #var dspells {%2};
   #nop #regex {$dspells} { S} {#nop} {#send !cast shield};
   #nop #regex {$dspells} { RS} {#nop} {#send !cast rhino skin};
-  #regex {$dspells} { mg} {#nop} {#send !cast minor globe};
+  #nop #regex {$dspells} { mg} {#nop} {#send !cast minor globe};
 
   #regex {$dspells} { SS} {#nop} {#send !cast stoneskin};
-  #nop #regex {$dspells} { MG} {#nop} {#send !cast major globe};
+  #regex {$dspells} { MG} {#nop} {#send !cast major globe};
   #regex {$dspells} { MS} {#nop} {#send !cast magnificent shield};
   #regex {$dspells} { B}  {#nop} {#send !cast blink};
   #nop #regex {$dspells} { PA} {#nop} {#send !cast prismatic aura};
