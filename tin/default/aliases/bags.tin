@@ -25,6 +25,15 @@
 }
 
 #alias pba {
-  #loop 2 12 i { #send !put all in bag $i };
+  #local first_bag 2;
+  #local max_bags 12;
+
+  #if {$BAGS_TO_USE > 0} {
+    #loop $first_bag $BAGS_TO_USE i { #send !put all in bag $i };
+ };
+  #else {
+    #loop $first_bag $max_bags  i { #send !put all in bag $i };
+  };
+
   #var i 0;
 }

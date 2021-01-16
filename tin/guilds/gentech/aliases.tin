@@ -113,11 +113,6 @@
   #send !aset synthorg yellow;
 }
 
-#alias pba {
-  #loop 2 24 i { #send !put all in bag $i };
-  #var i 0;
-}
-
 #alias repu {
   #send !unwrap smallest;
   #send !recharge;
