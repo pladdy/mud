@@ -19,35 +19,6 @@
   #showme Map loaded, set to home.;
 }
 
-#nop The map showing up permanently and not scrolling away depends on 'split';
-#nop The status_bar alias is responsible for splitting the screens;
-#alias map_refresh {
-  #local SPLIT_ADJUSTMENT 4;
-  #local WIDTH_OFFSET 101;
-
-  #screen get rows screen_height;
-  #screen get cols screen_wdith;
-
-  #math map_height {$screen_height - $SPLIT_ADJUSTMENT};
-  #math map_width {$screen_width - $WIDTH_OFFSET};
-
-  #math box_height {$map_height + 2};
-  #var box_width $screen_width;
-
-  debug map dimensions: $map_height $map_width;
-  #nop #map map $map_height $map_width draw 1 $WIDTH_OFFSET $box_height $box_width {<170>Map Yo!};
-
-  #map map $map_height $map_width variable current_map;
-  #map get all map[room_info];
-
-  debug draw box: 1 $WIDTH_OFFSET $box_height $box_width;
-  #draw jade box 1 $WIDTH_OFFSET $box_height $box_width {$current_map} {
-    <170>Room Name: $map[room_info][name]\n<170>Room Note: $map[room_info][note]
-  };
-}
-
-#alias mapr { map_refresh }
-
 #nop When 'running' disable refresh, it makes the 'run' much faster;
 
 #alias map_run {

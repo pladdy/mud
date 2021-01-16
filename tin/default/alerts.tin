@@ -1,0 +1,97 @@
+#var alerts[says] None;
+#var alerts[tells] None;
+
+#function format_says {
+  #var result {\n<170>Says:};
+
+  #foreach {$alerts[says]} {target} {
+    #if {"$target" != "None" && $target[count] > 0} {
+      #var result {$result\n$target[name] ($target[count]): $target[last]};
+    };
+  };
+}
+
+#function format_tells {
+  #var result {\n<170>Tells:};
+
+  #foreach {$alerts[tells]} {target} {
+    #if {"$target" != "None" && $target[count] > 0} {
+      #var result {$result\n$target[name] ($target[count]): $target[last]};
+    };
+  };
+}
+
+#action {^%!{[> ]*}%1 says: %2} {
+  #var alerts[says][%1][name] %1;
+  #var alerts[says][%1][last] %2;
+  #math alerts[says][%1][count] {$alerts[says][%1][count] + 1};
+
+  alerts_refresh;
+  #delay 5 {
+    #var alerts[says] None;
+    alerts_refresh;
+  };
+}
+
+#action {^%!{[> ]*}%1 tells you: %2} {
+  #var alerts[tells][%1][last] %2;
+  #math alerts[tells][%1][count] {$alerts[tells][%1][count] + 1};
+  alerts_refresh;
+  sound_beeps;
+  #if {"$stepper" == "on"} {
+    stepper off;
+  }
+}
+
+#nop The window showing up permanently and not scrolling away depends on 'split';
+#nop The status_bar alias is responsible for splitting the screens;
+#alias alerts_refresh {
+  #local SPLIT_ADJUSTMENT 4;
+  #local WIDTH_OFFSET 101;
+
+  #screen get rows screen_height;
+  #screen get cols screen_wdith;
+
+  #math alert_height {($screen_height - $SPLIT_ADJUSTMENT) / 3};
+  #math alert_height {$alert_height * 2};
+  #math alert_width {$screen_width - $WIDTH_OFFSET};
+
+  #math alert_box_height {$alert_height + 2};
+  #math alert_box_width {$screen_width};
+
+  debug alert dimensions, height: $alert_height width: $alert_width;
+  debug draw jade box $alert_box_height $WIDTH_OFFSET $screen_height $alert_box_width;
+
+  #math brh {$screen_height - 2};
+  #math brw {$alert_box_width};
+  #local formatted_says @format_says{};
+  #local formatted_tells @format_tells{};
+
+  #draw jade box $alert_box_height $WIDTH_OFFSET $brh $brw {Alerts} {
+    $formatted_says
+    \n\n
+    $formatted_tells
+  };
+}
+
+#alias alertsr { alerts_refresh }
+
+#alias sh {
+  #send sayhist;
+  #delay 1 {#var alerts[says] None; alerts_refresh;};
+}
+
+#alias th {
+  #send tellhist;
+  #delay 1 {#var alerts[tells] None; alerts_refresh;};
+}
+
+#alias hmh {
+  #send hmhist;
+}
+
+#alias sound_beeps {
+  #system {
+    for i in 1 2 3; do printf '\a'; done
+  }
+}
