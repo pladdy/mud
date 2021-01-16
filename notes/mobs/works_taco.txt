@@ -1,2 +1,8 @@
 Dodges, has very high regen, can lower con temporarily, forces you to unwear
 eq.
+
+Eq:
+  Lime Wedge          (, , , ):      +acid WC to a weapon
+  Cup of Salsa        (, , large, ): +wis (+4 dex, +4 int, +2 wis, +2 cha?)
+  Lettuce Leaf        (, , , ):      Used to change WC to blunt
+  Packet of hot sauce (, , , ):      +fire WC to a weapon
