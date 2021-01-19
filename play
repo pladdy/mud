@@ -10,7 +10,7 @@ PROFILE_FILE=""
 usage() {
   declare -a lines=(
     "Synopsis:"
-    "  This is a wrapper to call tintin++ using a profile."
+    "  This is a wrapper to call tintin++ using a 'profile' file in profiles/."
     ""
     "Options:"
     "  -h this message"
@@ -39,8 +39,6 @@ while getopts 'h:' opt; do
       ;;
   esac
 done
-
-echo $#
 
 if [ $# -gt 0 ]; then
   PROFILE=$1

@@ -27,15 +27,17 @@
   #math alerts[says][%1][count] {$alerts[says][%1][count] + 1};
 
   alerts_refresh;
-  #delay 5 {
+  #delay {alerts_says} {
     #var alerts[says] None;
     alerts_refresh;
-  };
+  } {5};
 }
 
 #action {^%!{[> ]*}%1 tells you: %2} {
+  #var alerts[tells][%1][name] %1;
   #var alerts[tells][%1][last] %2;
   #math alerts[tells][%1][count] {$alerts[tells][%1][count] + 1};
+
   alerts_refresh;
   sound_beeps;
   #if {"$stepper" == "on"} {
@@ -75,6 +77,10 @@
 }
 
 #alias alertsr { alerts_refresh }
+
+#alais cth {
+  #send ctellhist;
+}
 
 #alias sh {
   #send sayhist;
