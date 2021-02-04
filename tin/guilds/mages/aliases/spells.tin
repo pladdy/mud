@@ -17,10 +17,10 @@
 }
 
 #alias conup {
-  #send !cast contingency as armor#cast armor;
+  #send !cast contingency as stoneskin#cast stoneskin;
   #send !cast contingency as shield#cast magnificent shield;
   #send !cast contingency as major_globe#cast major globe;
-  #send !cast contingency as stoneskin#cast stoneskin;
+  #send !cast contingency as armor#cast armor;
 }
 
 #alias de {

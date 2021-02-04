@@ -17,6 +17,8 @@
   #replace {enemy} {%} {};
 
   #if {$total_water_pct < 1.3 && $gp1 < 50 && $corpses > 0} {rerc};
+  attempt_stun;
+
   show_status_bar;
 }
 
@@ -37,6 +39,22 @@
     !$spice_task;
     #list spice_queue delete 1;
   };
+}
+
+#action {^%!{[> ]*}%1 recoils from your voice and stops attacking!$} {
+  #var voice_active true;
+}
+
+#action {^%!{[> ]*}%1 recovers from the Voice!$} {
+  #var voice_active true;
+}
+
+#action {^%!{[> ]*}You pull out your stunner and fire it at %1.$} {
+  #var stun_active true;
+}
+
+#action {^%!{[> ]*}%1 shakes off the effects of the stunner.$} {
+  #delay {stun_delay} {#var stun_active false;} {100};
 }
 
 #action {^%!{[> ]*}Again, the trip is short, the hatch opens and you step out onto the$} {

@@ -30,6 +30,14 @@
   };
 }
 
+#alias attempt_stun {
+  #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
+
+  #if {$hp_as_pct < 1.0 && "$stun_active" != "true"} {
+    #send !stun;
+  };
+}
+
 #alias am {
   #send !hide;
   #send !poison;
@@ -38,6 +46,8 @@
 
 #alias commands_after_corpse {
   #send !suspend;
+  #var stun_active false;
+  #var voice_active false;
 }
 
 #alias drc {
@@ -78,13 +88,13 @@
   #if {$map[current_room] == 8187} {
     #showme <170>Keeping all to avoid donating wrong things!;
     #send !keep all;
-    #loop 2 12 i {
+    #loop 2 $BAGS_TO_USE i {
       #send !get all from bag $i;
       #send !donate all;
     };
   };
   #else {
-    #loop 2 12 i {#send !sell all from bag $i};
+    #loop 2 $BAGS_TO_USE i {#send !sell all from bag $i};
   };
 }
 

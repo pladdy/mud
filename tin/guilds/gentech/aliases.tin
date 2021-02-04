@@ -91,9 +91,9 @@
 
 #alias f12 {
   #if {$map[current_room] == 676} {
-    #loop 2 24 i {#send !trash all from bag $i};
+    #loop 2 $BAGS_TO_USE i {#send !trash all from bag $i};
   } {
-    #loop 2 24 i {#send !sell all from bag $i};
+    #loop 2 $BAGS_TO_USE i {#send !sell all from bag $i};
   }
 }
 

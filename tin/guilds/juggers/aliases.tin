@@ -35,12 +35,12 @@
 #alias f12 {
   #switch {$map[current_room]} {
     #case {11437} {
-      #loop 2 12 i {#send !donate all from bag $i};
+      #loop 2 $BAGS_TO_USE i {#send !donate all from bag $i};
     };
     #case {11438} {
-      #loop 2 12 i {#send !donate all from bag $i};
+      #loop 2 $BAGS_TO_USE i {#send !donate all from bag $i};
     };
-    #default { #loop 2 12 i {#send !sell all from bag $i} };
+    #default { #loop 2 $BAGS_TO_USE i {#send !sell all from bag $i} };
   };
 }
 
