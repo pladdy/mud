@@ -1,6 +1,31 @@
 #var alerts[says] None;
 #var alerts[tells] None;
 
+#nop create tell blocklist;
+#list tells_blocklist clear;
+
+#nop knights NPCs;
+#if {"$guild" == "knights"} {
+  #list tells_blocklist add {arvin};
+  #list tells_blocklist add {dame camilla bedwere};
+  #list tells_blocklist add {dame zara diones};
+  #list tells_blocklist add {gabriella};
+  #list tells_blocklist add {klvorn};
+  #list tells_blocklist add {mia jas};
+  #list tells_blocklist add {vokorin};
+  #list tells_blocklist add {sir arruns thelton};
+  #list tells_blocklist add {sir elgar rayne};
+  #list tells_blocklist add {sir fors belerent};
+  #list tells_blocklist add {sir rea};
+  #list tells_blocklist add {tauron};
+};
+
+#nop comment out/nop character for testing;
+#nop #list tells_blocklist add {$character};
+#list tells_blocklist add {robert};
+#list tells_blocklist add {the vampire};
+#list tells_blocklist simplify;
+
 #function format_says {
   #var result {\n<170>Says:};
 
@@ -34,14 +59,24 @@
 }
 
 #action {^%!{[> ]*}%1 tells you: %2} {
-  #var alerts[tells][%1][name] %1;
-  #var alerts[tells][%1][last] %2;
-  #math alerts[tells][%1][count] {$alerts[tells][%1][count] + 1};
+  #var send_alert {true};
 
-  alerts_refresh;
-  sound_beeps;
-  #if {"$stepper" == "on"} {
-    stepper off;
+  #foreach $tells_blocklist blocked {
+    #regexp {%1} {%i$blocked} {#var send_alert false; #break};
+  }
+
+  #if {"$send_alert" == "true"} {
+    #var alerts[tells][%1][name] %1;
+    #var alerts[tells][%1][last] %2;
+    #math alerts[tells][%1][count] {$alerts[tells][%1][count] + 1};
+
+    alerts_refresh;
+    sound_beeps;
+    set_repeating_alarm;
+
+    #if {"$stepper" == "on"} {
+      stepper off;
+    }
   }
 }
 
@@ -87,9 +122,18 @@
   #delay 1 {#var alerts[says] None; alerts_refresh;};
 }
 
+#alias set_repeating_alarm {
+  #delay {repeating_alarm} {
+    log.warn You have tells, 'tellhist' or 'th' to review them.;
+    sound_beeps;
+    set_repeating_alarm;
+  } {60};
+}
+
 #alias th {
   #send tellhist;
   #delay 1 {#var alerts[tells] None; alerts_refresh;};
+  #undelay {repeating_alarm};
 }
 
 #alias hmh {

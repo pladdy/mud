@@ -24,7 +24,7 @@
   };
 }
 
-#action {%w leaves %2.} {
+#action {%1 leaves %2.} {
   #var followers_string {};
 
   #foreach { $followers[%*] } {arg} {
@@ -54,6 +54,6 @@
       };
     };
   }
-  
+
   #unvar followers_string;
 }
