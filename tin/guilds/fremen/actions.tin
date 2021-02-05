@@ -36,7 +36,7 @@
 
   #if {$enemy > 0 && "$spice_level" == "Withdrawal" && $available_spices > 0} {
     #list spice_queue get 1 spice_task;
-    !$spice_task;
+    #send !$spice_task;
     #list spice_queue delete 1;
   };
 }
@@ -46,7 +46,15 @@
 }
 
 #action {^%!{[> ]*}%1 recovers from the Voice!$} {
+  #delay {voice_delay} {#var voice_active false;} {100};
+}
+
+#action {^%!{[> ]*}That creature will not be affected.$} {
   #var voice_active true;
+}
+
+#action {^%!{[> ]*}%1 cannot be stunned again so quickly!$} {
+  #var stun_active true;
 }
 
 #action {^%!{[> ]*}You pull out your stunner and fire it at %1.$} {
