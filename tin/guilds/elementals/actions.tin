@@ -62,3 +62,7 @@
 #action {^%!{[> ]*}That mind cannot be depleted again, by you.$} {
   #var mind_depleted true;
 }
+
+#action {^%!{[> ]*}---> TICK TOCK!  The elemental blast is becoming unstable.} {
+  #delay {10} {drop blast};
+}

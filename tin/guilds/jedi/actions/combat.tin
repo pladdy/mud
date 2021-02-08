@@ -1,8 +1,16 @@
-#action {^Your lightdagger's casing flares nearly white hot as the battery melts} {
+#alia fallback_method {
+  #send !remove armour;
+  h2h;
+}
+
+#action {^%!{[> ]*}Your lightdagger's casing flares nearly white hot as the battery melts} {
   drl;
 }
 
-#action {^Your lightsaber's casing flares nearly white hot as the battery melts} {
-  drd;
+#action {^%!{[> ]*}Your lightsaber's casing flares nearly white hot as the battery melts} {
+  fallback_method;
 }
 
+#action {^%!{[> ]*}Your lightsaber shuts down, and the heat in your hand warns you of the} {
+  fallback_method;
+}

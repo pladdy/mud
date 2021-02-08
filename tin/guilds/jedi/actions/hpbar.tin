@@ -1,4 +1,4 @@
-#action {^HP: %1/%2 SP: %3/%4 C:%s%5% F:%s%6% D: %7/%8|%9% [%10] E:%11 } {
+#action {^%!{[> ]*}HP: %1/%2 SP: %3/%4 C:%s%5% F:%s%6% D: %7/%8|%9% [%10] E:%11 } {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -19,14 +19,14 @@
   #if {"$enemy" == ""} {#var enemy {0}};
   #replace {enemy} {%} {};
 
-  #if {$gp2 < 50 && $corpses > 0 && "$release_force" == "false"} {refo};
-  #if {$gp2 < 25} {#showme <110>FORCE SATURATION IS HIGH!};
+  #if {$gp2 < 50 && $corpses > 0 && "$release_force" != "true"} {refo};
+  #if {$gp2 < 25} {sound_beeps; #showme <110>FORCE SATURATION IS HIGH!};
 
   attempt_mindblock;
   check_stepper;
 }
 
-#action {^Def:%1 Wm:%2 Wc:%s%3% Gx:%s%4%} {
+#action {^%!{[> ]*}Def:%1 Wm:%2 Wc:%s%3% Gx:%s%4%} {
   #var {gxp} {%4};
   show_status_bar;
 
@@ -37,19 +37,19 @@
 
   #if {"%2" == "n"} {
     #showme <110>Warning!  In neutral mode, pick a combat mode!;
-    #if {"$stepper" == "on"} {
-      stepper off;
-      f2;
-    };
+    sound_beeps;
+
+    fallback_method;
+    #if {"$stepper" == "on"} {stepper off};
   };
 }
 
 #nop Release force;
 
-#action {^You gather wood from nearby and construct a funeral pyre} {
+#action {^%!{[> ]*}You gather wood from nearby and construct a funeral pyre} {
   #var release_force true;
 }
 
-#action {^The funeral pyre burns out.} {
+#action {^%!{[> ]*}The funeral pyre burns out.} {
   #var release_force false;
 }
