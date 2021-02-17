@@ -53,3 +53,7 @@
 #action {^%!{[> ]*}The funeral pyre burns out.} {
   #var release_force false;
 }
+
+#action {^%!{[> ]*}You may only have one pyre active here.$} {
+  #send !wrap;
+}

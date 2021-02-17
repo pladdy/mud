@@ -142,6 +142,6 @@
 
 #alias sound_beeps {
   #system {
-    for i in 1 2 3; do printf '\a'; done
+    for i in 1 2; do printf '\a'; done
   }
 }

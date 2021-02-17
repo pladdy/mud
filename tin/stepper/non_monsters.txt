@@ -29,6 +29,7 @@ a (cargo truck|jeep|truck) named|jugger support mech
 tame little shrew|brown aardvark
 arctic wolf
 binas, the unfettered one|cur, trademan's dog
+ck30|utility droid|fondon raas
 duncan, keeper of the dead|theela|bray the alchemist|bryant|cairn|cerdon
 gabriel, the angel smith|grom|hyven
 arundin|an old dwarven smith|ho-san|hey you|cold tiro|cancer the tradesman

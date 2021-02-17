@@ -1,4 +1,4 @@
-#alia fallback_method {
+#alias fallback_method {
   #send !remove armour;
   h2h;
 }
@@ -13,4 +13,8 @@
 
 #action {^%!{[> ]*}Your lightsaber shuts down, and the heat in your hand warns you of the} {
   fallback_method;
+}
+
+#action {^%!{[> ]*}Your lightsaber begins to flicker and the handle warms!} {
+  #nop need to repair lightsaber;
 }

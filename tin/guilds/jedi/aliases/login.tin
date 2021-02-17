@@ -1,3 +1,13 @@
+#alias fixup {
+  run jedis;
+  #send !n;
+  #map move n;
+  #send !nw;
+  #map move nw;
+  #send !repair yellow\;lightsaber;
+  fixeq;
+}
+
 #alias linkdie_commands {
   #var mindblock no;
 }

@@ -1,33 +1,43 @@
 #nop run this with '#script {cat guilds/jedi/setup.txt}';
 
+alias ab focus absorb energy
+alias cm focus cloud mind
+alias co focus confusion
+alias cp focus control pain
+alias cs focus login stats
+alias di focus dissipate on
+alias dio focus dissipate /off
+alias enc focus check /encumbrance
+alias fta focus force taunt for all
+alias gfs focus greater force shield
+alias gs focus guild score
+alias gs2 focus skill list /short
+alias gwho jedis
+alias h focus reduce injury
+alias h2h focus hand to hand
+alias ht focus hibernation trance
+
 #nop swap these for triggers and what i'm used to reading;
 alias i ii
 alias ii i
 
-alias ri focus reduce injury
-alias h focus reduce injury
-alias m focus meditation
-alias ht focus hibernation trance
-alias fta focus force taunt for all
-alias gs focus guild score
-alias gs2 focus skill list /short
-alias gwho jedis
-alias h2h focus hand to hand
-alias cp focus control pain
-alias cs focus login stats
 alias lfs focus lesser force shield
-alias gfs focus greater force shield
+alias m focus meditation
+alias mb focus mindblock
 alias rcost focus check /cost
 alias re focus reflex for
+alias ri focus reduce injury
 
-aset jedi_com higreen
-aset jedi_notify white
-aset jedi_death hired
-aset jedi_cpain hiblack
-aset jedi_dodge hicyan
-aset jedi_lfs white
-aset jedi_gfs yellow
-aset jedi_r_i higreen
 aset jedi_absorb himagenta
+aset jedi_com higreen
+aset jedi_cpain hiblack
+aset jedi_confuse yellow
+aset jedi_death flash+hired
+aset jedi_dodge hicyan
+aset jedi_gfs yellow
+aset jedi_lfs white
+aset jedi_mblock yellow
+aset jedi_notify white
+aset jedi_r_i higreen
 
 focus hpconfigure /HP: #hp/#mhp SP: #sp/#msp C:#c F:#f D: #dn/#dm|#dr [#ng] E:#es #nlDef:#df Wm:#sm Wc:#%c Gx:#gxp

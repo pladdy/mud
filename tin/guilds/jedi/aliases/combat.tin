@@ -62,6 +62,11 @@
   #foreach {0;2;4;6;8} {delay} {#delay {$delay} {#send !ri; hp;}}
 }
 
+#alias h2h {
+  #send !remove armour;
+  #send !h2h;
+}
+
 #alias imp_cm {
   #local MIN_SP 100;
   #send !focus impulse for c at $MIN_SP;

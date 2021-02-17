@@ -1,5 +1,5 @@
 #alias f10 {
-  #send !focus release force;
+  #send !focus absorb energy;
   #send !hp;
   #send !get all;
 }
@@ -12,11 +12,8 @@
     #delay {10} {#var release_force false};
   };
 
-  #if {$gp1 < 75 && $gp2 < 50} {
-    #send !focus meditation;
-  } {
-    #send !focus hibernation trance;
-  }
+  #if {$gp1 < 60 && $gp2 < $gp1} {#send !focus meditation};
+  #else                          {#send !focus hibernation trance};
 }
 
 #alias reab {
@@ -35,4 +32,4 @@
   #send !eat corpse;
 }
 
-#alias use_corpse {#send !focus release force}
+#alias use_corpse {#send !focus absorb energy}
