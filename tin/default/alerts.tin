@@ -22,6 +22,7 @@
 
 #nop comment out/nop character for testing;
 #nop #list tells_blocklist add {$character};
+#list tells_blocklist add {antonio};
 #list tells_blocklist add {robert};
 #list tells_blocklist add {the vampire};
 #list tells_blocklist simplify;
@@ -113,7 +114,7 @@
 
 #alias alertsr { alerts_refresh }
 
-#alais cth {
+#alias cth {
   #send ctellhist;
 }
 

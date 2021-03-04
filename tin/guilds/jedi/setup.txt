@@ -1,6 +1,7 @@
 #nop run this with '#script {cat guilds/jedi/setup.txt}';
 
 alias ab focus absorb energy
+alias c focus clear mind
 alias cm focus cloud mind
 alias co focus confusion
 alias cp focus control pain
@@ -29,6 +30,7 @@ alias re focus reflex for
 alias ri focus reduce injury
 
 aset jedi_absorb himagenta
+aset jedi_c_m hiblue
 aset jedi_com higreen
 aset jedi_cpain hiblack
 aset jedi_confuse yellow

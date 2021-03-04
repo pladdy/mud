@@ -151,3 +151,9 @@
 #action {^%!{[> ]*}<< The Docks of Xaxis >> (n)} {
   #if {$map[current_room] == 31985} {#map goto 6335}
 }
+
+
+#action {^%!{[> ]*}You sweep your hand over one of the higher shelves and} {
+  #send !get gloves;
+  #send !keep gloves;
+}

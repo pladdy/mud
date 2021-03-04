@@ -1,7 +1,7 @@
 #alias _default_wimpy_commands {
   #showme <110>Wimpy firing!;
   #send !hp;
-  #send !wake $character;
+  sound_beeps;
   #if {"$stepper" == "on"} {stepper off};
 }
 
@@ -35,5 +35,3 @@
 
   wimpy_commands;
 }
-
-

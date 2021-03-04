@@ -5,6 +5,10 @@
   #send !hp;
   #send !i;
   #delay 3 alerts_refresh;
+
+  #if {"$ETERNALS" == "true"} {
+    #textin tin/default/eternals.txt;
+  };
 }
 
 #action {^Your character is currently logged in and } {

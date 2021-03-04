@@ -114,7 +114,15 @@
   reload_map;
 }
 
+#alias wemud {
+  #system {open https://wemudtogether.com/};
+}
+
 #alias wield {
   #var {wielded_weapon} {%0};
   #send !wield %0;
+}
+
+#alias wiki {
+  #system {open http://wiki.maybeits.us/index.php/};
 }

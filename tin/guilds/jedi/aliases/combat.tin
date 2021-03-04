@@ -15,8 +15,10 @@
 
 #alias drl {
   #send !focus force trance /off;
+  #send !unwield $wielded_weapon;
 
   #send !sheath;
+  #send !remove shield;
   #send !draw lightsaber;
   #send !activate lightsaber;
   #send !focus mode /guide;
@@ -63,7 +65,9 @@
 }
 
 #alias h2h {
+  #send !unwield $wielded_weapon;
   #send !remove armour;
+  #send !wear shield;
   #send !h2h;
 }
 
@@ -75,6 +79,13 @@
 #alias imp_si {
   #local MIN_SP 100;
   #send !focus impulse for si at $MIN_SP;
+}
+
+#alias wield {
+  #send !sheath;
+  #send !wield %0;
+  #send !focus melee;
+  #send !wear shield;
 }
 
 #alias wimpy_commands {

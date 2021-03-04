@@ -1,5 +1,4 @@
 #alias fallback_method {
-  #send !remove armour;
   h2h;
 }
 
