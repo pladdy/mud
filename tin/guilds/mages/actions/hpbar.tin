@@ -44,7 +44,7 @@
   #regex {$dspells} { MG} {#nop} {#send !cast major globe};
   #regex {$dspells} { MS} {#nop} {#send !cast magnificent shield};
   #regex {$dspells} { B}  {#nop} {#send !cast blink};
-  #nop #regex {$dspells} { PA} {#nop} {#send !cast prismatic aura};
+  #regex {$dspells} { PA} {#nop} {#send !cast prismatic aura};
 
   #regex {$dspells} { A} {#nop} {#send !cast armor};
   #regex {$dspells} { *I} {#var immersed true} {#var immersed false};

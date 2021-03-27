@@ -31,7 +31,7 @@
 
   #nop TODO: handle ammo parsing and reload better...;
   #regexp {$jugger_ammo} {{\d+}} {#var jugger_mounts[0] &1};
-  #regexp {$jugger_ammo} {{\d+}/{\d+}} {#var jugger_mounts[1] &2};
+  #regexp {$jugger_ammo} {{\d+}/{\d+}} {#var jugger_mounts[1] &2} {#var jugger_mounts[1] 101};
 
   #if {$jugger_mounts[0] < 100} {rammo 4 1};
   #if {$jugger_mounts[1] < 100} {rammo 4 2};

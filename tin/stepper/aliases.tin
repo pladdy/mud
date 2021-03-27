@@ -142,7 +142,7 @@
     #ticker {$ticker_name} {
       log.warn No input received in a while.  Disabling stepper.;
       stepper off;
-      f2;
+      dtrig f2;
     } {$TTL};
   };
   #else {

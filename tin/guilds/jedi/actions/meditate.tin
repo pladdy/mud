@@ -21,5 +21,7 @@
 }
 
 #action {^%!{[> ]*}Your meditation has cleared your thoughts and strengthened your$} {
-  #send !focus hibernation trance;
+  #if {$gp2 < $gp2_max} {
+    #send !focus hibernation trance;
+  }
 }

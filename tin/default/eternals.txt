@@ -2,7 +2,7 @@ alias ecom eternal chat main
 
 alias ecs (cstats
 alias ehp (hp
-alias enfo (enfo
+alias enfo (info
 alias es (gs
 alias es2 (gs2
 alias es3 (train

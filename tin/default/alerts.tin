@@ -25,6 +25,7 @@
 #list tells_blocklist add {antonio};
 #list tells_blocklist add {robert};
 #list tells_blocklist add {the vampire};
+#list tells_blocklist add {vilgan};
 #list tells_blocklist simplify;
 
 #function format_says {
@@ -47,7 +48,7 @@
   };
 }
 
-#action {^%!{[> ]*}%1 says: %2} {
+#action {^%!{[> ]*}{[A-Za-z]+} says: %2} {
   #var alerts[says][%1][name] %1;
   #var alerts[says][%1][last] %2;
   #math alerts[says][%1][count] {$alerts[says][%1][count] + 1};
@@ -59,7 +60,7 @@
   } {5};
 }
 
-#action {^%!{[> ]*}%1 tells you: %2} {
+#action {^%!{[> ]*}{[A-Za-z]+} tells you: %2} {
   #var send_alert {true};
 
   #foreach $tells_blocklist blocked {

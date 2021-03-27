@@ -33,6 +33,10 @@
   #loop 2 12 i {#send !sell all from bag $i};
 }
 
+#alias forums {
+  #system {open https://forums.3k.org/};
+}
+
 #nop HighMortal powers;
 
 #alias hms {
