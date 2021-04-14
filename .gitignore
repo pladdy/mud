@@ -1,6 +1,6 @@
 .DS_Store
 *.swp
-3kingdoms.dbm
+notes/cmud_db.dbm
 tmux*.log
 
 profiles/*.tin
