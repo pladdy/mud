@@ -1,4 +1,4 @@
-#action {^%!{[> ]*}H: %1/%2 S: %3/%4(%5%) Ge: %6% S|C: %7%|%8% G|M: %9|%10(%11)} {
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4(%5%) Ge: %6% S|C: %7%|%8% G|M: %9|%10(%11%) Sc: %12(%13%)} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -15,11 +15,16 @@
 
   #var golems %9;
   #var mystic_immersions %10;
+  #var guild_reset %11;
+  #var school_spells %12;
+  #var school_reset %13;
 
-  saturation_check;
-  concentration_check;
   attempt_mystic_immersion;
-  stepper_check;
+  attempt_explosive_release
+
+  check_saturation;
+  check_concentration;
+  check_stepper;
 }
 
 #action {^%!{[> ]*}Gx: %1% P:%2 St:%3 Mon(%4):%5} {

@@ -7,3 +7,6 @@ alias es (gs
 alias es2 (gs2
 alias es3 (train
 alias es4 (powers
+
+aset eternal_ansi yellow
+aset eternal_main higreen

@@ -1,11 +1,11 @@
 #alias =call {
-  !=call;
-  !=afollow on;
+  #send =call;
+  #send =afollow on;
 }
 
 #alias =send {
-  !=afollow off;
-  !=send;
+  #send =afollow off;
+  #send =send;
 }
 
 #alias commands_after_corpse {

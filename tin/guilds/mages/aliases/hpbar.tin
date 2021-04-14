@@ -1,23 +1,38 @@
+#alias attempt_explosive_release {
+  #if {"$immersed" == "false"
+       && $gp1 < 25
+       && $school_spells > 0
+       && $school_reset > 50
+  } {#send er};
+}
+
+#nop MIs reset every 600 rounds (20 min);
+#nop MIs last 90 rounds (3 min);
+
 #alias attempt_mystic_immersion {
   #if {"$stepper" == "on"
        && "$immersed" == "false"
        && $mystic_immersions > 0
-       && $sp < 500} {
-    mim;
-  };
+       && $sp < 600
+  } {mim};
+  #elseif {
+    $guild_reset > 84
+    && $mystic_immersions > 0
+    && "$immersed" == "false"
+  } {mim};
 }
 
 #alias attempt_slow {
   #if {$enemy > 0 && $slowed != 1} {#send !cast slow};
 }
 
-#alias concentration_check {
+#alias check_concentration {
   #nop when hpbar processes gp vars, it 'flips' them;
   #if {$gp2 <= 30} {#showme <110>CONCENTRATION IS HIGH!!!};
   #if {$gp2 <= 20} {#send !shoo};
 }
 
-#alias saturation_check {
+#alias check_saturation {
   #nop when hpbar processes gp vars, it 'flips' them;
   #if {$gp1 <= 10} {#showme <110>SATURATION IS HIGH!!!};
 
@@ -28,7 +43,7 @@
   };
 }
 
-#alias stepper_check {
+#alias check_stepper {
   #if {"$stepper" == "on"} {
     #if {($corpses == 0 && $spell_taps < 2) || $sp < 350} {
       stepper off;
