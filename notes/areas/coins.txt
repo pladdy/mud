@@ -3,3 +3,5 @@ Coins:
   alythra
   ultimate_tournament | ut_mow
   west_slum or slum_cleanup, say slum cleanup, run west_slum
+  underdark, go to bottom of maze, hit abyss
+

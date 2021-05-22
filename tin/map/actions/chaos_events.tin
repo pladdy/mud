@@ -48,6 +48,55 @@
   #map goto 12492;
 }
 
+#nop Kyoto;
+
+#alias kyoto_dirs {
+  log.debug 'kyoto_dirs' called with %1;
+
+  #switch {"%1"} {
+    #case "face_west" {
+      log.info Facing west in Kyoto.;
+      #alias w {#send forward; #map move w};
+      #alias n {#send right; #map move n; kyoto_dirs face_north};
+      #alias s {#send left; #map move s; kyoto_dirs face_south};
+      #alias e {#send backward; #map move e; kyoto_dirs face_east};
+    };
+    #case "face_east" {
+      log.info Facing east in Kyoto.;
+      #alias w {#send backward; #map move w; kyoto_dirs face_west};
+      #alias n {#send left; #map move n; kyoto_dirs face_north};
+      #alias s {#send right; #map move s; kyoto_dirs face_south};
+      #alias e {#send forward; #map move e};
+    };
+    #case "face_north" {
+      log.info Facing north in Kyoto.;
+      #alias w {#send left; #map move w; kyoto_dirs face_west};
+      #alias n {#send forward; #map move n};
+      #alias s {#send backward; #map move s; kyoto_dirs face_south};
+      #alias e {#send right; #map move e; kyoto_dirs face_east};
+    };
+    #case "face_south" {
+      log.info Facing south in Kyoto.;
+      #alias w {#send right; #map move w; kyoto_dirs face_west};
+      #alias n {#send backward; #map move n; kyoto_dirs face_north};
+      #alias s {#send forward; #map move s};
+      #alias e {#send left; #map move e; kyoto_dirs face_east};
+    };
+    #default {
+      log.info Removing kyoto direction aliases.;
+      #unalias w;
+      #unalias n;
+      #unalias s;
+      #unalias e;
+    }
+  }
+}
+
+#action {^A Poorly-lit Street} {
+  #nop #map goto 32481;
+  #nop kyoto_dirs face_west;
+}
+
 #nop Midgard;
 
 #action {^As you read the runes, you being to feel yourself being pulled$} {
