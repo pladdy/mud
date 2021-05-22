@@ -1,9 +1,0 @@
-#alias linkdie_commands {#nop;}
-#alias login_commands {#nop;}
-#alias relog_commands {#nop;}
-
-#alias quit {
-  #var quit true;
-  #send !quit;
-  #gts #var quit true;
-}

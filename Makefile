@@ -1,5 +1,7 @@
 .PHONY: install new-tag tag tags
 
+TINTIN_VERSION = 2.02.11
+
 last_version = $(shell git tag --sort=-v:refname | head -n 1)
 version_list = $(subst ., ,$(last_version))
 major = $(firstword $(version_list))
@@ -38,6 +40,11 @@ release:
 
 tags:
 	@git tag --sort=-v:refname
+
+tintin:
+	wget https://downloads.sf.net/tintin/tintin-$(TINTIN_VERSION).tar.gz
+	tar -zxvf tintin-$(TINTIN_VERSION).tar.gz
+	cd tt/src && ./configure && make install
 
 test:
 	bin/tests/monster_name_test

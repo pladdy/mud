@@ -1,14 +1,31 @@
 #nop Map is loaded based on successful login.
 
+#alias linkdie_commands {#nop;}
+#alias login_commands {#nop;}
+#alias relog_commands {#nop;}
+
 #alias _login_commands {
   gag on;
   #send !hp;
   #send !i;
-  #delay 3 alerts_refresh;
+  #delay 2 alerts_refresh;
 
   #if {"$ETERNALS" == "true"} {
     #textin tin/default/eternals.txt;
   };
+}
+
+#alias login {
+  #local domain 3k.org;
+  #local ip 75.75.210.82;
+
+  #session 3k $ip 3000;$character
+}
+
+#alias quit {
+  #var quit true;
+  #send !quit;
+  #gts #var quit true;
 }
 
 #action {^Your character is currently logged in and } {
@@ -32,7 +49,7 @@
   #nop if not quitting, try to relog;
 
   #if {"$quit" != "true"} {
-    #delay 1 {#session 3k 3k.org 3000;$character};
+    #delay 1 {login};
   };
   #else {
     #delay 1 #end;

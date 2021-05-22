@@ -36,13 +36,7 @@ install_on_mac() {
   fi
 
   echo "Installing tintin..."
-  # brew install tintin
-  # brew link --overwrite tintin
-  version=2.02.10
-  wget https://downloads.sf.net/tintin/tintin-$version.tar.gz
-  tar -zxvf tintin-$version.tar.gz
-  cd tt/src
-  ./configure
+  make tintin
   make install
 }
 
