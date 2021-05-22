@@ -1,4 +1,4 @@
-#action {^HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 G: %9} {
+#action {^%!{[> ]*}HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 G: %9} {
   #var gxp {%9};
   #replace {gxp} {%} {};
 
@@ -16,9 +16,11 @@
   };
 }
 
-#action {^{(> )*}You divine strike {.+} {high|low} and {inside|outside}.} {
-  #local first_letter @first_letter{%4};
-  #local second_letter @first_letter{%5};
+#action {^%!{[> ]*}You divine strike {.+} {high|low} and {inside|outside}.} {
+  log.debug Divine strike: %1, %2, %3;
+
+  #local first_letter @first_letter{%2};
+  #local second_letter @first_letter{%3};
 
   #nop a divine strike consumes half the advantage in the area;
   #math {advantages[$first_letter$second_letter]} {
@@ -28,11 +30,11 @@
   #var circle {true};
 }
 
-#action {^{(> )*}Your %1 presage at %2 misses.$} {
+#action {^%!{[> ]*}Your %1 presage at %2 misses.$} {
   attempt_disengage;
 };
 
-#action {^{(> )*}You presage {.+} {high|low} and {inside|outside}.} {
+#action {^%!{[> ]*}You presage {.+} {high|low} and {inside|outside}.} {
   #local first_letter @first_letter{%4};
   #local second_letter @first_letter{%5};
 

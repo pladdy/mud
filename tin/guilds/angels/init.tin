@@ -6,6 +6,7 @@
 #var use_circle {true};
 #var use_disengage {false};
 #var use_disperse {true};
+#var use_engage {true};
 #var use_presage {true};
 #var use_providence {false};
 #var use_renewed_light {false};
@@ -22,5 +23,3 @@
 #var providence_at {70};
 #var retribution_at {2};
 #var swing_at {80};
-
-

@@ -45,9 +45,9 @@
 
 #alias check_stepper {
   #if {"$stepper" == "on"} {
-    #if {($corpses == 0 && $spell_taps < 2) || $sp < 350} {
+    #if {($corpses == 0 && $mystic_immersions < 2) || $sp < 350} {
       stepper off;
-      f2;
+      dtrig f2;
     };
   };
 }

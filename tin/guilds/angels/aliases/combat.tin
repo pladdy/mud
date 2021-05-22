@@ -72,10 +72,9 @@
 
 #alias swing_at {
   #if {@length{%1} > 0} {
-    #showme <170>Setting to %1;
+    log.info Setting swing to %1% advantage.;
     #var swing_at %1;
   } {
-    #showme <170>Current setting: $swing_at%.;
+    log.info Swinging at $swing_at% advantage.;
   }
 }
-

@@ -1,16 +1,16 @@
-#action {^You are too exhausted!$} {
+#action {^%!{[> ]*}You are too exhausted!$} {
   #if {$corpses > 0} {reri};
 }
 
-#action {^You have no where to retreat!$} {
+#action {^%!{[> ]*}You have no where to retreat!$} {
   #var {can_disengage} {false};
 }
 
-#action {^You don't have that many time slices available.$} {
+#action {^%!{[> ]*}You don't have that many time slices available.$} {
   attempt_circle;
 }
 
-#action {^Not enough time slices to %1!$} {
+#action {^%!{[> ]*}Not enough time slices to %1!$} {
   attempt_circle;
 }
 
@@ -19,23 +19,23 @@
 
 #var {awe_length} {4};
 
-#action {^Your %1 awe stuns %2!$} {
+#action {^%!{[> ]*}Your %1 awe stuns %2!$} {
   #var {awed} {true};
   #delay {$awe_length} {#var {awed} {false};};
 }
 
-#action {^You parry %1 attack.$} {
+#action {^%!{[> ]*}You parry %1 attack.$} {
   #var parried true;
   decrement_ts 1;
   attempt_traverse;
 }
 
-#action {^You void %1 attack.$} {decrement_ts 1}
+#action {^%!{[> ]*}You void %1 attack.$} {decrement_ts 1}
 
-#action {^You block %1 attack.$} {decrement_ts 1}
+#action {^%!{[> ]*}You block %1 attack.$} {decrement_ts 1}
 
-#action {^You fail to block %1 attack!$} {decrement_ts 1}
+#action {^%!{[> ]*}You fail to block %1 attack!$} {decrement_ts 1}
 
-#action {^You fail to parry %1 attack!$} {decrement_ts 1}
+#action {^%!{[> ]*}You fail to parry %1 attack!$} {decrement_ts 1}
 
-#action {^You fail to void %1 attack!$} {decrement_ts 1}
+#action {^%!{[> ]*}You fail to void %1 attack!$} {decrement_ts 1}

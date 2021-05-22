@@ -1,7 +1,6 @@
-#action {^You feel ready to train %1.$} {
+#action {^%!{[> ]*}You feel ready to train %1.$} {
   #list angel_train add {%1};
 }
 
-#action {^Your talisman grows warm.$} {
-  #10 hold talisman;
-}
+#nop This if for working on alignment;
+#action {^%!{[> ]*}Your talisman grows warm.$} {#10 hold talisman}

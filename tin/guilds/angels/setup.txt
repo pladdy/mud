@@ -1,4 +1,5 @@
 alias bo battle overview
+alias com achat
 alias ds divine strike
 alias gwho angels
 alias h radiance

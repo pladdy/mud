@@ -48,3 +48,8 @@
   #send !unwrap;
   #send !fdeener;
 }
+
+#alias set_afk {
+  log.info Setting afk for juggers to get an 'airdrop';
+  #send !afk Juggers, if you need an airdrop: 'high5' me;
+}

@@ -44,7 +44,7 @@
 }
 
 #alias train {
+  #map run angels_train;
   #send !train %0;
   #unvar angel_train;
 }
-

@@ -1,5 +1,1 @@
-#delay {4} {
-  #showme <170>Setting afk for juggers to get an 'airdrop';
-  #send !afk Juggers, if you need an airdrop: 'high5' me;
-  #break;
-}
+#delay {4} {set_afk}
