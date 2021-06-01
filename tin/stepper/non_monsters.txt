@@ -10,12 +10,7 @@ storm servant|cloud elemental|aerial servant
 %+, %+'s %+ nag
 %*shenanigans
 %+ shetland pony
-%+ the skeleton
-%+ the zombie
-%+ the ghoul
-%+ the ghast
-%+ the wight
-mohrg|grimare|quarin|bayen|valithyn|tholen|heucuva|greesh|bolwyn|manshi|valpur
+the (skeleton|zombie|ghoul|valpur|ghast|manshi|bolwyn|greesh|wight|heucuva|tholen|bayen|quarin|mohrg|grimare|valithyn)
 %+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling

@@ -1,4 +1,7 @@
-#var MAX_NECRO_CORPSES 5;
+#alias ani {
+  #send !qtrance follower;
+  #send !=name mojo;
+}
 
 #alias attempt_call {
   #if {$enemy > 0 && "$familiar_called" != "true"} {
@@ -11,7 +14,7 @@
   #math gp1p {($gp1 * 1.00) / ($gp1_max * 1.00)};
   #math spp {($sp * 1.00) / ($sp_max * 1.00)};
 
-  #if {$enemy > 0 && "$can_dart" != "false" && $gp1p > $spp} {cd};
+  #if {$enemy > 0 && "$can_dart" == "true" && $gp1p > $spp} {cd};
 
   #unvar gp1p;
   #unvar spp;
@@ -26,7 +29,7 @@
 }
 
 #alias attempt_preserve {
-  #if {$ncorpses < $MAX_NECRO_CORPSES && $corpses >0} {
+  #if {$ncorpses < $MAX_NECRO_CORPSES && $corpses > 0} {
     repr;
   };
 }
@@ -46,11 +49,11 @@
 
 #alias f12 {
   #if {$map[current_room] == 26817} {
-    #loop 2 12 i {
+    #loop 2 $BAGS_TO_USE i {
       #send !donate all from bag $i;
     };
   } {
-    #loop 1 12 i {
+    #loop 1 $BAGS_TO_USE i {
       #send !sell all from bag $i;
     };
   };
@@ -61,8 +64,20 @@
   #send !ab;
 }
 
+#alias reabf {
+  #send !unwrap smallest;
+  #send !freeze;
+  #send !ab;
+}
+
 #alias reabb {
   #send !unwrap smallest;
+  #send !abb;
+}
+
+#alias reabbf {
+  #send !unwrap smallest;
+  #send !freeze;
   #send !abb;
 }
 
@@ -73,5 +88,7 @@
 
 #alias use_corpse {
   #if {$ncorpses < $MAX_NECRO_CORPSES} {p};
-  #else {#send !ab};
+  #else {
+    #send !ab;
+  };
 }

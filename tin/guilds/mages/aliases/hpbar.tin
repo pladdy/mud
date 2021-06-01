@@ -45,9 +45,13 @@
 
 #alias check_stepper {
   #if {"$stepper" == "on"} {
-    #if {($corpses == 0 && $mystic_immersions < 2) || $sp < 350} {
+    #if {($corpses == 0 && $mystic_immersions < 1) || $sp < 400} {
       stepper off;
       dtrig f2;
     };
   };
+}
+
+#alias slowed {
+  #var slowed 1;
 }

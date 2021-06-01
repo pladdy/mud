@@ -4,5 +4,17 @@ gore 10
 highlight 3
 
 hpbar insert 20 above 5
+hpbar insert 14 above 4
+hpbar insert 15 above 8
 
+alias ab absorb
+alias abb absorb prime
+alias ani qtrance follower
+alias da donate all
+alias gfc qtrance =give corpse/keep corpse
 alias ng necrogram
+alias om omega
+alias p qtrance preserve get/keep corpse
+alias pfc qtrance unkeep corpse/give corpse to mojo
+alias pro qtrance protection/con 100
+alias t teleport
