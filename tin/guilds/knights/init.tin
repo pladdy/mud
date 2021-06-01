@@ -2,3 +2,16 @@ panic staunch/95%/0
 react at 1500 hp with staunch
 doaction @staunch
 repeat combat/staunch/0/1
+
+#list tells_blocklist add {arvin};
+#list tells_blocklist add {dame camilla bedwere};
+#list tells_blocklist add {dame zara diones};
+#list tells_blocklist add {gabriella};
+#list tells_blocklist add {klvorn};
+#list tells_blocklist add {mia jas};
+#list tells_blocklist add {vokorin};
+#list tells_blocklist add {sir arruns thelton};
+#list tells_blocklist add {sir elgar rayne};
+#list tells_blocklist add {sir fors belerent};
+#list tells_blocklist add {sir rea};
+#list tells_blocklist add {tauron};

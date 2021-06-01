@@ -20,8 +20,6 @@
 #class default close;
 #unvar default_tin_files;
 
-#nop Set up notes class;
-
 #showme Setting up stepper class;
 
 #class stepper kill;
@@ -40,7 +38,7 @@ read_tin_files tin/stepper
   #class $guild close;
 };
 
-/* Set up notes class */
+#nop Set up notes class;
 
 #class notes kill;
 #class notes open;

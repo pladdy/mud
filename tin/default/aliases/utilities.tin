@@ -29,6 +29,8 @@
 
 #alias bootrun {fcat notes/bootrun.txt}
 
+#alias cofs {#send !cofscore};
+
 #alias f12 {
   #loop 2 12 i {#send !sell all from bag $i};
 }

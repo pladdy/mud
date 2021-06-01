@@ -1,0 +1,7 @@
+#var necro_familiar {pogo};
+#var MAX_NECRO_CORPSES 3;
+
+#nop update tells blocklist used by alerts.tin;
+#list tells_blocklist add {$necro_familiar};
+#list tells_blocklist add {lynda};
+#list tells_blocklist add {talia};

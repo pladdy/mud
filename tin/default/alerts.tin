@@ -4,22 +4,6 @@
 #nop create tell blocklist;
 #list tells_blocklist clear;
 
-#nop knights NPCs;
-#if {"$guild" == "knights"} {
-  #list tells_blocklist add {arvin};
-  #list tells_blocklist add {dame camilla bedwere};
-  #list tells_blocklist add {dame zara diones};
-  #list tells_blocklist add {gabriella};
-  #list tells_blocklist add {klvorn};
-  #list tells_blocklist add {mia jas};
-  #list tells_blocklist add {vokorin};
-  #list tells_blocklist add {sir arruns thelton};
-  #list tells_blocklist add {sir elgar rayne};
-  #list tells_blocklist add {sir fors belerent};
-  #list tells_blocklist add {sir rea};
-  #list tells_blocklist add {tauron};
-};
-
 #nop comment out/nop character for testing;
 #nop #list tells_blocklist add {$character};
 #list tells_blocklist add {antonio};
