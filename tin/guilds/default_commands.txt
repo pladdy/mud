@@ -1,0 +1,8 @@
+run cot
+e
+u
+modify TELLSELF 1
+
+run houses
+acquire keyring
+run cot

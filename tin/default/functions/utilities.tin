@@ -34,3 +34,24 @@
   #unvar arg;
   #return $result;
 }
+
+#nop  Estimate how many rounds of combat are left;
+#nop  Expects var rounds_in_combat to be tracked by guild implementation;
+#nop  Expects var enemy to be an int or float;
+#function combat_rounds_left {
+  #var result {};
+
+  #if {$rounds_in_combat > 0} {
+    #math {damage_left} {$enemy};
+    #math {damage_so_far} {100.0 - $enemy};
+    #math {average_dmg} {$damage_so_far / $rounds_in_combat};
+
+    #if {$average_dmg > 0} {
+      #math {rounds_left} {$damage_left / $average_dmg}
+    };
+    #var result $rounds_left;
+  };
+  #else {#var result 0};
+
+  #return $result;
+}

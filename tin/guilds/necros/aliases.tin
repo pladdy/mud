@@ -30,8 +30,13 @@
 
 #alias attempt_preserve {
   #if {$ncorpses < $MAX_NECRO_CORPSES && $corpses > 0} {
-    repr;
+    rep;
   };
+  #elseif {$ncorpses < $MAX_NECRO_CORPSES && $corpses == 0 && $follower_corpses > 0} {
+    #send !=give corpse;
+    #send !keep corpse;
+  }
+
 }
 
 #alias attempt_protection {
@@ -81,7 +86,7 @@
   #send !abb;
 }
 
-#alias repr {
+#alias rep {
   #send !unwrap smallest;
   #send !p;
 }

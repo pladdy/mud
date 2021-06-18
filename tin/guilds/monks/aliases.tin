@@ -33,7 +33,7 @@
 
 #alias attempt_focus {
   #nop mind drops to 'clear' at 180;
-  #local MIN_MIND 201;
+  #local MIN_MIND 250;
   #local FOCUS_AMOUNT 10;
 
   #if {$enemy > 0 && $gp2 < $MIN_MIND && $focus > 0} {
@@ -133,5 +133,3 @@
 #alias wimpy_commands {
   #delay 2 {#send !meditate;}
 }
-
-

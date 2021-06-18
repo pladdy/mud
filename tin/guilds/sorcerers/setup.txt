@@ -1,0 +1,18 @@
+aset sorc_fail hired
+aset sorc_spell himagenta
+aset sorcerer_main higreen
+
+alias bc cast bonechill
+alias bf cast barrier of fire
+alias bi cast barrier of ice
+alias com gline main
+alias cs cstats
+alias fb cast frostbite
+alias fc cast frozen grasp corpse
+alias fg cast frozen grasp
+alias fi cast firefly
+alias gf cast fire golem
+alias gi cast ice golem
+alias gs3 train
+alias py cast pyrophobia
+alias sp spells

@@ -1,0 +1,62 @@
+#alias attempt_barrier_of_ice {
+  #if {"$use_barrier_of_ice" == "true"
+       && $gp1 > 175
+       && $enemy >= 0
+       && $spells[barrier_ice] < 10} {
+    #send !cast barrier of ice
+  };
+}
+
+#alias attempt_barrier_of_fire {
+  #if {"$use_barrier_of_fire" == "true"
+       && $gp1 > 450
+       && $enemy >= 0
+       && $spells[barrier_fire] < 3} {
+    #send !cast barrier of fire
+  };
+}
+
+#alias attempt_ice_golem {
+  #if {"$use_ice_golem" == "true"
+       && $gp1 > 750
+       && @combat_rounds_left{} > 15
+       && $spells[golem] == 0
+       && $spells[frostbite] > 0} {
+    #send !cast ice golem
+  };
+}
+
+#alias attempt_frostbite {
+  #if {"$use_frostbite" == "true"
+       && $gp1 > 650
+       && @combat_rounds_left{} > 12
+       && $spells[frostbite] == 0
+       && $spells[molten_shower] == 0} {
+    #send !cast frostbite
+  };
+}
+
+#alias attempt_molten_shower {
+  #if {"$use_molten_shower" == "true"
+       && $gp1 > 900
+       && @combat_rounds_left{} > 12
+       && $spells[golem] > 0
+       && $spells[frostbite] <= 3
+       && $spells[molten_shower] == 0} {
+    #send !cast molten shower
+  };
+}
+
+#alias commands_before_corpse {
+  #var rounds_in_combat 0;
+}
+
+#alias f10 {
+  use_corpse;
+  #send !f;
+}
+
+#alias use_corpse {
+  #if {"$have_spoon" == "true"} {#send !eat corpse};
+  #else {#send !frozen grasp corpse};
+}

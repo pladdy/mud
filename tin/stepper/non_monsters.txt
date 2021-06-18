@@ -39,3 +39,4 @@ an? (manes|orc|giant rat|goblin|kobold|hobgoblin)
 an? (lemure|gnoll|(giant (centipede|toad))|ugly troglodyte|stirge)
 an? (large ogre|smelly bugbear|rotting ghoul|wererat|((huge|large) spider)|giant (lizard|weasel|tick|boring beetle))
 an? (dark shadow|stony gargoyle|froth-mouthed hell hound|carnivorous ape|poisonous toad|large ice toad|giant constrictive snake|disfigured werewolf|5-headed hydra|huge owlbear)
+'s ice golem

@@ -37,6 +37,9 @@ mset pressure hiblack
 mset stun yellow
 mset palm himagenta
 mset isn hiblack
-mset blur hiblue
+mset blur flash+hiblue
 mset crit hired
 mset throw brown
+
+repeat combat/hands
+panic hands/85%/3

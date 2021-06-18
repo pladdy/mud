@@ -8,20 +8,13 @@
 }
 
 #alias attempt_trap_soul {
-  #math {damage_left} {$enemy};
-  #math {damage_so_far} {100.0 - $enemy};
-
-  #if {$damage_left > 0} {
-    #math {average_dmg} {$damage_so_far / $rounds_in_combat};
-    #math {rounds_left} {$damage_left / $average_dmg};
-    #if {$rounds_left < 2.0 &&
-         $gp1 > 75 &&
-         "$trap_souls" == "yes" &&
-         "$trapping_soul" != "true"} {
-      #send !ts;
-      #nop try to store gem in vortex, keep gem in case it can't be stored;
-      btrig put gem in vortex;
-    };
+  #if {@combat_rounds_left{} < 2.0 &&
+       $gp1 > 75 &&
+       "$trap_souls" == "yes" &&
+       "$trapping_soul" != "true"} {
+    #send !ts;
+    #nop try to store gem in vortex, keep gem in case it can't be stored;
+    btrig put gem in vortex;
   };
 }
 

@@ -6,22 +6,23 @@
 
 reload_map
 
-/* Backup map on startup */
-
+#nop  Backup map on start;
 #system cp $map_path $map_dir/backup_map.txt;
 
 #map read $map_path;
 map_lock;
 
-/* Go to last known room if possible */
+#nop  Go to last known room if possible;
 #read last_session.tin;
 
-/*
-  When status bar is not delayed, the prompt will do a carriage return every mud prompt
-  If the status bar is refreshed, the behavior goes away.
-*/
+#nop  When status bar is not delayed, the prompt will do a carriage return;
+#nop  every mud prompt.  If status bar is refreshed, the behavior goes away.;
+#nop  Or not...this behavior changed in tt++ 2.02.11;
+
+#nop status_bar on;
+#nop hp;
 status_bar on;
-#delay 1 {status_bar on;}
+#delay 0.5 {hp};
 
 #regexp {$map[current_room]} {{[0-9]+}} {#map goto $map[current_room]}
                                         {#map goto home};

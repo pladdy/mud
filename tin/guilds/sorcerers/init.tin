@@ -1,0 +1,5 @@
+#var use_barrier_of_fire true;
+#var use_barrier_of_ice true;
+#var use_frostbite true;
+#var use_ice_golem true;
+#var use_molton_shower true;

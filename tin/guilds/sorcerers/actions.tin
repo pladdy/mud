@@ -1,0 +1,80 @@
+#nop  Out of combat;
+#action {^%!{[> ]*}HP: %1/%2  Fettle: %3/%4  G2L: {\d+}{[BI\d:\s]*}} {
+  #var hp {%1};
+  #var hp_max {%2};
+
+  #var sp {100};
+  #var sp_max {100};
+
+  #var gp1 {%3};
+  #var gp1_max {%4};
+
+  #var gp2 {100};
+  #var gp2_max {100};
+
+  #var gxp %5;
+  #var effects %6;
+  handle_effects;
+
+  #var enemy 0;
+  show_status_bar;
+}
+
+#nop  In combat;
+#action {^%!{[> ]*}HP: %1/%2  Fettle: %3/%4  G2L: {\d+}{.+}T:%7%} {
+  #var hp {%1};
+  #var hp_max {%2};
+
+  #var sp {100};
+  #var sp_max {100};
+
+  #var gp1 {%3};
+  #var gp1_max {%4};
+
+  #var gp2 {100};
+  #var gp2_max {100};
+
+  #var gxp %5;
+  #var effects %6;
+  handle_effects;
+
+  #var enemy %7;
+  #math {rounds_in_combat} {$rounds_in_combat + 1};
+  log.debug Rounds left in combat: @combat_rounds_left{};
+
+  show_status_bar;
+  attempt_barrier_of_ice;
+  attempt_barrier_of_fire;
+  attempt_frostbite;
+  attempt_molten_shower;
+  attempt_ice_golem;
+}
+
+#action {^%!{[> ]*}You keep *A plastic ice kream spoon.$} {
+  #var have_spoon true;
+}
+
+#action {^%!{[> ]*}1 *A plastic ice kream spoon.} {
+  #var have_spoon true;
+}
+
+#action {^%!{[> ]*}Your barrier of fire has expired.$} {
+  attempt_barrier_of_fire;
+}
+
+#action {^%!{[> ]*}Your barrier of ice has shattered!$} {
+  attempt_barrier_of_ice;
+}
+
+#alias handle_effects {
+  #regexp {$effects} {BF: %d} {#var spells[barrier_fire] &1}
+                              {#var spells[barrier_fire] 0};
+  #regexp {$effects} {BI: %d} {#var spells[barrier_ice] &1}
+                              {#var spells[barrier_ice] 0};
+  #regexp {$effects} {FBT: %d} {#var spells[frostbite] &1}
+                               {#var spells[frostbite] 0};
+  #regexp {$effects} {MOL: %d} {#var spells[molten_shower] &1}
+                               {#var spells[molten_shower] 0};
+  #regexp {$effects} {GOL: %d} {#var spells[golem] &1}
+                               {#var spells[golem] 0};
+}
