@@ -19,6 +19,10 @@
   #if {$map[current_room] == 21014} { #map goto 21013; }
 }
 
+#action {You are shot out of the launch tube!$} {
+  #if {$map[current_room] == 32716} {#map goto 32718}
+}
+
 #nop Brood Wars;
 
 #action {^A Starcraft Expansion Shuttle Bay (e)} {
@@ -133,5 +137,3 @@
 #action {^A Transporter Room (door,beam)} {
   #if {$map[current_room] == 24879} {#map goto 24880};
 }
-
-

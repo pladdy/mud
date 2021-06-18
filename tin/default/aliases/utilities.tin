@@ -32,7 +32,7 @@
 #alias cofs {#send !cofscore};
 
 #alias f12 {
-  #loop 2 12 i {#send !sell all from bag $i};
+  #loop 2 $BAGS_TO_USE i {#send !sell all from bag $i};
 }
 
 #alias forums {

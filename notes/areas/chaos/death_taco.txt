@@ -7,20 +7,20 @@ This file documents the different classes of mobs and overall area info.
 For specific data on mobs, check notes/mobs/<mob>.txt (if it exists).
 
 scaler classes:
-mob,         45 class, 49 class, 70 class, 73 class, 91 class
-shell,       63k,      75k,      330k,     416k,     1M,
-lettuce,     68k,      82k,      380k,     338k,     800k,
-tomoatoes,   69k,      84k,      400k,     486k,     1.2M,
-cheese,      83k,      170k,     600k,     641k,     1.8M,
-meat,        ?,        ?,        600k,     688k,     1.6M,
-sour cream,  328k,     ?,        ?,        1.8M,     4.1M,
-guacomole,   259k,     ?,        ?,        1.6M,     3.8M,
-hot sauce,   449k      ?,        ?,        2.4M,     4.8M,
-veggie taco, ?,        ?,        800k,     ?
-cheesy taco, 208k,     335k,     1.2M,     1.4M,     3.2M,
-meat taco,   ?,        ?,        ?,        ?,        4.8M,
-works taco,  ?,        ?,        ?,        5.4M,
-death taco,  3.2M      ?,        ?,        16M
+mob,         45 class, 49 class, 60 class, 70 class, 73 class, 91 class
+shell,       63k,      75k,      179k      330k,     416k,     1M,
+lettuce,     68k,      82k,      205k      380k,     338k,     800k,
+tomatoes,    69k,      84k,      193k      400k,     486k,     1.2M,
+cheese,      83k,      170k,     330k      600k,     641k,     1.8M,
+meat,        ?,        ?,                  600k,     688k,     1.6M,
+sour cream,  328k,     ?,                  ?,        1.8M,     4.1M,
+guacomole,   259k,     ?,                  ?,        1.6M,     3.8M,
+hot sauce,   449k      ?,                  ?,        2.4M,     4.8M,
+veggie taco, ?,        ?,        500k      800k,     ?
+cheesy taco, 208k,     335k,               1.2M,     1.4M,     3.2M,
+meat taco,   ?,        ?,                  ?,        ?,        4.8M,
+works taco,  ?,        ?,                  ?,        5.4M,
+death taco,  3.2M      ?,                  ?,        16M
 
 Mob Specials:
   shells:     shell fragments special, bleed damage, no wimpy
@@ -34,13 +34,14 @@ Mob Specials:
 
 drop tiers
 - 1-49, 50-74, 75-90, 91+
-- stat boosts are all boot (indefinite)
+- stat boosts are all boot (indefinite)!
+- can build 2 death tacos per reset + a veggie taco (20 toppings)
 
 veggie taco (shell, lettuce, tomatoes)
-  A Cerveza      (, , refreshing, strong): +3 con, +4 con, 100% overmax sp x 3
-  A side of rice (moist, steaming):        50% overmap hp/sp
-  A veggie taco  (plain, crisp):           +3, +4 wis, overmax 100% hp per 'eat' x 3
-  A large pop:                             sp heals, can be refilled
+  A Cerveza      (, plain, refreshing, strong): +2, +3, +4 con; 50%, 75%, 100% overmax sp x 3
+  A side of rice (, dry, moist, steaming):      25%, 37%, 50% overmax hp/sp
+  A veggie taco  (,bland, plain, crisp):        +2, +3, +4 wis, overmax 100% hp per 'eat' x 3
+  A (medium,large) pop:                         sp heals, can be refilled
 
 cheesy taco (veggie + cheese)
   foil wrapper  (crinkled, tattered, smooth, shiny): mind  and radiation ac
@@ -50,10 +51,10 @@ cheesy taco (veggie + cheese)
   refried beans (tiny, , handful, brick):            blunt and poison ac
 
 meat taco (cheese + meat)
-  wet wipe         (tiny, , , giant): stops combat
-  Sliced jalapenos (limp, thick, ,):  +hp regen
-  Cinnamon twists  (stale, , , ):     throw for damage
-  Side of Beans    ( , , , ):         Room damage for short time
+  wet wipe         (tiny, , , giant):     stops combat
+  Sliced jalapenos (limp, thin, thick, ): +hp regen for duration
+  Cinnamon twists  (stale, , , ):         throw for damage, has charges/uses
+  Side of Beans    ( , bland, , ):        room damage for short time
 
 works taco (meat + cream, guacamole)
   - heals a lot

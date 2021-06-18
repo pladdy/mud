@@ -80,6 +80,7 @@
     #undelay mob_died_event;
   };
 
+
   #if {"$ktrig_status" == "on"} {
     #if { @length{$btrig} > 0 } {
       log.debug running btrig commands: $btrig;
@@ -87,19 +88,19 @@
       #var btrig {};
     };
 
+    commands_before_corpse;
+
     log.debug checking $last_killer against killers ($character|$summons|$my_dog|tree) that can use corpse;
     #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree}} {
-      commands_before_corpse;
-
       #send !glance;
       wrap_or_use_corpse;
       #if {"$party_status" == "yes"} {#send !divvy gold};
       #nop assumes an alias 'f' exists to 'get all';
       #send !f;
       #if {"$stepper" == "on"} {pba};
-
-      commands_after_corpse;
     };
+
+    commands_after_corpse;
 
     #if { @length{$dtrig} > 0 } {
       log.debug running dtrig commands: $btrig;
