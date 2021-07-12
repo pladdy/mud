@@ -33,6 +33,7 @@ alias di cast disintegrate
 alias dis cast dispel magic
 alias disj cast disjunction on
 alias dp cast deeppockets
+alias ecom emage
 alias ed cast energy drain
 alias esp cast esp
 alias ex cast extension 3
