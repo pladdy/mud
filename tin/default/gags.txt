@@ -1,7 +1,6 @@
 There is no money here to share!
 There are no bag %ds here!
 There is no reason to 'divvy' here.
-Zelligar's Headband warms you with a radiant glow.
 The sword drains some of your life energy as you attack!
 reduces your attack with his intrinsic preservation proxy.
 mostly evades your attack with his intrinsic preservation proxy.
@@ -10,3 +9,6 @@ Bonehead, you're at max hit points already.
 Your skin tingles as the guacamole treatment protects you!
 Your skin feels smooth as the guacamole treatment protects you!
 Your skin is moderately protected by the guacamole treatment!
+Zelligar's Headband warms you with a radiant glow.
+resists the hypnotizing effect of the headband!
+stumbles in confusion as the headband hypnotizes

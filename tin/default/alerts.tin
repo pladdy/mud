@@ -12,6 +12,16 @@
 #list tells_blocklist add {vilgan};
 #list tells_blocklist simplify;
 
+#function format_party {
+  #var result {\n<170>Party:};
+
+  #foreach {$alerts[party]} {target} {
+    #if {"$target" != "None" && $target[count] > 0} {
+      #var result {$result\n$target[name] ($target[count]): $target[last]};
+    };
+  };
+}
+
 #function format_says {
   #var result {\n<170>Says:};
 
@@ -30,6 +40,18 @@
       #var result {$result\n$target[name] ($target[count]): $target[last]};
     };
   };
+}
+
+#action {^%!{[> ]*}[PARTY] {[A-Za-z]+}: %2} {
+  #var alerts[party][%1][name] %1;
+  #var alerts[party][%1][last] %2;
+  #math alerts[party][%1][count] {$alerts[says][%1][count] + 1};
+
+  alerts_refresh;
+  #delay {alerts_party} {
+    #var alerts[party] None;
+    alerts_refresh;
+  } {10};
 }
 
 #action {^%!{[> ]*}{[A-Za-z]+} says: %2} {
@@ -87,10 +109,13 @@
 
   #math brh {$screen_height - 2};
   #math brw {$alert_box_width};
+  #local formatted_party @format_party{};
   #local formatted_says @format_says{};
   #local formatted_tells @format_tells{};
 
   #draw jade box $alert_box_height $WIDTH_OFFSET $brh $brw {Alerts} {
+    $formatted_party
+    \n\n
     $formatted_says
     \n\n
     $formatted_tells
