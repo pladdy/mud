@@ -67,3 +67,11 @@
 }
 
 #action {^%!{[> ]*}That creature cannot be affected!.$} {#var slowed 1}
+
+#action {^%!{[> ]*}You wave your hands and anchor yourself to the spot!$} {
+  #var anchored true;
+}
+
+#action {^%!{[> ]*}Your anchor has been dispelled!$} {
+  #var anchored false;
+}

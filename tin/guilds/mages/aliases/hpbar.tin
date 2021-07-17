@@ -20,6 +20,11 @@
     && $mystic_immersions > 0
     && "$immersed" == "false"
   } {mim};
+  #elseif {
+    $mystic_immersions > 0
+    && "$immersed" == "false"
+    && $sp < 300
+  } {mim};
 }
 
 #alias attempt_slow {
