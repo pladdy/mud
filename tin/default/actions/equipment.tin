@@ -12,7 +12,6 @@
 }
 
 #action {Skipping: %1 will bind on pickup.$} {
-  #nop try to engulf (annulus) or pickup (kanga's pouch);
-  #send !engulf 1;
-  #send !pickup all;
+  log.warn Bindy item: %1;
+  sound_beeps;
 }

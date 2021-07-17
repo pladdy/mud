@@ -1,4 +1,21 @@
-# Interface to search notes/data
+# TODO
+
+## Areas to explore
+
+Alizarian Tower (get helmet):
+  14:55 Trout : there is a jar you have find in the graveyard, far left
+                side. You also collect 4 different plant sprigs, hemlock,
+                adder's head etc. then place them into the hands of the
+                statues in the tower. that opens up the basement.
+  14:56 Trout : the jar contains a liquid (metal?) that you pour onto the
+                altar or whatever is down there.
+  14:56 Trout : then the demon comes and thanks you, dropping the helmet
+                and some coins
+
+Banshee's lair (In Village of Erah)
+Transylvania Hotel basement (Party only?)
+
+## Interface to search notes/data
 
 Goal: search for mud info and see it on screen
 like eq, mobs, areas, etc.
