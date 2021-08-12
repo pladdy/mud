@@ -31,6 +31,7 @@
       #showme <020>  [X]<170>: Exit that leads towards pinnacle;
       #showme <fca>  [S]<170>: Exit that leads to subarea;
       #showme <caf>  [G]<170>: Guild entrance;
+      #showme <030>  [r]<170>: Road;
       #showme <130>  [ ]<170>: Note that room has something of interest;
       #showme <acf>  [ ]<170>: Room has something special, more than 'Note' worthy;
       #showme <150>  [ ]<170>: Room is quest/puzzle/mission related;
@@ -110,6 +111,10 @@
       #showme Room reset on map;
       map_set_reset;
     };
+    #case {"road"} {
+      #map set roomcolor <030>;
+      #map set roomsymbol <030>r;
+    }
     #case {"shop"} {
       #map set roomcolor <120>;
       #map set roomsymbol <120>$;
