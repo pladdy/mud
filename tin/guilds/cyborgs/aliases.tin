@@ -1,3 +1,9 @@
+#alias actuate {
+  run cyborg_actuator;
+  #send actuate %0;
+  f2;
+}
+
 #alias cos {
   #send !unwield $wielded_weapon;
   #send !configure strategy %0;

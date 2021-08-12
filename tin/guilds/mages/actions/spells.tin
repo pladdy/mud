@@ -1,12 +1,14 @@
 #action {^%!{[> ]*}Your shield is shattered from the force of the blow!$} {
-  #send !cast shield;
+  #if {@length{$enemy} > 0} {#send !cast shield};
 }
 
 #action {^%!{[> ]*}Your magnificent shield is shattered from the force of the blow!$} {
-  #send !cast magnificent shield;
+  #if {@length{$enemy} > 0} {#send !cast magnificent shield};
 }
 
-#action {^%!{[> ]*}Your armor spell has dissipated!$} {#send !cast armor;}
+#action {^%!{[> ]*}Your armor spell has dissipated!$} {
+  #if {@length{$enemy} > 0} {#send !cast armor};
+}
 
 #action {^%!{[> ]*}----*> Your %1 contingency has dissipated!<*----} {
   #switch {"%1"} {
@@ -25,9 +27,13 @@
   };
 }
 
-#nop #action {^%!{[> ]*}Your rhino skin has been depleted!$} {#send !cast rhino skin;};
+#nop #action {^%!{[> ]*}Your rhino skin has been depleted!$} {
+  #if {@length{$enemy} > 0} {#send !cast rhino skin};
+};
 
-#action {^%!{[> ]*}Your stoneskin has depeleted!$} {#send !cast stoneskin;}
+#action {^%!{[> ]*}Your stoneskin has depeleted!$} {
+  #if {@length{$enemy} > 0} {#send !cast stoneskin};
+}
 
 #action {^%!{[> ]*}Your minor globe has ended.$} {
   #if { @length{$enemy} > 0 } {#send !cast minor globe};

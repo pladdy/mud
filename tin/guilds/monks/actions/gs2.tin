@@ -1,15 +1,15 @@
-#action {^ Chi Points: %1(%2)  Focus Left: %3} {
+#action {^%!{[> ]*}Chi Points: %1(%2)  Focus Left: %3} {
   #var focus {%3};
 }
 
-#action {^ Peace Level: Your mind is %1(%2/%3)} {
+#action {^%!{[> ]*}Peace Level: Your mind is %1(%2/%3)} {
   #var gp2_max %3;
 }
 
-#action {^Your inner energies are too tapped to repeat this action.$} {
+#action {^%!{[> ]*}Your inner energies are too tapped to repeat this action.$} {
   #var {focus} {0};
 }
 
-#action {^Mental energies pour into you from the power of the Ancients.$} {
+#action {^%!{[> ]*}Mental energies pour into you from the power of the Ancients.$} {
   #var {focus} {135};
 }

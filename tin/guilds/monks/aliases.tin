@@ -42,10 +42,18 @@
 }
 
 #alias attempt_palm {
-  #if {$enemy > 30
+  #if {@combat_rounds_left{} > 15
+       && $rounds_in_combat > 1
        && "$auto_palm" == "true"
        && $ancient_energy > 0
        && "$palm_active" != "true"} {
+    #send !palm;
+  };
+  #elseif {@combat_rounds_left{} > 4
+           && $reset > 90
+           && "$auto_palm" == "true"
+           && $ancient_energy > 0
+           && "$palm_active" != "true"} {
     #send !palm;
   };
 }
@@ -96,17 +104,6 @@
   #send !gs;
 };
 
-#alias reet {
-  #send !unwrap;
-  #send !study corpse;
-  #send !eat corpse;
-}
-
-#alias resp {reet}
-#alias rest {reet}
-
-#alias resps {#loop 1 5 loop {reet};}
-
 #alias f10 {
   use_corpse;
   #send !get all;
@@ -123,6 +120,22 @@
     #loop 2 12 loop {#send !sell all from bag $loop};
   };
 }
+
+#alias mm {
+  #var keep_meditating true;
+  #send meditate;
+}
+
+#alias reet {
+  #send !unwrap;
+  #send !study corpse;
+  #send !eat corpse;
+}
+
+#alias resp {reet}
+#alias rest {reet}
+
+#alias resps {#loop 1 5 loop {reet};}
 
 #alias use_corpse {
   #send !study corpse;

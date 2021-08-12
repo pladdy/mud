@@ -1,34 +1,43 @@
+wimpy 40
+
 eq -hide head
+eq -hide hands
+eq -hide feet
 eq -hide heavy body
 eq -hide upper body
 eq -hide on legs
 eq -hide shield
 
-alias .login jump/method phoenix/stun/crit/chifocus thought
-alias da donate all
-alias m meditate
-alias en enervate
-alias p palm
-alias h hands
+alias .login jump/method phoenix/crit/chifocus thought
 alias ak akill
 alias aka akill all
-alias pr pressure
-alias hi hide of the dragon
-alias stc study corpse
-alias st study
-alias iw iron will
-alias z daze
+alias au akill
+alias aua akill all
 alias cf chiforce
 alias cfn chifocus normal
 alias cfs chifocus static
 alias cft chifocus thought
+alias com monk
+alias da donate all
+alias m meditate
+alias en enervate
+alias gs2 gs2 a
 alias gwho monks
-alias mtp method phoenix
-alias mtt method tiger
-alias mts method serpent
+alias h hands
+alias hi hide of the dragon
+alias iw iron will
 alias mtc method crane
 alias mtd method dragon
+alias mtp method phoenix
+alias mts method serpent
+alias mtt method tiger
+alias p palm
+alias pr pressure
+alias sac sacrifice
+alias st study
+alias stc study corpse
 alias t throw
+alias z daze
 
 mset always_warn 1
 mset attack white
