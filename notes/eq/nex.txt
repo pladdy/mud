@@ -1,0 +1,80 @@
+Veneratus Nex
+
+This equipment is found on zombie lords in the temple of the zombie god.  To
+enter the temple go to wyk in wayhaven, buy the stone, come to temple, place
+in hand of statue, and say patesco.
+
+Warning:
+
+I believe you have to find and equip this eq at least once every 7 normal
+days.  If you don't your progress is reset.
+
+Priest:
+
+Polished Bone Staff
+-  read bone runes
+Wield to use...costs vis?
+
+Lords:
+
+  - Lords carry a random piece of the nex eq
+    - Ring, Amulet, Shield, Helmet, Armour, Cloak, Gloves, Boots
+
+Darlien - The Zombie Knight  -> Two-handed Sword
+Driark - The Zombie Warklock -> Black cowl, Screaming Skull of the Undead
+  -  wimpies, follow him
+Vyile - The Zombie Witch     -> Black cowl
+
+Terms:
+
+Actus:          level
+Actus Proximus: G2N
+Desino:         deactive
+Erus:           character (player)
+Ineo:           active
+Vis:            nex points (like guild points)
+Loricatus:      number of pieces equipped, affects vis regen (*2 for vis regen?)
+
+Concepts:
+
+-   each piece of raises total vis
+-   each piece regens vis it seems too?
+-   spending vis earns nxp (raises actus proximus)
+
+Commands:
+
+erus     - not sure, shows when you joined nex;
+dispono  - shows who has the eq and where;
+conservo - lock nex status for up to one year, so you don't lose it;
+agnosco  - score
+
+Powers:
+
+Actus 1:
+victus   - does something to armour, cost 1 vis per round, hp regen
+vivifico - wraps you in green light, 2 vis per round, light source?
+notitia  - toggle nex hpbar on in combat
+orare    - consume corpse, heals Vis, corpse size matters
+
+
+praesentia - Actus 2 - sp regen?
+medicor    - Actus 3
+huic       - Actus 4
+tutaminis  - Actus 5
+incursus   - Actus 6
+vereor     - Actus 7
+
+alias xgs agnosco
+alias xst erus
+alias xwho dispono
+alias rene unwrap, orare
+
+Misc:
+
+A glvl:
+Balderdash intones: eo ire itum.
+
+The Veneratus Nex begins to shine and glow with the
+power of the Lord of the Undead. You feel power and
+knowledge surge through you as your faithfulness
+to the Unliving Lord increases your power.

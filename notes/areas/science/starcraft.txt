@@ -2,16 +2,20 @@ Area scales up as boot progresses, each 24 hour period that passes mobs get
 bigger.
 
 1 CMC armour is dropped per day
+
 Each hour or so classes go up
   - 7-day firebat is class 2B (Billion, not Million)
-  - drops best CMC armour
+  - drops best CMC armour once per 24 hours
 
 Mob scaling:
-
-  - -{menacing}-
-  - -{very strong}-
-  - ...
-  - -{beyond your imagination}-
+  - 0: -{docile}-
+  - 1: -{menacing}-
+  - 2: -{very strong}-
+  - 3: -{}-
+  - 4: -{}-
+  - 5: -{terrifying}
+  - 6: -{}-
+  - 7: -{beyond your imagination}-
 
 Scales:
   - 1 day 10 hours in, mobs are -{menacing}-
@@ -40,7 +44,11 @@ Classes:
   - Terran SCV -{menacing}-, 5.2M
   - Terran Marine -{menacing}-, 5.2M
 
+- 5 day 19 hours
+  - Terran Firebat -{terrifying}- 848M
+
 After killing Huge Terran Firebat:
+
 A surge of powerful electricity runs screaming through your veins
 as you see the limp corpse of the once mighty Firebat fall to the
 floor.  Having bested such a formidable foe you have gained intimate
@@ -48,3 +56,4 @@ understanding of its defenses, its strengths, its weaknesses.  Having
 tangled with such sophisticated alien technology has given you
 confidence that you would be able to harness such technology
 yourself... for a little while, at least.
+- 'tagcheck'

@@ -29,3 +29,18 @@ Class is dependent on 'scaler' setting:
 - 45: ~3M
 - 73: ~16M
 - 91: ~37M
+
+Specials:
+
+The brittle edge of the taco shell SLICES at you!
+  - edged dmg
+
+The taco BATTERS you with deliciousness!
+  - mind dmg
+
+The taco BLASTS you with Mexipower!
+  - fire dmg
+
+The taco squirts guacamole all over you, coating you with a slick
+layer of greenish goop!
+   - ice dmg

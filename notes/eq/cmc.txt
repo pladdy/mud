@@ -1,0 +1,30 @@
+Need to kill firebat to wear/use the cmc.
+- The days old the firebat is when you kill it dictates which suits you can
+  wear
+  - 'tagcheck' to see which you can wear
+
+Days:
+
+0:Standard Issue
+1:Reinforced
+2:Advanced
+3:Specialized
+4:Absurd
+5:God-Like
+6:Metaphysically Unstable
+7:Physically Impossible
+
+What it does:
+
+- heals
+- can reflect an attack
+- can block an attack
+- as a main, provides AC
+- dmg reduction
+- stat boost
+- can cause dmg
+- statu boosts
+
+When transmuted, loses all AC
+When a main, tons of AC
+String 2.0 can string it and KEEP AC

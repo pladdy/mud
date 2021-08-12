@@ -9,13 +9,23 @@ Abilities:
   - can tank/has ac
   - regens
 
+Creating a dog:
+  - find puppy
+  - must have 25K reps to buy supplies from Petunia
+  - neex to buy 5 biscuits to make a puppy a dog (so 30K reps total)
+
 Kennel:
   Make sure to kennel them before boot.  It costs 1k coins per day to unkennel them.
+  - If you don't kennel them, you avoid a stupid amount of coins...
+  - I think you lose dog xp to res them
 
 Dog pound items:
+  Reps 25,000
   biscuits:                    use to grow a puppy into a dog
+
+  Reps ?
   spiked collar:               boosts AP
-  squirrel chew toy:
+  squirrel chew toy:           ? boosts happiness?
   studded-leather dog barding: low ac buff
   chain dog barding:           medium ac buff
   plate dog barding:           high ac buff
@@ -23,4 +33,5 @@ Dog pound items:
   super grip footies:          helps dodge
   irontooth bite guards:       helps dog hit
   death's fido contract:       bnote for dog (so it doesn't lose xp)
+  dog whistle:                 summon lost dog?
   DGH:                         change dog breed
