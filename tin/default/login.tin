@@ -8,7 +8,8 @@
   gag on;
   #send !hp;
   #send !i;
-  #delay 2 alerts_refresh;
+  #nop #delay 2 alerts_refresh;
+  #delay 2 chats_refresh;
 
   #if {"$ETERNALS" == "true"} {
     #textin tin/default/eternals.txt;

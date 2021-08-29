@@ -1,0 +1,98 @@
+#nop  Test: tell balderdash this is a story of a girl who cried a river and drowned the whole world
+
+#nop  You tell Balderdash: this is a story of a girl who cried a river and
+#nop          drowned the whole world
+
+#var chats None;
+#var chats_per_line -;
+
+#nop  Create tell blocklist;
+#list tells_blocklist clear;
+
+#nop  Comment out/nop character for testing;
+#nop  #list tells_blocklist add {$character};
+#list tells_blocklist add {antonio};
+#list tells_blocklist add {robert};
+#list tells_blocklist add {the vampire};
+#list tells_blocklist add {vilgan};
+#list tells_blocklist add {petunia};
+#list tells_blocklist simplify;
+
+#alias setup_chats {
+  #read tin/default/chats/chats.tin;
+}
+
+#alias chats_clear {
+  #var chats_per_line -;
+  chats_refresh;
+}
+#alias chatsc {
+  chats_clear;
+}
+
+#nop The window showing up permanently and not scrolling away depends on 'split';
+#nop The status_bar alias is responsible for splitting the screens;
+#alias chats_refresh {
+  #local SPLIT_ADJUSTMENT 4;
+  #local WIDTH_OFFSET 101;
+
+  #screen get rows screen_height;
+  #screen get cols screen_wdith;
+
+  #math alert_height {($screen_height - $SPLIT_ADJUSTMENT) / 4};
+  #math alert_height {$alert_height * 2};
+  #math alert_width {$screen_width - $WIDTH_OFFSET};
+
+  #math alert_box_height {$alert_height + 2};
+  #math alert_box_width {$screen_width};
+
+  debug alert dimensions, height: $alert_height width: $alert_width;
+  debug draw jade box $alert_box_height $WIDTH_OFFSET $screen_height $alert_box_width;
+
+  #math brh {$screen_height - 2};
+  #math brw {$alert_box_width};
+
+  #list chats simplify;
+  #foreach $chats chat {
+    #replace chat {"} {};
+    #var chats_per_line {$chats_per_line\n$chat};
+  };
+
+  #draw jade box $alert_box_height $WIDTH_OFFSET $brh $brw {Chats} {
+    \n$chats_per_line
+  };
+}
+
+#alias chatsr { chats_refresh }
+
+#alias cth {
+  #send !ctellhist;
+}
+
+#alias sh {
+  #class {chats} {kill};
+  #send !sayhist;
+  #delay 1 setup_chats;
+}
+
+#alias set_repeating_alarm {
+  #delay {repeating_alarm} {
+    log.warn You have tells, 'tellhist' or 'th' to review them.;
+    sound_beep;
+    set_repeating_alarm;
+  } {90};
+}
+
+#alias th {
+  #class {chats} {kill};
+  #send tellhist;
+  #undelay {repeating_alarm};
+  #delay 1 setup_chats;
+}
+
+#alias hmh {
+  #send hmhist;
+}
+
+#alias sound_beep {#system {printf '\a'}}
+#alias sound_beeps {#system {for i in 1 2; do printf '\a'; done}}

@@ -1,0 +1,43 @@
+#nop  I set this up this way because I tried using an alias, but the '%0'
+#nop  positional args in the actions wouldn't work when nested in an alias.
+
+#class {chats} {kill};
+#class {chats} {open};
+
+#alias -catch_overflow {
+    #read tin/default/chats/overflow.tin;
+}
+
+#action {^%!{[> ]*}[PARTY] {[A-Za-z]+}: %2} {
+  #list chats add {%0};
+  chats_refresh;
+  -catch_overflow;
+};
+
+#action {^%!{[> ]*}{[A-Za-z ]+} says: %2} {
+  #list chats add {%0};
+  chats_refresh;
+  -catch_overflow;
+};
+
+#action {^%!{[> ]*}{[A-Za-z ]+} tells you: %2} {
+  #var send_alert {true};
+
+  #foreach $tells_blocklist blocked {
+    #regexp {%1} {%i$blocked} {#var send_alert false; #break};
+  }
+
+  log.debug the tell is %0;
+
+  #list chats add {%0};
+  chats_refresh;
+  -catch_overflow;
+
+  #if {"$send_alert" == "true"} {
+    sound_beeps;
+    set_repeating_alarm;
+    #if {"$stepper" == "on"} {stepper off};
+  };
+};
+
+#class {chats} {close};
