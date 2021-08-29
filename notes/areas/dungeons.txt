@@ -64,17 +64,20 @@ Malarkey:
   zelligars 60
 
 Shenanigans:
-  alphabet 115
-  androids 115
-  carnegie 85
-  chessboard 115
-  death_taco 75
-  halo 115
-  hotel 85
-  mahjongg 1 # doesn't scale
-  puppies 115
-  smurfs 50  # scales at 101
-  zelligars 75
+  aegis          91  # ow
+  alphabet       150
+  androids       111
+  banshee's lair 119
+  carnegie       119
+  chessboard     150
+  death_taco     91  # benefit caps at this scaler
+  halo           150
+  hotel          101
+  mahjongg       96  # ow
+  puppies        150
+  section z      101 # 91 -> 6M
+  smurfs         150 # starts scaling at 101
+  zelligars      90
 
 Tomfoolery:
   alphabet 50
@@ -88,4 +91,3 @@ Tomfoolery:
   puppies 50
   smurfs 50  # scales at 101
   zelligars 50
-

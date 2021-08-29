@@ -7,7 +7,7 @@
   #screen get rows screen_height;
   #screen get cols screen_wdith;
 
-  #math map_height {($screen_height - $SPLIT_ADJUSTMENT) / 3};
+  #math map_height {($screen_height - $SPLIT_ADJUSTMENT) / 4};
   #math map_height {$map_height * 2};
   #math map_width {$screen_width - $WIDTH_OFFSET};
 

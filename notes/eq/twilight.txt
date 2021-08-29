@@ -8,9 +8,12 @@ Vizier    -> Circlet (helmet)
 After wearing, each time you kill the vizier, priestess, champion, and king, it
 charges the eq.  Charging it raises the AC.
 
-~[faded]~
+~[faded]~ killed 1 mob
 ~[shadowy]~ killed 3 mobs to get here
 ~[ghostly]~ killed 4 mobs to get here
 ~[phantasmic]~ killed 6 mobs to get here
 ~[spectral]~ killed 12 mobs to get here (ish)
 [celestial] killed 16 mobs to get here (ish)
+
+* After maxing an item, it can still absorb a kill.  Remove/bag the item so you
+* can charge up other pieces more efficiently.
