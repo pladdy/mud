@@ -5,6 +5,12 @@
   find ./tin/default -iwholename '*.tin' | grep -v '.bootstrap.tin';
 };
 
+#nop  Define 'summons' to simply be the character name;
+#var summons $character;
+
+#nop  Define my dog to be chracter unless set in profile;
+#if {"$my_dog" == ""} {#var my_dog $character};
+
 #nop Set up default class;
 
 #showme Setting up default class;

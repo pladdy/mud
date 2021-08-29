@@ -132,7 +132,8 @@
 }
 
 #alias ttl_stepper {
-  #local TTL 1800;
+  #nop  15 minutes;
+  #local TTL 900;
   #local ticker_name ttl_stepper;
 
   #if {"%0" == "on"} {
