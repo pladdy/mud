@@ -52,7 +52,6 @@
   }
 }
 
-
 #alias f8 {
   #map run smithy;
   #send !buy longsword;
@@ -75,13 +74,6 @@
     rename backpack to bag;
   }
   #send !keep all bag;
-}
-
-#alias use_corpse {
-  #send !hp;
-  #send !recharge;
-  #send !reclaim;
-  #send !hp;
 }
 
 #alias f10 {
@@ -121,6 +113,13 @@
 }
 
 #alias tme {f6 emergency}
+
+#alias use_corpse {
+  #send !hp;
+  #send !recharge;
+  #send !reclaim;
+  #send !hp;
+}
 
 #alias wimpy_commands {
   #send !surge;

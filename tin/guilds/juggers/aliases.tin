@@ -22,23 +22,6 @@
   #delay 8 set_afk;
 }
 
-#nop Remote Ammo (via truck) purchase;
-#alias rammo {
-  #if {"%1" == ""} {
-    #send !truck ammo list projectile;
-  };
-  #else {
-    #send !truck ammo vbuy projectile %1 %2 10000;
-  };
-}
-
-#alias use_corpse {
-  #send !hp;
-  #send !fdeener;
-  #send !hp;
-  #send !get all;
-}
-
 #alias f10 {use_corpse}
 
 #alias f12 {
@@ -53,6 +36,16 @@
   };
 }
 
+#nop  Remote Ammo (via truck) purchase;
+#alias rammo {
+  #if {"%1" == ""} {
+    #send !truck ammo list projectile;
+  };
+  #else {
+    #send !truck ammo vbuy projectile %1 %2 10000;
+  };
+}
+
 #alias rede {
   #send !unwrap;
   #send !fdeener;
@@ -61,4 +54,22 @@
 #alias set_afk {
   log.info Setting afk for juggers to get an 'airdrop';
   #send !afk Juggers, if you need an airdrop: 'high5' me;
+}
+
+#alias su_spam {
+  #if {"%1" == "on"} {
+    log.info Ansi ON for jugger support hits.;
+    #send !aset jugg_support bkred;
+  };
+  #else {
+    log.info Ansi OFF for jugger support hits.;
+    #send !aset jugg_support hide;
+  }
+}
+
+#alias use_corpse {
+  #send !hp;
+  #send !fdeener;
+  #send !hp;
+  #send !get all;
 }

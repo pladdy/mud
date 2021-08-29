@@ -13,7 +13,7 @@
 
   #local MIN_POWER 200;
   #if {$corpses > 0 && $gp1 < $MIN_POWER} {redc};
-  pause_active_stepper;
+  check_stepper;
 }
 
 #action {^%!{[> ]*}ND: %1 C: [%2] %3} {

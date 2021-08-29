@@ -3,18 +3,6 @@
   #nop #send !=call;
 }
 
-#action {^%!{[> ]*}Shenanigans's eyes glow bright green upon the fallen} {
-  #send !drop corpse;
-  #if {"$coffin_status" == "full" && $enemy > 0} {
-    use_corpse;
-    #send !f;
-  };
-  #elseif {"$coffin_status" != "full"} {
-    #send !wrap;
-    #send !f;
-  };
-}
-
 #action {^%!{[> ]*}pattern buffer for storage. Your cloning was a success!$} {
   #send !=afollow on;
   #send !=akill on;

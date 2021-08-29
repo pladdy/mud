@@ -4,6 +4,22 @@
   f2;
 }
 
+#alias check_stepper {
+  #local MIN_AVAILABLE_HEAT 25;
+  #local REGEN_SECONDS 24;
+  #local MIN_POWER 400;
+
+  #if {$enemy > 0 && "$stepper" == "on" && "$pause" != "true"} {
+    #if {$gp2 < $MIN_AVAILABLE_HEAT} {
+      dtrig stepper off,#delay $REGEN_SECONDS {stepper on};
+    };
+    #elseif {$gp1 < $MIN_POWER && $corpses == 0} {
+      stepper off;
+      dtrig f2;
+    };
+  };
+}
+
 #alias cos {
   #send !unwield $wielded_weapon;
   #send !configure strategy %0;
@@ -12,22 +28,6 @@
 
 #alias f12 {
   #loop 2 12 i {#send !sell all from bag $i};
-}
-
-#alias pause_active_stepper {
-  #local MIN_AVAILABLE_HEAT 25;
-  #local REGEN_SECONDS 24;
-  #local MIN_POWER 400;
-
-  #if {$enemy > 0 && "$stepper" == "on" && "$pause" != "true"} {
-    #if {$gp2 < $MIN_AVAILABLE_HEAT} {
-      dtrig stepper off,#delay $REGEN_SECONDS {stepper on;#unvar pause};
-      #var pause true;
-    };
-    #elseif {$gp1 < $MIN_POWER && $corpses == 0} {
-      stepper off;
-    };
-  };
 }
 
 #alias redc {
