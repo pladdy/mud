@@ -1,0 +1,31 @@
+#alias attempt_shock {
+  #if {$enemy > 0 && $gp1 > 1000} {
+    #send !shock;
+  }
+}
+
+#alias attempt_refc {
+  #if {$enemy > 0 && $gp1 < 100 && $corpses > 0} {
+    refc;
+  }
+}
+
+#alias f10 {
+  use_corpse;
+  #send !f;
+}
+
+#alias refc {
+  #if {$corpses > 0} {
+    #send !unwrap;
+    #send !flush corpse;
+  }
+}
+
+#alias use_corpse {
+  #if {"$have_spoon" == "true"} {#send !eat corpse};
+  #else {
+    #send !flush corpse;
+    #send !hp;
+  };
+}

@@ -1,0 +1,27 @@
+#action {^%!{[> ]*}HP:[%1/%2] SP:[%3/%4] CH:[%5Ah/%6Ah] C:[%7/%8] G2N:[%9%] P:%10 E:%11} {
+  #var hp {%1};
+  #var hp_max {%2};
+
+  #var sp {%3};
+  #var sp_max {%4};
+
+  #var gp1 {%5};
+  #var gp1_max {%6};
+
+  #var gp2 {100};
+  #var gp2_max {100};
+
+  #var corpses %7;
+  #if {"$corses" == "-"} {#var corpses 0};
+
+  #var gxp %9;
+
+  #var enemy_str %11;
+  #if {"$enemy_str" == "None"} {#var enemy_str 0};
+  #regexp {$enemy_str} {{\d+}} {#var enemy &1} {#var enemy 0};
+
+  attempt_shock;
+  attempt_refc;
+  
+  show_status_bar;
+}
