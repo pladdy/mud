@@ -6,18 +6,6 @@
 #var chats None;
 #var chats_per_line -;
 
-#nop  Create tell blocklist;
-#list tells_blocklist clear;
-
-#nop  Comment out/nop character for testing;
-#nop  #list tells_blocklist add {$character};
-#list tells_blocklist add {antonio};
-#list tells_blocklist add {robert};
-#list tells_blocklist add {the vampire};
-#list tells_blocklist add {vilgan};
-#list tells_blocklist add {petunia};
-#list tells_blocklist simplify;
-
 #alias setup_chats {
   #read tin/default/chats/chats.tin;
 }

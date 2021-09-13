@@ -4,6 +4,30 @@
 #class {chats} {kill};
 #class {chats} {open};
 
+#nop  Create chat blocklists;
+#list tells_blocklist clear;
+#list says_blocklist clear;
+
+#nop  Comment out/nop character for testing;
+#nop  #list tells_blocklist add {$character};
+#list tells_blocklist add {antonio};
+#list tells_blocklist add {brenan};
+#list tells_blocklist add {robert};
+#list tells_blocklist add {the vampire};
+#list tells_blocklist add {vilgan};
+#list tells_blocklist add {petunia};
+#list tells_blocklist add {the triad};
+#list tells_blocklist simplify;
+
+#list says_blocklist add {cow};
+#list says_blocklist add {thurand};
+#list says_blocklist add {the gypsy};
+#list says_blocklist add {the old man};
+#list says_blocklist add {harthearvorin};
+#list says_blocklist add {%+ golem};
+#list says_blocklist add {pope};
+#list says_blocklist simplify;
+
 #alias -catch_overflow {
     #read tin/default/chats/overflow.tin;
 }
@@ -15,19 +39,31 @@
 };
 
 #action {^%!{[> ]*}{[A-Za-z ]+} says: %2} {
-  #list chats add {%0};
-  chats_refresh;
-  -catch_overflow;
+  #var show_chat true;
+
+  log.debug 'say' matched: matched=%0, actor=%1;
+
+  #foreach $says_blocklist blocked {
+    log.debug checking blocklist, blocked=$blocked, actor=%1;
+    #regexp {%1} {%i$blocked} {#var show_chat false; #break};
+  };
+
+  #if {"$show_chat" == "true"} {
+    #list chats add {%0};
+    chats_refresh;
+    -catch_overflow;
+  }
 };
 
 #action {^%!{[> ]*}{[A-Za-z ]+} tells you: %2} {
   #var send_alert {true};
 
   #foreach $tells_blocklist blocked {
+    log.debug checking blocklist, blocked=$blocked, actor=%1;
     #regexp {%1} {%i$blocked} {#var send_alert false; #break};
   }
 
-  log.debug the tell is %0;
+  log.debug 'tell' matched: matched=%0, actor=%1;
 
   #list chats add {%0};
   chats_refresh;
