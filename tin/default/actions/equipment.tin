@@ -1,6 +1,6 @@
 #nop If using Cyberpope amulet, this keeps it on;
 #action {^The force field surrounding you dies out.$} {
-  #if {$enemy > 0} {pbm};
+  #if {$enemy > 0} {#send !press button on medallion};
 }
 
 #action {^You wear the %1.} {
@@ -14,4 +14,12 @@
 #action {Skipping: %1 will bind on pickup.$} {
   log.warn Bindy item: %1;
   sound_beeps;
+}
+
+#action {^%!{[> ]*}You keep *A plastic ice kream spoon.$} {
+  #var have_spoon true;
+}
+
+#action {^%!{[> ]*}1 *A plastic ice kream spoon.} {
+  #var have_spoon true;
 }
