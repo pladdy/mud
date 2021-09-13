@@ -35,9 +35,7 @@
   };
 
   #if {$enemy > 0 && "$spice_level" == "Withdrawal" && $available_spices > 0} {
-    #list spice_queue get 1 spice_task;
-    #send !$spice_task;
-    #list spice_queue delete 1;
+    respice;
   };
 }
 
@@ -99,22 +97,20 @@
   #list spice_queue add {take spice};
 }
 
-#action {^%!{[> ]*}%1 %!{[\*]?}Spice Tea.$} {
-  #%1 #list spice_queue add {drink tea};
+#nop  Spices in inventory;
+
+#action {^%!{[> ]*}{\d+} %!{[\*]?}Spice {[A-Za-z]+}.$} {
+  #format {drink} {%l} {%2};
+  #%1 #list spice_queue add {drink $drink};
 }
 
-#action {^%!{[> ]*}%1 %!{[\*]?}Spice Coffee.$} {
-  #%1 #list spice_queue add {drink coffee};
-}
-
-#action {^%!{[> ]*}%1 %!{[\*]?}Spice Beer.$} {
-  #%1 #list spice_queue add {drink beer};
-}
-
-#action {^%!{[> ]*}%1 %!{[\*]?}Spice Liquor.$} {
-  #%1 #list spice_queue add {drink liquor};
-}
-
-#action {^%!{[> ]*}%1 %!{[\*]?}Spice Melange (Pure).$} {
+#action {^%!{[> ]*}{\d+} %!{[\*]?}Spice Melange (Pure).$} {
   #%1 #list spice_queue add {take spice};
+}
+
+#nop  Spices in bags;
+
+#action {^Spice {[A-Za-z]+} \{{\d+}\}\.$} {
+  #format {drink} {%l} {%1};
+  #%2 #list spice_queue add {drink $drink};
 }

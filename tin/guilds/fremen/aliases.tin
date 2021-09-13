@@ -107,7 +107,6 @@
 
 #alias rerc {
   #send !unwrap;
-  #send !hp;
   #send !reclaim;
   #send !hp;
 }
@@ -117,7 +116,23 @@
   #send !fai;
 }
 
-#alias spices {#var spice_queue};
+#alias respice {
+  #list spice_queue get 1 spice_task;
+
+  #nop  Try to get drink from bag;
+  #regexp {$spice_task} {(drink|take) {[a-z]+}} {#var drink &1};
+
+  gb $drink 1;
+  #send !$spice_task;
+  #list spice_queue delete 1;
+}
+
+#alias spices {
+  #if {"%1" == "clear" || "%1" == "reset"} {
+    #list spice_queue clear;
+  };
+  #else {#var spice_queue};
+};
 
 #alias use_corpse {
   #local MAX_WATER_RATIO 1.2;

@@ -20,8 +20,7 @@
   #if {"$enemy_str" == "None"} {#var enemy_str 0};
   #regexp {$enemy_str} {{\d+}} {#var enemy &1} {#var enemy 0};
 
-  attempt_shock;
   attempt_refc;
-  
+
   show_status_bar;
 }

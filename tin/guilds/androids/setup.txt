@@ -2,12 +2,21 @@ aset android_main higreen
 
 alias com droidchat
 alias come droidchate
+alias cp cprogram
+alias cpc cprogram clear
+alias cpd cprogram discharge
+alias cpo cprogram overload
+alias el electrify
+alias elo electrify off
 alias ep engage plating
 alias epo engage plating off
 alias es engage shield
 alias eso engage shield off
 alias fc flush corpse
 alias h nanosurge
+alias md mount double
+alias mr mount remove
+alias ms mount single
 alias so shock
 
 hpbar HP:[$HP$/$MHP$] SP:[$SP$/$MSP$] CH:[$CH$Ah/$MCH$Ah] C:[$CF$/$MCF$] G2N:[$G2N$] P:$ST$ E:$EN$

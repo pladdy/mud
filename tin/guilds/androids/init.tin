@@ -1,1 +1,3 @@
 #gag {// Error: Your suit does not need any repair at this time.};
+#gag {// Defense: Your shield absorbs some of the attack.};
+#gag {// Defense: Your electrified plating %1!};

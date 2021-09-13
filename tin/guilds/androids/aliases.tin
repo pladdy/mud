@@ -1,18 +1,33 @@
 #alias attempt_shock {
-  #if {$enemy > 0 && $gp1 > 1000} {
+  #if {$enemy > 0 && $gp1 > 2000} {
     #send !shock;
   }
 }
 
 #alias attempt_refc {
-  #if {$enemy > 0 && $gp1 < 100 && $corpses > 0} {
+  #math {gp1_ratio} {$gp1 / $gp1_max * 1.00};
+
+  #if {$enemy > 0 && $gp1_ratio < 0.25 && $corpses > 0} {
     refc;
   }
+}
+
+#alias deup {
+  #send !mr;
+  #send !cpc;
+  #send !wear shield;
+  #send !es;
 }
 
 #alias f10 {
   use_corpse;
   #send !f;
+}
+
+#alias ofup {
+  #send !remove shield;
+  #send !cpo;
+  #send !ms;
 }
 
 #alias refc {

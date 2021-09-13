@@ -50,14 +50,6 @@
   attempt_ice_golem;
 }
 
-#action {^%!{[> ]*}You keep *A plastic ice kream spoon.$} {
-  #var have_spoon true;
-}
-
-#action {^%!{[> ]*}1 *A plastic ice kream spoon.} {
-  #var have_spoon true;
-}
-
 #action {^%!{[> ]*}Your barrier of fire has expired.$} {
   attempt_barrier_of_fire;
 }

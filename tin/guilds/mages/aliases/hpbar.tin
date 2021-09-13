@@ -3,7 +3,13 @@
        && $gp1 < 25
        && $school_spells > 0
        && $school_reset > 50
-  } {#send er};
+  } {
+    #send !er
+  };
+}
+
+#alias attempt_focus_mind {
+  #if {$gp2 < 25 && $sp > 1000} {#send !cast focus mind};
 }
 
 #nop MIs reset every 600 rounds (20 min);
