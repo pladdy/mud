@@ -1,4 +1,4 @@
-#alias stepper_pol_blacklist {
+#alias _stepper_pol_blacklist {
   #showme <170>Adding to blacklist...;
   #nop avoid guards and warriors (mist);
   #list non_monsters add {%+ guard};
@@ -10,7 +10,7 @@
 #alias stepper_pol2 {
   run pol2;
   stepper on;
-  stepper_pol_blacklist;
+  _stepper_pol_blacklist;
 }
 
 #nop Assumes you're in plane of fire;
