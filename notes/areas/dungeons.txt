@@ -1,15 +1,18 @@
 Balderdash:
-  alphabet 111
-  androids 70
-  carnegie 75
-  chessboard 95
-  death_taco 91
-  halo 88
-  hotel 75
-  mahjongg 1 # doesn't scale
-  puppies 111
-  smurfs 111  # scales at 101
-  zelligars 100 # use lowest for headband, high for golems
+  aegis          84  # ow
+  alphabet       117
+  androids       84
+  banshee's lair 91
+  carnegie       91
+  chessboard     91
+  death_taco     91  # benefit caps at this scaler
+  halo           95
+  hotel          84
+  mahjongg       84
+  puppies        117
+  section z      84
+  smurfs         117 # starts scaling at 101
+  zelligars      84
 
 Fiddlestix:
   alphabet 55
