@@ -46,6 +46,12 @@
   #map goto cot;
 }
 
+#nop  Kayos Wars;
+
+#action {^%!{[> ]*}Inside a Void Tunnel (enter)} {
+  #map goto 33073;
+}
+
 #nop Overlands portal;
 
 #action {^%!{[> ]*}You open your eyes and... everything has changed!$} {
@@ -152,8 +158,15 @@
   #if {$map[current_room] == 31985} {#map goto 6335}
 }
 
-
 #action {^%!{[> ]*}You sweep your hand over one of the higher shelves and} {
   #send !get gloves;
   #send !keep gloves;
+}
+
+#nop  Cove of the Three, Velica's moon blessing;
+
+#action {^%!{[> ]*}an angelic temptress standing before you.} {
+  #send !present tyra's gem;
+  #send !present raqna's gem;
+  #send !present brenan's gem;
 }
