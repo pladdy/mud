@@ -2,6 +2,7 @@
   #showme <170>Adding to blacklist...;
   #nop avoid guards and warriors (mist);
   #list non_monsters add {%+ guard};
+  #list non_monsters add {%+ leader};
   #list non_monsters add {shadow};
   #list non_monsters add {warrior};
   #list non_monsters add {%+ demon};
@@ -9,6 +10,12 @@
 
 #alias stepper_pol2 {
   run pol2;
+  stepper on;
+  _stepper_pol_blacklist;
+}
+
+#alias stepper_pol3 {
+  run pol3;
   stepper on;
   _stepper_pol_blacklist;
 }
