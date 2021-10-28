@@ -1,8 +1,3 @@
-#nop  Test: tell balderdash this is a story of a girl who cried a river and drowned the whole world
-
-#nop  You tell Balderdash: this is a story of a girl who cried a river and
-#nop          drowned the whole world
-
 #var chats None;
 #var chats_per_line -;
 
