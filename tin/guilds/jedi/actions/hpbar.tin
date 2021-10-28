@@ -20,7 +20,7 @@
   #replace {enemy} {%} {};
 
   #if {$gp2 < 50 && $corpses > 0 && "$release_force" != "true"} {refo};
-  #if {$gp2 < 25} {sound_beeps; #showme <110>FORCE SATURATION IS HIGH!};
+  #if {$gp2 < 10} {sound_beep; #showme <110>FORCE SATURATION IS HIGH!};
 
   attempt_mindblock;
   check_stepper;

@@ -33,7 +33,7 @@
 #alias attempt_stun {
   #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
 
-  #if {$hp_as_pct < 1.0 && "$stun_active" != "true"} {
+  #if {$enemy > 10 && $hp_as_pct < 1.0 && "$stun_active" != "true"} {
     #send !stun;
   };
 }
@@ -119,19 +119,28 @@
 #alias respice {
   #list spice_queue get 1 spice_task;
 
-  #nop  Try to get drink from bag;
-  #regexp {$spice_task} {(drink|take) {[a-z]+}} {#var drink &1};
+  #nop  Try to get drink/spice from bag;
+  #regexp {$spice_task} {%!{(drink|take)} {[a-z]+}} {#var drink &2};
 
   gb $drink 1;
   #send !$spice_task;
   #list spice_queue delete 1;
 }
 
+#alias spice_chk {
+  #nop  Checking inventory clears the spice_queue;
+  #send !i;
+  #send !l bag;
+}
+
 #alias spices {
   #if {"%1" == "clear" || "%1" == "reset"} {
     #list spice_queue clear;
   };
-  #else {#var spice_queue};
+  #else {
+    spice_chk;
+    #delay {2} {#var spice_queue};
+  };
 };
 
 #alias use_corpse {

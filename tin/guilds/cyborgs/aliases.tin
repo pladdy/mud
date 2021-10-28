@@ -26,10 +26,6 @@
   #send !wield $wielded_weapon;
 }
 
-#alias f12 {
-  #loop 2 12 i {#send !sell all from bag $i};
-}
-
 #alias redc {
   #send !unwrap smallest;
   #send !decompose;

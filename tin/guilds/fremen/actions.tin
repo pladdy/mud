@@ -26,7 +26,6 @@
   #var gxp %7;
 
   #local spice_level %2;
-  #list spice_queue size available_spices;
   #local ammo %4;
   #local ammo_max %5;
 
@@ -34,6 +33,7 @@
     #if {$ammo == 1 && $ammo_max > 0} {#send !mload};
   };
 
+  #list spice_queue size available_spices;
   #if {$enemy > 0 && "$spice_level" == "Withdrawal" && $available_spices > 0} {
     respice;
   };
@@ -110,7 +110,20 @@
 
 #nop  Spices in bags;
 
+#action {^Spice {[A-Za-z]+}\.$} {
+  #format {drink} {%l} {%1};
+  #list spice_queue add {drink $drink};
+}
+
 #action {^Spice {[A-Za-z]+} \{{\d+}\}\.$} {
   #format {drink} {%l} {%1};
   #%2 #list spice_queue add {drink $drink};
+}
+
+#action {^Spice Melange (Pure)\.$} {
+  #list spice_queue add {take spice};
+}
+
+#action {^Spice Melange (Pure) \{{\d+}\}\.$} {
+  #%2 #list spice_queue add {take spice};
 }

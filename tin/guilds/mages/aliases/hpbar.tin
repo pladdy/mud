@@ -1,10 +1,8 @@
 #alias attempt_explosive_release {
-  #if {"$immersed" == "false"
-       && $gp1 < 25
-       && $school_spells > 0
-       && $school_reset > 50
-  } {
-    #send !er
+  #if {"$immersed" == "false" && $school_spells > 0 && $gp1 < 35} {
+    #if {$sp < 1000 && $mystic_immersions <= 0} {
+      #send !er;
+    };
   };
 }
 

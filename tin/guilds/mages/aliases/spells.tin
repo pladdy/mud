@@ -18,14 +18,19 @@
 
 #alias conup {
   #if {"$use_gcon" == "true"} {
-    #send !cast contingency as prismatic aura#cast prismatic aura;
     #send !cast contingency as armor#cast armor;
-    #send !cast contingency as blink#cast blink;
+
+    #nop  PA and B conflict with PS;
+    #nop #send !cast contingency as prismatic aura#cast prismatic aura;
+    #nop #send !cast contingency as blink#cast blink;
 
     #nop  Greater contingency is costly, delay to regen sps;
     #send !cast greater contingency as stoneskin#cast stoneskin;
     #delay {10} {#send !cast greater contingency as major_globe#cast major globe};
     #delay {20} {#send !cast greater contingency as shield#cast magnificent shield};
+    #delay {30} {
+      #send !cast greater contingency as prismatic sphere#400#cast prismatic sphere
+    };
   };
   #else {
     #send !cast contingency as stoneskin#cast stoneskin;

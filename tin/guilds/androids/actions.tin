@@ -1,4 +1,4 @@
-#action {^%!{[> ]*}HP:[%1/%2] SP:[%3/%4] CH:[%5Ah/%6Ah] C:[%7/%8] G2N:[%9%] P:%10 E:%11} {
+#action {^%!{[> ]*}HP:[%1/%2] SP:[%3/%4] CH:[%5Ah/%6Ah] C:[%7/%8] G2N:[%9] P:%10 E:%11} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -15,6 +15,7 @@
   #if {"$corses" == "-"} {#var corpses 0};
 
   #var gxp %9;
+  #replace {gxp} {%} {};
 
   #var enemy_str %11;
   #if {"$enemy_str" == "None"} {#var enemy_str 0};
