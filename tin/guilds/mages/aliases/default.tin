@@ -13,10 +13,6 @@
   #send !get all;
 }
 
-#alias f12 {
-  #loop 2 12 i {#send !sell all from bag $i};
-}
-
 #alias login_commands {
   conup;
 }

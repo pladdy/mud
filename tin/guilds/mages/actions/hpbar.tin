@@ -40,6 +40,7 @@
 
   #var enemy {%5};
   #replace {enemy} {%} {};
+  #math {rounds_in_combat} {$rounds_in_combat + 1};
 
   #var dspells {%2};
   #nop #regex {$dspells} { S} {#nop} {#send !cast shield};
@@ -65,6 +66,7 @@
 
 #action {^%!{[> ]*}Gx: %1% P:%2 St:%3} {
   #var enemy {0};
+  #var rounds_in_combat 0;
   #var dspells {%2};
   show_status_bar;
 } {5}

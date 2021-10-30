@@ -81,3 +81,7 @@
 #action {^%!{[> ]*}Your anchor has been dispelled!$} {
   #var anchored false;
 }
+
+#action {^%!{[> ]*}You wave your hands and a glowing orb appears!} {
+  #send !keep orb;
+}

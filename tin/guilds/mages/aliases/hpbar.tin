@@ -1,5 +1,8 @@
 #alias attempt_explosive_release {
-  #if {"$immersed" == "false" && $school_spells > 0 && $gp1 < 35} {
+  #if {$enemy > 0 && $gp1 < 10 && $school_spells > 0} {
+    #send !er;
+  };
+  #elseif {"$immersed" == "false" && $school_spells > 0 && $gp1 < 35} {
     #if {$sp < 1000 && $mystic_immersions <= 0} {
       #send !er;
     };
@@ -32,7 +35,9 @@
 }
 
 #alias attempt_slow {
-  #if {$enemy > 0 && $slowed != 1} {#send !cast slow};
+  #if {$enemy > 0 && $slowed != 1 && @combat_rounds_left{} > 10} {
+    #send !cast slow
+  };
 }
 
 #alias check_concentration {
