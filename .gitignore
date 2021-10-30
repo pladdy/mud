@@ -12,6 +12,7 @@ tin/map/backup_map.txt
 
 .vagrant
 *.log
+*.gz
 
 # tintin
 tt/
