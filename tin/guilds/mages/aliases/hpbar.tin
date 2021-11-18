@@ -20,7 +20,7 @@
   #if {"$stepper" == "on"
        && "$immersed" == "false"
        && $mystic_immersions > 0
-       && $sp < 600
+       && $sp < 700
   } {mim};
   #elseif {
     $guild_reset > 84
@@ -32,6 +32,16 @@
     && "$immersed" == "false"
     && $sp < 300
   } {mim};
+}
+
+#alias attempt_shelter {
+  #if {$enemy > 0 && @combat_rounds_left{} > 10
+       && $corpses == 0
+       && $sp < 600
+       && $mystic_immerions < 1
+  } {
+    #send !cast secure shelter;
+  };
 }
 
 #alias attempt_slow {
@@ -59,7 +69,7 @@
 
 #alias check_stepper {
   #if {"$stepper" == "on"} {
-    #if {($corpses == 0 && $mystic_immersions < 1) || $sp < 400} {
+    #if {"$immersed" == "false" && $mystic_immersions < 1 && $sp < 1000} {
       stepper off;
       dtrig f2;
     };

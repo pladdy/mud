@@ -3,3 +3,19 @@
   #send !i;
   #send !ff;
 }
+
+#action {^%!{[> ]*}Ardy the brown aardvark darts out of the room.$} {
+  #var mage_familiar_present false;
+}
+
+#action {^%!{[> ]*}Ardy the brown aardvark darts into the room.$} {
+  #var mage_familiar_present true;
+}
+
+#action {^%!{[> ]*}Ardy the brown aardvark.$} {
+  #var mage_familiar_present true;
+}
+
+#action {^%!{[> ]*}[M] Ardy the brown aardvark.$} {
+  #var mage_familiar_present true;
+}

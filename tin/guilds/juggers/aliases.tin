@@ -10,9 +10,12 @@
 #alias attempt_airdrop {
   #math {sp_ratio} {$sp / $sp_max * 1.0};
 
-  #if {$clan_powers > 0 && $enemy > 0 && $gp2 < 60 && $sp_ratio < 0.3 } {
+  #if {$clan_powers > 0 && $enemy > 0 && $gp2 < 60 && $sp_ratio < 0.3} {
     #send !airdrop;
-  }
+  };
+  #elseif {$clan_powers > 0 && $enemy > 0 && $gp1 < 50 && $corpses < 1} {
+    #send !airdrop;
+  };
 }
 
 #alias login_commands {
