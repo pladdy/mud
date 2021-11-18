@@ -15,56 +15,68 @@ Balderdash:
   zelligars      84
 
 Fiddlestix:
-  alphabet 55
-  androids 40
-  carnegie 40
-  chessboard 55
-  death_taco 50
-  halo 50
-  hotel 50
-  mahjongg 1 # doesn't scale
-  puppies 50
-  smurfs 50  # scales at 101
-  zelligars 50
+  aegis          65
+  alphabet       150
+  androids       70
+  banshee's lair 80
+  carnegie       80
+  chessboard     81
+  death_taco     87
+  halo           80
+  hotel          67
+  mahjongg       75
+  puppies        80
+  section z      65
+  smurfs         87
+  zelligars      70
 
 Gilead:
-  alphabet 50
-  androids 50
-  carnegie 50
-  chessboard 50
-  death_taco 50
-  halo 50
-  hotel 50
-  mahjongg 1 # doesn't scale
-  puppies 50
-  smurfs 50  # scales at 101
-  zelligars 50
+  aegis          65
+  alphabet       150
+  androids       70
+  banshee's lair 80
+  carnegie       80
+  chessboard     81
+  death_taco     87
+  halo           80
+  hotel          67
+  mahjongg       75
+  puppies        80
+  section z      65
+  smurfs         87
+  zelligars      70
 
 Highjinx:
-  alphabet 50
-  androids 50
-  carnegie 50
-  chessboard 50
-  death_taco 50
-  halo 50
-  hotel 50
-  mahjongg 1 # doesn't scale
-  puppies 50
-  smurfs 50  # scales at 101
-  zelligars 50
+  aegis          65
+  alphabet       150
+  androids       70
+  banshee's lair 80
+  carnegie       80
+  chessboard     82
+  death_taco     88
+  halo           80
+  hotel          66
+  mahjongg       78
+  puppies        80
+  section z      65
+  smurfs         87
+  zelligars      70
 
 Malarkey:
-  alphabet 60
-  androids 60
-  carnegie 60
-  chessboard 60
-  death_taco 60
-  halo 60
-  hotel 60
-  mahjongg 1 # doesn't scale
-  puppies 60
-  smurfs 60  # scales at 101
-  zelligars 60
+  aegis          65
+  alphabet       150
+  androids       70
+  banshee's lair 80
+  carnegie       80
+  chessboard     81
+  death_taco     87
+  halo           80
+  hotel          67
+  mahjongg       75
+  puppies        80
+  section z      65
+  smurfs         87
+  zelligars      70
 
 Shenanigans:
   aegis          91  # ow
@@ -83,14 +95,17 @@ Shenanigans:
   zelligars      90
 
 Tomfoolery:
-  alphabet 50
-  androids 50
-  carnegie 50
-  chessboard 50
-  death_taco 50
-  halo 50
-  hotel 50
-  mahjongg 1 # doesn't scale
-  puppies 50
-  smurfs 50  # scales at 101
-  zelligars 50
+  aegis          65
+  alphabet       150
+  androids       70
+  banshee's lair 80
+  carnegie       80
+  chessboard     81
+  death_taco     87
+  halo           80
+  hotel          67
+  mahjongg       75
+  puppies        80
+  section z      65
+  smurfs         87
+  zelligars      70

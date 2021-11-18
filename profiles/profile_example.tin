@@ -1,6 +1,8 @@
-#nop Set up environment.
+#nop Set up environment;
 
-#var guild {put your guild here};
+#var guild {guild};
+#var BAGS_TO_USE {8};
+#var ETERNALS {false};
 
 #script {character} {echo $PROFILE};
 #var character {$character[1]};
