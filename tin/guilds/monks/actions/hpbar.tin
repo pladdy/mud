@@ -91,6 +91,6 @@
     #send !stopmed;
   };
   #else {
-    #send !hp ;
+    #send !hp;
   }
 }

@@ -170,3 +170,11 @@
   #send !present raqna's gem;
   #send !present brenan's gem;
 }
+
+#action {^%!{[> ]*}The World of Serinth Board containing %1 messages (%2).$} {
+  #map goto serinth;
+}
+
+#action {^%!{[> ]*}The World of Serinth 2.0 Board containing %1 message (%2).$} {
+  #map goto serinth2;
+}

@@ -87,6 +87,17 @@
   }
 }
 
+#alias auto_throw {
+  #if {"$can_throw" != "true"} {
+    #showme <170>Throw enabled.;
+    #var can_throw true;
+  };
+   #else {
+    #showme <170>Throw disabled.;
+    #var can_throw false;
+  }
+}
+
 #alias commands_after_corpse {
   #var pressure {off};
   #var palm_active {false};

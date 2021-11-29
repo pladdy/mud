@@ -2,7 +2,7 @@
 
 #alias set_map_enter_room_event {
   #event {MAP ENTER ROOM} {
-    #nop see aliases.tin for definition;
+    #nop see window.tin for definition;
     map_refresh;
   }
 }

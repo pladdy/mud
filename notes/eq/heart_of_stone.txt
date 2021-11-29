@@ -1,0 +1,23 @@
+Heart of stone (slightly cracked)
+Heart of stone (badly cracked)
+
+With a short, sharp snap the staff breaks into unusable fragments.
+As the last bits of stone crumble into dust in your hands, you find
+that you are not left empty-handed. A beautifully crafted katana,
+covered in stone dust, is all that remains of the Heart of Stone.
+
+You unwield Heart of Stone.
+As you take Yearning Star in hand an undefinable presence
+seems to collect around you. The blade sparkles brightly
+and for just an instant you faintly see Shenanigans spelled
+out in its stars.
+
+As you use the sword the WC goes up.  Not sure if each tier represents a jump
+or just achieving a level of WC.
+
+Yearning Star (dust)
+Yearning Star (dim)
+Yearning Star (twinkling)
+Yearning Star (shining)
+Yearning Star (sparkling)
+  - gains ~4% penetration

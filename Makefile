@@ -13,6 +13,9 @@ all: tintin install
 install:
 	bin/install
 
+more:
+	more -R 3k_session.log
+
 # this seems over the top... TODO: find a simpler way?
 new-tag:
 ifndef $(type)
@@ -31,14 +34,14 @@ ifeq ("$(type)","patch")
 	$(eval new_version = $(shell echo $(major).$(minor).$(bump)))
 endif
 
+release:
+	git push && git push --tags
+
 tag: new-tag
 ifdef $(type)
 	@echo making tag $(new_version)
 	git tag -a $(new_version) -m '$(new_version)'
 endif
-
-release:
-	git push && git push --tags
 
 tags:
 	@git tag --sort=-v:refname

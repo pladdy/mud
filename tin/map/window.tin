@@ -15,7 +15,6 @@
   #var map_box_width $screen_width;
 
   debug map dimensions, height: $map_height width: $map_width;
-  #nop #map map $map_height $map_width draw 1 $WIDTH_OFFSET $map_box_height $map_box_width {<170>Map Yo!};
 
   #map map $map_height $map_width variable current_map;
   #map get all map[room_info];
