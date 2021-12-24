@@ -50,9 +50,9 @@ Highjinx:
   aegis          65
   alphabet       150
   androids       70
-  banshee's lair 80
+  banshee's lair 70
   carnegie       80
-  chessboard     82
+  chessboard     80
   death_taco     88
   halo           80
   hotel          66

@@ -19,8 +19,8 @@ hot sauce,   449k      ?,                  ?,        2.4M,     4.8M,
 veggie taco, ?,        ?,        500k      800k,     ?
 cheesy taco, 208k,     335k,               1.2M,     1.4M,     3.2M,
 meat taco,   ?,        ?,                  ?,        ?,        4.8M,
-works taco,  ?,        ?,                  ?,        5.4M,
-death taco,  3.2M      ?,                  ?,        16M
+works taco,  ?,        ?,                  ?,        5.4M,     9M,
+death taco,  3.2M      ?,                  ?,        16M,      37M,
 
 Mob Specials:
   shells:     shell fragments special, bleed damage, no wimpy
@@ -36,6 +36,7 @@ drop tiers
 - 1-49, 50-74, 75-90, 91+
 - stat boosts are all boot (indefinite)!
 - can build 2 death tacos per reset + a veggie taco (20 toppings)
+- all items are unique, can't have more than one in inventory or one dests!
 
 veggie taco (shell, lettuce, tomatoes)
   A Cerveza      (, plain, refreshing, strong): +2, +3, +4 con; 50%, 75%, 100% overmax sp x 3
@@ -58,10 +59,10 @@ meat taco (cheese + meat)
 
 works taco (meat + cream, guacamole)
   - heals a lot
-  Lime Wedge          (, , , ):      +acid WC to a weapon
-  Cup of Salsa        (, , large, ): +wis (+4 dex, +4 int, +2 wis, +2 cha?)
-  Lettuce Leaf        (, , , ):      Used to change WC to blunt
-  Packet of hot sauce (, , , ):      +fire WC to a weapon
+  Lime Wedge          (, , , ):           +acid WC to a weapon
+  Cup of Salsa        (, , large, giant): +wis (+4 dex, +4 int, +2 wis, +2 cha?)
+  Lettuce Leaf        (, , , ):           Used to change WC to blunt
+  Packet of hot sauce (, , , ):           +fire WC to a weapon
 
 death taco: (works + hot sauce)
   see notes/mobs/death_taco.txt

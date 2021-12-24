@@ -1,5 +1,20 @@
-Heart of stone (slightly cracked)
-Heart of stone (badly cracked)
+Staff from Vago's stronhold.
+
+To get it go to vago's, to the northern most room and 'press stone'.
+Go back to entrace, go north, kill golem
+Go north again and get pillar, leave south immediately!
+  -   you have a chance to automatically move south, but seems like a dex
+      check that could fail and result in death
+
+Starts at a higher WC and goes down over time until it breaks.
+
+- Heart of Stone (solid)
+- Heart of Stone (slightly cracked)
+- Heart of Stone (badly cracked)
+- Heart of Stone (falling apart)
+- Heart of Stone (crumbling)
+
+Breaking:
 
 With a short, sharp snap the staff breaks into unusable fragments.
 As the last bits of stone crumble into dust in your hands, you find
@@ -12,12 +27,20 @@ seems to collect around you. The blade sparkles brightly
 and for just an instant you faintly see Shenanigans spelled
 out in its stars.
 
+Notes:
+
 As you use the sword the WC goes up.  Not sure if each tier represents a jump
 or just achieving a level of WC.
 
-Yearning Star (dust)
-Yearning Star (dim)
-Yearning Star (twinkling)
-Yearning Star (shining)
-Yearning Star (sparkling)
+Yearning Star progress over time in WC and eventually gets a penetration special.
+
+- Yearning Star (dusty)
+- Yearning Star (dim)
+- Yearning Star (twinkling)
+- Yearning Star (shining)
+- Yearning Star (sparkling)
   - gains ~4% penetration
+- Yearning Star (brilliant)
+  - gains ~8% penetration
+  - takes hours to get here
+  - WC might be maxed here, genscan can't go higher than 990
