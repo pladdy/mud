@@ -17,8 +17,24 @@
 }
 
 #alias check_stepper {
-  #local MIN_CONC 15;
-  #if {"$stepper" == "on" && $gp1 < $MIN_CONC} {
+  #local MIN_CONC 20;
+  #local MIN_FORCE 20;
+
+  #if {"$stepper" == "on" && ($gp1 < $MIN_CONC || $gp2 < $MIN_FORCE)} {
     stepper off;
+
+    log.info Creating delay 're_step' to activate stepper after regen.;
+
+    #local min_rounds 50;
+    #math rando {1 d 20};
+    #math regen_time {$min_rounds + $rando};
+
+    #delay {re_step} {
+      log.info "Re-activating stepper after regen time: $regen_time.";
+      stepper on;
+    } {$regen_time};
+
+    #uunvar rando;
+    #unvar regen_time
   }
 }

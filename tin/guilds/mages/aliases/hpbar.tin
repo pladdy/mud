@@ -7,6 +7,9 @@
       #send !er;
     };
   };
+  #elseif {$enemy > 0 && $school_reset >= 99 && $school_spells > 0} {
+    #send !er;
+  };
 }
 
 #alias attempt_focus_mind {
@@ -17,20 +20,14 @@
 #nop MIs last 90 rounds (3 min);
 
 #alias attempt_mystic_immersion {
-  #if {"$stepper" == "on"
-       && "$immersed" == "false"
+  #if {"$immersed" == "false"
        && $mystic_immersions > 0
-       && $sp < 700
+       && $sp < 800
   } {mim};
   #elseif {
-    $guild_reset > 84
+    $guild_reset > 80
     && $mystic_immersions > 0
     && "$immersed" == "false"
-  } {mim};
-  #elseif {
-    $mystic_immersions > 0
-    && "$immersed" == "false"
-    && $sp < 300
   } {mim};
 }
 

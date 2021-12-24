@@ -4,7 +4,7 @@
   #map move n;
   #send !nw;
   #map move nw;
-  #send !repair yellow\;lightsaber;
+  #send !repair $jedi_saber_color\;lightsaber;
   fixeq;
 }
 

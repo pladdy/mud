@@ -1,3 +1,13 @@
+#alias blink {
+  #send !deplete ps;
+
+  #var spells[B] {on};
+  #send !cast blink;
+
+  #var spells[pa] {on};
+  #send !cast prismatic aura;
+}
+
 #alias cg {
   #send !get materials from bag;
   #send !cast create golem straw;
@@ -67,6 +77,16 @@
   #var spells[pe] {off};
   #send !cast protection from good;
   #var spells[pg] {on};
+}
+
+#alias ps {
+  #send !deplete B;
+  #send !deplete pa;
+
+  #var spells[pa] off;
+  #var spells[blink] off;
+
+  #send !cast prismatic sphere;
 }
 
 #alias sumup {

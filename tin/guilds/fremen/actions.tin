@@ -33,7 +33,7 @@
     #if {$ammo == 1 && $ammo_max > 0} {#send !mload};
   };
 
-  #list spice_queue size available_spices;
+  count_available_spices;
   #if {$enemy > 0 && "$spice_level" == "Withdrawal" && $available_spices > 0} {
     respice;
   };
@@ -74,56 +74,56 @@
 #nop Spice purchases and inventory;
 
 #action {^%!{[> ]*}# Item$} {
-  #list spice_queue clear;
+  #list spice_inv_queue clear;
 }
 
 #action {^%!{[> ]*}You pay %1 gold coins for %*tea.$} {
-  #list spice_queue add {drink tea};
+  #list spice_inv_queue add {drink tea};
 }
 
 #action {^%!{[> ]*}You pay %1 gold coins for %*coffee.$} {
-  #list spice_queue add {drink coffee};
+  #list spice_inv_queue add {drink coffee};
 }
 
 #action {^%!{[> ]*}You pay %1 gold coins for %*beer.$} {
-  #list spice_queue add {drink beer};
+  #list spice_inv_queue add {drink beer};
 }
 
 #action {^%!{[> ]*}You pay %1 gold coins for %*liquor.$} {
-  #list spice_queue add {drink liquor};
+  #list spice_inv_queue add {drink liquor};
 }
 
 #action {^%!{[> ]*}You pay %1 gold coins for pure spice.$} {
-  #list spice_queue add {take spice};
+  #list spice_inv_queue add {take spice};
 }
 
 #nop  Spices in inventory;
 
 #action {^%!{[> ]*}{\d+} %!{[\*]?}Spice {[A-Za-z]+}.$} {
   #format {drink} {%l} {%2};
-  #%1 #list spice_queue add {drink $drink};
+  #%1 #list spice_inv_queue add {drink $drink};
 }
 
 #action {^%!{[> ]*}{\d+} %!{[\*]?}Spice Melange (Pure).$} {
-  #%1 #list spice_queue add {take spice};
+  #%1 #list spice_inv_queue add {take spice};
 }
 
 #nop  Spices in bags;
 
 #action {^Spice {[A-Za-z]+}\.$} {
   #format {drink} {%l} {%1};
-  #list spice_queue add {drink $drink};
+  #list spice_bag_queue add {drink $drink};
 }
 
 #action {^Spice {[A-Za-z]+} \{{\d+}\}\.$} {
   #format {drink} {%l} {%1};
-  #%2 #list spice_queue add {drink $drink};
+  #%2 #list spice_bag_queue add {drink $drink};
 }
 
 #action {^Spice Melange (Pure)\.$} {
-  #list spice_queue add {take spice};
+  #list spice_bag_queue add {take spice};
 }
 
 #action {^Spice Melange (Pure) \{{\d+}\}\.$} {
-  #%2 #list spice_queue add {take spice};
+  #%2 #list spice_bag_queue add {take spice};
 }

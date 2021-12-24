@@ -38,7 +38,7 @@
   #format spell_taps {%L} {$spell_tap_status};
 
   #nop keep some corpses tapped to handle saturation accumulation;
-  #if {$spell_taps < 3 && $gp1 < 30 && $corpses > 0} {rebl};
+  #if {$spell_taps < 3 && $gp1 < 25 && $corpses > 0} {rebl};
 
   #var enemy {%5};
   #replace {enemy} {%} {};
@@ -52,8 +52,6 @@
   #regex {$dspells} { SS} {#nop} {#send !cast stoneskin};
   #regex {$dspells} { MG} {#nop} {#send !cast major globe};
   #regex {$dspells} { MS} {#nop} {#send !cast magnificent shield};
-  #nop #regex {$dspells} { B}  {#nop} {#send !cast blink};
-  #nop #regex {$dspells} { PA} {#nop} {#send !cast prismatic aura};
 
   #regex {$dspells} { A} {#nop} {#send !cast armor};
   #regex {$dspells} { *I} {#var immersed true} {#var immersed false};
@@ -61,6 +59,12 @@
   #nop Spells to monitor if i enabled them;
   #if {"$spells[pg]" == "on"} {#regex {$dspells} { PG} {#nop} {pg}};
   #if {"$spells[pe]" == "on"} {#regex {$dspells} { PE} {#nop} {pe}};
+  #if {"$spells[blink]" == "on"} {
+    #regex {$dspells} { B}  {#nop} {#send !cast blink}
+  };
+  #if {"$spells[pa]" == "on"} {
+    #regex {$dspells} { PA} {#nop} {#send !cast prismatic aura};
+  };
 
   attempt_slow;
   attempt_shelter;

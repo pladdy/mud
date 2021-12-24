@@ -7,6 +7,12 @@
   }
 }
 
+#alias am {
+  #send !hide;
+  #send !poison;
+  #send !fk m %0;
+}
+
 #alias attempt_adjust_litany {
   #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
 
@@ -38,16 +44,16 @@
   };
 }
 
-#alias am {
-  #send !hide;
-  #send !poison;
-  #send !fk m %0;
-}
-
 #alias commands_after_corpse {
   #send !suspend;
   #var stun_active false;
   #var voice_active false;
+}
+
+#alias count_available_spices {
+  #list spice_inv_queue size available_inv_spices;
+  #list spice_bag_queue size available_bag_spices;
+  #math available_spices {$available_inv_spices + $available_bag_spices};
 }
 
 #alias drc {
@@ -117,30 +123,40 @@
 }
 
 #alias respice {
-  #list spice_queue get 1 spice_task;
+  #if {$available_inv_spices > 0} {
+    #list spice_inv_queue get 1 spice_task;
 
-  #nop  Try to get drink/spice from bag;
-  #regexp {$spice_task} {%!{(drink|take)} {[a-z]+}} {#var drink &2};
+    #if {$spice_task} {
+      #send !$spice_task;
+      #list spice_inv_queue delete 1;
+    };
+  };
+  #elseif {$available_bag_spices > 0} {
+    #list spice_bag_queue get 1 spice_task;
 
-  gb $drink 1;
-  #send !$spice_task;
-  #list spice_queue delete 1;
+    #nop  Try to get drink/spice from bag;
+    #regexp {$spice_task} {%!{(drink|take)} {[a-z]+}} {#var drink &2};
+
+    gb $drink 1;
+    #send !$spice_task;
+    #list spice_bag_queue delete 1;
+  };
+  #else {
+    log.warn No spices left!;
+  }
 }
 
 #alias spice_chk {
-  #nop  Checking inventory clears the spice_queue;
+  #nop  Checking inventory clears the spice_*_queues;
   #send !i;
   #send !l bag;
 }
 
 #alias spices {
-  #if {"%1" == "clear" || "%1" == "reset"} {
-    #list spice_queue clear;
-  };
-  #else {
-    spice_chk;
-    #delay {2} {#var spice_queue};
-  };
+  #list spice_inv_queue clear;
+  #list spice_bag_queue clear;
+  spice_chk;
+  #delay {2} {#var spice_inv_queue; #var spice_bag_queue};
 };
 
 #alias use_corpse {
