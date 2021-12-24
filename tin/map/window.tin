@@ -2,14 +2,17 @@
 #nop The status_bar alias is responsible for splitting the screens;
 #alias map_refresh {
   #local SPLIT_ADJUSTMENT 4;
+  #nop  The below offset is 1 character more than the text window;
   #local WIDTH_OFFSET 101;
 
   #screen get rows screen_height;
-  #screen get cols screen_wdith;
+  #screen get cols screen_width;
 
   #math map_height {($screen_height - $SPLIT_ADJUSTMENT) / 4};
   #math map_height {$map_height * 2};
-  #math map_width {$screen_width - $WIDTH_OFFSET};
+
+  #nop  TODO: make this dynamic...if the screen is small 3x might not work;
+  #math map_width {$map_height * 4};
 
   #math map_box_height {$map_height + 2};
   #var map_box_width $screen_width;

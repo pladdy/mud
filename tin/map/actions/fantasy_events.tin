@@ -1,9 +1,14 @@
-#nop Alizarian Tower;
+#nop  Alizarian Tower;
 #action {^%!{[> ]*}The current pulls you south and you struggle to breathe!$} {
   #if {$map[current_room] == 28781} {#map goto 15662};
 }
 
-#nop Crystals of Ao;
+#nop  Balooga falls;
+#action {^%!{[> ]*}You pass out in the middle of the fall.} {
+  #if {$map[current_room] == 33769} {#map goto 33770};
+}
+
+#nop  Crystals of Ao;
 #nop the rooms below will port/warp you, i don't have them all captured below;
 #action {^%!{[> ]*}You begin to lose your sense of direction, confused by the} {
   #if {$map[current_room] == 28667} {#map goto 28661};
