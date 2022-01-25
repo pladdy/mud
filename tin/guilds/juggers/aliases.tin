@@ -59,6 +59,13 @@
   #send !afk Juggers, if you need an airdrop: 'high5' me;
 }
 
+#alias su_can {
+  #send !support reset;
+  #99 #send !support upgrade powerplant;
+  #99 #send !support upgrade mount;
+  #send !support assault fire,radiation;
+}
+
 #alias su_spam {
   #if {"%1" == "on"} {
     log.info Ansi ON for jugger support hits.;
@@ -68,6 +75,13 @@
     log.info Ansi OFF for jugger support hits.;
     #send !aset jugg_support hide;
   }
+}
+
+#alias su_tank {
+  #send !support reset;
+  #99 #send !support upgrade armor;
+  #99 #send !support upgrade repair;
+  #send !support defend edged,blunt,fire,ice,electric;
 }
 
 #alias use_corpse {

@@ -14,7 +14,7 @@
 }
 
 #alias login_commands {
-  conup;
+  #nop conup;
 }
 
 #alias rebl {

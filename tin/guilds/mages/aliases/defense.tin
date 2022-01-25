@@ -43,13 +43,17 @@
   #regexp {$dspells} { MS } {#nop;} {
     #delay {$i} {#send !cast magnificent shield}; #math {i} {$i + 2};
   };
-  #regexp {$dspells} { PA } {#nop;} {
-    #nop #delay {$i} {#send !cast prismatic aura}; #math {i} {$i + 2};
+
+  #regexp {$dspells} { PS } {#nop;} {
+    #nop #delay {$i} {#send !cast prismatic sphere}; #math {i} {$i + 2};
   };
 
   #nop  The conflict with prismatic sphere;
   #regexp {$dspells} { B } {#nop;} {
-    #nop #delay {$i} {#send !cast blink}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast blink}; #math {i} {$i + 2};
+  };
+  #regexp {$dspells} { PA } {#nop;} {
+    #delay {$i} {#send !cast prismatic aura}; #math {i} {$i + 2};
   };
   #regexp {$dspells} { A } {#nop;} {
     #delay {$i} {#send !cast armor}; #math {i} {$i + 2};

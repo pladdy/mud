@@ -37,7 +37,7 @@
   #replace {spell_tap_status} { } {};
   #format spell_taps {%L} {$spell_tap_status};
 
-  #nop keep some corpses tapped to handle saturation accumulation;
+  #nop  Keep some corpses tapped to handle saturation accumulation;
   #if {$spell_taps < 3 && $gp1 < 25 && $corpses > 0} {rebl};
 
   #var enemy {%5};
@@ -49,17 +49,18 @@
   #nop #regex {$dspells} { RS} {#nop} {#send !cast rhino skin};
   #nop #regex {$dspells} { mg} {#nop} {#send !cast minor globe};
 
+  #nop  Ensure these spells are always active;
   #regex {$dspells} { SS} {#nop} {#send !cast stoneskin};
   #regex {$dspells} { MG} {#nop} {#send !cast major globe};
   #regex {$dspells} { MS} {#nop} {#send !cast magnificent shield};
-
   #regex {$dspells} { A} {#nop} {#send !cast armor};
+
   #regex {$dspells} { *I} {#var immersed true} {#var immersed false};
 
   #nop Spells to monitor if i enabled them;
   #if {"$spells[pg]" == "on"} {#regex {$dspells} { PG} {#nop} {pg}};
   #if {"$spells[pe]" == "on"} {#regex {$dspells} { PE} {#nop} {pe}};
-  #if {"$spells[blink]" == "on"} {
+  #if {"$spells[B]" == "on"} {
     #regex {$dspells} { B}  {#nop} {#send !cast blink}
   };
   #if {"$spells[pa]" == "on"} {

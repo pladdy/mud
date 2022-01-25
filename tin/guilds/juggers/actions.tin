@@ -38,8 +38,8 @@
   #regexp {$jugger_ammo} {{\d+}} {#var jugger_mounts[0] &1};
   #regexp {$jugger_ammo} {{\d+}/{\d+}} {#var jugger_mounts[1] &2} {#var jugger_mounts[1] 101};
 
-  #if {$jugger_mounts[0] < 100} {rammo 4 1};
-  #if {$jugger_mounts[1] < 100} {rammo 4 2};
+  #if {$jugger_mounts[0] < 100} {rammo 5 1};
+  #if {$jugger_mounts[1] < 100} {rammo 5 2};
 
   #if {"$stepper" == "on" && $corpses < 1 && $gp1 < 20} {
     stepper off;
