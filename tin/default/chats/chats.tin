@@ -17,13 +17,13 @@
 #list tells_blocklist add {robert};
 #list tells_blocklist add {the ghoul};
 #list tells_blocklist add {the triad};
-#list tells_blocklist add {the vampire};
 #list tells_blocklist add {vampire};
 #list tells_blocklist add {vilgan};
 #list tells_blocklist simplify;
 
 #list says_blocklist add {%+ golem};
 #list says_blocklist add {balaban};
+#list says_blocklist add {bojek};
 #list says_blocklist add {bodyguard};
 #list says_blocklist add {cadal};
 #list says_blocklist add {cancer};
@@ -31,6 +31,7 @@
 #list says_blocklist add {cow};
 #list says_blocklist add {erig};
 #list says_blocklist add {graktah};
+#list says_blocklist add {guard};
 #list says_blocklist add {guardswoman};
 #list says_blocklist add {harthearvorin};
 #list says_blocklist add {kid};
@@ -55,7 +56,7 @@
 #list says_blocklist simplify;
 
 #alias -catch_overflow {
-    #read tin/default/chats/overflow.tin;
+  #read tin/default/chats/overflow.tin;
 }
 
 #action {^%!{[> ]*}[PARTY] {[A-Za-z]+}: %2} {
@@ -71,7 +72,7 @@
 
   #foreach $says_blocklist blocked {
     log.debug checking blocklist, blocked=$blocked, actor=%1;
-    #regexp {%1} {%i$blocked} {#var show_chat false; #break};
+    #regexp {%1} {%i$blocked} {#var show_chat false};
   };
 
   #if {"$show_chat" == "true"} {
@@ -86,16 +87,16 @@
 
   #foreach $tells_blocklist blocked {
     log.debug checking blocklist, blocked=$blocked, actor=%1;
-    #regexp {%1} {%i$blocked} {#var send_alert false; #break};
+    #regexp {%1} {%i$blocked} {#var send_alert false};
   }
 
   log.debug 'tell' matched: matched=%0, actor=%1;
 
-  #list chats add {%0};
-  chats_refresh;
-  -catch_overflow;
-
   #if {"$send_alert" == "true"} {
+    #list chats add {%0};
+    chats_refresh;
+    -catch_overflow;
+
     sound_beeps;
     set_repeating_alarm;
     #if {"$stepper" == "on"} {stepper off};

@@ -23,3 +23,7 @@
 #action {^%!{[> ]*}1 *A plastic ice kream spoon.} {
   #var have_spoon true;
 }
+
+#action {^%!{[> ]*}You unwield Heart of Stone.} {
+  #send !wear shield;
+}

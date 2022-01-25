@@ -1,19 +1,13 @@
-#action {^%1 gasps for breath, then slumps into death.$} {
+#action {^%!{[> ]*}%1 gasps for breath, then slumps into death.$} {
   log_and_update_stepper %1;
 }
 
-#action {^%1 screeches in agony and falls to the ground, dead.$} {
+#action {^%!{[> ]*}%1 screeches in agony and falls to the ground, dead.$} {
   log_and_update_stepper %1;
 }
 
-#action {^%1 gurgles in %2 own blood as %3 dies.$} {
+#action {^%!{[> ]*}%1 gurgles in %2 own blood as %3 dies.$} {
   log_and_update_stepper %1;
-}
-
-#action {%1 dealt the killing blow to %2} {
-  #var last_killer %1;
-  #var last_killed %2;
-  log_and_respond;
 }
 
 #action {^%!{[> ]*}%1 dealt the killing blow to %2} {
