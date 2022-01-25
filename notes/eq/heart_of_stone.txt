@@ -13,6 +13,7 @@ Starts at a higher WC and goes down over time until it breaks.
 - Heart of Stone (badly cracked)
 - Heart of Stone (falling apart)
 - Heart of Stone (crumbling)
+- Heart of Stone (disintegrating)
 
 Breaking:
 

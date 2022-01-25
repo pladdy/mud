@@ -14,6 +14,22 @@ Balderdash:
   smurfs         117 # starts scaling at 101
   zelligars      84
 
+Claptrap:
+  aegis          73  # ow
+  alphabet       150
+  androids       73
+  banshee's lair 73
+  carnegie       80
+  chessboard     85
+  death_taco     91  # benefit caps at this scaler
+  halo           150
+  hotel          73
+  mahjongg       80
+  puppies        150
+  section z      80
+  smurfs         150 # starts scaling at 101
+  zelligars      73
+
 Fiddlestix:
   aegis          65
   alphabet       150
