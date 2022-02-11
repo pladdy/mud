@@ -29,8 +29,8 @@
   #math alert_box_height {$alert_height + 2};
   #math alert_box_width {$screen_width};
 
-  debug alert dimensions, height: $alert_height width: $alert_width;
-  debug draw jade box $alert_box_height $WIDTH_OFFSET $screen_height $alert_box_width;
+  log.debug alert dimensions, height: $alert_height width: $alert_width;
+  log.debug draw jade box $alert_box_height $WIDTH_OFFSET $screen_height $alert_box_width;
 
   #math brh {$screen_height - 2};
   #math brw {$alert_box_width};
@@ -53,9 +53,9 @@
 }
 
 #alias sh {
-  #class {chats} {kill};
-  #send !sayhist;
-  #delay 1 setup_chats;
+  #var disable_chat_alerts 1;
+  #send sayhist;
+  #var disable_chat_alerts 0;
 }
 
 #alias set_repeating_alarm {
@@ -67,10 +67,10 @@
 }
 
 #alias th {
-  #class {chats} {kill};
+  #var disable_chat_alerts 1;
   #send tellhist;
   #undelay {repeating_alarm};
-  #delay 1 setup_chats;
+  #var disable_chat_alerts 0;
 }
 
 #alias hmh {

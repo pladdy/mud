@@ -4,56 +4,62 @@
 #class {chats} {kill};
 #class {chats} {open};
 
-#nop  Create chat blocklists;
-#list tells_blocklist clear;
-#list says_blocklist clear;
+#alias build_says_blocklist {
+  #list says_blocklist add {%+ golem};
+  #list says_blocklist add {balaban};
+  #list says_blocklist add {bojek};
+  #list says_blocklist add {bodyguard};
+  #list says_blocklist add {cadal};
+  #list says_blocklist add {cancer};
+  #list says_blocklist add {captain keyes};
+  #list says_blocklist add {church police};
+  #list says_blocklist add {cow};
+  #list says_blocklist add {erig};
+  #list says_blocklist add {gargamel};
+  #list says_blocklist add {graktah};
+  #list says_blocklist add {guard};
+  #list says_blocklist add {guardswoman};
+  #list says_blocklist add {harthearvorin};
+  #list says_blocklist add {kid};
+  #list says_blocklist add {lijak};
+  #list says_blocklist add {pope};
+  #list says_blocklist add {raylorn};
+  #list says_blocklist add {sandino};
+  #list says_blocklist add {thurand};
+  #list says_blocklist add {the %+ knight};
+  #list says_blocklist add {the angel};
+  #list says_blocklist add {the ferryman};
+  #list says_blocklist add {the gypsy};
+  #list says_blocklist add {the knight};
+  #list says_blocklist add {the man};
+  #list says_blocklist add {the mortician};
+  #list says_blocklist add {the new yorker};
+  #list says_blocklist add {the old man};
+  #list says_blocklist add {priest};
+  #list says_blocklist add {the triad};
+  #list says_blocklist add {the zombie mindlessly};
+  #list says_blocklist add {valerie};
+  #list says_blocklist add {velica};
+  #list says_blocklist add {warrior};
+  #list says_blocklist add {wisewoman};
+  #list says_blocklist simplify;
+}
 
-#nop  Comment out/nop character for testing;
-#nop  #list tells_blocklist add {$character};
-#list tells_blocklist add {antonio};
-#list tells_blocklist add {brenan};
-#list tells_blocklist add {george};
-#list tells_blocklist add {petunia};
-#list tells_blocklist add {robert};
-#list tells_blocklist add {the ghoul};
-#list tells_blocklist add {the triad};
-#list tells_blocklist add {vampire};
-#list tells_blocklist add {vilgan};
-#list tells_blocklist simplify;
-
-#list says_blocklist add {%+ golem};
-#list says_blocklist add {balaban};
-#list says_blocklist add {bojek};
-#list says_blocklist add {bodyguard};
-#list says_blocklist add {cadal};
-#list says_blocklist add {cancer};
-#list says_blocklist add {captain keyes};
-#list says_blocklist add {cow};
-#list says_blocklist add {erig};
-#list says_blocklist add {graktah};
-#list says_blocklist add {guard};
-#list says_blocklist add {guardswoman};
-#list says_blocklist add {harthearvorin};
-#list says_blocklist add {kid};
-#list says_blocklist add {pope};
-#list says_blocklist add {sandino};
-#list says_blocklist add {thurand};
-#list says_blocklist add {the %+ knight};
-#list says_blocklist add {the angel};
-#list says_blocklist add {the ferryman};
-#list says_blocklist add {the gypsy};
-#list says_blocklist add {the knight};
-#list says_blocklist add {the man}
-#list says_blocklist add {the mortician};
-#list says_blocklist add {the new yorker};
-#list says_blocklist add {the old man};
-#list says_blocklist add {the triad};
-#list says_blocklist add {the zombie mindlessly};
-#list says_blocklist add {valerie};
-#list says_blocklist add {velica};
-#list says_blocklist add {warrior};
-#list says_blocklist add {wisewoman};
-#list says_blocklist simplify;
+#alias build_tells_blocklist {
+  #nop  Comment out/nop character for testing;
+  #nop  #list tells_blocklist add {$character};
+  #list tells_blocklist add {antonio};
+  #list tells_blocklist add {brenan};
+  #list tells_blocklist add {george};
+  #list tells_blocklist add {petunia};
+  #list tells_blocklist add {robert};
+  #list tells_blocklist add {sir arruns thelton};
+  #list tells_blocklist add {the ghoul};
+  #list tells_blocklist add {the triad};
+  #list tells_blocklist add {vampire};
+  #list tells_blocklist add {vilgan};
+  #list tells_blocklist simplify;
+}
 
 #alias -catch_overflow {
   #read tin/default/chats/overflow.tin;
@@ -83,24 +89,35 @@
 };
 
 #action {^%!{[> ]*}{[A-Za-z ]+} tells you: %2} {
-  #var send_alert {true};
+  #if {$disable_chat_alerts != 1} {
+    #var send_alert {true};
 
-  #foreach $tells_blocklist blocked {
-    log.debug checking blocklist, blocked=$blocked, actor=%1;
-    #regexp {%1} {%i$blocked} {#var send_alert false};
-  }
+    #foreach $tells_blocklist blocked {
+      log.debug checking blocklist, blocked=$blocked, actor=%1;
+      #regexp {%1} {%i$blocked} {#var send_alert false};
+    }
 
-  log.debug 'tell' matched: matched=%0, actor=%1;
+    log.debug 'tell' matched: matched=%0, actor=%1;
 
-  #if {"$send_alert" == "true"} {
-    #list chats add {%0};
-    chats_refresh;
-    -catch_overflow;
+    #if {"$send_alert" == "true"} {
+      #list chats add {%0};
+      chats_refresh;
+      -catch_overflow;
 
-    sound_beeps;
-    set_repeating_alarm;
-    #if {"$stepper" == "on"} {stepper off};
+      sound_beeps;
+      set_repeating_alarm;
+      #if {"$stepper" == "on"} {stepper off};
+    };
   };
 };
+
+#nop  Create chat blocklists;
+#list tells_blocklist clear;
+build_tells_blocklist;
+
+#list says_blocklist clear;
+build_says_blocklist;
+
+#var disable_chat_alerts 0;
 
 #class {chats} {close};

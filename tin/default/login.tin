@@ -31,6 +31,7 @@
 
 #action {^Your character is currently logged in and } {
   _login_commands;
+  relog_commands;
   linkdie_commands;
   #read $map_dir/.bootstrap.tin;
 }

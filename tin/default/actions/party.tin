@@ -16,3 +16,6 @@
   #var party_status yes;
 }
 
+#action {^ *Party banner of %1's party$} {
+  #var party_status yes;
+}
