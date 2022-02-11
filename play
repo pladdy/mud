@@ -46,6 +46,8 @@ if [ $# -gt 0 ]; then
   if [ -f "profiles/${PROFILE_FILE}" ]; then
     rm -f tin/map/map_globals.txt
     PROFILE=${PROFILE} tt++ profiles/${PROFILE_FILE}
+  else
+    echo "Profile ${PROFILE_FILE} doesn't exist."
   fi
 else
   printf "Need a valid profile name.\n\n"

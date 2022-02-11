@@ -19,8 +19,6 @@
 #alias log.debug {
   #if {$LOG_LEVEL >= 3} {#showme <160>DEBUG: %0};
 }
-#alias debug {log.debug %0}
-#alias Debug {log.debug %0}
 
 #alias log.info {
   #if {$LOG_LEVEL >= 2} {#showme <170>INFO: %0};

@@ -12,15 +12,16 @@
   #list {seen_monsters} {size} {seen_monster_count};
 
   #if {"$stepper" == "on" && "$player_present" == "true"} {
-    debug player present;
+    log.debug player present;
     take_a_step;
   };
   #elseif {"$stepper" == "on" && $seen_monster_count == 0} {
-    debug no monsters present;
+    log.debug no monsters present;
+    #if {"$itemspresent" == "true"} {#send !f};
     take_a_step;
   };
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
-    debug monster present, attack;
+    log.debug monster present, attack;
     #send !kill @transform_mob{$seen_monsters[1]};
     #var under_attack true;
   };
@@ -46,7 +47,7 @@
 }
 
 #alias parse_exits {
-  debug parse_exists called with %0;
+  log.debug parse_exists called with %0;
   #var available_exits {};
   #var room_string %0;
   #var exit_str "";
@@ -143,7 +144,7 @@
     #ticker {$ticker_name} {
       log.warn No input received in a while.  Disabling stepper.;
       stepper off;
-      dtrig f2;
+      dtrig #delay 2 f2;
     } {$TTL};
   };
   #else {
@@ -181,9 +182,15 @@
 #alias tracker {
   #if {"%0" == "on"} {
     #showme <170>Enabling tracking. 'tracker off' to disable.;
+
     #send !aset room_short white+[RS] +reset;
     #send !aset look_monster hired+[M] +reset;
     #send !aset look_player higreen+[P] +reset;
+    #send !aset look_armor hicyan+[A] +reset;
+    #send !aset look_object hicyan+[O] +reset;
+    #send !aset look_other hicyan+[o] +reset;
+    #send !aset look_weapon hicyan+[W] +reset;
+
     #send !brief on no;
     load_non_monsters;
     #var tracker on;
@@ -192,6 +199,10 @@
     #send !aset room_short;
     #send !aset look_monster;
     #send !aset look_player;
+    #send !aset look_armor;
+    #send !aset look_object;
+    #send !aset look_other;
+    #send !aset look_weapon;
     #send !brief on yes;
     unload_non_monsters;
     #var tracker off;

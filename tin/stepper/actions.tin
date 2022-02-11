@@ -20,12 +20,12 @@
 #nop Monster trigger;
 
 #action {^%!{[> ]*}[M] %1} {
-  debug monster trigger firing;
+  log.debug monster trigger firing;
 
   set_under_attack %1;
   #local mob_on_blacklist {@mob_is_blacklisted{%1}};
 
-  debug mob_on_blacklist? $mob_on_blacklist;
+  log.debug mob_on_blacklist? $mob_on_blacklist;
 
   #if {"$mob_on_blacklist" == "false"} {
     #script {monster_name} {./bin/monster_name "%1"};
@@ -53,7 +53,13 @@
 }
 
 #action {^[P] %1} {
+  log.debug Tracker found player present, player %1;
   #var player_present {true};
+}
+
+#action {^[{A|O|o|W}] %1} {
+   log.debug Tracker found item present, item %1;
+   #var item_present {true};
 }
 
 #action {^There is no %1 here.} {

@@ -81,7 +81,7 @@
 #nop Print the output of given script command;
 
 #alias print_system_output {
-  debug Output from '%0';
+  log.debug Output from '%0';
   #script {content} {%0};
   #foreach { $content[%*] } {line} {#showme $line};
   #unvar content;
