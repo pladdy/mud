@@ -5,7 +5,7 @@ ralias ALL
 repeat off
 
 alias .login jump
-aliasl a ptell
+alias a ptell
 alias adv advance
 alias ch chit
 alias f get all

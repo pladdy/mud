@@ -1,7 +1,21 @@
 #var necro_familiar {pogo};
-#var MAX_NECRO_CORPSES 3;
+#var MAX_FOLLOWER_CORPSES 9;
+#var MIN_NECRO_CORPSES 2;
+#var MAX_NECRO_CORPSES 6;
 
-#nop update tells blocklist used by alerts.tin;
+#nop  Update chat blocklists used by tin/default/chats/chats.tin;
+
+#list says_blocklist add {allayna};
+#list says_blocklist add {bray};
+#list says_blocklist add {duncan};
+#list says_blocklist add {goram};
+#list says_blocklist add {pyool};
+#list says_blocklist add {talia};
+#list says_blocklist add {theela};
+build_says_blocklist;
+
 #list tells_blocklist add {$necro_familiar};
 #list tells_blocklist add {lynda};
 #list tells_blocklist add {talia};
+#list tells_blocklist add {Your link to the guild};
+build_tells_blocklist;

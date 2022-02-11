@@ -1,10 +1,12 @@
-#action {^%!{[> ]*}%!{(?:C:)?}HP[%1/%2] SP[%3/%4] NP[%5/%6|%7c] TG[%8|%9] E[%10]} {
+#action {^%!{[> ]*}%!{(?:C:)?}HP[%1/%2] SP[%3/%4] NP[%5/%6|%7c] E[%8]} {
+  log.debug hpbar match;
+
   #nop  Handle hpfuse;
-  #regexp {%1} {%d(%d)} {#var hp &1} {#var hp %1};
+  #regexp {%1} {%d(%d)} {#var hp &1; #var hpfuse &2} {#var hp %1};
   #var hp_max {%2};
 
   #nop  Handle spfuse;
-  #regexp {%3} {%d(%d)} {#var sp &1} {#var sp %3};
+  #regexp {%3} {%d(%d)} {#var sp &1; #var spfuse &2} {#var sp %3};
   #var sp_max {%4};
 
   #var gp1 {%5};
@@ -12,54 +14,77 @@
 
   #var ncorpses %7;
 
-  #var enemy {%10};
+  #math hpp {($hp * 1.00) / ($hp_max * 1.00)};
+  #math spp {($sp * 1.00) / ($sp_max * 1.00)};
+  #math gp1p {($gp1 * 1.00) / ($gp1_max * 1.00)};
+
+  #var enemy {%8};
   #if {"$enemy" == "none"} {#var enemy {0}};
-  #regexp {%10} {%+:%d%} {#var enemy &2};
+  #regexp {%8} {%+:%d%} {#var enemy &2};
 
   attempt_dart;
   attempt_call;
-  #nop attempt_dream;
+  attempt_dream;
+  attempt_spark;
   attempt_preserve;
 }
 
 #nop  Action for when a follower exists;
-#action {^%!{[> ]*}Status[w%1\%|p%2|v%3|r%4\%] %5[%6\%/%7c/%8c]} {
-  #var gp2 {%4};
-  #var gp2_max 100;
-
-  #var protection %2;
+#alias _status_aliases {
   show_status_bar;
   attempt_protection;
+  attempt_refill_corpses;
+  attempt_unload_corpses;
+}
 
-  #var necro_follower %5;
-  #var follower_corpses %7;
+#alias _status_vars {
+  #var teleports %1;
+  #var glamors %2;
+  #regexp {%2} {{\d+/\d+%}} {
+    #var glamors &2;
+    #var glamor_active true;
+  } {
+    #var glamors %2;
+    #var glamor_active false;
+  };
+
+  #var gp2 {%6};
+  #var gp2_max 100;
+
+  #var protection %4;
+  #var necro_follower %7;
+  #var necro_follower_health %8;
+}
+
+#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[%8%/%9c/%10c]} {
+  log.debug status bar match with follower and with coffin;
+  _status_vars %1 %2 %3 %4 %5 %6 %7 %8;
+  #var follower_corpses %9;
+  #var corpses %10;
+  _status_aliases;
+}
+
+#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[%8%/%9c]} {
+  log.debug status bar match with follower and without coffin;
+  _status_vars %1 %2 %3 %4 %5 %6 %7 %8;
+  #var follower_corpses %9;
+
+  _status_aliases;
+}
+
+#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[none/%8c]} {
+  log.debug status bar match without follower and with coffin;
+  _status_vars %1 %2 %3 %4 %5 %6 %7;
   #var corpses %8;
+
+  _status_aliases;
 }
 
-#nop  Action for when a follower DOES NOT exist;
-#action {^%!{[> ]*}Status[w%1\%|p%2|v%3|r%4\%] %5[none/%6c]} {
-  #var gp2 {%4};
-  #var gp2_max 100;
+#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[none]} {
+  log.debug status bar match without follower and without coffin;
+  _status_vars %1 %2 %3 %4 %5 %6 %7;
 
-  #var protection %2;
-  show_status_bar;
-  attempt_protection;
-
-  #var necro_follower %5;
-  #var corpses %6;
-}
-
-#nop  Action for when a follower DOES NOT exist and no coffin;
-#action {^%!{[> ]*}Status[w%1\%|p%2|v%3|r%4\%] %5[none]} {
-  #var gp2 {%4};
-  #var gp2_max 100;
-
-  #var protection %2;
-  show_status_bar;
-  attempt_protection;
-
-  #var necro_follower %5;
-  #var corpses %6;
+  _status_aliases;
 }
 
 #nop  Teleport to RR room;
@@ -89,4 +114,26 @@
 
 #action {create dart(2): %1  %2} {
   #var can_dart true;
+}
+
+#action {^%!{[> ]*}Your body relaxes from the strain.$} {
+  #var glamor_active false;
+}
+
+#action {^%!{[> ]*}You begin to generate magical energy!$} {
+  #var glamor_active true;
+}
+
+#action {^%!{[> ]*}You are already sparking.$} {
+  #var glamor_active true;
+}
+
+#nop  Follower actions;
+
+#action {^%!{[> ]*}Your %1 finds its way around the magical barrier.$} {
+  #var follower_blocked false;
+}
+
+#action {^%!{[> ]*}Some magic blocks your %1 from following you here.$} {
+  #var follower_blocked true;
 }

@@ -1,9 +1,13 @@
 #alias ani {
+  log.debug creating follower;
   #send !qtrance follower;
   #send !=name mojo;
+  #var follower_blocked false;
 }
 
 #alias attempt_call {
+  log.debug attempting call;
+
   #if {$enemy > 0 && "$familiar_called" != "true"} {
     #send !call;
     #var familiar_called true;
@@ -11,36 +15,52 @@
 }
 
 #alias attempt_dart {
-  #math gp1p {($gp1 * 1.00) / ($gp1_max * 1.00)};
-  #math spp {($sp * 1.00) / ($sp_max * 1.00)};
-
+  log.debug attempting dart;
   #if {$enemy > 0 && "$can_dart" == "true" && $gp1p > $spp} {cd};
-
-  #unvar gp1p;
-  #unvar spp;
 }
 
 #alias attempt_dream {
-  #math spp {($sp * 1.00) / ($sp_max * 1.00)};
-  #if {$enemy > 0 && $spp < .3} {
-    #send !dream;
-  };
-  #unvar spp;
+  log.debug attempting dream;
+  #if {$enemy > 0 && $spp < .5} {#send !z};
 }
 
 #alias attempt_preserve {
+  log.debug attempting preserve;
+
   #if {$ncorpses < $MAX_NECRO_CORPSES && $corpses > 0} {
     rep;
   };
-  #elseif {$ncorpses < $MAX_NECRO_CORPSES && $corpses == 0 && $follower_corpses > 0} {
-    #send !=give corpse;
-    #send !keep corpse;
-  }
-
 }
 
 #alias attempt_protection {
+  log.debug attempting protection;
   #if {$enemy > 0 && "$protection" == "OFF"} {#send !pro};
+}
+
+#alias attempt_spark {
+  log.debug attempting spark;
+  #if {$glamors > 0 && $spp < .6 && "$glamor_active" != "true"} {#send !spark};
+}
+
+#alias attempt_refill_corpses {
+  #if {$ncorpses < $MIN_NECRO_CORPSES
+       && $follower_corpses > 0
+       && "$follower_blocked" == "false"
+      } {
+    log.info Attempting to refill corpses.;
+    #send !gfc;
+  }
+}
+
+#alias attempt_unload_corpses {
+  #if {$ncorpses >= $MAX_NECRO_CORPSES
+       && "$necro_follower" != "none"
+       && $follower_corpses < $MAX_FOLLOWER_CORPSES
+       && "$follower_blocked" == "false"
+      } {
+    log.info Attempting to unload corpses.;
+    #send !pfc;
+  }
 }
 
 #alias cd {
@@ -50,6 +70,27 @@
 
 #alias commands_after_corpse {
   #var familiar_called false;
+}
+
+#alias dncor {
+  run ncorpses;
+  #send !unkeep all corpse;
+  #send !store all;
+  #if {"$necro_follower" != "none"} {
+    #delay 4 {
+      #send !=give all;
+      #send !store all;
+      #send !lookup;
+    };
+  };
+  #else {
+    #send !lookup;
+  }
+}
+
+#alias f10 {
+  use_corpse;
+  #send !f;
 }
 
 #alias f12 {
@@ -62,6 +103,15 @@
       #send !sell all from bag $i;
     };
   };
+}
+
+#nop  Avoid using qtrance to get all from chest;
+#alias gcs {
+  #send !retrieve;
+  #send !open chest;
+  #send !get all from chest;
+  #send !close chest;
+  #send !deliver;
 }
 
 #alias reab {
@@ -91,9 +141,15 @@
   #send !p;
 }
 
+#alias relog_commands {
+  #nop  Assumes 'gmore inventory' is not paging;
+  #send !powers;
+}
+
 #alias use_corpse {
   #if {$ncorpses < $MAX_NECRO_CORPSES} {p};
   #else {
-    #send !ab;
+    #if {$hpp < $spp} {#send !abb};
+    #else {#send !ab};
   };
 }
