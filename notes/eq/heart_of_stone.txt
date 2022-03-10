@@ -6,7 +6,7 @@ Go north again and get pillar, leave south immediately!
   -   you have a chance to automatically move south, but seems like a dex
       check that could fail and result in death
 
-Starts at a higher WC and goes down over time until it breaks.
+Starts at a higher WC and weight; goes down over time until it breaks.
 
 - Heart of Stone (solid)
 - Heart of Stone (slightly cracked)

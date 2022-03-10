@@ -16,7 +16,7 @@ meat,        ?,        ?,                  600k,     688k,     1.6M,
 sour cream,  328k,     ?,                  ?,        1.8M,     4.1M,
 guacomole,   259k,     ?,                  ?,        1.6M,     3.8M,
 hot sauce,   449k      ?,                  ?,        2.4M,     4.8M,
-veggie taco, ?,        ?,        500k      800k,     ?
+veggie taco, 71k,      ?,        500k      800k,     ?
 cheesy taco, 208k,     335k,               1.2M,     1.4M,     3.2M,
 meat taco,   ?,        ?,                  ?,        ?,        4.8M,
 works taco,  ?,        ?,                  ?,        5.4M,     9M,
@@ -41,7 +41,7 @@ drop tiers
 veggie taco (shell, lettuce, tomatoes)
   A Cerveza      (, plain, refreshing, strong): +2, +3, +4 con; 50%, 75%, 100% overmax sp x 3
   A side of rice (, dry, moist, steaming):      25%, 37%, 50% overmax hp/sp
-  A veggie taco  (,bland, plain, crisp):        +2, +3, +4 wis, overmax 100% hp per 'eat' x 3
+  A veggie taco  (bland, plain, crisp):        +2, +3, +4 wis, overmax 100% hp per 'eat' x 3
   A (medium,large) pop:                         sp heals, can be refilled
 
 cheesy taco (veggie + cheese)
