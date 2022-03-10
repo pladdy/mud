@@ -12,3 +12,4 @@ Your skin is moderately protected by the guacamole treatment!
 Zelligar's Headband warms you with a radiant glow.
 resists the hypnotizing effect of the headband!
 stumbles in confusion as the headband hypnotizes
+Putting 'all' in 'bag of holding %1' master.

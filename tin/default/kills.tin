@@ -12,14 +12,19 @@
 
 #nop  For debugging, regex doesn't use anchors.;
 
-#action {%1 dealt the killing blow to %2} {
+#alias handle_killing_blow {
   log.debug '%1' dealt the killing blow to '%2';
-}
-
-#action {^%!{[> ]*}%1 dealt the killing blow to %2.$} {
   #var last_killer %1;
   #var last_killed %2;
   log_and_respond;
+}
+
+#action {%1 dealt the killing blow to %2} {
+  handle_killing_blow %1 %2;
+}
+
+#action {^%!{[> ]*}%1 dealt the killing blow to %2.$} {
+  handle_killing_blow %1 %2;
 } {1}
 
 #action {^%!{[> ]*}You can see your own dead body from above.$} {
@@ -32,11 +37,11 @@
 
 #nop  Gemino Mortis;
 
-#action {The mask of Gemino Mortis (worn on head)} {
+#action {The mask of Gemino Mortis%1(worn on head)} {
   #var gemino_mortis true;
 }
 
-#action {The mask of Gemino Mortis (worn on head).$} {
+#action {The mask of Gemino Mortis%1(worn on head).$} {
   #var gemino_mortis true;
 }
 
@@ -50,12 +55,14 @@
 
 #nop  If this happens, there's only one corpse;
 #action {^%!{[> ]*}%1's eyes glow a sickly green upon the fallen} {
+  #var gemino_mortis true;
   respond_to_killing_blow;
   #if {"$ktrig_status" == "on"} {f};
 }
 
 #nop  If this happens, there are two corpses;
 #action {^%!{[> ]*}%1's eyes glow bright green upon the fallen} {
+  #var gemino_mortis true;
   #2 respond_to_killing_blow;
   #if {"$ktrig_status" == "on"} {f};
 }

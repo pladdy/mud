@@ -12,6 +12,7 @@
   #list says_blocklist add {cadal};
   #list says_blocklist add {cancer};
   #list says_blocklist add {captain keyes};
+  #list says_blocklist add {chieftain};
   #list says_blocklist add {church police};
   #list says_blocklist add {cow};
   #list says_blocklist add {erig};
@@ -35,11 +36,13 @@
   #list says_blocklist add {the mortician};
   #list says_blocklist add {the new yorker};
   #list says_blocklist add {the old man};
+  #list says_blocklist add {the old woman};
   #list says_blocklist add {priest};
   #list says_blocklist add {the triad};
   #list says_blocklist add {the zombie mindlessly};
   #list says_blocklist add {valerie};
   #list says_blocklist add {velica};
+  #list says_blocklist add {verbeeg sentinel};
   #list says_blocklist add {warrior};
   #list says_blocklist add {wisewoman};
   #list says_blocklist simplify;
@@ -88,7 +91,7 @@
   }
 };
 
-#action {^%!{[> ]*}{[A-Za-z ]+} tells you: %2} {
+#alias _handle_tells {
   #if {$disable_chat_alerts != 1} {
     #var send_alert {true};
 
@@ -109,6 +112,16 @@
       #if {"$stepper" == "on"} {stepper off};
     };
   };
+}
+
+#nop  Link tells;
+#action {^%!{[> ]*}{[A-Za-z ]+} LTs (%2)} {
+  _handle_tells %1 %2;
+};
+
+#nop  Tells;
+#action {^%!{[> ]*}{[A-Za-z ]+} tells you: %2} {
+  _handle_tells %1 %2;
 };
 
 #nop  Create chat blocklists;
