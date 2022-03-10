@@ -14,12 +14,7 @@ the (skeleton|zombie|ghoul|valpur|ghast|manshi|bolwyn|greesh|wight|heucuva|thole
 %+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling
-a %+ puddle of slime
-a %+ grizzly bear
-a %+ wandering spider
-a %+ owlet
-a %+ platypus
-a %+ scorpion
+a .+ (grizzly bear)|owlet|platypus|(puddle of slime)|scropion|(tasmanian devil)|(wandering spider)
 a (cargo truck|jeep|truck) named|jugger support mech
 tame little shrew|brown aardvark
 arctic wolf

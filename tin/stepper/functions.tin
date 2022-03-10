@@ -48,10 +48,8 @@
   #local monster %0;
 
   load_non_monsters;
-  log_level debug;
   #showme Testing monster: '$monster';
   #showme Blacklisted: @mob_is_blacklisted{$monster};
 
-  log_level info;
   #nop #unvar non_monsters;
 }
