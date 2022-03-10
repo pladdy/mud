@@ -5,6 +5,14 @@
   #var follower_blocked false;
 }
 
+#alias attempt_absorb_prime {
+  log.debug attempting absorb prime;
+
+  #if {$enemy > 0 && $ncorpses > 0 && $hpp < 0.6} {
+    #send !abb;
+  };
+}
+
 #alias attempt_call {
   log.debug attempting call;
 
@@ -21,7 +29,7 @@
 
 #alias attempt_dream {
   log.debug attempting dream;
-  #if {$enemy > 0 && $spp < .5} {#send !z};
+  #if {$enemy > 0 && "$can_dream" == "true" && $spp < .5} {#send !z};
 }
 
 #alias attempt_preserve {
@@ -37,11 +45,6 @@
   #if {$enemy > 0 && "$protection" == "OFF"} {#send !pro};
 }
 
-#alias attempt_spark {
-  log.debug attempting spark;
-  #if {$glamors > 0 && $spp < .6 && "$glamor_active" != "true"} {#send !spark};
-}
-
 #alias attempt_refill_corpses {
   #if {$ncorpses < $MIN_NECRO_CORPSES
        && $follower_corpses > 0
@@ -52,9 +55,22 @@
   }
 }
 
+#alias attempt_spark {
+  log.debug attempting spark;
+  #if {$glamors > 0 && $spp < .6 && "$glamor_active" != "true" && "$veil" != "ON"} {
+    #send !spark
+  };
+}
+
+#alias attempt_spfuse {
+  log.debug attempting spfuse;
+  #if {$spp < .7 && $spfuse > 0} {#send !spfuse $spfuse};
+}
+
 #alias attempt_unload_corpses {
   #if {$ncorpses >= $MAX_NECRO_CORPSES
        && "$necro_follower" != "none"
+       && "$necro_follower" != "Undead"
        && $follower_corpses < $MAX_FOLLOWER_CORPSES
        && "$follower_blocked" == "false"
       } {
@@ -63,9 +79,22 @@
   }
 }
 
+#alias attempt_veil {
+  log.debug attempting veil of darkness;
+  #if {$enemy > 0 && "$veil" == "OFF"} {#send !veil invoke};
+}
+
 #alias cd {
   #send !create dart 100;
   #send !dart;
+}
+
+#alias check_stepper {
+  #math total_corpses {$ncorpses + $follower_corpses};
+
+  #if {$total_corpses < 4 && "$stepper" == "on"} {
+    stepper off
+  };
 }
 
 #alias commands_after_corpse {
@@ -115,28 +144,33 @@
 }
 
 #alias reab {
+  log.debug unwrap and absorb;
   #send !unwrap smallest;
   #send !ab;
 }
 
 #alias reabf {
+  log.debug unwrap, freeze, and absorb;
   #send !unwrap smallest;
   #send !freeze;
   #send !ab;
 }
 
 #alias reabb {
+  log.debug unwrap, and absorb prime;
   #send !unwrap smallest;
   #send !abb;
 }
 
 #alias reabbf {
+  log.debug unwrap, freeze, and absorb prime;
   #send !unwrap smallest;
   #send !freeze;
   #send !abb;
 }
 
 #alias rep {
+  log.debug unwrap and preserve;
   #send !unwrap smallest;
   #send !p;
 }
@@ -144,6 +178,33 @@
 #alias relog_commands {
   #nop  Assumes 'gmore inventory' is not paging;
   #send !powers;
+}
+
+#alias smoke {
+  #send !smoke %1;
+  #map move %1;
+}
+
+#alias topoff {
+  #math ginseng_diff {999 - $ginseng};
+  #math black_pearls_diff {999 - $black_pearls};
+  #math spider_web_diff {999 - $spider_web};
+  #math goldenrod_diff {999 - $goldenrod};
+  #math mandrake_diff {999 - $mandrake};
+  #math pine_needles_diff {999 - $pine_needles};
+  #math nightshade_diff {999 - $nightshade};
+  #math bloodmoss_diff {999 - $bloodmoss};
+
+  #if {$map[current_room] == 26852} {
+    log.info Topping of reagents;
+    #if {$ginseng_diff > 0} {#send !buy $ginseng_diff ginseng};
+    #if {$black_pearls_diff > 0} {#send !buy $black_pearls_diff black pearls};
+    #if {$spider_web_diff > 0} {#send !buy $spider_web_diff spider web};
+    #if {$goldenrod_diff > 0} {#send !buy $goldenrod_diff goldenrod};
+    #if {$mandrake_diff > 0} {#send !buy $mandrake_diff mandrake};
+    #if {$pine_needles_diff > 0} {#send !buy $pine_needles_diff pine needles};
+    #if {$nightshade_diff > 0} {#send !buy $nightshade_diff nightshade};
+  }
 }
 
 #alias use_corpse {

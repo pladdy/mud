@@ -22,6 +22,7 @@ alias cl create light
 alias com chat
 alias chat com
 alias da donate all
+alias ecom echat
 alias gfc qtrance =give corpse/keep corpse
 alias ng necrogram
 alias om omega
@@ -30,4 +31,5 @@ alias pfc qtrance unkeep corpse/give corpse to mojo
 alias pro qtrance protection/con 100
 alias rt rope trick
 alias t teleport
+alais t2 teleport2
 alias z qtrance spfuse 240/dream

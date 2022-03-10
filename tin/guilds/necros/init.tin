@@ -1,5 +1,5 @@
 #var necro_familiar {pogo};
-#var MAX_FOLLOWER_CORPSES 9;
+#var MAX_FOLLOWER_CORPSES 10;
 #var MIN_NECRO_CORPSES 2;
 #var MAX_NECRO_CORPSES 6;
 

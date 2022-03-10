@@ -2,11 +2,11 @@
   log.debug hpbar match;
 
   #nop  Handle hpfuse;
-  #regexp {%1} {%d(%d)} {#var hp &1; #var hpfuse &2} {#var hp %1};
+  #regexp {%1} {%d(%d)} {#var hp &1; #var hpfuse &2} {#var hp %1; #var hpfuse 0};
   #var hp_max {%2};
 
   #nop  Handle spfuse;
-  #regexp {%3} {%d(%d)} {#var sp &1; #var spfuse &2} {#var sp %3};
+  #regexp {%3} {%d(%d)} {#var sp &1; #var spfuse &2} {#var sp %3; #var spfuse 0};
   #var sp_max {%4};
 
   #var gp1 {%5};
@@ -24,12 +24,13 @@
 
   attempt_dart;
   attempt_call;
+  attempt_spfuse;
   attempt_dream;
   attempt_spark;
   attempt_preserve;
+  check_stepper;
 }
 
-#nop  Action for when a follower exists;
 #alias _status_aliases {
   show_status_bar;
   attempt_protection;
@@ -38,8 +39,12 @@
 }
 
 #alias _status_vars {
+  log.debug status vars is called with %0;
+
   #var teleports %1;
   #var glamors %2;
+
+  log.debug glamors is %2;
   #regexp {%2} {{\d+/\d+%}} {
     #var glamors &2;
     #var glamor_active true;
@@ -48,42 +53,48 @@
     #var glamor_active false;
   };
 
-  #var gp2 {%6};
+  #var gp2 {%3};
   #var gp2_max 100;
 
+  #var worth %3;
   #var protection %4;
+  #var veil %5;
+  #var repower %6;
   #var necro_follower %7;
-  #var necro_follower_health %8;
 }
 
 #action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[%8%/%9c/%10c]} {
   log.debug status bar match with follower and with coffin;
-  _status_vars %1 %2 %3 %4 %5 %6 %7 %8;
+  _status_vars %1 %2 %3 %4 %5 %6 %7;
+  #var necro_follower_health %8;
   #var follower_corpses %9;
   #var corpses %10;
+
   _status_aliases;
 }
 
 #action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[%8%/%9c]} {
   log.debug status bar match with follower and without coffin;
-  _status_vars %1 %2 %3 %4 %5 %6 %7 %8;
+  _status_vars %1 %2 %3 %4 %5 %6 %7;
+  #var necro_follower_health %8;
   #var follower_corpses %9;
 
   _status_aliases;
 }
 
-#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[none/%8c]} {
+#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[%!{(none|unraised)}/%8c]} {
   log.debug status bar match without follower and with coffin;
   _status_vars %1 %2 %3 %4 %5 %6 %7;
   #var corpses %8;
+  #var follower_corpses 0;
 
   _status_aliases;
 }
 
-#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[none]} {
+#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[%!{(none|unraised)}]} {
   log.debug status bar match without follower and without coffin;
   _status_vars %1 %2 %3 %4 %5 %6 %7;
-
+  #var follower_corpses 0;
   _status_aliases;
 }
 
@@ -100,6 +111,7 @@
   #send !keep corpse;
 }
 
+#nop  Dart actions;
 #action {^%!{[> ]*}You don't have create dart memorized this cycle.$} {
   #var can_dart false;
 }
@@ -114,6 +126,23 @@
 
 #action {create dart(2): %1  %2} {
   #var can_dart true;
+}
+
+#nop  Dream actions;
+#action {^%!{[> ]*}  You don't have dream memorized this cycle.$} {
+  #var can_dream false;
+}
+
+#action {^%!{[> ]*}Master, you have used your last dream.$} {
+  #var can_dream false;
+}
+
+#action {^%!{[> ]*}%1 tells you: You have completed %1 studies of dream.$} {
+  #var can_dream true;
+}
+
+#action {dream(3): %1  %2} {
+  #var can_dream true;
 }
 
 #action {^%!{[> ]*}Your body relaxes from the strain.$} {
@@ -136,4 +165,29 @@
 
 #action {^%!{[> ]*}Some magic blocks your %1 from following you here.$} {
   #var follower_blocked true;
+}
+
+#action {^%!{[> ]*}%1 taps you on the shoulder.$} {
+  #5 {
+    #send !preserve corpse;
+    #send !get corpse;
+  };
+}
+
+#nop  Reagents;
+
+#action {^ |%sginseng:%1%sblack pearls:%2%sspider web:%3%sgoldenrod:%4%s|$} {
+  log.debug Reagents line 1.;
+  #var ginseng %1;
+  #var black_pearls %2;
+  #var spider_web %3;
+  #var goldenrod %4;
+}
+
+#action {^ |%smandrake:%1%spine needles:%2%snightshade:%3%sbloodmoss:%4%s|$} {
+  log.debug Reagents line 2.;
+  #var mandrake %1;
+  #var pine_needles %2;
+  #var nightshade %3;
+  #var bloodmoss %4;
 }
