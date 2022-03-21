@@ -11,20 +11,18 @@
 }
 
 #nop  For debugging, regex doesn't use anchors.;
-
-#alias handle_killing_blow {
-  log.debug '%1' dealt the killing blow to '%2';
+#action {%1 dealt the killing blow to %2$} {
   #var last_killer %1;
   #var last_killed %2;
+  log.debug $last_killer has killed $last_killed;
   log_and_respond;
 }
 
-#action {%1 dealt the killing blow to %2} {
-  handle_killing_blow %1 %2;
-}
-
-#action {^%!{[> ]*}%1 dealt the killing blow to %2.$} {
-  handle_killing_blow %1 %2;
+#action {^%!{[> ]*}%1 dealt the killing blow to %2$} {
+  #var last_killer %1;
+  #var last_killed %2;
+  log.debug $last_killer has killed $last_killed;
+  log_and_respond;
 } {1}
 
 #action {^%!{[> ]*}You can see your own dead body from above.$} {
