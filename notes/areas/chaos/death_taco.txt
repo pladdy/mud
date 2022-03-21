@@ -40,9 +40,9 @@ drop tiers
 
 veggie taco (shell, lettuce, tomatoes)
   A Cerveza      (, plain, refreshing, strong): +2, +3, +4 con; 50%, 75%, 100% overmax sp x 3
-  A side of rice (, dry, moist, steaming):      25%, 37%, 50% overmax hp/sp
-  A veggie taco  (bland, plain, crisp):        +2, +3, +4 wis, overmax 100% hp per 'eat' x 3
-  A (medium,large) pop:                         sp heals, can be refilled
+  A side of rice (dry, stale, moist, steaming): 25%, 37%, 50% overmax hp/sp
+  A veggie taco  (bland, plain, crisp):         +2, +3, +4 wis, overmax 100% hp per 'eat' x 3
+  A (small, medium,large) pop:                  sp heals, can be refilled
 
 cheesy taco (veggie + cheese)
   foil wrapper  (crinkled, tattered, smooth, shiny): mind  and radiation ac

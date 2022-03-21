@@ -11,7 +11,7 @@ Abilities:
 
 Creating a dog:
   - find puppy
-  - must have 25K reps to buy supplies from Petunia
+  - must have 25k reps to buy supplies from Petunia
   - neex to buy 5 biscuits to make a puppy a dog (so 30K reps total)
 
 Kennel:
