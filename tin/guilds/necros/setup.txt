@@ -20,9 +20,13 @@ alias ani qtrance follower
 alias c call
 alias cl create light
 alias com chat
+alias cons consecrate
+alias consc consecration
+alias corp corporealize
 alias chat com
 alias da donate all
 alias ecom echat
+alias fr fright
 alias gfc qtrance =give corpse/keep corpse
 alias ng necrogram
 alias om omega

@@ -2,6 +2,7 @@
   log.debug creating follower;
   #send !qtrance follower;
   #send !=name mojo;
+  #send !con 100;
   #var follower_blocked false;
 }
 
@@ -46,13 +47,15 @@
 }
 
 #alias attempt_refill_corpses {
-  #if {$ncorpses < $MIN_NECRO_CORPSES
-       && $follower_corpses > 0
-       && "$follower_blocked" == "false"
-      } {
-    log.info Attempting to refill corpses.;
-    #send !gfc;
-  }
+  #if {$ncorpses < $MIN_NECRO_CORPSES} {
+    #if {$follower_corpses > 0 && "$follower_blocked" == "false"} {
+      log.info Attempting to refill corpses.;
+      #send !gfc;
+    };
+    #else {
+      #send !smuggle remove corpse;
+    }
+  };
 }
 
 #alias attempt_spark {

@@ -1,0 +1,12 @@
+
+study create light 2
+study turn undead 3
+study funeral pyre 2
+study dispell 3
+study rope trick 3
+study animate dead 2
+study protection 3
+study shift 2
+study dream 30
+
+# go study chest, fright, and snare

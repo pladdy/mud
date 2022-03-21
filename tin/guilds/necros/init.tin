@@ -1,6 +1,6 @@
 #var necro_familiar {pogo};
-#var MAX_FOLLOWER_CORPSES 10;
-#var MIN_NECRO_CORPSES 2;
+#var MAX_FOLLOWER_CORPSES 11;
+#var MIN_NECRO_CORPSES 3;
 #var MAX_NECRO_CORPSES 6;
 
 #nop  Update chat blocklists used by tin/default/chats/chats.tin;
