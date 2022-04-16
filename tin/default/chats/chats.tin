@@ -23,6 +23,8 @@
   #list says_blocklist add {harthearvorin};
   #list says_blocklist add {kid};
   #list says_blocklist add {lijak};
+  #list says_blocklist add {peasant};
+  #list says_blocklist add {priest};
   #list says_blocklist add {pope};
   #list says_blocklist add {raylorn};
   #list says_blocklist add {sandino};
@@ -37,7 +39,6 @@
   #list says_blocklist add {the new yorker};
   #list says_blocklist add {the old man};
   #list says_blocklist add {the old woman};
-  #list says_blocklist add {priest};
   #list says_blocklist add {the triad};
   #list says_blocklist add {the zombie mindlessly};
   #list says_blocklist add {valerie};
@@ -54,11 +55,13 @@
   #list tells_blocklist add {antonio};
   #list tells_blocklist add {brenan};
   #list tells_blocklist add {george};
+  #list tells_blocklist add {ghoul};
   #list tells_blocklist add {petunia};
   #list tells_blocklist add {robert};
   #list tells_blocklist add {sir arruns thelton};
   #list tells_blocklist add {the ghoul};
   #list tells_blocklist add {the triad};
+  #list tells_blocklist add {the vampire};
   #list tells_blocklist add {vampire};
   #list tells_blocklist add {vilgan};
   #list tells_blocklist simplify;
@@ -93,35 +96,44 @@
 
 #alias _handle_tells {
   #if {$disable_chat_alerts != 1} {
-    #var send_alert {true};
+    #list chats add {%0};
+    chats_refresh;
+    -catch_overflow;
 
-    #foreach $tells_blocklist blocked {
-      log.debug checking blocklist, blocked=$blocked, actor=%1;
-      #regexp {%1} {%i$blocked} {#var send_alert false};
-    }
-
-    log.debug 'tell' matched: matched=%0, actor=%1;
-
-    #if {"$send_alert" == "true"} {
-      #list chats add {%0};
-      chats_refresh;
-      -catch_overflow;
-
-      sound_beeps;
-      set_repeating_alarm;
-      #if {"$stepper" == "on"} {stepper off};
-    };
+    sound_beeps;
+    set_repeating_alarm;
+    #if {"$stepper" == "on"} {stepper off};
   };
 }
 
 #nop  Link tells;
 #action {^%!{[> ]*}{[A-Za-z ]+} LTs (%2)} {
-  _handle_tells %1 %2;
+  #var send_alert true;
+
+  #foreach $tells_blocklist blocked {
+    log.debug checking blocklist, blocked=$blocked, actor=%1;
+    #regexp {%1} {%i$blocked} {#var send_alert false};
+  };
+
+  #if {"$send_alert" == "true"} {
+    log.debug 'tell' matched: matched=%0, actor=%1;
+    _handle_tells %0;
+  };
 };
 
 #nop  Tells;
 #action {^%!{[> ]*}{[A-Za-z ]+} tells you: %2} {
-  _handle_tells "%1 tells you:" %2;
+  #var send_alert true;
+
+  #foreach $tells_blocklist blocked {
+    log.debug checking blocklist, blocked=$blocked, actor=%1;
+    #regexp {%1} {%i$blocked} {#var send_alert false};
+  };
+
+  #if {"$send_alert" == "true"} {
+    log.debug 'tell' matched: matched=%0, actor=%1;
+    _handle_tells %0;
+  };
 };
 
 #nop  Create chat blocklists;
