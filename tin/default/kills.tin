@@ -36,33 +36,41 @@
 #nop  Gemino Mortis;
 
 #action {The mask of Gemino Mortis%1(worn on head)} {
+  log.debug Mask of Gemino Mortis equipped.;
   #var gemino_mortis true;
 }
 
 #action {The mask of Gemino Mortis%1(worn on head).$} {
+  log.debug Mask of Gemino Mortis equipped.;
   #var gemino_mortis true;
 }
 
 #action {^%!{[> ]*}You fit the mask on and your eyes glow dimly green} {
+  log.debug Mask of Gemino Mortis equipped.;
   #var gemino_mortis true;
 }
 
 #action {^%!{[> ]*}Your eyes darken as you remove the mask.} {
+  log.debug Mask of Gemino Mortis equipped.;
   #var gemino_mortis false;
 }
 
 #nop  If this happens, there's only one corpse;
 #action {^%!{[> ]*}%1's eyes glow a sickly green upon the fallen} {
-  #var gemino_mortis true;
-  respond_to_killing_blow;
-  #if {"$ktrig_status" == "on"} {f};
+  #regexp {%1} {%i{$character|$summons|$my_dog|tree}} {
+    #var gemino_mortis true;
+    respond_to_killing_blow;
+    #if {"$ktrig_status" == "on"} {f};
+  };
 }
 
 #nop  If this happens, there are two corpses;
 #action {^%!{[> ]*}%1's eyes glow bright green upon the fallen} {
-  #var gemino_mortis true;
-  #2 respond_to_killing_blow;
-  #if {"$ktrig_status" == "on"} {f};
+  #regexp {%1} {%i{$character|$summons|$my_dog|tree}} {
+    #var gemino_mortis true;
+    #2 respond_to_killing_blow;
+    #if {"$ktrig_status" == "on"} {f};
+  };
 }
 
 #nop  Aliases;
@@ -124,15 +132,15 @@
     #undelay mob_died_event;
   };
 
+  #if { @length{$btrig} > 0 } {
+    log.debug running btrig commands: $btrig;
+    #foreach {$btrig} {b} {$b;};
+    #var btrig {};
+  };
+
+  commands_before_corpse;
+
   #if {"$ktrig_status" == "on"} {
-    #if { @length{$btrig} > 0 } {
-      log.debug running btrig commands: $btrig;
-      #foreach {$btrig} {b} {$b;};
-      #var btrig {};
-    };
-
-    commands_before_corpse;
-
     log.debug checking $last_killer against killers ($character|$summons|$my_dog|tree) that can use corpse;
     #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree}} {
       #send !glance;
@@ -143,26 +151,26 @@
       #if {"$stepper" == "on"} {pba};
     };
 
-    commands_after_corpse;
-
-    #if { @length{$dtrig} > 0 } {
-      log.debug running dtrig commands: $dtrig;
-      #if {"$gemino_mortis" == "true"} {
-        #delay 2 {
-          #foreach {$dtrig} {d} {$d};
-          #var dtrig {};
-        }
-      };
-      #else {
-        #foreach {$dtrig} {d} {$d;};
-        #var dtrig {};
-      };
-    };
-
     #nop Kill Sprints...places to run after a mob dies;
 
     #switch {"$last_killed"} {
       #case "Cryohydra." {run verbeeg_chief;};
+    };
+  };
+
+  commands_after_corpse;
+
+  #if { @length{$dtrig} > 0 } {
+    log.debug running dtrig commands: $dtrig;
+    #if {"$gemino_mortis" == "true"} {
+      #delay 2 {
+        #foreach {$dtrig} {d} {$d};
+        #var dtrig {};
+      }
+    };
+    #else {
+      #foreach {$dtrig} {d} {$d};
+      #var dtrig {};
     };
   };
 }
