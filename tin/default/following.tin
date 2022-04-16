@@ -2,7 +2,7 @@
 
 #nop Leave off any numbers like 'follow ogre 2' -> just save ogre (not 2);
 
-#action {^%1 begins to follow %D%s%d.} {
+#action {^%!{[> ]*}%1 begins to follow %D%s%d.} {
   #regexp {%1} {%i{$character}} {
     #list {followers} {find} {%1} {follower_index};
 
@@ -16,7 +16,7 @@
   }
 }
 
-#action {^You stop following %1} {
+#action {^%!{[> ]*}You stop following %1} {
   #list {followers} {find} {%1} {follower_index};
 
   #if {$follower_index > 0} {
@@ -56,4 +56,13 @@
   }
 
   #unvar followers_string;
+}
+
+#alias unfollow {
+  #send !unfollow %0;
+
+  #list {followers} {find} {%1} {follower_index};
+  #if {$follower_index > 0} {
+    #list {followers} {delete} {$follower_index};
+  };
 }
