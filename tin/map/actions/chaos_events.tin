@@ -141,7 +141,13 @@
 
 #nop Chaos TV: The simpsons;
 
-#action {^The Springfield Comments Board} {#map goto 22218}
+#action {^The Springfield Comments Board} {
+  #if {$map[current_room] != 22261
+       && $map[current_room] != 22266
+       && $map[current_room] != 22219} {
+    #map goto 22218;
+  };
+}
 
 #nop Chaos TV: dexter's lab;
 
