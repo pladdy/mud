@@ -1,0 +1,19 @@
+Go to center of area and kill Terra -> wooden hammer
+Go to branches and pick fruit
+  - red: hp regen
+  - blue: sp regen
+  - green: ac
+  - white: dmg reduction chance (small chance)
+
+Hammer takes 2 seeds
+
+Go to top of tree, 'bow' and go to garden.
+'insert seed' x 2
+'plant hammer'
+'chop tree' (need axe)
+'whittle ring'
+
+Red ring
+
+very red wooden ring {radiant} [....-*-....]
+- ~9hp regen
