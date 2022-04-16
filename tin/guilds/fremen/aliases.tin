@@ -18,19 +18,19 @@
 
   #nop Litany settings: low, some, minor, half, major, most, high, all;
 
-  #if {$hp_as_pct < 0.90 && $hp_as_pct >= 0.80 && $adjusted_litany_leve != 1} {
+  #if {$hp_as_pct < 0.90 && $hp_as_pct >= 0.80 && $adjusted_litany_level < 1} {
     #send !assault none;litany major;assault;
     #var adjusted_litany_level 1;
   };
-  #elseif {$hp_as_pct < 0.80 && $hp_as_pct >= 0.70 && $adjusted_litany_leve != 2} {
+  #elseif {$hp_as_pct < 0.80 && $hp_as_pct >= 0.70 && $adjusted_litany_level < 2} {
     #send !assault none;litany most;assault;
     #var adjusted_litany_level 2;
   };
-  #elseif {$hp_as_pct < 0.70 && $hp_as_pct >= 0.60 && $adjusted_litany_leve != 3} {
+  #elseif {$hp_as_pct < 0.70 && $hp_as_pct >= 0.60 && $adjusted_litany_level < 3} {
     #send !assault none;litany high;assault;
     #var adjusted_litany_level 3;
   };
-  #elseif {$hp_as_pct < 0.60 && $adjusted_litany_leve != 4} {
+  #elseif {$hp_as_pct < 0.60 && $adjusted_litany_level < 4} {
     #send !assault none;litany all;assault;
     #var adjusted_litany_level 4;
   };
@@ -39,8 +39,16 @@
 #alias attempt_stun {
   #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
 
-  #if {$enemy > 10 && $hp_as_pct < 1.0 && "$stun_active" != "true"} {
+  #if {$enemy > 10 && $hp_as_pct < 0.9 && "$stun_active" != "true"} {
     #send !stun;
+  };
+}
+
+#alias attempt_voice {
+  #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
+
+  #if {$enemy > 10 && $hp_as_pct < 0.75 && "$voice_active" != "true"} {
+    #send !voice;
   };
 }
 
@@ -48,6 +56,7 @@
   #send !suspend;
   #var stun_active false;
   #var voice_active false;
+  #var adjusted_litany_level 0;
 }
 
 #alias count_available_spices {
@@ -72,7 +81,6 @@
   #send !draw lasgun;
   #send !attacks normal;
   #send !reflexes blinding;
-  #send !attacks;
 }
 
 #alias drm {
@@ -80,7 +88,6 @@
   #send !draw maula pistol;
   #send !attacks normal;
   #send !reflexes blinding;
-  #send !attacks;
 }
 
 #alias drp {
@@ -122,16 +129,20 @@
   #send !fai;
 }
 
+#alias relog_commands {
+  spices;
+}
+
 #alias respice {
   #if {$available_inv_spices > 0} {
+    log.info Spice available in inventory.;
     #list spice_inv_queue get 1 spice_task;
-
-    #if {$spice_task} {
-      #send !$spice_task;
-      #list spice_inv_queue delete 1;
-    };
+    #send !$spice_task;
+    #list spice_inv_queue delete 1;
   };
   #elseif {$available_bag_spices > 0} {
+    log.info Spice available in bag.;
+
     #list spice_bag_queue get 1 spice_task;
 
     #nop  Try to get drink/spice from bag;
@@ -156,7 +167,10 @@
   #list spice_inv_queue clear;
   #list spice_bag_queue clear;
   spice_chk;
-  #delay {2} {#var spice_inv_queue; #var spice_bag_queue};
+  #delay {2} {
+    count_available_spices;
+    #var spice_inv_queue;
+    #var spice_bag_queue};
 };
 
 #alias use_corpse {

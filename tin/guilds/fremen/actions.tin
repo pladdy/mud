@@ -18,7 +18,8 @@
 
   #if {$total_water_pct < 1.3 && $gp1 < 50 && $corpses > 0} {rerc};
   attempt_stun;
-
+  attempt_voice;
+  attempt_adjust_litany;
   show_status_bar;
 }
 
@@ -44,7 +45,7 @@
 }
 
 #action {^%!{[> ]*}%1 recovers from the Voice!$} {
-  #delay {voice_delay} {#var voice_active false;} {100};
+  #delay {voice_delay} {#var voice_active false;} {20};
 }
 
 #action {^%!{[> ]*}That creature will not be affected.$} {
@@ -53,6 +54,7 @@
 
 #action {^%!{[> ]*}%1 cannot be stunned again so quickly!$} {
   #var stun_active true;
+  #delay {stun_delay} {#var stun_active false;} {20};
 }
 
 #action {^%!{[> ]*}You pull out your stunner and fire it at %1.$} {
@@ -60,7 +62,7 @@
 }
 
 #action {^%!{[> ]*}%1 shakes off the effects of the stunner.$} {
-  #delay {stun_delay} {#var stun_active false;} {100};
+  #delay {stun_delay} {#var stun_active false;} {20};
 }
 
 #action {^%!{[> ]*}Again, the trip is short, the hatch opens and you step out onto the$} {
@@ -71,26 +73,17 @@
   }
 }
 
-#nop Spice purchases and inventory;
+#nop  Spice;
 
 #action {^%!{[> ]*}# Item$} {
   #list spice_inv_queue clear;
 }
 
-#action {^%!{[> ]*}You pay %1 gold coins for %*tea.$} {
-  #list spice_inv_queue add {drink tea};
-}
+#nop  Spice purchases;
 
-#action {^%!{[> ]*}You pay %1 gold coins for %*coffee.$} {
-  #list spice_inv_queue add {drink coffee};
-}
-
-#action {^%!{[> ]*}You pay %1 gold coins for %*beer.$} {
-  #list spice_inv_queue add {drink beer};
-}
-
-#action {^%!{[> ]*}You pay %1 gold coins for %*liquor.$} {
-  #list spice_inv_queue add {drink liquor};
+#action {^%!{[> ]*}You pay %1 gold coins for {[A-Za-z]+}.$} {
+  #format {drink} {%l} {%2};
+  #list spice_inv_queue add {drink $drink};
 }
 
 #action {^%!{[> ]*}You pay %1 gold coins for pure spice.$} {
@@ -110,14 +103,19 @@
 
 #nop  Spices in bags;
 
-#action {^Spice {[A-Za-z]+}\.$} {
-  #format {drink} {%l} {%1};
+#action {^%!{[> ]*}You put Spice {[A-Za-z]+} in *Bag of Holding.$} {
+  #format {drink} {%l} {%2};
   #list spice_bag_queue add {drink $drink};
 }
 
-#action {^Spice {[A-Za-z]+} \{{\d+}\}\.$} {
-  #format {drink} {%l} {%1};
-  #%2 #list spice_bag_queue add {drink $drink};
+#action {^%!{(\[o\] )?}Spice {[A-Za-z]+}\.$} {
+  #format {drink} {%l} {%2};
+  #list spice_bag_queue add {drink $drink};
+}
+
+#action {^%!{(\[o\] )?}Spice {[A-Za-z]+} \{{\d+}\}\.$} {
+  #format {drink} {%l} {%2};
+  #%3 #list spice_bag_queue add {drink $drink};
 }
 
 #action {^Spice Melange (Pure)\.$} {
@@ -126,4 +124,8 @@
 
 #action {^Spice Melange (Pure) \{{\d+}\}\.$} {
   #%2 #list spice_bag_queue add {take spice};
+}
+
+#action {^%!{[> ]*}%1 cannot be stunned!$} {
+  #var stun_active true;
 }

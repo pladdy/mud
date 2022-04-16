@@ -1,12 +1,12 @@
 confighp hp H: $+CHP$/$MHP$ S: $+CSP$/$MSP$ W: $+CWT$/$MWT$($SWT$) L: $+LMB$% P: $PSN$($+PSR$%) E#: $ATT$ E: $+TRG$ $CRT$Li: $+LTS$ Sp: $SPC$ Pa: $+LBP$ Ma: $MPA$($MPC$) St: $DES$ Wr: $WCR$ C: $+CCP$ Gt: $GXA$ G: $GXP$
 
-alias mmb mode litany:$1 weirding assault pain attacks:blinding reflexes
-alias mml mode litany:$1 weirding assault pain attacks:lightning reflexes
-alias mmf mode litany:$1 weirding assault pain attacks:fast reflexes
-alias mmq mode litany:$1 weirding assault pain attacks:quick reflexes
-alias mmn mode litany:$1 weirding assault pain attacks:normal reflexes
+alias mmb mode litany:$1 weirding:high assault pain attacks:blinding reflexes
+alias mml mode litany:$1 weirding:high assault pain attacks:lightning reflexes
+alias mmf mode litany:$1 weirding:high assault pain attacks:fast reflexes
+alias mmq mode litany:$1 weirding:major assault pain attacks:quick reflexes
+alias mmn mode litany:$1 weirding:major assault pain attacks:normal reflexes
 
-alias rm mode litany:$1 weirding assault pain reflexes attacks
+alias rm mode litany:$1 weirding:major assault pain reflexes attacks
 
 alias aa acquire all
 alias ab acquire belt

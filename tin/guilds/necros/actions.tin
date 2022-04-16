@@ -42,14 +42,14 @@
   log.debug status vars is called with %0;
 
   #var teleports %1;
-  #var glamors %2;
+  #var glamors_str %2;
 
   log.debug glamors is %2;
-  #regexp {%2} {{\d+/\d+%}} {
+
+  #regexp {$glamors_str} {{(\d+)/\d+%}} {
     #var glamors &2;
     #var glamor_active true;
   } {
-    #var glamors %2;
     #var glamor_active false;
   };
 
