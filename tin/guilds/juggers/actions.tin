@@ -31,15 +31,19 @@
 
 #action {^%!{[> ]*}G: %1% A: %2 C: %3 JJ: %4 LL: %5} {
   #var gxp %1;
-  #var jugger_ammo %2;
   #var corpses %3;
 
-  #nop TODO: handle ammo parsing and reload better...;
-  #regexp {$jugger_ammo} {{\d+}} {#var jugger_mounts[0] &1};
-  #regexp {$jugger_ammo} {{\d+}/{\d+}} {#var jugger_mounts[1] &2} {#var jugger_mounts[1] 101};
+  #if {"%2" != ""} {
+    #var jugger_ammo %2;
+    #regexp {$jugger_ammo} {{\d+}} {#var jugger_mounts[0] &1};
+    #regexp {$jugger_ammo} {{\d+}/{\d+}} {#var jugger_mounts[1] &2} {#var jugger_mounts[1] 101};
 
-  #if {$jugger_mounts[0] < 100} {rammo 5 1};
-  #if {$jugger_mounts[1] < 100} {rammo 5 2};
+    #if {$jugger_mounts[0] < 100} {rammo 5 1};
+    #if {$jugger_mounts[1] < 100} {rammo 5 2};
+  };
+  #else {
+    #var jugger_ammo 0;
+  };
 
   #if {"$stepper" == "on" && $corpses < 1 && $gp1 < 20} {
     stepper off;

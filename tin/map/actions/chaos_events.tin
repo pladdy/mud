@@ -130,7 +130,7 @@
 #nop R'lyeh;
 
 #action {^a stream! The sea is gone, you can breath again! But where are you?$} {
-  #if {$map[current_room == 21786} {#map go 11692}
+  #if {$map[current_room] == 21786} {#map go 11692}
 }
 
 #nop The Zodiac;
@@ -176,14 +176,18 @@
   #var chaos_port_location {};
 }
 
-#nop Section Z;
-
-#action {^%!{[> ]*}You press PAUSE on the game, saving the rest for later.$} {
-  #map goto 32419;
-}
-
 #nop WWF;
 
 #action {^You ring the bell, but nothing happens.  You've won!} {
   #map goto 25903;
+}
+
+#action {^Frayed Reality$} {
+  #map goto 34091;
+}
+
+#action {^<-> The Transporter Pod <-> (out)$} {
+  #if {$map[current_room] == 34383} {
+    #map goto 34382;
+ }
 }

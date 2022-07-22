@@ -1,1 +1,31 @@
 #var have_spice false;
+#var stun_failures 0;
+#var voice_failures 0;
+
+#var mode_point_map[all] 15;
+#var mode_point_map[high+] 14;
+#var mode_point_map[high] 13;
+#var mode_point_map[major+] 12;
+#var mode_point_map[major] 11;
+#var mode_point_map[high+] 10;
+#var mode_point_map[high] 9;
+#var mode_point_map[minor+] 8;
+#var mode_point_map[minor] 7;
+#var mode_point_map[some+] 6;
+#var mode_point_map[some] 5;
+#var mode_point_map[low+] 4;
+#var mode_point_map[low] 3;
+#var mode_point_map[none+] 2;
+#var mode_point_map[none] 1;
+
+#var litany_focus_map[Lum] 90;
+#var litany_focus_map[Luc] 80;
+#var litany_focus_map[Sha] 70;
+#var litany_focus_map[Unh] 60;
+#var litany_focus_map[Hin] 50;
+#var litany_focus_map[Fat] 40;
+#var litany_focus_map[Suf] 30;
+#var litany_focus_map[Vex] 20;
+#var litany_focus_map[Pai] 10;
+#var litany_focus_map[Wre] 0;
+

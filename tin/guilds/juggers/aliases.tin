@@ -39,6 +39,8 @@
   };
 }
 
+#alias k {#send !kill %0; #send !ki %0;}
+
 #nop  Remote Ammo (via truck) purchase;
 #alias rammo {
   #if {"%1" == ""} {
@@ -63,7 +65,11 @@
   #send !support reset;
   #99 #send !support upgrade powerplant;
   #99 #send !support upgrade mount;
-  #send !support assault fire,radiation;
+  #send !support assault fire,radiation,electric,ice,poison;
+}
+
+#alias su_def {
+  #send !support defend edged,blunt,fire,ice,electric;
 }
 
 #alias su_spam {

@@ -9,6 +9,11 @@
 
 #alias am {
   #send !hide;
+  #send !fk m %0;
+}
+
+#alias amp {
+  #send !hide;
   #send !poison;
   #send !fk m %0;
 }
@@ -37,17 +42,22 @@
 }
 
 #alias attempt_stun {
-  #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
-
-  #if {$enemy > 10 && $hp_as_pct < 0.9 && "$stun_active" != "true"} {
+  #if {
+    @combat_rounds_left{} > 10 
+    && $hp_as_pct < 0.85
+    && "$stun_active" != "true" 
+    && "$voice_active" != "true"
+    && "$voice_recovering" == "true"} {
     #send !stun;
   };
 }
 
 #alias attempt_voice {
-  #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
-
-  #if {$enemy > 10 && $hp_as_pct < 0.75 && "$voice_active" != "true"} {
+  #if {
+    @combat_rounds_left{} > 10 
+    && $hp_as_pct < 0.92 
+    && "$voice_active" != "true"
+    && "$voice_recovering" != "true"} {
     #send !voice;
   };
 }
@@ -55,8 +65,18 @@
 #alias commands_after_corpse {
   #send !suspend;
   #var stun_active false;
+  #var stun_failures 0;
+  #var stun_recovering false;
   #var voice_active false;
+  #var voice_failures 0;
+  #var voice_recovering false;
   #var adjusted_litany_level 0;
+
+  #if {$litany_focus_map[$litany_focus] < 80 && "$stepper" == "on"} {
+    stepper off;
+    #send !su;
+    #delay {20} {stepper on};
+  };
 }
 
 #alias count_available_spices {
@@ -184,5 +204,5 @@
 
 #alias wimpy_commands {
   #send !hide;
-  #send !suspend;
+  commands_after_corpse;
 }

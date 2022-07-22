@@ -137,3 +137,14 @@
 #action {^A Transporter Room (door,beam)} {
   #if {$map[current_room] == 24879} {#map goto 24880};
 }
+
+#nop Section Z;
+
+#action {^%!{[> ]*}You press PAUSE on the game, saving the rest for later.$} {
+  #map goto 32419;
+}
+
+#action {^The developer throws you against the wall, and you pass right through it!$} {
+  #map goto 32419;
+}
+
