@@ -6,10 +6,12 @@
 
 #alias build_says_blocklist {
   #list says_blocklist add {%+ golem};
+  #list says_blocklist add {akara};
   #list says_blocklist add {balaban};
   #list says_blocklist add {bojek};
   #list says_blocklist add {bodyguard};
   #list says_blocklist add {cadal};
+  #list says_blocklist add {cain};
   #list says_blocklist add {cancer};
   #list says_blocklist add {captain keyes};
   #list says_blocklist add {chieftain};
@@ -21,15 +23,20 @@
   #list says_blocklist add {guard};
   #list says_blocklist add {guardswoman};
   #list says_blocklist add {harthearvorin};
+  #list says_blocklist add {icodileies};
   #list says_blocklist add {kid};
+  #list says_blocklist add {leufarr};
   #list says_blocklist add {lijak};
+  #list says_blocklist add {mircarla};
   #list says_blocklist add {peasant};
   #list says_blocklist add {priest};
   #list says_blocklist add {pope};
   #list says_blocklist add {raylorn};
   #list says_blocklist add {sandino};
+  #list says_blocklist add {sumaren};
   #list says_blocklist add {thurand};
   #list says_blocklist add {the %+ knight};
+  #list says_blocklist add {the actress};
   #list says_blocklist add {the angel};
   #list says_blocklist add {the ferryman};
   #list says_blocklist add {the gypsy};
@@ -44,7 +51,10 @@
   #list says_blocklist add {valerie};
   #list says_blocklist add {velica};
   #list says_blocklist add {verbeeg sentinel};
+  #list says_blocklist add {warriv};
   #list says_blocklist add {warrior};
+  #list says_blocklist add {willie};
+  #list says_blocklist add {wirt};
   #list says_blocklist add {wisewoman};
   #list says_blocklist simplify;
 }

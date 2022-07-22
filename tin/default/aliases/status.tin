@@ -69,7 +69,6 @@
 
     #nop create a box for mud text, allows another box for map;
     #split 1 2 1 $WIDTH_OFFSET;
-    #nop #split 0 2;
     #var SHOW_STATUS 1;
   };
   #elseif {"%1" == "off"} {

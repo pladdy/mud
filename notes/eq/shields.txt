@@ -10,3 +10,4 @@ Shields:
   shindrak     # rare: diamond shield
   sheikh       # unique: desert shield
   trans1       # northron can drop shield
+  tomb_of_king_alaren # twlight shield

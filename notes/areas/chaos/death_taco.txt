@@ -35,14 +35,17 @@ Mob Specials:
 drop tiers
 - 1-49, 50-74, 75-90, 91+
 - stat boosts are all boot (indefinite)!
-- can build 2 death tacos per reset + a veggie taco (20 toppings)
+- can build 1 death taco per reset + a veggie taco (20 toppings)
+  -  I don't think this is true.  I've built 1 death taco in a dungeon and then
+     multiple cheesy tacos
+  -  I built 2 works tacos, 2 cheesy tacos
 - all items are unique, can't have more than one in inventory or one dests!
 
 veggie taco (shell, lettuce, tomatoes)
   A Cerveza      (, plain, refreshing, strong): +2, +3, +4 con; 50%, 75%, 100% overmax sp x 3
   A side of rice (dry, stale, moist, steaming): 25%, 37%, 50% overmax hp/sp
   A veggie taco  (bland, plain, crisp):         +2, +3, +4 wis, overmax 100% hp per 'eat' x 3
-  A (small, medium,large) pop:                  sp heals, can be refilled
+  A (small, medium, large) pop:                 sp heals, can be refilled
 
 cheesy taco (veggie + cheese)
   foil wrapper  (crinkled, tattered, smooth, shiny): mind  and radiation ac
@@ -59,10 +62,14 @@ meat taco (cheese + meat)
 
 works taco (meat + cream, guacamole)
   - heals a lot
-  Lime Wedge          (, , , ):           +acid WC to a weapon
+  Lime Wedge          (, , , juicy):      +acid WC to a weapon
   Cup of Salsa        (, , large, giant): +wis (+4 dex, +4 int, +2 wis, +2 cha?)
-  Lettuce Leaf        (, , , ):           Used to change WC to blunt
-  Packet of hot sauce (, , , ):           +fire WC to a weapon
+  Lettuce Leaf        (, , , crispy):     Add WC and change weapon to blunt
+  Packet of hot sauce (, , , fire):       +fire WC to a weapon, gives it fire special
 
 death taco: (works + hot sauce)
   see notes/mobs/death_taco.txt
+  - Shot of Tequila ( , , , ):            Fire damage in a room
+  - Spork Lance ( , , sharp, wicked):     High WC lance, randomly heals hp/sp, does specials
+  - Quesadilla Codpiece ( , , , massive): An other (to be worn) - AC across all types
+  - Guacamole skin ( , , large, huge):    Temporary Damage reduction treatment

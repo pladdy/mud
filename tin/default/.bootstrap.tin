@@ -57,6 +57,8 @@ log_level info;
 #nop Maps are loaded via login actions: see tin/default/actions/login.tin;
 #var {map_dir} {tin/map};
 
+#config mouse off;
+
 #CONFIG           {AUTO TAB}  {5000}
 #CONFIG           {BUFFER SIZE}  {1000}
 #CONFIG           {CHARSET}  {ASCII}

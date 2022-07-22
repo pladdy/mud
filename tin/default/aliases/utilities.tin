@@ -120,6 +120,11 @@
   reload_map;
 }
 
+#alias weather {
+  #script {my_weather} {curl -s wttr.in/$WEATHER_LOCATION\?format=4};
+  #showme $my_weather[1];
+}
+
 #alias wemud {
   #system {open https://wemudtogether.com/};
 }

@@ -4,6 +4,8 @@
 #var BAGS_TO_USE {8};
 #var ETERNALS {false};
 
+#var WEATHER_LOCATION {YouCityHere};
+
 #script {character} {echo $PROFILE};
 #var character {$character[1]};
 #read tin/default/.bootstrap.tin;
