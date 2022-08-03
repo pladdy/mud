@@ -191,3 +191,21 @@
   #var nightshade %3;
   #var bloodmoss %4;
 }
+
+#nop  Smuggling;
+
+#action {^Smuggling%s[%s%1/%s%2|%3%|%s%4c]} {
+  #var smuggle[count] %1;
+  #var smuggle[max] %2;
+  #var smuggle[corpses] %3;
+}
+
+#action {^You smuggle away: ~(%1) a preserved, %2 corpse of %3$} {
+  #math smuggle[corses] {$smuggle[corpses] + 1};
+  #math smuggle[count] {$smuggle[count] + 1};
+}
+
+#action {^You unsmuggle: ~(%1) a preserved, %2 corpse of %3$} {
+  #math smuggle[corses] {$smuggle[corpses] - 1};
+  #math smuggle[count] {$smuggle[count] - 1};
+}

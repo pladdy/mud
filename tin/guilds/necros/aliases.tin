@@ -52,7 +52,7 @@
       log.info Attempting to refill corpses.;
       #send !gfc;
     };
-    #else {
+    #elseif {$smuggle[corpses] > 0} {
       #send !smuggle remove corpse;
     }
   };
