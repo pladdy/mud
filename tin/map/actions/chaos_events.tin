@@ -182,7 +182,12 @@
   #map goto 25903;
 }
 
-#action {^Frayed Reality$} {
+#nop  Witches hat;
+#action {^Frayed Reality} {
+  #map goto 34091;
+}
+
+#action {^AREA NAME: Witch's Hat [Canislupus]$} {
   #map goto 34091;
 }
 
