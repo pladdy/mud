@@ -3,9 +3,10 @@
 #var curse OFF;
 #var growth OFF;
 #var rift {OFF};
-#var summons {cloud elemental}; #nop selene psummon
+#var summons {(beautiful chimera)|(majestic gryphon)}; #nop selene psummon;
 
 #while {1} {
-  #send !afk Mends: 'ping', HP: 'healme', SP: 'nosp', GP: 'high5';
+  #nop Mends use piety, low piety in comabt can be bad for survival;
+  #nop #send !afk Mends: 'ping', HP: 'healme', SP: 'nosp', GP: 'high5';
   #break;
 }

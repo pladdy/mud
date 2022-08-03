@@ -4,7 +4,7 @@
 %+'s esquire
 %+ cob
 %+ palfrey
-storm servant|cloud elemental|aerial servant
+(storm|aerial) servant
 %+ broodling
 %+ ferryman
 %+, %+'s %+ nag
@@ -36,3 +36,4 @@ an? (large ogre|smelly bugbear|rotting ghoul|wererat|((huge|large) spider)|giant
 an? (dark shadow|stony gargoyle|froth-mouthed hell hound|carnivorous ape|poisonous toad|large ice toad|giant constrictive snake|disfigured werewolf|5-headed hydra|huge owlbear)
 's ice golem
 's %+ dog
+(beautiful chimera)|(majestic gryphon)

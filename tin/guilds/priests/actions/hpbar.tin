@@ -1,3 +1,18 @@
+#action {^%!{[> ]*}HP: %1/%2 SP: %3/%4 MANA: %5/%6 E: [%7]} {
+  #var hp {%1};
+  #var hp_max {%2};
+
+  #var sp {%3};
+  #var sp_max {%4};
+
+  #var gp1 {%5};
+  #var gp1_max {%6};
+
+  #var enemy_str {%7};
+  process_enemy_status;
+  #nop attempt_inspirit;
+}
+
 #action {^%!{[> ]*}HP: %1/%2 SP: %3/%4 MANA: %5/%6 %7 E: [%8]} {
   #var hp {%1};
   #var hp_max {%2};
@@ -9,28 +24,51 @@
   #var gp1_max {%6};
 
   #var enemy_str {%8};
-  #regexp {$enemy_str} {: %d} {#var enemy &1} {#var enemy_str none};
-
-  #if {"$enemy_str" == "none"} {#var enemy {0}};
-  #else {#replace {enemy} {%} {}};
-
-  #nop don't need with contingency at glvl 15;
-  #nop #if {$sp < 50 && $enemy > 0} {#2 ins};
+  process_enemy_status;
+  #nop attempt_inspirit;
 }
 
 #nop without a coffin second hpbar changes, below two actions account for it;
 
-#alias attempt_all_the_things {
-  attempt_effects;
-  attempt_curse;
-  #nop attempt_rift;
-  #nop attempt_beckon;
-  #nop attempt_growth;
+#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%]} {
+  #var gxp {%1};
+  #var gp2 {%2};
+  #var gp2_max {100};
+  #var beseeches %3;
+
   attempt_offer;
-  attempt_beseech;
+  show_status_bar;
+} {2}
+
+#nop <glvl 8;
+#nop must disable at glvl 10 with spells in hpbar;
+#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%] C: %5/%6} {;
+ #var gxp {%1};
+ #var gp2 {%2};
+ #var gp2_max {100};
+ #var beseeches %3;
+ #var corpses %5;
+ attempt_offer;
+ show_status_bar;
+} {3}
+
+#nop  glvl 8, getting barkskin;
+#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%] C: %5/%6 BARK: %7} {
+  #var gxp {%1};
+  #var gp2 {%2};
+  #var gp2_max {100};
+  #var beseeches %3;
+  #var corpses %5;
+
+  #var barskin %7;
+  #if {$enemy > 0} {
+    #if {"$barkskin" == "OFF"} {#send !barkskin};
+  };
+  attempt_offer;
+  show_status_bar;
 }
 
-#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%] C: %5/%6 D:[%7]} {
+#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%] C: %5/%6 D:%7} {
   #var gxp {%1};
   #var gp2 {%2};
   #var gp2_max {100};
@@ -40,7 +78,7 @@
 
   attempt_all_the_things;
   show_status_bar;
-}
+} {1}
 
 #action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%] D:[%5]} {
   #var gxp {%1};

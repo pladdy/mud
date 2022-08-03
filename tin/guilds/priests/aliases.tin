@@ -1,3 +1,17 @@
+#alias attempt_all_the_things {
+  attempt_effects;
+  #nop attempt_curse;
+  #nop attempt_rift;
+  #nop attempt_beckon;
+  #nop attempt_growth;
+  attempt_offer;
+  attempt_beseech;
+}
+
+#alias attempt_beckon {
+  #if {"$beckon" == "OFF" && $enemy > 0 && $sp > 200} {#send !beckon};
+}
+
 #alias attempt_beseech {
   #if {$gp1 < 50 && $beseeches > 0} {#send !beseech};
 }
@@ -11,16 +25,23 @@
     #regex {$spells} {PR} {#nop} {#send !protection};
     #regex {$spells} {VE} {#nop} {#send !vestment};
     #regex {$spells} {BA} {#nop} {#send !barkskin};
+    #regex {$spells} {BB} {#nop} {#send !blade};
     #regex {$spells} {HA} {#nop} {#send !haste};
-    #regex {$spells} {BL} {#nop} {#send !bless};
-    #regex {$spells} {BE} {#nop} {#send !beneficence};
-    #if {"$blade" == "OFF" && $enemy > 0} {#send !blade};
+    #nop #regex {$spells} {BL} {#nop} {#send !bless};
+    #nop #regex {$spells} {BE} {#nop} {#send !beneficence};
   };
 }
 
 #alias attempt_growth {
   #if {"$beckon" == "ON" && "$growth" == "OFF" && $enemy > 0 && $sp > 200} {
     #send !growth demon;
+  };
+}
+
+#alias attempt_inspirit {
+  #nop don't need with contingency at glvl 15;
+  #if {$enemy > 0 && ($sp < 50 || ($sp < $sp_max && $gp1 == $gp1_max))} {
+    #2 ins
   };
 }
 
@@ -31,7 +52,7 @@
 }
 
 #alias attempt_offer {
-  #if {$gp1 < 150 && $corpses > 0} {reof};
+  #if {$gp1 < 150 && $corpses > 0 && $enemy > 0} {reof};
 }
 
 #alias attempt_protection {
@@ -40,10 +61,6 @@
 
 #alias attempt_rift {
   #if {"$rift" == "OFF" && $enemy > 0 && $sp > 400} {#send !rift};
-}
-
-#alias attempt_beckon {
-  #if {"$beckon" == "OFF" && $enemy > 0 && $sp > 200} {#send !beckon};
 }
 
 #alias commands_after_corpse {
@@ -56,7 +73,7 @@
 
 #alias enable_panics {
   #send !contingency on;
-  #send !paction on;
+  #nop #send !paction on;
 }
 
 #alias f10 {use_corpse}
@@ -74,9 +91,31 @@
 }
 
 #alias m {
-  #send !contingency off;
-  #send !paction off;
+  #nop #send !contingency off;
+  #nop #send !paction off;
   #send !meditate;
+}
+
+#alias process_enemy_status {
+  #regexp {$enemy_str} { : %!{\d}} {
+    #var enemy &1;
+    #replace {enemy} {%} {};
+  };
+
+  #regexp {$enemy_str} { : %w} {
+    #var enemy &1;
+    #replace {enemy} {%} {};
+  };
+
+  #switch {"$enemy"} {
+    #case {"per"} {#var enemy 100};
+    #case {"bru"} {#var enemy 70};
+    #case {"ble"} {#var enemy 60};
+    #case {"eme"} {#var enemy 10};
+    #case {"Dea"} {#var enemy 5};
+  };
+
+  #if {"$enemy_str" == "none"} {#var enemy {0}};
 }
 
 #alias reof {

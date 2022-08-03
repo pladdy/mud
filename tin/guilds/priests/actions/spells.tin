@@ -48,11 +48,11 @@
 
 #nop Growth;
 
-#action {^%!{[> ]*}Suddenly, Cloud Elemental grows to mammoth size!$} {
+#action {^%!{[> ]*}Suddenly, %1 grows to mammoth size!$} {
   #var growth ON;
 }
 
-#action {^%!{[> ]*}Animal Growth has already been cast on Cloud Elemental.$} {
+#action {^%!{[> ]*}Animal Growth has already been cast on %1.$} {
   #var growth ON;
 }
 
@@ -77,23 +77,31 @@
 #nop Mends;
 
 #action {^%!{[> ]*}%1 pings you.$} {
-  #format {player} {%l} {%1};
-  #send !mend $player;
+  #if {$gp2 > 90} {
+    #format {player} {%l} {%1};
+    #send !mend $player;
+  }
 }
 
 #action {^%!{[> ]*}%1 gives you a high-five!$} {
-  #format {player} {%l} {%1};
-  #send !mend $player gp;
+  #if {$gp2 > 90} {
+    #format {player} {%l} {%1};
+    #send !mend $player gp;
+  }
 }
 
 #action {^%!{[> ]*}%1 politely asks you for a heal.$} {
-  #format {player} {%l} {%1};
-  #send !mend $player hp;
+  #if {$gp2 > 90} {
+    #format {player} {%l} {%1};
+    #send !mend $player hp;
+  }
 }
 
 #action {^%!{[> ]*}%1 explains to you that he is out of spell points.$} {
-  #format {player} {%l} {%1};
-  #send !mend $player sp;
+  #if {$gp2 > 90} {
+    #format {player} {%l} {%1};
+    #send !mend $player sp;
+  }
 }
 
 #nop Meditation;
@@ -124,11 +132,7 @@
 
 #nop Rift;
 
-#action {^%!{[> ]*}Selene, aid my struggle with a tear to the nether planes!$} {
-  #var rift ON;
-}
-
-#action {^%!{[> ]*}You focus intently on the planar rift and begin to chant to Selene. Power wells deep$} {
+#action {^%!{[> ]*}You focus intently on the planar rift and begin to chant to Selene.$} {
   #var rift ON;
 }
 
@@ -144,11 +148,7 @@
 
 #nop Beckon;
 
-#action {^%!{[> ]*}Suddenly, a cloud elemental arrives from the plane of air to} {
-  #var beckon {ON};
-}
-
-#action {^%!{[> ]*}You have already summoned help.$} {
+#action {^%!{[> ]*}As if stepping through a tear in space, %1 crosses into reality} {
   #var beckon {ON};
 }
 

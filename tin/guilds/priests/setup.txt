@@ -23,6 +23,7 @@ alias h hammer
 alias ha haste
 alias id identify
 alias info priest
+alias ins inspirit
 alias inv invigorate
 alias lf lifeforce
 alias lts lightningstrike
@@ -34,6 +35,7 @@ alias pro protection
 alias ps pstatus
 alias r reagents
 alias ra radiance
+alias res restore
 alias sac sacrifice
 alias sf soulforce
 alias sp spells
@@ -43,5 +45,7 @@ alias ve vestment
 alias wi wings
 alias wo word
 
+hpbar hp#sp#mana#mh#NL#pgxxl#pty#cl3#coffin
+hpbar hp#sp#mana#mh#NL#pgxxl#pty#cl3#coffin#bark
 hpbar hp#sp#mana#sto#mend#mh#NL#pgxxl#pty#cl3#prot#vest#bark#haste
 hpbar hp#sp#mana#sto#mend#mh#NL#pgxxl#pty#cl3#coffin#spells
