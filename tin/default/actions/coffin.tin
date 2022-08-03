@@ -15,6 +15,10 @@
   }
 }
 
+#action {^%!{[> ]*}All your corpses are already bigger than what is here.$} {
+  use_corpse
+}
+
 #action {^%!{[> ]*}You pick up %1 corpse of %2} {
   #math corpses {$corpses + 1};
 }
