@@ -56,7 +56,6 @@
 #alias check_saturation {
   #nop when hpbar processes gp vars, it 'flips' them;
   #if {$gp1 <= 10} {#showme <110>SATURATION IS HIGH!!!};
-
   #if {$gp2 <= 5} {
     #send !cast deactivate;
     #send !cast secure shelter;
@@ -68,8 +67,9 @@
   #if {"$stepper" == "on"} {
     #if {"$immersed" == "false"
          && $mystic_immersions == 0
-         && $sp < 3000
+         && $sp < 2000
          && $school_spells == 0
+         && $gp1 <= 25
     } {
       stepper off;
       dtrig f2;
