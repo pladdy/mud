@@ -1,6 +1,6 @@
 #alias attempt_all_the_things {
   attempt_effects;
-  #nop attempt_curse;
+  attempt_curse;
   #nop attempt_rift;
   #nop attempt_beckon;
   #nop attempt_growth;
@@ -27,7 +27,7 @@
     #regex {$spells} {BA} {#nop} {#send !barkskin};
     #regex {$spells} {BB} {#nop} {#send !blade};
     #regex {$spells} {HA} {#nop} {#send !haste};
-    #nop #regex {$spells} {BL} {#nop} {#send !bless};
+    #regex {$spells} {BL} {#nop} {#send !bless};
     #nop #regex {$spells} {BE} {#nop} {#send !beneficence};
   };
 }
@@ -69,6 +69,41 @@
   #var beckon OFF;
   #var growth OFF;
   #var rift OFF;
+}
+
+#alias deup_spell {
+  #var deup_regex %1;
+  #var deup_spell %2;
+
+  #delay $deup_delay {
+    #regex {$spells} {$deup_regex} {#nop} {
+      #send !$deup_spell;
+      #math deup_delay {$deup_delay + 2};
+    };
+  };
+}
+
+#alias deup {
+  #var i 0;
+  #regexp {$spells} {PR} {#nop;} {
+    #delay {$i} {#send !protection}; #math {i} {$i + 2};
+  };
+  #regexp {$spells} {VE} {#nop;} {
+    #delay {$i} {#send !vestment}; #math {i} {$i + 2};
+  };
+  #regexp {$spells} {BA} {#nop;} {
+    #delay {$i} {#send !barkskin}; #math {i} {$i + 2};
+  };
+  #regexp {$spells} {BB} {#nop;} {
+    #delay {$i} {#send !blade}; #math {i} {$i + 2};
+  };
+  #regexp {$spells} {HA} {#nop;} {
+    #delay {$i} {#send !haste}; #math {i} {$i + 2};
+  };
+  #regexp {$spells} {BL} {#nop;} {
+    #delay {$i} {#send !bless}; #math {i} {$i + 2};
+  };
+  #nop #regex {$spells} {BE} {#nop} {#send !beneficence};
 }
 
 #alias enable_panics {

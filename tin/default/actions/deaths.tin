@@ -5,3 +5,9 @@
 #action {^%!{[> ]*}Galan booms: Then it shall be so!$} {
   #map goto 3k_chapel;
 }
+
+#action {^%!{[> ]*}You die.$} {
+  #if {"$stepper" == "on"} {
+    stepper off;
+  }
+}
