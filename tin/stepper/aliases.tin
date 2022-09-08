@@ -15,9 +15,12 @@
     log.debug player present;
     take_a_step;
   };
-  #elseif {"$stepper" == "on" && $seen_monster_count == 0} {
+  #elseif {"$stepper" == "on" && $seen_monster_count == 0 && "$player_present" == "false"} {
     log.debug no monsters present;
-    #if {"$itemspresent" == "true"} {#send !f};
+    #if {"$item_present" == "true"} {
+      #send !f;
+      pba;
+    };
     take_a_step;
   };
   #elseif {$seen_monster_count > 0 && "$under_attack" == "false" && "$player_present" == "false"} {
@@ -30,6 +33,8 @@
 }
 
 #alias ak {auto_kill}
+
+#alias before_step_hook {#nop;}
 
 #alias keep_cardinal_dirs {
   #list cardinal_exits clear;
@@ -153,6 +158,8 @@
 }
 
 #alias take_a_step {
+  before_step_hook;
+
   keep_cardinal_dirs;
 
   set_entered_from;
@@ -167,9 +174,7 @@
 
   #if {$cardinal_exit_count > 0} {
     #var step_dir $dir_to_go;
-
-    #nop Use delay so stepper doesn't zip around an area annoyingly fast.;
-    #nop #delay {0.1} {$dir_to_go};
+    log.info Stepping in direction $dir_to_go;
     $dir_to_go;
   } {
     #var step_dir $entered_from;

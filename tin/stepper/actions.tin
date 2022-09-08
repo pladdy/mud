@@ -11,6 +11,7 @@
   #var seen_monster_count 0;
   #var under_attack false;
   #var player_present false;
+  #var item_present false;
   #var tracker on;
   #var tried_to_auto_kill false;
 
