@@ -10,7 +10,7 @@
   #var coffin_status %4;
   #format {coffin_status} {%l} {$coffin_status};
 
-  #if {"$coffin_status" !== "full"} {
+  #if {"$coffin_status" != "full"} {
     #var coffin_status {not_full};
   }
 }

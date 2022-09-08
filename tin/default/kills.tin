@@ -61,6 +61,7 @@
     #var gemino_mortis true;
     #undelay mask_killing_blow_timeout;
     respond_to_killing_blow;
+    #send !glance;
     #if {"$ktrig_status" == "on"} {f};
   };
 }
@@ -71,6 +72,7 @@
     #var gemino_mortis true;
     #undelay mask_killing_blow_timeout;
     #2 respond_to_killing_blow;
+    #send !glance;
     #if {"$ktrig_status" == "on"} {f};
   };
 }
@@ -110,10 +112,16 @@
 
   #if {"$gemino_mortis" == "true"} {
     log.info Mask of Gemino Mortis equipped, waiting for corpse duplication.;
-    #delay mask_killing_blow_timeout {respond_to_killing_blow} {4};
+    #delay mask_killing_blow_timeout {
+      log.warn Mask didn't fire, no corpse.;
+      respond_to_killing_blow;
+      #send !glance;
+      #send !f;
+    } {4};
   };
   #else {
     respond_to_killing_blow;
+    #send !glance;
   }
 }
 
@@ -122,9 +130,9 @@
 
   #if {"$stepper" == "on"} {
     #delay {mob_died_event} {
-      use_corpse;
+      wrap_or_use_corpse;
       #send !glance;
-    } {10};
+    } {4};
     remove_seen_monster "%0";
     ttl_no_monsters on;
   };
@@ -146,7 +154,6 @@
   #if {"$ktrig_status" == "on"} {
     log.debug checking $last_killer against killers ($character|$summons|$my_dog|tree) that can use corpse;
     #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree}} {
-      #send !glance;
       wrap_or_use_corpse;
       #if {"$party_status" == "yes"} {#send !divvy gold};
       #nop  Assumes an alias 'f' exists to 'get all';
