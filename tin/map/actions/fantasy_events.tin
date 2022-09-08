@@ -8,6 +8,14 @@
   #if {$map[current_room] == 33769} {#map goto 33770};
 }
 
+#nop  Black Pyramid;
+
+#action {^%!{[> ]*}You touch the lifeless gem and are transported elsewhere.$} {
+  #if {$map[current_room] == 34531} {
+    #map goto 1415;
+  }
+}
+
 #nop  Crystals of Ao;
 #nop the rooms below will port/warp you, i don't have them all captured below;
 #action {^%!{[> ]*}You begin to lose your sense of direction, confused by the} {
