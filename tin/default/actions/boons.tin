@@ -1,7 +1,17 @@
 #action {^You can now 'choose' which stats to apply the blessing to.$} {
-  #delay 3 {#8 #send !choose con};
-  #delay 5 {#8 #send !choose str};
-  #delay 7 {#8 #send !choose wis};
-  #delay 9 {#8 #send !choose dex};
+  #delay 2 {#5 #send !choose con};
+  #switch {"$guild"} {
+    #case "fremen" {
+      #delay 5 {#5 #send !choose int};
+      #delay 9 {#5 #send !choose wis};
+    };
+    #case "mages" {
+      #delay 5 {#5 #send !choose int};
+      #delay 9 {#5 #send !choose wis};
+    };
+    #default {
+      #delay 5 {#5 #send !choose str};
+      #delay 9 {#5 #send !choose dex};
+    }
+  }
 }
-
