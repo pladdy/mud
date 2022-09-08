@@ -29,3 +29,4 @@
 #var litany_focus_map[Pai] 10;
 #var litany_focus_map[Wre] 0;
 
+#list says_blocklist add {pilot};

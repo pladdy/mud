@@ -81,7 +81,7 @@
 }
 
 #nop  Stun;
-#
+
 #action {^%!{[> ]*}%1 cannot be stunned again so quickly!$} {
   #var stun_active true;
   #delay {stun_delay} {#var stun_active false;} {5};

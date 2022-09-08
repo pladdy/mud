@@ -58,3 +58,13 @@
 #action {^%!{[> ]*}%1 gives you a high-five!$} {
   #if {"$party_status" == "yes"} {#send !unwrap}
 }
+
+#nop  Adjust pheal when using embiggen;
+
+#action {^%!{[> ]*}With a quick blink and a toe-tap, you infuse yourself with the powers of} {
+  #send !pheal 2300 surge;
+}
+
+#action {^%!{[> ]*}You feel less awesomesauce.$} {
+  #send !pheal 1500 surge;
+}

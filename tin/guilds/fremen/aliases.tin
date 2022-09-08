@@ -196,7 +196,6 @@
 #alias use_corpse {
   #local MAX_WATER_RATIO 1.2;
 
-  #send !glance;
   #send !hp;
   #if {$total_water_pct < $MAX_WATER_RATIO} {#send !reclaim} {#send !fai};
   #send !hp;

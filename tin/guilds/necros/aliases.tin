@@ -33,6 +33,12 @@
   #if {$enemy > 0 && "$can_dream" == "true" && $spp < .5} {#send !z};
 }
 
+#alias attempt_follower_heal {
+  #if {$necro_follower_health < 90} {
+    #send =heal 500;
+  }
+}
+
 #alias attempt_preserve {
   log.debug attempting preserve;
 
@@ -144,6 +150,11 @@
   #send !get all from chest;
   #send !close chest;
   #send !deliver;
+}
+
+#alias login_commands {
+  #nop  Assumes 'gmore inventory' is not paging;
+  #send !powers;  
 }
 
 #alias reab {

@@ -8,5 +8,6 @@ study animate dead 2
 study protection 3
 study shift 2
 study dream 30
+study soulbind 5
 
 # go study chest, fright, and snare

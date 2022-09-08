@@ -36,6 +36,7 @@
   attempt_protection;
   attempt_refill_corpses;
   attempt_unload_corpses;
+  attempt_follower_heal;
 }
 
 #alias _status_vars {
@@ -60,7 +61,7 @@
   #var protection %4;
   #var veil %5;
   #var repower %6;
-  #var necro_follower %7;
+  #format {necro_follower} {%l} {%7}  
 }
 
 #action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[%8%/%9c/%10c]} {
@@ -99,6 +100,7 @@
 }
 
 #nop  Teleport to RR room;
+
 #action {^%!{[> ]*}Visions of the guild appear first in your mind, then reality...$} {
   #map goto 26792;
 }
@@ -111,7 +113,17 @@
   #send !keep corpse;
 }
 
+#nop  Coffin in inventory;
+
+#action {^%!{[> ]*}Coffin%s[%s%1/%s%2|%3%|%s%4c] %5} {
+  #var corpses %1;
+  #if {%1 != %2} {
+    #var coffin_status not_full;
+  }
+}
+
 #nop  Dart actions;
+
 #action {^%!{[> ]*}You don't have create dart memorized this cycle.$} {
   #var can_dart false;
 }
@@ -129,6 +141,7 @@
 }
 
 #nop  Dream actions;
+
 #action {^%!{[> ]*}  You don't have dream memorized this cycle.$} {
   #var can_dream false;
 }
@@ -167,10 +180,25 @@
   #var follower_blocked true;
 }
 
-#action {^%!{[> ]*}%1 taps you on the shoulder.$} {
-  #5 {
-    #send !preserve corpse;
-    #send !get corpse;
+#action {^%!{[> ]*}Your %1 is not here.$} {
+  #if {"%1" == "$necro_follower"} {
+    #var follower_blocked true;
+  };
+}
+
+#action {^%!{[> ]*}Mojo the %1 trudges in.$} {
+  #var {trudger} {%l} {%1};
+  #if {"$trudger" == "$necro_follower"} {
+    #var follower_blocked false;
+  };
+}
+
+#nop for some reason text won't match with '^';
+#action {%!{[> ]*}Your %1 begins to follow you.$} {
+  #showme %1 is here;
+
+  #if {"%1" == "$necro_follower"} {
+    #var follower_blocked false;
   };
 }
 
@@ -197,15 +225,22 @@
 #action {^Smuggling%s[%s%1/%s%2|%3%|%s%4c]} {
   #var smuggle[count] %1;
   #var smuggle[max] %2;
-  #var smuggle[corpses] %3;
+  #var smuggle[corpses] %4;
 }
 
 #action {^You smuggle away: ~(%1) a preserved, %2 corpse of %3$} {
-  #math smuggle[corses] {$smuggle[corpses] + 1};
+  #math smuggle[corpses] {$smuggle[corpses] + 1};
   #math smuggle[count] {$smuggle[count] + 1};
 }
 
-#action {^You unsmuggle: ~(%1) a preserved, %2 corpse of %3$} {
-  #math smuggle[corses] {$smuggle[corpses] - 1};
+#action {^You unsmuggle: ~?(%1) a preserved, %2 corpse of %3$} {
+  #math smuggle[corpses] {$smuggle[corpses] - 1};
   #math smuggle[count] {$smuggle[count] - 1};
+}
+
+#action {^%!{[> ]*}%1 taps you on the shoulder.$} {
+  #5 {
+    #send !preserve corpse;
+    #send !get corpse;
+  };
 }
