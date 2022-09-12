@@ -30,3 +30,4 @@
 #var litany_focus_map[Wre] 0;
 
 #list says_blocklist add {pilot};
+build_says_blocklist;

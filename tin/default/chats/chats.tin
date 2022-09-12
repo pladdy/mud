@@ -28,6 +28,7 @@
   #list says_blocklist add {leufarr};
   #list says_blocklist add {lijak};
   #list says_blocklist add {mircarla};
+  #list says_blocklist add {oden};
   #list says_blocklist add {peasant};
   #list says_blocklist add {priest};
   #list says_blocklist add {pope};
@@ -51,6 +52,7 @@
   #list says_blocklist add {valerie};
   #list says_blocklist add {velica};
   #list says_blocklist add {verbeeg sentinel};
+  #list says_blocklist add {villager};
   #list says_blocklist add {warriv};
   #list says_blocklist add {warrior};
   #list says_blocklist add {willie};

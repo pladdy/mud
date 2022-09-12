@@ -63,7 +63,6 @@
 }
 
 #alias commands_after_corpse {
-  #send !suspend;
   #var stun_active false;
   #var stun_failures 0;
   #var stun_recovering false;
@@ -204,4 +203,5 @@
 #alias wimpy_commands {
   #send !hide;
   commands_after_corpse;
+  #delay {2} {#send !suspend};
 }
