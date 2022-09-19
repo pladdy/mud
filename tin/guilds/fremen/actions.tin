@@ -33,21 +33,24 @@
 
 }
 
-#action {^%!{[> ]*}Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 Gt:%7 G:} {
+#action {^%!{[> ]*}Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 C: %7 Gt: %8 G:} {
   #var litany_focus %1;
 
-  #local spice_level %2;
+  #var spice_level %2;
   #local ammo %4;
   #local ammo_max %5;
+  #var corpses %7;
 
-  #var gxp %7;
+  #var gxp %8;
 
   #if {$enemy > 0 && "$ammo" != "--"} {
     #if {$ammo == 1 && $ammo_max > 0} {#send !mload};
   };
 
   count_available_spices;
-  #if {$enemy > 0 && "$spice_level" == "Withdrawal" && $available_spices > 0} {
+  #if {$enemy > 0 
+       && ("$spice_level" == "Withdrawal" || "$spice_level" == "None")
+       && $available_spices > 0} {
     respice;
   };
 }

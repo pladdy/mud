@@ -24,7 +24,7 @@
 }
 
 #action {^%!{[> ]*}You picked up %1 corpse info the coffin.} {
-  #math corpses {$corpses + 1};
+  #math corpses {$corpses + %1};
 }
 
 #action {The coffin expels a corpse!$} {

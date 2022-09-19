@@ -3,13 +3,13 @@ confighp hp H: $+CHP$/$MHP$ S: $+CSP$/$MSP$ W: $+CWT$/$MWT$($SWT$) L: $+LMB$% P:
 alias mmaf mode weirding:half litany:$1 pain assault attacks:fast reflexes prana:high bindu:low 
 alias mmal mode weirding:major litany:$1 pain assault attacks:lightning prana:high bindu:low 
 alias mmab mode weirding:high litany:$1 pain assault attacks:blinding reflexes:quick prana:high bindu:low 
+alias mmas mode litany:$1 weirding:high pain assault attacks:slow prana:high bindu:low
 
 alias mmrn mode litany:$1 pain assault weirding attacks prana:high bindu:low
 alias mmrq mode weirding:major litany:$1 pain assault attacks:fast reflexes prana:high bindu:low
 alias mmrf mode weirding:high litany:$1 pain assault attacks:fast reflexes:fast prana:high bindu:low
-alias mmrs mode litany:$1 weirding:high pain assault attacks:slow prana:high bindu:low
-alias mmrl mode weirding:high litany:$1 pain assault attacks:fast reflexes prana:high bindu:low
-alias mmrb mode weirding:high litany:$1 pain assault reflexes:blinding attacks prana:high bindu:low
+alias mmrl mode weirding:high litany:$1 pain assault reflexes:lightning attacks:fast prana:high bindu:low
+alias mmrb mode weirding:high litany:$1 pain assault reflexes:blinding attacks:fast prana:high bindu:low
 
 alias rm mode litany:$1 weirding:high assault pain reflexes:blinding prana:high bindu:low
 
