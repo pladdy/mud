@@ -58,6 +58,52 @@
   #map goto 25917;
 }
 
+#nop Mega-Tokyo
+
+#action {^Welcome to Shintaro Lobby.  The doors will part as you exit.$} {
+  #map goto 34680;
+}
+
+#action {^Welcome to Mayfair & Mayfair.  The doors will part as you exit.$} {
+  #map goto 34681;
+}
+
+#action {^Welcome to Mega-Tokyo City Hall.  The doors will part as you exit.$} {
+  #map goto 34682;
+}
+
+#action {^With a blinding flash of light, you find yourself in another place.$} {
+  log.info Teleporting in genom skyscraper;
+
+  #nop For some reason, the if statements do not fire going up the sky scraper.;
+  #nop Coming back down they work.  Why?;
+  #if {$map[current_room] == 34770} {#map goto 34769};
+  #if {$map[current_room] == 34769} {#map goto 34770};
+
+  #if {$map[current_room] == 34806} {#map goto 34834};
+  #if {$map[current_room] == 34834} {#map goto 34806};
+
+  #if {$map[current_room] == 34877} {#map goto 34897};
+  #if {$map[current_room] == 34897} {#map goto 34877};
+
+  #if {$map[current_room] == 34956} {#map goto 34960};
+  #if {$map[current_room] == 34960} {#map goto 34956};
+  
+  #if {$map[current_room] == 35022} {#map goto 35023};
+  #if {$map[current_room] == 35023} {#map goto 35022};
+
+  #if {$map[current_room] == 35065} {#map goto 35086};
+  #if {$map[current_room] == 35086} {#map goto 35065};
+  
+  #nop last teleporter takes you back to private elevator;
+  #if {$map[current_room] == 35120} {#map goto 34770};
+  #if {$map[current_room] == 34770} {#map goto 35120};
+}
+
+#action {^A bright flash surrounds you, and you find yourself elsewhere!$} {
+  #map goto 34772;
+}
+
 #nop Nastar;
 
 #action {^You land in a village...$} {
