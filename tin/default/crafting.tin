@@ -1,0 +1,34 @@
+#list craft_fragment_types add ascension;
+#list craft_fragment_types add blasting;
+#list craft_fragment_types add compassion;
+#list craft_fragment_types add damnation;
+#list craft_fragment_types add destruction;
+#list craft_fragment_types add knowledge;
+#list craft_fragment_types add light;
+#list craft_fragment_types add might;
+#list craft_fragment_types add rage;
+#list craft_fragment_types add rejuvenation;
+#list craft_fragment_types add shadow;
+#list craft_fragment_types add soul;
+#list craft_fragment_types add {the unseen};
+#list craft_fragment_types add water;
+#list craft_fragment_types add willy;
+
+#action {^You have created something new!$} {#send !retrieve all;}
+
+#alias asmbl {
+  #5 {#send !unstash %0};
+
+  #list arg_list create %0;
+  #list arg_list delete 1;
+
+  #send !assemble @join{ $arg_list[%*] };
+  #send !stash all;
+  #unvar arg_list;
+}
+
+#alias asmbl_all {
+  #foreach $craft_fragment_types fragment_type {
+    asmbl average fragment of $fragment_type;
+  }
+}
