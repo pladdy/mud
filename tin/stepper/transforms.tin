@@ -1,6 +1,7 @@
 #nop all keys should be lower cased!;
 
 #unvar monster_transforms;
+#var monster_transforms[an apprentice cultist] {cultist};
 #var monster_transforms[a funkmonk] {monk};
 #var monster_transforms[a purple splotted four legged bush] {bush};
 #var monster_transforms[funk on the move] {funk};

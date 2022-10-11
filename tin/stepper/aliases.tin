@@ -47,7 +47,7 @@
 }
 
 #alias load_non_monsters {
-  #script {non_monsters} {cat tin/stepper/non_monsters.txt};
+  #script {non_monsters} {cat tin/stepper/non_monsters.txt | grep -v '#'};
   log.debug non_monsters: $non_monsters;
 }
 

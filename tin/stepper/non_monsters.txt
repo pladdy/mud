@@ -1,3 +1,4 @@
+# lines starting with '#' will be ignored
 (%w golem)
 's french bulldog
 's golden dun akhal-teke
@@ -10,11 +11,14 @@
 %+, %+'s %+ nag
 %*shenanigans
 %+ shetland pony
+# necromancer followers
 the (skeleton|zombie|ghoul|valpur|ghast|manshi|bolwyn|greesh|wight|heucuva|tholen|bayen|quarin|mohrg|grimare|valithyn)
 %+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling
-a .+ (grizzly bear)|owlet|platypus|(puddle of slime)|scropion|(tasmanian devil)|termite|(wandering spider)
+# changeling followers
+a .+ (asp caterpillar)|(grizzly bear)|owlet|platypus|(puddle of slime)|scropion|(tasmanian devil)|termite|(wandering spider)
+# jugger followers
 a (cargo truck|jeep|truck) named|jugger support mech
 tame little shrew|brown aardvark
 arctic wolf
@@ -23,6 +27,7 @@ cain|warriv
 ck30|utility droid|fondon raas
 duncan, keeper of the dead|theela|bray the alchemist|bryant|cairn|cerdon
 gabriel, the angel smith|grom|hyven
+gunnery sergeant gregory danvers|corporal freddy bowles
 arundin|an old dwarven smith|ho-san|hey you|cold tiro|cancer the tradesman
 mistoffolees|intuil|jenna rosesinger|the gypsy|johney the little boy
 judge dredd|keshtan|necrotic slake moth|osurus|quinton
@@ -31,10 +36,12 @@ rec vaerin|viggen blindsoul|rikken|rolan the wise sage|rocont the scorpion
 sir arruns thelton|the alphabet serial killer|the grand (elemental|monk)
 valerie, the lobby ambassador
 village wisewoman|tournament judge
+# mage summons
 an? (manes|orc|giant rat|goblin|kobold|hobgoblin)
 an? (lemure|gnoll|(giant (centipede|toad))|ugly troglodyte|stirge)
 an? (large ogre|smelly bugbear|rotting ghoul|wererat|((huge|large) spider)|giant (lizard|weasel|tick|boring beetle))
 an? (dark shadow|stony gargoyle|froth-mouthed hell hound|carnivorous ape|poisonous toad|large ice toad|giant constrictive snake|disfigured werewolf|5-headed hydra|huge owlbear)
 's ice golem
 's %+ dog
+# priest psummons
 (beautiful chimera)|(majestic gryphon)|(mystic unicorn)
