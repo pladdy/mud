@@ -8,6 +8,18 @@
   }
 }
 
+#nop  Ashridge Acres;
+
+#action {^AREA NAME: Ashridge Acres [Urian]$} {
+  #map goto 35416;
+}
+
+#nop Chaotic Forest;
+
+#action {^You let yourself go and feel the mist pull you into another reality.} {
+  #map goto 35449;
+}
+
 #nop Chaotic sewers (from mouse trails);
 
 #action {^As you fly through the air, your body reassumes its normal shape, no$} {
@@ -151,8 +163,24 @@
 
 #nop Chaos TV: dexter's lab;
 
-#action {^You feel your matter being erased and redrawn less realistically$} {
+#action {^AREA NAME: Dexter's Laboratory \[Adalius\]$} {
   #map goto 25048;
+}
+
+#nop Chaos TV: dragonball z;
+
+#action {^AREA NAME: Dragonball Z \[Aneki\]$} {
+  #map goto 35693;
+}
+
+#nop Cowville;
+
+#action {^The boat pulls up at the Isle of Cows.$} {
+  #map goto 35563;
+}
+
+#action {^The boat pulls up at the Cowville Wharf.$} {
+  #map goto 30150;
 }
 
 #nop Ice Cream Truck;

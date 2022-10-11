@@ -1,9 +1,11 @@
 #nop  Alizarian Tower;
+
 #action {^%!{[> ]*}The current pulls you south and you struggle to breathe!$} {
   #if {$map[current_room] == 28781} {#map goto 15662};
 }
 
 #nop  Balooga falls;
+
 #action {^%!{[> ]*}You pass out in the middle of the fall.} {
   #if {$map[current_room] == 33769} {#map goto 33770};
 }
@@ -14,6 +16,12 @@
   #if {$map[current_room] == 34531} {
     #map goto 1415;
   }
+}
+
+#nop  Cove of the three;
+
+#action {^%!{[> ]*}Too late however, and the magic swallows you whole!$} {
+  #map goto 35786;
 }
 
 #nop  Crystals of Ao;
@@ -43,6 +51,12 @@
   #if {$map[current_room] == 28750} {#map goto 28749};
   #if {$map[current_room] == 28761} {#map goto 28762};
   #if {$map[current_room] == 28763} {#map goto 28758};
+}
+
+#nop  Drealms;
+
+#action {^You have to retreat against the onslaught of fire!$} {
+  #if {$map[current_room] == 12253} { #map goto 12252}
 }
 
 #nop Great Well of Crenda;
