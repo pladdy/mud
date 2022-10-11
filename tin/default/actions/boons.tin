@@ -4,14 +4,20 @@
     #case "fremen" {
       #delay 5 {#5 #send !choose int};
       #delay 9 {#5 #send !choose wis};
+      #delay 13 {#5 #send !choose cha};
+      #delay 17 {#5 #send !choose str};
     };
     #case "mages" {
       #delay 5 {#5 #send !choose int};
       #delay 9 {#5 #send !choose wis};
+      #delay 13 {#5 #send !choose cha};
+      #delay 17 {#5 #send !choose dex};
     };
     #default {
       #delay 5 {#5 #send !choose str};
       #delay 9 {#5 #send !choose dex};
+      #delay 13 {#5 #send !choose wis};
+      #delay 17 {#5 #send !choose con};
     }
   }
 }
