@@ -11,15 +11,18 @@
 #var use_providence {false};
 #var use_renewed_light {false};
 #var use_retribution {false};
+#var use_traverse {false};
 
-#nop use a spoon to 'eat' corpses ti dest them instead of 'disperse';
-#var use_spoon {false};
+#nop use a spoon to 'eat' corpses to dest them instead of 'disperse';
+#var use_spoon {true};
 
 #nop settings to gate when powers are triggered;
 
 #var awe_at_hp_pct {85};
 #var awe_foes false;
-#var min_ts {4};
+#var {awe_length} {2};
+#var min_ts {6};
 #var providence_at {70};
-#var retribution_at {2};
+#var retribution_at_hits {4};
+#var retribution_at {100};
 #var swing_at {80};

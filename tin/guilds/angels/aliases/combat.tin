@@ -1,14 +1,104 @@
+#alias attempt_awe {
+  #math {pct_hp} {$hp / $hp_max * 100.0};
+  
+  #if {"$use_awe" == "true" &&
+       @enough_distance_and_time{} &&
+       "$awed" != "true" &&
+       ("$awe_foes" == "true" || $pct_hp <= $awe_at_hp_pct)} {
+    #send !awe $highest_area;
+    decrement_ts 2;
+    reduce_high_advantage_and_resort;
+  };
+}
+
+#alias attempt_beyond_time {
+  #local MIN_TS_FOR_BT 6;
+  #local MIN_DIV_FOR_BT 150;
+
+  #if {"$use_beyond_time" == "true" &&
+       $gp1 > $MIN_DIV_FOR_BT &&
+       $time_slices < $MIN_TS_FOR_BT} {
+    #send !manifest beyond time;
+  };
+}
+
 #alias attempt_circle {
-  #if {"$circle" != "true"} {
-    #showme <170>Trying to circle...;
-    #send !circle;
-    #var circle {true};
+  #if {"$use_circle" == "true" && @distinance_closed{}} {#send !circle};
+}
+
+#alias attempt_disengage {
+  #if {"$use_disengage" == "true" &&
+       @enough_distance_and_time{} &&
+       "$can_disengage" == "true"} {
+    #send !disengage;
+    decrement_ts 1;
+  };
+}
+
+#alias attempt_divine_strike {
+  #if {@should_swing{} == 1} {
+    #send !divine strike $highest_area;
+    decrement_ts 2;
+    reduce_high_advantage_and_resort;
+  }
+}
+
+#alias attempt_presage {
+  #local MIN_ADV 20;
+
+  #if {"$use_presage" == "true" &&
+       @enough_distance_and_time{} &&
+       $adv_sort[1][2] > $MIN_ADV} {
+    #send !presage $adv_sort[1][1] $adv_sort[2][1];
+    decrement_ts 1;
+    reduce_high_advantage_and_resort;
+  };
+}
+
+#alias attempt_providence {
+  #if {"$use_providence" == "true" &&
+       @enough_distance_and_time{} &&
+       $adv_sort[1][2] > $providence_at} {
+    #send !providence $adv_sort[1][1];
+    decrement_ts 1;
+    reduce_high_advantage_and_resort;
+  };
+}
+
+#alias attempt_renewed_light {
+  #local MIN_END_FOR_RL 100;
+  #local MIN_DIV_FOR_RL 150;
+
+  #if {"$use_renewed_light" == "true" &&
+       $gp1 > $MIN_DIV_FOR_RL &&
+       $gp2 < $MIN_END_FOR_RL} {
+    #send !manifest renewed light;
+  };
+}
+
+#alias attempt_retribution {
+  #if {"$use_retribution" == "true" &&
+       @should_retribution{} == 1 &&
+       $retributions > $retribution_at_hits} {
+    #send !retribution $highest_area;
+    decrement_ts 1;
+    reduce_high_advantage_and_resort;
+  };
+}
+
+#alias attempt_swing {
+  #if {@should_swing{} == 1} {
+    attempt_awe;
+    attempt_retribution;
+    attempt_divine_strike;
+    attempt_swing;
   };
 }
 
 #alias attempt_traverse {
-  #if {"$can_disengage" == "false"} {
+  #if {"$can_disengage" == "false" && "$use_traverse" == "true"} {
     #send !traverse toward;
+    #send !traverse away;
     decrement_ts 1;
   };
 }
@@ -47,18 +137,80 @@
   #else {#send !disengage %1};
 }
 
+#alias dq {
+  #list dq_list create %0;
+  #local dq_string {};
+  #local dq_count 0;
+
+  #if {@length{%1} > 0} {
+    #foreach { $dq_list[%*] } {arg} {
+      #if {@length{$arg} > 0} {
+        #nop Add comma if more than one defense option is given;
+        #if {$dq_count > 0} { #format dq_string {%s%s} {$dq_string} {,} };
+
+        #switch {"$arg"} {
+          #case "v" { #format dq_string {%s%s} {$dq_string} {void} };
+          #case "p" { #format dq_string {%s%s} {$dq_string} {parry} };
+          #case "b" { #format dq_string {%s%s} {$dq_string} {block} };
+          #case "ri" { #format dq_string {%s%s} {$dq_string} {riposte} };
+          #case "re" { #format dq_string {%s%s} {$dq_string} {reversal} };
+        };
+
+        #math {dq_count} {$dq_count + 1};
+        #if {$dq_count >= 5} {#break};
+      };
+    };
+
+    #if {@length{$dq_string} > 0} {
+      #send !defensequeue clear;
+
+      #if {$dq_count == 1} { #send !defensequeue $dq_string,none; }
+                           { #send !defensequeue $dq_string;      };
+    };
+  } {
+    #showme <170>To change, pass in an ordered list of powers.  Ex: dq v p b re ri;
+    #send !defensequeue;
+  }
+  #unvar dq_list;
+}
+
+#alias dq_gxp {
+  #send !defensequeue parry,riposte,block,void;
+}
+
+#alias dqa {
+  #send !defensequeue reversal,void,block,parry,riposte;
+}
+
+#alias dqc {#send !defensequeue clear;}
+
+#alias dqo {
+  #send !defensequeue reversal,parry,riposte,void,block;
+};
+
+#alias dqd {
+  #send !defensequeue void,block,parry,riposte;
+}
+
+#alias decrement_ts {
+  #math {time_slices} {$time_slices - %1};
+}
+
+#function distance_closed {
+  #if {$angel[distance] == 0} {#return 1} {#return 0};
+}
+
+#function enough_distance_and_time {
+  #if {@distance_closed{} && $time_slices >= $min_ts} {
+    #return 1;
+  } {
+    #return 0;
+  };
+}
+
 #alias en {
   #if {"%1" == ""} {#send !engage 1};
   #else {#send !engage %1};
-}
-
-#alias min_ts {
-  #if {@length{%1} > 0} {
-    #showme <170>Setting to %1;
-    #var min_ts %1;
-  } {
-    #showme <170>Current min_ts: $min_ts;
-  }
 }
 
 #alias providence_at {
@@ -68,6 +220,67 @@
   } {
     #showme <170>Current setting: $providence_at%.;
   }
+}
+
+#alias reduce_high_advantage {
+  #math {advantages[$highest_area]} {$advantages[$highest_area] / 2};
+}
+
+#alias reduce_high_advantage_and_resort {
+  reduce_high_advantage;
+  sort_advantages;
+}
+
+#function should_swing {
+  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $swing_at} {
+    #return 1;
+  } {
+    #return 0;
+  };
+}
+
+#function should_retribution {
+  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $retribution_at} {
+    #return 1;
+  } {
+    #return 0;
+  };
+}
+
+#alias sort_advantages {
+  #nop sort them in descending order by value (k: location, v: advantage);
+  #var i {1};
+  #list adv_sort clear;
+
+  #foreach {ho;hi;lo;li} {loc} {
+    #if {$i == 1} {
+      #var adv_sort[$i] { {1}{$loc}{2}{$advantages[$loc]} };
+    } {
+      #var j {1};
+      #var found {0};
+
+      #foreach $adv_sort[%*] {item} {
+        #if { $advantages[$loc] > $adv_sort[$j][2] } {
+          #list adv_sort insert $j { {1}{$loc}{2}{$advantages[$loc]} };
+          #var found {1};
+          #break;
+        };
+
+        #math {j} {$j + 1};
+        #replace {j} {.00} {};
+      };
+
+      #if {$found == 0} {
+        #list adv_sort add $j;
+        #list adv_sort insert $j { {1}{$loc}{2}{$advantages[$loc]} };
+        #list adv_sort delete -1;
+      };
+    };
+
+    #math {i} {$i + 1};
+  };
+
+  #var highest_area $adv_sort[1][1];
 }
 
 #alias swing_at {

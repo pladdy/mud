@@ -1,7 +1,24 @@
 #alias check_stepper {
-  #if {"$stepper" == "on" && $gp2 < 50 && $corpses == 0} {
+  #local MIN_END 40;
+
+  #if {"$stepper" == "on" && $gp2 < $MIN_END} {
     stepper off;
-  };
+
+    log.info Creating delay 're_step' to activate stepper after regen.;
+
+    #nop Round is seconds * 2 (2s / round);
+    #local min_rounds 60;
+    #math rando {1 d 10};
+    #math regen_time {$min_rounds + $rando};
+
+    #delay {re_step} {
+      log.info "Re-activating stepper after regen time: $regen_time.";
+      stepper on;
+    } {$regen_time};
+
+    #unvar rando;
+    #unvar regen_time
+  }
 }
 
 #alias f12 {
@@ -35,6 +52,7 @@
 
   #if {$angel_trainings > 0} {
     #foreach { $angel_train[%*] } {skill} {
+      sound_beep;
       #if { @length{$skill} > 0 } { #showme <fca>Go Train $skill; };
     };
     #unvar skill;
@@ -44,7 +62,9 @@
 }
 
 #alias train {
+  #local current_room $map[current_room];
   #map run angels_train;
   #send !train %0;
   #unvar angel_train;
+  #map run $current_room;
 }

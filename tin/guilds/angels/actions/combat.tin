@@ -1,8 +1,47 @@
+#action {^%!{[> ]*}You divine strike {.+} {high|low} and {inside|outside}.} {
+  log.debug Divine strike: %1, %2, %3;
+
+  #local first_letter @first_letter{%2};
+  #local second_letter @first_letter{%3};
+
+  #nop a divine strike consumes half the advantage in the area;
+  #math {advantages[$first_letter$second_letter]} {
+    $advantages[$first_letter$second_letter] / 2
+  };
+
+  #var circle {true};
+}
+
+#action {^%!{[> ]*}Your %1 presage at %2 misses.$} {
+  attempt_disengage;
+};
+
+#action {^%!{[> ]*}You presage {.+} {high|low} and {inside|outside}.} {
+  #local first_letter @first_letter{%4};
+  #local second_letter @first_letter{%5};
+
+  #if {"$first_letter" == "h"} {#local opposite_first_letter l};
+  #else {#local opposite_first_letter h};
+
+  #nop cut advantage in half and apply +50% to opposite (rough estimate);
+
+  #math {advantages[$first_letter$second_letter]} {
+    $advantages[$first_letter$second_letter] / 2
+  };
+  #math {advantages[$opposite_first_letter$second_letter]} {
+    $advantages[$opposite_first_letter$second_letter] * 1.5
+  };
+
+  attempt_providence;
+}
+
 #action {^%!{[> ]*}You are too exhausted!$} {
   #if {$corpses > 0} {reri};
+  #else {sound_beep};
 }
 
 #action {^%!{[> ]*}You have no where to retreat!$} {
+  #nop Should I traverse in this scenario?;
   #var {can_disengage} {false};
 }
 
@@ -16,8 +55,6 @@
 
 #nop Awe emotes to track if a mob is stunned;
 #nop awe_length is set to the duration in seconds the stun lasts (info awe);
-
-#var {awe_length} {4};
 
 #action {^%!{[> ]*}Your %1 awe stuns %2!$} {
   #var {awed} {true};

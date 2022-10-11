@@ -4,3 +4,21 @@
 
 #nop This if for working on alignment;
 #action {^%!{[> ]*}Your talisman grows warm.$} {#10 hold talisman}
+
+#nop Flying emotes to track that i'm in flight and should use 'swoop';
+
+#action {^%!{[> ]*}Your radiant wings stream from your back causing you to lift from the} {
+  #var flying true;
+}
+
+#action {^%!{[> ]*}You renew your radiant wings to maintain your flight!$} {
+  #var flying true;
+}
+
+#action {^%!{[> ]*}You immediately will your wings out of existance.$} {
+  #unvar flying;
+}
+
+#action {^%!{[> ]*}You are already using your wings to fly.$} {
+  #var flying true;
+}

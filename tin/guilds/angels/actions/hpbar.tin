@@ -1,4 +1,4 @@
-#action {^%!{[> ]*}H: %1/%2 S: %3/%4 T: %5/%6(%d) D: %7/%8 E: %9/%10 R: %11 En:%12$} {
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 T: %5/%6 D: %7/%8 E: %9/%10 C: %11/%12 En:%13$} {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -13,9 +13,9 @@
 
   #var time_slices {%5};
   #var time_slices_max {%6};
-  #var retributions {%11};
+  #var corpses {%11};
 
-  #var enemy {%12};
+  #var enemy {%13};
   #replace {enemy} { } {};
   #replace {enemy} {%} {};
   #if {"$enemy" == ""} {#var enemy {0}};
@@ -33,4 +33,65 @@
   attempt_renewed_light;
   show_trainings;
   check_stepper;
+}
+
+#action {^%!{[> ]*}HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 R: %9 G: %10} {
+  #if { @length{%9} > 0} {#var retributions %9}
+  #else {#var retributions 0};
+
+  #var gxp {%10};
+  #replace {gxp} {%} {};
+
+  show_status_bar;
+
+  #if { @length{%1} > 0 } {
+    #var advantages[ho] %1;
+    #var advantages[hi] %3;
+    #var advantages[lo] %5;
+    #var advantages[li] %7;
+
+    sort_advantages;
+    #nop #var adv_sort;
+
+    #if {$time_slices <= $min_ts && @distance_closed{}} {
+      attempt_circle;
+      #nop should we attempt to traverse when this condition is met?;
+    };
+    #else {
+      attempt_swing;
+      attempt_presage;
+    };
+
+    attempt_disengage;
+  };
+}
+
+#nop This action only fires when there's distance between me and a mob;
+
+#action {^%!{[> ]*}Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
+  #local MAX_ROUNDS_DISENGAGED 0;
+  #var angel[distance] @length{%3};
+
+  #if {$angel[distance] > 0} {
+    #math {rounds_disengaged} {$rounds_disengaged + 1};
+  } {
+    #var rounds_disengaged 0;
+  };
+
+  #if {$angel[distance] > 0
+       && $rounds_disengaged > $MAX_ROUNDS_DISENGAGED
+       && "$use_engage" == "true"} {
+    #send !engage;
+    #math {angel[distance]} {$angel[distance] - 1};
+  };
+
+  #nop Based on distance boundary, set if disengage is possible;
+  #nop In these scenarios, use traverse;
+  #regexp {%0} {{\|P|P\|}} {#var can_disengage false} {#var can_disengage true};
+}
+
+#action {^%!{[> ]*}%1 advances!} {
+  #if {$angel[distance] > 0} {
+    #math {angel[distance]} {$angel[distance] - 1}
+  };
 }

@@ -1,21 +1,71 @@
-#alias attempt_beyond_time {
-  #local MIN_TS_FOR_BT 6;
-  #local MIN_DIV_FOR_BT 150;
+#alias min_ts {
+  #if {@length{%1} > 0} {
+    #showme <170>Setting to %1;
+    #var min_ts %1;
+  } {
+    #showme <170>Current min_ts: $min_ts;
+  }
+}
 
-  #if {"$use_beyond_time" == "true" &&
-       $gp1 > $MIN_DIV_FOR_BT &&
-       $time_slices < $MIN_TS_FOR_BT} {
-    #send !manifest beyond time;
+#alias commands_after_corpse {
+  #nop Riposte makes mobs kill themselves...;
+  #if {"$last_killer" == "$last_killed"} {
+    wrap_or_use_corpse;
+    #if {"$flying" == "true"} {#send !swoop all} {#send !get all};
+  };
+
+  #var {awed} {false};
+}
+
+#alias f9 {
+  #send !wrap corpse;
+  #if {"$flying" == "true"} {#send !swoop all} {#send !get all};
+}
+
+#alias f10 {
+  use_corpse;
+  #if {"$flying" == "true"} {#send !swoop all} {#send !get all};
+}
+
+#nop Don't use hp in this alias, it messes with angel actions;
+#alias redi {
+  #send !unwrap;
+  #send !disperse;
+}
+
+#alias redis {
+  #if {"%1" != ""} {
+    #loop 1 %1 $loop {redi};
+  };
+  #else {
+    #if {$corpses < 5} {#var max_to_use $corpses} {#var max_to_use 5}
+    #if {$corpses > 0} {#loop 1 $max_to_use $loop {redi}};
+    #unvar max_to_use;
   };
 }
 
-#alias attempt_renewed_light {
-  #local MIN_END_FOR_RL 100;
-  #local MIN_DIV_FOR_RL 150;
+#alias reri {
+  #send !unwrap;
+  #send !rites;
+  #send !disperse;
+}
 
-  #if {"$use_renewed_light" == "true" &&
-       $gp1 > $MIN_DIV_FOR_RL &&
-       $gp2 < $MIN_END_FOR_RL} {
-    #send !manifest renewed light;
+#alias use_corpse {
+  #math {gp1_pct_raw} {($gp1 * 1.00) / $gp1_max * 100};
+  #math {gp2_pct_raw} {($gp2 * 1.00) / $gp2_max * 100};
+
+  #if {$gp1_pct_raw < $gp2_pct_raw && "$use_disperse" == "true"} {
+    #send !disperse;
+  } {
+    #send !rites;
+  };
+
+  #nop consume corpse;
+  #if {"$use_disperse" == "true"} {
+    #send !disperse;
+  } {
+    #if {"$use_spoon" == "true"} {
+      #send !eat corpse;
+    };
   };
 }
