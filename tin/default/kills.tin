@@ -11,14 +11,14 @@
 }
 
 #nop  For debugging, regex doesn't use anchors.;
-#action {%1 dealt the killing blow to %2$} {
+#action {%1 dealt the killing blow to %2.$} {
   #var last_killer %1;
   #var last_killed %2;
   log.debug $last_killer has killed $last_killed;
   log_and_respond;
 }
 
-#action {^%!{[> ]*}%1 dealt the killing blow to %2$} {
+#action {^%!{[> ]*}%1 dealt the killing blow to %2.$} {
   #var last_killer %1;
   #var last_killed %2;
   log.debug $last_killer has killed $last_killed;
@@ -115,13 +115,11 @@
     #delay mask_killing_blow_timeout {
       log.warn Mask didn't fire, no corpse.;
       respond_to_killing_blow;
-      #send !glance;
       #send !f;
     } {4};
   };
   #else {
     respond_to_killing_blow;
-    #send !glance;
   }
 }
 
@@ -183,4 +181,6 @@
       #var dtrig {};
     };
   };
+
+  #send !glance;
 }
