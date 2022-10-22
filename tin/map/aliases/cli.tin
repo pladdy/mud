@@ -114,7 +114,7 @@
     #case {"road"} {
       #map set roomcolor <030>;
       #map set roomsymbol <030>r;
-    }
+    };
     #case {"shop"} {
       #map set roomcolor <120>;
       #map set roomsymbol <120>$;

@@ -21,7 +21,8 @@
 
       #unvar matches;
     }
-  }
+  };
+
   #showme <130>'fcat' <file> to see file.;
 
   #unvar fshow_files;

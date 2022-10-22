@@ -35,7 +35,7 @@
         #var followers_string {$arg};
       };
     };
-  }
+  };
 
   #if {@length{$followers_string} > 0} {
     #regexp {%i%1} {%i{$followers_string}} {
@@ -53,7 +53,7 @@
         #default {#map move %2};
       };
     };
-  }
+  };
 
   #unvar followers_string;
 }

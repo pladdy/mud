@@ -37,7 +37,7 @@
   #while {$i < $screen_width} {
     #var clear_string { $clear_string};
     #math i $i + 1;
-  }
+  };
   #showme {$clear_string} {-2};
 }
 

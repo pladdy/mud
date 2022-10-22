@@ -120,11 +120,11 @@
 
 #action {^A soft jerk, the balloon rises slowly, but the landscape below fades$} {
   #switch { $map[current_room] } {
-    #case {12868} {#map goto 12869;}
-    #case {12869} {#map goto 12868;}
-    #case {32946} {#map goto 32947;}
-    #case {32947} {#map goto 32946;}
-  }
+    #case {12868} {#map goto 12869;};
+    #case {12869} {#map goto 12868;};
+    #case {32946} {#map goto 32947;};
+    #case {32947} {#map goto 32946;};
+  };
 }
 
 #nop Tree of life;

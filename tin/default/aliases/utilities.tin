@@ -11,7 +11,7 @@
   };
   #else {
     #showme Usage: 'aliases guild|default';
-  }
+  };
 
   #unvar sed_str;
 }
