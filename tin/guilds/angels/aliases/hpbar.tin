@@ -38,7 +38,7 @@
     #loop 1 %1 $loop {redi};
   };
   #else {
-    #if {$corpses < 5} {#var max_to_use $corpses} {#var max_to_use 5}
+    #if {$corpses < 5} {#var max_to_use $corpses} {#var max_to_use 5};
     #if {$corpses > 0} {#loop 1 $max_to_use $loop {redi}};
     #unvar max_to_use;
   };
@@ -58,14 +58,9 @@
     #send !disperse;
   } {
     #send !rites;
+    #send !disperse;
   };
 
   #nop consume corpse;
-  #if {"$use_disperse" == "true"} {
-    #send !disperse;
-  } {
-    #if {"$use_spoon" == "true"} {
-      #send !eat corpse;
-    };
-  };
+  #if {"$use_spoon" == "true"} {#send !eat corpse};
 }

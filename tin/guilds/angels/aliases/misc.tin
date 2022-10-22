@@ -17,7 +17,6 @@
     } {$regen_time};
 
     #unvar rando;
-    #unvar regen_time
   }
 }
 
@@ -62,9 +61,24 @@
 }
 
 #alias train {
-  #local current_room $map[current_room];
+  #if {"$stepper" == "on"} {
+    #var reactivate_stepper true;
+    stepper off;
+  };
+
+  #var current_room $map[current_room];
   #map run angels_train;
   #send !train %0;
   #unvar angel_train;
-  #map run $current_room;
+
+  #if {$current_room == 1} {#map run home};
+  #else {#map run $current_room};
+  #unvar current_room;
+
+  #delay 4 {
+    #if {"$reactivate_stepper" == "true"} {
+      stepper on;
+      #unvar reactivate_stepper;
+    };
+  };
 }

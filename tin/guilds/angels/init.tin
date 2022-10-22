@@ -9,12 +9,13 @@
 #var use_engage {true};
 #var use_presage {true};
 #var use_providence {false};
+#var use_radiance {true};
 #var use_renewed_light {false};
 #var use_retribution {false};
 #var use_traverse {false};
 
 #nop use a spoon to 'eat' corpses to dest them instead of 'disperse';
-#var use_spoon {true};
+#var use_spoon {false};
 
 #nop settings to gate when powers are triggered;
 

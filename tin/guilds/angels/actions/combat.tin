@@ -64,6 +64,7 @@
 #action {^%!{[> ]*}You parry %1 attack.$} {
   #var parried true;
   decrement_ts 1;
+  #nop  Will traverse only if can't disengage;
   attempt_traverse;
 }
 

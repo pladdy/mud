@@ -1,7 +1,8 @@
 # lines starting with '#' will be ignored
 (%w golem)
 's french bulldog
-'s golden dun akhal-teke
+# knights
+'s (golden dun akhal-teke)|(brindle mustang)
 %+'s esquire
 %+ cob
 %+ palfrey

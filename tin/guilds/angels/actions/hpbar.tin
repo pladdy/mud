@@ -1,4 +1,4 @@
-#action {^%!{[> ]*}H: %1/%2 S: %3/%4 T: %5/%6 D: %7/%8 E: %9/%10 C: %11/%12 En:%13$} {
+#alias _angel_hpbar {
   #var hp {%1};
   #var hp_max {%2};
 
@@ -29,14 +29,24 @@
   #if {$gp1 < $MIN_DIV && $corpses > 0 && $enemy > 0} {redi};
   #if {$gp2 < $MIN_END && $corpses > 0 && $enemy > 0} {reri};
 
+  attempt_radiance;
   attempt_beyond_time;
   attempt_renewed_light;
   show_trainings;
   check_stepper;
 }
 
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 T: %5/%6 D: %7/%8 E: %9/%10 C: %11/%12 En:%13$} {
+  _angel_hpbar %1 %2 %3 %4 %6 %6 %7 %8 %9 %10 %11 %12 %13;
+}
+
+#nop  No coffin hpbar;
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 T: %5/%6 D: %7/%8 E: %9/%10 C: %11 %12 En:%13$} {
+  _angel_hpbar %1 %2 %3 %4 %6 %6 %7 %8 %9 %10 %11 %12 %13;
+}
+
 #action {^%!{[> ]*}HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 R: %9 G: %10} {
-  #if { @length{%9} > 0} {#var retributions %9}
+  #if { @length{%9} > 0} {#var retributions %9};
   #else {#var retributions 0};
 
   #var gxp {%10};
@@ -55,7 +65,6 @@
 
     #if {$time_slices <= $min_ts && @distance_closed{}} {
       attempt_circle;
-      #nop should we attempt to traverse when this condition is met?;
     };
     #else {
       attempt_swing;

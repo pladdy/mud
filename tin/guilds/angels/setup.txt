@@ -3,9 +3,12 @@ alias as aspects
 alias bo battle overview
 alias com achat
 alias ds divine strike
+alias dv dive
 alias gwho angels
 alias h radiance
+alias ha manifest halo
 alias ja junk all
+alias wi manifest wings
 
 aset angel_highlight1 higreen
 aset angel_highlight2 hiblack
@@ -16,10 +19,8 @@ aset angel_highlight5 grey
 aset angel_chat higreen
 aset angel_ann white
 
-aset angel_wings yellow
-aset angel_halo yellow
+aset angel_manifest yellow
 aset angel_aegis yellow
-aset angel_deva yellow
 
 aset angel_engage white
 aset angel_dive white
