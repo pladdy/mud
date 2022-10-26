@@ -154,8 +154,10 @@
     #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree}} {
       wrap_or_use_corpse;
       #if {"$party_status" == "yes"} {#send !divvy gold};
-      #nop  Assumes an alias 'f' exists to 'get all';
-      #if {"$gemino_mortis" != "true"} {#send !f};
+      #if {"$gemino_mortis" != "true"} {
+        #if {"$flying" == "true"} {#send !swoop all};
+        #else {#send !get all};
+      };
       #if {"$stepper" == "on"} {pba};
     };
 
