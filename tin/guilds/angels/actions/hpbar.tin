@@ -95,8 +95,19 @@
   };
 
   #nop Based on distance boundary, set if disengage is possible;
-  #nop In these scenarios, use traverse;
-  #regexp {%0} {{\|P|P\|}} {#var can_disengage false} {#var can_disengage true};
+  #regexp {%0} {^%!{[> ]*}Di: |{-+}{M|P}{-*}{M|P}{-+}} {
+    #var can_disengage true;
+  } {
+    #regexp {%0} {^%!{[> ]*}Di: |MP{-+}} {
+      #var can_disengage true;
+    } {
+      #regexp {%0} {^%!{[> ]*}Di: |{-+}PM|} {
+        #var can_disengage true;
+      } {
+        #var can_disengage false;
+      };
+    };
+  };
 }
 
 #action {^%!{[> ]*}%1 advances!} {

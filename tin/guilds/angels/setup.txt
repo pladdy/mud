@@ -22,11 +22,13 @@ aset angel_ann white
 aset angel_manifest yellow
 aset angel_aegis yellow
 
+aset angel_disengage white
 aset angel_engage white
 aset angel_dive white
 aset angel_fly white
 aset angel_circle white
 aset angel_presage white
+aset angel_traverse white
 
 aset angel_divine_strike himagenta
 aset angel_retribution himagenta

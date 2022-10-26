@@ -38,12 +38,13 @@
 #alias attempt_divine_strike {
   #if {@should_swing{} == 1} {
     #send !divine strike $highest_area;
-    decrement_ts 2;
+    decrement_ts 2;;
     reduce_high_advantage_and_resort;
   }
 }
 
 #alias attempt_presage {
+  #nop presage fails if you have < 20 advantage;
   #local MIN_ADV 20;
 
   #if {"$use_presage" == "true" &&
@@ -106,7 +107,8 @@
 #alias attempt_traverse {
   #if {"$can_disengage" == "false" && "$use_traverse" == "true"} {
     #send !traverse toward;
-    #send !traverse away;
+    #nop traversing away is a special condition?;
+    #nop #send !traverse away;
     decrement_ts 1;
   };
 }

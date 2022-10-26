@@ -1,10 +1,10 @@
 #nop feature flags, if 'false', the power won't fire in aliases,
 #nop if 'true', it will fire when conditions are met (enough TS, distance, etc.);
 
-#var use_awe {false};
+#var use_awe {true};
 #var use_beyond_time {false};
 #var use_circle {true};
-#var use_disengage {false};
+#var use_disengage {true};
 #var use_disperse {true};
 #var use_engage {true};
 #var use_presage {true};
@@ -12,17 +12,17 @@
 #var use_radiance {true};
 #var use_renewed_light {false};
 #var use_retribution {false};
-#var use_traverse {false};
+#var use_traverse {true};
 
 #nop use a spoon to 'eat' corpses to dest them instead of 'disperse';
 #var use_spoon {false};
 
 #nop settings to gate when powers are triggered;
 
-#var awe_at_hp_pct {85};
+#var awe_at_hp_pct {90};
 #var awe_foes false;
-#var {awe_length} {2};
-#var min_ts {6};
+#var awe_length {2};
+#var min_ts {10};
 #var providence_at {70};
 #var retribution_at_hits {4};
 #var retribution_at {100};

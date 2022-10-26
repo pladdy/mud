@@ -12,8 +12,9 @@
   #var circle {true};
 }
 
+#nop Not sure why i had this action set up...;
 #action {^%!{[> ]*}Your %1 presage at %2 misses.$} {
-  attempt_disengage;
+  #nop attempt_disengage;
 };
 
 #action {^%!{[> ]*}You presage {.+} {high|low} and {inside|outside}.} {
@@ -41,7 +42,6 @@
 }
 
 #action {^%!{[> ]*}You have no where to retreat!$} {
-  #nop Should I traverse in this scenario?;
   #var {can_disengage} {false};
 }
 
@@ -67,6 +67,8 @@
   #nop  Will traverse only if can't disengage;
   attempt_traverse;
 }
+
+#action {^%!{[> ]*}You traverse %1!$} {#var can_disengage true}
 
 #action {^%!{[> ]*}You void %1 attack.$} {decrement_ts 1}
 

@@ -1,12 +1,3 @@
-#alias min_ts {
-  #if {@length{%1} > 0} {
-    #showme <170>Setting to %1;
-    #var min_ts %1;
-  } {
-    #showme <170>Current min_ts: $min_ts;
-  }
-}
-
 #alias commands_after_corpse {
   #nop Riposte makes mobs kill themselves...;
   #if {"$last_killer" == "$last_killed"} {
@@ -25,6 +16,15 @@
 #alias f10 {
   use_corpse;
   #if {"$flying" == "true"} {#send !swoop all} {#send !get all};
+}
+
+#alias min_ts {
+  #if {@length{%1} > 0} {
+    #showme <170>Setting to %1;
+    #var min_ts %1;
+  } {
+    #showme <170>Current min_ts: $min_ts;
+  }
 }
 
 #nop Don't use hp in this alias, it messes with angel actions;

@@ -1,5 +1,5 @@
 #alias check_stepper {
-  #local MIN_END 40;
+  #local MIN_END 50;
 
   #if {"$stepper" == "on" && $gp2 < $MIN_END} {
     stepper off;
