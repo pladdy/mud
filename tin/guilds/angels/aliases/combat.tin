@@ -105,7 +105,9 @@
 }
 
 #alias attempt_traverse {
-  #if {"$can_disengage" == "false" && "$use_traverse" == "true"} {
+  #local MIN_TRAVERSE_DISTANCE 5;
+
+  #if {$traverse_distance <= $MIN_TRAVERSE_DISTANCE && "$use_traverse" == "true"} {
     #send !traverse toward;
     #nop traversing away is a special condition?;
     #nop #send !traverse away;

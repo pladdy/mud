@@ -108,6 +108,15 @@
       };
     };
   };
+
+  #nop Based on distance to a wall set traverse distance;
+  #regexp {%0} {^%!{[> ]*}Di: |{-+}P} {
+    #var traverse_distance @length{%1};
+  } {
+    #regexp {%0} {^%!{[> ]*}Di: |{.+}P{-+}|} {
+      #var traverse_distance @length{%5};
+    };
+  };
 }
 
 #action {^%!{[> ]*}%1 advances!} {
