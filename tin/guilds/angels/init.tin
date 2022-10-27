@@ -9,6 +9,7 @@
 #var use_engage {true};
 #var use_presage {true};
 #var use_providence {false};
+#var use_quietus {false};
 #var use_radiance {true};
 #var use_renewed_light {false};
 #var use_retribution {false};
@@ -24,6 +25,6 @@
 #var awe_length {2};
 #var min_ts {10};
 #var providence_at {70};
-#var retribution_at_hits {4};
+#var retribution_at_hits {6};
 #var retribution_at {100};
-#var swing_at {80};
+#var swing_at {70};

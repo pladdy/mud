@@ -48,7 +48,7 @@
   #local MIN_ADV 20;
 
   #if {"$use_presage" == "true" &&
-       @enough_distance_and_time{} &&
+       @distance_closed{} &&
        $adv_sort[1][2] > $MIN_ADV} {
     #send !presage $adv_sort[1][1] $adv_sort[2][1];
     decrement_ts 1;
@@ -64,6 +64,16 @@
     decrement_ts 1;
     reduce_high_advantage_and_resort;
   };
+}
+
+#alias attempt_quietus {
+  #if {"$use_quietus" == "true"} {
+    #if {@should_swing{} == 1} {
+      #send !quietus $highest_area;
+      decrement_ts 3;
+      reduce_high_advantage_and_resort;
+    }
+  }
 }
 
 #alias attempt_radiance {
@@ -100,7 +110,7 @@
     attempt_awe;
     attempt_retribution;
     attempt_divine_strike;
-    attempt_swing;
+    attempt_quietus;
   };
 }
 
@@ -214,7 +224,7 @@
 }
 
 #function enough_distance_and_time {
-  #if {@distance_closed{} && $time_slices >= $min_ts} {
+  #if {@distance_closed{} && $time_slices > $min_ts} {
     #return 1;
   } {
     #return 0;
@@ -244,16 +254,16 @@
   sort_advantages;
 }
 
-#function should_swing {
-  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $swing_at} {
+#function should_retribution {
+  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $retribution_at} {
     #return 1;
   } {
     #return 0;
   };
 }
 
-#function should_retribution {
-  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $retribution_at} {
+#function should_swing {
+  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $swing_at} {
     #return 1;
   } {
     #return 0;
