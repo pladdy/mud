@@ -8,6 +8,23 @@
 #var valid_stepper_dirs[sw] {valid};
 #var valid_stepper_dirs[se] {valid};
 
+#alias _transform_monster_name {
+  log.debug Trying to parse mosnter name %0;
+
+  #var monster_name %0;
+  #replace monster_name {[M]} {};
+  #replace monster_name {\\x7B%d\\x7D} {};
+  #replace monster_name {\\x7b%d\\x7d} {};
+  #replace monster_name {attacking you!} {};
+  #replace monster_name {[{.+}]} {};
+  #replace monster_name {({.+})} {};
+  #replace monster_name {<{.+}>} {};
+  #replace monster_name {.$} {};
+  #format monster_name {%l} $monster_name;
+  #format monster_name {%p} $monster_name;
+  log.debug Parsed monster name is $monster_name;
+}
+
 #alias auto_kill {
   #list {seen_monsters} {size} {seen_monster_count};
 
@@ -18,7 +35,8 @@
   #elseif {"$stepper" == "on" && $seen_monster_count == 0 && "$player_present" == "false"} {
     log.debug no monsters present;
     #if {"$item_present" == "true"} {
-      #send !f;
+      #if {"$flying" == "true"} {#send !swoop all};
+      #else {#send !get all};
       pba;
     };
     take_a_step;

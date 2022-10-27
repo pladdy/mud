@@ -29,11 +29,7 @@
   log.debug mob_on_blacklist? $mob_on_blacklist;
 
   #if {"$mob_on_blacklist" == "false"} {
-    #script {monster_name} {./bin/monster_name "%1"};
-
-    #local monster_name $monster_name[1];
-    #format {monster_name} {%l} {$monster_name};
-
+    _transform_monster_name %1;
     #list {seen_monsters} {find} {$monster_name} {index_if_seen};
 
     #if {$index_if_seen == 0} {
