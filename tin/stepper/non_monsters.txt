@@ -2,7 +2,7 @@
 (%w golem)
 's french bulldog
 # knights
-'s (golden dun akhal-teke)|(brindle mustang)
+'s (golden dun (akhal-teke|palomino))|(brindle mustang)
 %+'s esquire
 %+ cob
 %+ palfrey
