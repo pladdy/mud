@@ -18,22 +18,25 @@
 };
 
 #action {^%!{[> ]*}You presage {.+} {high|low} and {inside|outside}.} {
-  #local first_letter @first_letter{%4};
-  #local second_letter @first_letter{%5};
+  #local first_letter @first_letter{%2};
+  #local second_letter @first_letter{%3};
 
   #if {"$first_letter" == "h"} {#local opposite_first_letter l};
   #else {#local opposite_first_letter h};
 
-  #nop cut advantage in half and apply +50% to opposite (rough estimate);
+  #nop cut advantage in half and apply +70% to opposite (rough estimate);
+  #math {presage_advantage} {$advantages[$first_letter$second_letter] * .75};
 
   #math {advantages[$first_letter$second_letter]} {
-    $advantages[$first_letter$second_letter] / 2
+    $advantages[$first_letter$second_letter] * .25
   };
   #math {advantages[$opposite_first_letter$second_letter]} {
-    $advantages[$opposite_first_letter$second_letter] * 1.5
+    $advantages[$opposite_first_letter$second_letter] + ($presage_advantage * .75)
   };
 
-  attempt_providence;
+  sort_advantages;
+  #nop try using providence each round;
+  #nop attempt_providence;
 }
 
 #action {^%!{[> ]*}You are too exhausted!$} {
@@ -66,6 +69,14 @@
   decrement_ts 1;
   #nop  Will traverse only if can't disengage;
   attempt_traverse;
+}
+
+#action {^%!{[> ]*}You tuck your wings tight and dive straight at} {
+  #var already_dove true;
+}
+
+#action {^%!{[> ]*}You have already dove at %1.$} {
+  #var already_dove true;
 }
 
 #action {^%!{[> ]*}You traverse %1!$} {#var can_disengage true}

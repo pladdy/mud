@@ -35,6 +35,10 @@
   };
 }
 
+#alias attempt_dive {
+  #if {"$already_dove" == "false"} {#send !dive};
+}
+
 #alias attempt_divine_strike {
   #if {@should_swing{} == 1} {
     #send !divine strike $highest_area;
@@ -50,7 +54,7 @@
   #if {"$use_presage" == "true" &&
        @distance_closed{} &&
        $adv_sort[1][2] > $MIN_ADV} {
-    #send !presage $adv_sort[1][1] $adv_sort[2][1];
+    #send !presage $adv_sort[1][1];
     decrement_ts 1;
     reduce_high_advantage_and_resort;
   };
@@ -98,7 +102,7 @@
 #alias attempt_retribution {
   #if {"$use_retribution" == "true" &&
        @should_retribution{} == 1 &&
-       $retributions > $retribution_at_hits} {
+       $retributions >= $retribution_at_hits} {
     #send !retribution $highest_area;
     decrement_ts 1;
     reduce_high_advantage_and_resort;
@@ -119,8 +123,10 @@
 
   #if {$traverse_distance <= $MIN_TRAVERSE_DISTANCE && "$use_traverse" == "true"} {
     #send !traverse toward;
-    #nop traversing away is a special condition?;
-    #nop #send !traverse away;
+    decrement_ts 1;
+  };
+  #else {
+    #send !traverse away;
     decrement_ts 1;
   };
 }

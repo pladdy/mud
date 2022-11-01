@@ -6,6 +6,7 @@
   };
 
   #var {awed} {false};
+  #var {already_dove} {false};
 }
 
 #alias f9 {

@@ -1,5 +1,8 @@
 #action {^%!{[> ]*}You feel ready to train %1.$} {
   #list angel_train add {%1};
+  #format to_train %l {%1};
+  #replace to_train {'} {};
+  train $to_train;
 }
 
 #nop This if for working on alignment;

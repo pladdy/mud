@@ -61,14 +61,12 @@
     #var advantages[li] %7;
 
     sort_advantages;
-    #nop #var adv_sort;
 
-    #if {$time_slices <= $min_ts && @distance_closed{}} {
-      attempt_circle;
-    };
+    #if {$time_slices <= $min_ts && @distance_closed{}} {attempt_circle};
     #else {
       attempt_swing;
       attempt_presage;
+      attempt_providence;
     };
 
     attempt_disengage;
@@ -117,6 +115,8 @@
       #var traverse_distance @length{%5};
     };
   };
+
+  attempt_dive;
 }
 
 #action {^%!{[> ]*}%1 advances!} {

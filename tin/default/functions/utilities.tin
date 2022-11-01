@@ -1,5 +1,6 @@
 #function first_letter {
-  #regexp {%0} {%.} {#return &1};
+  #regexp {%0} {^{.}} {#var result &1};
+  #return $result;
 }
 
 #function length {

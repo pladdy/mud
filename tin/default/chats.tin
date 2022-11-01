@@ -63,6 +63,7 @@
     log.warn You have tells, 'tellhist' or 'th' to review them.;
     sound_beep;
     set_repeating_alarm;
+    #if {"$stepper" == "on"} {stepper off};
   } {90};
 }
 
