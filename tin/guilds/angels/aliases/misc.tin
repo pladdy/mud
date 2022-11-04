@@ -12,7 +12,7 @@
     #math regen_time {$min_rounds + $rando};
 
     #delay {re_step} {
-      log.info "Re-activating stepper after regen time: $regen_time.";
+      log.info "Re-activating stepper after regen time: $regen_time seconds.";
       stepper on;
     } {$regen_time};
 

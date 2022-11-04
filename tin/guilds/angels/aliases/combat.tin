@@ -121,13 +121,15 @@
 #alias attempt_traverse {
   #local MIN_TRAVERSE_DISTANCE 5;
 
-  #if {$traverse_distance <= $MIN_TRAVERSE_DISTANCE && "$use_traverse" == "true"} {
-    #send !traverse toward;
-    decrement_ts 1;
-  };
-  #else {
-    #send !traverse away;
-    decrement_ts 1;
+  #if {"$use_traverse" == "true"} {
+    #if {$traverse_distance <= $MIN_TRAVERSE_DISTANCE || "$can_disengage" == "false"} {
+      #send !traverse toward;
+      decrement_ts 1;
+    };
+    #else {
+      #send !traverse away;
+      decrement_ts 1;
+    };
   };
 }
 
@@ -212,7 +214,7 @@
 }
 
 #alias dq_gxp {
-  #send !defensequeue parry,riposte,block,void;
+  #send !defensequeue reversal,parry,riposte,block,void;
 }
 
 #alias dqa {
@@ -221,8 +223,9 @@
 
 #alias dqc {#send !defensequeue clear;}
 
+#nop reversal doesn't seem to do dmg...;
 #alias dqo {
-  #send !defensequeue reversal,parry,riposte,void,block;
+  #send !defensequeue parry,riposte,void,block;
 };
 
 #alias dqd {

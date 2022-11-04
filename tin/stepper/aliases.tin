@@ -142,39 +142,6 @@
   }
 }
 
-#alias ttl_no_monsters {
-  #local TTL 60;
-  #local ticker_name ttl_no_monsters;
-
-  #if {"%0" == "on"} {
-    #undelay $ticker_name;
-    #ticker {$ticker_name} {stepper off;f2} {$TTL};
-  };
-  #else {
-    #undelay $ticker_name;
-  };
-}
-
-#alias ttl_stepper {
-  #nop  15 minutes;
-  #local TTL 900;
-  #local ticker_name ttl_stepper;
-
-  #if {"%0" == "on"} {
-    log.info Activating stepper TTL for $TTL seconds.;
-
-    #undelay $ticker_name;
-    #ticker {$ticker_name} {
-      log.warn No input received in a while.  Disabling stepper.;
-      stepper off;
-      dtrig #delay 2 f2;
-    } {$TTL};
-  };
-  #else {
-    #undelay $ticker_name;
-  };
-}
-
 #alias take_a_step {
   before_step_hook;
 
@@ -230,6 +197,40 @@
     unload_non_monsters;
     #var tracker off;
   }
+}
+
+
+#alias ttl_no_monsters {
+  #local TTL 60;
+  #local ticker_name ttl_no_monsters;
+
+  #if {"%0" == "on"} {
+    #undelay $ticker_name;
+    #ticker {$ticker_name} {stepper off;f2} {$TTL};
+  };
+  #else {
+    #undelay $ticker_name;
+  };
+}
+
+#alias ttl_stepper {
+  #nop  15 minutes;
+  #local TTL 900;
+  #local ticker_name ttl_stepper;
+
+  #if {"%0" == "on"} {
+    log.info Activating stepper TTL for $TTL seconds.;
+
+    #undelay $ticker_name;
+    #ticker {$ticker_name} {
+      log.warn No input received in a while.  Disabling stepper.;
+      stepper off;
+      dtrig #delay 2 f2;
+    } {$TTL};
+  };
+  #else {
+    #undelay $ticker_name;
+  };
 }
 
 #alias unload_non_monsters {

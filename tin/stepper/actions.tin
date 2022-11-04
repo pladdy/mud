@@ -51,7 +51,14 @@
 
 #action {^[P] %1} {
   log.debug Tracker found player present, player %1;
+  sound_beeps;
   #var player_present {true};
+  #delay player_present_delay {
+    #if {"$player_present" == "true"} {
+      log.warn Player still present!  Trying to move.;
+      take_a_step;
+    };
+  } 5;
 }
 
 #action {^[{A|O|o|W}] %1} {
@@ -71,4 +78,9 @@
 
       #send !glance;
   };
+}
+
+#action {^%!{[> ]*}The Warrior of the Mist stands before you, blocking your progress.} {
+  log.warn Movement blocked, trying to step again;
+  take_a_step;
 }
