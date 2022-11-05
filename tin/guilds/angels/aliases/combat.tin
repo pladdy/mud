@@ -36,7 +36,7 @@
 }
 
 #alias attempt_dive {
-  #if {"$already_dove" == "false"} {#send !dive};
+  #if {"$use_dive" == "true" && "$already_dove" == "false"} {#send !dive};
 }
 
 #alias attempt_divine_strike {
@@ -214,21 +214,25 @@
 }
 
 #alias dq_gxp {
-  #send !defensequeue reversal,parry,riposte,block,void;
+  #send !defensequeue clear;
+  #send !defensequeue parry,riposte,block,void;
 }
 
 #alias dqa {
-  #send !defensequeue reversal,void,block,parry,riposte;
+  #send !defensequeue clear;
+  #send !defensequeue void,block,parry,riposte;
 }
 
 #alias dqc {#send !defensequeue clear;}
 
 #nop reversal doesn't seem to do dmg...;
 #alias dqo {
+  #send !defensequeue clear;
   #send !defensequeue parry,riposte,void,block;
 };
 
 #alias dqd {
+  #send !defensequeue clear;
   #send !defensequeue void,block,parry,riposte;
 }
 

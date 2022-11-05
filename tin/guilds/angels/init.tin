@@ -6,6 +6,7 @@
 #var use_circle {true};
 #var use_disengage {true};
 #var use_disperse {true};
+#var use_dive {true};
 #var use_engage {true};
 #var use_presage {true};
 #var use_providence {true};
@@ -19,7 +20,7 @@
 #var use_spoon {false};
 
 #nop settings to gate when powers are triggered;
-
+#var already_dove {false};
 #var awe_at_hp_pct {90};
 #var awe_foes false;
 #var awe_length {2};
