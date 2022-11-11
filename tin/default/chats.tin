@@ -78,5 +78,3 @@
   #send hmhist;
 }
 
-#alias sound_beep {#system {printf '\a'}}
-#alias sound_beeps {#system {for i in 1 2; do printf '\a'; done}}

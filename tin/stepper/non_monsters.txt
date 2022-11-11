@@ -1,26 +1,23 @@
 # lines starting with '#' will be ignored
 (%w golem)
 's french bulldog
-# knights
+# knights mounts
 's (golden dun (akhal-teke|palomino))|(brindle mustang)
+%+, %+'s %+ (nag|cob|palfrey|shetland pony)
 %+'s esquire
-%+ cob
-%+ palfrey
 (storm|aerial) servant
 %+ broodling
 %+ ferryman
-%+, %+'s %+ nag
 %*shenanigans
-%+ shetland pony
 # necromancer followers
 the (skeleton|zombie|ghoul|valpur|ghast|manshi|bolwyn|greesh|wight|heucuva|tholen|bayen|quarin|mohrg|grimare|valithyn)
 %+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling
 # changeling followers
-a .+ (asp caterpillar)|(grizzly bear)|owlet|platypus|(puddle of slime)|scropion|(tasmanian devil)|termite|(wandering spider)
+a .+ (asp caterpillar)|gopher|(grizzly bear)|owlet|platypus|(puddle of slime)|scropion|(tasmanian devil)|termite|(wandering spider)
 # jugger followers
-a (cargo truck|jeep|truck) named|jugger support mech
+a (cargo truck|jeep) named|jugger support mech
 tame little shrew|brown aardvark
 arctic wolf
 binas, the unfettered one|cur, trademan's dog

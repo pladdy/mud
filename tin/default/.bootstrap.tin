@@ -1,10 +1,3 @@
-#nop Default init file for all profiles;
-#nop excludes the map files and any other init files (including itself);
-
-#script {default_tin_files} {
-  find ./tin/default -iwholename '*.tin' | grep -v '.bootstrap.tin';
-};
-
 #nop  Define 'summons' to simply be the character name;
 #var summons $character;
 
@@ -14,6 +7,13 @@
 #nop Set up default class;
 
 #showme Setting up default class;
+
+#nop Default init file for all profiles;
+#nop excludes the map files and any other init files (including itself);
+
+#script {default_tin_files} {
+  find ./tin/default -iwholename '*.tin' | grep -v '.bootstrap.tin';
+};
 
 #class default kill;
 #class default open;
@@ -27,29 +27,17 @@
 #unvar default_tin_files;
 
 #showme Setting up stepper class;
-
-#class stepper kill;
-#class stepper open;
-read_tin_files tin/stepper
-#class stepper close;
-#unvar stepper_files;
+load_stepper_class;
 
 #nop Set up configured guild class;
 
 #if {"$guild" != ""} {
-  #showme Setting up $guild class;
-  #class $guild kill;
-  #class $guild open;
-  read_tin_files tin/guilds/$guild;
-  #class $guild close;
+  load_guild_class $guild;
 };
 
 #nop Set up notes class;
-
-#class notes kill;
-#class notes open;
-read_tin_files tin/notes;
-#class notes close;
+#showme Setting up notes class;
+load_notes_class;
 
 log_level info;
 

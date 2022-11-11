@@ -12,11 +12,6 @@
   #var circle {true};
 }
 
-#nop Not sure why i had this action set up...;
-#action {^%!{[> ]*}Your %1 presage at %2 misses.$} {
-  #nop attempt_disengage;
-};
-
 #action {^%!{[> ]*}You presage {.+} {high|low} and {inside|outside}.} {
   #local first_letter @first_letter{%2};
   #local second_letter @first_letter{%3};
@@ -79,7 +74,14 @@
   #var already_dove true;
 }
 
-#action {^%!{[> ]*}You traverse %1!$} {#var can_disengage true}
+#action {^%!{[> ]*}You traverse %1!$} {
+  #local max_distance 21;
+  #var can_disengage true;
+  #if {"%1" == "toward"} {
+    #math traverse_distance {$max_distance - $traverse_distance};
+    #send !disengage;
+  };
+}
 
 #action {^%!{[> ]*}You void %1 attack.$} {decrement_ts 1}
 

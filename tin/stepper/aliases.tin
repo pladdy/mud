@@ -118,11 +118,12 @@
 #alias stepper {
   #if {"%0" == "on"} {
     #showme <170>Enabling stepping. 'stepper off' to disable.;
+    #format {stepper_started} {%T};
     #unvar step_dir;
     #unvar entered_from;
     #delay {2} {
       #var stepper on;
-      #send !glance
+      #send !glance;
     };
     tracker on;
     ttl_stepper on;
@@ -139,6 +140,7 @@
     ttl_stepper;
     ttl_no_monsters;
     #unevent {RECEIVED INPUT};
+    #undelay reactivate_stepper;
   }
 }
 

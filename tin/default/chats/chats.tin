@@ -129,6 +129,7 @@
     sound_beeps;
     set_repeating_alarm;
     #if {"$stepper" == "on"} {stepper off};
+    #undelay reactivate_stepper;
   };
 }
 

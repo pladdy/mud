@@ -78,6 +78,29 @@
   }
 }
 
+
+#alias load_guild_class {
+  #showme Setting up %1 class;
+  #class $guild kill;
+  #class $guild open;
+  read_tin_files tin/guilds/%1;
+  #class $guild close;
+}
+
+#alias load_notes_class {
+  #class notes kill;
+  #class notes open;
+  read_tin_files tin/notes;
+  #class notes close;
+}
+
+#alias load_stepper_class {
+  #class stepper kill;
+  #class stepper open;
+  read_tin_files tin/stepper;
+  #class stepper close;
+}
+
 #nop Print the output of given script command;
 
 #alias print_system_output {
@@ -90,6 +113,19 @@
 #alias quit {
   #send !quit;
   #end;
+}
+
+#alias reload_map {
+  #showme Setting up map class;
+  #class map kill;
+  #class map open;
+  read_tin_files $map_dir;
+  #class map close;
+}
+
+#alias reload_tin {
+  #read tin/default/.bootstrap.tin;
+  reload_map;
 }
 
 #alias read_tin_files {
@@ -107,18 +143,9 @@
   #unvar tin_list;
 }
 
-#alias reload_map {
-  #showme Setting up map class;
-  #class map kill;
-  #class map open;
-  read_tin_files $map_dir;
-  #class map close;
-}
+#alias sound_beep {#system {printf '\a'}}
 
-#alias reload_tin {
-  #read tin/default/.bootstrap.tin;
-  reload_map;
-}
+#alias sound_beeps {#system {for i in 1 2; do printf '\a'; done}}
 
 #alias weather {
   #script {my_weather} {curl -s wttr.in/$WEATHER_LOCATION\?format=4};
