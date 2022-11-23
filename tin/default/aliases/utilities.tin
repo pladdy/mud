@@ -52,14 +52,12 @@
 #alias kk {
   #if {@length{%0} == 0} {
     #showme need a target;
-  } {
+  };
+  #else {
     #var kk_list {%0};
     #replace {kk_list} {,} {;};
-
     #foreach {$kk_list} {kk} {#send !k $kk};
-
-    #nop #unvar kk_list;
-  }
+  };
 }
 
 #alias l {
@@ -77,7 +75,6 @@
     #send !search %0;
   }
 }
-
 
 #alias load_guild_class {
   #showme Setting up %1 class;
