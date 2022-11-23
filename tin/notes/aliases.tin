@@ -7,7 +7,7 @@
   };
 
   #script {fshow_files} {
-    grep -rliI --exclude-dir .git --exclude-dir tin --exclude '*.log' --exclude-dir tt '%0' ./
+    grep -rliI --exclude-dir .git --exclude-dir tin --exclude '*.log' --exclude-dir tt --exclude-dir bin '%0' ./
   };
 
   #foreach { $fshow_files[%*] } {file} {
