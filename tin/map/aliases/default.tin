@@ -26,21 +26,15 @@
 
   #format {run_to} {%l} {%1};
   #unevent {MAP ENTER ROOM};
-
-  #if {"$tracker" == "on"} {
-    #send !ansi off;
-    #list seen_monsters clear;
-  };
+  #send !ansi off;
 
   #map run $run_to;
   refresh_map_on_enter;
   map_refresh;
   #unvar run_to;
 
-  #if {"$tracker" == "on"} {
-    #send !ansi on;
-    #send !glance;
-  };
+  #send !ansi on;
+  #send !glance;
 }
 
 #nop Peek in a room to see it's data;

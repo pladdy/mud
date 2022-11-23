@@ -16,6 +16,7 @@ the (skeleton|zombie|ghoul|valpur|ghast|manshi|bolwyn|greesh|wight|heucuva|thole
 a %+ of %+ broodling
 # changeling followers
 a .+ (asp caterpillar)|gopher|(grizzly bear)|owlet|platypus|(puddle of slime)|scropion|(tasmanian devil)|termite|(wandering spider)
+a .+ (komodo dragon)
 # jugger followers
 a (cargo truck|jeep) named|jugger support mech
 tame little shrew|brown aardvark

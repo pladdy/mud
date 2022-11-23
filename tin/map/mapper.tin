@@ -1,0 +1,47 @@
+#class mapper kill;
+#class mapper open;
+
+#action {^%!{[> ]*}AREA NAME: %1$} {
+    #var map[room_area] %1;
+    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+}
+
+#action {^%!{[> ]*}AREA RATING -> Caution is Advised [%1]$} {
+    #var map[room_area] %1;
+    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+}
+
+#action {^%!{[> ]*}[MR] %1$} {
+    #var map[room_desc] %1;
+    #map set roomdata $map[room_desc];
+    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+} {1}
+
+#alias mapper {
+    #if {"%0" == "on"} {
+        log.info Mapper on;
+        #var mapper on;
+        #send !aset room_short white+[MR] +reset;
+        #send !brief on no;
+        #event {RECEIVED INPUT} {
+            #nop;
+        };
+        #send !rating;
+        #send !glance;
+    };
+    #else {
+        log.info Mapper off;
+        #var mapper off;
+        #send !aset room_short;
+        #send !brief on yes;
+        #unvar map[room_desc];
+        #unevent {RECEIVED INPUT};
+    };
+}
+
+#alias map_room {
+    #map set roomdata %0;
+    #map set roomarea $map[room_area];
+}
+
+#class mapper close;
