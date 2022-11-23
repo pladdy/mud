@@ -8,6 +8,7 @@
 #var use_disperse {true};
 #var use_dive {true};
 #var use_engage {true};
+#var use_lunge {false};
 #var use_presage {true};
 #var use_providence {true};
 #var use_quietus {false};
@@ -16,6 +17,7 @@
 #var use_retribution {true};
 #var use_traverse {true};
 
+#var auto_train {on};
 #nop use a spoon to 'eat' corpses to dest them instead of 'disperse';
 #var use_spoon {false};
 
@@ -24,10 +26,13 @@
 #var awe_at_hp_pct {90};
 #var awe_foes false;
 #var awe_length {2};
+#var disengage_distance {2};
+#var lunge_at {70};
+#var lunge_min_ts {5};
 #var min_ts {10};
-#var providence_at {50};
+#var providence_at {70};
 #var retribution_at_hits {5};
 #var retribution_at {85};
-#var swing_at {70};
+#var swing_at {150};
 
 #gag {^%!{[> ]*}You are already as close as you can get to your foe!};

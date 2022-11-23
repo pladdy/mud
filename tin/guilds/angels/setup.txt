@@ -1,13 +1,17 @@
 alias ae aegis
 alias as aspects
 alias bo battle overview
+alias bt manifest beyond time
+alias co consecrate
 alias com achat
+alias de manifest deva
 alias ds divine strike
 alias dv dive
 alias gwho angels
 alias h radiance
 alias ha manifest halo
 alias ja junk all
+alias rl manifest renewed light
 alias wi manifest wings
 
 aset angel_highlight1 higreen
@@ -30,7 +34,9 @@ aset angel_circle white
 aset angel_presage white
 aset angel_traverse white
 
+aset angel_consecrate himagenta
 aset angel_divine_strike himagenta
+aset angel_lunge himagenta
 aset angel_providence himagenta
 aset angel_retribution himagenta
 aset angel_shine himagenta

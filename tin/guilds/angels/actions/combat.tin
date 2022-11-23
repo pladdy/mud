@@ -92,3 +92,12 @@
 #action {^%!{[> ]*}You fail to parry %1 attack!$} {decrement_ts 1}
 
 #action {^%!{[> ]*}You fail to void %1 attack!$} {decrement_ts 1}
+
+#action {^%!{[> ]*}% advances!$} {
+  #math {angel[distance]} {$angel[distance] - 1};
+}
+
+#action {^%!{[> ]*}You retreat!$} {
+  #math {angel[distance]} {$angel[distance] + $disengage_distance};
+  attempt_lunge;
+}

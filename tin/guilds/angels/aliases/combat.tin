@@ -23,15 +23,15 @@
 }
 
 #alias attempt_circle {
-  #if {"$use_circle" == "true" && @distinance_closed{}} {#send !circle};
+  #if {"$use_circle" == "true" && @distance_closed{}} {#send !circle};
 }
 
 #alias attempt_disengage {
   #if {"$use_disengage" == "true" &&
-       @enough_distance_and_time{} &&
+       @distance_closed{} &&
        "$can_disengage" == "true"} {
-    #send !disengage;
-    decrement_ts 1;
+    #send !disengage $disengage_distance;
+    decrement_ts $disengage_distance;
   };
 }
 
@@ -43,6 +43,14 @@
   #if {@should_swing{} == 1} {
     #send !divine strike $highest_area;
     decrement_ts 2;;
+    reduce_high_advantage_and_resort;
+  }
+}
+
+#alias attempt_lunge {
+  #if {@should_lunge{}} {
+    #send !lunge $highest_area;
+    decrement_ts $angel[distance];
     reduce_high_advantage_and_resort;
   }
 }
@@ -119,7 +127,7 @@
 }
 
 #alias attempt_traverse {
-  #local MIN_TRAVERSE_DISTANCE 5;
+  #local MIN_TRAVERSE_DISTANCE 6;
 
   #if {"$use_traverse" == "true"} {
     #if {$traverse_distance <= $MIN_TRAVERSE_DISTANCE || "$can_disengage" == "false"} {
@@ -267,6 +275,16 @@
   sort_advantages;
 }
 
+#function should_lunge {
+  #if {$angel[distance] > 1
+       && $adv_sort[1][2] > $lunge_at 
+       && $time_slices > $lunge_min_ts} {
+    #return 1;
+  } {
+    #return 0;
+  };
+}
+
 #function should_retribution {
   #if {@enough_distance_and_time{} && $adv_sort[1][2] > $retribution_at} {
     #return 1;
@@ -276,9 +294,19 @@
 }
 
 #function should_swing {
-  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $swing_at} {
+  #local min_swing_at 80;
+
+  #nop If disengage is blocked, so is lunge, swing at lower advantage.;
+  #if {@enough_distance_and_time{} 
+       && "$can_disengage" == "false" 
+       && $adv_sort[1][2] > $min_swing_at} {
     #return 1;
-  } {
+  };
+  #elseif {@enough_distance_and_time{} && $adv_sort[1][2] > $swing_at} {
+    #return 1;
+  };
+  
+  #else {
     #return 0;
   };
 }

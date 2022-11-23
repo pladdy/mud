@@ -45,10 +45,7 @@
     #var jugger_ammo 0;
   };
 
-  #if {"$stepper" == "on" && $corpses < 1 && $gp1 < 20} {
-    stepper off;
-    run home;
-  };
+  check_stepper;
   show_status_bar;
 }
 

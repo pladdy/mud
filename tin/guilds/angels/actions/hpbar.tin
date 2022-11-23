@@ -62,6 +62,8 @@
 
     sort_advantages;
 
+    attempt_lunge;
+    
     #if {$time_slices <= $min_ts && @distance_closed{}} {attempt_circle};
     #else {
       attempt_swing;
@@ -118,6 +120,7 @@
     };
   };
 
+  #if {$time_slices >= $min_ts} {attempt_lunge};
   attempt_dive;
 }
 

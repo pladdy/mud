@@ -5,17 +5,27 @@
 }
 
 #alias check_stepper {
-  #local MIN_AVAILABLE_HEAT 25;
-  #local REGEN_SECONDS 24;
-  #local MIN_POWER 400;
-
-  #if {$enemy > 0 && "$stepper" == "on" && "$pause" != "true"} {
-    #if {$gp2 < $MIN_AVAILABLE_HEAT} {
-      dtrig stepper off,#delay $REGEN_SECONDS {stepper on};
-    };
-    #elseif {$gp1 < $MIN_POWER && $corpses == 0} {
+  #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
+  #else {
+    #format {current_time} {%T};
+    #math {time_since_stepper_started} {$current_time - $stepper_started};
+  
+    #if {"$stepper" == "on" && ($time_since_stepper_started > 750 || $corpses < 7)} {
       stepper off;
-      dtrig f2;
+  
+      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+  
+      #nop Round is seconds * 2 (2s / round);
+      #local min_seconds 20;
+      #math rando {1 d 20};
+      #math regen_time {$min_seconds + $rando};
+  
+      #delay {reactivate_stepper} {
+        log.info "Re-activating stepper after regen time: $regen_time seconds.";
+        stepper on;
+      } {$regen_time};
+  
+      #unvar rando;
     };
   };
 }

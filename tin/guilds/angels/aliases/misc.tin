@@ -1,3 +1,14 @@
+#alias auto_train {
+  #if {"$auto_train" == "on"} {
+    log.info Turning auto train off;
+    #var auto_train off;
+  };
+  #else {
+    log.info Turning auto train on;
+    #var auto_train on;    
+  }
+}
+
 #alias check_stepper {
   #local MIN_END 50;
 
@@ -71,24 +82,29 @@
 }
 
 #alias train {
-  #if {"$stepper" == "on"} {
-    #var reactivate_stepper true;
-    stepper off;
-  };
+  #if {"$auto_train" == "on"} {
+    #if {"$stepper" == "on"} {
+      #var reactivate_stepper true;
+      stepper off;
+    };
 
-  #var current_room $map[current_room];
-  #map run angels_train;
-  #send !train %0;
-  #unvar angel_train;
+    #var current_room $map[current_room];
+    #map run angels_train;
+    #send !train %0;
+    #unvar angel_train;
 
-  #if {$current_room == 1} {#map run home};
-  #else {#map run $current_room};
-  #unvar current_room;
+    #if {$current_room == 1} {#map run home};
+    #else {#map run $current_room};
+    #unvar current_room;
 
-  #delay 4 {
-    #if {"$reactivate_stepper" == "true"} {
-      stepper on;
-      #unvar reactivate_stepper;
+    #delay 4 {
+      #if {"$reactivate_stepper" == "true"} {
+        stepper on;
+        #unvar reactivate_stepper;
+      };
     };
   };
+  #else {
+    #send !train %0;
+  }
 }

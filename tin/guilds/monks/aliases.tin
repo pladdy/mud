@@ -45,7 +45,7 @@
   #if {@combat_rounds_left{} > 15
        && $rounds_in_combat > 1
        && "$auto_palm" == "true"
-       && $ancient_energy > 0
+       && $ancient_energy > 1
        && "$palm_active" != "true"} {
     #send !palm;
   };
@@ -67,7 +67,7 @@
 }
 
 #alias attempt_throw {
-  #local MIN_CHI 35;
+  #local MIN_CHI 90;
   #if {$sp == $sp_max
        && $gp1 > $MIN_CHI
        && $enemy > 0
@@ -96,6 +96,37 @@
     #showme <170>Throw disabled.;
     #var can_throw false;
   }
+}
+
+#alias check_stepper {
+  #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {
+    log.warn Turnning stepper off.  Mind: $gp2, Stepper: $stepper;
+    stepper off;
+    dtrig f2;
+  };
+  #elseif {$corpses < 1 && "$stepper" == "on"} {stepper off};
+  #else {
+    #format {current_time} {%T};
+    #math {time_since_stepper_started} {$current_time - $stepper_started};
+  
+    #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
+      stepper off;
+  
+      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+  
+      #nop Round is seconds * 2 (2s / round);
+      #local min_seconds 10;
+      #math rando {1 d 20};
+      #math regen_time {$min_seconds + $rando};
+  
+      #delay {reactivate_stepper} {
+        log.info "Re-activating stepper after regen time: $regen_time seconds.";
+        stepper on;
+      } {$regen_time};
+  
+      #unvar rando;
+    };
+  };
 }
 
 #alias commands_after_corpse {

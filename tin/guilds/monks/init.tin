@@ -1,3 +1,4 @@
 #var pressure off;
 #var can_throw true;
 #var auto_palm true;
+#var MIN_MIND 170;

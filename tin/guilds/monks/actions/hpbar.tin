@@ -1,3 +1,13 @@
+#alias _commands_to_run {
+  attempt_enervate;
+  attempt_focus;
+  attempt_palm;
+  attempt_pressure;
+  attempt_throw;
+  show_status_bar;
+  check_stepper
+}
+
 #action {^%!{[> ]*}%WHP: %1/%2 PP: %3/%4 Chi: %5/%6 G2:%7 Mind: %8 AE:%9/%10% CF:%11$} {
   #var hp {%1};
   #var hp_max {%2};
@@ -14,15 +24,8 @@
   #var ancient_energy %9;
   #var reset %10;
 
-  #local MIN_MIND 170;
   #if {$gp2 < $MIN_MIND} {#showme <110>Mind is low!};
-
-  #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {
-    log.warn Turnning stepper off.  Mind: $gp2, Stepper: $stepper;
-    stepper off;
-    dtrig f2;
-  };
-
+  
   #regexp {%11} {T: %d%?$} {
     #var enemy &1;
     #math {rounds_in_combat} {$rounds_in_combat + 1};
@@ -33,13 +36,7 @@
 
   #local MIN_SP 100;
   #if {$sp < $MIN_SP && $corpses > 0 && $enemy > 0} {resp};
-
-  attempt_enervate;
-  attempt_focus;
-  attempt_palm;
-  attempt_pressure;
-  attempt_throw;
-  show_status_bar;
+  _commands_to_run;
 }
 
 #nop Briefed hpbar;
@@ -70,12 +67,7 @@
 
   #regexp {%11} {T: %d%?$} {#var enemy &1} {#var enemy 0};
 
-  attempt_enervate;
-  attempt_focus;
-  attempt_palm;
-  attempt_pressure;
-  attempt_throw;
-  show_status_bar;
+  _commands_to_run;
 }
 
 #action {^%!{[> ]*}You feel your body and mind relax a little.$} {
