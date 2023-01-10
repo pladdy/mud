@@ -156,8 +156,32 @@
   #var beckon {ON};
 }
 
+#action {^%!{[> ]*}you. You finish your incantation, raise your head, and nothing happens.} {
+  #var rift {OFF};
+}
+
+#action {^%!{[> ]*}The %1 fades mysteriously into the ether.} {
+  #var beckon {OFF};
+  #var rift {OFF};
+}
+
 #nop Vestment
 
 #action {^%!{[> ]*}The magical vestment fades into nothingness...$} {
   #if {$enemy > 0} {#send !vestment};
+}
+
+#nop Faerie Fire
+
+#action {^%!{[> ]*}%1 stops glowing.$} {
+  #var ffire OFF;
+  attempt_ffire;
+}
+
+#action {^%!{[> ]*}You concentrate on the essence of foxfire, calling upon$} {
+  #var ffire ON;
+}
+
+#action {^%!{[> ]*}%1 is already under the influence of faerie fire.$} {
+  #var ffire ON;
 }

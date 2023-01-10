@@ -75,7 +75,7 @@
   #delay {7} {
     #send !wimpy 40;
     #send !autoguild surge;
-    #send !pheal 1300 surge;
+    #send !pheal 1500 surge;
   }
 }
 

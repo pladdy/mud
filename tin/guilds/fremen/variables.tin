@@ -29,5 +29,6 @@
 #var litany_focus_map[Pai] 10;
 #var litany_focus_map[Wre] 0;
 
+#nop  Update chat blocklists used by tin/default/chats/chats.tin;
+build_default_says_blocklist
 #list says_blocklist add {pilot};
-build_says_blocklist;

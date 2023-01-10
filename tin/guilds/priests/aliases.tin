@@ -1,15 +1,18 @@
 #alias attempt_all_the_things {
   attempt_effects;
   attempt_curse;
-  #nop attempt_rift;
-  #nop attempt_beckon;
+  attempt_ffire;
+  attempt_rift;
+  attempt_beckon;
   #nop attempt_growth;
   attempt_offer;
   attempt_beseech;
 }
 
 #alias attempt_beckon {
-  #if {"$beckon" == "OFF" && $enemy > 0 && $sp > 200} {#send !beckon};
+  #if {"$use_rift" == "true" && "$beckon" == "OFF" && $enemy > 0 && $sp > 200} {
+    #send !beckon
+  };
 }
 
 #alias attempt_beseech {
@@ -30,6 +33,10 @@
     #regex {$spells} {BL} {#nop} {#send !bless};
     #nop #regex {$spells} {BE} {#nop} {#send !beneficence};
   };
+}
+
+#alias attempt_ffire {
+  #if {"$ffire" == "OFF" && $enemy > 0 && $sp > 50} {#send !ffire};
 }
 
 #alias attempt_growth {
@@ -60,7 +67,35 @@
 }
 
 #alias attempt_rift {
-  #if {"$rift" == "OFF" && $enemy > 0 && $sp > 400} {#send !rift};
+  #if {"$use_rift" == "true" && "$rift" == "OFF" && $enemy > 0 && $sp > 400} {
+    #send !rift
+  };
+}
+
+#alias check_stepper {
+  #if {$corpses < 2 && $gp1 < 30 && "$stepper" == "on"} {stepper off};
+  #else {
+    #format {current_time} {%T};
+    #math {time_since_stepper_started} {$current_time - $stepper_started};
+  
+    #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
+      stepper off;
+  
+      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+  
+      #nop Round is seconds * 2 (2s / round);
+      #local min_seconds 10;
+      #math rando {1 d 20};
+      #math regen_time {$min_seconds + $rando};
+  
+      #delay {reactivate_stepper} {
+        log.info "Re-activating stepper after regen time: $regen_time seconds.";
+        stepper on;
+      } {$regen_time};
+  
+      #unvar rando;
+    };
+  };
 }
 
 #alias commands_after_corpse {
@@ -69,6 +104,7 @@
   #var beckon OFF;
   #var growth OFF;
   #var rift OFF;
+  #var ffire OFF;
 }
 
 #alias deup_spell {

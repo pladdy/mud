@@ -26,7 +26,7 @@
   attempt_call;
   attempt_spfuse;
   attempt_dream;
-  attempt_spark;
+  attempt_glamor;
   attempt_preserve;
   check_stepper;
 }
@@ -51,6 +51,7 @@
     #var glamors &2;
     #var glamor_active true;
   } {
+    #var glamors $glamors_str;
     #var glamor_active false;
   };
 
@@ -83,8 +84,9 @@
   _status_aliases;
 }
 
-#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[%!{(none|unraised)}/%8c]} {
+#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[{none|unraised}/%8c]} {
   log.debug status bar match without follower and with coffin;
+  log.debug 7 is %7 and 8 is %8;
   _status_vars %1 %2 %3 %4 %5 %6 %7;
   #var corpses %8;
   #var follower_corpses 0;
@@ -92,9 +94,10 @@
   _status_aliases;
 }
 
-#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[%!{(none|unraised)}]} {
+#action {^%!{[> ]*}TG[%1|%2] Status[w%3%|p%4|v%5|r%6%] %7[{none|unraised}]} {
   log.debug status bar match without follower and without coffin;
   _status_vars %1 %2 %3 %4 %5 %6 %7;
+  #var corpses 0;
   #var follower_corpses 0;
   _status_aliases;
 }
@@ -186,8 +189,15 @@
   };
 }
 
+#action {^%!{[> ]*}A %1 trudges in.$} {
+  #format {trudger} {%l} {%1};
+  #if {"$trudger" == "$necro_follower"} {
+    #var follower_blocked false;
+  };
+}
+
 #action {^%!{[> ]*}Mojo the %1 trudges in.$} {
-  #var {trudger} {%l} {%1};
+  #format {trudger} {%l} {%1};
   #if {"$trudger" == "$necro_follower"} {
     #var follower_blocked false;
   };
@@ -243,4 +253,8 @@
     #send !preserve corpse;
     #send !get corpse;
   };
+}
+
+#action {^%!{[> ]*} You don't have dream memorized this cycle.} {
+  #if {"$stepper" == "on"} {stepper off};
 }

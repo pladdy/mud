@@ -119,6 +119,4 @@
 #alias use_corpse {
   #send !hp;
   #send !fdeener;
-  #send !hp;
-  #send !get all;
 }

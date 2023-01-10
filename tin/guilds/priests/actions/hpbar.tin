@@ -10,6 +10,7 @@
 
   #var enemy_str {%7};
   process_enemy_status;
+  check_stepper;
   #nop attempt_inspirit;
 }
 
@@ -25,6 +26,7 @@
 
   #var enemy_str {%8};
   process_enemy_status;
+  check_stepper
   #nop attempt_inspirit;
 }
 
@@ -38,7 +40,7 @@
 
   attempt_offer;
   show_status_bar;
-} {2}
+} {5}
 
 #nop <glvl 8;
 #nop must disable at glvl 10 with spells in hpbar;
@@ -80,7 +82,7 @@
   show_status_bar;
 } {1}
 
-#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%] D:[%5]} {
+#action {^%!{[> ]*}GXP%%: [%1%%] PTY: (%2%%) CL: [%3|%4%%] D:%5} {
   #var gxp {%1};
   #var gp2 {%2};
   #var gp2_max {100};
@@ -89,7 +91,7 @@
 
   attempt_all_the_things;
   show_status_bar;
-}
+} {1}
 
 #nop while a noob priest, you can't have all spells on hpbar (annoying);
 #nop below has each hpbar entry listed;

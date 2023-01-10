@@ -1,9 +1,12 @@
 #var beckon {OFF};
 #var blade {OFF};
 #var curse OFF;
+#var ffire off;
 #var growth OFF;
 #var rift {OFF};
 #var summons {(beautiful chimera)|(majestic gryphon)|(mystic unicorn)}; #nop selene psummon;
+
+#var use_rift false;
 
 #while {1} {
   #nop Mends use piety, low piety in comabt can be bad for survival;

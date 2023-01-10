@@ -41,6 +41,12 @@
   };
 }
 
+#alias attempt_hide {
+  #if {$hp_as_pct < 0.6 && $enemy > 0} {
+    #3 #send !hide;
+  };
+}
+
 #alias attempt_stun {
   #if {
     @combat_rounds_left{} > 10 
@@ -75,6 +81,32 @@
     stepper off;
     #send !su;
     #delay {20} {stepper on};
+  };
+}
+
+#alias check_stepper {
+  #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
+  #else {
+    #format {current_time} {%T};
+    #math {time_since_stepper_started} {$current_time - $stepper_started};
+
+    #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
+      stepper off;
+
+      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+
+      #nop Round is seconds * 2 (2s / round);
+      #local min_seconds 10;
+      #math rando {1 d 20};
+      #math regen_time {$min_seconds + $rando};
+
+      #delay {reactivate_stepper} {
+        log.info "Re-activating stepper after regen time: $regen_time seconds.";
+        stepper on;
+      } {$regen_time};
+
+      #unvar rando;
+    };
   };
 }
 

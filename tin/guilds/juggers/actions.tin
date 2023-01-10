@@ -61,4 +61,16 @@
   #unvar player;
 }
 
+#action {^%!{[> ]*}From afar, %1 rawrs menacingly at you.  RAAWWWRRR!} {
+  #format {player} {%l} {%1};
+  #send !frenzy $player;
+  #unvar player;
+} {4}
+
+#action {^%!{[> ]*}From afar, %1 gives you a high-five!$} {
+  #format {player} {%l} {%1};
+  #send !airdrop $player;
+  #unvar player;
+} {4}
+
 #gag {^%!{[> ]*}The computer chirps 'No healing needed.'}

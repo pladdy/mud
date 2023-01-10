@@ -1,5 +1,20 @@
 confighp hp H: $+CHP$/$MHP$ S: $+CSP$/$MSP$ W: $+CWT$/$MWT$($SWT$) L: $+LMB$% P: $PSN$($+PSR$%) E#: $ATT$ E: $+TRG$ $CRT$Li: $+LTS$ Sp: $SPC$ Pa: $+LBP$ Ma: $MPA$($MPC$) St: $DES$ Wr: $WCR$ C: $+CCP$ Gt: $GXA$ G: $GXP$
 
+alias atq attacks quick
+alias atn attacks normal
+alias atf attacks fast
+alias atl attacks lightning
+alias atb attacks blinding
+
+alias req reflexes quick
+alias ren reflexes normal
+alias ref reflexes fast
+alias rel reflexes lightning
+alias reb reflexes blinding
+
+alias hitm mode weirding:half litany:$1 pain assault reflexes:normal attacks:fast prana:high bindu:low
+alias tankm mode weirding:high litany:$1 pain assault reflexes:blinding attacks:quick prana:high bindu:low
+
 alias mmaf mode weirding:half litany:$1 pain assault attacks:fast reflexes prana:high bindu:low 
 alias mmal mode weirding:major litany:$1 pain assault attacks:lightning prana:high bindu:low 
 alias mmab mode weirding:high litany:$1 pain assault attacks:blinding reflexes:quick prana:high bindu:low 
@@ -20,6 +35,8 @@ alias aq aquameter
 alias bo board ornithopter
 alias cb check belt
 alias da donate all
+alias doa do loop combat agony
+alias dos do clear
 alias fa fill all
 alias gfinger frecall -r
 alias gl globe
@@ -29,7 +46,7 @@ alias ho holster
 alias info fhelp
 alias lm load maula pistol
 alias m ambush
-alias mi mindstorm
+alias ms mindstorm
 alias rc reclaim
 alias rcost check cost
 alias sh sheathe

@@ -17,9 +17,11 @@
 #alias attempt_call {
   log.debug attempting call;
 
-  #if {$enemy > 0 && "$familiar_called" != "true"} {
-    #send !call;
-    #var familiar_called true;
+  #if {"$necro_use_call" == "true"} {
+    #if {$enemy > 0 && "$familiar_called" != "true"} {
+      #send !call;
+      #var familiar_called true;
+    };
   };
 }
 
@@ -38,6 +40,15 @@
     #send =heal 500;
   }
 }
+
+#alias attempt_glamor {
+  log.debug attempting $necro_glamor;
+  #if {$glamors > 0 && $spp < .6 && "$glamor_active" != "true"} {
+    #if {"$necro_veil_omega_maxed" == "true"} {#send !$necro_glamor};
+    #elseif {"$veil" != "ON"} {#send !$necro_glamor};
+  };
+}
+
 
 #alias attempt_preserve {
   log.debug attempting preserve;
@@ -61,13 +72,6 @@
     #elseif {$smuggle[corpses] > 0} {
       #send !smuggle remove corpse;
     }
-  };
-}
-
-#alias attempt_spark {
-  log.debug attempting spark;
-  #if {$glamors > 0 && $spp < .6 && "$glamor_active" != "true" && "$veil" != "ON"} {
-    #send !spark
   };
 }
 
@@ -99,7 +103,7 @@
 }
 
 #alias check_stepper {
-  #math total_corpses {$ncorpses + $follower_corpses};
+  #math total_corpses {$corpses + $ncorpses + $follower_corpses};
 
   #if {$total_corpses < 4 && "$stepper" == "on"} {
     stepper off
