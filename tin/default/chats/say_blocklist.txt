@@ -1,68 +1,45 @@
 %+ golem
-akara
-arundin
-balaban
+barker|bojek|lydia|eli
+balaban|leufarr
 bodyguard
-bojek
 bowles
 cadal
-cain
-cancer
-captain keyes
+akara|cain|warriv|wirt
+arundin|cancer|pope|the gypsy|the mortician
+captain keyes|sandino
 chieftain
 church police
 cow
 cultist
 danvers
 drone
+dryad
 erig
-fallout boy
+einstein
+fred
 gargamel
+glenwin
 graktah
 guard
 guardswoman
-harthearvorin
+harthearvorin|raylorn|valerie
 icodileies
 kid
-leufarr
 lijak
-mircarla
+mircarla|sumaren
 oden
-patty
+fallout boy|ned|maude|patty|radioactive man|selma|the actress|the monkey|todd|willie|willy
 peasant
 priest
-pope
-raylorn
-radioactive man
-sandino
 scout
-selma
-share bear
-sumaren
+birthday bear|brave heart|champ bear|(cheer bear grins at you and)|luck bear|(luck bear smiles and)|share bear|tenderheart
+bathroom bear|grumpy|(grumpy smirks at you and)|swiftheart
 thurand
 the %+ knight
-the actress
-the angel
-the ferryman
-the goblin lord
-the gypsy
-the knight
-the man
-the monkey
-the mortician
-the new yorker
-the researcher
-the rogue
-the old man
-the old woman
-the triad
-the zombie mindlessly
-valerie
-velica
+the (angel|awgwa|ferryman|goblin lord|knight|man|researcher|rogue)
+the (new yorker)|(old man)|(old woman)|(zombie mindlessly)
+velica|the triad
 verbeeg sentinel
 villager
-warriv
 warrior
-willie
-wirt
 wisewoman

@@ -2,7 +2,7 @@
 (%w golem)
 's french bulldog
 # knights mounts
-'s (golden dun (akhal-teke|palomino))|(brindle mustang)
+'s (golden dun (akhal-teke|palomino))|(brindle mustang)|(lazy fat cat)
 %+, %+'s %+ (nag|cob|palfrey|shetland pony)
 %+'s esquire
 (storm|aerial) servant
@@ -44,3 +44,4 @@ an? (dark shadow|stony gargoyle|froth-mouthed hell hound|carnivorous ape|poisono
 's %+ dog
 # priest psummons
 (beautiful chimera)|(majestic gryphon)|(mystic unicorn)
+zelligar

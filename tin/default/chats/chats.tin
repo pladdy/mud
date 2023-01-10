@@ -4,13 +4,30 @@
 #class {chats} {kill};
 #class {chats} {open};
 
+
 #alias build_says_blocklist {
-  #script {says_blocklist} {cat tin/default/chats/say_blocklist.txt | grep -v '#'};
-  #list says_blocklist simplify;
+  build_default_says_blocklist;
+  simplify_says_blocklist
 }
 
 #alias build_tells_blocklist {
+  build_default_tells_blocklist;
+  simplify_tells_blocklist
+}
+
+#alias build_default_says_blocklist {
+  #script {says_blocklist} {cat tin/default/chats/say_blocklist.txt | grep -v '#'};
+}
+
+#alias build_default_tells_blocklist {
   #script {tells_blocklist} {cat tin/default/chats/tell_blocklist.txt | grep -v '#'};
+}
+
+#alias simplify_says_blocklist {
+  #list says_blocklist simplify;
+}
+
+#alias simplify_tells_blocklist {
   #list tells_blocklist simplify;
 }
 
@@ -31,7 +48,7 @@
 
   #foreach $says_blocklist blocked {
     log.debug checking blocklist, blocked=$blocked, actor=%1;
-    #regexp {%1} {%i$blocked} {#var show_chat false};
+    #regexp {%1} {%i{$blocked}} {#var show_chat false};
   };
 
   #if {"$show_chat" == "true"} {
@@ -60,7 +77,7 @@
 
   #foreach $tells_blocklist blocked {
     log.debug checking blocklist, blocked=$blocked, actor=%1;
-    #regexp {%1} {%i$blocked} {#var send_alert false};
+    #regexp {%1} {%i{$blocked}} {#var send_alert false};
   };
 
   #if {"$send_alert" == "true"} {
