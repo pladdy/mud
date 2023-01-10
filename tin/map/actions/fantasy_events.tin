@@ -24,6 +24,22 @@
   #map goto 35786;
 }
 
+#nop  Cove of the Three, Velica's moon blessing;
+
+#action {^%!{[> ]*}an angelic temptress standing before you.} {
+  #send !present tyra's gem;
+  #send !present raqna's gem;
+  #send !present brenan's gem;
+}
+
+#action {^%!{[> ]*}The World of Serinth Board containing %1 messages (%2).$} {
+  #map goto serinth;
+}
+
+#action {^%!{[> ]*}The World of Serinth 2.0 Board containing %1 message (%2).$} {
+  #map goto serinth2;
+}
+
 #nop  Crystals of Ao;
 #nop the rooms below will port/warp you, i don't have them all captured below;
 #action {^%!{[> ]*}You begin to lose your sense of direction, confused by the} {
@@ -125,6 +141,12 @@
   #if {$map[current_room] == 15489} {#map goto 13212};
 }
 
+#nop  Tapan;
+
+#action {^%!{[> ]*}AREA NAME: Island of Tapan [Polanna]$} {
+  #if {$map[current_room] == 2553} {#map goto 35844};
+}
+
 #nop Temple of the zombie god;
 
 #action {^%!{[> ]*}You find yourself 'elsewhere'$} {
@@ -188,20 +210,4 @@
 #action {^%!{[> ]*}You sweep your hand over one of the higher shelves and} {
   #send !get gloves;
   #send !keep gloves;
-}
-
-#nop  Cove of the Three, Velica's moon blessing;
-
-#action {^%!{[> ]*}an angelic temptress standing before you.} {
-  #send !present tyra's gem;
-  #send !present raqna's gem;
-  #send !present brenan's gem;
-}
-
-#action {^%!{[> ]*}The World of Serinth Board containing %1 messages (%2).$} {
-  #map goto serinth;
-}
-
-#action {^%!{[> ]*}The World of Serinth 2.0 Board containing %1 message (%2).$} {
-  #map goto serinth2;
 }

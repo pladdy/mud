@@ -60,6 +60,12 @@
   #map goto 12492;
 }
 
+#nop Erratio forest
+
+#action {^You squeeze your way into the Erratio forest.$} {
+  #map goto 24412;
+}
+
 #nop Kyoto;
 
 #alias kyoto_dirs {
