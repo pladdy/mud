@@ -1,6 +1,6 @@
 .PHONY: install new-tag tag tags
 
-TINTIN_VERSION = 2.02.20
+TINTIN_VERSION = 2.02.30
 
 last_version = $(shell git tag --sort=-v:refname | head -n 1)
 version_list = $(subst ., ,$(last_version))
