@@ -13,7 +13,7 @@
   #if {$clan_powers > 0 && $enemy > 0 && $gp2 < 60 && $sp_ratio < 0.3} {
     #send !airdrop;
   };
-  #elseif {$clan_powers > 0 && $enemy > 0 && $gp1 < 50 && $corpses < 1} {
+  #elseif {$clan_powers > 0 && $enemy > 0 && $gp1 < 30 && $corpses < 1} {
     #send !airdrop;
   };
 }
@@ -44,6 +44,30 @@
   };
 }
 
+#alias f10 {use_corpse}
+
+#alias f12 {
+  #switch {$map[current_room]} {
+    #case {11437} {
+      #loop 2 $BAGS_TO_USE i {
+        #send !get all from bag $i;
+        #send !donate all;
+      };
+    };
+    #case {11438} {
+      #loop 2 $BAGS_TO_USE i {
+        #loop 2 $BAGS_TO_USE i {
+          #send !get all from bag $i;
+          #send !donate all;
+        };
+      };
+    };
+    #default { #loop 2 $BAGS_TO_USE i {#send !sell all from bag $i} };
+  };
+}
+
+#alias k {#send !kill %0; #send !ki %0;}
+
 #alias login_commands {
   #delay 2 #send !support summon;
   #delay 4 #send !support assault fire;
@@ -51,21 +75,6 @@
   #delay 8 set_afk;
 }
 
-#alias f10 {use_corpse}
-
-#alias f12 {
-  #switch {$map[current_room]} {
-    #case {11437} {
-      #loop 2 $BAGS_TO_USE i {#send !donate all from bag $i};
-    };
-    #case {11438} {
-      #loop 2 $BAGS_TO_USE i {#send !donate all from bag $i};
-    };
-    #default { #loop 2 $BAGS_TO_USE i {#send !sell all from bag $i} };
-  };
-}
-
-#alias k {#send !kill %0; #send !ki %0;}
 
 #nop  Remote Ammo (via truck) purchase;
 #alias rammo {
@@ -113,7 +122,7 @@
   #send !support reset;
   #99 #send !support upgrade armor;
   #99 #send !support upgrade repair;
-  #send !support defend edged,blunt,fire,ice,electric;
+  #send !support defend edged,blunt,fire,ice,electric toggle;
 }
 
 #alias use_corpse {

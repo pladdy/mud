@@ -1,13 +1,13 @@
 #action {^%!{[> ]*}Your shield is shattered from the force of the blow!$} {
-  #if {@length{$enemy} > 0} {#send !cast shield};
+  #if {$enemy > 0} {#send !cast shield};
 }
 
 #action {^%!{[> ]*}Your magnificent shield is shattered from the force of the blow!$} {
-  #if {@length{$enemy} > 0} {#send !cast magnificent shield};
+  #if {$enemy > 0} {#send !cast magnificent shield};
 }
 
 #action {^%!{[> ]*}Your armor spell has dissipated!$} {
-  #if {@length{$enemy} > 0} {#send !cast armor};
+  #if {$enemy > 0} {#send !cast armor};
 }
 
 #action {^%!{[> ]*}----*> Your %1 contingency has dissipated!<*----} {
@@ -21,30 +21,30 @@
 }
 
 #action {^%!{[> ]*}Your protection from %1 has ended.$} {
-  #if { @length{$enemy} > 0 } {
+  #if { $enemy > 0 } {
     #if {"%1" == "good" && "$spells[pg]" == "on"} {pg};
     #if {"%1" == "evil" && "$spells[pe]" == "on"} {pe};
   };
 }
 
 #nop #action {^%!{[> ]*}Your rhino skin has been depleted!$} {
-  #if {@length{$enemy} > 0} {#send !cast rhino skin};
+  #if {$enemy > 0} {#send !cast rhino skin};
 };
 
 #action {^%!{[> ]*}Your stoneskin has depeleted!$} {
-  #if {@length{$enemy} > 0} {#send !cast stoneskin};
+  #if {$enemy > 0} {#send !cast stoneskin};
 }
 
 #action {^%!{[> ]*}Your minor globe has ended.$} {
-  #if { @length{$enemy} > 0 } {#send !cast minor globe};
+  #if { $enemy > 0 } {#send !cast minor globe};
 }
 
 #action {^%!{[> ]*}Your form has solidified.$} {
-  #if {@length{$enemy} > 0} {#send !cast blink};
+  #if {$enemy > 0} {#send !cast blink};
 }
 
 #action {^%!{[> ]*}Your skin ceases its colorful displays.$} {
-  #if {@length{$enemy} > 0} {#send !cast prismatic aura};
+  #if {$enemy > 0} {#send !cast prismatic aura};
 }
 
 #action {^%!{[> ]*}Your immersion has expired.$} {#send !cast spell tap always}

@@ -7,7 +7,7 @@
       #send !er;
     };
   };
-  #elseif {$enemy > 0 && $school_reset >= 99 && $school_spells > 0} {
+  #elseif {$enemy > 0 && $school_reset >= 98 && $school_spells > 0} {
     #send !er;
   };
 }
@@ -18,6 +18,7 @@
 
 #nop MIs reset every 600 rounds (20 min);
 #nop MIs last 90 rounds (3 min);
+#nop MIs lasts about 15% of a reset when used;
 
 #alias attempt_mystic_immersion {
   #if {"$immersed" == "false"
@@ -25,8 +26,13 @@
        && $sp < 800
   } {mim};
   #elseif {
-    $guild_reset > 80
+    $guild_reset > 85
     && $mystic_immersions > 0
+    && "$immersed" == "false"
+  } {mim};
+  #elseif {
+    $guild_reset > 70
+    && $mystic_immersions > 1
     && "$immersed" == "false"
   } {mim};
 }
@@ -55,24 +61,44 @@
 
 #alias check_saturation {
   #nop when hpbar processes gp vars, it 'flips' them;
-  #if {$gp1 <= 10} {#showme <110>SATURATION IS HIGH!!!};
-  #if {$gp2 <= 5} {
-    #send !cast deactivate;
+  #if {$gp1 <= 10} {
+    #showme <110>SATURATION IS HIGH!!!;
+    #if {$corpses > 0} {rebl};
+  };
+  #if {$gp1 <= 5} {
+    #if {"$stepper" == "on"} {stepper off};
     #send !cast secure shelter;
-    #delay {2} {regen};
   };
 }
 
 #alias check_stepper {
-  #if {"$stepper" == "on"} {
-    #if {"$immersed" == "false"
-         && $mystic_immersions == 0
-         && $sp < 2000
-         && $school_spells == 0
-         && $gp1 <= 25
-    } {
+  #if {"$stepper" == "on"
+       && "$immersed" == "false"
+       && $mystic_immersions == 0
+       && $sp < 2000
+       && $school_spells == 0
+       && $gp1 <= 25
+  } {stepper off};
+  #else {
+    #format {current_time} {%T};
+    #math {time_since_stepper_started} {$current_time - $stepper_started};
+  
+    #if {"$stepper" == "on" && $time_since_stepper_started > 750 } {
       stepper off;
-      dtrig f2;
+  
+      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+  
+      #nop Round is seconds * 2 (2s / round);
+      #local min_seconds 10;
+      #math rando {1 d 20};
+      #math regen_time {$min_seconds + $rando};
+  
+      #delay {reactivate_stepper} {
+        log.info "Re-activating stepper after regen time: $regen_time seconds.";
+        stepper on;
+      } {$regen_time};
+  
+      #unvar rando;
     };
   };
 }

@@ -30,32 +30,33 @@
   check_concentration;
 }
 
-#action {^%!{[> ]*}Gx: %1% P:%2 St:%3 Mon(%4):%5} {
-  #var gxp {%1};
+#alias _corpses {
+  #var corpses %1;
+  #var max_corpses %2;
+  #if {$corpses < max_corpses} {#var coffin_status non_full};
+}
 
-  #format spell_tap_status {%p} {%3};
-  #replace {spell_tap_status} { } {};
-  #format spell_taps {%L} {$spell_tap_status};
-
-  #nop  Keep some corpses tapped to handle saturation accumulation;
-  #if {$spell_taps < 3 && $gp1 < 25 && $corpses > 0} {rebl};
-
-  #var enemy {%5};
+#alias _enemy_status {
+  #var enemy {%1};
   #replace {enemy} {%} {};
   #math {rounds_in_combat} {$rounds_in_combat + 1};
+}
 
-  #var dspells {%2};
-  #nop #regex {$dspells} { S} {#nop} {#send !cast shield};
-  #nop #regex {$dspells} { RS} {#nop} {#send !cast rhino skin};
-  #nop #regex {$dspells} { mg} {#nop} {#send !cast minor globe};
+#alias _spell_tap_status {
+  #format spell_tap_status {%p} {%1};
+  #replace {spell_tap_status} { } {};
+  #format spell_taps {%L} {$spell_tap_status};
+}
+
+#alias _handle_hpbar2 {
+  #var gxp %1;
 
   #nop  Ensure these spells are always active;
-  #regex {$dspells} { SS} {#nop} {#send !cast stoneskin};
-  #regex {$dspells} { MG} {#nop} {#send !cast major globe};
-  #regex {$dspells} { MS} {#nop} {#send !cast magnificent shield};
-  #regex {$dspells} { A} {#nop} {#send !cast armor};
-
-  #regex {$dspells} { *I} {#var immersed true} {#var immersed false};
+  #regex {$dspells} {SS} {#nop} {#send !cast stoneskin};
+  #regex {$dspells} {MG} {#nop} {#send !cast major globe};
+  #regex {$dspells} {MS} {#nop} {#send !cast magnificent shield};
+  #regex {$dspells} {A} {#nop} {#send !cast armor};
+  #regex {$dspells} {*I} {#var immersed true} {#var immersed false};
 
   #nop Spells to monitor if i enabled them;
   #if {"$spells[pg]" == "on"} {#regex {$dspells} { PG} {#nop} {pg}};
@@ -67,15 +68,43 @@
     #regex {$dspells} { PA} {#nop} {#send !cast prismatic aura};
   };
 
+  #nop  Keep some corpses tapped to handle saturation accumulation;
+  #if {$spell_taps < 3 && $gp1 < 25 && $corpses > 0} {rebl};
+
   attempt_slow;
   attempt_shelter;
   show_status_bar;
   check_stepper;
+}
+
+#action {^%!{[> ]*}Gx: %1% P:%2 St:%3 C: %4/%5 Mon(%6):%7} {
+  #var dspells %2;
+  _spell_tap_status %3;
+  _enemy_status %7;
+  _corpses %4 %5;
+  _handle_hpbar2 %1;
 } {4}
 
-#action {^%!{[> ]*}Gx: %1% P:%2 St:%3} {
-  #var enemy {0};
+#action {^%!{[> ]*}Gx: %1% P:%2 St:%3 C: %4/%5} {
+  #var enemy 0;
   #var rounds_in_combat 0;
-  #var dspells {%2};
-  show_status_bar;
+  #var dspells %2;
+  _spell_tap_status %3;
+  _corpses %4 %5;
+  _handle_hpbar2 %1;
+} {5}
+
+#action {^%!{[> ]*}Gx: %1% P:%2 St:%3 C: None Mon(%4):%5} {
+  #var dspells %2;
+  _spell_tap_status %3;
+  _enemy_status %5;
+  _handle_hpbar2 %1;
+} {4}
+
+#action {^%!{[> ]*}Gx: %1% P:%2 St:%3 C: None} {
+  #var enemy 0;
+  #var rounds_in_combat 0;
+  #var dspells %2;
+  _spell_tap_status %3;
+  _handle_hpbar2 %1;
 } {5}

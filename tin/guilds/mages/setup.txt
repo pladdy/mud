@@ -106,4 +106,4 @@ aset mage_blink hicyan
 aset mage_improved_shield yellow
 aset spell himagenta
 
-confhp H: #$CCH#/#$MHP# S: #$CCS#/#$MSP#(#$CPC#) Ge: #$GEM# S|C: #$CSAT#%|#$CCNC#% G|M: #$NGM#|#$NMI#(#$GPC#)# Sc: #$NSM#(#$SPC#)#$NWL#Gx: #$G2N# P:#$PRO# St: #$ST#
+confhp H: #$CCH#/#$MHP# S: #$CCS#/#$MSP#(#$CPC#) Ge: #$GEM# S|C: #$CSAT#%|#$CCNC#% G|M: #$NGM#|#$NMI#(#$GPC#)# Sc: #$NSM#(#$SPC#)#$NWL#Gx: #$G2N# P:#$PRO# St: #$ST# C: #$COF#

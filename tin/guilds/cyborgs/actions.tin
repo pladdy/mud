@@ -18,9 +18,7 @@
 
 #action {^%!{[> ]*}ND: %1 C: [%2] %3} {
   #regexp {%3} {[%+]} {#var implants &1} {#var implants []};
-
   #regex {$implants} {IPP} {#nop;} {#send !activate intrinsic preservation proxy};
-
   #regexp {%3} {TARG: %d%%$} {#var enemy &1} {#var enemy 0};
 
   show_status_bar;

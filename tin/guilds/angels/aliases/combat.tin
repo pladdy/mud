@@ -59,13 +59,15 @@
   #nop presage fails if you have < 20 advantage;
   #local MIN_ADV 20;
 
-  #if {"$use_presage" == "true" &&
-       @distance_closed{} &&
-       $adv_sort[1][2] > $MIN_ADV} {
-    #send !presage $adv_sort[1][1];
+  #nop TODO: should we presage the lowest area instead?;
+  #if {"$use_presage" == "true" && @distance_closed{}} {
+    #if {$adv_sort[4][2] > $MIN_ADV} {#send !presage $adv_sort[4][1]};
+    #elseif {$adv_sort[3][2] > $MIN_ADV} {#send !presage $adv_sort[3][1]};
+    #elseif {$adv_sort[2][2] > $MIN_ADV} {#send !presage $adv_sort[2][1]};
+    #elseif {$adv_sort[1][2] > $MIN_ADV} {#send !presage $adv_sort[1][1]};
     decrement_ts 1;
     reduce_high_advantage_and_resort;
-  };
+  }
 }
 
 #alias attempt_providence {

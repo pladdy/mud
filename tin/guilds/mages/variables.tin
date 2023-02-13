@@ -5,7 +5,7 @@
 #var ms2 {Giant centipede|Giant Toad|Stirge|Gnoll|Lemure|Troglodyte};
 #var ms3 {Ogre|Large spider|Boring beetle|Giant lizard|Bugbear|Giant tick};
 #var ms4 {5-Headed hydra|Shadow|Werewolf|Hell Hound|Ape|Gargoyle|Ice toad|Giant snake|Poisonous toad};
-#var ms5 {Disfigured Wereboar};
+#var ms5 {Displacer Beast|Disfigured Wereboar};
 #var ms6 {Near-invisible Wraith|Rotting Wight|Stinky-assed Otyugh};
 #nop #var ms7 {};
 #nop #var ms8 {};

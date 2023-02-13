@@ -27,7 +27,7 @@
 }
 
 #alias tap_corpse {
-  #if {$gp1 > 10} {#send !cast spell tap on corpse};
+  #if {$gp1 > 5} {#send !cast spell tap on corpse};
 }
 
 #alias use_corpse {

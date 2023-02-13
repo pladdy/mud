@@ -10,7 +10,7 @@
     #format {current_time} {%T};
     #math {time_since_stepper_started} {$current_time - $stepper_started};
   
-    #if {"$stepper" == "on" && ($time_since_stepper_started > 750 || $corpses < 7)} {
+    #if {"$stepper" == "on" && ($time_since_stepper_started > 750 || $corpses < 5)} {
       stepper off;
   
       log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
