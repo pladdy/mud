@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+
+import argparse
+import ast
+from typing import List
+
+
+class InvalidMove(Exception):
+    pass
+
+
+class Square:
+    def __init__(self, x: int, y: int):
+        self.x = x
+        self.y = y
+        self.visited = False
+        self.current_location = False
+
+    def __repr__(self):
+        visited = "-"
+        if self.visited:
+            visited = "x"
+        if self.current_location:
+            visited = "*"
+        return f" {visited} "
+
+
+class Board:
+    """Implementation derived from reading wikipedia artcile.
+
+    Article: https://en.wikipedia.org/wiki/Knight%27s_tour
+    """
+
+    def __init__(self, length: int, width: int):
+        self.length = length
+        self.width = width
+        self.max_moves = self.length * self.width - 1
+        self.spaces = self._generate_board()
+        self.last_space = None
+        self.current_space = None
+        self.moves_made = []
+
+    def moves(self, x: int = None, y: int = None) -> List[List[int]]:
+        if not x and not y:
+            # due to how the board is inverted, x and y must invert in order
+            # to provides moves for the correct square.
+            return self.moves(
+                self.current_space.y + 1, self.current_space.x + 1
+            )
+
+        if not x or not y:
+            raise TypeError("x and y arguments required.")
+
+        index_x = x - 1
+        index_y = y - 1 - self.length
+
+        # there's a programatic way to do this, but i'm too lazy to implement.
+        possible_moves = [
+            [2, 1],
+            [2, -1],
+            [-2, 1],
+            [-2, -1],
+            [1, 2],
+            [1, -2],
+            [-1, 2],
+            [-1, -2],
+        ]
+        available_moves = []
+
+        for possible_move in possible_moves:
+            point = []
+            new_x = index_x + possible_move[0] + 1
+            if self._valid_x(new_x):
+                point.append(new_x)
+            new_y = index_y + possible_move[1] + 1 + self.length
+            if self._valid_y(new_y):
+                point.append(new_y)
+
+            if len(point) == 2:
+                space = self.space(new_x, new_y)
+                if not space.visited and not space.current_location:
+                    available_moves.append(point)
+
+        return available_moves
+
+    def ride(self, x: int, y: int) -> None:
+        if self.current_space:
+            current_x = self.current_space.y + 1
+            current_y = self.current_space.x + 1
+
+            if abs(current_x - x) + abs(current_y - y) != 3:
+                raise InvalidMove
+
+        space = self.space(x, y)
+
+        if not space.visited and not space.current_location:
+            if self.current_space:
+                self.last_space = self.current_space
+                self.last_space.current_location = False
+
+            space.current_location = space.visited = True
+            self.current_space = space
+        elif space.visited:
+            raise InvalidMove
+
+    def solve(self, x: int, y: int) -> None:
+        if (not x or not y) and not self.current_space:
+            raise TypeError("Must provide a point to start solving from.")
+
+        self.ride(x, y)
+        while self.moves():
+            available_moves = self.moves()
+            moves_map = {str(m): len(self.moves(*m)) for m in available_moves}
+
+            least_moves = 8
+            least_move = None
+            for move, move_count in moves_map.items():
+                if move_count < least_moves:
+                    least_move = move
+                    least_moves = move_count
+
+            move = ast.literal_eval(least_move)
+            print(f"ride {' '.join(map(str, move))}")
+            self.moves_made.append(move)
+            self.ride(*move)
+
+    def space(self, x: int, y: int) -> Square:
+        index_x = x - 1
+        index_y = y - 1 - self.length
+        # Accessing a space is inverted so it can be displayed in a grid like
+        # so:
+        #   1 2 3 4 5 6
+        # 6 - - - - - -
+        # 5 - - - - - -
+        # 4 - - - - - -
+        # 3 - - - - * -
+        # 2 - - - - - -
+        # 1 - - - - - -
+        #
+        # The '*' is at space 5, 3, which in the list, would be index [3][4].
+        return self.spaces[index_y][index_x]
+
+    def __repr__(self):
+        string = " "
+        for x in range(self.width):
+            string += f"   {x+1}"
+        string += "\n"
+
+        for x in range(self.length, 0, -1):
+            string += f" {x} "
+            for y in range(self.width):
+                string += f"{self.spaces[x - 1][y]} "
+            string += "\n"
+        return string
+
+    def _generate_board(self) -> List[List[int]]:
+        spaces = []
+        for i in range(self.length):
+            spaces.append([])
+            for j in range(self.width):
+                spaces[i].append(Square(i, j))
+        return spaces
+
+    def _valid_x(self, x: int):
+        return x <= self.width and x > 0
+
+    def _valid_y(self, y: int):
+        return y <= self.length and y > 0
+
+
+# parse args
+parser = argparse.ArgumentParser(description="Knight's tour solver.")
+parser.add_argument("board-length", type=int)
+parser.add_argument("board-width", type=int)
+parser.add_argument("start-x", type=int)
+parser.add_argument("start-y", type=int)
+args = parser.parse_args()
+
+# build board
+board_length = getattr(args, "board-length")
+board_width = getattr(args, "board-width")
+board = Board(board_length, board_width)
+
+# solve
+x = getattr(args, "start-x")
+y = getattr(args, "start-y")
+board.solve(x, y)
