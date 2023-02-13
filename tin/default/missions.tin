@@ -1,0 +1,3 @@
+#alias knights_tour {
+    #script {bin/knights_tour 6 6 %1 %2};
+}
