@@ -80,6 +80,7 @@
 #alias rammo {
   #if {"%1" == ""} {
     #send !truck ammo list projectile;
+    #showme <170>Syntax is 'rammo <mount number> <ammo number>';
   };
   #else {
     #send !truck ammo vbuy projectile %1 %2 10000;

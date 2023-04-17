@@ -43,12 +43,11 @@
 
 #alias attempt_glamor {
   log.debug attempting $necro_glamor;
-  #if {$glamors > 0 && $spp < .6 && "$glamor_active" != "true"} {
+  #if {$glamors > 1 && "$glamor_active" != "true" && ($spp < .6 || $gp1p < .9)} {
     #if {"$necro_veil_omega_maxed" == "true"} {#send !$necro_glamor};
     #elseif {"$veil" != "ON"} {#send !$necro_glamor};
   };
 }
-
 
 #alias attempt_preserve {
   log.debug attempting preserve;
@@ -71,6 +70,7 @@
     };
     #elseif {$smuggle[corpses] > 0} {
       #send !smuggle remove corpse;
+      #send !keep corpse;
     }
   };
 }
@@ -97,6 +97,12 @@
   #if {$enemy > 0 && "$veil" == "OFF"} {#send !veil invoke};
 }
 
+#alias attempt_worth {
+  #local MAX_WORTH 125;
+  #if {$worth < $MAX_WORTH && $worth != 75} {#send !con 100};
+  #elseif {$worth < $MAX_WORTH} {#show <130>Worth is low!;}
+}
+
 #alias cd {
   #send !create dart 100;
   #send !dart;
@@ -105,10 +111,31 @@
 #alias check_stepper {
   #math total_corpses {$corpses + $ncorpses + $follower_corpses};
 
-  #if {$total_corpses < 4 && "$stepper" == "on"} {
-    stepper off
+  #if {$total_corpses < 4 && "$stepper" == "on"} {stepper off};
+  #else {
+    #format {current_time} {%T};
+    #math {time_since_stepper_started} {$current_time - $stepper_started};
+  
+    #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
+      stepper off;
+  
+      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+  
+      #nop Round is seconds * 2 (2s / round);
+      #local min_seconds 10;
+      #math rando {1 d 20};
+      #math regen_time {$min_seconds + $rando};
+  
+      #delay {reactivate_stepper} {
+        log.info "Re-activating stepper after regen time: $regen_time seconds.";
+        stepper on;
+      } {$regen_time};
+  
+      #unvar rando;
+    };
   };
 }
+
 
 #alias commands_after_corpse {
   #var familiar_called false;

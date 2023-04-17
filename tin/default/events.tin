@@ -6,6 +6,14 @@
   #var map[last_room] %0;
 }
 
+#event {PRESSED MOUSE BUTTON ONE} {
+  #config mouse off;
+  #delay 4 {#config mouse on};
+}
+
+#event {SCROLLED MOUSE WHEEL DOWN} {#buffer down 1}
+#event {SCROLLED MOUSE WHEEL UP} {#buffer up 1}
+
 #nop Logging;
 
 #event {SESSION CONNECTED} {

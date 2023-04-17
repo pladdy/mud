@@ -1,19 +1,43 @@
 #alias attempt_actuation {
     #nop Defense first;
     #regex {$powers_str} { Vr} {#nop;} {#send !vr};
-    #nop #regex {$powers_str} { Bf} {#nop;} {#send !bf};
+    #regex {$powers_str} { Bf} {#nop;} {#send !bf};
+    #regex {$powers_str} { Cp} {#nop;} {#send !cp};
 
     #nop Offense;
-    #regex {$powers_str} { Tl} {#nop;} {#send !tl};
-    #nop #regex {$powers_str} { Cg} {#nop;} {#send !cg};
+    #nop #regex {$powers_str} { Tl} {#nop;} {#send !tl};
+    #regex {$powers_str} { Cg} {#nop;} {#send !cg};
     #nop #regex {$powers_str} { Bo} {#nop;} {#send !bo};
-    #regex {$powers_str} { Ij} {#nop;} {#send !ij};
+    #nop #regex {$powers_str} { Ij} {#nop;} {#send !ij};
     #regex {$powers_str} { bc} {#nop;} {#send !bc};
 
     #nop Perks;
     #nop #regex {$powers_str} { Vg} {#nop;} {#send !vg};
     #regex {$powers_str} { Vv} {#nop;} {#send !vv};
-    #nop #regex {$powers_str} { AA} {#nop;} {#send !aa bull};
+    #regex {$powers_str} { AA} {#nop;} {#send !aa bear};
+}
+
+#alias check_stepper {
+  #format {current_time} {%T};
+  #math {time_since_stepper_started} {$current_time - $stepper_started};
+
+  #if {"$stepper" == "on" && $time_since_stepper_started > 750 } {
+    stepper off;
+
+    log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+
+    #nop Round is seconds * 2 (2s / round);
+    #local min_seconds 10;
+    #math rando {1 d 20};
+    #math regen_time {$min_seconds + $rando};
+
+    #delay {reactivate_stepper} {
+      log.info "Re-activating stepper after regen time: $regen_time seconds.";
+      stepper on;
+    } {$regen_time};
+
+    #unvar rando;
+  };
 }
 
 #alias f10 {use_corpse};
@@ -33,14 +57,16 @@
 }
 
 #alias pause_active_stepper {
-  #local MIN_PSI 100;
-  #local MIN_STAM 50;
-  #local REGEN_SECONDS 60;
+  #local MIN_PSI_PCT .25;
+  #local MIN_STAM_PCT .25;
+  #local REGEN_SECONDS 50;
 
-  #if {($enemy > 0 && "$stepper" == "on" && "$pause" != "true") &&
-       ($gp1 < $MIN_PSI || $gp2 < $MIN_STAM)} {
-    dtrig stepper off,#delay $REGEN_SECONDS {stepper on;#unvar pause};
-    #var pause true;
+  #if {
+    ($enemy > 0 && "$stepper" == "on") 
+    && ($gp1_percent < $MIN_PSI_PCT || $gp2_percent < $MIN_STAM_PCT)
+  } {
+    log.warn "Need to regen, setting dtrig to pause stepper.";
+    dtrig stepper off,#delay pause_stepper {stepper on} $REGEN_SECONDS;
   };
 }
 

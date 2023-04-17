@@ -1,5 +1,6 @@
-alias ecom eternal chat main
 
+alias dupe (duplicate creature
+alias ecom eternal chat main
 alias ecs (cstats
 alias ehp (hp
 alias enfo (info

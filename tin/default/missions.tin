@@ -1,3 +1,116 @@
+#class knights_tour clear;
+#class knights_tour open;
+
+#var knights_tour_started false;
+
 #alias knights_tour {
+    #script {bin/knights_tour %1 %2 %3 %4};
+}
+
+#alias kt6 {
     #script {bin/knights_tour 6 6 %1 %2};
 }
+
+#alias kt8 {
+    #script {bin/knights_tour 8 8 %1 %2};
+}
+
+#nop Knights tour actions;
+
+#action {^The game of the knight's tour has ended.$} {
+    #var knights_tour_started false;
+}
+
+#action {^%1  * - - - - -} {
+    #if {$map[current_room] == 33060 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt6 1 %1
+    };
+} {5}
+#action {^%1  - * - - - -} {
+    #if {$map[current_room] == 33060 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt6 2 %1
+    };
+} {5}
+#action {^%1  - - * - - -} {
+    #if {$map[current_room] == 33060 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt6 3 %1
+    };
+} {5}
+#action {^%1  - - - * - -} {
+    #if {$map[current_room] == 33060 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt6 4 %1
+    };
+} {5}
+#action {^%1  - - - - * -} {
+    #if {$map[current_room] == 33060 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt6 5 %1
+    };
+}
+#action {^%1  - - - - - *} {
+    #if {$map[current_room] == 33060 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt6 6 %1
+    };
+} {5}
+
+#nop Advanced knights tour;
+
+#action {^The game of the advanced knight's tour has ended.$} {
+    #var knights_tour_started false;
+}
+
+#action {^%1  * - - - - - - -} {
+    #if {$map[current_room] == 33061 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt8 1 %1
+    };
+} {4}
+#action {^%1  - * - - - - - -} {
+    #if {$map[current_room] == 33061 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt8 2 %1
+    };
+} {4}
+#action {^%1  - - * - - - - -} {
+    #if {$map[current_room] == 33061 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt8 3 %1
+    };
+} {4}
+#action {^%1  - - - * - - - -} {
+    #if {$map[current_room] == 33061 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt8 4 %1
+    };
+} {4}
+#action {^%1  - - - - * - - -} {
+    #if {$map[current_room] == 33061 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt8 5 %1
+    };
+} {4}
+#action {^%1  - - - - - * - -} {
+    #if {$map[current_room] == 33061 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt8 6 %1
+    };
+} {4}
+#action {^%1  - - - - - - * -} {
+    #if {$map[current_room] == 33061 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt8 7 %1
+    };
+} {4}
+#action {^%1  - - - - - - - *} {
+    #if {$map[current_room] == 33061 && "$knights_tour_started" == "false"} {
+        #var knights_tour_started true;
+        kt8 8 %1
+    };
+} {4}
+
+#class knights_tour close;

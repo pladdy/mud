@@ -3,7 +3,7 @@
 #var necro_veil_omega_maxed true;
 #var necro_glamor spark;
 
-#var MAX_FOLLOWER_CORPSES 11;
+#var MAX_FOLLOWER_CORPSES 12;
 #var MIN_NECRO_CORPSES 3;
 #var MAX_NECRO_CORPSES 6;
 

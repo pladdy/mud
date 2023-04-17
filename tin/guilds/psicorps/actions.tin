@@ -7,9 +7,11 @@
 
   #var gp1 {%5};
   #var gp1_max {%6};
+  #math gp1_percent {$gp1 / $gp1_max * 1.00};
 
   #var gp2 {%8};
   #var gp2_max {%9};
+  #math gp2_percent {$gp2 / $gp2_max * 1.00};
 
   #var enemy {%13};
   #replace {enemy} {T:} {};
@@ -42,8 +44,19 @@
       #var powers[$actuate] &2;
     };
 
-    #if {$powers[$actuate] < 20} { !$actuate; };
-  }
+
+    #if {$gp1_percent > .2} {
+      #switch "$actuate" {
+        #case "aa" {};
+        #case "cg" {
+          #if {$powers[$actuate] < 20 && $gp2_percent > .2} {#send !$actuate}
+        };
+        #default {
+          #if {$powers[$actuate] < 20 && $gp1_percent > .2} { #send !$actuate };
+        };
+      };
+    };
+  };
 
   #if {@length{$enemy} > 1} {attempt_actuation};
 }

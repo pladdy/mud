@@ -115,7 +115,9 @@ class Board:
             least_moves = 8
             least_move = None
             for move, move_count in moves_map.items():
-                if move_count < least_moves:
+                # changing this to '<=' from '<' seems to fix a bug when the
+                # board is 8x8 and starting at 1,3.
+                if move_count <= least_moves:
                     least_move = move
                     least_moves = move_count
 

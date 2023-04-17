@@ -49,6 +49,10 @@
   #send !hmblast %0;
 }
 
+#alias ka {
+  #loop 1 %2 loop {#send !kill %1 $loop;};
+}
+
 #alias kk {
   #if {@length{%0} == 0} {
     #showme need a target;

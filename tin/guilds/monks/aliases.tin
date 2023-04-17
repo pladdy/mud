@@ -42,7 +42,7 @@
 }
 
 #alias attempt_palm {
-  #if {@combat_rounds_left{} > 15
+  #if {@combat_rounds_left{} > 10
        && $rounds_in_combat > 1
        && "$auto_palm" == "true"
        && $ancient_energy > 1

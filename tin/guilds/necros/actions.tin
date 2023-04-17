@@ -37,6 +37,7 @@
   attempt_refill_corpses;
   attempt_unload_corpses;
   attempt_follower_heal;
+  attempt_worth;
 }
 
 #alias _status_vars {
@@ -253,6 +254,10 @@
     #send !preserve corpse;
     #send !get corpse;
   };
+}
+
+#action {^%!{[> ]*} You have %1 memorizations of dream left master.} {
+  #if {"$stepper" == "on"} {stepper off};
 }
 
 #action {^%!{[> ]*} You don't have dream memorized this cycle.} {
