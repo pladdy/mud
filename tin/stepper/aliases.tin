@@ -208,7 +208,7 @@
 
   #if {"%0" == "on"} {
     #undelay $ticker_name;
-    #ticker {$ticker_name} {stepper off;f2} {$TTL};
+    #ticker {$ticker_name} {stepper off;ttl_stepper_hook} {$TTL};
   };
   #else {
     #undelay $ticker_name;
@@ -227,13 +227,15 @@
     #ticker {$ticker_name} {
       log.warn No input received in a while.  Disabling stepper.;
       stepper off;
-      dtrig #delay 2 f2;
+      ttl_stepper_hook;
     } {$TTL};
   };
   #else {
     #undelay $ticker_name;
   };
 }
+
+#alias ttl_stepper_hook {dtrig #delay 2 f2}
 
 #alias unload_non_monsters {
   #unvar non_monsters;

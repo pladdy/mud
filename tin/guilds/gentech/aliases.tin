@@ -141,6 +141,8 @@
 
 #alias tme {f6 emergency}
 
+#alias ttl_stepper_hook {#nop}
+
 #alias use_corpse {
   #send !hp;
   #send !recharge;
