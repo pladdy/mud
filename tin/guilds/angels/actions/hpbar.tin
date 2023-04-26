@@ -29,7 +29,7 @@
   #if {$gp1 < $MIN_DIV && $corpses > 0 && $enemy > 0} {redi};
   #if {$gp2 < $MIN_END && $corpses > 0 && $enemy > 0} {reri};
 
-  attempt_radiance;
+  #nop attempt_radiance;
   attempt_beyond_time;
   attempt_renewed_light;
   show_trainings;

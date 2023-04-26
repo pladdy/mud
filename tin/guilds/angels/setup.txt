@@ -10,6 +10,7 @@ alias dv dive
 alias gwho angels
 alias h radiance
 alias ha manifest halo
+alias im immortality
 alias ja junk all
 alias rl manifest renewed light
 alias wi manifest wings
@@ -34,8 +35,10 @@ aset angel_circle white
 aset angel_presage white
 aset angel_traverse white
 
+aset angel_beyond_time yellow
 aset angel_consecrate himagenta
 aset angel_divine_strike himagenta
+aset angel_immortality yellow
 aset angel_lunge himagenta
 aset angel_providence himagenta
 aset angel_retribution himagenta

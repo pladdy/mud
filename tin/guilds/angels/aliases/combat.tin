@@ -12,7 +12,7 @@
 }
 
 #alias attempt_beyond_time {
-  #local MIN_TS_FOR_BT 6;
+  #local MIN_TS_FOR_BT 8;
   #local MIN_DIV_FOR_BT 150;
 
   #if {"$use_beyond_time" == "true" &&
@@ -93,7 +93,7 @@
 #alias attempt_radiance {
   #math {pct_hp} {$hp / $hp_max * 100.0};
 
-  #if {"$use_radiance" == "true" && $pct_hp < 90 && $gp1 > 150} {
+  #if {"$use_radiance" == "true" && $pct_hp < 80 && $gp1 > 150} {
     #send !radiance;
   }
 }
