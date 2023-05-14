@@ -89,7 +89,7 @@
       log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
   
       #nop Round is seconds * 2 (2s / round);
-      #local min_seconds 10;
+      #local min_seconds 20;
       #math rando {1 d 20};
       #math regen_time {$min_seconds + $rando};
   

@@ -13,7 +13,7 @@
 #var use_providence {true};
 #var use_quietus {false};
 #var use_radiance {true};
-#var use_renewed_light {false};
+#var use_renewed_light {true};
 #var use_retribution {true};
 #var use_traverse {true};
 
@@ -31,7 +31,7 @@
 #var lunge_min_ts {5};
 #var min_ts {10};
 #var providence_at {70};
-#var retribution_at_hits {5};
+#var retribution_at_hits {4};
 #var retribution_at {85};
 #var swing_at {150};
 

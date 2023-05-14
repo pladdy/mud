@@ -100,7 +100,7 @@
 
 #alias attempt_renewed_light {
   #local MIN_END_FOR_RL 100;
-  #local MIN_DIV_FOR_RL 150;
+  #local MIN_DIV_FOR_RL 200;
 
   #if {"$use_renewed_light" == "true" &&
        $gp1 > $MIN_DIV_FOR_RL &&

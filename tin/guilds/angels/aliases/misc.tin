@@ -13,12 +13,11 @@
   #local MIN_END 50;
 
   #if {"$stepper" == "on" && $gp2 < $MIN_END} {
-    stepper off;
-
     log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
-
+    stepper off;
+    
     #nop Round is seconds * 2 (2s / round);
-    #local min_seconds 40;
+    #local min_seconds 60;
     #math rando {1 d 10};
     #math regen_time {$min_seconds + $rando};
 
@@ -28,7 +27,29 @@
     } {$regen_time};
 
     #unvar rando;
-  }
+  };
+  #else {
+    #format {current_time} {%T};
+    #math {time_since_stepper_started} {$current_time - $stepper_started};
+  
+    #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
+      stepper off;
+  
+      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+  
+      #nop Round is seconds * 2 (2s / round);
+      #local min_seconds 60;
+      #math rando {1 d 20};
+      #math regen_time {$min_seconds + $rando};
+  
+      #delay {reactivate_stepper} {
+        log.info "Re-activating stepper after regen time: $regen_time seconds.";
+        stepper on;
+      } {$regen_time};
+  
+      #unvar rando;
+    };
+  };
 }
 
 #alias f12 {
@@ -93,8 +114,7 @@
     #send !train %0;
     #unvar angel_train;
 
-    #if {$current_room == 1} {#map run home};
-    #else {#map run $current_room};
+    #map run $current_room;
     #unvar current_room;
 
     #delay 4 {

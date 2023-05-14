@@ -36,7 +36,7 @@
 
 #action {^%!{[> ]*}You are too exhausted!$} {
   #if {$corpses > 0} {reri};
-  #else {sound_beep};
+  #else {sound_beeps};
 }
 
 #action {^%!{[> ]*}You have no where to retreat!$} {

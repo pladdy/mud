@@ -28,17 +28,20 @@
 
 #alias conup {
   #if {"$use_gcon" == "true"} {
-    #send !cast contingency as armor#cast armor;
-
-    #nop  PA and B conflict with PS;
+    #nop  PA and B conflict with PS, set for e/b combat;
     #send !cast contingency as prismatic aura#cast prismatic aura;
     #send !cast contingency as blink#cast blink;
 
     #nop  Greater contingency is costly, delay to regen sps;
     #send !cast greater contingency as stoneskin#cast stoneskin;
-    #delay {10} {#send !cast greater contingency as major_globe#cast major globe};
-    #delay {20} {#send !cast greater contingency as shield#cast magnificent shield};
-    #nop #delay {30} {#send !cast greater contingency as prismatic sphere#400#cast prismatic sphere};
+    #delay {10} {#send !cast greater contingency as shield#cast magnificent shield};
+    #delay {20} {#send !cast greater contingency as major globe#cast major globe};
+    #if {"$use_psphere" == "true"} {
+      #delay {30} {#send !cast greater contingency as prismatic sphere#500#cast prismatic sphere};
+    };
+    #else {
+      #delay {30} {#send !cast greater contingency as major_globe#cast major globe};
+    };
   };
   #else {
     #send !cast contingency as stoneskin#cast stoneskin;

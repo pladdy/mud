@@ -35,28 +35,39 @@
   #var i {0};
 
   #regexp {$dspells} { SS } {#nop;} {
-    #delay {$i} {#send !cast stoneskin}; #math {i} {$i + 2};
-  };
-  #regexp {$dspells} { MG } {#nop;} {
-    #delay {$i} {#send !cast major globe}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast stoneskin}; 
+    #math {i} {$i + 2};
   };
   #regexp {$dspells} { MS } {#nop;} {
-    #delay {$i} {#send !cast magnificent shield}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast magnificent shield}; 
+    #math {i} {$i + 2};
   };
 
-  #regexp {$dspells} { PS } {#nop;} {
-    #nop #delay {$i} {#send !cast prismatic sphere}; #math {i} {$i + 2};
+  #if {"$use_psphere" == "true"} {
+    #regexp {$dspells} { PS } {#nop;} {
+      #nop #delay {$i} {#send !cast prismatic sphere}; 
+      #math {i} {$i + 2};
+    };
+  };
+  #else {
+    #regexp {$dspells} { B } {#nop;} {
+      #delay {$i} {#send !cast blink}; 
+      #math {i} {$i + 2};
+    };
+    #regexp {$dspells} { PA } {#nop;} {
+      #delay {$i} {#send !cast prismatic aura}; 
+      #math {i} {$i + 2};
+    };
   };
 
-  #nop  The conflict with prismatic sphere;
-  #regexp {$dspells} { B } {#nop;} {
-    #delay {$i} {#send !cast blink}; #math {i} {$i + 2};
+  #regexp {$dspells} { MG } {#nop;} {
+    #delay {$i} {#send !cast major globe}; 
+    #math {i} {$i + 2};
   };
-  #regexp {$dspells} { PA } {#nop;} {
-    #delay {$i} {#send !cast prismatic aura}; #math {i} {$i + 2};
-  };
+  
   #regexp {$dspells} { A } {#nop;} {
-    #delay {$i} {#send !cast armor}; #math {i} {$i + 2};
+    #delay {$i} {#send !cast armor}; 
+    #math {i} {$i + 2};
   };
 
   #if {"$spells[pe]" == "on"} {
@@ -69,4 +80,15 @@
   };
 
   #delay {$i} {#unvar i};
+}
+
+#alias def_eb {
+  #send !deplete PS;
+
+  #regexp {$dspells} { B } {#nop;} {
+    #send !cast blink;
+  };
+  #regexp {$dspells} { PA } {#nop;} {
+    #delay {2} #send !cast prismatic aura;
+  };
 }

@@ -91,14 +91,16 @@
   #var dspells %2;
   _spell_tap_status %3;
   _corpses %4 %5;
-  _handle_hpbar2 %1;
+  #nop _handle_hpbar2 %1;
+  show_status_bar;
 } {5}
 
 #action {^%!{[> ]*}Gx: %1% P:%2 St:%3 C: None Mon(%4):%5} {
   #var dspells %2;
   _spell_tap_status %3;
   _enemy_status %5;
-  _handle_hpbar2 %1;
+  #nop _handle_hpbar2 %1;
+  show_status_bar;
 } {4}
 
 #action {^%!{[> ]*}Gx: %1% P:%2 St:%3 C: None} {
