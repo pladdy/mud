@@ -16,7 +16,8 @@
 #nop home has avoid flag set to on so I don't lose party members following me;
 #alias f2 {
   map_run chaos;
-  home;
+  #send !home;
+  #map goto home;
 }
 
 #nop Sprints that require commands in the middle;
