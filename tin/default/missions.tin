@@ -1,6 +1,14 @@
 #class knights_tour clear;
 #class knights_tour open;
 
+#nop Knights tournament axe throwing;
+
+#action {^%!{[> ]*}A Knight-in-Training joins the axe challenge game.} {
+    #5 throw axe;
+}
+
+#nop Knights tournament knights tour;
+
 #var knights_tour_started false;
 
 #alias knights_tour {
@@ -14,8 +22,6 @@
 #alias kt8 {
     #script {bin/knights_tour 8 8 %1 %2};
 }
-
-#nop Knights tour actions;
 
 #action {^The game of the knight's tour has ended.$} {
     #var knights_tour_started false;

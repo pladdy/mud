@@ -144,9 +144,12 @@
   #unvar tin_list;
 }
 
-#alias sound_beep {#system {printf '\a'}}
+#alias sound_beep {#bell}
 
-#alias sound_beeps {#system {for i in 1 2; do printf '\a'; done}}
+#alias sound_beeps {
+  sound_beep;
+  #delay 1 sound_beep;
+}
 
 #alias weather {
   #script {my_weather} {curl -s wttr.in/$WEATHER_LOCATION\?format=4};
