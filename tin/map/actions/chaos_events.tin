@@ -60,6 +60,16 @@
   #map goto 12492;
 }
 
+#nop  if flying, lettuce special moves you 1 east;
+#action {^You manage to glide to a graceful stop in midair and return to the slide tray.} {
+  #map goto 12485;
+}
+
+#nop  if flying, death taco special moves you 1 east;
+#action {^You get KNOCKED back hard, but then are able to make yourself glide to a graceful stop in midair.} {
+  #map goto 12490;
+}
+
 #nop Erratio forest
 
 #action {^You squeeze your way into the Erratio forest.$} {
@@ -229,4 +239,11 @@
   #if {$map[current_room] == 34383} {
     #map goto 34382;
  }
+}
+
+
+#nop  Dundees;
+#action {^The foliage in this part of the swamp is extremely thick and will} {
+  #map undo;
+  #if {"$stepper" == "on"} {take_a_step};
 }

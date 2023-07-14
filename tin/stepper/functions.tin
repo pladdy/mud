@@ -39,6 +39,8 @@
 
   #if {"$transform_string" == ""} {
     #regexp {%0} {^%ia {.+}} {#var result &1} {#var result %0};
+    #nop Replace any text in '{}' braces, like 'Orc Sergeant {bloodlust}';
+    #replace {result} { {{.+}}} {};
   };
   #else {#return $transform_string};
   #return $result;

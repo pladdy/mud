@@ -17,7 +17,7 @@
 #alias f2 {
   map_run chaos;
   #send !home;
-  #map goto home;
+  #map move home;
 }
 
 #nop Sprints that require commands in the middle;

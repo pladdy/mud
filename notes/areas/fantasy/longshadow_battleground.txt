@@ -2,6 +2,15 @@ General Notes:
 - classes are approximate, mobs have a range
 - mobs with {adjective} are bigger than normal
 
+Reps
+- Noldar Elves
+  - Lowers if you kill elf mob
+  - Raises if you kill orc mob
+- Longshadow Orcs
+  - Lowers if you kill orc mob
+  - Raises if you kill elf mob
+- 5 reps per kill
+
 Elf Notes:
 - most elf mobs seem to have a edge (polearm) and blunt (shield or mace) special
 
@@ -9,34 +18,47 @@ Mob, Class, Dmg Types, Notes
 ----------------------------
 Elf Apprentice, 300K, edged/blunt
 Elf Cadet, 500K, edged/blunt
-Elf Conjurer, 4.2M, fire/ice
-Elf Champion, 3.4M, edged/blunt,
-Elf Commander, 5.1M, edged/blunt
-Elf Defender, ???!!!, edged/blunt, blicked shenanigans
 Elf Fighter, 1M, edged/blunt
-Elf Fighter {focused}, 1.4M, edged/blunt,
-Elf Fighter {relentless}, 4.5M, edged/blunt,
+  - Elf Fighter {focused}, 1.4M, edged/blunt,
+  - Elf Fighter {relentless}, 4.5M, edged/blunt,
 Elf Guard, 715K, edged/blunt,
-Elf Guard {focused}, 1.4M, edged/blunt
-Elf High Champion, 4.2M, edged/blunt, big blunt special
-Elf Keeper, 3.1M, edged/blunt
+  - Elf Guard {focused}, 1.4M, edged/blunt
+Elf Ranger, 1.1M, edged/blunt/acid,
 Elf Phalanx, 1.2M, edged/blunt
 Elf Priest, 1.3M, edged/blunt/radiation,
-Elf Ranger, 1.1M, edged/blunt/acid,
-Elf Royal Champion, 4.9M, edged/blunt
-Elf Sentinel, 2.2M, edged/blunt
 Elf Warden, 1.5M, edged/blunt,
+Elf Protector, 1.8M, edged/blunt
+Elf Sentinel, 2.2M, edged/blunt
+Elf Keeper, 3.1M, edged/blunt
+Elf Champion, 3.4M, edged/blunt,
+Elf Conjurer, 4.2M, fire/ice
+Elf High Champion, 4.2M, edged/blunt, big blunt special
+Elf Royal Champion, 4.9M, edged/blunt
+Elf Commander, 5.1M, edged/blunt
+Elf High Commander, 7M
+Elf Defender, 16M, edged/blunt,
 
 Orc Notes:
-- orcs have a massive blunt special (mace)
+- orcs have a blunt special (mace)
 
 Mob, Class, Dmg Types, Notes
 ----------------------------
-Orc High Warlord, ?, ?, blicked shenanigans
+Orc Scout, 600K, edged/blunt
+  - Orc Scout {bloodlust}, 3.7M, edged/blunt
+Orc Archer, 900k
+Orc Grunt, 900k
+Orc Shaman, 1.5M, 
+Orc Stone Guard, 1.6M, edged/blunt
+Orc Blood Guard, 2.2M
+Orc Sergeant, ?, edged/blunt
+  - Orc Sergeant {bloodlust}, 3.1M, edged/blunt
+Orc Centurion, 3M, edged/blunt
+Orc Legionnaire, 3.2M
+Orc Champion, 3.7M, edged/blunt
+Orc Warlock, 3.7M, energy/mind
 Orc Lieutenant, 4.1M, edged/blunt
 Orc General, 4.3M, edged/blunt
-Orc Scout, 600K, edged/blunt
-Orc Scout {bloodlust}, 3.7M, edged/blunt
-Orc Stone Guard, 1.6M, edged/blunt
-Orc Warlock, 3.7M, energy/mind
 Orc Warlord, 5M, edged/blunt
+Orc High Warlord, 7M, edged/blunt
+  - Orc High Warlord {bloodlust}, 11M, edged/blunt
+Orc Enforcer, 16M, edged/blunt

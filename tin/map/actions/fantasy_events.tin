@@ -211,3 +211,33 @@
   #send !get gloves;
   #send !keep gloves;
 }
+
+#nop  Taslen;
+
+#action {^You see land appear far to the east.$} {
+  #if {$map[current_room] == 21069} {
+    #var taslen_gangplank_exit taslen_east;
+  }
+}
+
+#action {^The forest dock disappears over the horizon.$} {
+  #if {$map[current_room] == 21069} {
+    #var taslen_gangplank_exit taslen_east;
+  }
+}
+
+#action {^You see land appear far to the west.$} {
+  #if {$map[current_room] == 21069} {
+    #var taslen_gangplank_exit taslen_west;
+  }
+}
+
+#action {^The desert dock disappears over the horizon.$} {
+  #if {$map[current_room] == 21069} {
+    #var taslen_gangplank_exit taslen_west;
+  }
+}
+
+#action {^You would end up in the sea as there is no ship to board.$} {
+  #map undo;
+}

@@ -23,6 +23,7 @@
 
 #alias map_run {
   #if {"$stepper" == "on"} {stepper off};
+  #if {"$mapper" == "on"} {mapper off};
 
   #format {run_to} {%l} {%1};
   #unevent {MAP ENTER ROOM};
