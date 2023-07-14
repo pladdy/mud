@@ -125,21 +125,20 @@
 
 #alias log_and_update_stepper {
   log.info A mob died: '%0' died;
+  #delay {mob_died_event} {
+    wrap_or_use_corpse;
+    #send !glance;
+  } {4};
 
   #if {"$stepper" == "on"} {
-    #delay {mob_died_event} {
-      wrap_or_use_corpse;
-      #send !glance;
-    } {4};
     remove_seen_monster "%0";
     ttl_no_monsters on;
   };
 }
 
 #alias respond_to_killing_blow {
-  #if {"$stepper" == "on"} {
-    #undelay mob_died_event;
-  };
+  #undelay mob_died_event;
+  #if {"$stepper" == "on"} {ttl_no_monsters off};
 
   #if { @length{$btrig} > 0 } {
     log.debug running btrig commands: $btrig;

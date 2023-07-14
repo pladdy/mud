@@ -27,3 +27,20 @@
 #action {^%!{[> ]*}You have a party object.} {
   #var party_status yes;
 }
+
+#alias party_on {
+  #delay party_ticker {
+    #math rando {1 d 4};
+    #switch $rando {
+      #case 1 {#send !sc};
+      #case 2 {#send !gs};
+      #case 3 {#send !sc};
+      #case 4 {#send !xp};
+    };
+    party_on;
+  } 300;
+}
+
+#alias party_off {
+  #undelay party_ticker;
+}
