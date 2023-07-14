@@ -4,6 +4,7 @@
 #var use_awe {true};
 #var use_beyond_time {false};
 #var use_circle {true};
+#var use_consecrate {true};
 #var use_disengage {true};
 #var use_disperse {true};
 #var use_dive {true};
@@ -26,13 +27,14 @@
 #var awe_at_hp_pct {90};
 #var awe_foes false;
 #var awe_length {2};
+#var consecrate_active false;
 #var disengage_distance {2};
-#var lunge_at {70};
+#var lunge_at {75};
 #var lunge_min_ts {5};
 #var min_ts {10};
-#var providence_at {70};
+#var providence_at {75};
 #var retribution_at_hits {4};
-#var retribution_at {85};
-#var swing_at {150};
+#var retribution_at {80};
+#var swing_at {100};
 
 #gag {^%!{[> ]*}You are already as close as you can get to your foe!};

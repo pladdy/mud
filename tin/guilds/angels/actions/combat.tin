@@ -1,3 +1,15 @@
+#action {^%!{[> ]*}You consecrate the ground!$} {
+  #var consecrate_active true;
+}
+
+#action {^%!{[> ]*}Divine energy radiates from the ground!$} {
+  #var consecrate_active true;
+}
+
+#action {Your consecration in %1 has ended.} {
+  #var consecrate_active false;
+}
+
 #action {^%!{[> ]*}You divine strike {.+} {high|low} and {inside|outside}.} {
   log.debug Divine strike: %1, %2, %3;
 
@@ -87,9 +99,15 @@
 
 #action {^%!{[> ]*}You block %1 attack.$} {decrement_ts 1}
 
-#action {^%!{[> ]*}You fail to block %1 attack!$} {decrement_ts 1}
+#action {^%!{[> ]*}You fail to block %1 attack.$} {decrement_ts 1}
 
-#action {^%!{[> ]*}You fail to parry %1 attack!$} {decrement_ts 1}
+#action {^%!{[> ]*}You fail to disengage from %1.$} {
+  decrement_ts $disengage_distance
+}
+
+#action {^%!{[> ]*}You fail to parry %1 attack.$} {decrement_ts 1}
+
+#action {^%!{[> ]*}You fail to reverse %1 attack.$} {decrement_ts 1}
 
 #action {^%!{[> ]*}You fail to void %1 attack!$} {decrement_ts 1}
 
@@ -98,6 +116,16 @@
 }
 
 #action {^%!{[> ]*}You retreat!$} {
+  decrement_ts $disengage_distance;
   #math {angel[distance]} {$angel[distance] + $disengage_distance};
   attempt_lunge;
+}
+
+#action {^%!{[> ]*}You are too close to lunge at %1$} {
+  take_swing;
+}
+
+#action {^%!{[> ]*}You fail to lunge forward!$} {
+  #send !engage $angel[distance];
+  take_swing;
 }

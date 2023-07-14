@@ -1,10 +1,5 @@
 #alias attempt_awe {
-  #math {pct_hp} {$hp / $hp_max * 100.0};
-  
-  #if {"$use_awe" == "true" &&
-       @enough_distance_and_time{} &&
-       "$awed" != "true" &&
-       ("$awe_foes" == "true" || $pct_hp <= $awe_at_hp_pct)} {
+  #if {@enough_distance_and_time{} && @should_awe{}} {
     #send !awe $highest_area;
     decrement_ts 2;
     reduce_high_advantage_and_resort;
@@ -26,6 +21,16 @@
   #if {"$use_circle" == "true" && @distance_closed{}} {#send !circle};
 }
 
+#alias attempt_consecrate {
+  #local MIN_DIV_FOR_CO 200;
+  #if {"$use_consecrate" == "true" && 
+       "$consecrate_active" != "true" &&
+       $gp1 > $MIN_DIV_FOR_CO && 
+       @combat_rounds_left{} > 10} {
+    #send !consecrate;
+  }
+}
+
 #alias attempt_disengage {
   #if {"$use_disengage" == "true" &&
        @distance_closed{} &&
@@ -40,11 +45,7 @@
 }
 
 #alias attempt_divine_strike {
-  #if {@should_swing{} == 1} {
-    #send !divine strike $highest_area;
-    decrement_ts 2;;
-    reduce_high_advantage_and_resort;
-  }
+  #if {@should_swing{} == 1} {divine_strike};
 }
 
 #alias attempt_lunge {
@@ -59,14 +60,25 @@
   #nop presage fails if you have < 20 advantage;
   #local MIN_ADV 20;
 
-  #nop TODO: should we presage the lowest area instead?;
   #if {"$use_presage" == "true" && @distance_closed{}} {
-    #if {$adv_sort[4][2] > $MIN_ADV} {#send !presage $adv_sort[4][1]};
-    #elseif {$adv_sort[3][2] > $MIN_ADV} {#send !presage $adv_sort[3][1]};
-    #elseif {$adv_sort[2][2] > $MIN_ADV} {#send !presage $adv_sort[2][1]};
-    #elseif {$adv_sort[1][2] > $MIN_ADV} {#send !presage $adv_sort[1][1]};
+    #if {$adv_sort[4][2] > $MIN_ADV} {
+      #send !presage $adv_sort[4][1];
+      reduce_advantage $adv_sort[4][1];
+    };
+    #elseif {$adv_sort[3][2] > $MIN_ADV} {
+      #send !presage $adv_sort[3][1];
+      reduce_advantage $adv_sort[3][1];
+    };
+    #elseif {$adv_sort[2][2] > $MIN_ADV} {
+      #send !presage $adv_sort[2][1];
+      reduce_advantage $adv_sort[2][1];
+    };
+    #elseif {$adv_sort[1][2] > $MIN_ADV} {
+      #send !presage $adv_sort[1][1];
+      reduce_advantage $adv_sort[1][1];
+    };
     decrement_ts 1;
-    reduce_high_advantage_and_resort;
+    sort_advantages;
   }
 }
 
@@ -91,8 +103,6 @@
 }
 
 #alias attempt_radiance {
-  #math {pct_hp} {$hp / $hp_max * 100.0};
-
   #if {"$use_radiance" == "true" && $pct_hp < 80 && $gp1 > 150} {
     #send !radiance;
   }
@@ -110,12 +120,8 @@
 }
 
 #alias attempt_retribution {
-  #if {"$use_retribution" == "true" &&
-       @should_retribution{} == 1 &&
-       $retributions >= $retribution_at_hits} {
-    #send !retribution $highest_area;
-    decrement_ts 1;
-    reduce_high_advantage_and_resort;
+  #if {@enough_distance_and_time{} && @should_retribution{}} {
+    retribution
   };
 }
 
@@ -141,6 +147,13 @@
       decrement_ts 1;
     };
   };
+}
+
+#alias awe {
+  #if {%0} {#send !awe %0};
+  #else {#send !awe $highest_area};
+  decrement_ts 2;
+  reduce_high_advantage_and_resort;
 }
 
 #alias awe_at {
@@ -183,6 +196,12 @@
 
 #function distance_closed {
   #if {$angel[distance] == 0} {#return 1} {#return 0};
+}
+
+#alias divine_strike {
+  #send !divine strike $highest_area;
+  decrement_ts 2;
+  reduce_high_advantage_and_resort;
 }
 
 #alias dq {
@@ -268,6 +287,14 @@
   }
 }
 
+#alias reduce_advantage {
+  #local area %1;
+
+  #if {"$area" == "lo" || "$area" == "li" || "$area" == "hi" || "$area" == "ho"} {
+    #math {advantages[$area]} {$advantages[$area] / 2};  
+  }
+}
+
 #alias reduce_high_advantage {
   #math {advantages[$highest_area]} {$advantages[$highest_area] / 2};
 }
@@ -277,22 +304,37 @@
   sort_advantages;
 }
 
+#alias retribution {
+  #send !retribution $highest_area;
+  decrement_ts 1;
+  reduce_high_advantage_and_resort;
+}
+
+#function should_awe {
+  #if {
+    "$use_awe" == "true" &&
+    "$awed" != "true" &&
+    ("$awe_foes" == "true" || $pct_hp <= $awe_at_hp_pct)
+  } {#return 1};
+  #else {#return 0};
+}
+
 #function should_lunge {
   #if {$angel[distance] > 1
        && $adv_sort[1][2] > $lunge_at 
        && $time_slices > $lunge_min_ts} {
     #return 1;
-  } {
-    #return 0;
   };
+  #else {#return 0};
 }
 
 #function should_retribution {
-  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $retribution_at} {
+  #if {"$use_retribution" == "true" &&
+       $retributions >= $retribution_at_hits &&
+       $adv_sort[1][2] > $retribution_at} {
     #return 1;
-  } {
-    #return 0;
   };
+  #else {#return 0};
 }
 
 #function should_swing {
@@ -307,10 +349,7 @@
   #elseif {@enough_distance_and_time{} && $adv_sort[1][2] > $swing_at} {
     #return 1;
   };
-  
-  #else {
-    #return 0;
-  };
+  #else {#return 0};
 }
 
 #alias sort_advantages {
@@ -356,4 +395,10 @@
   } {
     log.info Swinging at $swing_at% advantage.;
   }
+}
+
+#alias take_swing {
+  #if {@should_awe{}} {awe};
+  #elseif {@should_retribution{}} {retribution};
+  #else {divine_strike};
 }

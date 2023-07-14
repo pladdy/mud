@@ -13,7 +13,7 @@ alias rel reflexes lightning
 alias reb reflexes blinding
 
 alias hitm mode weirding:half litany:$1 pain assault reflexes:normal attacks:fast prana:high bindu:low
-alias tankm mode weirding:high litany:$1 pain assault reflexes:blinding attacks:quick prana:high bindu:low
+alias tankm mode weirding:high litany:$1 pain assault reflexes:blinding attacks:fast prana:high bindu:low
 
 alias mmaf mode weirding:half litany:$1 pain assault attacks:fast reflexes prana:high bindu:low 
 alias mmal mode weirding:major litany:$1 pain assault attacks:lightning prana:high bindu:low 

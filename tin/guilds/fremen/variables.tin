@@ -1,3 +1,4 @@
+#var can_hide true;
 #var have_spice false;
 #var stun_failures 0;
 #var voice_failures 0;

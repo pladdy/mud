@@ -42,28 +42,30 @@
 }
 
 #alias attempt_hide {
-  #if {$hp_as_pct < 0.6 && $enemy > 0} {
+  #if {$hp_as_pct < 0.6 && $enemy > 0 && "$can_hide" = "true"} {
     #3 #send !hide;
   };
 }
 
 #alias attempt_stun {
   #if {
-    @combat_rounds_left{} > 10 
-    && $hp_as_pct < 0.85
+    @combat_rounds_left{} > 8
+    && $hp_as_pct <= 0.95
     && "$stun_active" != "true" 
     && "$voice_active" != "true"
-    && "$voice_recovering" == "true"} {
+    && "$stun_recovering" != "true"
+    && $gp1 > 200} {
     #send !stun;
   };
 }
 
 #alias attempt_voice {
   #if {
-    @combat_rounds_left{} > 10 
-    && $hp_as_pct < 0.92 
+    @combat_rounds_left{} > 8
+    && $hp_as_pct < 0.90
     && "$voice_active" != "true"
-    && "$voice_recovering" != "true"} {
+    && "$voice_recovering" != "true"
+    && $gp1 > 200} {
     #send !voice;
   };
 }
@@ -76,11 +78,15 @@
   #var voice_failures 0;
   #var voice_recovering false;
   #var adjusted_litany_level 0;
+  #var can_hide true;
 
   #if {$litany_focus_map[$litany_focus] < 80 && "$stepper" == "on"} {
     stepper off;
     #send !su;
     #delay {20} {stepper on};
+  };
+  #elseif {$litany_focus_map[$litany_focus] < 80} {
+    #send !su;
   };
 }
 

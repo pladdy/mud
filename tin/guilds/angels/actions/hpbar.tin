@@ -1,6 +1,7 @@
-#alias _angel_hpbar {
+#alias _angel_hpbar1 {
   #var hp {%1};
   #var hp_max {%2};
+  #math {pct_hp} {$hp / $hp_max * 100.0};
 
   #var sp {%3};
   #var sp_max {%4};
@@ -13,12 +14,17 @@
 
   #var time_slices {%5};
   #var time_slices_max {%6};
-  #var corpses {%11};
 
-  #var enemy {%13};
+  #var enemy {%11};
   #replace {enemy} { } {};
   #replace {enemy} {%} {};
   #if {"$enemy" == ""} {#var enemy {0}};
+  #if {$enemy > 0} {
+    #math {rounds_in_combat} {$rounds_in_combat + 1};
+  };
+  #else {
+    #var rounds_in_combat 0;
+  }
 
   #var circle {false};
   #var parried false;
@@ -31,26 +37,34 @@
 
   #nop attempt_radiance;
   attempt_beyond_time;
+  attempt_consecrate;
   attempt_renewed_light;
   show_trainings;
   check_stepper;
 }
 
-#action {^%!{[> ]*}H: %1/%2 S: %3/%4 T: %5/%6 D: %7/%8 E: %9/%10 C: %11/%12 En:%13$} {
-  _angel_hpbar %1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13;
+#alias _angel_hpbar2 {
+  #var corpses {%1};
+  #var gxp {%2};
+  #replace {gxp} {%} {};
 }
 
-#nop  No coffin hpbar;
-#action {^%!{[> ]*}H: %1/%2 S: %3/%4 T: %5/%6 D: %7/%8 E: %9/%10 C: %11 %12 En:%13$} {
-  _angel_hpbar %1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11 %12 %13;
+#nop  hpbar 1;
+#action {^%!{[> ]*}H: %1/%2 S: %3/%4 T: %5/%6 D: %7/%8 E: %9/%10 En:%11$} {
+  _angel_hpbar1 %1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11
 }
 
-#action {^%!{[> ]*}HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 R: %9 G: %10} {
+#action {^%!{[> ]*}C: %1/%2 Yi: %3 Ya: %4/%5 F: %6 RB: %7/%8 (%9%%) G: %10} {
+  _angel_hpbar2 %1 %10;
+}
+
+#action {^%!{[> ]*}C: %1 %2 Yi: %3 Ya: %4/%5 F: %6 RB: %7/%8 (%9%%) G: %10} {
+  _angel_hpbar2 %1 %10;
+}
+
+#action {^%!{[> ]*}HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 R: %9} {
   #if { @length{%9} > 0} {#var retributions %9};
   #else {#var retributions 0};
-
-  #var gxp {%10};
-  #replace {gxp} {%} {};
 
   show_status_bar;
 
@@ -79,6 +93,8 @@
 
 #action {^%!{[> ]*}Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
   #local MAX_ROUNDS_DISENGAGED 0;
+  #local MIN_ADVANTAGE 70;
+
   #var angel[distance] @length{%3};
 
   #if {$angel[distance] > 0} {
@@ -88,8 +104,9 @@
   };
 
   #if {$angel[distance] > 0
-       && $rounds_disengaged > $MAX_ROUNDS_DISENGAGED
-       && "$use_engage" == "true"} {
+       && $rounds_disengaged >= $MAX_ROUNDS_DISENGAGED
+       && "$use_engage" == "true"
+       && $adv_sort[1][2] > $MIN_ADVANTAGE} {
     #send !engage;
     #math {angel[distance]} {$angel[distance] - 1};
   };

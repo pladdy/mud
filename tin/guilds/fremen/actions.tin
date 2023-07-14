@@ -173,4 +173,15 @@
 
 #action {^%!{[> ]*}%1 cannot be stunned!$} {
   #var stun_active true;
+  #send !voice;
+}
+
+#nop Hide;
+
+#action {You are already hidden.} {
+  #var can_hide false;
+}
+
+#action {You cannot seem to use your hide skills here.} {
+  #var can_hide false;
 }
