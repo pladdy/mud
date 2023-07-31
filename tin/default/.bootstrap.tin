@@ -48,7 +48,7 @@ log_level info;
 #config mouse off;
 
 #CONFIG           {AUTO TAB}  {5000}
-#CONFIG           {BUFFER SIZE}  {1000}
+#CONFIG           {BUFFER SIZE}  {10000}
 #CONFIG           {CHARSET}  {ASCII}
 #CONFIG           {COLOR PATCH}  {ON}
 #CONFIG           {COMMAND COLOR}  {<078>}

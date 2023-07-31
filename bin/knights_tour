@@ -9,6 +9,9 @@ class InvalidMove(Exception):
     pass
 
 
+# TODO: `bin/knights_tour 8 8 6 8 | wc` only produces 59 moves, not 63
+
+
 class Square:
     def __init__(self, x: int, y: int):
         self.x = x

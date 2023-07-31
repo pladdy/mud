@@ -23,7 +23,9 @@
   #math corpses {$corpses + 1};
 }
 
-#action {^%!{[> ]*}You picked up %1 corpse info the coffin.} {
+
+
+#action {^%!{[> ]*}You picked up %1 corpse into the coffin.} {
   #math corpses {$corpses + %1};
 }
 
