@@ -8,13 +8,13 @@ configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
 
-configure pattern add compound irradiator/ocular laser [0]/knee spike [0]/freon injector [0]
-configure pattern add incendiary cannon/ocular laser [1]/knee spike [1]/freon injector [1]
-configure pattern add hydraulic ramhammer/ocular laser [0]/knee spike [0]/freon injector [0]
+configure pattern add compound irradiator/ocular laser [0]/expansive hip augmentation/freon injector [0]
+configure pattern add incendiary cannon/ocular laser [1]/expansive hip augmentation/freon injector [1]
+configure pattern add hydraulic ramhammer/ocular laser [0]/expansive hip augmentation/freon injector [0]
 
-configure pattern add compound irradiator/ocular laser [1]/knee spike [1]/freon injector [1]
-configure pattern add incendiary cannon/ocular laser [0]/knee spike [0]/freon injector [0]
-configure pattern add hydraulic ramhammer/ocular laser [1]/knee spike [1]/freon injector [1]
+configure pattern add compound irradiator/ocular laser [1]/expansive hip augmentation/freon injector [1]
+configure pattern add incendiary cannon/ocular laser [0]/expansive hip augmentation/freon injector [0]
+configure pattern add hydraulic ramhammer/ocular laser [1]/expansive hip augmentation/freon injector [1]
 
 # aliases
 alias 1 configure strategy set 1/2/3/4/5/6

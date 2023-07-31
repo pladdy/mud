@@ -1,3 +1,23 @@
+#alias _rest_then_enable_stepper {
+  log.info Resting then re-enabling stepper;
+
+  #math {regen_per_round} {$gp1_max / 100 * 2};
+  #math {amount_to_regen} {$gp1_max - $gp1};
+  #math {rounds_to_regen} {$amount_to_regen / $regen_per_round + 5};
+
+  #nop Round is seconds * 2 (2s / round);
+  #local min_seconds $rounds_to_regen * 2;
+  #math rando {1 d 10};
+  #math regen_time {$min_seconds + $rando};
+
+  #delay {reactivate_stepper} {
+    log.info "Re-activating stepper after regen time: $regen_time seconds.";
+    stepper on;
+  } {$regen_time};
+
+  #unvar rando;
+}
+
 #alias actuate {
   run cyborg_actuator;
   #send actuate %0;
@@ -10,22 +30,16 @@
     #format {current_time} {%T};
     #math {time_since_stepper_started} {$current_time - $stepper_started};
   
-    #if {"$stepper" == "on" && ($time_since_stepper_started > 750 || $corpses < 5)} {
+    #if {"$stepper" == "on" && ($time_since_stepper_started > 750 || $corpses < 8)} {
+      log.info Disabling stepper, need to rest.;
       stepper off;
-  
-      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
-  
-      #nop Round is seconds * 2 (2s / round);
-      #local min_seconds 20;
-      #math rando {1 d 20};
-      #math regen_time {$min_seconds + $rando};
-  
-      #delay {reactivate_stepper} {
-        log.info "Re-activating stepper after regen time: $regen_time seconds.";
-        stepper on;
-      } {$regen_time};
-  
-      #unvar rando;
+
+      #if {@combat_rounds_left{} < 5} {
+        _rest_then_enable_stepper;
+      };
+      #else {
+        dtrig _rest_then_enable_stepper;
+      };
     };
   };
 }
@@ -34,6 +48,11 @@
   #send !unwield $wielded_weapon;
   #send !configure strategy %0;
   #send !wield $wielded_weapon;
+}
+
+#alias f10 {
+  use_corpse;
+  #send !get all;
 }
 
 #alias redc {

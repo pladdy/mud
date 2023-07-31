@@ -11,7 +11,7 @@
 
   #var gxp {%8};
 
-  #local MIN_POWER 200;
+  #local MIN_POWER 400;
   #if {$corpses > 0 && $gp1 < $MIN_POWER} {redc};
   check_stepper;
 }
@@ -19,7 +19,18 @@
 #action {^%!{[> ]*}ND: %1 C: [%2] %3} {
   #regexp {%3} {[%+]} {#var implants &1} {#var implants []};
   #regex {$implants} {IPP} {#nop;} {#send !activate intrinsic preservation proxy};
-  #regexp {%3} {TARG: %d%%$} {#var enemy &1} {#var enemy 0};
+  #regex {$implants} {AA} {#nop;} {#send !activate assault animus};
+  #regex {$implants} {GE} {#nop;} {#send !activate grip enhancer};
+  #regex {$implants} {PFS} {#nop;} {#send !activate projectional force shield};
+  #regex {$implants} {HNE} {#nop;} {#send !activate hadronic negation emitter};
+
+  #regexp {%3} {TARG: %d%%$} {
+    #var enemy &1;
+    #math {rounds_in_combat} {$rounds_in_combat + 1};
+  } {
+    #var enemy 0;
+    #var rounds_in_combat 0;
+  };
 
   show_status_bar;
 }

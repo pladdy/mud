@@ -1,9 +1,9 @@
 #alias attempt_explosive_release {
-  #if {$enemy > 0 && $gp1 < 10 && $school_spells > 0} {
+  #if {$enemy > 0 && $gp1 < 15 && $school_spells > 0} {
     #send !er;
   };
   #elseif {"$immersed" == "false" && $school_spells > 0 && $gp1 < 35} {
-    #if {$sp < 2000 && $mystic_immersions <= 0} {
+    #if {$sp < 2000 && $mystic_immersions < 1} {
       #send !er;
     };
   };

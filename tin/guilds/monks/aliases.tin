@@ -1,3 +1,18 @@
+#alias _rest_then_enable_stepper {
+  log.info Resting and then enabling stepper.;
+  #nop Round is seconds * 2 (2s / round);
+  #local min_seconds 10;
+  #math rando {1 d 30};
+  #math regen_time {$min_seconds + $rando};
+
+  #delay {reactivate_stepper} {
+    log.info "Re-activating stepper after regen time: $regen_time seconds.";
+    stepper on;
+  } {$regen_time};
+
+  #unvar rando;
+}
+
 #alias ansi {
   #send !ansi %1;
 
@@ -98,6 +113,19 @@
   }
 }
 
+#alias before_step_hook {
+  #math pct_sp {$sp / $sp_max * 1.0};
+
+  #if {$pct_sp < .50} {
+    stepper off;
+    #delay {2} {#send !meditate};
+    #delay {30} {
+      #send !hp;
+      stepper on;
+    };
+  }
+}
+
 #alias check_stepper {
   #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {
     log.warn Turnning stepper off.  Mind: $gp2, Stepper: $stepper;
@@ -110,21 +138,9 @@
     #math {time_since_stepper_started} {$current_time - $stepper_started};
   
     #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
+      log.info Disabling stepper, need to rest.;
       stepper off;
-  
-      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
-  
-      #nop Round is seconds * 2 (2s / round);
-      #local min_seconds 10;
-      #math rando {1 d 20};
-      #math regen_time {$min_seconds + $rando};
-  
-      #delay {reactivate_stepper} {
-        log.info "Re-activating stepper after regen time: $regen_time seconds.";
-        stepper on;
-      } {$regen_time};
-  
-      #unvar rando;
+      dtrig _rest_then_enable_stepper;
     };
   };
 }

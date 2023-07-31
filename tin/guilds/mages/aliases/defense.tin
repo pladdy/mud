@@ -45,7 +45,7 @@
 
   #if {"$use_psphere" == "true"} {
     #regexp {$dspells} { PS } {#nop;} {
-      #nop #delay {$i} {#send !cast prismatic sphere}; 
+      #delay {$i} {#send !cast prismatic sphere};
       #math {i} {$i + 2};
     };
   };

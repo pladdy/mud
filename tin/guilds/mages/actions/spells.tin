@@ -27,7 +27,7 @@
   };
 }
 
-#nop #action {^%!{[> ]*}Your rhino skin has been depleted!$} {
+#action {^%!{[> ]*}Your rhino skin has been depleted!$} {
   #if {$enemy > 0} {#send !cast rhino skin};
 };
 
@@ -47,10 +47,18 @@
   #if {$enemy > 0} {#send !cast prismatic aura};
 }
 
-#action {^%!{[> ]*}Your immersion has expired.$} {#send !cast spell tap always}
+#nop  Mystic Immersion;
+
+#action {^%!{[> ]*}With great magical precision you tap directly into the rivers of magical} {
+  #send !ash off;
+}
+
+#action {^%!{[> ]*}Your immersion has expired.$} {
+  #send !cast spell tap always;
+  #2 #send !ash;
+}
 
 #nop #action {^%!{[> ]*}You feel slower as the haste wears off.!} {}
-
 #nop #action {^%!{[> ]*}The magic of your stoneskin fades over time.} {}
 
 #nop Phantasmal Killer;

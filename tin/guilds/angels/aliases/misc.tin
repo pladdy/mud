@@ -1,3 +1,18 @@
+#alias _rest_then_enable_stepper {
+  log.info Resting and then enabling stepper.;
+  #nop Round is seconds * 2 (2s / round);
+  #local min_seconds 60;
+  #math rando {1 d 10};
+  #math regen_time {$min_seconds + $rando};
+
+  #delay {reactivate_stepper} {
+    log.info "Re-activating stepper after regen time: $regen_time seconds.";
+    stepper on;
+  } {$regen_time};
+
+  #unvar rando;
+}
+
 #alias auto_train {
   #if {"$auto_train" == "on"} {
     log.info Turning auto train off;
@@ -13,41 +28,23 @@
   #local MIN_END 50;
 
   #if {"$stepper" == "on" && $gp2 < $MIN_END} {
-    log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+    log.info Disabling stepper, need to rest.;
     stepper off;
-    
-    #nop Round is seconds * 2 (2s / round);
-    #local min_seconds 60;
-    #math rando {1 d 10};
-    #math regen_time {$min_seconds + $rando};
-
-    #delay {reactivate_stepper} {
-      log.info "Re-activating stepper after regen time: $regen_time seconds.";
-      stepper on;
-    } {$regen_time};
-
-    #unvar rando;
+    dtrig _rest_then_enable_stepper;
   };
   #else {
     #format {current_time} {%T};
     #math {time_since_stepper_started} {$current_time - $stepper_started};
   
     #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
+      log.info Disabling stepper, need to rest.;
       stepper off;
-  
-      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
-  
-      #nop Round is seconds * 2 (2s / round);
-      #local min_seconds 60;
-      #math rando {1 d 20};
-      #math regen_time {$min_seconds + $rando};
-  
-      #delay {reactivate_stepper} {
-        log.info "Re-activating stepper after regen time: $regen_time seconds.";
-        stepper on;
-      } {$regen_time};
-  
-      #unvar rando;
+      #if {@combat_rounds_left{} < 5} {
+        _rest_then_enable_stepper;
+      };
+      #else {
+        dtrig _rest_then_enable_stepper;
+      };
     };
   };
 }
