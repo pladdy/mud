@@ -5,6 +5,7 @@ alias bt manifest beyond time
 alias co consecrate
 alias com achat
 alias de manifest deva
+alias di disperse
 alias ds divine strike
 alias dv dive
 alias gwho angels
@@ -12,6 +13,7 @@ alias h radiance
 alias ha manifest halo
 alias im immortality
 alias ja junk all
+alias ri rites
 alias rl manifest renewed light
 alias wi manifest wings
 

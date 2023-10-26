@@ -29,6 +29,9 @@
 #showme Setting up stepper class;
 load_stepper_class;
 
+#showme Setting up mip class;
+load_mip_class;
+
 #nop Set up configured guild class;
 
 #if {"$guild" != ""} {

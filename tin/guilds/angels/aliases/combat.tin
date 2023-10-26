@@ -85,6 +85,7 @@
 #alias attempt_providence {
   #if {"$use_providence" == "true" &&
        @enough_distance_and_time{} &&
+       !@should_retribution{} &&
        $adv_sort[1][2] > $providence_at} {
     #send !providence $adv_sort[1][1];
     decrement_ts 1;
@@ -123,6 +124,10 @@
   #if {@enough_distance_and_time{} && @should_retribution{}} {
     retribution
   };
+}
+
+#alias attempt_shine {
+  #if {$gp1 > 100 && $yang > $shine_at} {#send !shine;};
 }
 
 #alias attempt_swing {

@@ -21,9 +21,11 @@
 #nop MIs lasts about 15% of a reset when used;
 
 #alias attempt_mystic_immersion {
+  #math sp_ratio {$sp / $sp_max * 1.00};
+
   #if {"$immersed" == "false"
        && $mystic_immersions > 0
-       && $sp < 800
+       && $sp_ratio < .25
   } {mim};
   #elseif {
     $guild_reset > 85

@@ -1,0 +1,44 @@
+#class mip kill;
+#class mip open;
+
+#nop Referencing https://github.com/Inix3K/TinTin/blob/master/3k/mip.tin;
+
+#alias enable_mip {
+  #math mip_secret {1 d 99999};
+  #format mip_secret {%+5s} $secret;
+  #info system save;
+
+  #send 3klient $mip_secret~$info[SYSTEM][CLIENT_NAME]$info[SYSTEM][CLIENT_VERSION];
+  #SEND 3klient LINEFEED on; #nop include linefeed with messages;
+  #SEND 3klient HAA off; #nop turns off room item messages;
+}
+
+#action {^%!{[> ]*}#K\%$mip_secret{\d{3}}{.{3}}{.+}} {
+  #showme <170>MIP Match;
+  #showme The 0 var: %0;
+  #var mip_raw_input %0;
+  
+  #var mip_length %1;
+  #showme The mip data length: %1;
+
+  #var mip_code %2;
+  #showme The mip code: %2;
+  
+  #var mip_raw_data %3;
+  #math mip_data_length {$mip_length - 3};
+  #format {mip_data} {%.${mip_data_length}s} {$mip_raw_data};
+  #showme The mip data: $mip_data;
+  
+  #var mip_remainder $mip_raw_data;
+  #replace mip_remainder {$mip_data} {};
+  #showme The remaining mip data: $mip_remainder;
+
+  #line gag;
+}
+
+#class mip close;
+
+#nop example of 2 codes coming in;
+#nop #K%67373007BAE0.00#K%67373067FFFJ~<rNukes: [3/3]> <vSupport: [4/4]> Reset: [11%] Suit: Elemental;
+#nop another example;
+#nop #K%67373011AAC1.9 days#K%67373011AAF6.8 days;

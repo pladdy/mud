@@ -14,13 +14,13 @@
 }
 
 #alias auto_train {
-  #if {"$auto_train" == "on"} {
+  #if {"$auto_train" == "true"} {
     log.info Turning auto train off;
-    #var auto_train off;
+    #var auto_train false;
   };
   #else {
     log.info Turning auto train on;
-    #var auto_train on;    
+    #var auto_train true;    
   }
 }
 
@@ -100,7 +100,7 @@
 }
 
 #alias train {
-  #if {"$auto_train" == "on"} {
+  #if {"$auto_train" == "true"} {
     #if {"$stepper" == "on"} {
       #var reactivate_stepper true;
       stepper off;

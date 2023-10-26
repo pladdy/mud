@@ -95,6 +95,10 @@
   #class notes close;
 }
 
+#alias load_mip_class {
+  read_tin_files tin/mip;
+}
+
 #alias load_stepper_class {
   #class stepper kill;
   #class stepper open;

@@ -13,6 +13,7 @@
 
   #var clan_powers %7;
   #var missiles %8;
+  #var jugger_reset %9;
 
   #var enemy_str {%11};
   #regexp {$enemy_str} {{\d+}} {#var enemy &1} {#var enemy 0};
@@ -26,6 +27,10 @@
   #nop Use up excess sps on heat if i'm at full;
   #if {$enemy > 0 && $gp2 < 75 && $sp >= $sp_max} {#send !dissipate};
 
+  #nop Use up missiles and clan powers;
+  #if {$clan_powers > 0 && $jugger_reset > 97} {#send !frenzy;};
+  #if {$missiles > 0 && $enemy > 0 && $jugger_reset > 97} {#send !fire $missiles};
+
   attempt_airdrop;
 }
 
@@ -38,8 +43,8 @@
     #regexp {$jugger_ammo} {{\d+}} {#var jugger_mounts[0] &1};
     #regexp {$jugger_ammo} {{\d+}/{\d+}} {#var jugger_mounts[1] &2} {#var jugger_mounts[1] 101};
 
-    #if {$jugger_mounts[0] < 100} {rammo 5 1};
-    #if {$jugger_mounts[1] < 100} {rammo 5 2};
+    #if {$jugger_mounts[0] < 100} {rammo 4 1};
+    #if {$jugger_mounts[1] < 100} {rammo 4 2};
   };
   #else {
     #var jugger_ammo 0;

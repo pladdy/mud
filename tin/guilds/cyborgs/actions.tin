@@ -21,7 +21,6 @@
   #regex {$implants} {IPP} {#nop;} {#send !activate intrinsic preservation proxy};
   #regex {$implants} {AA} {#nop;} {#send !activate assault animus};
   #regex {$implants} {GE} {#nop;} {#send !activate grip enhancer};
-  #regex {$implants} {PFS} {#nop;} {#send !activate projectional force shield};
   #regex {$implants} {HNE} {#nop;} {#send !activate hadronic negation emitter};
 
   #regexp {%3} {TARG: %d%%$} {

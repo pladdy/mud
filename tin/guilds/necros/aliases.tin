@@ -43,7 +43,10 @@
 
 #alias attempt_glamor {
   log.debug attempting $necro_glamor;
-  #if {$glamors > 1 && "$glamor_active" != "true" && ($spp < .6 || $gp1p < .9)} {
+  #if {$glamors > 1 &&
+       "$glamor_active" != "true" &&
+       ($spp < .6 || $gp1p < .9) && $enemy > 0
+  } {
     #if {"$necro_veil_omega_maxed" == "true"} {#send !$necro_glamor};
     #elseif {"$veil" != "ON"} {#send !$necro_glamor};
   };
@@ -168,7 +171,7 @@
       #send !donate all from bag $i;
     };
   } {
-    #loop 1 $BAGS_TO_USE i {
+    #loop 2 $BAGS_TO_USE i {
       #send !sell all from bag $i;
     };
   };
@@ -255,7 +258,7 @@
 #alias use_corpse {
   #if {$ncorpses < $MAX_NECRO_CORPSES} {p};
   #else {
-    #if {$hpp < $spp} {#send !abb};
+    #if {$hpp < $spp && $hpp < $gp1} {#send !abb};
     #else {#send !ab};
   };
 }

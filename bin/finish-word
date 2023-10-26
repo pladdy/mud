@@ -1,0 +1,127 @@
+#!/usr/bin/env perl
+
+# Note to self:
+# rewrite in python
+# could use this https://raw.githubusercontent.com/benjihillard/English-Dictionary-Database/main/english%20Dictionary.csv
+# since it has word type
+# use an LLM?
+
+use strict;
+use warnings;
+
+my $word_list = "english-word-list.txt";
+
+open(my $fh, "<", $word_list);
+
+# build dictionary
+my %dictionary;
+
+while (my $line = <$fh>) {
+  $line =~ s/(\n|\R)$//;
+
+  my $dictionary_ref = \%dictionary;
+  my @chars = split(//, $line);
+
+  my $i = 0;
+  my $len = scalar(@chars);
+
+  for (@chars) {
+    if ($i + 1 >= $len) {
+      $dictionary_ref->{$_} = {};
+    }
+    elsif (not exists $dictionary_ref->{$_}) {
+      $dictionary_ref->{$_} = {};
+    }
+    $dictionary_ref = $dictionary_ref->{$_};
+    $i++;
+  }
+}
+
+close($fh);
+
+# For ex-mple, usin- this sent-nce, the command wo-d is: ager
+
+# verify
+my $result = process_word("ex-mple");
+print("Missing letter is '$result'\n");
+
+$result = process_word("usin-");
+print("Missing letter is '$result'\n");
+
+$result = process_word("sent-nce");
+print("Missing letter is '$result'\n");
+
+$result = process_word("wo-d");
+print("Missing letter is '$result'\n");
+
+# subroutines
+
+sub missing_letter {
+  my @remaining_chars = @{$_[0]};
+  my $dictionary_ref = $_[1];
+
+  my @possible_keys = sort(keys %{$dictionary_ref});
+
+  # print("  Possible keys @possible_keys\n");
+  # print("  Remaining Chars @remaining_chars\n");
+
+  if (scalar(@remaining_chars) == 0) {
+    return $possible_keys[0];
+  }
+
+  for (@possible_keys) {
+    my $possible_key = $_;
+    my $old_ref = $dictionary_ref;
+    my $new_ref = $dictionary_ref->{$possible_key};
+
+    my @keys_now = sort(keys %{$new_ref});
+    # print("  Keys now @keys_now\n");
+
+    for (@remaining_chars) {
+      my $char = $_;
+      # print("  Checking char $char\n");
+
+      if (exists $new_ref->{$char}) {
+        if ($char eq $remaining_chars[-1]) {
+          return $possible_key;
+        }
+        else {
+          $new_ref = $new_ref->{$char};
+        }
+      }
+      else {
+        last;
+      }
+    }
+
+    # print("Oh no\n");
+    $new_ref = $old_ref;
+  }
+}
+
+sub process_word {
+  my $word = $_[0];
+  print("Word is $word\n");
+
+  my @chars = split(//, $word);
+  my $chars_len = scalar(@chars);
+  my $dictionary_ref = \%dictionary;
+
+  my $missing_letter;
+  my $i = 0;
+
+  for (@chars) {
+    # print("Checking char $_, i is $i\n");
+    if ($_ eq "-") {
+      my @chars_slice = @chars[$i + 1..$chars_len - 1];
+      return missing_letter(\@chars_slice, $dictionary_ref);
+    }
+
+    if (exists $dictionary_ref->{$_}) {
+      $dictionary_ref = $dictionary_ref->{$_};
+      my @keys = sort(keys %{$dictionary_ref});
+      # print("  Keys is now @keys\n");
+    }
+    $i++;
+  }
+}

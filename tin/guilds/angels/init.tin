@@ -12,13 +12,13 @@
 #var use_lunge {false};
 #var use_presage {true};
 #var use_providence {true};
-#var use_quietus {false};
+#var use_quietus {true};
 #var use_radiance {true};
 #var use_renewed_light {true};
 #var use_retribution {true};
 #var use_traverse {true};
 
-#var auto_train {on};
+#var auto_train {true};
 #nop use a spoon to 'eat' corpses to dest them instead of 'disperse';
 #var use_spoon {false};
 
@@ -35,6 +35,12 @@
 #var providence_at {75};
 #var retribution_at_hits {4};
 #var retribution_at {80};
-#var swing_at {100};
+#var shine_at {1000};
+#var swing_at {80};
 
 #gag {^%!{[> ]*}You are already as close as you can get to your foe!};
+#gag {^%!{[> ]*}You must wait before trying to disengage again.$};
+#gag {^%!{[> ]*}You cannot perform another presage so quickly.$};
+#gag {^%!{[> ]*}You can only use providence after a successful presage!$};
+#gag {^%!{[> ]*}You can only do this after a parry.$};
+#gag {^%!{[> ]*}You must wait to try and circle again.$};

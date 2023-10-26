@@ -80,7 +80,7 @@
 #alias rammo {
   #if {"%1" == ""} {
     #send !truck ammo list projectile;
-    #showme <170>Syntax is 'rammo <mount number> <ammo number>';
+    #showme <170>Syntax is 'rammo <ammo number> <mount number>';
   };
   #else {
     #send !truck ammo vbuy projectile %1 %2 10000;
@@ -100,7 +100,7 @@
 #alias su_can {
   #send !support reset;
   #99 #send !support upgrade powerplant;
-  #99 #send !support upgrade mount;
+  #110 #send !support upgrade mount;
   #send !support assault fire,radiation,electric,ice,poison;
 }
 

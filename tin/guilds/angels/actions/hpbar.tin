@@ -47,6 +47,8 @@
   #var corpses {%1};
   #var gxp {%2};
   #replace {gxp} {%} {};
+  #var yin {%3};
+  #var yang {%4};
 }
 
 #nop  hpbar 1;
@@ -55,11 +57,11 @@
 }
 
 #action {^%!{[> ]*}C: %1/%2 Yi: %3 Ya: %4/%5 F: %6 RB: %7/%8 (%9%%) G: %10} {
-  _angel_hpbar2 %1 %10;
+  _angel_hpbar2 %1 %10 %3 %4;
 }
 
 #action {^%!{[> ]*}C: %1 %2 Yi: %3 Ya: %4/%5 F: %6 RB: %7/%8 (%9%%) G: %10} {
-  _angel_hpbar2 %1 %10;
+  _angel_hpbar2 %1 %10 %3 %4;
 }
 
 #action {^%!{[> ]*}HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 R: %9} {
@@ -92,7 +94,7 @@
 #nop This action only fires when there's distance between me and a mob;
 
 #action {^%!{[> ]*}Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
-  #local MAX_ROUNDS_DISENGAGED 0;
+  #local MAX_ROUNDS_DISENGAGED 2;
   #local MIN_ADVANTAGE 70;
 
   #var angel[distance] @length{%3};
@@ -104,9 +106,8 @@
   };
 
   #if {$angel[distance] > 0
-       && $rounds_disengaged >= $MAX_ROUNDS_DISENGAGED
-       && "$use_engage" == "true"
-       && $adv_sort[1][2] > $MIN_ADVANTAGE} {
+       && $rounds_disengaged > $MAX_ROUNDS_DISENGAGED
+       && "$use_engage" == "true"} {
     #send !engage;
     #math {angel[distance]} {$angel[distance] - 1};
   };
