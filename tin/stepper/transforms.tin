@@ -44,3 +44,5 @@
 #var monster_transforms[marbled reed frog] {frog};
 #var monster_transforms[swamp sparrow] {sparrow};
 #var monster_transforms[a large rimalkin feeding on a corpse] {rimalkin};
+#var monster_transforms[a strong elven soldier] {soldier};
+#var monster_transforms[a burly elven soldier] {soldier};

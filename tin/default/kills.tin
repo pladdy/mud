@@ -126,9 +126,14 @@
 #alias log_and_update_stepper {
   log.info A mob died: '%0' died;
   #delay {mob_died_event} {
+    _handle_btrig
+    commands_before_corpse;
     wrap_or_use_corpse;
     #send !glance;
-  } {4};
+    _divvy_and_get;
+    commands_after_corpse
+    _handle_dtrig;
+  } {2};
 
   #if {"$stepper" == "on"} {
     remove_seen_monster "%0";
@@ -140,48 +145,56 @@
   #undelay mob_died_event;
   #if {"$stepper" == "on"} {ttl_no_monsters off};
 
-  #if { @length{$btrig} > 0 } {
-    log.debug running btrig commands: $btrig;
-    #foreach {$btrig} {b} {$b;};
-    #var btrig {};
-  };
-
+  _handle_btrig;
   commands_before_corpse;
 
   #if {"$ktrig_status" == "on"} {
     log.debug checking $last_killer against killers ($character|$summons|$my_dog|tree) that can use corpse;
     #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree}} {
       wrap_or_use_corpse;
-      #if {"$party_status" == "yes"} {#send !divvy gold};
-      #if {"$gemino_mortis" != "true"} {
-        #if {"$flying" == "true"} {#send !swoop all};
-        #else {#send !get all};
-      };
-      #if {"$stepper" == "on"} {pba};
+      _divvy_and_get;
     };
 
-    #nop Kill Sprints...places to run after a mob dies;
+    #send !glance;
 
+    #nop Kill Sprints...places to run after a mob dies;
     #switch {"$last_killed"} {
       #case "Cryohydra." {run verbeeg_chief;};
     };
   };
 
   commands_after_corpse;
+  _handle_dtrig;
+}
 
+#alias _divvy_and_get {
+  #if {"$party_status" == "yes"} {#send !divvy gold};
+  #if {"$gemino_mortis" != "true"} {
+    #if {"$flying" == "true"} {#send !swoop all};
+    #else {#send !get all};
+  };
+  #if {"$stepper" == "on"} {pba};
+}
+
+#alias _handle_btrig {
+  #if { @length{$btrig} > 0 } {
+    log.debug running btrig commands: $btrig;
+    #foreach {$btrig} {b} {$b;};
+    #var btrig {};
+  };
+}
+
+#alias _handle_dtrig {
   #if { @length{$dtrig} > 0 } {
     log.debug running dtrig commands: $dtrig;
     #if {"$gemino_mortis" == "true"} {
-      #delay 2 {
-        #foreach {$dtrig} {d} {$d};
-        #var dtrig {};
-      }
+      #delay 2 {_run_dtrig_commands};
     };
-    #else {
-      #foreach {$dtrig} {d} {$d};
-      #var dtrig {};
-    };
+    #else {_run_dtrig_commands};
   };
+}
 
-  #send !glance;
+#alias _run_dtrig_commands {
+  #foreach {$dtrig} {d} {$d};
+  #var dtrig {};
 }

@@ -32,7 +32,8 @@
     #else {
         log.info Mapper off;
         #var mapper off;
-        #send !aset room_short;
+        #if {"$tracker" == "on"} {#send !aset room_short white+[RS] +reset};
+        #else {#send !aset room_short};
         #send !brief on yes;
         #unvar map[room_desc];
         #unevent {RECEIVED INPUT};

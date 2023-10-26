@@ -51,9 +51,9 @@
 
 #action {^[P] %1} {
   log.debug Tracker found player present, player %1;
-  sound_beeps;
   #var player_present {true};
   #if {"$stepper" == "on"} {
+    sound_beeps;
     #delay player_present_delay {
       #if {"$player_present" == "true"} {
         log.warn Player still present!  Trying to move.;
@@ -70,7 +70,7 @@
 
 #action {^There is no %1 here.} {
   #regexp {%1} {reason to}
-    {}
+    {#nop;}
     {
       #list {seen_monsters} {find} {%1} {mob_index};
 
