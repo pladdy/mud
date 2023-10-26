@@ -4,18 +4,30 @@ These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 
 ![Screenshot](./screenshot.png "Screenshot")
 
-## Install
+
+## Install Repository
 
 Clone the repo: `git clone git@github.com:pladdy/mud.git`
 
 - this has been tested to run on a Mac; I've made some efforts to make it nix' compatible but it might need more love
 - windows users can install cygwin and then install this in your cygwin environment
+- There's also a Dockerfile that enables you to run via docker.
 
-## Install Dependencies
+### Running with Docker
+
+You can run the client using [Docker](https://www.docker.com/get-started/).
+
+With docker installed, run `make docker-build`.
+
+Once the image is built you can use `make docker-run`
+
+### Running on macOS
 
 `make install`
 
 - This might work on ubuntu/fedora which use apt-get and yum...not tested
+
+Once the repo is installed and `./play` can run, set up a profile to play.
 
 ## Setup a profile to play
 
@@ -23,12 +35,12 @@ To set up a profile run `bin/create_profile <char name> <guild name>`
 
 Example: `bin/create_profile gilead necros`
 
-The `profiles/` directory houses profiles.  These are the files that handle setting up the session when logging in with
-a specific character.
+The `profiles/` directory houses profiles.  These are the files that handle setting
+up the session when logging in with a specific character.
 
 ## Usage
 
-`./play -p <character name>`
+`./play <character name>`
 
 - The play script will automatically search the *profiles/* directory for the given character file.
 - The map that loads is displayed on the right of the client screen.  Currently the client screen
@@ -44,8 +56,12 @@ If you want to learn more about what commands are available while playing, see [
 
 ### Dependency Notes
 
+- Docker OR
 - Mac/Unix based OS
   - Cygwin seems to work as an OS platform if you're using windows (tested by Wag)
+
+#### Additional dependencies
+
 - Perl
   - This should already be installed by default on non-windows OS' (and in Cygwin)
 - TinTin++ Mud Client: http://tintin.sourceforge.net/

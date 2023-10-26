@@ -13,6 +13,15 @@ all: tintin install
 bin/english-word-list.txt:
 	curl -s https://www.wordgamedictionary.com/english-word-list/download/english.txt -o $@
 
+docker-run:
+	@echo
+	@echo Starting container.  Once in the container, run './play'.
+	@echo
+	-docker run -v .:/opt/mud -it pladdy/mud:latest /bin/bash
+
+docker-build:
+	docker build . -t pladdy/mud:latest
+
 install:
 	bin/install
 
