@@ -1,11 +1,8 @@
 #alias blink {
   #send !deplete ps;
-
-  #var spells[B] {on};
+  #var spells[ps] {off};
   #send !cast blink;
-
-  #var spells[pa] {on};
-  #send !cast prismatic aura;
+  #delay 2 {#send !cast prismatic aura};
 }
 
 #alias cg {
@@ -62,6 +59,13 @@
 #alias mim {
   #send !cast spell tap never;
   #send !cast mystic immersion;
+}
+
+#alias pa {
+  #send !deplete pe;
+  #var spells[pe] off;
+  #send !cast prismatic sphere;
+  #delay 2 {#send !cast blink};
 }
 
 #alias pe {
