@@ -17,3 +17,18 @@ charges the eq.  Charging it raises the AC.
 
 * After maxing an item, it can still absorb a kill.  Remove/bag the item so you
 * can charge up other pieces more efficiently.
+
+Eye of twilight
+
+Basically a key, must be charged
+
+Bone Goelm -> Eye of twilight (gem, can't equip, charge and use in wall)
+0 [dull]
+1 [glowing dimly]
+3 [twinklink]
+4 [sparkling]
+6 [glowing]
+
+With the eye at [glowing] you can insert it into socket
+
+Twilight Guardian -> Sword of Twilight

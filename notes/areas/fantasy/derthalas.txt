@@ -1,3 +1,32 @@
+Derthalas includes the keep and forest around it.
+
+Mini quests
+- repair gate
+- get key from lyriac and ?
+- gryphon trainer and the elven learning slate in aviary
+  - slate is behind locked door...key is in abandoned well
+  - Death entity in ravenloft castle can teleport you to aviary (an option if
+    aviary is blocked).
+
+Lyriac conversation:
+- hi
+- story
+- danger
+- perinth
+- king tharon
+- queen
+- elven star
+- gift
+- book
+- trainer
+- sylaric
+- treehomes
+- bridges
+- vesperia
+- tale
+
+Lyriac won't talk about vesperia, who does?  Perinth?
+
 23:03 Rictor : Aviary btw
 23:04 Rictor : Gotta do shit at path up from spider, where crank is to
                turn to open doors to castle

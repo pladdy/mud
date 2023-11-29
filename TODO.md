@@ -13,7 +13,15 @@ Alizarian Tower (get helmet):
                 and some coins
 
 Banshee's lair (In Village of Erah)
+
 Transylvania Hotel basement (Party only?)
+
+Finish mapping murus faralain 2.0
+  - azra's tunnel (need amulet of flying)
+
+Finsh tomb of king alaren (missing two rooms)
+
+Map ralintaro's towers
 
 ## Interface to search notes/data
 
