@@ -1,3 +1,10 @@
+#alias attempt_haste {
+  #if {$enemy > 0} {
+    #if {"$haste" == "false"} {#send !cast haste};
+    #if {"$golem_haste" == "false"} {#send !cast haste golem};
+  };
+}
+
 #alias blink {
   #send !deplete ps;
   #var spells[ps] {off};

@@ -12,7 +12,7 @@
   #math map_height {$map_height * 2};
 
   #nop  TODO: make this dynamic...if the screen is small 3x might not work;
-  #math map_width {$map_height * 4};
+  #math map_width {$map_height * 5};
 
   #math map_box_height {$map_height + 2};
   #var map_box_width $screen_width;

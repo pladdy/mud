@@ -1,13 +1,13 @@
 #action {^%!{[> ]*}Your shield is shattered from the force of the blow!$} {
-  #if {$enemy > 0} {#send !cast shield};
+  #nop #if {$enemy > 0} {#send !cast shield};
 }
 
 #action {^%!{[> ]*}Your magnificent shield is shattered from the force of the blow!$} {
-  #if {$enemy > 0} {#send !cast magnificent shield};
+  #nop #if {$enemy > 0} {#send !cast magnificent shield};
 }
 
 #action {^%!{[> ]*}Your armor spell has dissipated!$} {
-  #if {$enemy > 0} {#send !cast armor};
+  #nop #if {$enemy > 0} {#send !cast armor};
 }
 
 #action {^%!{[> ]*}----*> Your %1 contingency has dissipated!<*----} {
@@ -32,19 +32,19 @@
 };
 
 #action {^%!{[> ]*}Your stoneskin has depeleted!$} {
-  #if {$enemy > 0} {#send !cast stoneskin};
+  #nop #if {$enemy > 0} {#send !cast stoneskin};
 }
 
 #action {^%!{[> ]*}Your minor globe has ended.$} {
-  #if { $enemy > 0 } {#send !cast minor globe};
+  #nop #if { $enemy > 0 } {#send !cast minor globe};
 }
 
 #action {^%!{[> ]*}Your form has solidified.$} {
-  #if {$enemy > 0} {#send !cast blink};
+  #nop #if {$enemy > 0} {#send !cast blink};
 }
 
 #action {^%!{[> ]*}Your skin ceases its colorful displays.$} {
-  #if {$enemy > 0} {#send !cast prismatic aura};
+  #nop #if {$enemy > 0} {#send !cast prismatic aura};
 }
 
 #nop  Mystic Immersion;
@@ -58,7 +58,34 @@
   #2 #send !ash;
 }
 
-#nop #action {^%!{[> ]*}You feel slower as the haste wears off.!} {}
+#nop  Haste;
+
+#action {^%!{[> ]*}You feel slower as the haste wears off.$} {
+  #var haste false;
+  #if {$enemy > 0} {#send !cast haste};
+}
+
+#action {^%!{[> ]*}You raise your arms and suddenly %1 is moving much faster!$} {
+  #var haste true;
+}
+
+#action {^%!{[> ]*}You raise your arms and suddenly %1 golem is moving much faster!$} {
+  #var golem_haste true;
+}
+
+#action {^%!{[> ]*}%1 is already hasted.$} {
+  #var haste true;
+}
+
+#action {^%!{[> ]*}%1 (%2 Golem) seems to slow down...$} {
+  #var golem_haste false;
+  #if {$enemy > 0} {#send !cast haste golem};
+}
+
+#action {^%!{[> ]*}magical words.  A creature forms from the materials!$} {
+  #var golem_haste false;
+}
+
 #nop #action {^%!{[> ]*}The magic of your stoneskin fades over time.} {}
 
 #nop Phantasmal Killer;

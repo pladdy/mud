@@ -10,6 +10,8 @@
 #nop #var ms7 {};
 #nop #var ms8 {};
 
+#var golem_haste false;
+#var haste false;
 #var slowed {0};
 
 #var summons {.* golem|Something|$ms1|$ms2|$ms3|$ms4|$ms5|$ms6};

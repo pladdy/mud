@@ -22,6 +22,7 @@
   #var school_spells %12;
   #var school_reset %13;
 
+  attempt_haste;
   attempt_mystic_immersion;
   attempt_explosive_release;
   attempt_focus_mind;

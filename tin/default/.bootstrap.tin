@@ -45,7 +45,7 @@ load_notes_class;
 log_level info;
 
 #nop Session has to be established before a map can be loaded;
-#nop Maps are loaded via login actions: see tin/default/actions/login.tin;
+#nop Maps are loaded via login actions: see tin/default/login.tin;
 #var {map_dir} {tin/map};
 
 #config mouse off;

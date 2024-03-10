@@ -249,7 +249,7 @@
 
 #alias dq_gxp {
   #send !defensequeue clear;
-  #send !defensequeue parry,riposte,block,void;
+  #send !defensequeue reversal,parry,riposte,block,void;
 }
 
 #alias dqa {

@@ -1,0 +1,57 @@
+Wizard's brain
+
+alias prl pull red lever
+alias pgl pull green lever
+alias pbl pull blue lever
+alias pyl pull yellow lever
+
+yellow can't be last
+yellow is after blue
+after red, you have to pull green
+
+pull yellow lever
+pull red lever
+pull blue lever
+pull green lever
+
+i got lucky and pulled the ceiling down
+-> chocholate donut
+-> guiness
+
+r b g y
+r b y g
+r g b y
+r g y b
+r y g b
+r y b g
+
+b r g y
+b r y g
+b g r y
+b g y r
+b y g r
+b y r g
+
+won't work
+g r b y
+g r y b
+g b r y
+g b y r
+g y b r
+g y r b
+
+y b r g
+y b g r
+y r g b
+y r b g
+y g b r
+y g r b
+---
+
+ralias prl
+ralias pgl
+ralias pbl
+ralias pyl
+
+----------
+

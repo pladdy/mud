@@ -12,7 +12,8 @@
 #nop Logging;
 
 #event {SESSION CONNECTED} {
-  #var {session_log} {./3k_session.log};
+  #format log_day {%t} {%Y-%m-%d};
+  #var {session_log} {./logs/$log_day-3k-session.log};
   #log append {$session_log};
   #delay 5 {#echo {Session connected at %t.} {%Y-%m-%d %H:%M:%S}};
 }
