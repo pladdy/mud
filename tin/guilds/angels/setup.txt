@@ -63,7 +63,7 @@ aset angel_awe brown
 hpset hpbar H: $HP$/$HPMAX$ S: $SP$/$SPMAX$ T: $TS$/$TSMAX$ D: $DV$/$DVMAX$ E: $EN$/$ENMAX$ C: $COF$ En: $ENEMY$ $NL$Di: $DIST$ Yi: $YIN$ Ya: $YANG$/$YANGMAX$ F: $FLAGS$ RB: $RB$/$RBM$ ($RBR$%) $NL$HO: $ADVHO$/$WKHO$ HI: $ADVHI$/$WKHI$ LO: $ADVLO$/$WKLO$ LI: $ADVLI$/$WKLI$ R: $RET$ G: $FOCUSGXP$
 hpset hpbar H: $HP$/$HPMAX$ S: $SP$/$SPMAX$ T: $TS$/$TSMAX$ D: $DV$/$DVMAX$ E: $EN$/$ENMAX$ En: $ENEMY$ $NL$C: $COF$ Yi: $YIN$ Ya: $YANG$/$YANGMAX$ F: $FLAGS$ RB: $RB$/$RBM$ ($RBR$%) G: $FOCUSGXP$$NL$Di: $DIST$$NL$HO: $ADVHO$/$WKHO$ HI: $ADVHI$/$WKHI$ LO: $ADVLO$/$WKLO$ LI: $ADVLI$/$WKLI$ R: $RET$
 
-compound-attack pre_pro_lo_to_ho presage lo/providence ho
-compound-attack pre_pro_li_to_hi presage li/providence hi
-compound-attack pre_pro_ho_to_lo presage ho/providence lo
-compound-attack pre_pro_hi_to_li presage hi/providence li
+compound-attack hi presage hi/providence hi/divine strike hi/retribution hi/awe hi/quietus hi
+compound-attack ho presage ho/providence ho/divine strike ho/retribution ho/awe ho/quietus ho
+compound-attack li presage li/providence li/divine strike li/retribution li/awe li/quietus li
+compound-attack lo presage lo/providence lo/divine strike lo/retribution lo/awe lo/quietus lo

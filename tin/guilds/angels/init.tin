@@ -33,7 +33,7 @@
 #var lunge_min_ts {5};
 #var min_ts {10};
 #var providence_at {75};
-#var retribution_at_hits {4};
+#var retribution_at_hits {3};
 #var retribution_at {80};
 #var shine_at {1000};
 #var swing_at {80};

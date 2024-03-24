@@ -132,6 +132,7 @@
 
 #alias attempt_swing {
   #if {@should_swing{} == 1} {
+    #nop #send !perform $highest_area;
     attempt_awe;
     attempt_retribution;
     attempt_divine_strike;

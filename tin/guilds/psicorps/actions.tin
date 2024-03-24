@@ -47,7 +47,7 @@
 
     #if {$gp1_percent > .2} {
       #switch "$actuate" {
-        #case "aa" {};
+        #case "aa" {#nop};
         #case "cg" {
           #if {$powers[$actuate] < 20 && $gp2_percent > .2} {#send !$actuate}
         };

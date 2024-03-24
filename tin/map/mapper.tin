@@ -11,17 +11,26 @@
     #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
 }
 
-#action {^%!{[> ]*}[MR] %1$} {
+#action {^%!{[> ]*}[RS] %1$} {
     #var map[room_desc] %1;
     #map set roomdata $map[room_desc];
     #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+} {1}
+
+#action {^%!{[> ]*}[RL]%*\n%a>} {
+    #unvar long;
+    #format long1 {%p} {%1};
+    #format long2 {%p} {%2};
+    #var long {$long1\n$long2};
+    #map set roomdesc $long;
 } {1}
 
 #alias mapper {
     #if {"%0" == "on"} {
         log.info Mapper on;
         #var mapper on;
-        #send !aset room_short white+[MR] +reset;
+        #send !aset room_short white+[RS] +reset;
+        #send !aset room_long white+[RL] +reset;
         #send !brief on no;
         #event {RECEIVED INPUT} {
             #nop;
@@ -32,8 +41,11 @@
     #else {
         log.info Mapper off;
         #var mapper off;
+
         #if {"$tracker" == "on"} {#send !aset room_short white+[RS] +reset};
         #else {#send !aset room_short};
+
+        #send !aset room_long;
         #send !brief on yes;
         #unvar map[room_desc];
         #unevent {RECEIVED INPUT};

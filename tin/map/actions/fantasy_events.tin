@@ -77,6 +77,10 @@
 
 #nop Great Well of Crenda;
 
+#action {^%!{[> ]*}You sift through the dirt, and find a torch!} {
+  #if {$map[current_room] == 6436} {#send !light torch};
+}
+
 #action {^%!{[> ]*}A strange glow surrounds you, and the torch vanishes from your hand!$} {
   #if {$map[current_room] == 6436} {#map goto 6437};
 }

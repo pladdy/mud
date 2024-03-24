@@ -83,7 +83,7 @@
 
 #alias attempt_throw {
   #local MIN_CHI 90;
-  #if {$sp == $sp_max
+  #if {$sp >= $sp_max
        && $gp1 > $MIN_CHI
        && $enemy > 0
        && "$can_throw" == "true"} {
