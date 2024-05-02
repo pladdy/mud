@@ -3,11 +3,9 @@
 install_on_linux() {
   echo "Install tintin dependencies"
   if which apt-get > /dev/null 2>&1; then
-    sudo apt-get install zlib1g-dev
-    sudo apt-get install libpcre++-dev
+    sudo apt-get install zlib1g-dev libpcre++-dev bash build-base zlib-dev findutils gnutls-dev pcre-dev make wget
   elif which yum > /dev/null 2>&1; then
-    sudo yum install zlib-devel
-    sudo yum install pcre-devel
+    sudo yum install zlib-devel pcre-devel bash build-base zlib-dev findutils gnutls-dev pcre-dev make wget
   fi
 
   echo "Installing tintin..."
@@ -17,7 +15,6 @@ install_on_linux() {
   tar -xzf ${target}
   cd ./tt/src/
   ./configure
-  sudo make install
   cd ../..
   rm -rf ${target} tt/
 
@@ -35,9 +32,9 @@ install_on_mac() {
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
+  brew install pcre2
   echo "Installing tintin..."
   make tintin
-  make install
 }
 
 os=""
