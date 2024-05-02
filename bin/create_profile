@@ -16,7 +16,7 @@ if [ -z $2 ]; then
   rm ${PROFILE_PATH}
   exit 1
 else
-  sed -i.bak "s/put your guild here/$2/" ${PROFILE_PATH}
+  sed -i.bak "s/YourGuildHere/$2/" ${PROFILE_PATH}
   if [ $? == 0 ]; then
     rm ${PROFILE_PATH}.bak
   fi

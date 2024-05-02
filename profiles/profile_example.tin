@@ -1,6 +1,6 @@
 #nop Set up environment;
 
-#var guild {guild};
+#var guild {YourGuildHere};
 #var BAGS_TO_USE {8};
 #var ETERNALS {false};
 
