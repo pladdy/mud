@@ -11,7 +11,7 @@
     #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
 }
 
-#action {^%!{[> ]*}[RS] %1$} {
+#action {^%!{[> ]*}[MRS] %1$} {
     #var map[room_desc] %1;
     #map set roomdata $map[room_desc];
     #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
@@ -29,7 +29,8 @@
     #if {"%0" == "on"} {
         log.info Mapper on;
         #var mapper on;
-        #send !aset room_short white+[RS] +reset;
+        #nop use MRS so action does not conflict with stepper;
+        #send !aset room_short white+[MRS] +reset;
         #send !aset room_long white+[RL] +reset;
         #send !brief on no;
         #event {RECEIVED INPUT} {

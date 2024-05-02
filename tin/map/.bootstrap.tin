@@ -15,17 +15,9 @@ map_lock;
 #nop  Go to last known room if possible;
 #read last_session.tin;
 
-#nop  When status bar is not delayed, the prompt will do a carriage return;
-#nop  every mud prompt.  If status bar is refreshed, the behavior goes away.;
-#nop  Or not...this behavior changed in tt++ 2.02.11;
-
-#nop status_bar on;
-#nop hp;
 status_bar on;
-#delay 0.5 {hp};
 
-#regexp {$map[current_room]} {{[0-9]+}} {#map goto $map[current_room]}
-                                        {#map goto home};
+#regexp {$map[current_room]} {{[0-9]+}} {#map goto $map[current_room]} {#map goto home};
 
 #nop This refreshes the map, delay it to avoid error from #draw;
 #delay 1 {
