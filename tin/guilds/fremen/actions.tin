@@ -1,41 +1,4 @@
-#action {^%!{[> ]*}H: %1/%2 S: %3/%4 W: %5/%6(%7) L: %8% P: %9(%10%) E#: %11 E: %12 $} {
-  #var hp {%1};
-  #var hp_max {%2};
-  #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
-
-  #var sp {%3};
-  #var sp_max {%4};
-
-  #var gp1 {%5};
-  #var gp1_max {%6};
-
-  #var suit_water {%7};
-  #math {total_water} {$gp1 + $suit_water};
-  #format total_water_pct {%f} {$total_water / $gp1_max};
-
-  #var enemy {%12};
-
-  #if {"$enemy" == "none"} {
-    #var enemy 0;
-    #var rounds_in_combat 0;
-  };
-  #else {
-    #math {rounds_in_combat} {$rounds_in_combat + 1}
-  };
-
-  #replace {enemy} {%} {};
-
-  #format gp1_raw_pct {%f} {$gp1 / $gp1_max};
-  #if {$total_water_pct < 1.3 && $gp1_raw_pct < .1 && $corpses > 0} {rerc};
-
-  attempt_hide;
-  attempt_stun;
-  attempt_voice;
-  #nop attempt_adjust_litany;
-  show_status_bar;
-  check_stepper;
-}
-
+#nop second line of hpbar required to c
 #action {^%!{[> ]*}Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 C: %7 Gt: %8 G:} {
   #var litany_focus %1;
 
@@ -45,13 +8,14 @@
   #var corpses %7;
 
   #var gxp %8;
+  calculate_delta gxp;
 
-  #if {$enemy > 0 && "$ammo" != "--"} {
+  #if {$rounds_in_combat > 0 && "$ammo" != "--"} {
     #if {$ammo == 1 && $ammo_max > 0} {#send !mload};
   };
 
   count_available_spices;
-  #if {$enemy > 0 
+  #if {$rounds_in_combat > 0 
        && ("$spice_level" == "Withdrawal" || "$spice_level" == "None")
        && $available_spices > 0} {
     respice;

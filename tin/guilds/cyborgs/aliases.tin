@@ -55,6 +55,25 @@
   #send !get all;
 }
 
+#alias mip_combat_hook {
+  #local MIN_POWER 400;
+  #if {$corpses > 0 && $gp1 < $MIN_POWER} {redc};
+  check_stepper;
+};
+
+#alias mip_gline1_hook {
+  #nop Example;
+  #nop I~<gND:> <yYes><g[><y58%><g]> <g[><yIPP><g|><yGE><g|><yAA><g|><yHNE><g|><yMDF><g]><gSI: [><y68.3215%><g]>;
+  #local data %0;
+  #regexp {$data} {IPP} {#nop;} {#send !activate intrinsic preservation proxy};
+  #regexp {$data} {AA} {#nop;} {#send !activate assault animus};
+  #regexp {$data} {GE} {#nop;} {#send !activate grip enhancer};
+  #regexp {$data} {HNE} {#nop;} {#send !activate hadronic negation emitter};
+
+  #regexp {$data} {SI: [><y{\d+\.\d+}%><g]} {#var gxp &1};
+  calculate_delta gxp;
+}
+
 #alias redc {
   #send !unwrap smallest;
   #send !decompose;

@@ -1,50 +1,16 @@
 #nop temp action until clone is leveled up to 10 when it can follow;
-#action {^%!{[> ]*}You attack} {
-  #nop #send !=call;
-}
+#nop #action {^%!{[> ]*}You attack} {#send !=call};
 
 #action {^%!{[> ]*}pattern buffer for storage. Your cloning was a success!$} {
   #send !=afollow on;
   #send !=akill on;
 }
 
-#action {^%!{[> ]*}Hp:%1/%2 Sp:%3/%4 Pu:%5/%6(%7) C: %8/%9 CPC:%10 E:%11(%12)} {
-  #var hp {%1};
-  #var hp_max {%2};
-
-  #var sp {%3};
-  #var sp_max {%4};
-
-  #var gp1 {%5};
-  #var gp1_max {%6};
-
-  #var gp2 {%7};
-  #math {gp2_max} {$gp1_max / 2};
-
-  #var corpses %8;
-  #var corpses_max %9;
+#action {^%!{[> ]*}%1%2/%3 %4 C: %5/%6} {
+  #var corpses %5;
+  #var corpses_max %6;
   #if {$corpses < $corpses_max} {#var coffin_status not_full};
   #else {#var coffin_status full};
-
-  #var enemy {%12};
-  #if {"$enemy" == "none"} {#var enemy {0}};
-  #replace {enemy} {%} {};
-
-  #nop triggers based on stats;
-
-  #if {$gp1 < 3000 && $corpses > 0} {repu};
-  check_stepper;
-}
-
-#action {^%!{[> ]*}Ef:%1 Ed:%2 B:%. %3% | %4% %. Gx:%5(%6%) Rc:%7} {
-  #nop Ordered gentech gxp goes backwards (down);
-  #nop orders are also 1M gxp, so need to flip the gxp so it "grows";
-
-  #var {gxp1} {1000000 - %5};
-  #var {gxp2} {%7};
-  #math {gxp} {$gxp1 + $gxp2};
-
-  show_status_bar;
 }
 
 #action {^%!{[> ]*}BIAS CONFORMATION HAS REACHED SPECIFIED DIFFERENTIAL} {

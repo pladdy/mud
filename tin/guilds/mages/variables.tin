@@ -6,14 +6,23 @@
 #var ms3 {Ogre|Large spider|Boring beetle|Giant lizard|Bugbear|Giant tick};
 #var ms4 {5-Headed hydra|Shadow|Werewolf|Hell Hound|Ape|Gargoyle|Ice toad|Giant snake|Poisonous toad};
 #var ms5 {Displacer Beast|Disfigured Wereboar};
-#var ms6 {Near-invisible Wraith|Rotting Wight|Stinky-assed Otyugh|Disfigured Weretiger|Dangerous Rakshasa};
+#var ms6 {Wraith|Wight|Otyugh|Weretiger|Jackalwere|Manticore};
+#var ms6 {$ms6|Rakshasa|Carrion Cralwer|Salamander|Phase Spider};
+#var ms6 {$ms6|Ogre Magi|Troll|8-headed hydra|Wyvern};
 #nop #var ms7 {};
 #nop #var ms8 {};
 
-#var golem_haste false;
 #var haste false;
 #var slowed {0};
 
 #var summons {.* golem|Something|$ms1|$ms2|$ms3|$ms4|$ms5|$ms6};
 #var use_gcon true;
 #var use_psphere true;
+
+#var use_summons_haste false;
+#var defense_haste false;
+#var offense_haste false;
+
+#var use_summons_mf true;
+#var defense_mf false;
+#var offense_mf false;

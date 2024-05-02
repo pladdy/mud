@@ -1,0 +1,49 @@
+#alias mip_combat_hook {
+    attempt_mystic_immersion;
+    attempt_explosive_release;
+    attempt_slow;
+    attempt_haste;
+    attempt_monstrous_fortitude;
+    attempt_shelter;
+    check_stepper;
+  }
+  
+  #alias mip_gline1_hook {
+    #local data %0;
+    #nop <cGem:80%> <gST:0/0>  <ySpells>: <y> <gA> <yMS> <gSS> <yPS> <gMG><yPE> <gMB> <y<P>>;
+    #regexp {$data} {Gem:{\d+}%} {#var mage_gem &1};
+    #regexp {$data} {ST:{\d+}/%d} {#var spell_taps &1};
+    #regexp {$data} {*I} {#var immersed true} {#var immersed false};
+  
+    #if {"$spells[pg]" == "on"} {#regexp {$data} {PG} {#nop} {pg}};
+    #if {"$spells[pe]" == "on"} {#regexp {$data} {PE} {#nop} {pe}};
+    #if {$spell_taps < 3 && $gp1 < 25 && $corpses > 0} {rebl};
+    #if {$mage_gem < 80 && "$mage_familiar_present" == "true"} {#send !ffetch gem};
+  }
+  
+  #alias mip_gline2_hook {
+    #local data %0;
+    #nop G: 3/68%  S: 2/12%  I: 2  G2N:11762%;
+    #regexp {$data} {G: {\d+}/{\d+}%} {
+      #var golems &1;
+      #var guild_reset &2;
+    };
+    #regexp {$data} {S: {\d+}/{\d+}%} {
+      #var school_spells &1;
+      #var school_reset &2;
+    };
+    #regexp {$data} {I: {\d}} {#var mystic_immersions &1};
+    #regexp {$data} {G2N:{\d+}%} {
+      #var gxp &1;
+      calculate_delta gxp;
+    };
+  }
+  
+  #alias mip_gp1_hook {
+    check_saturation;
+  };
+  
+  #alias mip_gp2_hook {
+    attempt_focus_mind;
+    check_concentration;
+  }

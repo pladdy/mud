@@ -11,8 +11,8 @@
   #local MIN_DIV_FOR_BT 150;
 
   #if {"$use_beyond_time" == "true" &&
-       $gp1 > $MIN_DIV_FOR_BT &&
-       $time_slices < $MIN_TS_FOR_BT} {
+       $gp2 > $MIN_DIV_FOR_BT &&
+       $gp1 < $MIN_TS_FOR_BT} {
     #send !manifest beyond time;
   };
 }
@@ -25,7 +25,7 @@
   #local MIN_DIV_FOR_CO 200;
   #if {"$use_consecrate" == "true" && 
        "$consecrate_active" != "true" &&
-       $gp1 > $MIN_DIV_FOR_CO && 
+       $gp2 > $MIN_DIV_FOR_CO && 
        @combat_rounds_left{} > 10} {
     #send !consecrate;
   }
@@ -104,7 +104,7 @@
 }
 
 #alias attempt_radiance {
-  #if {"$use_radiance" == "true" && $pct_hp < 80 && $gp1 > 150} {
+  #if {"$use_radiance" == "true" && $pct_hp < 80 && $gp2 > 150} {
     #send !radiance;
   }
 }
@@ -114,8 +114,8 @@
   #local MIN_DIV_FOR_RL 200;
 
   #if {"$use_renewed_light" == "true" &&
-       $gp1 > $MIN_DIV_FOR_RL &&
-       $gp2 < $MIN_END_FOR_RL} {
+       $gp2 > $MIN_DIV_FOR_RL &&
+       $gp3 < $MIN_END_FOR_RL} {
     #send !manifest renewed light;
   };
 }
@@ -127,7 +127,7 @@
 }
 
 #alias attempt_shine {
-  #if {$gp1 > 100 && $yang > $shine_at} {#send !shine;};
+  #if {$gp2 > 100 && $yang > $shine_at} {#send !shine;};
 }
 
 #alias attempt_swing {
@@ -185,7 +185,7 @@
 #alias awf {awe_foes};
 
 #alias decrement_ts {
-  #math {time_slices} {$time_slices - %1};
+  #math {gp1} {$gp1 - %1};
 }
 
 #alias deup {
@@ -272,7 +272,7 @@
 }
 
 #function enough_distance_and_time {
-  #if {@distance_closed{} && $time_slices > $min_ts} {
+  #if {@distance_closed{} && $gp1 > $min_ts} {
     #return 1;
   } {
     #return 0;
@@ -328,7 +328,7 @@
 #function should_lunge {
   #if {$angel[distance] > 1
        && $adv_sort[1][2] > $lunge_at 
-       && $time_slices > $lunge_min_ts} {
+       && $gp1 > $lunge_min_ts} {
     #return 1;
   };
   #else {#return 0};

@@ -1,59 +1,10 @@
-#alias _angel_hpbar1 {
-  #var hp {%1};
-  #var hp_max {%2};
-  #math {pct_hp} {$hp / $hp_max * 100.0};
-
-  #var sp {%3};
-  #var sp_max {%4};
-
-  #var gp1 {%7};
-  #var gp1_max {%8};
-
-  #var gp2 {%9};
-  #var gp2_max {%10};
-
-  #var time_slices {%5};
-  #var time_slices_max {%6};
-
-  #var enemy {%11};
-  #replace {enemy} { } {};
-  #replace {enemy} {%} {};
-  #if {"$enemy" == ""} {#var enemy {0}};
-  #if {$enemy > 0} {
-    #math {rounds_in_combat} {$rounds_in_combat + 1};
-  };
-  #else {
-    #var rounds_in_combat 0;
-  }
-
-  #var circle {false};
-  #var parried false;
-
-  #local MIN_DIV 50;
-  #local MIN_END 20;
-
-  #if {$gp1 < $MIN_DIV && $corpses > 0 && $enemy > 0} {redi};
-  #if {$gp2 < $MIN_END && $corpses > 0 && $enemy > 0} {reri};
-
-  #nop attempt_radiance;
-  attempt_beyond_time;
-  attempt_consecrate;
-  attempt_renewed_light;
-  show_trainings;
-  check_stepper;
-}
-
 #alias _angel_hpbar2 {
   #var corpses {%1};
   #var gxp {%2};
   #replace {gxp} {%} {};
+  calculate_delta gxp;
   #var yin {%3};
   #var yang {%4};
-}
-
-#nop  hpbar 1;
-#action {^%!{[> ]*}H: %1/%2 S: %3/%4 T: %5/%6 D: %7/%8 E: %9/%10 En:%11$} {
-  _angel_hpbar1 %1 %2 %3 %4 %5 %6 %7 %8 %9 %10 %11
 }
 
 #action {^%!{[> ]*}C: %1/%2 Yi: %3 Ya: %4/%5 F: %6 RB: %7/%8 (%9%%) G: %10} {
@@ -67,79 +18,6 @@
 #action {^%!{[> ]*}HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 R: %9} {
   #if { @length{%9} > 0} {#var retributions %9};
   #else {#var retributions 0};
-
-  show_status_bar;
-
-  #if { @length{%1} > 0 } {
-    #var advantages[ho] %1;
-    #var advantages[hi] %3;
-    #var advantages[lo] %5;
-    #var advantages[li] %7;
-
-    sort_advantages;
-
-    attempt_lunge;
-    
-    #if {$time_slices <= $min_ts && @distance_closed{}} {attempt_circle};
-    #else {
-      attempt_swing;
-      attempt_presage;
-      attempt_providence;
-    };
-
-    attempt_disengage;
-  };
-}
-
-#nop This action only fires when there's distance between me and a mob;
-
-#action {^%!{[> ]*}Di: |{-*}{M|P}{-*}{M|P}{-*}|} {
-  #local MAX_ROUNDS_DISENGAGED 2;
-  #local MIN_ADVANTAGE 70;
-
-  #var angel[distance] @length{%3};
-
-  #if {$angel[distance] > 0} {
-    #math {rounds_disengaged} {$rounds_disengaged + 1};
-  } {
-    #var rounds_disengaged 0;
-  };
-
-  #if {$angel[distance] > 0
-       && $rounds_disengaged > $MAX_ROUNDS_DISENGAGED
-       && "$use_engage" == "true"} {
-    #send !engage;
-    #math {angel[distance]} {$angel[distance] - 1};
-  };
-
-  #nop Based on distance boundary, set if disengage is possible;
-  #regexp {%0} {^%!{[> ]*}Di: |{-+}{M|P}{-*}{M|P}{-+}} {
-    #var can_disengage true;
-  } {
-    #regexp {%0} {^%!{[> ]*}Di: |MP{-+}} {
-      #var can_disengage true;
-    } {
-      #regexp {%0} {^%!{[> ]*}Di: |{-+}PM|} {
-        #var can_disengage true;
-      } {
-        #var can_disengage false;
-      };
-    };
-  };
-
-  #nop Based on distance to a wall set traverse distance;
-  #regexp {%0} {^%!{[> ]*}Di: |{-+}P} {
-    #nop log.info Traverse distance, to left of M: @length{%1};
-    #var traverse_distance @length{%1};
-  } {
-    #regexp {%0} {^%!{[> ]*}Di: |{.+}P{-+}|} {
-      #nop log.info Traverse distance, to right of M: @length{%5};
-      #var traverse_distance @length{%5};
-    };
-  };
-
-  #if {$time_slices >= $min_ts} {attempt_lunge};
-  attempt_dive;
 }
 
 #action {^%!{[> ]*}%1 advances!} {

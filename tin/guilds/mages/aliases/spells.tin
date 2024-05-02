@@ -1,7 +1,19 @@
 #alias attempt_haste {
-  #if {$enemy > 0} {
+  #if {$rounds_in_combat > 0} {
     #if {"$haste" == "false"} {#send !cast haste};
-    #if {"$golem_haste" == "false"} {#send !cast haste golem};
+    #if {"$use_summons_haste" == "true"} {
+      #if {"$defense_haste" == "false"} {#send !cast haste on defense};
+      #if {"$offense_haste" == "false"} {#send !cast haste on offense};
+    };
+  };
+}
+
+#alias attempt_monstrous_fortitude {
+  #if {$rounds_in_combat > 0} {
+    #if {"$use_summons_mf" == "true"} {
+      #if {"$defense_mf" == "false"} {#send !cast monstrous fortitude on defense};
+      #if {"$offense_mf" == "false"} {#send !cast monstrous fortitude on offense};
+    };
   };
 }
 
@@ -24,7 +36,7 @@
   #send !cast create golem crystal;
   #delay 2 {
     #send !put materials in bag;
-    #send !say golem, you are now in group tank;
+    #send !say golem, you are now in group defense;
     #send !say golem, assist always;
     #send !say golem, ignore blanket commands;
   };
@@ -99,11 +111,41 @@
   #send !cast prismatic sphere;
 }
 
-#alias sumup {
-  #send !ms;
-  #delay 2 {#send !ms};
-  #delay 4 {#send !ms};
-  #delay 5 {
-    #send !say all, you are now in group offense/assist always;
+#alias _clear_summon_config {
+  #send !cast summon config deactivate;
+  #send !cast remove summon config 1;
+  #send !cast remove summon config 1;
+}
+
+#alias _post_summon_actions {
+  #var defense_haste false;
+  #var offense_haste false;
+  #var defense_mf false;
+  #var offense_mf false;
+  #delay 2 {
+    #send !say golem, ignore blanket commands;
   };
+}
+
+#alias sumdn {
+  _clear_summon_config;
+  #send !shoo;
+}
+
+#var _offense_summons 2;
+
+#alias sumup {
+  _clear_summon_config;
+  #send !cast summon config as create golem##1#200#100#assist#defense;
+  #send !cast summon config as monster summoning 6##$_offense_summons#2000#40#assist#offense;
+  #send !cast summon config activate;
+  _post_summon_actions;
+}
+
+#alias sumdef {
+  _clear_summon_config;
+  #send !cast summon config as create golem##1#1000#100#defend#defense;
+  #send !cast summon config as monster summoning 6##$_offense_summons#2000#40#defend#offense;
+  #send !cast summon config activate;
+  _post_summon_actions;
 }

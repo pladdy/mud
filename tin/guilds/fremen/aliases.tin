@@ -42,7 +42,7 @@
 }
 
 #alias attempt_hide {
-  #if {$hp_as_pct < 0.6 && $enemy > 0 && "$can_hide" = "true"} {
+  #if {$hp_as_pct < 0.6 && $rounds_in_combat > 0 && "$can_hide" = "true"} {
     #3 #send !hide;
   };
 }
@@ -173,6 +173,19 @@
   #send !sheathe sword;
   #send !holster gun;
   #send !do clear;
+}
+
+#alias mip_combat_hook {
+  #math {hp_as_pct} {($hp * 1.00)/ $hp_max};
+  #format gp1_raw_pct {%f} {$gp1 / $gp1_max};
+  #math {total_water} {$gp1 + $gp2};
+  #format total_water_pct {%f} {$total_water / $gp1_max};
+  
+  #if {$total_water_pct < 1.3 && $gp1_raw_pct < .1 && $corpses > 0} {rerc};
+  attempt_hide;
+  attempt_stun;
+  attempt_voice;
+  check_stepper;
 }
 
 #alias rerc {

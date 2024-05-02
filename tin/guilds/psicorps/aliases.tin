@@ -1,20 +1,18 @@
 #alias attempt_actuation {
+  #if {$rounds_in_combat > 0} {
     #nop Defense first;
-    #regex {$powers_str} { Vr} {#nop;} {#send !vr};
-    #regex {$powers_str} { Bf} {#nop;} {#send !bf};
-    #regex {$powers_str} { Cp} {#nop;} {#send !cp};
+    #regex {$mip[gline1]} {Vr} {#nop;} {#send !vr};
+    #regex {$mip[gline1]} {Bf} {#nop;} {#send !bf};
+    #regex {$mip[gline1]} {Cp} {#nop;} {#send !cp};
 
     #nop Offense;
-    #nop #regex {$powers_str} { Tl} {#nop;} {#send !tl};
-    #regex {$powers_str} { Cg} {#nop;} {#send !cg};
-    #nop #regex {$powers_str} { Bo} {#nop;} {#send !bo};
-    #nop #regex {$powers_str} { Ij} {#nop;} {#send !ij};
-    #regex {$powers_str} { bc} {#nop;} {#send !bc};
+    #regex {$mip[gline1]} {Cg} {#nop;} {#send !cg};
+    #regex {$mip[gline1]} {bc} {#nop;} {#send !bc};
 
     #nop Perks;
-    #nop #regex {$powers_str} { Vg} {#nop;} {#send !vg};
-    #regex {$powers_str} { Vv} {#nop;} {#send !vv};
-    #regex {$powers_str} { AA} {#nop;} {#send !aa bear};
+    #regex {$mip[gline1]} {Vv} {#nop;} {#send !vv};
+    #regex {$mip[gline1]} {AA} {#nop;} {#send !aa bear};
+  };
 }
 
 #alias check_stepper {
@@ -44,6 +42,53 @@
 
 #alias f12 {
   #loop 2 8 i {#send !sell all from bag $i};
+}
+
+#alias mip_combat_hook {
+  #math gp1_percent {$gp1 / $gp1_max * 1.00};
+  #math gp2_percent {$gp2 / $gp2_max * 1.00};
+
+  #math {max_convert} {$sp / 10};
+  #math {gp1_delta} {$gp1_max - $gp1};
+  #if {$sp >= $sp_max && $gp1_delta > $max_convert} {#send !convert};
+
+  attempt_actuation;
+  pause_active_stepper;
+}
+
+#alias mip_gline1_hook {
+  #local data %0;
+  #nop Example;
+  #nop AA: 898;
+  #var psicorps_power {};
+  #var psicorps_duration {};
+
+  #parse {$data} {c} {
+    #regexp {$c} {%+1D} {#var psicorps_power $psicorps_power$c};
+    #regexp {$c} {%+1d} {#var psicorps_duration $psicorps_duration$c};
+    #if {"$c" == " " && $psicorps_duration > 0} {
+      #replace {psicorps_power} {:} {};
+      #replace {psicorps_power} { } {};
+
+      #if {$psicorps_duration < 20 && $gp1_percent > .2} {
+        #send !actuate $psicorps_power;
+      };
+      #var psicorps_power {};
+      #var psicorps_duration {};
+    };
+  };
+}
+
+#alias mip_gline2_hook {
+  #local data %0;
+  #nop Example;
+  #nop G2N: 74,230 / 47%;
+
+  #regexp {$data} {G2N: {[\d|,]+}} {
+    #var gxp &1;
+    #replace {gxp} {,} {};
+    calculate_delta gxp;
+  } {false};
 }
 
 #alias fr {

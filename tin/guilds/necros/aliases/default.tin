@@ -9,7 +9,7 @@
 #alias attempt_absorb_prime {
   log.debug attempting absorb prime;
 
-  #if {$enemy > 0 && $ncorpses > 0 && $hpp < 0.6} {
+  #if {$rounds_in_combat > 0 && $ncorpses > 0 && $hpp < 0.6} {
     #send !abb;
   };
 }
@@ -18,7 +18,7 @@
   log.debug attempting call;
 
   #if {"$necro_use_call" == "true"} {
-    #if {$enemy > 0 && "$familiar_called" != "true"} {
+    #if {$rounds_in_combat > 0 && "$familiar_called" != "true"} {
       #send !call;
       #var familiar_called true;
     };
@@ -27,12 +27,12 @@
 
 #alias attempt_dart {
   log.debug attempting dart;
-  #if {$enemy > 0 && "$can_dart" == "true" && $gp1p > $spp} {cd};
+  #if {$rounds_in_combat > 0 && "$can_dart" == "true" && $gp1p > $spp} {cd};
 }
 
 #alias attempt_dream {
   log.debug attempting dream;
-  #if {$enemy > 0 && "$can_dream" == "true" && $spp < .5} {#send !z};
+  #if {$rounds_in_combat > 0 && "$can_dream" == "true" && $spp < .5} {#send !z};
 }
 
 #alias attempt_follower_heal {
@@ -45,7 +45,7 @@
   log.debug attempting $necro_glamor;
   #if {$glamors > 1 &&
        "$glamor_active" != "true" &&
-       ($spp < .6 || $gp1p < .9) && $enemy > 0
+       ($spp < .6 || $gp1p < .9) && $rounds_in_combat > 0
   } {
     #if {"$necro_veil_omega_maxed" == "true"} {#send !$necro_glamor};
     #elseif {"$veil" != "ON"} {#send !$necro_glamor};
@@ -62,7 +62,7 @@
 
 #alias attempt_protection {
   log.debug attempting protection;
-  #if {$enemy > 0 && "$protection" == "OFF"} {#send !pro};
+  #if {$rounds_in_combat > 0 && "$protection" == "OFF"} {#send !pro};
 }
 
 #alias attempt_refill_corpses {
@@ -97,7 +97,7 @@
 
 #alias attempt_veil {
   log.debug attempting veil of darkness;
-  #if {$enemy > 0 && "$veil" == "OFF"} {#send !veil invoke};
+  #if {$rounds_in_combat > 0 && "$veil" == "OFF"} {#send !veil invoke};
 }
 
 #alias attempt_worth {

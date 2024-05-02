@@ -8,18 +8,26 @@
   gag on;
   #send !hp;
   #send !i;
-  #nop #delay 2 alerts_refresh;
   #delay 2 chats_refresh;
 
-  #if {"$ETERNALS" == "true"} {
-    #textin tin/default/eternals.txt;
+  #if {"$ETERNALS" == "true"} {#textin tin/default/eternals.txt};
+
+  #switch {"$guild"} {
+    #case {"angels"} {enable_mip};
+    #case {"cyborgs"} {enable_mip};
+    #case {"fremen"} {enable_mip};
+    #case {"gentech"} {enable_mip};
+    #case {"juggers"} {enable_mip};
+    #case {"mages"} {enable_mip};
+    #case {"monks"} {enable_mip};
+    #case {"necros"} {enable_mip};
+    #case {"psicorps"} {enable_mip};
   };
 }
 
 #alias login {
   #local domain 3k.org;
   #local ip 75.75.210.82;
-
   #session 3k $ip 3000;$character
 }
 

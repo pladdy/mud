@@ -53,10 +53,10 @@
 }
 
 #alias use_corpse {
-  #math {gp1_pct_raw} {($gp1 * 1.00) / $gp1_max * 100};
   #math {gp2_pct_raw} {($gp2 * 1.00) / $gp2_max * 100};
+  #math {gp3_pct_raw} {($gp3 * 1.00) / $gp3_max * 100};
 
-  #if {$gp1_pct_raw < $gp2_pct_raw && "$use_disperse" == "true"} {
+  #if {$gp2_pct_raw < $gp3_pct_raw && "$use_disperse" == "true"} {
     #send !disperse;
   } {
     #send !rites;

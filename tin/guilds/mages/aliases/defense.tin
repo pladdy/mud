@@ -83,7 +83,7 @@
 }
 
 #alias def_eb {
-  #send !deplete PS;
+  #send !deplete ps;
 
   #regexp {$dspells} { B } {#nop;} {
     #send !cast blink;

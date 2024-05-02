@@ -1,15 +1,3 @@
-#action {^%!{[> ]*}Your shield is shattered from the force of the blow!$} {
-  #nop #if {$enemy > 0} {#send !cast shield};
-}
-
-#action {^%!{[> ]*}Your magnificent shield is shattered from the force of the blow!$} {
-  #nop #if {$enemy > 0} {#send !cast magnificent shield};
-}
-
-#action {^%!{[> ]*}Your armor spell has dissipated!$} {
-  #nop #if {$enemy > 0} {#send !cast armor};
-}
-
 #action {^%!{[> ]*}----*> Your %1 contingency has dissipated!<*----} {
   #switch {"%1"} {
     #case {"stoneskin"} {#send !cast contingency as %1#cast stoneskin};
@@ -21,30 +9,10 @@
 }
 
 #action {^%!{[> ]*}Your protection from %1 has ended.$} {
-  #if { $enemy > 0 } {
+  #if { $rounds_in_combat > 0 } {
     #if {"%1" == "good" && "$spells[pg]" == "on"} {pg};
     #if {"%1" == "evil" && "$spells[pe]" == "on"} {pe};
   };
-}
-
-#action {^%!{[> ]*}Your rhino skin has been depleted!$} {
-  #if {$enemy > 0} {#send !cast rhino skin};
-};
-
-#action {^%!{[> ]*}Your stoneskin has depeleted!$} {
-  #nop #if {$enemy > 0} {#send !cast stoneskin};
-}
-
-#action {^%!{[> ]*}Your minor globe has ended.$} {
-  #nop #if { $enemy > 0 } {#send !cast minor globe};
-}
-
-#action {^%!{[> ]*}Your form has solidified.$} {
-  #nop #if {$enemy > 0} {#send !cast blink};
-}
-
-#action {^%!{[> ]*}Your skin ceases its colorful displays.$} {
-  #nop #if {$enemy > 0} {#send !cast prismatic aura};
 }
 
 #nop  Mystic Immersion;
@@ -58,11 +26,25 @@
   #2 #send !ash;
 }
 
+#nop  Summons;
+
+#action {^%!{[> ]*}You wave your hands calling forth summoning magics and draw} {
+  #var offense_haste false;
+  #var defense_haste false;
+  #var offense_mf false;
+  #var defense_mf false;
+};
+
+#action {^%!{[> ]*}The golem shudders for a moment, then falls to the ground in a heap.} {
+  #var defense_haste false;
+  #var defense_mf false;
+}
+
 #nop  Haste;
 
 #action {^%!{[> ]*}You feel slower as the haste wears off.$} {
   #var haste false;
-  #if {$enemy > 0} {#send !cast haste};
+  #nop #if {$rounds_in_combat > 0} {#send !cast haste};
 }
 
 #action {^%!{[> ]*}You raise your arms and suddenly %1 is moving much faster!$} {
@@ -70,23 +52,57 @@
 }
 
 #action {^%!{[> ]*}You raise your arms and suddenly %1 golem is moving much faster!$} {
-  #var golem_haste true;
+  #var defense_haste true;
+}
+
+#action {^%!{[> ]*}You raise your arms and suddenly %1 is moving much faster!$} {
+  #var offense_haste true;
+}
+
+#action {^%!{[> ]*}%1 golem is already hasted.$} {
+  #var defense_haste true;
 }
 
 #action {^%!{[> ]*}%1 is already hasted.$} {
-  #var haste true;
+  #format {target} {%l} {%1};
+  #if {"$target" == "$character"}{#var haste true};
+  #else {#var offense_haste true};
 }
 
 #action {^%!{[> ]*}%1 (%2 Golem) seems to slow down...$} {
-  #var golem_haste false;
-  #if {$enemy > 0} {#send !cast haste golem};
-}
+  #var defense_haste false;
+} {2}
+
+#action {^%!{[> ]*}%1 %2 seems to slow down...$} {
+  #var offense_haste false;
+} {3}
 
 #action {^%!{[> ]*}magical words.  A creature forms from the materials!$} {
-  #var golem_haste false;
+  #var defense_haste false;
 }
 
-#nop #action {^%!{[> ]*}The magic of your stoneskin fades over time.} {}
+#action {^%!{[> ]*}Cast haste on whom?$} {
+  #var defense_haste true;
+  #var offense_haste true;
+}
+
+#nop  Monstrous Fortitude;
+
+#action {^%!{[> ]*}As your spell weaves its pattern %1 (%2 Golem) [defense]} {
+  #var defense_mf true;
+}
+
+#action {^%!{[> ]*}As your spell weaves its pattern %1 [offense]} {
+  #var offense_mf true;
+}
+
+#action {%1 (%2 Golem) seems to grow smaller.} {
+  #var defense_mf false;
+}
+
+#action {%1 seems to grow smaller.} {
+  #var offense_mf false;
+}
 
 #nop Phantasmal Killer;
 #action {^%!{[> ]*}You wave your hands and *POOF*} {#var phantasmal_killer casted}

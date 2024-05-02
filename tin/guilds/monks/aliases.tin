@@ -51,7 +51,7 @@
   #local MIN_MIND 250;
   #local FOCUS_AMOUNT 10;
 
-  #if {$enemy > 0 && $gp2 < $MIN_MIND && $focus > 0} {
+  #if {$rounds_in_combat > 0 && $gp2 < $MIN_MIND && $focus > 0} {
     #send !focus $FOCUS_AMOUNT;
   };
 }
@@ -74,7 +74,7 @@
 }
 
 #alias attempt_pressure {
-  #if {$enemy > 0 && "$pressure" == "off"} {
+  #if {$rounds_in_combat > 0 && "$pressure" == "off"} {
     #send !pressure;
     #nop reduce sp so i don't throw same round i pressure;
     #math {sp} {$sp - 1};
@@ -85,7 +85,7 @@
   #local MIN_CHI 90;
   #if {$sp >= $sp_max
        && $gp1 > $MIN_CHI
-       && $enemy > 0
+       && $rounds_in_combat > 0
        && "$can_throw" == "true"} {
     #send !throw;
   };
@@ -177,6 +177,31 @@
   #else {
     #loop 2 12 loop {#send !sell all from bag $loop};
   };
+}
+
+#alias mip_combat_hook {
+  #if {$gp2 < $MIN_MIND} {#showme <110>Mind is low!};
+  #local MIN_SP 100;
+  #if {$sp < $MIN_SP && $corpses > 0 && $rounds_in_combat > 0} {resp};
+
+  attempt_enervate;
+  attempt_focus;
+  attempt_palm;
+  attempt_pressure;
+  attempt_throw;
+  check_stepper;
+}
+
+#alias mip_gline1_hook {
+  #nop <cMethod>: <ySerpent>    <cCrits>: <gOn>    <cStun>: <gOn>    <cHide>: <rOFF>;
+}
+
+#alias mip_gline2_hook {
+  #local data %0;
+  #nop G2N: <y6986308>    <cChi Focus>: <gStatic>    <yAE>: <g10>/25%;
+  #regexp {$data} {G2N: <y{\d+}} {#var gxp &1};
+  calculate_delta gxp;
+  #regexp {$data} {AE>: <g{\d+}/} {#var ancient_energy &1};
 }
 
 #alias mm {

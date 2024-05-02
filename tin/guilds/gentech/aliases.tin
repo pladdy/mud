@@ -8,6 +8,11 @@
   #send =send;
 }
 
+#alias attempt_recharge {
+  #math {half_gp1} {$gp1 / 2};
+  #if {$rounds_in_combat > 0 && $gp2 > $half_gp1} {#send !recharge};
+}
+
 #alias check_stepper {
   #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
   #else {
@@ -33,7 +38,6 @@
     };
   };
 }
-
 
 #alias commands_after_corpse {
   #send !repair;
@@ -85,6 +89,31 @@
   #send !keep longsword;
   #send !wield longsword;
   dcor;
+}
+
+#alias mip_combat_hook {
+  attempt_recharge;
+  #if {$gp1 < 3000 && $corpses > 0} {repu};
+  check_stepper;
+}
+
+#alias mip_gline1_hook {
+  #local data %0;
+  #nop CPC:<w10000>/10000 G2N:536215(46%) RC[10915305] Reset(<w4%>) TS:2/2 E-TS:1;
+  #regexp {$data} {G2N:{\d+}(%d%)} {
+    #math {gxp1} {1000000 - &1};
+  };
+  #regexp {$data} {RC:[{\d+}]} {
+    #var {gxp2} {%1};
+  };
+  #math {gxp} {$gxp1 + $gxp2};
+  calculate_delta gxp;
+}
+
+#alias mip_gline2_hook {
+  #local data %0;
+  #nop Bias[<sLocked>] Atk(<r180%>) Def(<c10%>) <wEfield>(<y4min>) Edna(<w16min>) Illum(<cOFF>);
+  #nop;
 }
 
 #alias not_defined {

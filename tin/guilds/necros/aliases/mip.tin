@@ -1,0 +1,41 @@
+#alias mip_combat_hook {
+  #math hpp {($hp * 1.00) / ($hp_max * 1.00)};
+  #math spp {($sp * 1.00) / ($sp_max * 1.00)};
+  #math gp1p {($gp1 * 1.00) / ($gp1_max * 1.00)};
+
+  attempt_dart;
+  attempt_call;
+  attempt_spfuse;
+  attempt_dream;
+  attempt_glamor;
+  attempt_preserve;
+  check_stepper;
+}
+
+#alias mip_gline1_hook {
+  #local data %0;
+  #nop Example;
+  #nop <vC:1>  <gWorth:125%>  Tport:4/4  <gSprk:8/8>  <gProt:ONX>  Circle:2%;
+  #regexp {$data} {C:{\d+}} {#var ncorpses &1} {#var ncorpses 0};
+  #regexp {$data} {Prot:%1X} {#var protection &1};
+  #regexp {$data} {Worth:{\d+}%} {#var worth &1};
+  #regexp {$data} {Tport:{\d+}/} {#var teleports &1};
+  #regexp {$data} {Sprk:{\d+}/} {#var glamors &1};
+  #regexp {$data} {sparking} {#var glamor_active true} {#var glamor_active false};
+
+  attempt_protection;
+  attempt_worth;
+  attempt_refill_corpses;
+  attempt_unload_corpses;
+}
+
+#alias mip_gline2_hook {
+  #local data %0;
+  #nop Example;
+  #nop Undead:none  <gSPf:180/180>;
+  #regexp {$data} {HPf:{d+}} {#var hpfuse &1} {#var hpfuse 0};
+  #regexp {$data} {SPf:{d+}} {#var spfuse &1} {#var spfuse 0};
+  #regexp {$data} {Undead:{d+}%} {#var necro_follower_health &1};
+
+  attempt_follower_heal;
+}

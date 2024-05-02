@@ -10,10 +10,10 @@
 #alias attempt_airdrop {
   #math {sp_ratio} {$sp / $sp_max * 1.0};
 
-  #if {$clan_powers > 0 && $enemy > 0 && $gp2 < 60 && $sp_ratio < 0.3} {
+  #if {$clan_powers > 0 && $rounds_in_combat > 0 && $gp2 < 60 && $sp_ratio < 0.3} {
     #send !airdrop;
   };
-  #elseif {$clan_powers > 0 && $enemy > 0 && $gp1 < 30 && $corpses < 1} {
+  #elseif {$clan_powers > 0 && $rounds_in_combat > 0 && $gp1 < 30 && $corpses < 1} {
     #send !airdrop;
   };
 }
@@ -75,6 +75,45 @@
   #delay 8 set_afk;
 }
 
+#alias mip_combat_hook {
+  #if {$rounds_in_combat > 0 && $gp1 < 30 && $corpses > 0} {rede};
+
+  #nop Use up excess sps on heat if i'm at full;
+  #if {$rounds_in_combat > 0 && $gp2 < 75 && $sp >= $sp_max} {#send !dissipate};
+
+  #nop Use up missiles and clan powers;
+  #if {$clan_powers > 0 && $jugger_reset > 97} {#send !frenzy;};
+  #if {$missiles > 0 && $rounds_in_combat > 0 && $jugger_reset > 97} {#send !fire $missiles};
+
+  attempt_airdrop;
+  check_stepper;
+};
+
+#alias mip_gline1_hook {
+  #local data %0;
+  #nop Example:
+  #nop Ammo:[500/] <yGxp: 83.5001%> Hits: [0] <cCoffin: N/A>;
+  
+  #regexp {$data} {Ammo:[{\d+}]} {#var jugger_mounts[0] &1};
+  #regexp {$data} {Ammo:[{\d+}/{\d+}]} {#var jugger_mounts[1] &2} {#var jugger_mounts[1] 101};
+
+  #if {$jugger_mounts[0] < 100} {rammo 4 1};
+  #if {$jugger_mounts[1] < 100} {rammo 4 2};
+
+  #regexp {$data} {Gxp: {\d+\.\d+}%} {#var gxp &1};
+  calculate_delta gxp;
+
+  #regexp {$data} {Coffin: {\d+}} {#var corpses &1} {#var corpses 0};
+}
+
+#alias mip_gline2_hook {
+  #local data %0;
+  #nop Example;
+  #nop <rNukes: [3/3]> <vSupport: [3/4]> Reset: [65%] Suit: Elemental;
+  #regexp {$data} {Nukes: [{\d+}/} {#var missiles &1};
+  #regexp {$data} {Support: [{\d+}/} {#var clan_powers &1};
+  #regexp {$data} {Reset: [{\d+}%]} {#var jugger_reset &1};
+}
 
 #nop  Remote Ammo (via truck) purchase;
 #alias rammo {

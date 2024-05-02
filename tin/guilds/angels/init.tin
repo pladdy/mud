@@ -9,7 +9,7 @@
 #var use_disperse {true};
 #var use_dive {true};
 #var use_engage {true};
-#var use_lunge {false};
+#var use_lunge {true};
 #var use_presage {true};
 #var use_providence {true};
 #var use_quietus {true};
