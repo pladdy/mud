@@ -1,8 +1,6 @@
 .+ golem
-barker|bojek|lydia|eli
-balaban|leufarr
-bodyguard
-bowles
+abalone
+barker|bojek|lydia|eli|balaban|leufarr|bodyguard|bowles
 cadal
 akara|cain|warriv|wirt
 arundin|cancer|pope|the gypsy|the mortician
@@ -13,10 +11,7 @@ cow
 cultist
 danvers
 drone
-dryad
-erig
-einstein
-fred
+dryad|erig|einstein|fred
 developer
 gargamel|george|ghalein|glenwin|graktah|guard|guardswoman
 gwain|kaleen

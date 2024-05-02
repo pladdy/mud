@@ -3,42 +3,167 @@
 
 #nop Referencing https://github.com/Inix3K/TinTin/blob/master/3k/mip.tin;
 
-#alias enable_mip {
-  #math mip_secret {1 d 99999};
-  #format mip_secret {%+5s} $secret;
-  #info system save;
+#var mip;
 
-  #send 3klient $mip_secret~$info[SYSTEM][CLIENT_NAME]$info[SYSTEM][CLIENT_VERSION];
-  #SEND 3klient LINEFEED on; #nop include linefeed with messages;
-  #SEND 3klient HAA off; #nop turns off room item messages;
+#alias debug_mip {
+  #if {"$show_mip" == "true"} {
+    log.info Disabling MIP debugging.;
+    #var show_mip false;
+  };
+  #else {
+    log.info Enabling MIP debugging.;
+    #var show_mip true;
+  };
 }
 
-#action {^%!{[> ]*}#K\%$mip_secret{\d{3}}{.{3}}{.+}} {
-  #showme <170>MIP Match;
-  #showme The 0 var: %0;
-  #var mip_raw_input %0;
-  
-  #var mip_length %1;
-  #showme The mip data length: %1;
+#alias enable_mip {
+  #math mip[secret] {1 d 99999};
+  #format mip[secret] {%+5s} $mip[secret];
+  #replace mip[secret] { } {0};
 
+  #info system save;
+
+  #send 3klient $mip[secret]~$info[SYSTEM][CLIENT_NAME]$info[SYSTEM][CLIENT_VERSION];
+  #SEND 3klient LINEFEED on; #nop include linefeed with messages;
+  #SEND 3klient HAA off; #nop turns off room item messages;
+
+  #nop initialize enmy to 0;
+  #var enemy 0;
+  calculate_delta enemy;
+}
+
+#action {^%!{[> ]*}#K\%$mip[secret]{\d{3}}{.{3}}{.+}} {
+  #var mip_raw_input %0;
+  #var mip_length %1;
   #var mip_code %2;
-  #showme The mip code: %2;
-  
   #var mip_raw_data %3;
+
   #math mip_data_length {$mip_length - 3};
   #format {mip_data} {%.${mip_data_length}s} {$mip_raw_data};
-  #showme The mip data: $mip_data;
   
   #var mip_remainder $mip_raw_data;
   #replace mip_remainder {$mip_data} {};
-  #showme The remaining mip data: $mip_remainder;
 
-  #line gag;
+  #if {"$show_mip" == "true"} {
+    #showme <170>MIP Match;
+    #showme The 0 var: %0;
+    #showme The mip data length: %1;
+    #showme The mip code: %2;
+    #showme The mip data: $mip_data;
+    #nop #showme The remaining mip data: $mip_remainder;
+  };
+
+  #switch {"$mip_code"} {
+    #case {"FFF"} {process_composite $mip_data};
+  };
+
+  #if {"$show_mip" != "true"} {#line gag}
+}
+
+#alias process_composite {
+  #if {"$show_mip" == "true"} {#showme process_composite %0};
+
+  #local hp_data_code {};
+  #parse {%0} {c} {
+    #if {"$hp_data_code" == "" && "$c" != "~"} {
+      #local hp_data_code $c;
+      #local data {};
+      #local data_next 0;
+      #continue;
+    };
+
+    #if {"$c" == "~"} {
+      #if {"$data" != ""} {
+        process_hp_data_code $hp_data_code with $data;
+        #local hp_data_code {};
+      };
+      #if {$data_next == 1} {
+        #local hp_data_code {};
+      };
+      #else {
+        #local data_next 1;
+      };
+      #continue;
+    };
+
+    #local data $data$c;
+  };
+
+  #if {"$hp_data_code" != "" && "$data" != ""} {
+    process_hp_data_code $hp_data_code with $data;
+  };
+  refresh_status_bar;
+}
+
+#alias {process_hp_data_code %1 with %2} {
+  #local hp_data_code %1;
+  #local data %2;
+
+  #if {"$show_mip" == "true"} {#showme processing data code: %1 and %2};
+
+  #switch {"$hp_data_code"} {
+    #case {"A"} {
+      #var hp $data;
+      calculate_delta hp;
+    };
+    #case {"B"} {
+      #var hp_max $data;
+      calculate_delta hp;
+    };
+    #case {"C"} {
+      #var sp $data;
+      calculate_delta sp;
+    };
+    #case {"D"} {
+      #var sp_max $data;
+      calculate_delta sp;
+    };
+    #case {"E"} {
+      #if {"$guild" == "mages"} {#math {gp1} {100 - $data}};
+      #else {#var gp1 $data};
+      mip_gp1_hook;
+      calculate_delta gp1;
+    };
+    #case {"F"} {
+      #if {"$guild" == "mages"} {#var gp1_max 100};
+      #else {#var gp1_max $data};
+      calculate_delta gp1;
+    };
+    #case {"G"} {
+      #switch {"$guild"} {
+        #case {"mages"} {#math {gp2} {100 - $data}};
+        #case {"cyborgs"} {#math {gp2} {100 - $data}};
+        #case {"juggers"} {#math {gp2} {100 - $data}};
+        #default {#var gp2 $data};
+      };
+      mip_gp2_hook;
+      calculate_delta gp2;
+    };
+    #case {"H"} {
+      #switch {"$guild"} {
+        #case {"mages"} {#var gp2_max 100};
+        #case {"cyborgs"} {#var gp2_max 100};
+        #case {"juggers"} {#var gp2_max 100};
+        #default {#var gp2_max $data};
+      };
+      calculate_delta gp2;
+    };
+    #case {"I"} {
+      #var mip[gline1] $data;
+      mip_gline1_hook $data;
+    };
+    #case {"J"} {
+      #var mip[gline2] $data;
+      mip_gline2_hook $data;
+    };
+    #case {"K"} {#var attacker $data};
+    #case {"L"} {
+      #var enemy $data;
+      mip_combat_hook;
+      calculate_delta enemy;
+    };
+    #case {"N"} {#var rounds_in_combat $data};
+  };
 }
 
 #class mip close;
-
-#nop example of 2 codes coming in;
-#nop #K%67373007BAE0.00#K%67373067FFFJ~<rNukes: [3/3]> <vSupport: [4/4]> Reset: [11%] Suit: Elemental;
-#nop another example;
-#nop #K%67373011AAC1.9 days#K%67373011AAF6.8 days;
