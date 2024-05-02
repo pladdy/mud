@@ -10,6 +10,19 @@ patch = $(lastword $(version_list))
 
 all: tintin install
 
+archive-logs:
+ifndef $(ym)
+	@echo Specify year month: eg 2024-03
+endif
+	tar -vzc -f logs/$(ym)-3k-session.logs.gz logs/$(ym)-*-3k-session.log
+	rm logs/$(ym)-*-3k-session.log
+
+archive-list:
+ifndef $(ym)
+	@echo Specify year month: eg 2024-03
+endif
+	tar -tf logs/$(ym)-3k-session.logs.gz
+
 bin/english-word-list.txt:
 	curl -s https://www.wordgamedictionary.com/english-word-list/download/english.txt -o $@
 
