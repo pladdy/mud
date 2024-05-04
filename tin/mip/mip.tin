@@ -27,6 +27,8 @@
   #SEND 3klient LINEFEED on; #nop include linefeed with messages;
   #SEND 3klient HAA off; #nop turns off room item messages;
 
+  #var mip[enabled] true;
+
   #nop initialize enmy to 0;
   #var enemy 0;
   calculate_delta enemy;
@@ -40,7 +42,7 @@
 
   #math mip_data_length {$mip_length - 3};
   #format {mip_data} {%.${mip_data_length}s} {$mip_raw_data};
-  
+
   #var mip_remainder $mip_raw_data;
   #replace mip_remainder {$mip_data} {};
 
@@ -54,6 +56,8 @@
   };
 
   #switch {"$mip_code"} {
+    #case {"BAB"} {process_tell $mip_data};
+    #case {"CAA"} {#nop}; #nop chatlines;
     #case {"FFF"} {process_composite $mip_data};
   };
 
@@ -105,6 +109,8 @@
     #case {"A"} {
       #var hp $data;
       calculate_delta hp;
+      #nop TODO: a named delay to calculate again in 2 seconds?  so delta doesn't;
+      #nop stick around?;
     };
     #case {"B"} {
       #var hp_max $data;
@@ -163,6 +169,37 @@
       calculate_delta enemy;
     };
     #case {"N"} {#var rounds_in_combat $data};
+  };
+}
+
+#alias process_tell {
+  #local data %0;
+  #if {"$show_mip" == "true"} {#showme processing tell in MIP '$data'};
+
+  #regexp {$data} {^~{.+}~{.+}$} {
+    #local player &1;
+    #local tell &2;
+
+    #var send_alert true;
+
+    #foreach $tells_blocklist blocked {
+      log.debug checking blocklist, blocked=$blocked, actor=%1;
+      #regexp {%1} {%i$blocked} {#var send_alert false};
+    };
+
+    #if {"$send_alert" == "true"} {
+      log.debug 'tell' actor=$player;
+      #if {$disable_chat_alerts != 1} {
+        #list chats add {$player: $tell};
+        chats_refresh;
+
+        sound_beeps;
+        set_repeating_alarm;
+        log.warn Tell received, 'th' to clear repeating alarm.;
+        #if {"$stepper" == "on"} {stepper off};
+        #undelay reactivate_stepper;
+      };
+    };
   };
 }
 

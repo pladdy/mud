@@ -59,7 +59,7 @@
 };
 
 #alias _handle_tells {
-  #if {$disable_chat_alerts != 1} {
+  #if {$disable_chat_alerts != 1 && "$mip[enabled]" != "true"} {
     #list chats add {%0};
     chats_refresh;
     -catch_overflow;
