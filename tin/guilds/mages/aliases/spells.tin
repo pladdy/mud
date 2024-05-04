@@ -137,15 +137,15 @@
 #alias sumup {
   _clear_summon_config;
   #send !cast summon config as create golem##1#200#100#assist#defense;
-  #send !cast summon config as monster summoning 6##$_offense_summons#2000#40#assist#offense;
+  #send !cast summon config as monster summoning 6##$_offense_summons#2000#50#assist#offense;
   #send !cast summon config activate;
   _post_summon_actions;
 }
 
 #alias sumdef {
   _clear_summon_config;
+  #send !cast summon config as monster summoning 6##$_offense_summons#2000#50#defend#offense;
   #send !cast summon config as create golem##1#1000#100#defend#defense;
-  #send !cast summon config as monster summoning 6##$_offense_summons#2000#40#defend#offense;
   #send !cast summon config activate;
   _post_summon_actions;
 }

@@ -19,3 +19,8 @@
 #action {^%!{[> ]*}[M] Ardy the brown aardvark.$} {
   #var mage_familiar_present true;
 }
+
+#action {^%!{[> ]*}The Golem calls for help!} {
+  #send !kill golem;
+  #send !cast polymorph other on golem;
+}

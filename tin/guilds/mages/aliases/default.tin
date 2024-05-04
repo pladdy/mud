@@ -14,6 +14,7 @@
 
 #alias attempt_focus_mind {
   #if {$gp2 < 50 && $sp > 1000} {#send !cast focus mind};
+  #if {$gp2 < 75 && "$immersed" == "true"} {#send !cast focus mind};
 }
 
 #nop MIs reset every 600 rounds (20 min);
