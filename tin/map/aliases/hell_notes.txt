@@ -2,7 +2,7 @@
                other, drop a torch, and move, then glimpse each of the
                possible dirs till you find the room you dropped the torch
                in, do that for all the dirs
-               
+
 yonder
   not anotherway
   not yonder

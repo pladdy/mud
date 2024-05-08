@@ -1,9 +1,10 @@
+#class {chats} {kill};
+#class {chats} {open};
+
+#var disable_chat_alerts 0;
+
 #var chats None;
 #var chats_per_line -;
-
-#alias setup_chats {
-  #read tin/default/chats/chats.tin;
-}
 
 #alias chats_clear {
   #var chats_per_line -;
@@ -78,3 +79,4 @@
   #send hmhist;
 }
 
+#class {chats} {close};

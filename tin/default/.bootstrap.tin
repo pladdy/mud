@@ -11,37 +11,52 @@
 #nop Default init file for all profiles;
 #nop excludes the map files and any other init files (including itself);
 
-#script {default_tin_files} {
-  find ./tin/default -iwholename '*.tin' | grep -v '.bootstrap.tin';
-};
-
 #class default kill;
 #class default open;
 
-#foreach { $default_tin_files[%*] } {file} {
-  #showme Reading in file: $file;
-  #if {"$file" != ""} {#read $file};
-};
+#alias read_tin_files {
+  #showme Finding files from %1;
+
+  #script {tin_list} {
+    find ./%1 -wholename '*.tin' | grep -v '.bootstrap.tin';
+  };
+
+  #foreach { $tin_list[%*] } {file} {
+    #showme Reading in file: $file;
+    #if {"$file" != ""} {#read $file};
+  };
+  #unvar tin_list;
+}
+
+read_tin_files tin/default;
 
 #class default close;
-#unvar default_tin_files;
 
 #showme Setting up stepper class;
-load_stepper_class;
+#class stepper kill;
+#class stepper open;
+read_tin_files tin/stepper;
+#class stepper close;
 
 #showme Setting up mip class;
-load_mip_class;
+read_tin_files tin/mip;
 
 #nop Set up configured guild class;
 
 #if {"$guild" != ""} {
   #read tin/guilds/hooks.tin;
-  load_guild_class $guild;
+  #showme Setting up $guild class;
+  #class $guild kill;
+  #class $guild open;
+  read_tin_files tin/guilds/$guild;
+  #class $guild close;
 };
 
-#nop Set up notes class;
 #showme Setting up notes class;
-load_notes_class;
+#class notes kill;
+#class notes open;
+read_tin_files tin/notes;
+#class notes close;
 
 log_level info;
 
@@ -82,3 +97,31 @@ log_level info;
 #PATHDIR          {sw}  {ne}  {12}
 #PATHDIR          {u}  {d}  {16}
 #PATHDIR          {w}  {e}  {8}
+
+#nop Number Keypad;
+
+#macro {\eOx} {n}
+#macro {\eOy} {ne}
+#macro {\eOv} {e}
+#macro {\eOs} {se}
+#macro {\eOr} {s}
+#macro {\eOq} {sw}
+#macro {\eOt} {w}
+#macro {\eOw} {nw}
+
+#macro {\eOu} {
+  #send !look;
+  #send !search;
+}
+
+#nop F2;
+#macro {\eOQ} {run home;}
+
+#nop Default variables;
+
+#var btrig {};
+#var dtrig {};
+#var ktrig_status on;
+#var coffin_status {};
+
+#send !prompt -reset;

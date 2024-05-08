@@ -1,9 +1,0 @@
-#nop Use with Cyberpope medallion;
-#alias pbm {#send !press button on medallion};
-
-#alias fixeq {run smithy;fix all;f2}
-
-#nop Override for guild specific fixing;
-#alias fixup {
-  fixeq;
-}

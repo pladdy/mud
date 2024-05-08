@@ -80,32 +80,6 @@
   }
 }
 
-#alias load_guild_class {
-  #showme Setting up %1 class;
-  #class $guild kill;
-  #class $guild open;
-  read_tin_files tin/guilds/%1;
-  #class $guild close;
-}
-
-#alias load_notes_class {
-  #class notes kill;
-  #class notes open;
-  read_tin_files tin/notes;
-  #class notes close;
-}
-
-#alias load_mip_class {
-  read_tin_files tin/mip;
-}
-
-#alias load_stepper_class {
-  #class stepper kill;
-  #class stepper open;
-  read_tin_files tin/stepper;
-  #class stepper close;
-}
-
 #nop Print the output of given script command;
 
 #alias print_system_output {
@@ -131,21 +105,6 @@
 #alias reload_tin {
   #read tin/default/.bootstrap.tin;
   reload_map;
-}
-
-#alias read_tin_files {
-  #script {tin_list} {
-    find ./%1 -wholename '*.tin' | grep -v '.bootstrap.tin';
-  };
-
-  #foreach { $tin_list[%*] } {file} {
-    #if {@length{$file} > 0} {
-      #showme reading $file;
-      #read $file;
-    };
-  };
-
-  #unvar tin_list;
 }
 
 #alias sound_beep {#bell}

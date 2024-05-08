@@ -64,7 +64,7 @@
     #delay {$i} {#send !cast major globe}; 
     #math {i} {$i + 2};
   };
-  
+
   #regexp {$dspells} { A } {#nop;} {
     #delay {$i} {#send !cast armor}; 
     #math {i} {$i + 2};

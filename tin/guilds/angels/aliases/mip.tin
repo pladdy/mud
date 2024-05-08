@@ -1,15 +1,15 @@
 #alias mip_combat_hook {
     #math {pct_hp} {$hp / $hp_max * 100.0};
-  
+
     #var circle {false};
     #var parried false;
-  
+
     #local MIN_DIV 50;
     #if {$gp2 < $MIN_DIV && $corpses > 0 && $rounds_in_combat > 0} {redi};
-  
+
     #local MIN_END 20;
     #if {$gp3 < $MIN_END && $corpses > 0 && $rounds_in_combat > 0} {reri};
-  
+
     #nop attempt_radiance;
     attempt_beyond_time;
     attempt_consecrate;
@@ -17,33 +17,33 @@
     show_trainings;
     check_stepper;
   }
-  
+
   #alias mip_gline1_hook {
     #local data %0;
     #nop Examples;
     #nop HO:/ HI:/ LO:/ LI:/;
     #nop HO:27.24/0 HI:0.00/0 LO:17.12/0 LI:8.12/0;
-         
+
     #regexp {$data} {HO:{\d+\.\d+}/{\d+} HI:{\d+\.\d+}/{\d+} LO:{\d+\.\d+}/{\d+} LI:{\d+\.\d+}/{\d+}} {
       #var advantages[ho] &1;
       #var advantages[hi] &3;
       #var advantages[lo] &5;
       #var advantages[li] &7;
-  
+
       sort_advantages;
       attempt_lunge;
-      
+
       #if {$gp1 <= $min_ts && @distance_closed{}} {attempt_circle};
       #else {
         attempt_swing;
         attempt_presage;
         attempt_providence;
       };
-  
+
       attempt_disengage;
     };
   }
-  
+
   #alias mip_gline2_hook {
     #local data %0;
     #nop [] TS:11/22 | DV:233/233 | EN:332/332;
@@ -52,27 +52,27 @@
       #var gp3 &1;
       #var gp3_max &2;
     };
-  
+
     #regexp {$data} {|{-*}{M|P}{-*}{M|P}{-*}|} {
       #local MAX_ROUNDS_DISENGAGED 2;
       #local MIN_ADVANTAGE 70;
-    
+
       #var angel[distance] @length{&3};
-    
+
       #if {$angel[distance] > 0} {
         #math {rounds_disengaged} {$rounds_disengaged + 1};
       };
       #else {
         #var rounds_disengaged 0;
       };
-    
+
       #if {$angel[distance] > 0
            && $rounds_disengaged > $MAX_ROUNDS_DISENGAGED
            && "$use_engage" == "true"} {
         #send !engage;
         #math {angel[distance]} {$angel[distance] - 1};
       };
-    
+
       #nop Based on distance boundary, set if disengage is possible;
       #regexp {$data} {|{-+}{M|P}{-*}{M|P}{-+}} {
         #var can_disengage true;
@@ -87,7 +87,7 @@
           };
         };
       };
-    
+
       #nop Based on distance to a wall set traverse distance;
       #regexp {$data} {|{-+}P} {
         #nop log.info Traverse distance, to left of M: @length{%1};
@@ -98,9 +98,8 @@
           #var traverse_distance @length{&5};
         };
       };
-    
+
       #if {$gp1 >= $min_ts} {attempt_lunge};
       attempt_dive;
     };
   }
-  

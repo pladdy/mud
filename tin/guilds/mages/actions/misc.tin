@@ -24,3 +24,7 @@
   #send !kill golem;
   #send !cast polymorph other on golem;
 }
+
+#action {^%!{[> ]*}You need some basic construction materials to create a golem.$} {
+  #send !ffetch materials;
+}

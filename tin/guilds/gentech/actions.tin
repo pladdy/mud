@@ -6,9 +6,9 @@
   #send !=akill on;
 }
 
-#action {^%!{[> ]*}%1%2/%3 %4 C: %5/%6} {
-  #var corpses %5;
-  #var corpses_max %6;
+#action {^%!{[> ]*}%1) C: %2/%3 %4} {
+  #var corpses %2;
+  #var corpses_max %3;
   #if {$corpses < $corpses_max} {#var coffin_status not_full};
   #else {#var coffin_status full};
 }

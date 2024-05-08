@@ -23,22 +23,22 @@
   #else {
     #format {current_time} {%T};
     #math {time_since_stepper_started} {$current_time - $stepper_started};
-  
+
     #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
       stepper off;
-  
+
       log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
-  
+
       #nop Round is seconds * 2 (2s / round);
       #local min_seconds 10;
       #math rando {1 d 20};
       #math regen_time {$min_seconds + $rando};
-  
+
       #delay {reactivate_stepper} {
         log.info "Re-activating stepper after regen time: $regen_time seconds.";
         stepper on;
       } {$regen_time};
-  
+
       #unvar rando;
     };
   };
@@ -93,7 +93,7 @@
   #local data %0;
   #nop Example:
   #nop Ammo:[500/] <yGxp: 83.5001%> Hits: [0] <cCoffin: N/A>;
-  
+
   #regexp {$data} {Ammo:[{\d+}]} {#var jugger_mounts[0] &1};
   #regexp {$data} {Ammo:[{\d+}/{\d+}]} {#var jugger_mounts[1] &2} {#var jugger_mounts[1] 101};
 

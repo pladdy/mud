@@ -1,13 +1,15 @@
+#alias f10 {
+  use_corpse;
+  #send !get all;
+}
+
+#alias mip_combat_hook {
+  #if {$hp_pct <= 0.8} {#send !salve};
+}
+
 #alias use_corpse {
   #send !hp;
   #send !bury corpse;
   #send !hp;
   #send !get all;
 }
-
-#alias f10 {
-  use_corpse;
-  #send !get all;
-}
-
-

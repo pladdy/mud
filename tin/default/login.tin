@@ -8,21 +8,11 @@
   gag on;
   #send !hp;
   #send !i;
-  #delay 2 chats_refresh;
+  #delay 3 chats_refresh;
 
   #if {"$ETERNALS" == "true"} {#textin tin/default/eternals.txt};
 
-  #switch {"$guild"} {
-    #case {"angels"} {enable_mip};
-    #case {"cyborgs"} {enable_mip};
-    #case {"fremen"} {enable_mip};
-    #case {"gentech"} {enable_mip};
-    #case {"juggers"} {enable_mip};
-    #case {"mages"} {enable_mip};
-    #case {"monks"} {enable_mip};
-    #case {"necros"} {enable_mip};
-    #case {"psicorps"} {enable_mip};
-  };
+  enable_mip;
 }
 
 #alias login {

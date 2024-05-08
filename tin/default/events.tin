@@ -9,6 +9,14 @@
 #event {SCROLLED MOUSE WHEEL DOWN} {#buffer down 1}
 #event {SCROLLED MOUSE WHEEL UP} {#buffer up 1}
 
+#event {SCREEN RESIZE} {
+  status_bar on;
+  refresh_status_bar;
+  #send ! ;
+  map_refresh;
+  chats_refresh;
+}
+
 #nop Logging;
 
 #event {SESSION CONNECTED} {

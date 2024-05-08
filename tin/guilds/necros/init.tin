@@ -7,17 +7,6 @@
 #var MIN_NECRO_CORPSES 3;
 #var MAX_NECRO_CORPSES 6;
 
-#nop  Update chat blocklists used by tin/default/chats/chats.tin;
-build_default_says_blocklist
-#list says_blocklist add {allayna};
-#list says_blocklist add {bray};
-#list says_blocklist add {duncan};
-#list says_blocklist add {goram};
-#list says_blocklist add {pyool};
-#list says_blocklist add {talia};
-#list says_blocklist add {theela};
-simplify_says_blocklist;
-
 build_default_tells_blocklist;
 #list tells_blocklist add {$necro_familiar};
 #list tells_blocklist add {lynda};

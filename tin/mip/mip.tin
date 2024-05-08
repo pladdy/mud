@@ -57,7 +57,7 @@
 
   #switch {"$mip_code"} {
     #case {"BAB"} {process_tell $mip_data};
-    #case {"CAA"} {#nop}; #nop chatlines;
+    #case {"CAA"} {process_chat_line $mip_data};
     #case {"FFF"} {process_composite $mip_data};
   };
 
@@ -172,6 +172,33 @@
   };
 }
 
+#var chat_data {};
+
+#alias process_chat_line {
+  #local data %0;
+
+  #if {"$show_mip" == "true"} {#showme processing chat in MIP '$data'};
+
+  #nop Examples;
+  #nop mage~Mage~Highjinx~[Mage(129)] Highjinx : good morning;
+  #nop ptell~Party~highjinx~[PARTY] Highjinx: foo bar;
+  #regexp {$data} {{.+}~{.+}~{.+}~{.+}} {
+    #local chat_type &1;
+    #local line_name &2;
+    #local player &3;
+    #local message &4;
+
+    #var skip_message false;
+    #regexp {$message} {[PARTY] GOLD divvy called} {#var skip_message true};
+    #regexp {$message} {[PARTY] All gold divvied} {#var skip_message true};
+
+    #if {"$skip_message" == "false"} {
+      #list chats add {$message};
+      chats_refresh;
+    };
+  };
+}
+
 #alias process_tell {
   #local data %0;
   #if {"$show_mip" == "true"} {#showme processing tell in MIP '$data'};
@@ -193,10 +220,13 @@
         #list chats add {$player: $tell};
         chats_refresh;
 
-        sound_beeps;
-        set_repeating_alarm;
-        log.warn Tell received, 'th' to clear repeating alarm.;
-        #if {"$stepper" == "on"} {stepper off};
+        #if {"$player" != "The" && "$stepper" == "on"} {
+          sound_beeps;
+          set_repeating_alarm;
+          log.warn Tell received, 'th' to clear repeating alarm.;
+          stepper off;
+        };
+
         #undelay reactivate_stepper;
       };
     };

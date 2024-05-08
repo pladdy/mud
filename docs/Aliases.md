@@ -47,6 +47,13 @@ items into bags.
       - then keep amulet
       - move se
 
+- **ka**
+  - Usage: `ka <mob> <mob n>
+  - Kill alias to kill multiple of the same mob.
+  Example:
+    - `ka merchant 2`
+      - Will then run `kill merchant 1` and `kill merchant 2`
+
 - **kk**
   - Usage: `kk <mob 1>,<mob 2>,<mob n>`
   - Kill alias to kill multiple comma serpated mobs.

@@ -20,7 +20,7 @@
   };
   #else {
     log.info Turning auto train on;
-    #var auto_train true;    
+    #var auto_train true;
   }
 }
 
@@ -35,7 +35,7 @@
   #else {
     #format {current_time} {%T};
     #math {time_since_stepper_started} {$current_time - $stepper_started};
-  
+
     #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
       log.info Disabling stepper, need to rest.;
       stepper off;

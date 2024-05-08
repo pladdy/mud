@@ -88,13 +88,13 @@
 
   #if {$map[current_room] == 34956} {#map goto 34960};
   #if {$map[current_room] == 34960} {#map goto 34956};
-  
+
   #if {$map[current_room] == 35022} {#map goto 35023};
   #if {$map[current_room] == 35023} {#map goto 35022};
 
   #if {$map[current_room] == 35065} {#map goto 35086};
   #if {$map[current_room] == 35086} {#map goto 35065};
-  
+
   #nop last teleporter takes you back to private elevator;
   #if {$map[current_room] == 35120} {#map goto 34770};
   #if {$map[current_room] == 34770} {#map goto 35120};

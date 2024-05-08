@@ -1,3 +1,22 @@
+#nop Define wimpy_commands per guild profile;
+#alias wimpy_commands {#nop;}
+
+#alias wd {
+  #switch {"%1"} {
+    #case "n" {#send !wimpydir north};
+    #case "s" {#send !wimpydir south};
+    #case "e" {#send !wimpydir east};
+    #case "w" {#send !wimpydir west};
+    #case "nw" {#send !wimpydir northwest};
+    #case "ne" {#send !wimpydir northeast};
+    #case "sw" {#send !wimpydir southwest};
+    #case "se" {#send !wimpydir southeast};
+    #case "u" {#send !wimpydir up};
+    #case "d" {#send !wimpydir down};
+    #default {#send !wimpydir %1};
+  }
+}
+
 #alias _default_wimpy_commands {
   #showme <110>Wimpy firing!;
   #send !hp;
