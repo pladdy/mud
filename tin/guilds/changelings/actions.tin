@@ -1,48 +1,16 @@
-#action {^%!{[> ]*}H: %1/%2 S: %3/%4 St: %5% P: %6% B: %7 C: %8/%9% E:%10} {
-  #var hp {%1};
-  #var hp_max {%2};
-
-  #var sp {%3};
-  #var sp_max {%4};
-
-  #var gp1 {%5};
-  #var gp1_max {100};
-
-  #var gp2 {%6};
-  #var gp2_max {100};
-
-  #var bioplasts {%7};
-  #var relinquishes {%8};
-  #var chaos_flux {%9};
-
-  #var enemy {%10};
-  #replace {enemy} { } {};
-  #replace {enemy} {%} {};
-  #if {"$enemy" == ""} {
-    #var enemy {0};
-    #var enemy_last {0};
-  };
-
-  #if {$enemy > 0} {
-    #if {$gp1 <= 25 && $corpses> 0} {reab};
-    #elseif {$gp1 <= 5 && $bioplasts > 0} {#send !consume bioplast};
-  };
-
-  #if {$chaos_flux == 99 & $relinquishes > 0} {#send !relinquish};
-  stepper_check;
+#action {^%!{[> ]*}%1 B: %2% } {
+  #var bioplasts {%2};
 }
 
-#action {^%!{[> ]*}Sk: %1 Gx: %2% F: %3: %4% St: %5$} {
-  #var gxp %2;
-  #var status %5;
+#action {^%!{[> ]*}Sk: %1 St:%2$} {
+  #var status %2;
 
   #nop if relinquish is active, don't try to activate hyperproliferate;
-  #regex {$status} {R} {#nop} {
-    #regex {$status} {H} {#nop} {#send !hyperproliferate};
+  #regexp {$status} {R} {#nop} {
+    #regexp {$status} {H} {#nop} {
+      attempt_hyperproliferate;
+    };
   };
-
-  attempt_defenses;
-  show_status_bar;
 }
 
 #nop Mimic changes who deals a killing blow from character name to thing being;
@@ -57,10 +25,12 @@
 
 #action {^%!{[> ]*}You flow back into your natural form.$} {
   #var {character} $profile_character;
+  check_flyer slime;
 }
 
-#action {^%!{[> ]*}You morph into %1!} {
+#action {^%!{[> ]*}You morph into {a|an} %1!} {
   #var {character} $profile_character;
+  check_flyer %1;
 }
 
 #action {^%!{[> ]*}Your wounds close as you morph into %1!} {

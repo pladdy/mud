@@ -3,13 +3,50 @@
 
   #if {$gp_ratio > 3} {
     #nop toggle on;
-    #regex {$status} {V} {#nop} {#send !perseverance};
-    #regex {$status} {D} {#nop} {#send !dissipate};
+    #regexp {$status} {V} {#nop} {#if {"$use_perseverance" == "true"} {#send !perseverance}};
+    #regexp {$status} {D} {#nop} {#if {"$use_dissipate" == "true"} {#send !dissipate}};
   };
   #elseif {$gp_ratio < 2} {
     #nop toggle off;
-    #regex {$status} {V} {#send !perseverance};
-    #regex {$status} {D} {#send !dissipate};
+    #regexp {$status} {V} {#if {"$use_perseverance" == "true"} {#send !perseverance}} {#nop};
+    #regexp {$status} {D} {#if {"$use_dissipate" == "true"} {#send !dissipate}} {#nop};
+  }
+}
+
+#alias attempt_hyperproliferate {
+  #if {"$use_hyperproliferate" == "true" && $sp > 100 && $gp2 < 100} {
+    #send !hyperproliferate;
+  };
+}
+
+#alias attempt_bioextract {
+  #local MIN_GPS 25;
+
+  #if {$rounds_in_combat > 0} {
+    #if {$bioplasts > 10 && ($gp1 < $MIN_GPS || $gp2 < $MIN_GPS)} {bics};
+  }
+}
+
+#alias attempt_liquefy {
+  #if {"$use_liquefy" == "true"} {
+    #math pct_hp {$hp / $hp_max};
+    #if {$gp2 < 50 && $hp < .8} {#send !liquefy};
+  }
+}
+
+#alias attempt_relinquish {
+  #if {$rounds_in_combat > 0 && $relinquishes > 0} {
+    #if {($gp1 < 50 || $gp2 < 50) || $chaos_flux > 98} {#send !relinquish};
+  };
+}
+
+#alias bics {#5 {#send !bioconsume loads}}
+
+#alias check_flyer {
+  #local form %0;
+  #switch {"$form"} {
+    #case {"owlet"} {#var flying true};
+    #default {#var flying false};
   }
 }
 
@@ -22,12 +59,55 @@
   #if {"%2" == ""} {#send !fuse %1 and %1};
   #elseif {"%1" == "all"} {#send !fuse all %2};
   #else {#send !fuse %1 and %2};
-
-  #send !keep all bioplast;
 }
 
 #alias linkdie_commands {
-  #send !mimic;
+  #if {"$use_mimic" == "true"} {#send !mimic};
+  #send !form;
+}
+
+#alias mip_combat_hook {
+  #if {$rounds_in_combat > 0} {
+    #if {$gp1 <= 25 && $corpses> 0} {reab};
+    #elseif {$gp1 <= 5 && $bioplasts > 0} {#send !bioconsume loads};
+  };
+  #if {$chaos_flux >= 98 & $relinquishes > 0} {#send !relinquish};
+  
+  attempt_bioextract;
+  attempt_defenses;
+  attempt_liquefy;
+  attempt_relinquish;
+  stepper_check;
+}
+
+#alias mip_gline1_hook {
+  #local data %0;
+  #nop Example;
+  #nop  <y[N]> [Chaos Flux: 0/17%]  <y[FF(0): 0.00%]>  [Slime];
+  #regexp {$data} {Chaos Flux: {\d+}/{\d+}%} {
+    #var relinquishes &1;
+    #var chas_flux &2;
+  };
+
+  #regexp {$data} {FF({\d+}): {\d+\.\d+}%]>%s[{.+}]} {
+    #var gxp &2;
+    #var form &4;
+    #format form {%l} {$form};
+    check_flyer $form;
+  };
+  calculate_delta gxp;
+}
+
+#alias mip_gline2_hook {
+  #nop hook can be called with an empty string which causes #var to print;
+  #if {"%0"} {
+    #local data %0;
+    #nop Example;
+    #nop <b[HYP]>;
+    #regexp {$data} {HYP} {#nop} {
+      attempt_hyperproliferate;
+    };
+  };
 }
 
 #alias reab {
@@ -49,7 +129,6 @@
 #alias rebe {
   #send !unwrap;
   #send !bioextract;
-  #send !keep bioplast;
 }
 
 #alias stepper_check {
@@ -61,18 +140,17 @@
 }
 
 #alias use_corpse {
-  #local MAX_BIOPLASTS 20;
-  #local MIN_STAM 80;
-  #local MIN_PROTO 80;
+  #math {pct_gp1} {$gp1 / $gp1_max};
+  #math {pct_gp2} {$gp2 / $gp2_max};
+  #local MAX_BIOPLASTS 95;
+  #local MIN_STAM .7;
+  #local MIN_PROTO .7;
 
-  #if {$gp1 < $MIN_STAM || $gp2 < $MIN_PROTO || $bioplasts >= $MAX_BIOPLASTS} {
-    #send !hp;
+  #if {$pct_gp1 < $MIN_STAM || $pct_gp2 < $MIN_PROTO || $bioplasts >= $MAX_BIOPLASTS} {
     #send !absorb;
-    #send !hp;
   };
   #else {
     #send !bioextract;
-    #send !keep bioplast;
   }
 }
 

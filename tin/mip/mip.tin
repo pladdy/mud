@@ -34,31 +34,35 @@
   calculate_delta enemy;
 }
 
-#action {^%!{[> ]*}#K\%$mip[secret]{\d{3}}{.{3}}{.+}} {
+#action {^%!{[> ]*}#K\%$mip[secret]{\d{3}}{.{3}}{.*}} {
   #var mip_raw_input %0;
   #var mip_length %1;
   #var mip_code %2;
-  #var mip_raw_data %3;
 
-  #math mip_data_length {$mip_length - 3};
-  #format {mip_data} {%.${mip_data_length}s} {$mip_raw_data};
+  #nop DDD code can send no data...;
+  #if {@length{%3} > 0} {
+    #var mip_raw_data %3;
 
-  #var mip_remainder $mip_raw_data;
-  #replace mip_remainder {$mip_data} {};
+    #math mip_data_length {$mip_length - 3};
+    #format {mip_data} {%.${mip_data_length}s} {$mip_raw_data};
 
-  #if {"$show_mip" == "true"} {
-    #showme <170>MIP Match;
-    #showme The 0 var: %0;
-    #showme The mip data length: %1;
-    #showme The mip code: %2;
-    #showme The mip data: $mip_data;
-    #nop #showme The remaining mip data: $mip_remainder;
-  };
+    #var mip_remainder $mip_raw_data;
+    #replace mip_remainder {$mip_data} {};
 
-  #switch {"$mip_code"} {
-    #case {"BAB"} {process_tell $mip_data};
-    #case {"CAA"} {process_chat_line $mip_data};
-    #case {"FFF"} {process_composite $mip_data};
+    #if {"$show_mip" == "true"} {
+      #showme <170>MIP Match;
+      #showme The 0 var: %0;
+      #showme The mip data length: %1;
+      #showme The mip code: %2;
+      #showme The mip data: $mip_data;
+      #nop #showme The remaining mip data: $mip_remainder;
+    };
+
+    #switch {"$mip_code"} {
+      #case {"BAB"} {process_tell $mip_data};
+      #case {"CAA"} {process_chat_line $mip_data};
+      #case {"FFF"} {process_composite $mip_data};
+    };
   };
 
   #if {"$show_mip" != "true"} {#line gag}
@@ -97,6 +101,13 @@
     process_hp_data_code $hp_data_code with $data;
   };
   refresh_status_bar;
+
+  #undelay {refresh-status-bar};
+  #delay {refresh-status-bar} {
+    calculate_deltas;
+    refresh_status_bar;
+    #undelay {refresh-status-bar};
+  } {3};
 }
 
 #alias {process_hp_data_code %1 with %2} {
@@ -109,31 +120,35 @@
     #case {"A"} {
       #var hp $data;
       calculate_delta hp;
-      #nop TODO: a named delay to calculate again in 2 seconds?  so delta doesn't;
-      #nop stick around?;
+      #delay {refresh-hp} {calculate_delta hp} {2};
     };
     #case {"B"} {
       #var hp_max $data;
       calculate_delta hp;
+      #delay {refresh-hp} {calculate_delta hp} {2};
     };
     #case {"C"} {
       #var sp $data;
       calculate_delta sp;
+      #delay {refresh-sp} {calculate_delta sp} {2};
     };
     #case {"D"} {
       #var sp_max $data;
       calculate_delta sp;
+      #delay {refresh-sp} {calculate_delta sp} {2};
     };
     #case {"E"} {
       #if {"$guild" == "mages"} {#math {gp1} {100 - $data}};
       #else {#var gp1 $data};
       mip_gp1_hook;
       calculate_delta gp1;
+      #delay {refresh-gp1} {calculate_delta gp1} {2};
     };
     #case {"F"} {
       #if {"$guild" == "mages"} {#var gp1_max 100};
       #else {#var gp1_max $data};
       calculate_delta gp1;
+      #delay {refresh-gp1} {calculate_delta gp1} {2};
     };
     #case {"G"} {
       #switch {"$guild"} {
@@ -144,6 +159,7 @@
       };
       mip_gp2_hook;
       calculate_delta gp2;
+      #delay {refresh-gp2} {calculate_delta gp2} {2};
     };
     #case {"H"} {
       #switch {"$guild"} {
@@ -153,6 +169,7 @@
         #default {#var gp2_max $data};
       };
       calculate_delta gp2;
+      #delay {refresh-gp2} {calculate_delta gp2} {2};
     };
     #case {"I"} {
       #var mip[gline1] $data;
@@ -167,6 +184,7 @@
       #var enemy $data;
       mip_combat_hook;
       calculate_delta enemy;
+      #delay {refresh-enemy} {calculate_delta enemy} {2};
     };
     #case {"N"} {#var rounds_in_combat $data};
   };

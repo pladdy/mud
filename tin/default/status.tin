@@ -1,7 +1,9 @@
-#alias build_deltas {
-  #var deltas {H: $hp_delta ($hp_pct) S: $sp_delta ($sp_pct) Gp1: $gp1_delta};
-  #var deltas {$deltas ($gp1_pct) Gp2: $gp2_delta ($gp2_pct) E:};
-  #var deltas {$deltas $enemy_delta% ($enemy_pct) Gxp: $gxp_delta};
+#alias build_status_bar {
+  #var deltas {H: $hp ($hp_pct) $hp_delta};
+  #var deltas {$deltas S: $sp ($sp_pct) $sp_delta};
+  #var deltas {$deltas Gp1: $gp1 ($gp1_pct) $gp1_delta};
+  #var deltas {$deltas Gp2: $gp2 ($gp2_pct) $gp2_delta};
+  #var deltas {$deltas E: $enemy_delta% ($enemy_pct) Gxp: $gxp_delta};
 }
 
 #alias calculate_delta {
@@ -67,7 +69,7 @@
 
 #alias refresh_status_bar {
   #if {$SHOW_STATUS == 1} {
-    build_deltas;
+    build_status_bar;
     #nop thanks for the tip from Kyoujin: wrap the text in color codes to help;
     #nop stop the ansi bleed/parse issue from showing with the prompt on;
     clear_status_bar;

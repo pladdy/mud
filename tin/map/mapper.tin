@@ -17,11 +17,11 @@
     #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
 } {1}
 
-#action {^%!{[> ]*}[RL]%*\n%a>} {
+#nop %*\n%a
+#action {^%!{[> ]*}[RL]%a\n    There {is|are}} {
     #unvar long;
     #format long1 {%p} {%1};
-    #format long2 {%p} {%2};
-    #var long {$long1\n$long2};
+    #var long {$long1};
     #map set roomdesc $long;
 } {1}
 
