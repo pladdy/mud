@@ -1,7 +1,7 @@
-#var use_dissipate false;
+#var use_dissipate true;
 #var use_hyperproliferate true;
 #var use_mimic false;
-#var use_perseverance false;
+#var use_perseverance true;
 #var profile_character $character;
 
 #gag {You have no need to reform as you are in perfect health!};
