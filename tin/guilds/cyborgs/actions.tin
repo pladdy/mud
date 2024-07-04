@@ -1,3 +1,9 @@
 #action {^%!{[> ]*}Psiodampening Insulator deactivated.$} {
   #send !wear helmet;
 }
+
+#gag {^%!{[> ]*}Your telescopic riot shield {ripples|shimmers|sparks}}
+
+#gag {^%!{[> ]*}Your projectional force shield {ripples|shimmers|sparks}}
+
+#gag {^%!{[> ]*}Your mass deceleration field {ripples|shimmers|sparks}}

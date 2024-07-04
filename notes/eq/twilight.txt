@@ -1,9 +1,10 @@
 Twilight eq in Tomb of King Alaren
 
-Chamption -> Shield
-King      -> Armour
-Priestess -> Amulet
-Vizier    -> Circlet (helmet)
+Chamption  -> Shield
+King       -> Armour
+Priestess  -> Amulet
+Vizier     -> Circlet (helmet)
+Bone Golem -> Eye of twilight (light souce, key)
 
 After wearing, each time you kill the vizier, priestess, champion, and king, it
 charges the eq.  Charging it raises the AC.
@@ -20,7 +21,7 @@ charges the eq.  Charging it raises the AC.
 
 Eye of twilight
 
-Basically a key, must be charged
+Basically a key, must be charged; also a light source
 
 Bone Goelm -> Eye of twilight (gem, can't equip, charge and use in wall)
 0 [dull]

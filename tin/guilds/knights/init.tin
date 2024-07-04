@@ -15,3 +15,4 @@ repeat combat/staunch/0/1
 #list tells_blocklist add {sir fors belerent};
 #list tells_blocklist add {sir rea};
 #list tells_blocklist add {tauron};
+

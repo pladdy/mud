@@ -1,1 +1,8 @@
-#var jedi_saber_color green;
+#var jedi[confusion] no;
+#var jedi[dissipating] false;
+#var jedi[fallback_combat_method] {wield sword};
+#var jedi[light_lightsaber_color] purple;
+#var jedi[light_lightdaggers_color] green;
+#var jedi[max_confusion_attempts] 5;
+#var jedi[lightsaber_mode] flurry;
+#var jedi[lightdaggers_mode] flurry;

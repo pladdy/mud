@@ -17,14 +17,14 @@ alias tankm mode weirding:high litany:$1 pain assault reflexes:blinding attacks:
 
 alias mmaf mode weirding:half litany:$1 pain assault attacks:fast reflexes prana:high bindu:low 
 alias mmal mode weirding:major litany:$1 pain assault attacks:lightning prana:high bindu:low 
-alias mmab mode weirding:high litany:$1 pain assault attacks:blinding reflexes:quick prana:high bindu:low 
+alias mmab mode weirding:all litany:$1 pain assault attacks:blinding reflexes prana:high bindu:low 
 alias mmas mode litany:$1 weirding:high pain assault attacks:slow prana:high bindu:low
 
 alias mmrn mode litany:$1 pain assault weirding attacks prana:high bindu:low
-alias mmrq mode weirding:major litany:$1 pain assault attacks:fast reflexes prana:high bindu:low
-alias mmrf mode weirding:high litany:$1 pain assault attacks:fast reflexes:fast prana:high bindu:low
-alias mmrl mode weirding:high litany:$1 pain assault reflexes:lightning attacks:fast prana:high bindu:low
-alias mmrb mode weirding:high litany:$1 pain assault reflexes:blinding attacks:fast prana:high bindu:low
+alias mmrq mode weirding:some litany:$1 pain assault reflexes:quick attacks:fast  prana:high bindu:low
+alias mmrf mode weirding:half litany:$1 pain assault reflexes:fast attacks:fast prana:high bindu:low
+alias mmrl mode weirding:most litany:$1 pain assault reflexes:lightning attacks:fast prana:high bindu:low
+alias mmrb mode weirding:all litany:$1 pain assault reflexes:blinding attacks:fast prana:high bindu:low
 
 alias rm mode litany:$1 weirding:high assault pain reflexes:blinding prana:high bindu:low
 
@@ -35,8 +35,8 @@ alias aq aquameter
 alias bo board ornithopter
 alias cb check belt
 alias da donate all
-alias doa do loop combat agony
-alias dos do clear
+alias doa repeat combat/agony/0/2
+alias dos repeat off
 alias fa fill all
 alias gfinger frecall -r
 alias gl globe

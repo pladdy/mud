@@ -7,9 +7,7 @@
 #var MIN_NECRO_CORPSES 3;
 #var MAX_NECRO_CORPSES 6;
 
-build_default_tells_blocklist;
 #list tells_blocklist add {$necro_familiar};
 #list tells_blocklist add {lynda};
 #list tells_blocklist add {talia};
 #list tells_blocklist add {Your link to the guild};
-simplify_tells_blocklist

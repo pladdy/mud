@@ -76,7 +76,7 @@ log_level info;
 #CONFIG           {HISTORY SIZE}  {1000}
 #CONFIG           {LOG}  {PLAIN}
 #CONFIG           {MOUSE} {ON}
-#CONFIG           {PACKET PATCH}  {0.5}
+#CONFIG           {PACKET PATCH}  {1}
 #CONFIG           {REPEAT CHAR}  {!}
 #CONFIG           {REPEAT ENTER}  {OFF}
 #CONFIG           {SCROLL LOCK}  {ON}

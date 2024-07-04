@@ -9,13 +9,19 @@
 
 #alias am {
   #send !hide;
+  #send !pain none;
+  #send !assault;
+  #send !pain;
   #send !fk m %0;
+  #send !assault none;
+  #send !pain;
+  #send !assault;
 }
 
 #alias amp {
   #send !hide;
   #send !poison;
-  #send !fk m %0;
+  am %0;
 }
 
 #alias attempt_adjust_litany {
@@ -50,7 +56,7 @@
 #alias attempt_stun {
   #if {
     @combat_rounds_left{} > 8
-    && $hp_as_pct <= 0.95
+    && $hp_as_pct <= 1.00
     && "$stun_active" != "true" 
     && "$voice_active" != "true"
     && "$stun_recovering" != "true"
@@ -62,7 +68,7 @@
 #alias attempt_voice {
   #if {
     @combat_rounds_left{} > 8
-    && $hp_as_pct < 0.90
+    && $hp_as_pct < 0.85
     && "$voice_active" != "true"
     && "$voice_recovering" != "true"
     && $gp1 > 200} {
@@ -117,9 +123,21 @@
 }
 
 #alias count_available_spices {
-  #list spice_inv_queue size available_inv_spices;
-  #list spice_bag_queue size available_bag_spices;
+  #list spices[inv] size available_inv_spices;
+  #list spices[bag] size available_bag_spices;
   #math available_spices {$available_inv_spices + $available_bag_spices};
+}
+
+#alias donate_stripe {
+  #if {$gp1 >= 625} {
+    #25 {
+      #send !fill literjon;
+      #send !donate literjon;
+    };
+  };
+  #else {
+    #showme Not enough water to donate a stripe.  625 water needed.;
+  };
 }
 
 #alias drc {
@@ -130,7 +148,8 @@
 #alias drcp {
   holster_weapons;
   #send !draw crysknife;
-  #send !do loop combat agony;
+  #nop do agony after guild automation and before guild attacks;
+  #send !repeat combat/agony/0/2;
 }
 
 #alias drl {
@@ -181,11 +200,21 @@
   #math {total_water} {$gp1 + $gp2};
   #format total_water_pct {%f} {$total_water / $gp1_max};
 
-  #if {$total_water_pct < 1.3 && $gp1_raw_pct < .1 && $corpses > 0} {rerc};
+  #if {$rounds_in_combat > 0 && $total_water_pct < 1.3 && $gp1_raw_pct < .1 && $corpses > 0} {
+    rerc;
+    #send !sip literjon;
+  };
+
   attempt_hide;
   attempt_stun;
   attempt_voice;
   check_stepper;
+}
+
+#alias mip_gp1_hook {
+  #if {$gp1_raw_pct > .9 && $total_water_pct > 1} {
+    #send !fill literjon;
+  };
 }
 
 #alias rerc {
@@ -199,28 +228,24 @@
   #send !fai;
 }
 
-#alias relog_commands {
-  spices;
-}
-
 #alias respice {
   #if {$available_inv_spices > 0} {
     log.info Spice available in inventory.;
-    #list spice_inv_queue get 1 spice_task;
+    #list spices[inv] get 1 spice_task;
     #send !$spice_task;
-    #list spice_inv_queue delete 1;
+    #list spices[inv] delete 1;
   };
   #elseif {$available_bag_spices > 0} {
     log.info Spice available in bag.;
 
-    #list spice_bag_queue get 1 spice_task;
+    #list spices[bag] get 1 spice_task;
 
     #nop  Try to get drink/spice from bag;
     #regexp {$spice_task} {%!{(drink|take)} {[a-z]+}} {#var drink &2};
 
     gb $drink 1;
     #send !$spice_task;
-    #list spice_bag_queue delete 1;
+    #list spices[bag] delete 1;
   };
   #else {
     log.warn No spices left!;
@@ -228,19 +253,17 @@
 }
 
 #alias spice_chk {
-  #nop  Checking inventory clears the spice_*_queues;
   #send !i;
-  #send !l bag;
 }
 
 #alias spices {
-  #list spice_inv_queue clear;
-  #list spice_bag_queue clear;
+  #list spices[inv] clear;
+  #list spices[bag] clear;
   spice_chk;
   #delay {2} {
     count_available_spices;
-    #var spice_inv_queue;
-    #var spice_bag_queue};
+    #var spices[inv];
+    #var spices[bag]};
 };
 
 #alias use_corpse {

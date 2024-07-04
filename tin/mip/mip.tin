@@ -34,34 +34,62 @@
   calculate_delta enemy;
 }
 
+#action {^#K\%$mip[secret]{\d{3}}{.{3}}{.*}} {
+  log.warn MIP code that doesn't match action;
+
+  #var mip[raw] %0;
+  #var mip[length] %1;
+  #var mip[code] %2;
+  #if {@length{%3} > 0} {#var mip[data] %3};
+  process_mip;
+} {5}
+
 #action {^%!{[> ]*}#K\%$mip[secret]{\d{3}}{.{3}}{.*}} {
-  #var mip_raw_input %0;
-  #var mip_length %1;
-  #var mip_code %2;
-
+  #var mip[raw] %0;
+  #var mip[length] %1;
+  #var mip[code] %2;
   #nop DDD code can send no data...;
-  #if {@length{%3} > 0} {
-    #var mip_raw_data %3;
+  #if {@length{%3} > 0} {#var mip[data] %3};
+  process_mip;
+} {1}
 
-    #math mip_data_length {$mip_length - 3};
+#alias process_mip {
+  #if {@length{$mip[data]} > 0} {
+    #math mip_data_length {$mip[length] - 3};
     #format {mip_data} {%.${mip_data_length}s} {$mip_raw_data};
 
-    #var mip_remainder $mip_raw_data;
-    #replace mip_remainder {$mip_data} {};
+    #var mip_remainder $mip[raw];
+    #replace mip_remainder {$mip[data]} {};
 
     #if {"$show_mip" == "true"} {
       #showme <170>MIP Match;
-      #showme The 0 var: %0;
-      #showme The mip data length: %1;
-      #showme The mip code: %2;
-      #showme The mip data: $mip_data;
-      #nop #showme The remaining mip data: $mip_remainder;
+      #showme The 0 var: $mip[raw];
+      #showme The mip data length: $mip[length];
+      #showme The mip code: $mip[code];
+      #showme The mip data: $mip[data];
     };
 
-    #switch {"$mip_code"} {
-      #case {"BAB"} {process_tell $mip_data};
-      #case {"CAA"} {process_chat_line $mip_data};
-      #case {"FFF"} {process_composite $mip_data};
+    #switch {"$mip[code]"} {
+      #nop mud special information;
+      #case {"BAA"} {#show <160>Mud: $mip[data]<070>};
+      #nop tells;
+      #case {"BAB"} {process_tell $mip[data]};
+      #nop guild special information;
+      #case {"BAC"} {
+        #format {mip[BAC_source]} {%n} {$guild};
+        #show <150>$mip[BAC_source]: $mip[data]<070>;
+      };
+      #nop room short description;
+      #case {"BAD"} {#var mip[BAD] $mip[data]};
+      #nop chat information;
+      #case {"CAA"} {
+        #var mip[CAA] $mip[data];
+        process_chat_line $mip[data];
+      };
+      #nop room exits;
+      #case {"DDD"} {#var mip[DDD] $mip[data]};
+      #nop composite MIP for hpbar variables;
+      #case {"FFF"} {process_composite $mip[data]};
     };
   };
 
@@ -120,46 +148,50 @@
     #case {"A"} {
       #var hp $data;
       calculate_delta hp;
-      #delay {refresh-hp} {calculate_delta hp} {2};
+      #delay {refresh-hp} {calculate_delta hp} {3};
     };
     #case {"B"} {
       #var hp_max $data;
       calculate_delta hp;
-      #delay {refresh-hp} {calculate_delta hp} {2};
+      #delay {refresh-hp} {calculate_delta hp} {3};
     };
     #case {"C"} {
       #var sp $data;
       calculate_delta sp;
-      #delay {refresh-sp} {calculate_delta sp} {2};
+      #delay {refresh-sp} {calculate_delta sp} {3};
     };
     #case {"D"} {
       #var sp_max $data;
       calculate_delta sp;
-      #delay {refresh-sp} {calculate_delta sp} {2};
+      #delay {refresh-sp} {calculate_delta sp} {3};
     };
     #case {"E"} {
       #if {"$guild" == "mages"} {#math {gp1} {100 - $data}};
       #else {#var gp1 $data};
       mip_gp1_hook;
       calculate_delta gp1;
-      #delay {refresh-gp1} {calculate_delta gp1} {2};
+      #undelay refresh-gp1;
+      #delay {refresh-gp1} {calculate_delta gp1} {3};
     };
     #case {"F"} {
       #if {"$guild" == "mages"} {#var gp1_max 100};
       #else {#var gp1_max $data};
       calculate_delta gp1;
-      #delay {refresh-gp1} {calculate_delta gp1} {2};
+      #undelay refresh-gp1;
+      #delay {refresh-gp1} {calculate_delta gp1} {3};
     };
     #case {"G"} {
       #switch {"$guild"} {
-        #case {"mages"} {#math {gp2} {100 - $data}};
         #case {"cyborgs"} {#math {gp2} {100 - $data}};
+        #case {"jedi"} {#math {gp2} {100 - $data}};
         #case {"juggers"} {#math {gp2} {100 - $data}};
+        #case {"mages"} {#math {gp2} {100 - $data}};
         #default {#var gp2 $data};
       };
       mip_gp2_hook;
       calculate_delta gp2;
-      #delay {refresh-gp2} {calculate_delta gp2} {2};
+      #undelay refresh-gp2;
+      #delay {refresh-gp2} {calculate_delta gp2} {3};
     };
     #case {"H"} {
       #switch {"$guild"} {
@@ -169,24 +201,32 @@
         #default {#var gp2_max $data};
       };
       calculate_delta gp2;
-      #delay {refresh-gp2} {calculate_delta gp2} {2};
+      #undelay refresh-gp2;
+      #delay {refresh-gp2} {calculate_delta gp2} {3};
     };
     #case {"I"} {
-      #var mip[gline1] $data;
-      mip_gline1_hook $data;
+      #if {@length{$data} > 0} {
+        #var mip[gline1] $data;
+        mip_gline1_hook $data
+      };
     };
     #case {"J"} {
-      #var mip[gline2] $data;
-      mip_gline2_hook $data;
+      #if {@length{$data} > 0} {
+        #var mip[gline2] $data;
+        mip_gline2_hook $data;
+      };
     };
     #case {"K"} {#var attacker $data};
     #case {"L"} {
       #var enemy $data;
-      mip_combat_hook;
       calculate_delta enemy;
-      #delay {refresh-enemy} {calculate_delta enemy} {2};
+      #undelay refresh-enemy;
+      #delay {refresh-enemy} {calculate_delta enemy} {3};
     };
-    #case {"N"} {#var rounds_in_combat $data};
+    #case {"N"} {
+      #var rounds_in_combat $data;
+      mip_combat_hook;
+    };
   };
 }
 
@@ -200,7 +240,8 @@
   #nop Examples;
   #nop mage~Mage~Highjinx~[Mage(129)] Highjinx : good morning;
   #nop ptell~Party~highjinx~[PARTY] Highjinx: foo bar;
-  #regexp {$data} {{.+}~{.+}~{.+}~{.+}} {
+  #nop com~JEDI~~[JEDI]: Ylenic It'kla leaves the Academy;
+  #regexp {$data} {{.*}~{.*}~{.*}~{.*}} {
     #local chat_type &1;
     #local line_name &2;
     #local player &3;
@@ -214,8 +255,24 @@
       #list chats add {$message};
       chats_refresh;
     };
+  } {
+    log.warn Failed to match chat line;
+    #showme $data;
   };
 }
+
+
+#list tells_blocklist add {reaching};
+#list tells_blocklist add {vanquished};
+#list tells_blocklist add {moving};
+#list tells_blocklist add {caught};
+#list tells_blocklist add {her};
+#list tells_blocklist add {his};
+#list tells_blocklist add {the};
+#list tells_blocklist add {your};
+#list tells_blocklist add {you};
+#list tells_blocklist add {with};
+#list tells_blocklist add {$character};
 
 #alias process_tell {
   #local data %0;
@@ -238,7 +295,7 @@
         #list chats add {$player: $tell};
         chats_refresh;
 
-        #if {"$player" != "The" && "$stepper" == "on"} {
+        #if {"$stepper" == "on"} {
           sound_beeps;
           set_repeating_alarm;
           log.warn Tell received, 'th' to clear repeating alarm.;

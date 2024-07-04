@@ -38,7 +38,8 @@
 
   #list chats simplify;
   #foreach $chats chat {
-    #replace chat {"} {};
+    #nop why did i put this here?;
+    #nop #replace chat {"} {};
     #var chats_per_line {$chats_per_line\n$chat};
   };
 

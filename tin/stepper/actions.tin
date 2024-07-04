@@ -7,6 +7,11 @@
 #nop Room Short trigger;
 
 #action {^%!{[> ]*}[RS] %1} {
+  #nop turn stepper off if a room is 'dangerous';
+  #if {$map[current_room] == 22833} {
+    stepper off;
+  };
+
   #list seen_monsters clear;
   #var seen_monster_count 0;
   #var under_attack false;
@@ -14,7 +19,6 @@
   #var item_present false;
   #var tracker on;
   #var tried_to_auto_kill false;
-
   parse_exits %1;
 }
 
@@ -40,7 +44,7 @@
 
 #nop Room Prompt;
 
-#action {^{(> )+}} {
+#action {^{[> ]+}} {
   #if {"$tried_to_auto_kill" == "false"} {
     #if {"$stepper" == "on"} {
       auto_kill;

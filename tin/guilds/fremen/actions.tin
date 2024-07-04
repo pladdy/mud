@@ -7,9 +7,6 @@
   #local ammo_max %5;
   #var corpses %7;
 
-  #var gxp %8;
-  calculate_delta gxp;
-
   #if {$rounds_in_combat > 0 && "$ammo" != "--"} {
     #if {$ammo == 1 && $ammo_max > 0} {#send !mload};
   };
@@ -85,54 +82,62 @@
 #nop  Spice;
 
 #action {^%!{[> ]*}# Item$} {
-  #list spice_inv_queue clear;
+  #list spices clear;
+  #send !look at bag;
 }
 
 #nop  Spice purchases;
 
 #action {^%!{[> ]*}You pay %1 gold coins for {[A-Za-z]+}.$} {
   #format {drink} {%l} {%2};
-  #list spice_inv_queue add {drink $drink};
+  #list spices[inv] add {drink $drink};
 }
 
 #action {^%!{[> ]*}You pay %1 gold coins for pure spice.$} {
-  #list spice_inv_queue add {take spice};
+  #list spices[inv] add {take spice};
 }
 
 #nop  Spices in inventory;
 
 #action {^%!{[> ]*}{\d+} %!{[\*]?}Spice {[A-Za-z]+}.$} {
   #format {drink} {%l} {%2};
-  #%1 #list spice_inv_queue add {drink $drink};
+  #%1 #list spices[inv] add {drink $drink};
 }
 
 #action {^%!{[> ]*}{\d+} %!{[\*]?}Spice Melange (Pure).$} {
-  #%1 #list spice_inv_queue add {take spice};
+  #%1 #list spices[inv] add {take spice};
 }
 
 #nop  Spices in bags;
 
-#action {^%!{[> ]*}You put Spice {[A-Za-z]+} in *Bag of Holding.$} {
-  #format {drink} {%l} {%2};
-  #list spice_bag_queue add {drink $drink};
+#action {^%!{[> ]*}Spice {[A-Za-z]+}: Ok.$} {
+  #format {drink} {%l} {%1};
+  #list spices[bag] delete 1;
+  #list spices[inv] add {drink $drink};
+}
+
+#action {^%!{[> ]*}You put Spice {[A-Za-z]+} in %2.$} {
+  #format {drink} {%l} {%1};
+  #list spices[bag] add {drink $drink};
+  #list spices[inv] delete 1;
 }
 
 #action {^%!{(\[o\] )?}Spice {[A-Za-z]+}\.$} {
   #format {drink} {%l} {%2};
-  #list spice_bag_queue add {drink $drink};
+  #list spices[bag] add {drink $drink};
 }
 
 #action {^%!{(\[o\] )?}Spice {[A-Za-z]+} \{{\d+}\}\.$} {
   #format {drink} {%l} {%2};
-  #%3 #list spice_bag_queue add {drink $drink};
+  #%3 #list spices[bag] add {drink $drink};
 }
 
 #action {^Spice Melange (Pure)\.$} {
-  #list spice_bag_queue add {take spice};
+  #list spices[bag] add {take spice};
 }
 
 #action {^Spice Melange (Pure) \{{\d+}\}\.$} {
-  #%2 #list spice_bag_queue add {take spice};
+  #%2 #list spices[bag] add {take spice};
 }
 
 #action {^%!{[> ]*}%1 cannot be stunned!$} {

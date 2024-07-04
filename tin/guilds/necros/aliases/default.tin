@@ -62,7 +62,14 @@
 
 #alias attempt_protection {
   log.debug attempting protection;
-  #if {$rounds_in_combat > 0 && "$protection" == "OFF"} {#send !pro};
+  #if {@length{$protection} == 0} {
+    #var protection OFF;
+  };
+  #else {#replace {protection} {X} {}};
+  
+  #if {$rounds_in_combat > 0 && "$protection" == "OFF"} {
+    #send !pro;
+  };
 }
 
 #alias attempt_refill_corpses {

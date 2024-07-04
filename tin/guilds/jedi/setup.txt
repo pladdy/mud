@@ -15,13 +15,24 @@ alais dir focus dissipate regen
 alias dis focus dissipate shield
 alias enc focus check /encumbrance
 alias fta focus force taunt for all
+alias fury focus mode /flurry
 alias gfs focus greater force shield
 alias gs focus guild score
 alias gs2 focus skill list /short
+alias guide focus mode /guide
 alias gwho jedis
 alias h focus reduce injury
 alias h2h focus hand to hand
 alias ht focus hibernation trance
+
+alias fl focus force lightning
+alias fw focus freeze winds
+alias ikb focus injure-kill for boil
+alias ikc focus injure-kill for crumble
+alias iks focus injure-kill for strangle
+alias tka focus telekinetic kill for asphyxiate
+alias tkc focus telekinetic kill for cardiac
+alias tkh focus telekinetic kill for hemorrhage
 
 #nop swap these for triggers and what i'm used to reading;
 alias i ii
@@ -37,16 +48,18 @@ alias ri focus reduce injury
 aset jedi_absorb himagenta
 aset jedi_c_m hiblue
 aset jedi_com higreen
-aset jedi_cpain hiblack
-aset jedi_confuse yellow
+aset jedi_cpain yellow
+aset jedi_confuse brown
 aset jedi_death flash+hired
 aset jedi_dodge hicyan
 aset jedi_fdef hicyan
 aset jedi_gfs yellow
 aset jedi_lfs white
-aset jedi_mblock yellow
+aset jedi_mblock brown
 aset jedi_notify white
 aset jedi_r_i higreen
-aset jedi_sfs hiblack
+aset jedi_sfs yellow
+aset jedi_lightning yellow
+aset jedi_freeze hiblue
 
 focus hpconfigure /HP: #hp/#mhp SP: #sp/#msp C:#c F:#f D: #dn/#dm|#dr [#ng] E:#es #nlDef:#df Wm:#sm Wc:#%c Gx:#gxp

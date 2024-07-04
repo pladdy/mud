@@ -48,7 +48,7 @@
 
 #alias attempt_focus {
   #nop mind drops to 'clear' at 180;
-  #local MIN_MIND 250;
+  #local MIN_MIND 300;
   #local FOCUS_AMOUNT 10;
 
   #if {$rounds_in_combat > 0 && $gp2 < $MIN_MIND && $focus > 0} {
@@ -194,6 +194,7 @@
 
 #alias mip_gline1_hook {
   #nop <cMethod>: <ySerpent>    <cCrits>: <gOn>    <cStun>: <gOn>    <cHide>: <rOFF>;
+  #local data %0;
 }
 
 #alias mip_gline2_hook {
@@ -201,7 +202,11 @@
   #nop G2N: <y6986308>    <cChi Focus>: <gStatic>    <yAE>: <g10>/25%;
   #regexp {$data} {G2N: <y{\d+}} {#var gxp &1};
   calculate_delta gxp;
-  #regexp {$data} {AE>: <g{\d+}/} {#var ancient_energy &1};
+  #regexp {$data} {AE>: <%w{\d+}>} {#var ancient_energy &2};
+}
+
+#alias mip_gp1_hook {
+  attempt_enervate;
 }
 
 #alias mm {

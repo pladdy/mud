@@ -1,0 +1,279 @@
+#alias attempt_confusion {
+  #if {"$jedi[mindblock]" == "yes" 
+       && "$jedi[confusion]" == "no" 
+       && $jedi[confusion_attempts] < 5 
+       && $rounds_in_combat > 0} {
+    focus confusion;
+  }
+}
+
+#alias attempt_dissipate_attack {
+  #local MIN_ENERGY 2000;
+
+  #if {"$jedi[dissipating]" == "false" 
+       && $rounds_in_combat > 0 
+       && @combat_rounds_left{} > 10
+       && $jedi[energy] > $MIN_ENERGY} {
+    #if {$jedi[dissipates] > 1} {
+      #send !focus dissipate on attack;
+    };
+    #elseif {$jedi[dissipates] == 1 && $jedi[reset] < 3} {
+      #send !focus dissipate on attack;
+    };
+  };
+}
+
+#alias attempt_mindblock {
+  #if {"$jedi[mindblock]" == "no" && $rounds_in_combat > 0} {
+    focus mindblock;
+    #var jedi[mindblock] {yes};
+  }
+}
+
+#alias check_stepper {
+  #local MIN_CONC 45;
+  #local MIN_FORCE 45;
+
+  #if {"$stepper" == "on" && ($gp1 < $MIN_CONC || $gp2 < $MIN_FORCE)} {
+    stepper off;
+    log.info Creating delay to activate stepper after regen.;
+    regen_delay;
+  }
+}
+
+#alias commands_after_corpse {
+  #var jedi[mindblock] {no};
+  #var jedi[confusion] {no};
+  #var jedi[confusion_attempts] 0;
+
+  #nop if release force was used, delay resetting it in case room is left;
+  #if {"$jedi[release_force]" == "true"} {
+    #delay {10} {#var jedi[release_force] false};
+  };
+
+  #if {"$jedi[dissipating]" == "false"} {
+    #if {$gp1 < $gp2} {#send !focus meditation};
+    #else {#send !focus hibernation trance};
+  };
+}
+
+#alias drl {
+  #send !sheath;
+  #send !unwield $wielded_weapon;
+  #send !remove shield;
+  #send !draw lightsaber;
+  #send !activate lightsaber;
+  #send !focus mode /$jedi[lightsaber_mode];
+  #var jedi[light_weapon] lightsaber;
+}
+
+#alias drd {
+  #send !sheath;
+  #send !unwield $wielded_weapon;
+  #send !remove shield;
+  #send !draw lightdaggers;
+  #send !activate lightdaggers;
+  #send !focus mode /$jedi[lightdaggers_mode];
+  #var jedi[light_weapon] lightdaggers;
+}
+
+
+#alias fixup {
+  run jedis;
+  #send !n;
+  #map move n;
+  #send !nw;
+  #map move nw;
+  #send !repair $jedi[light_lightsaber_color]\;lightsaber;
+  #send !repair $jedi[light_lightdaggers_color]\;lightdaggers;
+  fixeq;
+  #undelay weapon_repair_alarm;
+  #var jedi[light_weapon_status] fixed;
+}
+
+#nop Force trance alias for spells;
+#alias ftr {
+  #switch {"%1"} {
+    #if {"%1" != "off"} {
+      #nop #send !repeat combat/focus soul siphon/0/0;
+    };
+
+    #case {"fl"} {
+      #send !focus force trance /%1,repeat;
+    };
+    #case {"fw"} {
+      #send !focus force trance /%1,repeat;
+    };
+    #case {"ikb"} {
+      #send !focus force trance /%1,repeat;
+      #send !aset jedi_injure hired;
+    };
+    #case {"ikc"} {
+      #send !focus force trance /%1,repeat;
+      #send !aset jedi_injure white;
+    };
+    #case {"iks"} {
+      #send !focus force trance /%1,repeat;
+      #send !aset jedi_injure hiblack;
+    };
+    #case {"tka"} {
+      #send !focus force trance /%1,repeat;
+      #send !aset jedi_tkill green;
+    };
+    #case {"tkc"} {
+      #send !focus force trance /%1,repeat;
+      #send !aset jedi_tkill himagenta;
+    };
+    #case {"tkh"} {
+      #send !focus force trance /%1,repeat;
+      #send !aset jedi_tkill hiblack;
+    };
+    #case {"off"} {
+      #send !focus force trance /off;
+      #send !repeat off;
+    };
+    #default {
+      #showme Current options:;
+      #showme fl: force lightning (electric);
+      #showme fl: freeze winds (ice);
+      #showme ikb: injure-kill boil (fire);
+      #showme ikc: injure-kill crumble (blunt);
+      #showme iks: injure-kill strangle (mind);
+      #showme tka: telekinetic kill asphyxiate (poison);
+      #showme tkc: telekinetic kill cardiac (energy);
+      #showme tkh: telekinetic kill hemorrhage (mind);
+      #showme off: turn it off;
+    };
+  }
+}
+
+#alias f10 {
+  #send !focus absorb energy;
+  #send !hp;
+  #send !get all;
+}
+
+#alias gs4 {
+  #send !focus check /weight;
+  #send !focus check /deflect;
+  #send !focus check /cloak;
+}
+
+#alias guide {
+  ftr off;
+  #send !focus mode /guide;
+}
+
+#alias healup {
+  #foreach {0;2;4;6;8} {delay} {#delay {$delay} {#send !ri; hp;}}
+}
+
+#alias h2h {
+  #send !unwield $wielded_weapon;
+  #send !remove armour;
+  #send !wear shield;
+  #send !h2h;
+}
+
+#alias linkdie_commands {
+  #var jedi[mindblock] no;
+}
+
+#alias login_commands {
+  #var jedi[mindblock] no;
+}
+
+#alias mip_combat_hook {
+  attempt_mindblock;
+  attempt_confusion;
+  attempt_dissipate_attack;
+  check_stepper;
+
+  #if {$gp1 < 15 || $gp2 < 15} {
+    #send !focus force trance /off;
+    #send !repeat off;
+  };
+  #if {$gp1 < 10 || $gp2 < 10} {
+    #send !focus force trance /off;
+    #send !repeat off;
+    #send !focus mode normal;
+  };
+}
+
+#alias mip_gline1_hook {
+  #nop Chrg: 40%;
+  #local data %0;
+  #regexp {$data} {Chrg:%s{\d+}%} {#var jedi[light_weapon_charge] &2};
+  #if {$jedi[light_weapon_charge] < 3} {recharge};
+}
+
+#alias mip_gline2_hook {
+  #nop [Meditating][<yLFS>];
+  #local data %0;
+  #regexp {$data} {Dissipating} {#var jedi[dissipating] true} {
+    #var jedi[dissipating] false
+  };
+}
+
+#alias reab {
+  #send !unwrap smallest;
+  #send !focus absorb energy;
+}
+
+#alias recharge {
+  #send !get cell from bag 1;
+  #nop check light weapon at relog;
+  #send !recharge $jedi[light_weapon];
+  #send !recharge lightdaggers;
+  #send !recharge lightsaber;
+}
+
+#alias refo {
+  #send !unwrap smallest;
+  #send !focus release force;
+  #var jedi[release_force] true;
+}
+
+#alias regen_delay {
+  #local min_rounds 20;
+  #math rando {1 d 20};
+  #math regen_time {$min_rounds + $rando};
+
+  #delay {reactivate_stepper} {
+    #if {$gp1 > 70 && $gp2 > 70} {
+      log.info "Re-activating stepper after regen time: $regen_time.";
+      stepper on;
+      #unvar rando;
+      #unvar regen_time;
+    }; 
+    #else {
+      log.info Need more time to regen, extending regen delay;
+      regen_delay;
+    }
+  } {$regen_time};
+  }
+
+#alias imp_cm {
+  #local MIN_SP 100;
+  #send !focus impulse for c at $MIN_SP;
+}
+
+#alias imp_si {
+  #local MIN_SP 100;
+  #send !focus impulse for si at $MIN_SP;
+}
+
+#alias use_corpse {#send !focus absorb energy}
+
+#alias wield {
+  #send !sheath;
+  #send !wield %0;
+  #send !focus melee;
+  #send !wear shield;
+}
+
+#alias wimpy_commands {
+  #delay 2 {#send !focus reduce injury};
+  #delay 4 {#send !focus reduce injury};
+  #delay 6 {#send !focus hibernation trance};
+}

@@ -194,3 +194,11 @@
 #action {^%!{[> ]*} You don't have dream memorized this cycle.} {
   #if {"$stepper" == "on"} {stepper off};
 }
+
+#action {%!{[> ]*} You already have a magical shield in effect master.} {
+  #var protection ON;
+}
+
+#action {^%!{[> ]*}You call forth upon the necromancers of the past to protect you.} {
+  #var protection ON;
+}

@@ -1,0 +1,137 @@
+#action {^%!{[> ]*}HP: %1/%2 SP: %3/%4 C:%s%5% F:%s%6% D: %7/%8|%9% [%10] E:%11 } {
+    #var jedi[dissipates] %7;
+    #var jedi[reset] %9;
+    #var jedi[energy] %10;
+  
+    #if {$gp2 < 50 && $corpses > 0 && "$release_force" != "true"} {refo};
+    #if {$gp2 < 10} {sound_beep; #showme <110>FORCE SATURATION IS HIGH!};
+  }
+  
+#action {^%!{[> ]*}Def:%1 Wm:%2 Wc:%s%3% Gx:%s%4%} {
+  #var {gxp} {%4};
+  calculate_delta gxp;
+
+  #if {"%2" == "n" && 1 == 0} {
+    #showme <110>Warning!  In neutral mode, pick a combat mode!;
+    sound_beeps;
+    #send !$jedi[fallback_combat_method;]ß
+  };
+}
+
+#nop Release force;
+
+#action {^%!{[> ]*}You gather wood from nearby and construct a funeral pyre} {
+  #var release_force true;
+}
+
+#action {^%!{[> ]*}The funeral pyre burns out.} {
+  #var release_force false;
+}
+
+#action {^%!{[> ]*}You may only have one pyre active here.$} {
+  #send !wrap;
+}
+
+#action {^%!{[> ]*}Your %1 casing flares nearly white hot as the battery melts} {
+  #var jedi[light_weapon_status] broken;
+  set_weapon_repair_alarm;
+  #send !jedi[fallback_combat_method];
+}
+
+#action {^%!{[> ]*}Your %1 casing flares nearly white hot as the battery melts} {
+  #var jedi[light_weapon_status] broken;
+  set_weapon_repair_alarm;
+  #send !jedi[fallback_combat_method];
+}
+
+#action {^%!{[> ]*}Your %1 shuts down, and the heat in your hand warns you of the} {
+  #var jedi[light_weapon_status] broken;
+  set_weapon_repair_alarm;
+  #send !jedi[fallback_combat_method];
+}
+
+#alias warn_weapon_repair_needed {
+  log.warn Your light weapon needs repair.;
+  sound_beep;
+}
+
+#alias set_weapon_repair_alarm {
+  warn_weapon_repair_needed;
+  #delay {weapon_repair_alarm} {
+    set_weapon_repair_alarm;
+  } {90};
+}
+
+#action {^%!{[> ]*}Your %1 begins to flicker and the handle warms!} {
+  set_weapon_repair_alarm;
+  #var jedi[light_weapon_status] damaged;
+}
+
+#action {%1 casts aside your paralyzing control over %2 thoughts!$} {
+  #send !focus confusion;
+}
+
+#action {^%!{[> ]*}%1 mind resists your attempt to mindblock it!$} {
+  #send !focus confusion;
+}
+
+#action {^%!{[> ]*}%1 mind resists your attempt to confuse it!$} {
+  #if {$jedi[confusion_attempts] < $jedi[max_confusion_attempts]} {
+    #send !focus confusion;
+    #math {jedi[confusion_attempts]} {$jedi[confusion_attempts] + 1};
+  };
+}
+
+#action {^%!{[> ]*}With care you jumble his thoughts and send him reeling in confusion.$} {
+  #var jedi[confusion_attempts] 0;
+}
+
+#action {^%!{[> ]*}You reach out with the Force and invade} {
+  #var jedi[confusion] yes;
+}
+
+#action {^%!{[> ]*}%1 cannot be confused again.} {
+  #var jedi[confusion] yes;
+}
+
+#action {^%!{[> ]*}%1 is already under someone's control.} {
+  #var jedi[confusion] yes;
+}
+
+#action {^%!{[> ]*}%1 laughs at your attempt to confuse it!} {
+  #var jedi[confusion] yes;
+}
+
+#action {^%!{[> ]*}%1's thoughts are too instinctive for such an attack!} {
+  #var jedi[confusion] yes;
+}
+
+#action {^%!{[> ]*}%1 has no thoughts to confuse.$} {
+  #var jedi[confusion] yes;
+}
+
+#action {^%!{[> ]*}Your meditation has cleared your thoughts and strengthened your$} {
+  #if {$gp2 < $gp2_max} {
+    #send !focus hibernation trance;
+  }
+}
+
+#action {^%!{[> ]*}You are fully rejuvenated and thus exit your trance.$} {
+  #if {$gp1 < $gp1_max} {
+    #send !focus meditation;
+  }
+}
+
+#nop jedi telepathy not caught with mip...;
+#action {^%!{[> ]*}%1 thinks . o O} {
+  #if {"$stepper" == "on"} {
+    sound_beeps;
+    set_repeating_alarm;
+    log.warn Tell received, 'th' to clear repeating alarm.;
+    stepper off;
+  };
+}
+
+#action {^%!{[> ]*}The Golem calls for help!} {
+  #send !cm for golem 1;
+}

@@ -146,10 +146,9 @@
 
 #alias take_a_step {
   before_step_hook;
-
   keep_cardinal_dirs;
-
   set_entered_from;
+  
   #list cardinal_exits find $entered_from entered_from_index;
 
   #if {$entered_from_index > 0} {
