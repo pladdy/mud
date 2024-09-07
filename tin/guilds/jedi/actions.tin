@@ -62,6 +62,10 @@
   } {90};
 }
 
+#action {^%!{[> ]*}You seize control of %1 thoughts and paralyze %2.} {
+  #var jedi[mindblock] yes;
+}
+
 #action {^%!{[> ]*}Your %1 begins to flicker and the handle warms!} {
   set_weapon_repair_alarm;
   #var jedi[light_weapon_status] damaged;
@@ -72,6 +76,7 @@
 }
 
 #action {^%!{[> ]*}%1 mind resists your attempt to mindblock it!$} {
+  #var jedi[mindblock] yes;
   #send !focus confusion;
 }
 
@@ -98,16 +103,35 @@
   #var jedi[confusion] yes;
 }
 
+#action {^%!{[> ]*}%1 won't fall for that trick again.} {
+  #var jedi[mindblock] yes;
+}
+
 #action {^%!{[> ]*}%1 laughs at your attempt to confuse it!} {
   #var jedi[confusion] yes;
 }
 
 #action {^%!{[> ]*}%1's thoughts are too instinctive for such an attack!} {
-  #var jedi[confusion] yes;
+  #if {"$jedi[mindblock]" != "yes"} {
+    #2 {#send !focus mindblock};
+  };
+  #elseif {$jedi[confusion_attempts] < $jedi[max_confusion_attempts]} {
+    #2 {#send !focus confusion};
+    #math {jedi[confusion_attempts]} {$jedi[confusion_attempts] + 1};
+  };
+}
+
+#action {^%!{[> ]*}%1 has no thoughts to block.$} {
+  #if {"$jedi[mindblock]" != "yes"} {
+    #2 {#send !focus mindblock};
+  };
 }
 
 #action {^%!{[> ]*}%1 has no thoughts to confuse.$} {
-  #var jedi[confusion] yes;
+  #if {$jedi[confusion_attempts] < $jedi[max_confusion_attempts]} {
+    #2 {#send !focus confusion};
+    #math {jedi[confusion_attempts]} {$jedi[confusion_attempts] + 1};
+  };
 }
 
 #action {^%!{[> ]*}Your meditation has cleared your thoughts and strengthened your$} {
@@ -134,4 +158,8 @@
 
 #action {^%!{[> ]*}The Golem calls for help!} {
   #send !cm for golem 1;
+}
+
+#action {^%!{[> ]*}%1 resists your attempt to cloud his thoughts.} {
+  #send !focus cloud mind;
 }

@@ -62,6 +62,7 @@
   #send !switch sonicator;
   #send !aset synthorg himagenta;
   #send !aset ddb himagenta;
+  #send !=swap sonic;
 }
 
 #alias f6 {
@@ -150,6 +151,7 @@
   #send !switch laser;
   #send !aset synthorg hired;
   #send !aset ddb hired;
+  #send !=swap thermal;
 }
 
 #nop Useful against HC mage, 3 dmg types to spread out hits;

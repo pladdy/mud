@@ -18,7 +18,8 @@
 #alias login {
   #local domain 3k.org;
   #local ip 75.75.210.82;
-  #session 3k $ip 3000;$character
+  #session 3k $domain 3000;
+  #send $character;
 }
 
 #alias quit {

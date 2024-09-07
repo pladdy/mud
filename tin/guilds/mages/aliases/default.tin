@@ -41,8 +41,7 @@
 }
 
 #alias attempt_shelter {
-  #if {$rounds_in_combat > 0 && @combat_rounds_left{} > 10
-       && $corpses == 0
+  #if {$rounds_in_combat > 0 && @combat_rounds_left{} > 5
        && $sp < 600
        && $mystic_immerions < 1
   } {

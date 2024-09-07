@@ -132,11 +132,11 @@
   #%3 #list spices[bag] add {drink $drink};
 }
 
-#action {^Spice Melange (Pure)\.$} {
+#action {^%!{(\[o\] )?}Spice Melange (Pure)\.$} {
   #list spices[bag] add {take spice};
 }
 
-#action {^Spice Melange (Pure) \{{\d+}\}\.$} {
+#action {^%!{(\[o\] )?}Spice Melange (Pure) \{{\d+}\}\.$} {
   #%2 #list spices[bag] add {take spice};
 }
 

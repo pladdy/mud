@@ -26,3 +26,4 @@
 #var use_summons_mf true;
 #var defense_mf false;
 #var offense_mf false;
+#var offense_summon_count 4;

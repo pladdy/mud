@@ -26,8 +26,12 @@
 #alias attempt_mindblock {
   #if {"$jedi[mindblock]" == "no" && $rounds_in_combat > 0} {
     focus mindblock;
-    #var jedi[mindblock] {yes};
   }
+}
+
+#alias attempt_to_regen_gps {
+  #if {$gp1 < $gp2} {#send !focus meditation};
+  #else {#send !focus hibernation trance};
 }
 
 #alias check_stepper {
@@ -52,9 +56,9 @@
   };
 
   #if {"$jedi[dissipating]" == "false"} {
-    #if {$gp1 < $gp2} {#send !focus meditation};
-    #else {#send !focus hibernation trance};
+    #delay {2} {attempt_to_regen_gps;};
   };
+  #else {attempt_to_regen_gps};
 }
 
 #alias drl {
@@ -75,8 +79,8 @@
   #send !activate lightdaggers;
   #send !focus mode /$jedi[lightdaggers_mode];
   #var jedi[light_weapon] lightdaggers;
+  ftr fl;
 }
-
 
 #alias fixup {
   run jedis;
@@ -135,7 +139,7 @@
     #default {
       #showme Current options:;
       #showme fl: force lightning (electric);
-      #showme fl: freeze winds (ice);
+      #showme fw: freeze winds (ice);
       #showme ikb: injure-kill boil (fire);
       #showme ikc: injure-kill crumble (blunt);
       #showme iks: injure-kill strangle (mind);
@@ -145,6 +149,11 @@
       #showme off: turn it off;
     };
   }
+}
+
+#alias fury {
+  #send !focus mode /flurry;
+  ftr fl;
 }
 
 #alias f10 {
@@ -157,6 +166,7 @@
   #send !focus check /weight;
   #send !focus check /deflect;
   #send !focus check /cloak;
+  #send !focus ancient teachings /trainable;
 }
 
 #alias guide {
@@ -189,13 +199,15 @@
   attempt_dissipate_attack;
   check_stepper;
 
-  #if {$gp1 < 15 || $gp2 < 15} {
+  #if {$gp1 < 15 || $gp2 < 20} {
     #send !focus force trance /off;
     #send !repeat off;
+    #send !focus channel hate /off;
   };
-  #if {$gp1 < 10 || $gp2 < 10} {
+  #if {$gp1 < 10 || $gp2 < 15} {
     #send !focus force trance /off;
     #send !repeat off;
+    #send !focus channel hate /off;
     #send !focus mode normal;
   };
 }
@@ -223,7 +235,7 @@
 #alias recharge {
   #send !get cell from bag 1;
   #nop check light weapon at relog;
-  #send !recharge $jedi[light_weapon];
+  #nop #send !recharge $jedi[light_weapon];
   #send !recharge lightdaggers;
   #send !recharge lightsaber;
 }
@@ -252,6 +264,14 @@
     }
   } {$regen_time};
   }
+
+#alias retrieve {
+  #send !retrieve %0 round;
+  #send !retrieve %0 triangular;
+  #send !retrieve %0 square;
+  #send !retrieve %0 hexagonal;
+  #send !retrieve %0 flat;
+}
 
 #alias imp_cm {
   #local MIN_SP 100;

@@ -12,10 +12,12 @@
   #send !pain none;
   #send !assault;
   #send !pain;
-  #send !fk m %0;
-  #send !assault none;
-  #send !pain;
-  #send !assault;
+  #delay {2} {
+    #send !fk m %0;
+    #send !assault none;
+    #send !pain;
+    #send !assault;
+  };
 }
 
 #alias amp {
@@ -157,6 +159,7 @@
   #send !draw lasgun;
   #send !attacks normal;
   #send !reflexes blinding;
+  #send !repeat off;
 }
 
 #alias drm {
@@ -164,11 +167,13 @@
   #send !draw maula pistol;
   #send !attacks normal;
   #send !reflexes blinding;
+  #send !repeat off;
 }
 
 #alias drp {
   holster_weapons;
   #send !draw pulse sword;
+  #send !repeat off;
 }
 
 #alias f10 {use_corpse}

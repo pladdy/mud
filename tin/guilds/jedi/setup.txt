@@ -61,5 +61,6 @@ aset jedi_r_i higreen
 aset jedi_sfs yellow
 aset jedi_lightning yellow
 aset jedi_freeze hiblue
+aset jedi_fragment flash+himagenta
 
 focus hpconfigure /HP: #hp/#mhp SP: #sp/#msp C:#c F:#f D: #dn/#dm|#dr [#ng] E:#es #nlDef:#df Wm:#sm Wc:#%c Gx:#gxp
