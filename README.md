@@ -4,7 +4,6 @@ These are my tintin++ files and profiles for 3 Kingdoms: http://3k.org/
 
 ![Screenshot](./screenshot.png "Screenshot")
 
-
 ## Install Repository
 
 Clone the repo: `git clone git@github.com:pladdy/mud.git`
@@ -17,9 +16,11 @@ Clone the repo: `git clone git@github.com:pladdy/mud.git`
 
 You can run the client using [Docker](https://www.docker.com/get-started/).
 
-With docker installed, run `make docker-build`.
+With docker installed:
 
-Once the image is built you can use `make docker-run`
+To get started create your profile with `make player player=<player name> guild=<your guild>`
+
+Then, run `make play player=<your player name>`
 
 ### Running on macOS
 

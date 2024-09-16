@@ -48,6 +48,7 @@ if [ $# -gt 0 ]; then
     PROFILE=${PROFILE} tt++ profiles/${PROFILE_FILE}
   else
     echo "Profile ${PROFILE_FILE} doesn't exist."
+    echo "Create profile with bin/create_profile or 'make player'".
   fi
 else
   printf "Need a valid profile name.\n\n"

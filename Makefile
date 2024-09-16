@@ -11,26 +11,24 @@ patch = $(lastword $(version_list))
 all: tintin install
 
 archive-logs:
-ifndef $(ym)
-	@echo Specify year month: eg 2024-03
+ifndef ym
+	$(error Usage: 'make $@ ym=<yyyy-mm> (eg: 2024-03))
 endif
 	tar -vzc -f logs/$(ym)-3k-session.logs.gz logs/$(ym)-*-3k-session.log
 	rm logs/$(ym)-*-3k-session.log
 
 archive-list:
-ifndef $(ym)
-	@echo Specify year month: eg 2024-03
+ifndef ym
+	$(error Usage: 'make $@ ym=<yyyy-mm> (eg: 2024-03))
 endif
 	tar -tf logs/$(ym)-3k-session.logs.gz
 
 bin/english-word-list.txt:
 	curl -s https://www.wordgamedictionary.com/english-word-list/download/english.txt -o $@
 
-docker-run:
-	@echo
-	@echo Starting container.  Once in the container, run './play'.
-	@echo
-	-docker run -v .:/opt/mud -it pladdy/mud:latest /bin/bash
+container: docker-build
+	-docker run --name mud-client -v .:/opt/mud -it pladdy/mud:latest /bin/bash
+	-docker rm mud-client
 
 docker-build:
 	docker build . -t pladdy/mud:latest
@@ -43,8 +41,8 @@ more:
 
 # this seems over the top... TODO: find a simpler way?
 new-tag:
-ifndef $(type)
-	@echo Specify 'type' as major, minor, or patch
+ifndef type
+	$(error Usage: make $@ type=<type>; 'type' one of major, minor, or patch)
 endif
 ifeq ("$(type)","major")
 	$(eval bump = $(shell echo $(major) + 1 | bc))
@@ -59,11 +57,26 @@ ifeq ("$(type)","patch")
 	$(eval new_version = $(shell echo $(major).$(minor).$(bump)))
 endif
 
+play: docker-build
+ifndef player
+	$(error Usage: 'make $@ player=<your player profile>')
+endif
+	-docker run --name mud-client -v .:/opt/mud -it pladdy/mud:latest /bin/bash ./play $(player)
+
+player:
+ifndef player
+	$(error Usage: 'make $@ player=<player name> guild=<guild>')
+endif
+ifndef guild
+	$(error Usage: 'make $@ player=<player name> guild=<guild>')
+endif
+	-docker run --name mud-client -v .:/opt/mud -it pladdy/mud:latest /bin/bash ./bin/create_profile $(player) $(guild)
+
 release:
 	git push && git push --tags
 
 tag: new-tag
-ifdef $(type)
+ifdef type
 	@echo making tag $(new_version)
 	git tag -a $(new_version) -m '$(new_version)'
 endif
