@@ -118,7 +118,7 @@
 #action {^%!{[> ]*}You retreat!$} {
   decrement_ts $disengage_distance;
   #math {angel[distance]} {$angel[distance] + $disengage_distance};
-  attempt_lunge;
+  #nop attempt_lunge;
 }
 
 #action {^%!{[> ]*}You are too close to lunge at %1$} {
@@ -128,4 +128,13 @@
 #action {^%!{[> ]*}You fail to lunge forward!$} {
   #send !engage $angel[distance];
   take_swing;
+}
+
+#action {^%!{[> ]*}%1 doesn't appear that %2 would be awed right now.} {
+  #nop try to undo the awe mutation to guild stats;
+  #math {gp1} {$gp1 + 2};
+  #math {advantages[$highest_area]} {$advantages[$highest_area] * 2};
+
+  #if {@should_retribution{}} {retribution};
+  #else {divine_strike};
 }

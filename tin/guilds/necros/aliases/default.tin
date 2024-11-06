@@ -62,14 +62,9 @@
 
 #alias attempt_protection {
   log.debug attempting protection;
-  #if {@length{$protection} == 0} {
-    #var protection OFF;
-  };
-  #else {#replace {protection} {X} {}};
-  
-  #if {$rounds_in_combat > 0 && "$protection" == "OFF"} {
-    #send !pro;
-  };
+  #if {"$protection" == "ON"} {#replace {protection} {X} {}};
+  #else {#var protection OFF};
+  #if {$rounds_in_combat > 0 && "$protection" == "OFF"} {#send !pro};
 }
 
 #alias attempt_refill_corpses {
@@ -193,6 +188,31 @@
   #send !deliver;
 }
 
+#alias ipr-start {
+  #if {"%1" == ""} {
+    #show school is a required argument\; eg 'cold', 'lightning';
+  };
+  #if {"%2" == ""} {
+    #show mob is a required argument.
+  };
+
+  #if {"%1" != "" && "%2" != ""} {
+    #var invoke_prime_school %1;
+    #var invoke_prime_status started;
+    #send !invoke prime %1 %2;
+  };
+}
+
+#alias ipr-command {
+  #if {"$invoke_prime_status" == "started"} {
+    #var invoke_prime_status running;
+    #script {bin/invoke-prime start -l $log_day -s $invoke_prime_school};
+  };
+  #else {
+    #script {bin/invoke-prime command -l $log_day};
+  }
+}
+
 #alias login_commands {
   #nop  Assumes 'gmore inventory' is not paging;
   #send !powers;  
@@ -238,6 +258,11 @@
 #alias smoke {
   #send !smoke %1;
   #map move %1;
+}
+
+#alias t {
+  #var necro_teleporting_true;
+  #send !t %0
 }
 
 #alias topoff {

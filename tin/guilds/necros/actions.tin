@@ -202,3 +202,30 @@
 #action {^%!{[> ]*}You call forth upon the necromancers of the past to protect you.} {
   #var protection ON;
 }
+
+#action {^%!{[> ]*}///The protective spirits break away from your body, fading into nothingness.} {
+  #var protection OFF;
+}
+
+#action {^%!{[> ]*}C:A powerful force halts the magic.} {
+  #send !=halt;
+}
+
+#action {The illusions clear from your mind and you find yourself there.} {
+  #delay 2 {#var necro_teleporting false};
+}
+
+#action {^%!{[> ]*}A room, turn on your goddamn verbose mode (e,w,s,n,u)} {
+  #if {"$necro_teleporting" == "true"} {
+    #map goto cata2_vamps;
+    #var necro_teleporting false;
+  };
+}
+
+#action {^%!{[> ]*}  This area is interfering with outbound teleportation magics master.} {
+  #var necro_teleporting false;
+}
+
+#action {^%!{[> ]*}With blinding speed and ferocious hatred, the ghostly death's head screams} {
+  #var invoke_prime_status done;
+}

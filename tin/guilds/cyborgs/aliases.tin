@@ -55,6 +55,18 @@
   #send !get all;
 }
 
+#alias f12 {
+  #if {"$map[room_info][name]" == "cyborgs_donates"} {
+    #loop 2 $BAGS_TO_USE i {
+      #send !get all from bag $i;
+      #send !store all;
+    };
+  };
+  #else {
+    #loop 2 $BAGS_TO_USE i {#send !sell all from bag $i};
+  }
+}
+
 #alias mip_combat_hook {
   #local MIN_POWER 400;
   #if {$corpses > 0 && $gp1 < $MIN_POWER} {redc};

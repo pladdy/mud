@@ -123,6 +123,10 @@
   #system {open https://wemudtogether.com/};
 }
 
+#alias wemudd {
+  #system {open https://wemudtogether.com/dungeons/graph/};
+}
+
 #alias wield {
   #var {wielded_weapon} {%0};
   #send !wield %0;

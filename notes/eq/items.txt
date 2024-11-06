@@ -9,8 +9,9 @@ Misc:
   # anti-gravity modules on baron vliadimir in dune, great for lowering encumbrance
 
 Bags:
-  crydee # bags
-  kanga  # bag picks up off ground
+  crydee        # bags
+  kanga         # bag picks up off ground
+  bag_of_honey  # bag of honey not clusters, holds 4-5x a bag of holding
 
 Lights:
   holy_torch

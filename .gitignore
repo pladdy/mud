@@ -17,3 +17,5 @@ tin/map/backup_map.txt
 # tintin
 tt/
 tintin-*
+
+__pycache__/

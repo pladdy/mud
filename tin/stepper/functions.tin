@@ -35,15 +35,23 @@
 }
 
 #function transform_mob {
-  #local transform_string $monster_transforms[%0];
-
-  #if {"$transform_string" == ""} {
-    #regexp {%0} {^%ia {.+}} {#var result &1} {#var result %0};
-    #nop Replace any text in '{}' braces, like 'Orc Sergeant {bloodlust}';
-    #replace {result} { {{.+}}} {};
+  #var transform_mob false;
+  #regexp {%0} {a zombie} {#var transform_mob zombie};
+  #regexp {%0} {deep one} {#var transform_mob deep one};
+  #regexp {%0} {rimalkin} {#var transform_mob rimalkin};
+  #regexp {%0} {duke of} {#var transform_mob duke};
+  
+  #if {"$transform_mob" != "false"} {
+    #return $transform_mob;
   };
-  #else {#return $transform_string};
-  #return $result;
+  #else {
+    #regexp {%0} {^%ia {.+}} {#var transform_mob &1} {#var transform_mob %0};
+    #nop Replace any text in '{}' braces, like 'Orc Sergeant {bloodlust}';
+    #replace {transform_mob} { {{.+}}} {};
+    #nop Try to multiple words with last word;
+    #replace {transform_mob} {{.+} {.+}$} {&2};
+  }
+  #return $transform_mob;
 }
 
 #alias test_blacklist {

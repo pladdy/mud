@@ -76,6 +76,12 @@
   #map goto 24412;
 }
 
+#nop Forest of charms;
+
+#action {^Lucky says: Thank ya fer finding me %1 Charm!} {
+  #send !give charm to lucky;
+}
+
 #nop Kyoto;
 
 #alias kyoto_dirs {

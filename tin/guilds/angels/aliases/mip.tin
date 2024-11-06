@@ -54,7 +54,7 @@
     };
 
     #regexp {$data} {|{-*}{M|P}{-*}{M|P}{-*}|} {
-      #local MAX_ROUNDS_DISENGAGED 2;
+      #local MAX_ROUNDS_DISENGAGED 4;
       #local MIN_ADVANTAGE 70;
 
       #var angel[distance] @length{&3};
@@ -67,9 +67,9 @@
       };
 
       #if {$angel[distance] > 0
-           && $rounds_disengaged > $MAX_ROUNDS_DISENGAGED
-           && "$use_engage" == "true"} {
-        #send !engage;
+          && $rounds_disengaged > $MAX_ROUNDS_DISENGAGED
+          && "$use_engage" == "true"} {
+        #send !engage;  
         #math {angel[distance]} {$angel[distance] - 1};
       };
 

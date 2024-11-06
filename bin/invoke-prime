@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+
+import argparse
+import subprocess
+import difflib
+
+parser = argparse.ArgumentParser(
+    prog="Invoke Prime", description="Returns answers for invoke prime calls."
+)
+
+parser.add_argument("command")
+parser.add_argument("-l", "--log_day", default=None)
+parser.add_argument("-s", "--school", default=None)
+
+args = parser.parse_args()
+
+mobs = [
+    "elven",
+    "soldier",
+    "clone",
+    "groma",
+    "zombie",
+    "ghoul",
+    "vampire",
+    "skeleton",
+]
+
+school = {
+    "cold": "ice crystals",
+    "lightning": "crackling electricity",
+    "psionic": "fizzling farts",
+}
+
+spell = [
+    "You call forth a word of great power, invoking the prime nature of your",  # noqa
+    "magic.  Crumbling away from the corpse, the soul of the creature is",
+    "released in the form of a giant death's head that flies freely into the",  # noqa
+    f"room, leaving behind it a great trail of {school.get(args.school)}!",
+]
+
+commands = [
+    "Diving around %1, the terrifying death's head growls deeply.",
+    "The ghostly skull bobs and weaves around %1, growling fiercely.",
+    "Screaming through the room, the death's head growls at %1.",
+    "Seething with venomous anger, the death's head howls at %1.",
+    "The ghostly skull races around the room, circling %1 menacingly.",
+    "With pure hatred, the skull bares its fangs and hisses at %1.",
+    "Snarling at %1, the skull gnashes its teeth in anger.",
+    "With a horrid grin of death, the ghostly skull leers at %1.",
+    "The skull dives quickly towards %1 but narrowly misses.",
+]
+
+
+def tail_log() -> list[str]:
+    result = subprocess.run(
+        ["tail", "-n", "40", f"logs/{args.log_day}-3k-session.log"],
+        capture_output=True,
+    )
+    return result.stdout.decode().strip().split("\n")
+
+
+def first_command() -> None:
+    logs = tail_log()
+    spell_found = False
+    spell_lines_read = 0
+    answer = []
+
+    for log in logs:
+        words = log.split()
+        if (
+            not spell_found
+            and len(log) == len(spell[spell_lines_read])
+            and len(words) == len(spell[spell_lines_read].split())
+        ):
+            spell_found = True
+
+        if spell_found:
+            spell_words = spell[spell_lines_read].split()
+            for i, word in enumerate(words):
+                for j, char in enumerate(word):
+                    if char == "-":
+                        answer.append(spell_words[i][j])
+            spell_lines_read += 1
+
+        if spell_lines_read >= len(spell):
+            break
+    print(f"invoke prime {''.join(answer)}")
+
+
+def _normalize(word: str) -> str:
+    return word.lower().replace(".", "").replace(",", "")
+
+
+def followup_command() -> None:
+    logs = tail_log()
+    _match = None
+    _log = None
+
+    for i in range(len(logs) - 1, 0, -1):
+        log = logs[i]
+        for command in commands:
+            if difflib.SequenceMatcher(None, log, command).ratio() > 0.8:
+                _match = command
+                _log = log
+                break
+        if _match:
+            break
+
+    if _match is None:
+        print("womp womp, something failed")
+        return
+
+    words = [_normalize(word) for word in _log.split()]
+    matches = [_normalize(word) for word in _match.split()] + mobs
+    answer = []
+
+    for word in words:
+        if "-" in word:
+            best_word = None
+            best_ratio = 0
+            for m in matches:
+                if len(m) == len(word):
+                    ratio = difflib.SequenceMatcher(None, word, m).ratio()
+                    if ratio > best_ratio:
+                        best_ratio = ratio
+                        best_word = m
+            for i, char in enumerate(word):
+                if char == "-":
+                    answer.append(best_word[i])
+
+    print(f"invoke prime {''.join(answer)}")
+
+
+if args.command == "start":
+    first_command()
+else:
+    followup_command()

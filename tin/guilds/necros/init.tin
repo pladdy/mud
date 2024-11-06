@@ -5,7 +5,8 @@
 
 #var MAX_FOLLOWER_CORPSES 12;
 #var MIN_NECRO_CORPSES 3;
-#var MAX_NECRO_CORPSES 6;
+#var MAX_NECRO_CORPSES 7;
+#var protection {OFF}
 
 #list tells_blocklist add {$necro_familiar};
 #list tells_blocklist add {lynda};

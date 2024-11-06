@@ -101,12 +101,8 @@
 #alias mip_gline1_hook {
   #local data %0;
   #nop CPC:<w10000>/10000 G2N:536215(46%) RC[10915305] Reset(<w4%>) TS:2/2 E-TS:1;
-  #regexp {$data} {G2N:{\d+}(%d%)} {
-    #math {gxp1} {1000000 - &1};
-  };
-  #regexp {$data} {RC:[{\d+}]} {
-    #var {gxp2} {%1};
-  };
+  #regexp {$data} {G2N:{\d+}(%d%)} { #math {gxp1} {1000000 - &1} };
+  #regexp {$data} {RC[{\d+}]} { #var gxp2 {&1} };
   #math {gxp} {$gxp1 + $gxp2};
   calculate_delta gxp;
 }

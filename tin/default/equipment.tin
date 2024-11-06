@@ -22,7 +22,7 @@
 }
 
 #action {Skipping: %1 will bind on pickup.$} {
-  log.warn Bindy item: %1;
+  log.warn Bindy item: %1 at $map[current_room] $map[room_info][data];
   sound_beeps;
 }
 

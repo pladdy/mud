@@ -174,10 +174,10 @@
 
 #alias awe_foes {
   #if {"$awe_foes" == "true"} {
-    #showme <170>Turning awe off.;
+    #showme <170>Turning awe as much as possible back to normal.;
     #var {awe_foes} {false};
   } {
-    #showme <170>Turning awe on.;
+    #showme <170>Turning awe on as much as possible.;
     #var {awe_foes} {true};
   };
 }
@@ -326,7 +326,7 @@
 }
 
 #function should_lunge {
-  #if {$angel[distance] > 1
+  #if {$angel[distance] >= 1
        && $adv_sort[1][2] > $lunge_at 
        && $gp1 > $lunge_min_ts} {
     #return 1;

@@ -140,6 +140,14 @@
   _post_summon_actions;
 }
 
+#alias sumgol {
+  _clear_summon_config;
+  #send !cast summon config as monster summoning 6##$offense_summon_count#2000#50#assist#offense;
+  #send !cast summon config as create golem##1#1000#100#defend#defense;
+  #send !cast summon config activate;
+  _post_summon_actions;
+}
+
 #alias sumdef {
   _clear_summon_config;
   #send !cast summon config as monster summoning 6##$offense_summon_count#2000#50#defend#offense;

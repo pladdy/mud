@@ -1,0 +1,64 @@
+Lucky
+
+Charm bracelet(s)
+
+- AC in all damage types once all charms are attached
+- charms can rotate creating a specific bracelet
+  - once rotated, bracelet can negate attacks
+  - 'You're briefly blinded by your armor absorbing the incoming damage.'
+- bracelets can be attached to re-create the ultimate bracelet
+  - when all charms are attached, bracelet gives bonus AC in poison and radiation
+- NOTE: to wear bracelet, must give lucky all his charms
+  
+
+Notes:
+
+- you can return the 8 charms and get multiple bracelets
+- 'rotate <charm>' to convert the bracelet to a powerful form of that charm
+  - this is PERMANENT
+- 'attach <charm 1> to <charm2>' to increase the new bracelets AC
+  - whichever you attach TO is the commands you'll keep
+  - eg: when you attach balloon to hat, you lose 'ascend' and 'desend' commands
+
+Emotes:
+  - your charm bracelet brightens, what's this do?
+
+Charms:
+
+hat:
+- provides acid AC
+- +3 survival
+- 'stocious' -> drunk over time
+- 'teetotalism' -> sober over time
+
+baloon:
+- provides fire AC
+- 'ascend' -> levitate or fly?
+- 'descend'
+
+heart:
+- energy AC
+- +3 fortitude
+
+horsehoe:
+- mind AC
+- raises health.focus +3
+
+moon:
+- ice AC
+- causes darkness (training ROLM rune?)
+- +1 combat.proficiency.disciplines.elemental
+
+rainbow:
+- edge AC
+- when you wear, a coin falls from the sky
+- +3 fleecing
+
+star:
+- electric AC
+- provides light
+- +1 combat.proficiency.disciplines.power
+
+unicorn:
+- blunt AC
+- raises penetration +3

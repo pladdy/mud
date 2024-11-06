@@ -24,7 +24,7 @@
 
 #nop settings to gate when powers are triggered;
 #var already_dove {false};
-#var awe_at_hp_pct {90};
+#var awe_at_hp_pct {100};
 #var awe_foes false;
 #var awe_length {2};
 #var consecrate_active false;
