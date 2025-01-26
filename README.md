@@ -16,11 +16,27 @@ Clone the repo: `git clone git@github.com:pladdy/mud.git`
 
 You can run the client using [Docker](https://www.docker.com/get-started/).
 
-With docker installed:
+#### 'Nix/MacOS
+
+Run `make docker-build`
 
 To get started create your profile with `make player player=<player name> guild=<your guild>`
 
 Then, run `make play player=<your player name>`
+
+#### Windows
+
+You have to run the docker command manually to build and run the container.
+
+`docker build . -t pladdy/mud:latest`
+
+`docker run --name mud-client -v "$(pwd):/opt/mud" --rm -it pladdy/mud:latest /bin/bash`
+
+Once in the container, you also have to `dos2unix` the bash scripts:
+
+Eg:
+
+`doc2unix play`
 
 ### Running on macOS
 

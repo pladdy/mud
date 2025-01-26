@@ -2,6 +2,15 @@
   #send !get %1 from bag %2
 }
 
+#alias get_bag_of_honey {
+  run bag_of_honey;
+  ls rocks;
+  #send !drop pouch;
+  #send !get pouch;
+  #send !keep all bag;
+  f2;
+}
+
 #alias pb {
   #if {@length{%1} == 0} {
     #showme specify which 'bag' to put an 'item' in;

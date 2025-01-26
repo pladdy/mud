@@ -1,6 +1,8 @@
 .PHONY: install new-tag tag tags
 
-TINTIN_VERSION = 2.02.41
+# For windows gitbash, set MSYS_NO_PATHCONV=1  to avoid path conversion
+DOCKER_RUN = MSYS_NO_PATHCONV=1 docker run --name mud-client -v "$(pwd):/opt/mud" --rm -it pladdy/mud:latest
+TINTIN_VERSION = 2.02.42
 
 last_version = $(shell git tag --sort=-v:refname | head -n 1)
 version_list = $(subst ., ,$(last_version))
@@ -61,7 +63,7 @@ play: docker-build
 ifndef player
 	$(error Usage: 'make $@ player=<your player profile>')
 endif
-	-docker run --name mud-client -v .:/opt/mud -it pladdy/mud:latest /bin/bash ./play $(player)
+	-$(DOCKER_RUN) /bin/bash ./play $(player)
 
 player:
 ifndef player
@@ -70,7 +72,7 @@ endif
 ifndef guild
 	$(error Usage: 'make $@ player=<player name> guild=<guild>')
 endif
-	-docker run --name mud-client -v .:/opt/mud -it pladdy/mud:latest /bin/bash ./bin/create_profile $(player) $(guild)
+	-$(DOCKER_RUN) /bin/bash ./bin/create_profile $(player) $(guild)
 
 release:
 	git push && git push --tags

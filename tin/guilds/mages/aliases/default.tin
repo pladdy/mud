@@ -73,34 +73,39 @@
   };
 }
 
+#alias _rest {
+  stepper off;
+
+  log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+
+  #nop Round is seconds * 2 (2s / round);
+  #local min_seconds 35;
+  #math rando {1 d 20};
+  #math regen_time {$min_seconds + $rando};
+
+  #delay {reactivate_stepper} {
+    log.info "Re-activating stepper after regen time: $regen_time seconds.";
+    stepper on;
+  } {$regen_time};
+
+  #unvar rando;
+}
+
 #alias check_stepper {
   #if {"$stepper" == "on"
        && "$immersed" == "false"
        && $mystic_immersions == 0
-       && $sp < 2000
        && $school_spells == 0
-       && $gp1 <= 25
-  } {stepper off};
+       && $sp < 4000
+       && ($gp1 <= 35 || $gp2 <= 35)
+  } {
+    dtrig _rest;
+  };
   #else {
     #format {current_time} {%T};
     #math {time_since_stepper_started} {$current_time - $stepper_started};
-
     #if {"$stepper" == "on" && $time_since_stepper_started > 750 } {
-      stepper off;
-
-      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
-
-      #nop Round is seconds * 2 (2s / round);
-      #local min_seconds 20;
-      #math rando {1 d 20};
-      #math regen_time {$min_seconds + $rando};
-
-      #delay {reactivate_stepper} {
-        log.info "Re-activating stepper after regen time: $regen_time seconds.";
-        stepper on;
-      } {$regen_time};
-
-      #unvar rando;
+      _rest;
     };
   };
 }

@@ -203,7 +203,7 @@
   };
 }
 
-#alias ipr-command {
+#alias ipr-cmd {
   #if {"$invoke_prime_status" == "started"} {
     #var invoke_prime_status running;
     #script {bin/invoke-prime start -l $log_day -s $invoke_prime_school};

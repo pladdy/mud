@@ -31,7 +31,7 @@
 #nop Fantasy;
 #nop Fantasy Ferry;
 
-#action {-= Wayhaven Dock =- (n,w)} {
+#action {-= Wayhaven Dock =- (%1)} {
   #if {$map[current_room] == 2553} {#map goto 1933};
 }
 

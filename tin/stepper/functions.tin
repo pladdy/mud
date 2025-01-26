@@ -36,10 +36,11 @@
 
 #function transform_mob {
   #var transform_mob false;
-  #regexp {%0} {a zombie} {#var transform_mob zombie};
+  #regexp {%0} {zombie} {#var transform_mob zombie};
   #regexp {%0} {deep one} {#var transform_mob deep one};
   #regexp {%0} {rimalkin} {#var transform_mob rimalkin};
-  #regexp {%0} {duke of} {#var transform_mob duke};
+  #regexp {%0} {duke} {#var transform_mob duke};
+  #regexp {%0} {%d of hearts} {#var transform_mob card};
   
   #if {"$transform_mob" != "false"} {
     #return $transform_mob;

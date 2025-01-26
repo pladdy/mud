@@ -42,7 +42,7 @@
 
 #alias f10 {
   use_corpse;
-  get all;
+  #send !get all;
 }
 
 #nop method aliases;
