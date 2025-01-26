@@ -1,4 +1,5 @@
 Twilight eq in Tomb of King Alaren
+----------------------------------
 
 Chamption  -> Shield
 King       -> Armour
@@ -20,6 +21,7 @@ charges the eq.  Charging it raises the AC.
 * can charge up other pieces more efficiently.
 
 Eye of twilight
+---------------
 
 Basically a key, must be charged; also a light source
 

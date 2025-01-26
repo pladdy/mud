@@ -4,6 +4,8 @@ import argparse
 import subprocess
 import difflib
 
+# TODO: i want to 'ipr <spell> <mob>' and it just works
+
 parser = argparse.ArgumentParser(
     prog="Invoke Prime", description="Returns answers for invoke prime calls."
 )
@@ -32,9 +34,9 @@ school = {
 }
 
 spell = [
-    "You call forth a word of great power, invoking the prime nature of your",  # noqa
+    "You call forth a word of great power, invoking the prime nature of your",
     "magic.  Crumbling away from the corpse, the soul of the creature is",
-    "released in the form of a giant death's head that flies freely into the",  # noqa
+    "released in the form of a giant death's head that flies freely into the",
     f"room, leaving behind it a great trail of {school.get(args.school)}!",
 ]
 

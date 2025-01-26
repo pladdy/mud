@@ -10,6 +10,7 @@ class InvalidMove(Exception):
 
 
 # TODO: `bin/knights_tour 8 8 6 8 | wc` only produces 59 moves, not 63
+#        updated python to 3.12.7 and this bug doesn't happen any more...
 
 
 class Square:
