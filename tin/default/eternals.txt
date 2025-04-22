@@ -1,14 +1,18 @@
 
-alias dupe (duplicate creature
+alias edupe (duplicate creature
 alias ecom eternal chat main
 alias ecs (cstats
 alias ehp (hp
+alias eimm (immortality
+alias eem (embiggen
 alias enfo (info
-alias ewho (who
+alias epro (protection
 alias es (gs
 alias es2 (gs2
 alias es3 (train
 alias es4 (powers
+alias ewell (energy well
+alias ewho (who
 
 aset eternal_ansi yellow
 aset eternal_main higreen

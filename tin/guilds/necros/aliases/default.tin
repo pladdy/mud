@@ -43,12 +43,15 @@
 
 #alias attempt_glamor {
   log.debug attempting $necro_glamor;
-  #if {$glamors > 1 &&
-       "$glamor_active" != "true" &&
-       ($spp < .6 || $gp1p < .9) && $rounds_in_combat > 0
-  } {
-    #if {"$necro_veil_omega_maxed" == "true"} {#send !$necro_glamor};
-    #elseif {"$veil" != "ON"} {#send !$necro_glamor};
+  #if {"$glamor_active" != "true"} {
+    #if {$glamors > 5 && ($spp < .6 || $gp1p < .9) && $rounds_in_combat > 0} {
+      #if {"$necro_veil_omega_maxed" == "true"} {#send !$necro_glamor};
+      #elseif {"$veil" != "ON"} {#send !$necro_glamor};
+    };
+    #if {$glamors < 5 && ($spp < .3 || $gp1p < .5) && $rounds_in_combat > 0} {
+      #if {"$necro_veil_omega_maxed" == "true"} {#send !$necro_glamor};
+      #elseif {"$veil" != "ON"} {#send !$necro_glamor};
+    };
   };
 }
 
@@ -188,29 +191,28 @@
   #send !deliver;
 }
 
-#alias ipr-start {
-  #if {"%1" == ""} {
-    #show school is a required argument\; eg 'cold', 'lightning';
-  };
-  #if {"%2" == ""} {
-    #show mob is a required argument.
-  };
-
+#alias {ipr-start %1 %2} {
   #if {"%1" != "" && "%2" != ""} {
     #var invoke_prime_school %1;
     #var invoke_prime_status started;
+    #var invoke_prime_mob %2;
     #send !invoke prime %1 %2;
   };
 }
 
 #alias ipr-cmd {
-  #if {"$invoke_prime_status" == "started"} {
-    #var invoke_prime_status running;
-    #script {bin/invoke-prime start -l $log_day -s $invoke_prime_school};
+  #nop delay in case log hasn't flushed to file;
+  #delay {1} {
+    #if {"$invoke_prime_status" == "started"} {
+      #var invoke_prime_status running;
+      log.info "call bin/invoke-prime start -l $log_day -s $invoke_prime_school";
+      #script {bin/invoke-prime start -l $log_day -s $invoke_prime_school};
+    };
+    #else {
+      log.info "call bin/invoke-prime command -l $log_day -m $invoke_prime_mob";
+      #script {bin/invoke-prime command -l $log_day -m $invoke_prime_mob};
+    };
   };
-  #else {
-    #script {bin/invoke-prime command -l $log_day};
-  }
 }
 
 #alias login_commands {
@@ -261,7 +263,7 @@
 }
 
 #alias t {
-  #var necro_teleporting_true;
+  #var necro_teleporting true;
   #send !t %0
 }
 
@@ -289,8 +291,12 @@
 
 #alias use_corpse {
   #if {$ncorpses < $MAX_NECRO_CORPSES} {p};
+  #elseif {$hpp > 0.75 && $spp > 0.8 && gp1p > 0.9} {
+    #if {$ncorpses < $MAX_NECRO_CORPSES + 5} {p};
+    #else {#send !ab};
+  };
   #else {
-    #if {$hpp < $spp && $hpp < $gp1} {#send !abb};
+    #if {$hpp < $spp && $hpp < $gp1p} {#send !abb};
     #else {#send !ab};
   };
 }

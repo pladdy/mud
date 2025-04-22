@@ -118,7 +118,6 @@
 #action {^%!{[> ]*}You retreat!$} {
   decrement_ts $disengage_distance;
   #math {angel[distance]} {$angel[distance] + $disengage_distance};
-  #nop attempt_lunge;
 }
 
 #action {^%!{[> ]*}You are too close to lunge at %1$} {

@@ -77,7 +77,7 @@
       #nop guild special information;
       #case {"BAC"} {
         #format {mip[BAC_source]} {%n} {$guild};
-        #show <150>$mip[BAC_source]: $mip[data]<070>;
+        #show <150>$mip[data]<070>;
       };
       #nop room short description;
       #case {"BAD"} {#var mip[BAD] $mip[data]};
@@ -89,7 +89,9 @@
       #nop room exits;
       #case {"DDD"} {#var mip[DDD] $mip[data]};
       #nop composite MIP for hpbar variables;
-      #case {"FFF"} {process_composite $mip[data]};
+      #case {"FFF"} {
+        process_composite $mip[data];
+      };
     };
   };
 
@@ -128,14 +130,12 @@
   #if {"$hp_data_code" != "" && "$data" != ""} {
     process_hp_data_code $hp_data_code with $data;
   };
-  refresh_status_bar;
-
-  #undelay {refresh-status-bar};
-  #delay {refresh-status-bar} {
+  #if {$rounds_in_combat == 0} {
+    #var enemy 0;
     calculate_deltas;
     refresh_status_bar;
-    #undelay {refresh-status-bar};
-  } {3};
+  };
+  _delay_refresh;
 }
 
 #alias {process_hp_data_code %1 with %2} {
@@ -147,38 +147,24 @@
   #switch {"$hp_data_code"} {
     #case {"A"} {
       #var hp $data;
-      calculate_delta hp;
-      #delay {refresh-hp} {calculate_delta hp} {3};
     };
     #case {"B"} {
       #var hp_max $data;
-      calculate_delta hp;
-      #delay {refresh-hp} {calculate_delta hp} {3};
     };
     #case {"C"} {
       #var sp $data;
-      calculate_delta sp;
-      #delay {refresh-sp} {calculate_delta sp} {3};
     };
     #case {"D"} {
       #var sp_max $data;
-      calculate_delta sp;
-      #delay {refresh-sp} {calculate_delta sp} {3};
     };
     #case {"E"} {
       #if {"$guild" == "mages"} {#math {gp1} {100 - $data}};
       #else {#var gp1 $data};
       mip_gp1_hook;
-      calculate_delta gp1;
-      #undelay refresh-gp1;
-      #delay {refresh-gp1} {calculate_delta gp1} {3};
     };
     #case {"F"} {
       #if {"$guild" == "mages"} {#var gp1_max 100};
       #else {#var gp1_max $data};
-      calculate_delta gp1;
-      #undelay refresh-gp1;
-      #delay {refresh-gp1} {calculate_delta gp1} {3};
     };
     #case {"G"} {
       #switch {"$guild"} {
@@ -189,9 +175,6 @@
         #default {#var gp2 $data};
       };
       mip_gp2_hook;
-      calculate_delta gp2;
-      #undelay refresh-gp2;
-      #delay {refresh-gp2} {calculate_delta gp2} {3};
     };
     #case {"H"} {
       #switch {"$guild"} {
@@ -200,14 +183,11 @@
         #case {"juggers"} {#var gp2_max 100};
         #default {#var gp2_max $data};
       };
-      calculate_delta gp2;
-      #undelay refresh-gp2;
-      #delay {refresh-gp2} {calculate_delta gp2} {3};
     };
     #case {"I"} {
       #if {@length{$data} > 0} {
         #var mip[gline1] $data;
-        mip_gline1_hook $data
+        mip_gline1_hook $data;
       };
     };
     #case {"J"} {
@@ -219,13 +199,12 @@
     #case {"K"} {#var attacker $data};
     #case {"L"} {
       #var enemy $data;
-      calculate_delta enemy;
-      #undelay refresh-enemy;
-      #delay {refresh-enemy} {calculate_delta enemy} {3};
     };
     #case {"N"} {
       #var rounds_in_combat $data;
       mip_combat_hook;
+      calculate_deltas;
+      refresh_status_bar;
     };
   };
 }
@@ -306,6 +285,14 @@
       };
     };
   };
+}
+
+#alias _delay_refresh {
+  #undelay {refresh-status-bar};
+  #delay {refresh-status-bar} {
+    calculate_deltas;
+    refresh_status_bar;
+  } {2};
 }
 
 #class mip close;

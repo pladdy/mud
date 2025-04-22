@@ -72,7 +72,7 @@
     build_status_bar;
     #nop thanks for the tip from Kyoujin: wrap the text in color codes to help;
     #nop stop the ansi bleed/parse issue from showing with the prompt on;
-    clear_status_bar;
+    #nop clear_status_bar;
     #showme {<070>$deltas<070>} {-2};
   };
 }

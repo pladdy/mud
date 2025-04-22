@@ -3,7 +3,7 @@
 
   #math {regen_per_round} {$gp1_max / 100 * 2};
   #math {amount_to_regen} {$gp1_max - $gp1};
-  #math {rounds_to_regen} {$amount_to_regen / $regen_per_round + 5};
+  #math {rounds_to_regen} {$amount_to_regen / $regen_per_round};
 
   #nop Round is seconds * 2 (2s / round);
   #local min_seconds $rounds_to_regen * 2;
@@ -81,9 +81,7 @@
   #regexp {$data} {AA} {#nop;} {#send !activate assault animus};
   #regexp {$data} {GE} {#nop;} {#send !activate grip enhancer};
   #regexp {$data} {HNE} {#nop;} {#send !activate hadronic negation emitter};
-
   #regexp {$data} {SI: [><y{\d+\.\d+}%><g]} {#var gxp &1};
-  calculate_delta gxp;
 }
 
 #alias redc {

@@ -58,7 +58,7 @@
 #nop  If this happens, there's only one corpse;
 #action {^%!{[> ]*}%1's eyes glow a sickly green upon the fallen} {
   #regexp {%1} {%i{$character|$summons|$my_dog|tree}} {
-    #var gemino_mortis true;
+    #nop #var gemino_mortis true;
     #undelay mask_killing_blow_timeout;
     respond_to_killing_blow;
     #send !glance;
@@ -69,7 +69,7 @@
 #nop  If this happens, there are two corpses;
 #action {^%!{[> ]*}%1's eyes glow bright green upon the fallen} {
   #regexp {%1} {%i{$character|$summons|$my_dog|tree}} {
-    #var gemino_mortis true;
+    #nop #var gemino_mortis true;
     #undelay mask_killing_blow_timeout;
     #2 respond_to_killing_blow;
     #send !glance;

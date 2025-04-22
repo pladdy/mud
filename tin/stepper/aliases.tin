@@ -8,6 +8,15 @@
 #var valid_stepper_dirs[sw] {valid};
 #var valid_stepper_dirs[se] {valid};
 
+#alias _reset_prompt_ticker {
+  #unticker prompt;
+  #ticker {prompt} {
+    #if {$rounds_in_combat == 0} {
+      auto_kill;
+    };
+  } {2}
+}
+
 #alias _transform_monster_name {
   log.debug Trying to parse mosnter name %0;
 
@@ -26,6 +35,7 @@
 }
 
 #alias auto_kill {
+  _reset_prompt_ticker;
   #list {seen_monsters} {size} {seen_monster_count};
 
   #if {"$stepper" == "on" && "$player_present" == "true"} {
@@ -132,6 +142,9 @@
       log.info Input received.  Refreshing stepper TTL.;
       ttl_stepper on;
     };
+    #ticker {prompt} {
+      #if {$rounds_in_combat == 0} {#send !glance};
+    } {2};
 } {
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
     tracker off;
@@ -141,6 +154,7 @@
     ttl_no_monsters;
     #unevent {RECEIVED INPUT};
     #undelay reactivate_stepper;
+    #delay {2} {#unticker prompt};
   }
 }
 

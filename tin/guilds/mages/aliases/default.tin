@@ -46,6 +46,7 @@
        && $mystic_immerions < 1
   } {
     #send !cast secure shelter;
+    #if {"$stepper" != "off"} {stepper off};
   };
 }
 

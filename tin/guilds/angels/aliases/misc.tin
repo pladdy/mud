@@ -1,7 +1,8 @@
 #alias _rest_then_enable_stepper {
   log.info Resting and then enabling stepper.;
   #nop Round is seconds * 2 (2s / round);
-  #local min_seconds 60;
+  #math min_rounds {($gp3_max - $gp3) / 5}
+  #math min_seconds {$min_rounds * 2};
   #math rando {1 d 10};
   #math regen_time {$min_seconds + $rando};
 

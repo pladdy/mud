@@ -7,6 +7,8 @@
   #local ammo_max %5;
   #var corpses %7;
 
+  #var gxp %8;
+
   #if {$rounds_in_combat > 0 && "$ammo" != "--"} {
     #if {$ammo == 1 && $ammo_max > 0} {#send !mload};
   };
@@ -32,7 +34,7 @@
 #action {^%!{[> ]*}%1 recovers from the Voice!$} {
   #var voice_recovering true;
   #var voice_active false;
-  #delay {voice_delay} {#var voice_recovering false;} {20};
+  #delay {voice_delay} {#var voice_recovering false;} {18};
 }
 
 #action {^%!{[> ]*}That creature will not be affected.$} {
@@ -61,7 +63,7 @@
 #action {^%!{[> ]*}%1 shakes off the effects of the stunner.$} {
   #var stun_recovering true;
   #var stun_active false;
-  #delay {stun_delay} {#var stun_recovering false;} {20};
+  #delay {stun_delay} {#var stun_recovering false;} {6};
 }
 
 #action {^%!{[> ]*}Unaffected and enraged, %1 turns to you and attacks!$} {

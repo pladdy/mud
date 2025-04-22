@@ -13,10 +13,12 @@ parser = argparse.ArgumentParser(
 parser.add_argument("command")
 parser.add_argument("-l", "--log_day", default=None)
 parser.add_argument("-s", "--school", default=None)
+parser.add_argument("-m", "--mob", default=None)
 
 args = parser.parse_args()
 
-mobs = [
+# mob list...this is janky and cumbersome to maintain a list like this :(
+_raw_mobs = [
     "elven",
     "soldier",
     "clone",
@@ -25,12 +27,19 @@ mobs = [
     "ghoul",
     "vampire",
     "skeleton",
+    "duke of vampires"
 ]
+mobs = []
+for m in _raw_mobs:
+     mobs.extend(m.split())
+
+if args.mob:
+    mobs.append(args.mob)
 
 school = {
     "cold": "ice crystals",
     "lightning": "crackling electricity",
-    "psionic": "fizzling farts",
+    "psionic": "mental energy",
 }
 
 spell = [
@@ -55,7 +64,7 @@ commands = [
 
 def tail_log() -> list[str]:
     result = subprocess.run(
-        ["tail", "-n", "40", f"logs/{args.log_day}-3k-session.log"],
+        ["tail", "-n", "100", f"logs/{args.log_day}-3k-session.log"],
         capture_output=True,
     )
     return result.stdout.decode().strip().split("\n")
@@ -69,11 +78,8 @@ def first_command() -> None:
 
     for log in logs:
         words = log.split()
-        if (
-            not spell_found
-            and len(log) == len(spell[spell_lines_read])
-            and len(words) == len(spell[spell_lines_read].split())
-        ):
+        ratio = difflib.SequenceMatcher(None, log, spell[spell_lines_read]).ratio()
+        if not spell_found and ratio  > 0.9:
             spell_found = True
 
         if spell_found:
@@ -109,7 +115,7 @@ def followup_command() -> None:
             break
 
     if _match is None:
-        print("womp womp, something failed")
+        # a match wasn't found; should try running again
         return
 
     words = [_normalize(word) for word in _log.split()]

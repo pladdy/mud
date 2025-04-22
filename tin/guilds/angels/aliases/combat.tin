@@ -48,6 +48,20 @@
   #if {@should_swing{} == 1} {divine_strike};
 }
 
+#alias attempt_immortality {
+  #local MIN_TS_FOR 6;
+  #local MIN_DIV_FOR 150;
+  #math {hpp} {$hp / $hp_max * 1.00};
+
+  #if {"$use_immortality" == "true" 
+        && $gp2 > $MIN_DIV_FOR 
+        && $gp1 < $MIN_TS_FOR
+        && $hpp < 0.95
+      } {
+    #send !immortality;
+  };
+}
+
 #alias attempt_lunge {
   #if {@should_lunge{}} {
     #send !lunge $highest_area;

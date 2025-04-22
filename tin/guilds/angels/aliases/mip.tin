@@ -11,6 +11,8 @@
     #if {$gp3 < $MIN_END && $corpses > 0 && $rounds_in_combat > 0} {reri};
 
     #nop attempt_radiance;
+    #nop maybe insteand call immortality if you don't traverse/retreat?;
+    attempt_immortality;
     attempt_beyond_time;
     attempt_consecrate;
     attempt_renewed_light;

@@ -215,7 +215,7 @@
   #delay 2 {#var necro_teleporting false};
 }
 
-#action {^%!{[> ]*}A room, turn on your goddamn verbose mode (e,w,s,n,u)} {
+#action {^%!{[> ]*}A tunnel deep beneath the earth (e,w,s,n,u)} {
   #if {"$necro_teleporting" == "true"} {
     #map goto cata2_vamps;
     #var necro_teleporting false;

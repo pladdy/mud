@@ -5,6 +5,7 @@
 #alias get_bag_of_honey {
   run bag_of_honey;
   ls rocks;
+  #send !get bag;
   #send !drop pouch;
   #send !get pouch;
   #send !keep all bag;

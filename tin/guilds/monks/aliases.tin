@@ -13,6 +13,8 @@
   #unvar rando;
 }
 
+#unalias ak;
+
 #alias ansi {
   #send !ansi %1;
 
@@ -42,7 +44,7 @@
 }
 
 #alias attempt_enervate {
-  #local MIN_CHI 40;
+  #local MIN_CHI 50;
   #if {$gp1 < ${MIN_CHI}} {en};
 }
 
@@ -154,7 +156,7 @@
 
 #alias en {
   #if {%0 > 0 } {#send !enervate %0};
-  #else {#send !enervate 200};
+  #else {#send !enervate 300};
   #2 {#send !hands};
 }
 
@@ -184,6 +186,10 @@
   #local MIN_SP 100;
   #if {$sp < $MIN_SP && $corpses > 0 && $rounds_in_combat > 0} {resp};
 
+  #if {$sp < $MIN_SP && $corpses > 0 && $rounds_in_combat > 0} {
+    #nop #send !method crane;
+  };
+
   attempt_enervate;
   attempt_focus;
   attempt_palm;
@@ -201,7 +207,6 @@
   #local data %0;
   #nop G2N: <y6986308>    <cChi Focus>: <gStatic>    <yAE>: <g10>/25%;
   #regexp {$data} {G2N: <y{\d+}} {#var gxp &1};
-  calculate_delta gxp;
   #regexp {$data} {AE>: <%w{\d+}>} {#var ancient_energy &2};
 }
 
