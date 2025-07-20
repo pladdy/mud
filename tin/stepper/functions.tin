@@ -41,6 +41,8 @@
   #regexp {%0} {rimalkin} {#var transform_mob rimalkin};
   #regexp {%0} {duke} {#var transform_mob duke};
   #regexp {%0} {%d of hearts} {#var transform_mob card};
+  #regexp {%0} {lama of} {#var transform_mob lama};
+  #regexp {%0} {shaman of} {#var transform_mob shaman};
   
   #if {"$transform_mob" != "false"} {
     #return $transform_mob;

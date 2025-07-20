@@ -29,6 +29,6 @@
 
 #alias asmbl_all {
   #foreach $craft_fragment_types fragment_type {
-    asmbl average fragment of $fragment_type;
+    asmbl %1 %2 of $fragment_type;
   }
 }

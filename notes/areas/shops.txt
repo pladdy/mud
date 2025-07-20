@@ -14,6 +14,7 @@ Chaos:
   darkmoore => Darkmoore
   land1     => Revelwood shop
   land2     => ^^ 2.0
+  nethack   => Nethack (Bayburt's store)
   *simpsons => Simpsons
   techno    => Techno Shop
 

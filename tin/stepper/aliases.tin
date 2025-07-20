@@ -60,8 +60,6 @@
   #if {"$under_attack" == "true"} {ttl_no_monsters};
 }
 
-#alias ak {auto_kill}
-
 #alias before_step_hook {#nop;}
 
 #alias keep_cardinal_dirs {

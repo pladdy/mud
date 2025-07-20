@@ -13,8 +13,6 @@
   #unvar rando;
 }
 
-#unalias ak;
-
 #alias ansi {
   #send !ansi %1;
 
@@ -154,6 +152,16 @@
   #send !meditate;
 }
 
+#alias commands_before_corpse {
+  #if {"$party_status" == "yes" } {
+    #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree}} {
+      #nop;
+    } {
+      #send !study corpse;
+    };
+  };
+}
+
 #alias en {
   #if {%0 > 0 } {#send !enervate %0};
   #else {#send !enervate 300};
@@ -231,7 +239,7 @@
 #alias resps {#loop 1 5 loop {reet};}
 
 #alias use_corpse {
-  #send !study corpse;
+  #nop study corpse always, in before corpse hook;
   #send !eat corpse;
   #send !hp;
 }

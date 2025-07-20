@@ -47,3 +47,4 @@ an? (disfigured (jackalwere|weretiger)|disgusting carrion crawler|enormous 8-hea
 # priest psummons
 (beautiful chimera)|(majestic gryphon)|(mystic unicorn)
 zelligar
+a shadowbound follower

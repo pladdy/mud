@@ -122,11 +122,21 @@
 #nop Science Shuttle;
 
 #action {^The engines fire loudly and the shuttle blasts off.$} {
+  #if {$map[current_room] == 38637 || $map[current_room] == 38639} {
+    #var weather_station_shuttle true;
+  };
+  #else {
+    #var weather_station_shuttle false;
+  };
   #map goto 8373;
 }
 
 #action {^The captain announces: Welcome to Midway Space Station.$} {
   #map goto 8372;
+  #nop or from weather station;
+  #if {"$weather_station_shuttle" == "true"} {
+    #map goto 38638;
+  };
 }
 
 #action {^The captain announces: Welcome to Houston Transport Center.$} {
@@ -153,6 +163,10 @@
 
   #nop from midway;
   #if {$mars_shuttle == 24040} {#map goto 26657};
+}
+
+#action {^The captain announces: Welcome to COMSTAR Weather Satellite.$} {
+  #map goto 38639;
 }
 
 #nop Science Train;
@@ -184,6 +198,11 @@
   #if {$map[current_room] == 24879} {#map goto 24880};
 }
 
+#nop Star wars;
+#action {^Transport to Mos Eisly Spaceport (door)$} {
+  #if {$map[current_room] == 38645} {#map goto 38646};
+}
+
 #nop Section Z;
 
 #action {^%!{[> ]*}You press PAUSE on the game, saving the rest for later.$} {
@@ -194,3 +213,8 @@
   #map goto 32419;
 }
 
+#action {AREA NAME: Warhammer 40,000 [Horus]$} {
+  #if {$map[current_room] == 37911} {#map goto 37912};
+  #var map[room_area] Warhammer 40,000 [Horus];
+  #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+}

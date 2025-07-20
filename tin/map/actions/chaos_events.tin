@@ -169,25 +169,17 @@
 
 #nop The Zodiac;
 
-#action {^Cool!  It has your sign!  Today is a %1....$} {
-  #map goto 22124;
-}
+#action {^Cool!  It has your sign!  Today is a %1....$} {#map goto 22124}
 
 #nop Chaos TV: The simpsons;
 
-#action {^The Springfield Comments Board} {
-  #if {$map[current_room] != 22261
-       && $map[current_room] != 22266
-       && $map[current_room] != 22219} {
-    #map goto 22218;
-  };
-}
+#nop including '^' in the action makes it not match...maybe whitespace?;
+#action {AREA NAME: Simpsons Expansion \[Frank\]$} {#map goto 22218}
 
+#action {AREA NAME: Simpsons [Doh]$} {#map goto 38363}
 #nop Chaos TV: dexter's lab;
 
-#action {^AREA NAME: Dexter's Laboratory \[Adalius\]$} {
-  #map goto 25048;
-}
+#action {^AREA NAME: Dexter's Laboratory \[Adalius\]$} {#map goto 2504}
 
 #nop Chaos TV: dragonball z;
 

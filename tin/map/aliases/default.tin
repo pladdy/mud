@@ -22,6 +22,7 @@
 #nop When 'running' disable refresh, it makes the 'run' much faster;
 
 #alias map_run {
+  map lock;
   #if {"$stepper" == "on"} {stepper off};
   #if {"$mapper" == "on"} {mapper off};
 

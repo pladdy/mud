@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+##
+ # for this to work we have to export this var to all sessions...
+ # might need to use a file instead
+ ##
+MAP_DIR="tin/map"
+
+##
+ # tail the map so it refreshes; try to use -s option if available to refresh
+ # constantly
+ ##
+if $(tail -s 0 /dev/null 2> /dev/null); then
+  tail -f -s 0 "${MAP_DIR}/current_map.txt" 2> /dev/null
+else
+  tail -f "${MAP_DIR}/current_map.txt" 2> /dev/null
+fi

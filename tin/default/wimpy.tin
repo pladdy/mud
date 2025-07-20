@@ -13,7 +13,7 @@
     #case "se" {#send !wimpydir southeast};
     #case "u" {#send !wimpydir up};
     #case "d" {#send !wimpydir down};
-    #default {#send !wimpydir %1};
+    #default {#send !wimpydir %0};
   }
 }
 

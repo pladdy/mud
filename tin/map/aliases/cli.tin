@@ -1,6 +1,6 @@
 #alias gmap {
   #if {@length{%0} > 0} {
-    print_system_output grep "%0" $map_path;
+    print_system_output grep -i "%0" $map_path;
   } {
     #showme <170>Need to provide something to search for.;
   }
@@ -66,6 +66,7 @@
   #showme Map is Read only.;
   #map flag static on;
   #alias map_undo {#nop;};
+  mapper off;
 }
 
 #alias map_save {
@@ -173,4 +174,5 @@
   #showme Map is writable.;
   #map flag static off;
   #alias map_undo { #map undo; };
+  mapper on;
 }

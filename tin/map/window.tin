@@ -17,6 +17,12 @@
   log.debug map dimensions, height: $map_height width: $map_width;
 
   #map map $map_height $map_width variable current_map;
+  
+  #nop map map doesn't preserve ansi to file;
+  #nop #map map 0 0 overwrite tin/map/current_map.txt;
+  #map map $screen_height $screen_width variable file_map;
+  #script {echo "$file_map" > tin/map/current_map.txt};
+
   #map get all map[room_info];
 
   log.debug draw box: 1 $WIDTH_OFFSET $map_box_height $map_box_width;

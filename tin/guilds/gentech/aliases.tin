@@ -10,7 +10,10 @@
 
 #alias attempt_recharge {
   #math {half_gp1} {$gp1 / 2};
+  #math {gp1p} {$gp1 / $gp1_max * 1.00};
+  #math {gp2p} {$gp2 / $gp2_max * 1.00};
   #if {$rounds_in_combat > 0 && $gp2 > $half_gp1} {#send !recharge};
+  #elseif {$gp2p > 0.8 && $gp1p < .95} {#send !recharge};
 }
 
 #alias check_stepper {

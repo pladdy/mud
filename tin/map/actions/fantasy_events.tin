@@ -67,6 +67,9 @@
   #if {$map[current_room] == 28750} {#map goto 28749};
   #if {$map[current_room] == 28761} {#map goto 28762};
   #if {$map[current_room] == 28763} {#map goto 28758};
+  #if {$map[current_room] == 39003} {#map goto 38997};
+  #if {$map[current_room] == 39005} {#map goto 38989};
+  #if {$map[current_room] == 39001} {#map goto 38991};
 }
 
 #nop  Drealms;
@@ -145,10 +148,42 @@
   #if {$map[current_room] == 15489} {#map goto 13212};
 }
 
-#nop  Tapan;
+#nop Wayhaven ferry, swamp
 
-#action {^%!{[> ]*}AREA NAME: Island of Tapan [Polanna]$} {
+#action {^Swamp (se,e)$} {
+  #if {$map[current_room] == 2553} {#map goto 5314};
+}
+
+#nop Wayhaven ferry, tapan;
+
+#action {^AREA NAME: Island of Tapan [Polanna]} {
   #if {$map[current_room] == 2553} {#map goto 35844};
+}
+
+#nop Wayhaven ferry, teek;
+
+#action {^%!{[> ]*}AREA NAME: Teek's Island [Skeet]$} {
+  #if {$map[current_room] == 2553} {#map goto 38712};
+}
+
+#nop Wayhaven ferry, vilanthia;
+
+#action {^AREA NAME: Isle of Vilanthia [Lostar]} {
+  #if {$map[current_room] == 2553} {#map goto 38803};
+}
+
+#nop Wayhaven ferry, ryogi pei;
+
+#action {^AREA NAME: Ryogi-Pei Docks [Aneki]} {
+  #if {$map[current_room] == 2553} {#map goto 38889};
+}
+#nop swim from vilanthia;
+
+#action {^You struggle onto the sandy beach of the mainland, your muscles$} {
+  #if {$map[current_room] == 38804} {#map goto 1727};
+}
+#action {^-=( On a sandy beach )=- (swim,ne,s)$} {
+  #if {$map[current_room] == 38804} {#map goto 38803}; 
 }
 
 #nop Temple of the zombie god;
@@ -208,7 +243,7 @@
 }
 
 #action {^%!{[> ]*}<< The Docks of Xaxis >> (n)} {
-  #if {$map[current_room] == 31985} {#map goto 6335}
+  #if {$map[current_room] == 38981} {#map goto 6335}
 }
 
 #action {^%!{[> ]*}You sweep your hand over one of the higher shelves and} {
@@ -244,4 +279,16 @@
 
 #action {^You would end up in the sea as there is no ship to board.$} {
   #map undo;
+}
+
+#nop Celestial Zodiacs
+
+#action {^The stars align and your celestial insight reveals the creation of a portal to the unknown.$} {
+  log.warn Portal opened in room $map[current_room] $map[room_info][data];
+  sound_beeps;
+}
+
+#action {^>>> A COLOSSAL MONSTROSITY STOMPS INTO VIEW <<<$} {
+  log.warn A colossus spawned: $map[current_room] $map[room_info][data];
+  sound_beeps;
 }
