@@ -288,6 +288,11 @@
   sound_beeps;
 }
 
+#action {^>>> THE STARS ALIGN <<<$} {
+  log.warn Portal opened in room $map[current_room] $map[room_info][data];
+  sound_beeps;
+}
+
 #action {^>>> A COLOSSAL MONSTROSITY STOMPS INTO VIEW <<<$} {
   log.warn A colossus spawned: $map[current_room] $map[room_info][data];
   sound_beeps;

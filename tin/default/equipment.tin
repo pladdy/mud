@@ -13,11 +13,8 @@
   #if {$enemy > 0} {#send !press button on medallion};
 }
 
+#nop use autokeep, below is for unknowns;
 #action {^You wear the %1.} {
-  #send !keep %1;
-}
-
-#action {^You wield %1.$} {
   #send !keep %1;
 }
 

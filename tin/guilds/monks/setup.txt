@@ -1,4 +1,4 @@
-wimpy 40
+wimpy 50
 
 eq -hide head
 eq -hide hands
@@ -49,6 +49,3 @@ mset isn hiblack
 mset blur flash+hiblue
 mset crit hired
 mset throw brown
-
-repeat combat/hands
-panic hands/85%/3

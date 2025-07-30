@@ -4,6 +4,16 @@
   #var chaos_port_location {};
 }
 
+#nop alias for fallout shelter area doors;
+#alias fs_panel {
+  #if {@length{%2} == 0} {
+    #send !enter a %0, b %0, c %0, d %0;
+  };
+  #else {
+    #send !enter a %1, b %2, c %3, d %4;
+  };
+}
+
 #alias nn { #10 n; }
 #alias ww { #10 w; }
 #alias ee { #10 e; }

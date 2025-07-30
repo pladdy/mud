@@ -47,8 +47,8 @@
 }
 
 #alias attempt_focus {
-  #nop mind drops to 'clear' at 180;
-  #local MIN_MIND 300;
+  #nop should be covered by 'reflex' to stay above 280, this is backup;
+  #local MIN_MIND 240;
   #local FOCUS_AMOUNT 10;
 
   #if {$rounds_in_combat > 0 && $gp2 < $MIN_MIND && $focus > 0} {
@@ -83,10 +83,12 @@
 
 #alias attempt_throw {
   #local MIN_CHI 90;
-  #if {$sp >= $sp_max
+  #math {sp_ratio} {$sp / $sp_max * 1.00};
+  #if {$sp_ratio > .9
        && $gp1 > $MIN_CHI
        && $rounds_in_combat > 0
-       && "$can_throw" == "true"} {
+       && "$can_throw" == "true"
+       && "$auto_throw" == "true"} {
     #send !throw;
   };
 }
@@ -103,13 +105,13 @@
 }
 
 #alias auto_throw {
-  #if {"$can_throw" != "true"} {
+  #if {"$auto_throw" != "true"} {
     #showme <170>Throw enabled.;
-    #var can_throw true;
+    #var auto_throw true;
   };
    #else {
     #showme <170>Throw disabled.;
-    #var can_throw false;
+    #var auto_throw false;
   }
 }
 

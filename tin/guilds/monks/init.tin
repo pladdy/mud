@@ -1,11 +1,20 @@
 #var pressure off;
 #var can_throw true;
 #var auto_palm true;
+#var auto_throw true;
 #var MIN_MIND 170;
 
 #send !reflex clear;
 #send !reflex add hp 90% hands;
 #send !reflex add hp 80% hands;
-#send !reflex add gp1 100 enervate 200;
-#send !reflex add gp2 280 focus 10;
 #send !reflex add hp 70% hands;
+#send !reflex add gp1 90% enervate 80;
+#send !reflex add gp2 280 focus 10;
+#send !reflex combat on;
+#send !repeat combat/hands
+
+#nop after hands deflect blows kicks in so heal at start of round;
+#send !panic hands/100%/0
+
+#gag {Bonehead, you're at max hit points already.}
+#gag {You must wait for an attack from that monster.}

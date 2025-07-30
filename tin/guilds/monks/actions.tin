@@ -76,3 +76,11 @@
 #action {^%!{[> ]*}You cannot affect that being!$} {
   #var pressure on;
 }
+
+#action {^%!{[> ]*}%1 is wise to your maneuvers, and slips away.$} {
+  #var can_throw false;
+}
+
+#action {^An alien arrives to help.$} {
+  #send !pr alien;
+}
