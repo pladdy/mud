@@ -34,7 +34,7 @@
   #var follower_corpses 0;
 }
 
-#nop  Teleport to RR room;
+#nop  Teleporting;
 
 #action {^%!{[> ]*}Visions of the guild appear first in your mind, then reality...$} {
   #map goto 26792;
@@ -46,6 +46,28 @@
 
 #action {^%!{[> ]*}Mojo the %1 can't carry that much more.$} {
   #send !keep corpse;
+}
+
+#action {The illusions clear from your mind and you find yourself there.} {
+  #delay 2 {#var necro_teleporting false};
+}
+
+#action {^%!{[> ]*}A twisting passage (%1)} {
+  #if {"$necro_teleporting" == "true"} {
+    #map goto cata2_vamps;
+    #var necro_teleporting false;
+  };
+}
+
+#action {^%!{[> ]*}A tunnel deep beneath the earth (%1)} {
+  #if {"$necro_teleporting" == "true"} {
+    #map goto cata2_vamps;
+    #var necro_teleporting false;
+  };
+}
+
+#action {^%!{[> ]*}  This area is interfering with outbound teleportation magics master.} {
+  #var necro_teleporting false;
 }
 
 #nop  Coffin in inventory;
@@ -211,21 +233,81 @@
   #send !=halt;
 }
 
-#action {The illusions clear from your mind and you find yourself there.} {
-  #delay 2 {#var necro_teleporting false};
+#nop invoke prime start;
+
+#action {{[Y|-][o|-][u|-] [c|-][a|-][l|-][l|-] [f|-][o|-][r|-][t|-][h|-] [a|-] [w|-][o|-][r|-][d|-] [o|-][f|-] [g|-][r|-][e|-][a|-][t|-] [p|-][o|-][w|-][e|-][r|-], [i|-][n|-][v|-][o|-][k|-][i|-][n|-][g|-] [t|-][h|-][e|-] [p|-][r|-][i|-][m|-][e|-] [n|-][a|-][t|-][u|-][r|-][e|-] [o|-][f|-] [y|-][o|-][u|-][r|-]}} {
+  #script {invoke_prime[line1]} {bin/ipr -l "You call forth a word of great power, invoking the prime nature of your" -p "%0"};
+}
+#action {{[m|-][a|-][g|-][i|-][c|-].  [C|-][r|-][u|-][m|-][b|-][l|-][i|-][n|-][g|-] [a|-][w|-][a|-][y|-] [f|-][r|-][o|-][m|-] [t|-][h|-][e|-] [c|-][o|-][r|-][p|-][s|-][e|-], [t|-][h|-][e|-] [s|-][o|-][u|-][l|-] [o|-][f|-] [t|-][h|-][e|-] [c|-][r|-][e|-][a|-][t|-][u|-][r|-][e|-] [i|-][s|-]}} {
+  #script {invoke_prime[line2]} {bin/ipr -l "magic.  Crumbling away from the corpse, the soul of the creature is" -p "%0"};
+}
+#action {{[r|-][e|-][l|-][e|-][a|-][s|-][e|-][d|-] [i|-][n|-] [t|-][h|-][e|-] [f|-][o|-][r|-][m|-] [o|-][f|-] [a|-] [g|-][i|-][a|-][n|-][t|-] [d|-][e|-][a|-][t|-][h|-]['|-][s|-] [h|-][e|-][a|-][d|-] [t|-][h|-][a|-][t|-] [f|-][l|-][i|-][e|-][s|-] [f|-][r|-][e|-][e|-][l|-][y|-] [i|-][n|-][t|-][o|-] [t|-][h|-][e|-]}} {
+  #script {invoke_prime[line3]} {bin/ipr -l "released in the form of a giant death's head that flies freely into the" -p "%0"};
+}
+#action {{[r|-][o|-][o|-][m|-], [l|-][e|-][a|-][v|-][i|-][n|-][g|-] [b|-][e|-][h|-][i|-][n|-][d|-] [i|-][t|-] [a|-] [g|-][r|-][e|-][a|-][t|-] [t|-][r|-][a|-][i|-][l|-] [o|-][f|-] (.+)!}} {
+  #script {invoke_prime[line4]} {bin/ipr -l "room, leaving behind it a great trail of &2" -p "%1" -s "%2"};
+  #send !invoke prime $invoke_prime[line1][1]$invoke_prime[line2][1]$invoke_prime[line3][1]$invoke_prime[line4][1];
 }
 
-#action {^%!{[> ]*}A tunnel deep beneath the earth (e,w,s,n,u)} {
-  #if {"$necro_teleporting" == "true"} {
-    #map goto cata2_vamps;
-    #var necro_teleporting false;
-  };
-}
+#nop invoke prime responses
 
-#action {^%!{[> ]*}  This area is interfering with outbound teleportation magics master.} {
-  #var necro_teleporting false;
+#action {{[D|-][i|-][v|-][i|-][n|-][g|-] [a|-][r|-][o|-][u|-][n|-][d|-] (.+?), [t|-][h|-][e|-] [t|-][e|-][r|-][r|-][i|-][f|-][y|-][i|-][n|-][g|-] [d|-][e|-][a|-][t|-][h|-]['|-][s|-] [h|-][e|-][a|-][d|-] [g|-][r|-][o|-][w|-][l|-][s|-] [d|-][e|-][e|-][p|-][l|-][y|-]\.}} {
+  #local line "Diving around &2, the terrifying death's head growls deeply.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
 }
-
-#action {^%!{[> ]*}With blinding speed and ferocious hatred, the ghostly death's head screams} {
-  #var invoke_prime_status done;
+#action {{[T|-][h|-][e|-] [g|-][h|-][o|-][s|-][t|-][l|-][y|-] [s|-][k|-][u|-][l|-][l|-] [b|-][o|-][b|-][s|-] [a|-][n|-][d|-] [w|-][e|-][a|-][v|-][e|-][s|-] [a|-][r|-][o|-][u|-][n|-][d|-] (.+?), [g|-][r|-][o|-][w|-][l|-][i|-][n|-][g|-] [f|-][i|-][e|-][r|-][c|-][e|-][l|-][y|-]\.}} {
+  #local line "The ghostly skull bobs and weaves around &2, growling fiercely.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
+}
+#action {{[S|-][c|-][r|-][e|-][a|-][m|-][i|-][n|-][g|-] [t|-][h|-][r|-][o|-][u|-][g|-][h|-] [t|-][h|-][e|-] [r|-][o|-][o|-][m|-], [t|-][h|-][e|-] [d|-][e|-][a|-][t|-][h|-]['|-][s|-] [h|-][e|-][a|-][d|-] [g|-][r|-][o|-][w|-][l|-][s|-] [a|-][t|-] (.+?)\.}} {
+  #local line "Screaming through the room, the death's head growls at &2.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
+}
+#action {{[S|-][e|-][e|-][t|-][h|-][i|-][n|-][g|-] [w|-][i|-][t|-][h|-] [v|-][e|-][n|-][o|-][m|-][o|-][u|-][s|-] [a|-][n|-][g|-][e|-][r|-], [t|-][h|-][e|-] [d|-][e|-][a|-][t|-][h|-]['|-][s|-] [h|-][e|-][a|-][d|-] [h|-][o|-][w|-][l|-][s|-] [a|-][t|-] (.+?)\.}} {
+  #local line "Seething with venomous anger, the death's head howls at &2.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
+}
+#action {{[T|-][h|-][e|-] [g|-][h|-][o|-][s|-][t|-][l|-][y|-] [s|-][k|-][u|-][l|-][l|-] [r|-][a|-][c|-][e|-][s|-] [a|-][r|-][o|-][u|-][n|-][d|-] [t|-][h|-][e|-] [r|-][o|-][o|-][m|-], [c|-][i|-][r|-][c|-][l|-][i|-][n|-][g|-] (.+?) [m|-][e|-][n|-][a|-][c|-][i|-][n|-][g|-][l|-][y|-]\.}} {
+  #local line "The ghostly skull races around the room, circling &2 menacingly.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
+}
+#action {{[W|-][i|-][t|-][h|-] [p|-][u|-][r|-][e|-] [h|-][a|-][t|-][r|-][e|-][d|-], [t|-][h|-][e|-] [s|-][k|-][u|-][l|-][l|-] [b|-][a|-][r|-][e|-][s|-] [i|-][t|-][s|-] [f|-][a|-][n|-][g|-][s|-] [a|-][n|-][d|-] [h|-][i|-][s|-][s|-][e|-][s|-] [a|-][t|-] (.+?)\.}} {
+  #local line "With pure hatred, the skull bares its fangs and hisses at &2.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
+}
+#action {{[S|-][n|-][a|-][r|-][l|-][i|-][n|-][g|-] [a|-][t|-] (.+?), [t|-][h|-][e|-] [s|-][k|-][u|-][l|-][l|-] [g|-][n|-][a|-][s|-][h|-][e|-][s|-] [i|-][t|-][s|-] [t|-][e|-][e|-][t|-][h|-] [i|-][n|-] [a|-][n|-][g|-][e|-][r|-]\.}} {
+  #local line "Snarling at &2, the skull gnashes its teeth in anger.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
+}
+#action {{[W|-][i|-][t|-][h|-] [a|-] [h|-][o|-][r|-][r|-][i|-][d|-] [g|-][r|-][i|-][n|-] [o|-][f|-] [d|-][e|-][a|-][t|-][h|-], [t|-][h|-][e|-] [g|-][h|-][o|-][s|-][t|-][l|-][y|-] [s|-][k|-][u|-][l|-][l|-] [l|-][e|-][e|-][r|-][s|-] [a|-][t|-] (.+?)\.}} {
+  #local line "With a horrid grin of death, the ghostly skull leers at &2.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
+}
+#action {{[T|-][h|-][e|-] [s|-][k|-][u|-][l|-][l|-] [d|-][i|-][v|-][e|-][s|-] [q|-][u|-][i|-][c|-][k|-][l|-][y|-] [t|-][o|-][w|-][a|-][r|-][d|-][s|-] (.+?) [b|-][u|-][t|-] [n|-][a|-][r|-][r|-][o|-][w|-][l|-][y|-] [m|-][i|-][s|-][s|-][e|-][s|-]\.}} {
+  #local line "The skull dives quickly towards &2 but narrowly misses.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
+}
+#action {{[S|-][c|-][r|-][e|-][a|-][m|-][i|-][n|-][g|-] [i|-][n|-] [r|-][a|-][g|-][e|-] [a|-][t|-] (.+?), [t|-][h|-][e|-] [s|-][k|-][u|-][l|-][l|-] [r|-][a|-][c|-][e|-][s|-] [a|-][r|-][o|-][u|-][n|-][d|-] [t|-][h|-][e|-] [r|-][o|-][o|-][m|-]\.}} {
+  #local line "Screaming in rage at &2, the skull races around the room.";
+  #line ignore #showme sending bin/ipr -p "%1" -l $line -m "%2";
+  #script {invoke_prime[answer]} {bin/ipr -p "%1" -l $line -m "%2"};
+  #send !invoke prime $invoke_prime[answer][1];
 }

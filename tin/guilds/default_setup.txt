@@ -30,6 +30,7 @@ aset attack white
 aset auction yellow
 aset crafting yellow
 aset ctrade yellow
+aset explorer himagenta
 aset flapchat yellow
 aset gam higreen
 aset gshout yellow

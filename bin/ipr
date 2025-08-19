@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+
+import argparse
+
+parser = argparse.ArgumentParser(
+    prog="Invoke Prime", description="Returns answers for invoke prime calls."
+)
+parser.add_argument("-d", "--debug", action="store_true")
+parser.add_argument("-f", "--fix", action="store_true")
+parser.add_argument("-l", "--line", default=None)
+parser.add_argument("-m", "--mob", default=None)
+parser.add_argument("-p", "--puzzle", default=None)
+parser.add_argument("-s", "--school", default=None)
+args = parser.parse_args()
+
+# TODO: should we have a word list and a phrase list?  more important for
+# mob matching
+word_list = open("bin/ipr_words.txt").read().split("\n")
+
+
+def debug(msg: str):
+    if args.debug:
+        print(msg)
+
+
+def find_word(word: str, word_list: list[str], split: bool = True) -> str:
+    debug(f"find word: {word}")
+    new_word = []
+    words = [word.lower()]
+    if split:
+        words = map(str.lower, word.split(" "))
+
+    for word in words:
+        found = False
+        debug(f"checking {word}")
+        for _word in word_list:
+            debug(f"  against {_word}")
+            if len(word) != len(_word):
+                continue
+
+            for i, c in enumerate(word):
+                if i == len(word) - 1:
+                    debug("  found!")
+                    found = True
+                if c == "-":
+                    continue
+                if c != _word[i]:
+                    break
+            if found:
+                break
+        if found:
+            new_word.append(_word)
+    debug(f"new_word is now {new_word}")
+    return " ".join(new_word)
+
+
+def fix_word_list() -> None:
+    word_list = sorted(list(set(open("bin/ipr_words.txt").read().split("\n"))))
+    with open("bin/ipr_words.txt", "w") as f:
+        for word in word_list:
+            f.write(f"{word}\n")
+
+
+if args.fix:
+    print("Sorting and deduping word list")
+    fix_word_list()
+    print("Done")
+    exit(0)
+
+solution = ""
+line = args.line
+
+# swap school for placeholder if school is passed
+if args.school:
+    line = line.replace("&2", find_word(args.school, word_list))
+
+# swap mob for placeholder if mob is passed
+if args.mob:
+    # try to find the whole mob phrase first
+    if found := find_word(args.mob, word_list, False):
+        line = line.replace("&2", found)
+    else:
+        line = line.replace("&2", find_word(args.mob, word_list))
+
+debug(line)
+debug(args.puzzle)
+for i, c in enumerate(args.puzzle):
+    if c == "-":
+        solution += line[i]
+print(solution)
+
+# test cases
+
+# bin/ipr -p "Screa-ing through the r-om, the death's he-d growl- at Elven Sold-er." -l "Screaming through the room, the death's head growls at &2." -m "Elven Sold-er"
+# -> moasi
+
+# bin/ipr -p "Snarling a- Shar- Bear, the sk-ll gnashes its teeth in anger." -l "Snarling at &2, the skull gnashes its teeth in anger." -m "Shar- Bear"
+# -> teu
+
+# bin/ipr -p 'room, leaving behind it a great trail of ice c-ystals!' -l "room, leaving behind it a great trail of &2" -s "ice c-ystals"
+# -> r
+
+# bin/ipr -p "Screaming t-rough the r-om, the death's he-d grow-s at Elven Soldi-r." -l "Screaming through the room, the death's head growls at &2." -m "Elven Sold-er"
+# -> moasi
+
+# bin/ipr -p "The ghos-ly skull bobs and w-aves ar-und A Ghoul, growlin- fierce-y." -l "The ghostly skull bobs and weaves around &2, growling fiercely." -m "A Ghoul"
+# -> teogl
+
+# bin/ipr -p "Screaming i- rage -t A Ghoul, the sk-ll races around t-e room." -l "Screaming in rage at &2, the skull races around the room." -m "A Ghoul"
+# -> nauh
+
+# bin/ipr -p "With -ure hatred, the skull bar-s its f-ngs and his-es at Leapin- Rat." -l "With pure hatred, the skull bares its fangs and hisses at &2." -m "Leaping Rat"
+# -> peasg
+
+# bin/ipr -p "With -ure hatred, the skull bar-s its f-ngs and his-es at Lumberin- O-." -l "With pure hatred, the skull bares its fangs and hisses at &2." -m "Lumbering Ox"
+# -> peasgx
+
+# bin/ipr -p "Snar-ing at Red Foot S-ldier, th- skull gnashes i-s teeth in ange-." -l "Snarling at &2, the skull gnashes its teeth in anger." -m "Red Foot S-ldier"

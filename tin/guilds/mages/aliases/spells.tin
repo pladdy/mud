@@ -142,15 +142,27 @@
 
 #alias sumgol {
   _clear_summon_config;
-  #send !cast summon config as monster summoning 6##$offense_summon_count#2000#50#assist#offense;
+  #math assist_summon_count {$offense_summon_count - 1};
+  #send !cast summon config as monster summoning 6##$assist_summon_count#2000#50#assist#offense;
   #send !cast summon config as create golem##1#1000#100#defend#defense;
+  #send !cast summon config activate;
+  _post_summon_actions;
+}
+
+#alias sumoff {
+  _clear_summon_config;
+  #math assist_summon_count {$offense_summon_count - 1};
+  #send !cast summon config as monster summoning 6##$assist_summon_count#2000#50#assist#offense;
+  #send !cast summon config as conjure greater elemental##1#2000#50#assist#offense;
   #send !cast summon config activate;
   _post_summon_actions;
 }
 
 #alias sumdef {
   _clear_summon_config;
-  #send !cast summon config as monster summoning 6##$offense_summon_count#2000#50#defend#offense;
+  #nop it seems if everyone is defending, the count has to be lowered by 1;
+  #math defense_summon_count {$offense_summon_count - 1};
+  #send !cast summon config as monster summoning 6##$defense_summon_count#2000#50#defend#offense;
   #send !cast summon config as create golem##1#1000#100#defend#defense;
   #send !cast summon config activate;
   _post_summon_actions;

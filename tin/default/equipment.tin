@@ -34,3 +34,8 @@
 #action {^%!{[> ]*}You unwield Heart of Stone.} {
   #send !wear shield;
 }
+
+#action {You swing Soul Drinker into %1. A short tendril of soul appears but dissipates} {
+  log.warn Soul drinker is full, time to 'grip blade' and blick something.;
+  sound_beeps
+}

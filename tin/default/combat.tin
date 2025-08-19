@@ -1,3 +1,14 @@
+#alias attack_hook {#nop;}
+#action {^%!{[> ]*}You attack %1.$} {
+  #var target %1;
+  attack_hook;
+};
+
+#action {^%!{[> ]*}You turn to attack %1.} {
+  #var target %1;
+  attack_hook;
+}
+
 #nop Combat triggers;
 
 #nop Cow King;

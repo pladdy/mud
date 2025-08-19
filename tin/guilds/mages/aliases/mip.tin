@@ -33,10 +33,7 @@
     #var school_reset &2;
   };
   #regexp {$data} {I: {\d}} {#var mystic_immersions &1};
-  #regexp {$data} {G2N:{\d+}%} {
-    #var gxp &1;
-    calculate_delta gxp;
-  };
+  #regexp {$data} {G2N:{\d+}%} {#var gxp &1};
 }
 
 #alias mip_gp1_hook {

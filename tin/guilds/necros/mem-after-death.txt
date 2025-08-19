@@ -10,4 +10,5 @@ study shift 2
 study soulbind 5
 study will 2
 study dream 30
+study unholy ground 5
 # go study chest, fright, and snare

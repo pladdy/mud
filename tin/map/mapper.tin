@@ -1,6 +1,11 @@
 #class mapper kill;
 #class mapper open;
 
+#action {AREA NAME: %1$} {
+    #var map[room_area] %1;
+    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+}
+
 #action {^%!{[> ]*}AREA NAME: %1$} {
     #var map[room_area] %1;
     #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};

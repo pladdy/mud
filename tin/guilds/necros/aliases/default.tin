@@ -191,30 +191,6 @@
   #send !deliver;
 }
 
-#alias {ipr-start %1 %2} {
-  #if {"%1" != "" && "%2" != ""} {
-    #var invoke_prime_school %1;
-    #var invoke_prime_status started;
-    #var invoke_prime_mob %2;
-    #send !invoke prime %1 %2;
-  };
-}
-
-#alias ipr-cmd {
-  #nop delay in case log hasn't flushed to file;
-  #delay {1} {
-    #if {"$invoke_prime_status" == "started"} {
-      #var invoke_prime_status running;
-      log.info "call bin/invoke-prime start -l $log_day -s $invoke_prime_school";
-      #script {bin/invoke-prime start -l $log_day -s $invoke_prime_school};
-    };
-    #else {
-      log.info "call bin/invoke-prime command -l $log_day -m $invoke_prime_mob";
-      #script {bin/invoke-prime command -l $log_day -m $invoke_prime_mob};
-    };
-  };
-}
-
 #alias login_commands {
   #nop  Assumes 'gmore inventory' is not paging;
   #send !powers;  
@@ -260,6 +236,12 @@
 #alias smoke {
   #send !smoke %1;
   #map move %1;
+}
+
+#alias studyUp {
+  #send !study soulbind;
+  #send !study unholy ground;
+  #3 {#send !study dream 100};
 }
 
 #alias t {

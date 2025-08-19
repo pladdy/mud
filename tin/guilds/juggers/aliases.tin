@@ -101,8 +101,6 @@
   #if {$jugger_mounts[1] < 100} {rammo 4 2};
 
   #regexp {$data} {Gxp: {\d+\.\d+}%} {#var gxp &1};
-  calculate_delta gxp;
-
   #regexp {$data} {Coffin: {\d+}} {#var corpses &1} {#var corpses 0};
 }
 
@@ -139,12 +137,20 @@
 #alias su_can {
   #send !support reset;
   #99 #send !support upgrade powerplant;
-  #110 #send !support upgrade mount;
+  #124 #send !support upgrade mount;
   #send !support assault fire,radiation,electric,ice,poison;
 }
 
 #alias su_def {
   #send !support defend edged,blunt,fire,ice,electric;
+}
+
+#alias su_reg {
+  #send !support reset;
+  #99 #send !support upgrade repair;
+  #99 #send !support upgrade powerplant;
+  #24 #send !support upgrade mount;
+  #send !support assault fire;
 }
 
 #alias su_spam {
@@ -161,7 +167,7 @@
 #alias su_tank {
   #send !support reset;
   #99 #send !support upgrade armor;
-  #99 #send !support upgrade repair;
+  #124 #send !support upgrade repair;
   #send !support defend edged,blunt,fire,ice,electric toggle;
 }
 

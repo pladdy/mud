@@ -100,7 +100,6 @@
     #format form {%l} {$form};
     check_flyer $form;
   };
-  calculate_delta gxp;
 }
 
 #alias mip_gline2_hook {

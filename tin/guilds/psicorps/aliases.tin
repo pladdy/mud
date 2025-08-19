@@ -87,7 +87,6 @@
   #regexp {$data} {G2N: {[\d|,]+}} {
     #var gxp &1;
     #replace {gxp} {,} {};
-    calculate_delta gxp;
   } {false};
 }
 
