@@ -1,10 +1,18 @@
 #alias _balance_assault_pain {
   #foreach {low;some;minor;half;major;most;high} {amt} {
+    #send !pain $amt;
     #send !assault $amt;
-    #send !pain $amt;  
-  }
+  };
   #send !assault;
   #send !pain;
+}
+
+#alias _device {
+  #send !attacks normal;
+  #send !reflexes blinding;
+  #send !assault none;
+  #nop projectile 50 and should be able to pain with pistols;
+  #send !repeat off;
 }
 
 #alias adjust_litany {
@@ -66,10 +74,10 @@
 #alias attempt_stun {
   #if {
     @combat_rounds_left{} > 5
-    && $hp_as_pct <= 1.00
-    && "$stun_active" != "true" 
-    && "$voice_active" != "true"
+    && "$stun_active" != "true"
     && "$stun_recovering" != "true"
+    && "$voice_recovering" == "true"
+    && $stun_failures < 5
     && $gp1 > 200} {
     #send !stun;
   };
@@ -77,8 +85,7 @@
 
 #alias attempt_voice {
   #if {
-    @combat_rounds_left{} > 5
-    && $hp_as_pct < 0.85
+    @combat_rounds_left{} > 2
     && "$voice_active" != "true"
     && "$voice_recovering" != "true"
     && $gp1 > 200} {
@@ -169,23 +176,20 @@
 #alias drl {
   holster_weapons;
   #send !draw lasgun;
-  #send !attacks normal;
-  #send !reflexes blinding;
-  #send !repeat off;
+  _device;
 }
 
 #alias drm {
   holster_weapons;
   #send !draw maula pistol;
-  #send !attacks normal;
-  #send !reflexes blinding;
-  #send !repeat off;
+  _device;
+  #send !load maula;
 }
 
 #alias drp {
   holster_weapons;
   #send !draw pulse sword;
-  #send !repeat off;
+  _device;
 }
 
 #alias f10 {use_corpse}

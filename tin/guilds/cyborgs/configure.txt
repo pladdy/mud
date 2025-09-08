@@ -7,17 +7,44 @@ configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
 configure pattern remove 1
+configure pattern remove 1
+configure pattern remove 1
+configure pattern remove 1
+configure pattern remove 1
 
+# configure for heavies
+configure pattern add incendiary cannon/compound irradiator/ocular laser [0]/freon injector [0]
+configure pattern add hydraulic ramhammer/expansive hip augmentation/ocular laser [1]/freon injector [1]
+configure pattern add laser arm cannon/expansive hip augmentation/ocular laser [0]/freon injector [0]
+configure pattern add incendiary cannon/compound irradiator/ocular laser [1]/freon injector [1]
+configure pattern add hydraulic ramhammer/expansive hip augmentation/ocular laser [0]/freon injector [0]
+configure pattern add laser arm cannon/expansive hip augmentation/ocular laser [1]/freon injector [1]
 
+# aliases
+alias 1 configure strategy set 1/2/3/4/5/6
+
+# configure for super heavies
 configure pattern add cryo irradiator [0]/ocular laser [0]/expansive hip augmentation/freon injector [0]
 configure pattern add cryo irradiator [1]/ocular laser [1]/expansive hip augmentation/freon injector [1]
 configure pattern add unstructured energy array/ocular laser [0]/expansive hip augmentation/freon injector [0]
 configure pattern add hydraulic ramhammer/laser arm cannon/ocular laser [1]/freon injector [1]
 
-alias 1 configure strategy set 1/2/3/4
+# configure for super heavies that fully utilizes heavies
+configure pattern add expansive hip augmentation/cryo irradiator [0]/hydraulic ramhammer [0]/freon injector [1]
+configure pattern add expansive hip augmentation/cryo irradiator [1]/hydraulic ramhammer [1]/freon injector [0]
+configure pattern add expansive hip augmentation/unstructured energy array/ocular laser [0]/ocular laser [1]
+configure pattern add expansive hip augmentation/hydraulic ramhammer [0]/freon injector [0]/freon injector [1]
+configure pattern add expansive hip augmentation/cryo irradiator [0]/hydraulic ramhammer [1]/ocular laser [0]
+configure pattern add expansive hip augmentation/cryo irradiator [1]/freon injector [1]/ocular laser [1]
+configure pattern add expansive hip augmentation/unstructured energy array/hydraulic ramhammer [0]/ocular laser [0]
+configure pattern add expansive hip augmentation/hydraulic ramhammer [1]/freon injector [0]/freon injector [1]
+configure pattern add expansive hip augmentation/cryo irradiator [0]/ocular laser [0]/ocular laser [1]
+configure pattern add expansive hip augmentation/cryo irradiator [1]/hydraulic ramhammer [0]/freon injector [0]
+configure pattern add expansive hip augmentation/unstructured energy array/hydraulic ramhammer [1]/freon injector [1]
+configure pattern add expansive hip augmentation/ocular laser [0]/ocular laser [1]/freon injector [0]
 
-# aliases
-alias 1 configure strategy set 1/2/3/4/5/6
+alias 1 configure strategy set 1/2/3/4/5/6/7/8/9/10/11/12
+
 
 # set default strategy
 1

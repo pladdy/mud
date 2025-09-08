@@ -174,18 +174,17 @@
 #nop Chaos TV: The simpsons;
 
 #nop including '^' in the action makes it not match...maybe whitespace?;
-#action {AREA NAME: Simpsons Expansion \[Frank\]} {#map goto 22218}
+#action {AREA NAME: Simpsons Expansion [Frank]} {#map goto 22218}
 
-#action {AREA NAME: Simpsons [Doh]} {
-  #map goto 38363;
-}
+#action {AREA NAME: Simpsons [Doh]} {#map goto 38363}
+
 #nop Chaos TV: dexter's lab;
 
-#action {^AREA NAME: Dexter's Laboratory \[Adalius\]$} {#map goto 2504}
+#action {^AREA NAME: Dexter's Laboratory [Adalius]$} {#map goto 2504}
 
 #nop Chaos TV: dragonball z;
 
-#action {^AREA NAME: Dragonball Z \[Aneki\]$} {
+#action {^AREA NAME: Dragonball Z [Aneki]$} {
   #map goto 35693;
 }
 

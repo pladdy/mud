@@ -23,7 +23,7 @@
 
 #nop  Voice;
 
-#action {^%!{[> ]*}%1 recoils from your Voice and stops attacking!$} {
+#action {^%!{[> ]*}%1 recoils from your Voice} {
   #var voice_active true;
 }
 
@@ -34,11 +34,13 @@
 #action {^%!{[> ]*}%1 recovers from the Voice!$} {
   #var voice_recovering true;
   #var voice_active false;
+  attempt_stun;
   #delay {voice_delay} {#var voice_recovering false;} {18};
 }
 
 #action {^%!{[> ]*}That creature will not be affected.$} {
   #var voice_active true;
+  #var voice_recovering true;
 }
 
 #action {^%!{[> ]*}Your Voice falters as you notice that %1 is unaffected.$} {
