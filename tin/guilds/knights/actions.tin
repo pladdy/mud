@@ -1,47 +1,5 @@
-#action {^%!{[> ]*}H: %1/%2 %3 S: %4/%5 (%6%%) St: %7/%8 (%9%%) Sn: %10 (%11) Scw: %12 E: %13$} {
-  #var hp {%1};
-  #var hp_max {%2};
-
-  #var sp {%4};
-  #var sp_max {%5};
-  #var pct_sp %6;
-
-  #var gp1 {%7};
-  #var gp1_max {%8};
-  #var pct_stamina %9;
-
-  #math {gp2} {200 - %10};
-  #var gp2_max 200;
-
-  #var knight_scw %12;
-
-  #var enemy_str {%13};
-  #regexp {$enemy_str} {{\d+}} {#var enemy &1} {#var enemy 0};
-
-  #nop some mobs health can't be scanned, their healt will start as 'perfect';
-  #format enemy_str_len %L $enemy_str;
-  #if {$enemy_str_len > 3} {#var enemy 100};
-
-  attempt_will;
-}
-
 #action {^%!{[> ]*}G: %1 C: %2 St:Met: %3 Sk: [%4]$} {
-  #var gxp %1;
   #var corpses %2;
   #var knight_skills %4;
-
   #regexp {$knight_skills} {Pr: {\w}} {#var prepare &1};
-
-  #if {$corpses < 1 && "$stepper" == "on"} {
-    #showme Turning stepper off.  Corpses: $corpses, Stepper: $stepper;
-    stepper off;
-  };
-  attempt_stamina_recovery;
-  attempt_strain_recovery;
-  attempt_prepare;
-  show_status_bar;
 }
-
-#nop gag staunch warnings;
-#gag {^%!{[> ]*}Your wounds are not so severe as to require staunching.$}
-#gag {^%!{[> ]*}You are not bleeding from any wounds.$}

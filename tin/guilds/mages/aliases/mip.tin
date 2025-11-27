@@ -4,6 +4,7 @@
     attempt_slow;
     attempt_haste;
     attempt_monstrous_fortitude;
+    attempt_pws;
     attempt_shelter;
     check_stepper;
 }

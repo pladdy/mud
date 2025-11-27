@@ -4,6 +4,10 @@
 
 #alias mip_gp2_hook {#nop;}
 
-#alias mip_gline1_hook {#nop;}
+#alias mip_gline1_hook {
+    #local data %0;
+}
 
-#alias mip_gline2_hook {#nop;}
+#alias mip_gline2_hook {
+    #local data %0;
+}

@@ -31,6 +31,14 @@
   #var voice_active true;
 }
 
+#action {^%!{[> ]*}%1 recoils from the Voice of} {
+  #var voice_active true;
+}
+
+#action {^%!{[> ]*}%1 recoils from the voice of} {
+  #var voice_active true;
+}
+
 #action {^%!{[> ]*}%1 recovers from the Voice!$} {
   #var voice_recovering true;
   #var voice_active false;

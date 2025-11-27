@@ -32,7 +32,17 @@
 #alias cofs {#send !cofscore};
 
 #alias f12 {
-  #loop 2 $BAGS_TO_USE i {#send !sell all from bag $i};
+  #nop there's a bug in the wayhaven docks shop where sell all from a bag;
+  #nop can make the bag no longer hold anything;
+  #if {$map[current_room] == 1933} {
+    #loop 2 $BAGS_TO_USE i {
+      #send !get all from bag $i;
+      #send !sell all;
+    };
+  };
+  #else {
+    #loop 2 $BAGS_TO_USE i {#send !sell all from bag $i};
+  };
 }
 
 #alias forums {

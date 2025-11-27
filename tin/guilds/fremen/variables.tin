@@ -2,6 +2,9 @@
 #var have_spice false;
 #var stun_failures 0;
 #var voice_failures 0;
+#var voice_mode hold;
+#var use_stun true;
+#var use_voice true;
 
 #var mode_point_map[all] 15;
 #var mode_point_map[high+] 14;

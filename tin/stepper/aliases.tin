@@ -129,6 +129,7 @@
     #format {stepper_started} {%T};
     #unvar step_dir;
     #unvar entered_from;
+    #list visited_rooms clear;
     #delay {2} {
       #var stepper on;
       #send !glance;
@@ -145,14 +146,17 @@
     } {2};
 } {
     #showme <170>Disabling stepping. 'stepper on' to re-enable.;
-    tracker off;
     #var stepper off;
     #unvar seen_monster_count;
     ttl_stepper;
     ttl_no_monsters;
     #unevent {RECEIVED INPUT};
     #undelay reactivate_stepper;
-    #delay {2} {#unticker prompt};
+    #delay {2} {
+      #unticker prompt;
+      tracker off;
+    };
+    tracker off;
   }
 }
 
@@ -207,7 +211,7 @@
     #send !aset look_other;
     #send !aset look_weapon;
     #send !brief on yes;
-    unload_non_monsters;
+    #unvar non_monsters;
     #var tracker off;
   }
 }
@@ -247,7 +251,3 @@
 }
 
 #alias ttl_stepper_hook {dtrig #delay 2 f2}
-
-#alias unload_non_monsters {
-  #unvar non_monsters;
-}

@@ -1,8 +1,15 @@
 #alias _rest_then_enable_stepper {
   log.info Resting and then enabling stepper.;
   #nop Round is seconds * 2 (2s / round);
-  #math min_rounds {($gp3_max - $gp3) / 5}
-  #math min_seconds {$min_rounds * 2};
+
+  #math min_div_rounds {($gp3_max - $gp3) / 8};
+  #math min_end_rounds {($gp2_max - $gp2) / 4};
+
+  #math min_seconds {$min_div_rounds * 2};
+  #if {$min_end_rounds > mind_div_rounds} {
+    #math min_seconds {$min_end_rounds * 2};
+  };
+
   #math rando {1 d 10};
   #math regen_time {$min_seconds + $rando};
 
@@ -26,7 +33,7 @@
 }
 
 #alias check_stepper {
-  #local MIN_END 50;
+  #local MIN_END 100;
 
   #if {"$stepper" == "on" && $gp2 < $MIN_END} {
     log.info Disabling stepper, need to rest.;

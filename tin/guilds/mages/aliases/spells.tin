@@ -17,6 +17,12 @@
   };
 }
 
+#alias attempt_pws {
+  #if {"$pws_recovering" != "true" && @combat_rounds_left{} > 5} {
+    #send !pws;
+  }
+}
+
 #alias blink {
   #send !deplete ps;
   #var spells[ps] {off};
@@ -142,18 +148,8 @@
 
 #alias sumgol {
   _clear_summon_config;
-  #math assist_summon_count {$offense_summon_count - 1};
-  #send !cast summon config as monster summoning 6##$assist_summon_count#2000#50#assist#offense;
+  #send !cast summon config as monster summoning 6##$offense_summon_count#2000#50#assist#offense;
   #send !cast summon config as create golem##1#1000#100#defend#defense;
-  #send !cast summon config activate;
-  _post_summon_actions;
-}
-
-#alias sumoff {
-  _clear_summon_config;
-  #math assist_summon_count {$offense_summon_count - 1};
-  #send !cast summon config as monster summoning 6##$assist_summon_count#2000#50#assist#offense;
-  #send !cast summon config as conjure greater elemental##1#2000#50#assist#offense;
   #send !cast summon config activate;
   _post_summon_actions;
 }

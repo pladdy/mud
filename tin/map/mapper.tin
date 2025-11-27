@@ -1,39 +1,12 @@
 #class mapper kill;
 #class mapper open;
 
-#action {AREA NAME: %1$} {
-    #var map[room_area] %1;
-    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
-}
-
-#action {^%!{[> ]*}AREA NAME: %1$} {
-    #var map[room_area] %1;
-    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
-}
-
-#action {^%!{[> ]*}AREA RATING -> Caution is Advised [%1]$} {
-    #var map[room_area] %1;
-    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
-}
-
-#action {^%!{[> ]*}[MRS] %1$} {
-    #var map[room_desc] %1;
-    #map set roomdata $map[room_desc];
-    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
-} {1}
-
-#nop %*\n%a
-#action {^%!{[> ]*}[RL]%a\n    There {is|are}} {
-    #unvar long;
-    #format long1 {%p} {%1};
-    #var long {$long1};
-    #map set roomdesc $long;
-} {1}
-
 #alias mapper {
     #if {"%0" == "on"} {
         log.info Mapper on;
         #var mapper on;
+        #read tin/map/mapper_actions.tin;
+
         #nop use MRS so action does not conflict with stepper;
         #send !aset room_short white+[MRS] +reset;
         #send !aset room_long white+[RL] +reset;
@@ -55,6 +28,7 @@
         #send !brief on yes;
         #unvar map[room_desc];
         #unevent {RECEIVED INPUT};
+        #class mapper_actions kill;
     };
 }
 

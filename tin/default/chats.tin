@@ -3,11 +3,10 @@
 
 #var disable_chat_alerts 0;
 
-#var chats None;
-#var chats_per_line -;
+#var chats_per_line ---;
+#list chats clear;
 
 #alias chats_clear {
-  #var chats_per_line -;
   chats_refresh;
 }
 #alias chatsc {
@@ -17,17 +16,17 @@
 #nop The window showing up permanently and not scrolling away depends on 'split';
 #nop The status_bar alias is responsible for splitting the screens;
 #alias chats_refresh {
-  #local SPLIT_ADJUSTMENT 4;
+  #local SPLIT_ADJUSTMENT 3;
   #local WIDTH_OFFSET 101;
 
   #screen get rows screen_height;
   #screen get cols screen_wdith;
 
-  #math alert_height {($screen_height - $SPLIT_ADJUSTMENT) / 4};
-  #math alert_height {$alert_height * 2};
+  #nop place relative to map, but why minus 2?;
+  #math alert_height {$screen_height - $map_box_height - 2};
   #math alert_width {$screen_width - $WIDTH_OFFSET};
 
-  #math alert_box_height {$alert_height + 2};
+  #math alert_box_height {$alert_height + 3};
   #math alert_box_width {$screen_width};
 
   log.debug alert dimensions, height: $alert_height width: $alert_width;
@@ -36,16 +35,30 @@
   #math brh {$screen_height - 2};
   #math brw {$alert_box_width};
 
-  #list chats simplify;
-  #foreach $chats chat {
-    #nop why did i put this here?;
-    #nop #replace chat {"} {};
-    #var chats_per_line {$chats_per_line\n$chat};
+  #list chats size chats_size;
+  #while {$chats_size > 100} {
+    #list chats delete 1;
+    #list chats size chats_size;
+  };
+
+  #if {$chats_size > 0} {
+    #list chats_list clear;
+    #list chats_list copy chats;
+
+    #list chats_list simplify;
+    #foreach $chats_list chat {
+      #nop why did i put this here?;
+      #nop #replace chat {"} {};
+      #var chats_per_line {$chats_per_line\n$chat};
+    };
+    #unvar chat;
+    #unvar chats_list;
   };
 
   #draw jade box $alert_box_height $WIDTH_OFFSET $brh $brw {Chats} {
     \n$chats_per_line
   };
+  #var chats_per_line ---;
 }
 
 #alias chatsr { chats_refresh }

@@ -73,10 +73,11 @@
 
 #alias attempt_stun {
   #if {
-    @combat_rounds_left{} > 5
+    "$use_stun" == "true"
+    && @combat_rounds_left{} > 5
     && "$stun_active" != "true"
     && "$stun_recovering" != "true"
-    && "$voice_recovering" == "true"
+    && ("$voice_recovering" == "true" || "$voice_mode" != "hold")
     && $stun_failures < 5
     && $gp1 > 200} {
     #send !stun;
@@ -85,11 +86,12 @@
 
 #alias attempt_voice {
   #if {
-    @combat_rounds_left{} > 2
+    "$use_voice" == "true"
+    && @combat_rounds_left{} > 3
     && "$voice_active" != "true"
     && "$voice_recovering" != "true"
     && $gp1 > 200} {
-    #send !voice;
+    #send !voice to $voice_mode;
   };
 }
 
@@ -115,6 +117,26 @@
   #if {"$stepper" == "on"} {
     #send !poison;
   }
+}
+
+#alias caf {
+  #var voice_mode enfeeblement;
+  #send !caf %1;
+}
+
+#alias cal {
+  #var voice_mode enfeeblement;
+  #send !cal %1;
+}
+
+#alias cab {
+  #var voice_mode enfeeblement;
+  #send !cab %1;
+}
+
+#alias crb {
+  #var voice_mode hold;
+  #send !crb %1;
 }
 
 #alias check_stepper {
@@ -307,5 +329,4 @@
 #alias wimpy_commands {
   #send !hide;
   commands_after_corpse;
-  #delay {2} {#send !suspend};
 }

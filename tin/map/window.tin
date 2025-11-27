@@ -1,7 +1,7 @@
 #nop The window showing up permanently and not scrolling away depends on 'split';
 #nop The status_bar alias is responsible for splitting the screens;
 #alias map_refresh {
-  #local SPLIT_ADJUSTMENT 4;
+  #local SPLIT_ADJUSTMENT 3;
   #nop  The below offset is 1 character more than the text window;
   #local WIDTH_OFFSET 101;
 
@@ -9,7 +9,8 @@
   #screen get cols screen_width;
 
   #math map_height {($screen_height - $SPLIT_ADJUSTMENT) / 2};
-  #math map_width {$screen_width - $WIDTH_OFFSET};
+  #nop had to add -1 or the map is janky...maybe because it can't be exactly the offset?;
+  #math map_width {$screen_width - $WIDTH_OFFSET - 1};
 
   #math map_box_height {$map_height + 2};
   #var map_box_width $screen_width;

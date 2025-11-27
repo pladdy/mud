@@ -25,7 +25,7 @@ Eye of twilight
 
 Basically a key, must be charged; also a light source
 
-Bone Goelm -> Eye of twilight (gem, can't equip, charge and use in wall)
+Bone Goelm -> Eye of twilight (gem, can't equip, charge and use in wall, light source)
 0 [dull]
 1 [glowing dimly]
 3 [twinklink]
@@ -35,3 +35,13 @@ Bone Goelm -> Eye of twilight (gem, can't equip, charge and use in wall)
 With the eye at [glowing] you can insert it into socket
 
 Twilight Guardian -> Sword of Twilight
+- each absorb seems to help WC slightly
+- sword wears out, but can be repaired at smithy
+- must be wielded to absorb kills
+- all specials are % chance, not per round
+
+0 The sword of twilight
+1 The sword of twilight -[red]-, about 5 absorbs
+2 The sword of twilight -[faded red]-, maybe 10 absorbs, starts to block attacks partially
+3 The sword of twilight -[faded orange]-, maybe 16 absorbs, starts to give an extra attack emote
+3 The sword of twilight -[faded yellow]-, maybe 24 absorbs,

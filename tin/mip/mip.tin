@@ -171,6 +171,7 @@
         #case {"cyborgs"} {#math {gp2} {100 - $data}};
         #case {"jedi"} {#math {gp2} {100 - $data}};
         #case {"juggers"} {#math {gp2} {100 - $data}};
+        #case {"knights"} {#math {gp2} {200 - $data}};
         #case {"mages"} {#math {gp2} {100 - $data}};
         #default {#var gp2 $data};
       };

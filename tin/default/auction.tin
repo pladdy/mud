@@ -1,0 +1,7 @@
+#action {[Auction] Robert : Xiu has requested {\d} as the opening offer.} {
+    #delay 2 {#send !abid &1};
+}
+
+#action {[Auction] Robert : Voodoo has requested {\d} as the opening offer.} {
+    #delay 2 {#send !abid &1};
+}

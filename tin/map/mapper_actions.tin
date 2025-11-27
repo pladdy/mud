@@ -1,0 +1,36 @@
+#class mapper_actions kill;
+#class mapper_actions open;
+
+#nop actions kept in separate file and only loaded when needed;
+#nop these actions can conflict with others like chaos room actions;
+
+#action {AREA NAME: %1$} {
+    #var map[room_area] %1;
+    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+} {1};
+
+#action {^%!{[> ]*}AREA NAME: %1$} {
+    #var map[room_area] %1;
+    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+} {1};
+
+#action {^%!{[> ]*}AREA RATING -> Caution is Advised [%1]$} {
+    #var map[room_area] %1;
+    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+} {1};
+
+#action {^%!{[> ]*}[MRS] %1$} {
+    #var map[room_desc] %1;
+    #map set roomdata $map[room_desc];
+    #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
+} {1};
+
+#nop %*\n%a
+#action {^%!{[> ]*}[RL]%a\n    There {is|are}} {
+    #unvar long;
+    #format long1 {%p} {%1};
+    #var long {$long1};
+    #map set roomdesc $long;
+} {1}
+
+#class mapper_actions close;

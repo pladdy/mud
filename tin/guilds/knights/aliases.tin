@@ -3,20 +3,48 @@
 }
 
 #alias attempt_stamina_recovery {
-  #if {$enemy > 0 && $pct_stamina < 50} {
+  #if {$enemy > 0 && $pct_stamina < 0.5} {
     #if {$knight_scw > 50} {#send !scw};
     #elseif {$corpses > 0} {rebc};
   };
 }
 
 #alias attempt_strain_recovery {
-  #nop gp2 value is available strain (ie: 200 - current strain);
-  #if {$enemy > 0 && $gp2 < 100 && $corpses > 0} {rebc};
+  #if {$enemy > 0 && $gp2 < 150 && $corpses > 0} {rebc};
 }
 
 #alias attempt_will {
-  #if {$enemy > 0 && $pct_sp > 90 && ($pct_stamina < 90 || $gp2 < 160)}  {
+  #if {"$use_will" == "true" && 
+       $enemy > 0 
+       && $pct_sp > 0.9 
+       && ($pct_stamina < 0.9 || $gp2 < 150)}  {
     #2 #send !will;
+  };
+}
+
+#alias check_stepper {
+  #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
+  #else {
+    #format {current_time} {%T};
+    #math {time_since_stepper_started} {$current_time - $stepper_started};
+
+    #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
+      stepper off;
+
+      log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;
+
+      #nop Round is seconds * 2 (2s / round);
+      #local min_seconds 10;
+      #math rando {1 d 20};
+      #math regen_time {$min_seconds + $rando};
+
+      #delay {reactivate_stepper} {
+        log.info "Re-activating stepper after regen time: $regen_time seconds.";
+        stepper on;
+      } {$regen_time};
+
+      #unvar rando;
+    };
   };
 }
 
@@ -49,23 +77,59 @@
 
 #alias mc {
   #send !method charge;
+  #send !wear shield;
   ofup;
+  #send !brawl off;
+  #send !deflect on;
 }
 
 #alias mf {
+  #send !remove shield;
   #send !method focus;
   ofup;
+  #send !deflect off;
+  #send !brawl on;
 }
 
 #alias mm {
   neup;
 }
 
+#alias mip_combat_hook {
+  #math pct_sp {$sp / $sp_max * 1.00};
+  #math pct_stamina {$gp1 / $gp1_max * 1.00};
+  attempt_will;
+  attempt_prepare;
+  attempt_stamina_recovery;
+  attempt_strain_recovery;
+  check_stepper;
+}
+
+#alias mip_gp1_hook {
+  #math pct_stamina {$gp1 / $gp1_max * 1.00};
+}
+
+#alias mip_gline1_hook {
+  #local data %0;
+  #nop will be whatever setkstats is set to;
+  #nop Stance: neutral | Method: melee | Sec Wind: 100.00% | Guild Level: 7 | Class: Retainer | Morale: 2;
+  #nop #showme mip_gline1_hook: $data;
+  #regexp {$data} {Sec Wind: :{\d+}}% { #var {knight_scw} {&1} };
+}
+
+#alias mip_gline2_hook {
+  #local data %0;
+  #regexp {$data} {GXN:{\d+}} { #var {gxp} {&1} };
+  #nop will be setkstats config and the below;
+  #nop Bias[<sLocked>] Atk(<r180%>) Def(<c10%>) <wEfield>(<y4min>) Edna(<w16min>) Illum(<cOFF>);
+  #nop #showme mip_gline2_hook: $data;
+}
+
 #alias neup {
   #send !stance neutral;
   #send !method melee;
-  default_skills;
   #send !wear shield;
+  default_skills;
   #send !shieldblock on;
 }
 

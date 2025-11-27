@@ -4,11 +4,11 @@
   #unvar requestor;
 }
 
-#action {^ 1 *Party banner of %1 party.$} {
+#action {^%11%s*Party banner of %1 party.$} {
   #var party_status yes;
 }
 
-#action {^ *Party banner of rigmarole's party$} {
+#action {^%1*Party banner of %1 party$} {
   #var party_status yes;
 }
 

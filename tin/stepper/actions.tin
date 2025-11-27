@@ -6,12 +6,13 @@
 
 #nop Room Short trigger;
 
+#alias add_room_to_visited {
+  #list visited_rooms find $map[current_room] visited_room_check;
+  #if {$visited_room_check == 0} {#list visited_rooms add $map[current_room]};
+}
+
 #action {^%!{[> ]*}[RS] %1} {
   _reset_prompt_ticker;
-  #nop turn stepper off if a room is 'dangerous';
-  #if {$map[current_room] == 22833} {
-    stepper off;
-  };
 
   #list seen_monsters clear;
   #var seen_monster_count 0;
@@ -21,6 +22,7 @@
   #var tracker on;
   #var tried_to_auto_kill false;
   parse_exits %1;
+  add_room_to_visited;
 }
 
 #nop Monster trigger;

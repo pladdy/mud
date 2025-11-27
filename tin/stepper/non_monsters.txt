@@ -2,8 +2,9 @@
 (%w golem)
 's french bulldog
 # knights mounts
-'s (golden dun (akhal-teke|palomino))|(brindle mustang)|(lazy fat cat)|(bay belgian)
-%+, %+'s %+ (nag|cob|palfrey|shetland pony)
+.+, .+'s (lazy fat cat)
+.+, .+'s .+ ((shetland pony)|nag|cob|palfrey|mustang|(arabian|andalusian|shire|belgian horse))
+.+, .+'s .+ (palomino|schleswiger|clydesdale|destrier|percheron|kiso|(akhal-teke))
 %+'s esquire
 (storm|aerial) servant
 %+ broodling

@@ -79,6 +79,7 @@
 
 #action {^%!{[> ]*}magical words.  A creature forms from the materials!$} {
   #var defense_haste false;
+  #var defense_mf false;
 }
 
 #action {^%!{[> ]*}Cast haste on whom?$} {
@@ -135,4 +136,22 @@
 
 #action {^%!{[> ]*}You wave your hands and a glowing orb appears!} {
   #send !keep orb;
+}
+
+#nop power word stun;
+
+#action {^%!{[> ]*}%1 stumbles dazed and confused!} {
+  #var pws true;
+  #var pws_recovering true;
+  #delay {pws_delay} {#var pws_recovering false;} {30};
+}
+
+#action {^%!{[> ]*}%1 is unaffected by your spell!} {
+  #if {"$pws" != true} {
+    #var pws_recovering true;
+  }; 
+  #else {
+    #var pws_recovering true;
+    #delay {pws_delay} {#var pws_recovering false;} {20};
+  }
 }
