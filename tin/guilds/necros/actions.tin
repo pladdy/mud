@@ -59,6 +59,14 @@
   };
 }
 
+
+#action {^%!{[> ]*}A dark, twisting passage (%1)} {
+  #if {"$necro_teleporting" == "true"} {
+    #map goto cata2_vamps;
+    #var necro_teleporting false;
+  };
+}
+
 #action {^%!{[> ]*}A tunnel deep beneath the earth (%1)} {
   #if {"$necro_teleporting" == "true"} {
     #map goto cata2_vamps;

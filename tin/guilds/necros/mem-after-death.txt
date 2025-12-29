@@ -7,8 +7,8 @@ study rope trick 3
 study animate dead 2
 study protection 3
 study shift 2
-study soulbind 5
+study soulbind 2
 study will 2
-study dream 30
-study unholy ground 5
+study dream 100
+study unholy ground 2
 # go study chest, fright, and snare

@@ -1,5 +1,6 @@
 a
 bear
+beast
 black
 blue
 butterfly
@@ -7,25 +8,36 @@ charging
 charioteer
 chinese
 clone
+combatant
 correspondent
 counsellor
+cow
 crackling
 crystals
 dolphin
 dragon
 duke
+duke of vampires
 electricity
 elven
 energy
+fighter
 foot
 ghoul
+gigantic
 gold
 green
 groma
+hell
+herd
 horse
+huge
 ice
+in
 jade
 king
+large
+leader
 leaping
 letter a
 letter b
@@ -53,11 +65,15 @@ letter w
 letter x
 letter y
 letter z
+lonesome
 lumbering ox
 mental
+militia
 of
 ox
+patrol
 phoenix
+powerful
 priest
 purple
 ram
@@ -68,13 +84,17 @@ runner
 sea
 serpent
 share
+sizeable
 skeleton
+small
 soldier
 spy
+supreme
 tiger
+training
 vampire
-vampires
 war
+warrior
 white
 winged
 zelligar
