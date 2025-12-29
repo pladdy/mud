@@ -25,14 +25,16 @@
         #nop if $valid_stepper_dirs[$item]...;
         #math {item_is_dir} {$i % 2};
         #if {$item_is_dir == 0} {
-          #if {"$valid_stepper_dirs[$item]"" == "valid"} {
+          #if {"$valid_stepper_dirs[$item]" == "valid"} {
             #var exit_check_dir $item
           };
           #else {#var exit_check_dir {}};
         };
         #else {
           #list visited_rooms find $item visited_room_check;
-          #if {$visited_room_check == 0} {
+          #list cardinal_exits find $exit_check_dir cardinal_exits_check;
+          #if {$visited_room_check == 0 && $cardinal_exits_check > 0} {
+            log.info Found unvisited room at $exit_check_dir in room $item;
             #list unvisited_cardinal_exits add $exit_check_dir;
           };
         };
@@ -41,6 +43,7 @@
     
     #unvar item;
     #unvar visited_room_check;
+    #unvar cardinal_exits_check;
     #unvar exit_check_dir;
     #unvar item_is_dir;
 }

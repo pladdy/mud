@@ -4,13 +4,13 @@
 #nop       removing_seen_monster and activating the TTL are handled in those;
 #nop       events;
 
-#nop Room Short trigger;
-
 #alias add_room_to_visited {
+  #nop Add 'weight/visit count' to this;
   #list visited_rooms find $map[current_room] visited_room_check;
   #if {$visited_room_check == 0} {#list visited_rooms add $map[current_room]};
 }
 
+#nop Room Short trigger;
 #action {^%!{[> ]*}[RS] %1} {
   _reset_prompt_ticker;
 
