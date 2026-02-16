@@ -27,6 +27,11 @@ Emotes:
 Charms:
 
 - each charms damage buff also has chance to dodge that damage
+- a bracelet with all charms can block all damage type specials
+  - Your charm bracelet brightens, and you evade the <dmg> attack.
+- a bracelet with all charms gets a big special attack`
+  - Your charm bracelet strikes with a surge of magical force!
+    - does like 8% damage to 1M mobs
 
 hat:
 - provides acid AC
@@ -68,3 +73,4 @@ unicorn:
 - blunt AC
 - raises penetration +3
 - chance of extra attack
+  - Your charm bracelet grants you and extra attack!

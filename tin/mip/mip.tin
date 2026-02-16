@@ -241,7 +241,6 @@
   };
 }
 
-
 #list tells_blocklist add {reaching};
 #list tells_blocklist add {vanquished};
 #list tells_blocklist add {moving};
@@ -261,30 +260,7 @@
   #regexp {$data} {^~{.+}~{.+}$} {
     #local player &1;
     #local tell &2;
-
-    #var send_alert true;
-
-    #foreach $tells_blocklist blocked {
-      log.debug checking blocklist, blocked=$blocked, actor=%1;
-      #regexp {%1} {%i$blocked} {#var send_alert false};
-    };
-
-    #if {"$send_alert" == "true"} {
-      log.debug 'tell' actor=$player;
-      #if {$disable_chat_alerts != 1} {
-        #list chats add {$player: $tell};
-        chats_refresh;
-
-        #if {"$stepper" == "on"} {
-          sound_beeps;
-          set_repeating_alarm;
-          log.warn Tell received, 'th' to clear repeating alarm.;
-          stepper off;
-        };
-
-        #undelay reactivate_stepper;
-      };
-    };
+    tell_handler $player: $tell;
   };
 }
 

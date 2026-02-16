@@ -12,4 +12,4 @@ will have specials:
 ::COM::Killergate :        King:           (radiation special)
 ::COM::Killergate :        Medic:          (acid special)
 ::COM::Killergate :        Refugee:        (poison special)
-::COM::Killergate :        Correspondent:  (electric special)
+::COM::Killergate :        Correspondent:  (energy special)
