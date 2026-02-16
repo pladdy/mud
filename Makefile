@@ -2,7 +2,7 @@
 
 # For windows gitbash, set MSYS_NO_PATHCONV=1  to avoid path conversion
 DOCKER_RUN = MSYS_NO_PATHCONV=1 docker run --name mud-client -v "$(pwd):/opt/mud" --rm -it pladdy/mud:latest
-TINTIN_VERSION = 2.02.42
+TINTIN_VERSION = 2.02.61
 
 last_version = $(shell git tag --sort=-v:refname | head -n 1)
 version_list = $(subst ., ,$(last_version))
