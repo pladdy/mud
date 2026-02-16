@@ -1,0 +1,6 @@
+#alias send_email {
+  #read email.tin;
+  #script {content} {EMAIL_USER=$EMAIL_USER EMAIL_ADDR=$EMAIL_ADDR bin/email %0};
+  #unvar EMAIL_USER;
+  #unvar EMAIL_ADDR;
+}

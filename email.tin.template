@@ -1,0 +1,2 @@
+#var EMAIL_ADDR your@email.here;
+#var EMAIL_USER {$EMAIL_ADDR:password};
