@@ -16,26 +16,34 @@
   #return $dir_to_go;
 }
 
+#var blocked_rooms[37270] {exit of celestial zodiacs};
+
 #alias find_unvisited_rooms {
     #local i 0;
     #var exit_check_dir;
     #list unvisited_cardinal_exits clear;
 
     #foreach $map[room_info][exits] {item} {
-        #nop if $valid_stepper_dirs[$item]...;
         #math {item_is_dir} {$i % 2};
         #if {$item_is_dir == 0} {
+          #nop item is a cardinal direction;
           #if {"$valid_stepper_dirs[$item]" == "valid"} {
             #var exit_check_dir $item
           };
           #else {#var exit_check_dir {}};
         };
         #else {
-          #list visited_rooms find $item visited_room_check;
-          #list cardinal_exits find $exit_check_dir cardinal_exits_check;
-          #if {$visited_room_check == 0 && $cardinal_exits_check > 0} {
-            log.info Found unvisited room at $exit_check_dir in room $item;
-            #list unvisited_cardinal_exits add $exit_check_dir;
+          #nop item is a room id;
+          #if {"$blocked_rooms[$item]" != ""} {
+            #nop skipping, room is blocked;
+          };
+          #else {
+            #list visited_rooms find $item visited_room_check;
+            #list cardinal_exits find $exit_check_dir cardinal_exits_check;
+            #if {$visited_room_check == 0 && $cardinal_exits_check > 0} {
+              log.info Found unvisited room at $exit_check_dir in room $item;
+              #list unvisited_cardinal_exits add $exit_check_dir;
+            };
           };
         };
         #math i {$i + 1};

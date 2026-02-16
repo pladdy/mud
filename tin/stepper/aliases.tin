@@ -10,11 +10,7 @@
 
 #alias _reset_prompt_ticker {
   #unticker prompt;
-  #ticker {prompt} {
-    #if {$rounds_in_combat == 0} {
-      auto_kill;
-    };
-  } {2}
+  #ticker {prompt} {#if {$rounds_in_combat == 0} {auto_kill}} {2};
 }
 
 #alias _transform_monster_name {
@@ -125,7 +121,7 @@
 
 #alias stepper {
   #if {"%0" == "on"} {
-    #showme <170>Enabling stepping. 'stepper off' to disable.;
+    log.info Enabling stepping. 'stepper off' to disable.;
     #format {stepper_started} {%T};
     #unvar step_dir;
     #unvar entered_from;
@@ -144,18 +140,17 @@
     #ticker {prompt} {
       #if {$rounds_in_combat == 0} {#send !glance};
     } {2};
-} {
-    #showme <170>Disabling stepping. 'stepper on' to re-enable.;
+};
+#elseif {"%0" == "off"} {
+    log.info Disabling stepping. 'stepper on' to re-enable.;
+    sound_beeps;
     #var stepper off;
     #unvar seen_monster_count;
     ttl_stepper;
     ttl_no_monsters;
     #unevent {RECEIVED INPUT};
     #undelay reactivate_stepper;
-    #delay {2} {
-      #unticker prompt;
-      tracker off;
-    };
+    #unticker prompt;
     tracker off;
   }
 }
@@ -241,6 +236,7 @@
     #undelay $ticker_name;
     #ticker {$ticker_name} {
       log.warn No input received in a while.  Disabling stepper.;
+      send_email Stepper is turning off due to inactivity;
       stepper off;
       ttl_stepper_hook;
     } {$TTL};
