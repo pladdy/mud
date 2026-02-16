@@ -91,10 +91,10 @@
 
 #alias mip_gline1_hook {
   #local data %0;
-  #nop Example:
+  #nop Example:;
   #nop Ammo:[500/] <yGxp: 83.5001%> Hits: [0] <cCoffin: N/A>;
 
-  #regexp {$data} {Ammo:[{\d+}/]} {#var jugger_mounts[0] &1};
+  #regexp {$data} {Ammo:[{\d+}/} {#var jugger_mounts[0] &1};
   #regexp {$data} {Ammo:[{\d+}/{\d+}]} {#var jugger_mounts[1] &2} {#var jugger_mounts[1] 101};
 
   #if {$jugger_mounts[0] < 100} {rammo 4 1};
