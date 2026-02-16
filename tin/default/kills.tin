@@ -132,12 +132,12 @@
 #alias log_and_update_stepper {
   log.info A mob died: '%0' died;
   #delay {mob_died_event} {
-    _handle_btrig
+    _handle_btrig;
     commands_before_corpse;
     wrap_or_use_corpse;
     #send !glance;
     _divvy_and_get;
-    commands_after_corpse
+    commands_after_corpse;
     _handle_dtrig;
   } {2};
 

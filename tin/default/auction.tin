@@ -1,7 +1,37 @@
-#action {[Auction] Robert : Xiu has requested {\d} as the opening offer.} {
-    #delay 2 {#send !abid &1};
+#nop default auto auction to true;
+#var auction[auto] true;
+
+#alias auto_auction {
+  #if {"$auction[auto]" != "true"} {
+    #showme <170>Auto paauctionlm enabled.;
+    #var auction[auto] true;
+  };
+   #else {
+    #showme <170>Auto auction disabled.;
+    #var auction[auto] false;
+  }
 }
 
-#action {[Auction] Robert : Voodoo has requested {\d} as the opening offer.} {
-    #delay 2 {#send !abid &1};
+#action {^[Auction] Robert : Up for bids: %1} {
+    send_email %1 is being auctioned;
+    #var auction[item] %1;
+}
+
+#nop [Auction] Robert : Cable has requested 0 as the opening offer.;
+#action {^[Auction] Robert : %1 has requested {[,\d]+} as the opening offer.} {
+    #var auction[seller] %1;
+    #format {auction[seller]} {%l} {$auction[seller]};
+    #var auction[offer] %2;
+    #replace {auction[offer]} {,} {};
+
+    #if {"$auction[seller]" != "$character"} {
+        #regexp {$auction[item]} {%iring of pickling} {
+            log.info Ignoring item, not bidding;
+        } {
+            log.info Bidding on item;
+            #if {"$auction[auto]" == "true" && $auction[offer] <= 1000} {
+                #delay 3 {#send !abid $auction[offer]};
+            };
+        };
+    };
 }

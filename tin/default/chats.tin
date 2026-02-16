@@ -6,6 +6,35 @@
 #var chats_per_line ---;
 #list chats clear;
 
+#nop blocklist also updated in mip.tin;
+#list tells_blocklist add {brenan};
+
+#alias tell_handler {
+  #var send_alert true;
+  #foreach $tells_blocklist blocked {
+    log.debug checking blocklist, blocked=$blocked, actor=%1;
+    #regexp {%1} {%i$blocked} {#var send_alert false};
+  };
+
+  #if {"$send_alert" == "true"} {
+    sound_beeps;
+    set_repeating_alarm;
+    log.warn Tell received, 'th' to clear repeating alarm.;
+    #if {"$stepper" == "on"} {
+      send_email "Tell sent: %0";
+      stepper off;
+    };
+  };
+}
+
+#action {^%1 tells you: %2$} {
+  #if {$disable_chat_alerts != 1} {
+    #list chats add {%1: %2};
+    chats_refresh;
+    tell_handler %1 %2;
+  };
+}
+
 #alias chats_clear {
   chats_refresh;
 }

@@ -21,7 +21,10 @@
   #showme <110>Wimpy firing!;
   #send !hp;
   sound_beeps;
-  #if {"$stepper" == "on"} {stepper off};
+  #if {"$stepper" == "on"} {
+    log.warn Wimpied, disabling stepper;
+    stepper off;
+  };
 }
 
 #action {^Your legs tried to run away, but failed.$} {

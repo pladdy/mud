@@ -7,6 +7,9 @@
 }
 
 #action {^%!{[> ]*}You die.$} {
-  #if {"$stepper" == "on"} {stepper off};
+  #if {"$stepper" == "on"} {
+    log.warn You died fool!;
+    stepper off;
+  };
   #undelay reactivate_stepper;
 }
