@@ -156,7 +156,7 @@
 
   #if {"$ktrig_status" == "on"} {
     log.debug checking $last_killer against killers ($character|$summons|$my_dog|tree) that can use corpse;
-    #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree|$last_killer}} {
+    #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree|$last_killed}} {
       wrap_or_use_corpse;
       _divvy_and_get;
     };
