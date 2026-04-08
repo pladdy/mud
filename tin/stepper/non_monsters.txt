@@ -11,7 +11,7 @@
 %+ ferryman
 %*shenanigans
 # necromancer followers
-the (skeleton|zombie|ghoul|valpur|ghast|manshi|bolwyn|greesh|wight|heucuva|tholen|bayen|quarin|mohrg|grimare|valithyn)
+(a|the) (skeleton|zombie|ghoul|valpur|ghast|manshi|bolwyn|greesh|wight|heucuva|tholen|bayen|quarin|mohrg|grimare|valithyn)(\.|under)
 %+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling
@@ -50,3 +50,4 @@ an? (disfigured (jackalwere|weretiger)|disgusting carrion crawler|enormous 8-hea
 zelligar
 # celstial zodiacs
 a shadowbound follower|guardian spirit
+permit officer

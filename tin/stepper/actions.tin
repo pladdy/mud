@@ -5,9 +5,14 @@
 #nop       events;
 
 #alias add_room_to_visited {
-  #nop Add 'weight/visit count' to this;
   #list visited_rooms find $map[current_room] visited_room_check;
-  #if {$visited_room_check == 0} {#list visited_rooms add $map[current_room]};
+  #if {$visited_room_check == 0} {
+    #list visited_rooms add $map[current_room];
+  };
+  #nop track last time room was visited;
+  #format visited_time {%T};
+  #var visited_room_times[$map[current_room]] $visited_time;
+  #unvar visited_time;
 }
 
 #nop Room Short trigger;
@@ -19,7 +24,6 @@
   #var under_attack false;
   #var player_present false;
   #var item_present false;
-  #var tracker on;
   #var tried_to_auto_kill false;
   parse_exits %1;
   add_room_to_visited;

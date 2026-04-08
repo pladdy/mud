@@ -1,59 +1,59 @@
 #function choose_a_dir {
-  #list cardinal_exits size cardinal_exits_size;
-  
-  find_unvisited_rooms;
-  #list unvisited_cardinal_exits size unvisited_cardinal_exits_size;
-
-  #var dir_to_go {};
-  #if {$unvisited_cardinal_exits_size > 0} {
-    #math {random_index} {1 d $unvisited_cardinal_exits_size};    
-    #var dir_to_go $unvisited_cardinal_exits[$random_index];
-  };
-  #else {
-    #math {random_index} {1 d $cardinal_exits_size};
-    #var dir_to_go $cardinal_exits[$random_index];
-  };
-  #return $dir_to_go;
+  #return @least_visited_room{};
 }
 
 #var blocked_rooms[37270] {exit of celestial zodiacs};
 
-#alias find_unvisited_rooms {
-    #local i 0;
-    #var exit_check_dir;
-    #list unvisited_cardinal_exits clear;
+#function least_visited_room {
+  #local i 0;
+  #var exit_check_dir {};
+  #var dir_to_go {};
+  #list cardinal_exits size cardinal_exits_size;
+  #format least_visited_time {%T};
 
-    #foreach $map[room_info][exits] {item} {
-        #math {item_is_dir} {$i % 2};
-        #if {$item_is_dir == 0} {
-          #nop item is a cardinal direction;
-          #if {"$valid_stepper_dirs[$item]" == "valid"} {
-            #var exit_check_dir $item
-          };
-          #else {#var exit_check_dir {}};
-        };
-        #else {
-          #nop item is a room id;
-          #if {"$blocked_rooms[$item]" != ""} {
-            #nop skipping, room is blocked;
+  #foreach $map[room_info][exits] {item} {
+    #math {item_is_dir} {$i % 2};
+    #if {$item_is_dir == 0} {
+      #nop item is a cardinal direction;
+      #if {"$valid_stepper_dirs[$item]" == "valid"} {
+        #var exit_check_dir $item
+      };
+      #else {
+        log.debug Dir is not valid: $item;
+        #var exit_check_dir {};
+      };
+    };
+    #else {
+      #nop item is a room id;
+      #if {"$blocked_rooms[$item]" != "" || "$exit_check_dir" == ""} {
+        log.warn("Skipping room, it's blocked: $blocked_rooms[$item]");
+      };
+      #else {
+        #if {"$visited_room_times[$item]" != ""} {
+          #if {$visited_room_times[$item] < $least_visited_time} {
+            log.info Updating least visited room to $exit_check_dir, id $item, time $visited_room_times[$item];
+            #var dir_to_go $exit_check_dir;
+            #var least_visited_time $visited_room_times[$item];
           };
           #else {
-            #list visited_rooms find $item visited_room_check;
-            #list cardinal_exits find $exit_check_dir cardinal_exits_check;
-            #if {$visited_room_check == 0 && $cardinal_exits_check > 0} {
-              log.info Found unvisited room at $exit_check_dir in room $item;
-              #list unvisited_cardinal_exits add $exit_check_dir;
-            };
+            log.info Visited room time to $exit_check_dir not older: $visited_room_times[$item] vs $least_visited_time;
           };
         };
-        #math i {$i + 1};
+        #else {
+          log.info Found unvisited room $exit_check_dir in room $item;
+          #return $exit_check_dir;
+        };
+      };
     };
-    
-    #unvar item;
-    #unvar visited_room_check;
-    #unvar cardinal_exits_check;
-    #unvar exit_check_dir;
-    #unvar item_is_dir;
+    #math i {$i + 1};
+  };
+
+  #if {"$dir_to_go" == ""} {
+    log.warn Found no visited rooms, checking a random direction;
+    #math {random_index} {1 d $cardinal_exits_size};
+    #var dir_to_go $cardinal_exits[$random_index];
+  };
+  #return $dir_to_go;
 }
 
 #nop This does a loop on all non monsters.  It's done this way because the key;
