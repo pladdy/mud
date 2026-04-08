@@ -232,7 +232,8 @@
     #regexp {$message} {[PARTY] All gold divvied} {#var skip_message true};
 
     #if {"$skip_message" == "false"} {
-      #list chats add {$message};
+      #format chat_time {%t} {%Y-%m-%d %H:%M:%S};
+      #list chats add {$chat_time $message};
       chats_refresh;
     };
   } {
@@ -240,18 +241,6 @@
     #showme $data;
   };
 }
-
-#list tells_blocklist add {reaching};
-#list tells_blocklist add {vanquished};
-#list tells_blocklist add {moving};
-#list tells_blocklist add {caught};
-#list tells_blocklist add {her};
-#list tells_blocklist add {his};
-#list tells_blocklist add {the};
-#list tells_blocklist add {your};
-#list tells_blocklist add {you};
-#list tells_blocklist add {with};
-#list tells_blocklist add {$character};
 
 #alias process_tell {
   #local data %0;
