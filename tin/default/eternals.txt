@@ -4,7 +4,9 @@ alias ecom eternal chat main
 alias ecs (cstats
 alias ehp (hp
 alias eimm (immortality
+alias ehei (heightened awareness
 alias eem (embiggen
+alias esh (shred
 alias enfo (info
 alias epro (protection
 alias es (gs

@@ -3,7 +3,7 @@
 
 #alias auto_auction {
   #if {"$auction[auto]" != "true"} {
-    #showme <170>Auto paauctionlm enabled.;
+    #showme <170>Auto auction enabled.;
     #var auction[auto] true;
   };
    #else {
@@ -30,7 +30,8 @@
         } {
             log.info Bidding on item;
             #if {"$auction[auto]" == "true" && $auction[offer] <= 1000} {
-                #delay 3 {#send !abid $auction[offer]};
+                #math rando {4 d 4};
+                #delay $rando {#send !abid $auction[offer]};
             };
         };
     };

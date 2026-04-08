@@ -38,6 +38,7 @@
 
 #event {SESSION DISCONNECTED} {
   #showme <170>Session disconnecting...;
+  #echo {Session disconnecting at %t.} {%Y-%m-%d %H:%M:%S};
   map_save;
   export_session;
 
