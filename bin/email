@@ -4,4 +4,4 @@ curl -s --url 'smtps://smtp.gmail.com:465' --ssl-reqd \
     --mail-from $EMAIL_ADDR \
     --mail-rcpt $EMAIL_ADDR \
     --user $EMAIL_USER \
-    --upload-file <(echo -e "From: You <$EMAIL_ADDR>\nTo: <$EMAIL_ADDR>\nSubject: Mud Alert\n\n$@.")
+    --upload-file <(echo -e "From: You <$EMAIL_ADDR>\nTo: <$EMAIL_ADDR>\nSubject: Mud Alert\n\n$@")

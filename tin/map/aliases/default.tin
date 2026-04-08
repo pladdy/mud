@@ -33,7 +33,11 @@
 
 #alias map_run {
   map lock;
-  #if {"$stepper" == "on"} {stepper off};
+  #if {"$stepper" == "on" || "$tracker" == "on"} {
+    log.warn "Running across map, disabling stepper and tracker";
+    stepper off;
+    tracker off;
+  };
   #if {"$mapper" == "on"} {mapper off};
 
   #format {run_to} {%l} {%1};

@@ -1,5 +1,9 @@
 # Section Z
 
+At the entrance you can 'press start', 'unpause game'.
+
+In the game you can 'pause game'.
+
 Once beaten, you get 'continues' that let you into sec z 4 more times but at 
 level 40.
 
@@ -11,7 +15,6 @@ After getting to section 20, can you pause and burn a continue to go to 40?
 |Just a reminder, your continue code for Section 40 is LollygagNincompoopNambypamby
 |You have 4 continue uses remaining.
 
-
 # Route to take through Section Z to get to brain
 Section 0: e, s, d
 Section 1: w, sw, se, e, d 
@@ -19,6 +22,7 @@ Section 3: n, n, e, e, u
 Section 6: n, n, sw, w, s, u
 Section 5: n, ne, u
 Section 7: se, s, d
+Section 8: w, s, d
 Section 11: n, se, e, u [generator]
 Section 9: se, s, u
 Section 6: n, n, sw, w, s, d
@@ -54,18 +58,18 @@ Section 39: w, s, s, e, e, e, e, proceed [mini boss: balba]
 Section 40: s, w, d
 Section 41: s, se, ne, n, u
 Section 44: w, s, w, s, e, e, u
-Section 45: n, n, e, e, u [mini boss: galga]
+Section 45: n, n, e, e, d [mini boss: galga]
 Section 46: e, se, n, n, d
 Section 48: w, w, s, se, e, d 
 Section 47: n, w, w, s, enter portal
-Section 49: w, nw, n, u
+Section 49: w, nw, n, u [generator]
 Section 41: s, se, ne, n, d
 Section 43: w, n, n, d
 Section 51: w, n, d 
 Section 52: w, n, n, e, d
 Section 53: w, s, s, w, u
 Section 54: w, w, enter portal
-Section 56: w, n, n, e, e, d
+Section 56: w, n, n, e, e, d [generator]
 Section 57: s, s, e, e, d
-Section 58: s, w, n, u
+Section 58: s, w, n, d
 Section 59: n, ne, e, e, e, se, se, e, e, ne, e [boss: brain]
