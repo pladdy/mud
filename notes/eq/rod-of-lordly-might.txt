@@ -1,0 +1,48 @@
+This weapon is a guild.
+
+Notes:
+- 'touch <rune> rune' to activate a rune
+- It looks like you only touch the runes that are hicyan.
+
+Anchor
+- ?
+
+'touch dragon rune'
+You touch the Dragon rune on the artifact and hear a soft *click*
+Although you are not yet attuned to that magenta rune, you are granted an
+archonic vision of your bonding progression ~._,|"'-._,-"'-._,-"'-->
+
+'touch heart rune'
+You touch the Heart rune on the artifact and hear a soft *click*
+You are overcome with a flash of intense, golden light!
+The diamond rune flashes briefly on the artifact.
+
+'touch spark rune'
+You touch the Spark rune on the artifact and hear a soft *click*
+You are enveloped by a flash of bright, blue light!
+The diamond rune flashes briefly on the artifact.
+
+'touch scroll rune'
+You touch the Scroll rune on the artifact and hear a soft *click*
+
+You hear a divine chiming inside your head...
+
+ Sustained action excellence strives thee toward heavenly celestials.
+
+The diamond rune flashes briefly on the artifact.
+
+'touch anchor rune'
+You touch the Anchor rune on the artifact and hear a soft *click*
+A small golden strand falls from the relic and imbeds itself into the ground.
+After a moment, the magical thread sparkles away.
+The diamond rune flashes briefly on the artifact.
+
+'touch diamond rune'
+You touch the Diamond rune on the artifact and hear a soft *click*
+
+         `       `,     '.       .`  ' .   `.  ,     ` *  .        .
+   *       `   ,          ,  '*  .' .          ,         ` ,* ,     '  . ,
+Warming in your grasp, sixty-seven twinkling points of turquoise light come into being in
+orbit around the artifact, then quietly fade away.
+     ,   * `  `         ,      `   .,  .   '                  ` *, ` *  , ''
+      `     .      .   ,  `      ,   ,      `   .     ' ,''        .,    `
