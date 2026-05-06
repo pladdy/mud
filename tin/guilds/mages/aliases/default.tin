@@ -124,6 +124,12 @@
       tap_corpse
     }
   }
+  #var mage_golem_defending false;
+}
+
+#alias def {
+  #send !say golem, defend me;
+  #var mage_golem_defending true;
 }
 
 #alias f10 {

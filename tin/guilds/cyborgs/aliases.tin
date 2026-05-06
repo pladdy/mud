@@ -86,7 +86,7 @@
 
 #alias redc {
   #send !unwrap smallest;
-  #send !decompose;
+  _send_decompose;
 }
 
 #alias reet {
@@ -100,6 +100,12 @@
 
 #alias use_corpse {
   #if {$gp1 == $gp1_max && "$use_spoon" == "true"} {#send !eat corpse};
-  #else {#send !decompose};
+  #else {_send_decompose};
   #send !hp;
+}
+
+#alias _send_decompose {
+  #send !decompose;
+  #nop temp boost of gp1 to stop overconsuming corpses;
+  #math {gp1} {$gp1 + 200};
 }

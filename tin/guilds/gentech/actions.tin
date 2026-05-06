@@ -4,13 +4,7 @@
 #action {^%!{[> ]*}pattern buffer for storage. Your cloning was a success!$} {
   #send !=afollow on;
   #send !=akill on;
-}
-
-#action {^%!{[> ]*}%1) C: %2/%3 %4} {
-  #var corpses %2;
-  #var corpses_max %3;
-  #if {$corpses < $corpses_max} {#var coffin_status not_full};
-  #else {#var coffin_status full};
+  #send !=aswitch on;
 }
 
 #action {^%!{[> ]*}BIAS CONFORMATION HAS REACHED SPECIFIED DIFFERENTIAL} {

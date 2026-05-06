@@ -1,5 +1,6 @@
 #alias attempt_awe {
   #if {@enough_distance_and_time{} && @should_awe{}} {
+    #var angel[last_awed_area] $highest_area;
     #send !awe $highest_area;
     decrement_ts 2;
     reduce_high_advantage_and_resort;
@@ -7,18 +8,17 @@
 }
 
 #alias attempt_beyond_time {
-  #local MIN_TS_FOR_BT 8;
   #local MIN_DIV_FOR_BT 150;
 
   #if {"$use_beyond_time" == "true" &&
        $gp2 > $MIN_DIV_FOR_BT &&
-       $gp1 < $MIN_TS_FOR_BT} {
+       $pct_gp1 < 0.5} {
     #send !manifest beyond time;
   };
 }
 
 #alias attempt_circle {
-  #if {"$use_circle" == "true" && @distance_closed{}} {#send !circle};
+  #if {"$use_circle" == "true" && @distance_closed{} && $enemy > 0} {#send !circle};
 }
 
 #alias attempt_consecrate {
@@ -49,15 +49,12 @@
 }
 
 #alias attempt_immortality {
-  #local MIN_TS_FOR 6;
-  #local MIN_DIV_FOR 150;
-  #math {hpp} {$hp / $hp_max * 1.00};
-
-  #if {"$use_immortality" == "true" 
-        && $gp2 > $MIN_DIV_FOR 
-        && $gp1 < $MIN_TS_FOR
-        && $hpp < 0.95
-      } {
+  #local MIN_DIV_FOR 175;
+  #if {
+    "$use_immortality" == "true" 
+    && $gp2 > $MIN_DIV_FOR 
+    && ($pct_hp < 1 || "$angel[pinned]" == "true")
+  } {
     #send !immortality;
   };
 }
@@ -67,7 +64,7 @@
     #send !lunge $highest_area;
     decrement_ts $angel[distance];
     reduce_high_advantage_and_resort;
-  }
+  };
 }
 
 #alias attempt_presage {
@@ -108,19 +105,17 @@
 }
 
 #alias attempt_quietus {
-  #if {"$use_quietus" == "true"} {
-    #if {@should_swing{} == 1} {
-      #send !quietus $highest_area;
-      decrement_ts 3;
-      reduce_high_advantage_and_resort;
-    }
-  }
+  #if {"$use_quietus" == "true" && @should_swing{} == 1} {
+    #send !quietus $highest_area;
+    decrement_ts 3;
+    reduce_high_advantage_and_resort;
+  };
 }
 
 #alias attempt_radiance {
   #if {"$use_radiance" == "true" && $pct_hp < 80 && $gp2 > 150} {
     #send !radiance;
-  }
+  };
 }
 
 #alias attempt_renewed_light {
@@ -146,8 +141,15 @@
 
 #alias attempt_swing {
   #if {@should_swing{} == 1} {
-    #nop #send !perform $highest_area;
     attempt_awe;
+    attempt_retribution;
+    attempt_divine_strike;
+    attempt_quietus;
+  };
+}
+
+#alias attempt_dmg_swing {
+  #if {@should_swing{} == 1} {
     attempt_retribution;
     attempt_divine_strike;
     attempt_quietus;
@@ -178,25 +180,42 @@
 
 #alias awe_at {
   #if {@length{%1} > 0} {
-    #showme <170>Setting awe_at_hp_pct to %1;
+    log.info Setting awe_at_hp_pct to %1;
     #var awe_at_hp_pct %1;
-  } {
-    #showme <170>To set what hp % you awe at, pass in an int 1-100.;
-    #showme <170>Current awe_at_hp_pct: $awe_at_hp_pct%.;
-  }
+  };
+  #else {
+    log.info To set what hp % you awe at, pass in an int 1-100.;
+    log.info Current awe_at_hp_pct: $awe_at_hp_pct%.;
+  };
 }
 
 #alias awe_foes {
   #if {"$awe_foes" == "true"} {
-    #showme <170>Turning awe as much as possible back to normal.;
+    log.info Turning awe as much as possible back to normal.;
     #var {awe_foes} {false};
-  } {
-    #showme <170>Turning awe on as much as possible.;
+  };
+  #else {
+    log.info Turning awe on as much as possible.;
     #var {awe_foes} {true};
   };
 }
 
 #alias awf {awe_foes};
+
+#alias consecrate {
+  #if {"%1" == "on"} {
+    log.info Turning auto-consecrate on;
+    #var use_consecrate true;
+  };
+  #elseif {"%1" == "off"} {
+    log.info Turning auto-consecrate off;
+    #var use_consecrate false;
+  };
+  #else {
+    #send !use_consecrate;
+  };
+}
+
 
 #alias decrement_ts {
   #math {gp1} {$gp1 - %1};
@@ -212,6 +231,20 @@
 #alias dis {
   #if {"%1" == ""} {#send !disengage 1};
   #else {#send !disengage %1};
+}
+
+#alias disengage {
+  #if {"%1" == "on"} {
+    log.info Turning auto-disengage on;
+    #var use_disengage true;
+  };
+  #elseif {"%1" == "off"} {
+    log.info Turning auto-disengage off;
+    #var use_disengage false;
+  };
+  #else {
+    #send !disengage %0;
+  };
 }
 
 #function distance_closed {
@@ -256,7 +289,7 @@
     };
   };
   #else {
-    #showme <170>To change, pass in an ordered list of powers.  Ex: dq v p b re ri;
+    log.info To change, pass in an ordered list of powers.  Ex: dq v p b re ri;
     #send !defensequeue;
   };
   #unvar dq_list;
@@ -288,7 +321,8 @@
 #function enough_distance_and_time {
   #if {@distance_closed{} && $gp1 > $min_ts} {
     #return 1;
-  } {
+  };
+  #else {
     #return 0;
   };
 }
@@ -300,11 +334,12 @@
 
 #alias providence_at {
   #if {@length{%1} > 0} {
-    #showme <170>Setting to %1;
+    log.info Setting to %1;
     #var providence_at %1;
-  } {
-    #showme <170>Current setting: $providence_at%.;
-  }
+  };
+  #else {
+    log.info Current setting: $providence_at%.;
+  };
 }
 
 #alias reduce_advantage {
@@ -312,7 +347,7 @@
 
   #if {"$area" == "lo" || "$area" == "li" || "$area" == "hi" || "$area" == "ho"} {
     #math {advantages[$area]} {$advantages[$area] / 2};  
-  }
+  };
 }
 
 #alias reduce_high_advantage {
@@ -334,7 +369,7 @@
   #if {
     "$use_awe" == "true" &&
     "$awed" != "true" &&
-    ("$awe_foes" == "true" || $pct_hp <= $awe_at_hp_pct)
+    ("$awe_foes" == "true" || $pct_hp < $awe_at_hp_pct || "$angel[pinned]" == "true")
   } {#return 1};
   #else {#return 0};
 }
@@ -412,7 +447,8 @@
   #if {@length{%1} > 0} {
     log.info Setting swing to %1% advantage.;
     #var swing_at %1;
-  } {
+  };
+  #else {
     log.info Swinging at $swing_at% advantage.;
   }
 }

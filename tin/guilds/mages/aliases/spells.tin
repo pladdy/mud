@@ -11,7 +11,7 @@
 #alias attempt_monstrous_fortitude {
   #if {$rounds_in_combat > 0} {
     #if {"$use_summons_mf" == "true"} {
-      #if {"$defense_mf" == "false"} {#send !cast monstrous fortitude on defense};
+      #if {"$defense_mf" == "false" && $mage_golem_health > 0} {#send !cast monstrous fortitude on defense};
       #if {"$offense_mf" == "false"} {#send !cast monstrous fortitude on offense};
     };
   };

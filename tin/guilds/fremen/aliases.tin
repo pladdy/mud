@@ -106,6 +106,7 @@
   #var can_hide true;
 
   #if {$litany_focus_map[$litany_focus] < 80 && "$stepper" == "on"} {
+    log.warn Litany focus is low, disabling stepper;
     stepper off;
     #send !su;
     #delay {20} {stepper on};

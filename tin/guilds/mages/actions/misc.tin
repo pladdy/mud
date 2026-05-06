@@ -4,19 +4,19 @@
   #send !ff;
 }
 
-#action {^%!{[> ]*}Ardy the brown aardvark darts out of the room.$} {
+#action {^%!{[> ]*}$MAGE_FAMILIAR darts out of the room.$} {
   #var mage_familiar_present false;
 }
 
-#action {^%!{[> ]*}Ardy the brown aardvark darts into the room.$} {
+#action {^%!{[> ]*}$MAGE_FAMILIAR darts into the room.$} {
   #var mage_familiar_present true;
 }
 
-#action {^%!{[> ]*}Ardy the brown aardvark.$} {
+#action {^%!{[> ]*}$MAGE_FAMILIAR.$} {
   #var mage_familiar_present true;
 }
 
-#action {^%!{[> ]*}[M] Ardy the brown aardvark.$} {
+#action {^%!{[> ]*}[M] $MAGE_FAMILIAR.$} {
   #var mage_familiar_present true;
 }
 
@@ -27,4 +27,9 @@
 
 #action {^%!{[> ]*}You need some basic construction materials to create a golem.$} {
   #send !ffetch materials;
+}
+
+#action {^%!{[> ]*}$MAGE_FAMILIAR hands something to %1.$} {
+  #format who {%l} {%1};
+  #if {"$who" == "$character"} {#send !keep all};
 }

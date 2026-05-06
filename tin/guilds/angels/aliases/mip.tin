@@ -1,5 +1,6 @@
 #alias mip_combat_hook {
     #math {pct_hp} {$hp / $hp_max * 100.0};
+    #math {pct_gp1} {$gp1 / $gp1_max};
 
     #var circle {false};
     #var parried false;
@@ -59,7 +60,14 @@
       #local MAX_ROUNDS_DISENGAGED 4;
       #local MIN_ADVANTAGE 70;
 
+      #var angel[distance_raw] &0;
       #var angel[distance] @length{&3};
+
+      #if {
+        "$angel[distance_raw]" == "|PM-------------------|"
+        || "$angel[distance_raw]" == "|-------------------MP|"
+      } {#var angel[pinned] true;};
+      #else {#var angel[pinned] false;};
 
       #if {$angel[distance] > 0} {
         #math {rounds_disengaged} {$rounds_disengaged + 1};

@@ -22,21 +22,31 @@
 }
 
 #alias auto_train {
-  #if {"$auto_train" == "true"} {
-    log.info Turning auto train off;
+  #if {"%1" == "on"} {
+    log.info Turning auto-train on;
+    #var auto_train true;
+  };
+  #elseif {"%1" == "off"} {
+    log.info Turning auto-train off;
     #var auto_train false;
   };
   #else {
-    log.info Turning auto train on;
-    #var auto_train true;
-  }
+    #if {"$auto_train" == "true"} {
+      log.info Turning auto train off;
+      #var auto_train false;
+    };
+    #else {
+      log.info Turning auto train on;
+      #var auto_train true;
+    };
+  };
 }
 
 #alias check_stepper {
   #local MIN_END 100;
 
-  #if {"$stepper" == "on" && $gp2 < $MIN_END} {
-    log.info Disabling stepper, need to rest.;
+  #if {"$stepper" == "on" && $gp3 < $MIN_END} {
+    log.info Disabling stepper, need to regen endurance.;
     stepper off;
     dtrig _rest_then_enable_stepper;
   };

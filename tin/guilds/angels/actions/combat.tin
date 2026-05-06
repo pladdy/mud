@@ -74,6 +74,12 @@
   #delay {$awe_length} {#var {awed} {false};};
 }
 
+#nop if awe misses, try an offense swing;
+#action {^%!{[> ]*}%1 doesn't appear that it would be awed right now.$} {
+  #math {advantages[$angel[last_awed_area]]} {$advantages[$angel[last_awed_area]] * 2};
+  attempt_dmg_swing;
+}
+
 #action {^%!{[> ]*}You parry %1 attack.$} {
   #var parried true;
   decrement_ts 1;

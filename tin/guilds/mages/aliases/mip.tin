@@ -18,13 +18,14 @@
 
   #if {"$spells[pg]" == "on"} {#regexp {$data} {PG} {#nop} {pg}};
   #if {"$spells[pe]" == "on"} {#regexp {$data} {PE} {#nop} {pe}};
-  #if {$spell_taps < 3 && $gp1 < 25 && $corpses > 0} {rebl};
+  #if {$spell_taps < 4 && $gp1 < 25 && $corpses > 0} {rebl};
   #if {$mage_gem < 80 && "$mage_familiar_present" == "true"} {#send !ffetch gem};
 }
 
+#nop this MIP line has summons in it;
 #alias mip_gline2_hook {
   #local data %0;
-  #nop G: 3/68%  S: 2/12%  I: 2  G2N:11762%;
+  #nop G: 3/25%  S: 2/17%  I: 2  G2N:1854%   Carrion crawler:mf181%, Salamander:mf109%, Salamander:mf170%, Manticore:mf181%, Stone golem:^^mf91%;
   #regexp {$data} {G: {\d+}/{\d+}%} {
     #var golems &1;
     #var guild_reset &2;
@@ -35,6 +36,20 @@
   };
   #regexp {$data} {I: {\d}} {#var mystic_immersions &1};
   #regexp {$data} {G2N:{\d+}%} {#var gxp &1};
+  #regexp {$data} {golem:{.+?}%} {#var mage_golem_health &1} {#var mage_golem_health 0};
+  #replace {mage_golem_health} {mf} {};
+  #replace {mage_golem_health} {^} {};
+  #if {
+      "$stepper" == "on" 
+      && "$mage_golem_defending" != "true"
+      && $enemy > 25
+      && (
+        ($golems > 1 && $mage_golem_health > 0) 
+        || ($golems > 0 && $mage_golem_health > 35)
+      )
+    } {
+    def;
+  };
 }
 
 #alias mip_gp1_hook {

@@ -132,7 +132,6 @@
   #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {
     log.warn Turnning stepper off.  Mind: $gp2, Stepper: $stepper;
     stepper off;
-    dtrig f2;
   };
   #elseif {$corpses < 1 && "$stepper" == "on"} {stepper off};
   #else {

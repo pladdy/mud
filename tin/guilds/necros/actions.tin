@@ -52,6 +52,7 @@
   #delay 2 {#var necro_teleporting false};
 }
 
+#nop cata2 vamp possible room briefs;
 #action {^%!{[> ]*}A twisting passage (%1)} {
   #if {"$necro_teleporting" == "true"} {
     #map goto cata2_vamps;
@@ -59,6 +60,12 @@
   };
 }
 
+#action {^%!{[> ]*}A room, turn on your goddamn verbose mode (%1)} {
+  #if {"$necro_teleporting" == "true"} {
+    #map goto cata2_vamps;
+    #var necro_teleporting false;
+  };
+}
 
 #action {^%!{[> ]*}A dark, twisting passage (%1)} {
   #if {"$necro_teleporting" == "true"} {

@@ -1,4 +1,4 @@
-#var necro_familiar {pogo};
+#var necro_familiar {Pogo};
 #var necro_use_call true;
 #var necro_veil_omega_maxed true;
 #var necro_glamor spark;
@@ -12,3 +12,5 @@
 #list tells_blocklist add {lynda};
 #list tells_blocklist add {talia};
 #list tells_blocklist add {Your link to the guild};
+#list tells_blocklist add {bray};
+#list tells_blocklist add {death};
