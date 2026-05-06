@@ -6,6 +6,8 @@
 #var chats_per_line ---;
 #list chats clear;
 
+#nop put these in a text file;
+#list tells_blocklist add {$character};
 #list tells_blocklist add {reaching};
 #list tells_blocklist add {vanquished};
 #list tells_blocklist add {moving};
@@ -16,25 +18,36 @@
 #list tells_blocklist add {your};
 #list tells_blocklist add {you};
 #list tells_blocklist add {with};
-#list tells_blocklist add {$character};
 #list tells_blocklist add {abalone};
 #list tells_blocklist add {hematite};
 #list tells_blocklist add {quetzal};
 #list tells_blocklist add {nasturtium};
 #list tells_blocklist add {brenan};
 #list tells_blocklist add {robert};
+#list tells_blocklist add {harakir};
+#list tells_blocklist add {mircarla};
+#list tells_blocklist add {sumaren};
+#list tells_blocklist add {before};
+#list tells_blocklist add {straining};
+#list tells_blocklist add {alaren};
+#list tells_blocklist add {0};
 
 #alias tell_handler {
   #var send_alert true;
+
   #foreach $tells_blocklist blocked {
     log.debug checking blocklist, blocked=$blocked, actor=%1;
     #regexp {%1} {%i$blocked} {#var send_alert false};
   };
 
   #if {"$send_alert" == "true"} {
-    sound_beeps;
-    set_repeating_alarm;
+    sound tell;
+    set_repeating_tellhist_alarm;
     log.warn Tell received, 'th' to clear repeating alarm.;
+    #format chat_time {%t} {%Y-%m-%d %H:%M:%S};
+    #list chats add {$chat_time %1: %2};
+    chats_refresh;
+
     #if {"$stepper" == "on"} {
       send_email "Tell sent: %0";
       stepper off;
@@ -43,14 +56,12 @@
 }
 
 #action {^%1 tells you: %2$} {
-  #if {$disable_chat_alerts != 1} {
-    tell_handler %1 %2;
-    #if {"$send_alert" != "false"} {
-      #format chat_time {%t} {%Y-%m-%d %H:%M:%S};
-      #list chats add {$chat_time %1: %2};
+  #delay {tell_fallback_delay} {
+    #if {$disable_chat_alerts != 1} {
+      log.warn Tell fallback being used instead of MIP;
+      tell_handler %1 {%2};
     };
-    chats_refresh;
-  };
+  } {1};
 }
 
 #alias chats_clear {
@@ -120,12 +131,14 @@
   #var disable_chat_alerts 0;
 }
 
-#alias set_repeating_alarm {
+#alias set_repeating_tellhist_alarm {
   #delay {repeating_alarm} {
     log.warn You have tells, 'tellhist' or 'th' to review them.;
     sound_beep;
-    set_repeating_alarm;
-    #if {"$stepper" == "on"} {stepper off};
+    set_repeating_tellhist_alarm;
+    #if {"$stepper" == "on"} {
+      stepper off;
+    };
   } {90};
 }
 

@@ -249,7 +249,8 @@
   #regexp {$data} {^~{.+}~{.+}$} {
     #local player &1;
     #local tell &2;
-    tell_handler $player: $tell;
+    tell_handler $player {$tell};
+    #undelay tell_fallback_delay;
   };
 }
 
