@@ -25,7 +25,6 @@
     #if {"$mapper" == "on"} {#map set roomarea $map[room_area]};
 } {1};
 
-#nop %*\n%a
 #action {^%!{[> ]*}[RL]%a\n    There {is|are}} {
     #unvar long;
     #format long1 {%p} {%1};
