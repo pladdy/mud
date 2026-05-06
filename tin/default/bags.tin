@@ -1,5 +1,11 @@
 #alias gb {
-  #send !get %1 from bag %2
+  #local arg %0;
+  #regexp {$arg} {{.+}{\d+}} {#var bag_number &2; #var bag_command &1};
+  #format {bag_command} {%p} {$bag_command};
+  #if {$bag_number > 0} {
+    #send !get $bag_command from bag $bag_number;
+  };
+  #nop #send !get %1 from bag %2;
 }
 
 #alias get_bag_of_honey {

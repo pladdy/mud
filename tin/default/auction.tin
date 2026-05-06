@@ -13,6 +13,7 @@
 }
 
 #action {^[Auction] Robert : Up for bids: %1} {
+    sound auction;
     send_email %1 is being auctioned;
     #var auction[item] %1;
 }
