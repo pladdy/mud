@@ -8,6 +8,36 @@
 #var valid_stepper_dirs[sw] {valid};
 #var valid_stepper_dirs[se] {valid};
 
+#alias _go_in_dir {
+  log.info Stepping in direction $dir_to_go;
+  $dir_to_go;
+}
+
+#alias _load_stepper_path {
+  #list stepper_path size stepper_path_length;
+  #if {$stepper_path_length > 0} {
+    log.warn Stepper path already exists, 'stepper clear' to clear;
+  };
+  #else {
+    #local path tin/stepper/paths/%1.txt;
+    #scan file $path {
+      #var last_dir {};
+      #parse {&0} {c} {
+        #if {"$c" == "\n"} {
+          #list stepper_path add {$last_dir};
+          #var last_dir {};
+        };
+        #else {
+          #var last_dir {$last_dir$c};
+        };
+      };
+      #list stepper_path add {$last_dir};
+    };
+    #list stepper_path size stepper_path_length;
+    log.info Loaded $stepper_path_length stepper_path rooms;
+  };
+}
+
 #alias _reset_prompt_ticker {
   #unticker prompt;
   #ticker {prompt} {#if {$rounds_in_combat == 0} {auto_kill}} {2};
@@ -53,7 +83,7 @@
     #var under_attack true;
   };
 
-  #if {"$under_attack" == "true"} {ttl_no_monsters};
+  #if {"$under_attack" == "true"} {ttl_no_monsters off};
 }
 
 #alias before_step_hook {#nop;}
@@ -120,12 +150,12 @@
 }
 
 #alias stepper {
-  #if {"%0" == "on"} {
+  #if {"%1" == "on"} {
     log.info Enabling stepping. 'stepper off' to disable.;
     #format {stepper_started} {%T};
     #unvar step_dir;
     #unvar entered_from;
-    #list visited_rooms clear;
+    #nop #list visited_rooms clear;
     #nop #var visited_room_times {};
     #delay {2} {
       #var stepper on;
@@ -133,7 +163,10 @@
     };
     tracker on;
     ttl_stepper on;
-    ttl_no_monsters on;
+    #nop only turn on monster found TTL if not in combat;
+    #if {$enemy <= 0} {
+      ttl_no_monsters on;
+    };
     #event {RECEIVED INPUT} {
       log.info Input received.  Refreshing stepper TTL.;
       ttl_stepper on;
@@ -141,22 +174,34 @@
     #ticker {prompt} {
       #if {$rounds_in_combat == 0} {#send !glance};
     } {2};
-};
-#elseif {"%0" == "off"} {
+    
+    #if {"%2" != ""} {
+      log.warn Stepper path specified, using %2;
+      _load_stepper_path %2;
+    };
+  };
+  #elseif {"%1" == "off"} {
     log.info Disabling stepping. 'stepper on' to re-enable.;
     sound_beeps;
     #var stepper off;
     #unvar seen_monster_count;
     #nop TODO: remove this var if using least visisted;
-    #unvar visited_rooms;
+    #nop #unvar visited_rooms;
     #nop should we just keep this data set?;
     #nop #unvar visited_room_times;
     ttl_stepper;
-    ttl_no_monsters;
+    ttl_no_monsters off;
     #unevent {RECEIVED INPUT};
     #undelay reactivate_stepper;
     #unticker prompt;
     tracker off;
+  };
+  #elseif {"%1" == "clear"} {
+    log.info Clearing stepper path;
+    #list stepper_path clear;
+  }
+  #else {
+    log.warn Invalid syntax: stepper on|off|clear [stepper path file name];
   }
 }
 
@@ -173,12 +218,26 @@
 
   #list cardinal_exits size cardinal_exit_count;
   #var dir_to_go @choose_a_dir{$cardinal_exits};
-
-  #if {$cardinal_exit_count > 0} {
+  
+  #list stepper_path size stepper_path_length;
+  #if {$stepper_path_length > 0} {
+    #var dir_to_go $stepper_path[1];
+    #list stepper_path delete 1;
     #var step_dir $dir_to_go;
-    log.info Stepping in direction $dir_to_go;
-    $dir_to_go;
-  } {
+    log.info Using stepper path to move;
+    _go_in_dir;
+    #if {$stepper_path_length == 1} {
+      #nop TODO handle this better...;
+      log.info Reached end of path;
+      send_email Stepper is turning off due to path completion;
+      stepper off;
+    }
+  };
+  #elseif {$cardinal_exit_count > 0} {
+    #var step_dir $dir_to_go;
+    _go_in_dir;
+  };
+  #else {
     #var step_dir $entered_from;
     $entered_from;
   };
@@ -215,17 +274,23 @@
   }
 }
 
-
 #alias ttl_no_monsters {
   #local TTL 60;
   #local ticker_name ttl_no_monsters;
 
   #if {"%0" == "on"} {
     #undelay $ticker_name;
-    #ticker {$ticker_name} {stepper off;ttl_stepper_hook} {$TTL};
+    #ticker {$ticker_name} {
+      log.warn Turning off stepper, no monsters seen since TTL started;
+      send_email Stepper is turning off due to no monsters;
+      stepper off;
+      ttl_stepper_hook;
+    } {$TTL};
+    #var ttl_no_monsters_active true;
   };
   #else {
     #undelay $ticker_name;
+    #var ttl_no_monsters_active false;
   };
 }
 
@@ -250,4 +315,6 @@
   };
 }
 
-#alias ttl_stepper_hook {dtrig #delay 2 f2}
+#alias ttl_stepper_hook {
+  #nop;
+}

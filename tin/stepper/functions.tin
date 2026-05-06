@@ -26,7 +26,7 @@
     #else {
       #nop item is a room id;
       #if {"$blocked_rooms[$item]" != "" || "$exit_check_dir" == ""} {
-        log.warn("Skipping room, it's blocked: $blocked_rooms[$item]");
+        log.warn "Skipping room, it's blocked: $blocked_rooms[$item]";
       };
       #else {
         #if {"$visited_room_times[$item]" != ""} {
@@ -97,6 +97,8 @@
   #nop knight horses map to 'horse' so you don't want to attack 'horse' in case;
   #nop the mount is last in the room;
   #regexp {%0} {%+ horse%*} {#var transform_mob &0};
+  #nop don't attack 'golem', could be a mage golem;
+  #regexp {%0} {golem} {#var transform_mob %0};
   
   #if {"$transform_mob" != "false"} {
     #return $transform_mob;
