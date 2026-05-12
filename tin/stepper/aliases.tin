@@ -73,7 +73,12 @@
     #if {"$item_present" == "true"} {
       #if {"$flying" == "true"} {#send !swoop all};
       #else {#send !get all};
+      #foreach $items_on_ground item {
+        #regexp {$item} {(green|orange) capsule} {#send !compress $item};
+        #regexp {$item} {bronze key} {#send !keep key};
+      };
       pba;
+      #list items_on_ground clear;
     };
     take_a_step;
   };
@@ -177,6 +182,7 @@
     
     #if {"%2" != ""} {
       log.warn Stepper path specified, using %2;
+      #list stepper_path clear;
       _load_stepper_path %2;
     };
   };

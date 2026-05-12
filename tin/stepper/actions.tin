@@ -49,8 +49,7 @@
   };
 }
 
-#nop Room Prompt;
-
+#nop Prompt;
 #action {^{[> ]+}$} {
   _reset_prompt_ticker;
   #if {"$tried_to_auto_kill" == "false"} {
@@ -78,6 +77,7 @@
 #action {^[{A|O|o|W}] %1} {
    log.debug Tracker found item present, item %1;
    #var item_present {true};
+   #list items_on_ground add {%1};
 }
 
 #action {^There is no %1 here.} {

@@ -94,6 +94,8 @@
   #regexp {%0} {%d of hearts} {#var transform_mob card};
   #regexp {%0} {lama of} {#var transform_mob lama};
   #regexp {%0} {shaman of} {#var transform_mob shaman};
+  #regexp {%0} {guardian of} {#var transform_mob guardian}
+
   #nop knight horses map to 'horse' so you don't want to attack 'horse' in case;
   #nop the mount is last in the room;
   #regexp {%0} {%+ horse%*} {#var transform_mob &0};
@@ -107,8 +109,14 @@
     #regexp {%0} {^%ia {.+}} {#var transform_mob &1} {#var transform_mob %0};
     #nop Replace any text in '{}' braces, like 'Orc Sergeant {bloodlust}';
     #replace {transform_mob} { {{.+}}} {};
-    #nop Try to multiple words with last word;
-    #replace {transform_mob} {{.+} {.+}$} {&2};
+
+    #nop if comma is there, try to attack mob without comma;
+    #regexp {$transform_mob} {{.+},{.+}} {
+      #var transform_mob &1;
+    } {
+      #nop Convert multiple words to last word;
+      #replace {transform_mob} {{.+} {.+}$} {&2};
+    };
   }
   #return $transform_mob;
 }

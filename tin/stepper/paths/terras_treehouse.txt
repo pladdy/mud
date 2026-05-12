@@ -1,3 +1,53 @@
+n
+e
+e
+e
+nw
+nw
+n
+n
+ne
+se
+n
+se
+n
+ne
+nw
+s
+u
+pick fruit
+get seed
+keep seed
+d
+n
+se
+sw
+s
+nw
+s
+nw
+sw
+s
+s
+se
+se
+w
+w
+w
+w
+w
+w
+ne
+ne
+n
+n
+nw
+sw
+n
+sw
+n
+nw
+ne
 s
 u
 pick fruit
