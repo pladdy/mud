@@ -57,14 +57,14 @@ Section 39: w, s, s, e, e, e, e, proceed # mini boss: balba, rippers
 Section 40: s, w, d
 Section 41: s, se, ne, n, u # DON'T GO DOWN!, you'll get locked in section 51!!!
 Section 44: w, s, w, s, e, e, d
-Section 45: n, n, e, e, d # mini boss: galga, rippers
+Section 45: n, n, e, e, d # mini boss: galga
 Section 46: e, se, n, n, d
-Section 48: w, w, s, se, e, d 
+Section 48: w, w, s, se, e, d
 Section 47: n, w, w, s, enter portal
 Section 49: w, nw, n, u # generator, rippers
 Section 41: s, se, ne, n, d
 Section 43: w, n, n, d
-Section 51: w, n, d 
+Section 51: w, n, d
 Section 52: w, n, n, e, d
 Section 53: w, s, s, w, u
 Section 54: w, w, enter portal

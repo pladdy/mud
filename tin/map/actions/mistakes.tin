@@ -1,7 +1,17 @@
 #nop Map Mistakes;
 
-#action {^You cannot go %1.$} { map_undo; }
-#action {^You can not go %1.$} { map_undo; }
+#alias _cannot_go {
+  #list stepper_path size stepper_path_length;
+  #if {"$stepper" == "on" && $stepper_path_length > 0} {
+    log.error Invalid stepper path, cannot move;
+    send_email Stepper is turning off due to invalid path;
+    stepper off;
+  };
+  map_undo;
+}
+
+#action {^You cannot go %1.$} { _cannot_go; }
+#action {^You can not go %1.$} { _cannot_go; }
 #action {^The island continues on elsewhere, but you cannot go %1.$} {map_undo;}
 #action {^The hills drop off too abruptly to go %1.$} {map_undo;}
 #action {^Steep rock around you prevents you from moving %1.$} {map_undo}

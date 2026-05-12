@@ -1,0 +1,10 @@
+Helmet of Aeonos
+- AC in all types
+- + wis / + int that scales
+- dodge special
+
+Jade shield of Felines
+- AC in all types
+- % shield block that scales
+
+Warriors on level 8 can disarm you (unwield)!
