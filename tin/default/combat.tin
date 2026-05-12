@@ -97,3 +97,9 @@
   #send !wear all;
   #send !ibrief all on;
 }
+
+#nop warriors in celestial zodiacs;
+#action {^The %1 deftly disarms you!} {
+  log.warn %1 disarmed you, re-wielding!;
+  #send !wield $wielded_weapon;
+}

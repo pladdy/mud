@@ -30,7 +30,7 @@
             log.info Ignoring item, not bidding;
         } {
             log.info Bidding on item;
-            #if {"$auction[auto]" == "true" && $auction[offer] <= 1000} {
+            #if {"$auction[auto]" == "true" && $auction[offer] <= auction[max]} {
                 #math rando {4 d 4};
                 #delay $rando {#send !abid $auction[offer]};
             };
