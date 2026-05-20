@@ -45,3 +45,4 @@ ne
 n
 nw
 w
+u

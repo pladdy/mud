@@ -179,7 +179,6 @@
     #if {"$flying" == "true"} {#send !swoop all};
     #else {#send !get all};
   };
-  #if {"$stepper" == "on"} {pba};
 }
 
 #alias _handle_btrig {

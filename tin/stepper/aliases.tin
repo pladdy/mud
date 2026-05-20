@@ -16,7 +16,7 @@
 #alias _load_stepper_path {
   #list stepper_path size stepper_path_length;
   #if {$stepper_path_length > 0} {
-    log.warn Stepper path already exists, 'stepper clear' to clear;
+    #list stepper_path clear;
   };
   #else {
     #local path tin/stepper/paths/%1.txt;
@@ -34,7 +34,14 @@
       #list stepper_path add {$last_dir};
     };
     #list stepper_path size stepper_path_length;
-    log.info Loaded $stepper_path_length stepper_path rooms;
+
+    #if {$stepper_path_length == 0} {
+      log.warn No path loaded, turning stepper off;
+      #delay {1} {stepper off};
+    };
+    #else {
+      log.info Loaded $stepper_path_length stepper_path rooms;
+    };
   };
 }
 
@@ -73,12 +80,6 @@
     #if {"$item_present" == "true"} {
       #if {"$flying" == "true"} {#send !swoop all};
       #else {#send !get all};
-      #foreach $items_on_ground item {
-        #regexp {$item} {(green|orange) capsule} {#send !compress $item};
-        #regexp {$item} {bronze key} {#send !keep key};
-      };
-      pba;
-      #list items_on_ground clear;
     };
     take_a_step;
   };
@@ -205,7 +206,7 @@
   #elseif {"%1" == "clear"} {
     log.info Clearing stepper path;
     #list stepper_path clear;
-  }
+  };
   #else {
     log.warn Invalid syntax: stepper on|off|clear [stepper path file name];
   }
@@ -287,10 +288,15 @@
   #if {"%0" == "on"} {
     #undelay $ticker_name;
     #ticker {$ticker_name} {
-      log.warn Turning off stepper, no monsters seen since TTL started;
-      send_email Stepper is turning off due to no monsters;
-      stepper off;
-      ttl_stepper_hook;
+      #if {$enemy == 0} {
+        log.warn Turning off stepper, no monsters seen since TTL started;
+        send_email Stepper is turning off due to no monsters;
+        stepper off;
+        ttl_stepper_hook;
+      };
+      #else {
+        ttl_no_monsters on;
+      };
     } {$TTL};
     #var ttl_no_monsters_active true;
   };

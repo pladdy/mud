@@ -8,3 +8,9 @@ Jade shield of Felines
 - % shield block that scales
 
 Warriors on level 8 can disarm you (unwield)!
+
+Colossus will show up ~ 10-11 AM eastern; has multiple lives
+- heart gives you 200% overmax heal if not at 100%
+
+Portal to mimic chest opens at ~4-5 PM eastern daily
+- celestial tome can be held, regens overmax sp to 200%
