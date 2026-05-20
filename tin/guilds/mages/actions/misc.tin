@@ -26,10 +26,17 @@
 }
 
 #action {^%!{[> ]*}You need some basic construction materials to create a golem.$} {
-  #send !ffetch materials;
+  #if {"$mage_familiar_present" == "true"} {
+    #send !ffetch materials;
+    #var mage_familiar_present false;
+  };
 }
 
 #action {^%!{[> ]*}$MAGE_FAMILIAR hands something to %1.$} {
   #format who {%l} {%1};
   #if {"$who" == "$character"} {#send !keep all};
+}
+
+#action {^%!{[> ]*}$MAGE_FAMILIAR says: Woa, wtf?!  Where'd you go?$} {
+  #var mage_familiar_present true;
 }

@@ -51,7 +51,6 @@
 #alias conup {
   #if {"$use_gcon" == "true"} {
     #nop  PA and B conflict with PS, set for e/b combat;
-    #send !cast contingency as armor#cast armor;
     #send !cast contingency as prismatic aura#cast prismatic aura;
     #send !cast contingency as blink#cast blink;
 
@@ -62,6 +61,8 @@
     #if {"$use_psphere" == "true"} {
       #delay {30} {#send !cast greater contingency as prismatic sphere#500#cast prismatic sphere};
     };
+    #nop TODO: replace with mantle
+    #delay {30} {#send !cast greater contingency as armor#cast armor};
   };
   #else {
     #send !cast contingency as stoneskin#cast stoneskin;

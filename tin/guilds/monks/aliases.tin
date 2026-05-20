@@ -119,6 +119,7 @@
   #math pct_sp {$sp / $sp_max * 1.0};
 
   #if {$pct_sp < .50} {
+    log.info Disabling stepper to regen spell points;
     stepper off;
     #delay {2} {#send !meditate};
     #delay {30} {
@@ -130,10 +131,13 @@
 
 #alias check_stepper {
   #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {
-    log.warn Turnning stepper off.  Mind: $gp2, Stepper: $stepper;
+    log.warn Disabling stepper to regen mind.  Mind: $gp2, Stepper: $stepper;
     stepper off;
   };
-  #elseif {$corpses < 1 && "$stepper" == "on"} {stepper off};
+  #elseif {$corpses < 1 && "$stepper" == "on"} {
+    log.warn Disabling stepper due to low corpses;
+    stepper off;
+  };
   #else {
     #format {current_time} {%T};
     #math {time_since_stepper_started} {$current_time - $stepper_started};
@@ -141,7 +145,7 @@
     #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
       log.info Disabling stepper, need to rest.;
       stepper off;
-      dtrig _rest_then_enable_stepper;
+      _rest_then_enable_stepper;
     };
   };
 }

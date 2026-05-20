@@ -12,5 +12,13 @@
 #list tells_blocklist add {sir fors belerent};
 #list tells_blocklist add {sir rea};
 #list tells_blocklist add {tauron};
+#list tells_blocklist add {sir};
+#list tells_blocklist add {mia};
+#list tells_blocklist add {avrin};
+#nop mounts;
+#list tells_blocklist add {alifoolery};
+#list tells_blocklist add {bobfoolery};
+#list tells_blocklist add {dawnfoolery};
+#list tells_blocklist add {suefoolery};
 
 #var use_will true;

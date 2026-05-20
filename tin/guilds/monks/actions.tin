@@ -38,7 +38,10 @@
 }
 
 #action {^%!{[> ]*}Your inner energies are too tapped to repeat this action.$} {
-  #if {"$stepper" == "on"} {stepper off};
+  #if {"$stepper" == "on"} {
+    log.warn No focus left, disabling stepper;
+    stepper off;
+  };
 }
 
 #action {^That monster is not attacking you.$} {
