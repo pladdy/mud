@@ -1,6 +1,19 @@
 #nop default auto auction to true;
 #var auction[auto] true;
 
+#alias load_auction_allow_list {
+    #if {"$auction[allow_list_file]" != ""} {
+        log.info Loading custom auction allow list;
+        #script {auction[allow]} {cat $auction[allow_list_file] | grep -v '#'};
+    };
+    #else {
+        log.info Loading default auction allow list;
+        #script {auction[allow]} {cat tin/default/auction_allow.txt | grep -v '#'};
+    };
+}
+
+log.debug auction allow list: $auction[allow];
+
 #alias auto_auction {
   #if {"$auction[auto]" != "true"} {
     #showme <170>Auto auction enabled.;
@@ -16,6 +29,7 @@
     sound auction;
     send_email %1 is being auctioned;
     #var auction[item] %1;
+    load_auction_allow_list;
 }
 
 #nop [Auction] Robert : Cable has requested 0 as the opening offer.;
@@ -26,13 +40,13 @@
     #replace {auction[offer]} {,} {};
 
     #if {"$auction[seller]" != "$character"} {
-        #regexp {$auction[item]} {%iring of pickling} {
-            log.info Ignoring item, not bidding;
-        } {
-            log.info Bidding on item;
-            #if {"$auction[auto]" == "true" && $auction[offer] <= auction[max]} {
-                #math rando {4 d 4};
-                #delay $rando {#send !abid $auction[offer]};
+        #foreach { $auction[allow][%*] } {item} {
+            #regexp {$auction[item]} {%i$item} {
+                #if {"$auction[auto]" == "true" && $auction[offer] <= auction[max]} {
+                    log.info Bidding on item;
+                    #math rando {4 d 4};
+                    #delay $rando {#send !abid $auction[offer]};
+                };
             };
         };
     };

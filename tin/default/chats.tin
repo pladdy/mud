@@ -57,7 +57,7 @@
   };
 }
 
-#action {^%1 tells you: %2$} {
+#action {^%!{[> ]*}%1 tells you: %2$} {
   #delay {tell_fallback_delay} {
     #if {$disable_chat_alerts != 1} {
       log.warn Tell fallback being used instead of MIP;
