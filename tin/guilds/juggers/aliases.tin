@@ -71,8 +71,11 @@
 #alias login_commands {
   #delay 2 #send !support summon;
   #delay 4 #send !support assault fire;
-  #delay 6 #send !empower on;
-  #delay 8 set_afk;
+  #delay 6 #send !cdefend support;
+  #delay 8 {
+    #send !empower on;
+    set_afk;
+  };
 }
 
 #alias mip_combat_hook {
@@ -167,7 +170,7 @@
 #alias su_tank {
   #send !support reset;
   #99 #send !support upgrade armor;
-  #124 #send !support upgrade repair;
+  #125 #send !support upgrade repair;
   #send !support defend edged,blunt,fire,ice,electric toggle;
 }
 
