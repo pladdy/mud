@@ -1,0 +1,12 @@
+stepper_run tenderheart
+stepper_run cheer_bear
+stepper_run grumpy_bear
+stepper_run share_bear
+get cupcake
+eat cupcake
+stepper_run champ_bear
+stepper_run bathroom_bear
+open door
+stepper_run swiftheart
+stepper_run noheart
+s

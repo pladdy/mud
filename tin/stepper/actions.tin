@@ -66,12 +66,11 @@
   };
 
   #list items_picked_up size items_picked_up_count;
-  #if {"$stepper" == "on"} {
-    #if {$items_picked_up_count > 0} {
-      pba;
-    };
+  #if {"$stepper" == "on" && $items_picked_up_count > 0} {
+    log.info Putting all in bags: $items_picked_up;
+    pba;
+    #list items_picked_up clear;
   };
-  #list items_picked_up clear;
 }
 
 #action {^[P] %1} {
@@ -93,11 +92,14 @@
    #var item_present {true};
 }
 
-#action {^{[> ]+}%1: Ok.$} {
-  log.debug Picked up item %1;
-  #regexp {%1} {(green|orange) capsule} {#send !compress $item};
-  #regexp {%1} {bronze key} {#send !keep key};
-  #list items_picked_up add {%1};
+#action {^{[> ]*}%1: Ok.$} {
+  #if {"$stepper" == "on"} {
+    #local item %1;
+    log.info Picked up item: $item;
+    #regexp {$item} {{green|orange} capsule} {#send !compress &1 capsule};
+    #regexp {$item} {bronze key} {#send !keep key};
+    #regexp {$item} {gold coin} {#nop} {#list items_picked_up add {$item}};
+  };
 }
 
 #action {^There is no %1 here.} {

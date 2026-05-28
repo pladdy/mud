@@ -212,6 +212,19 @@
   }
 }
 
+#alias stepper_run {
+  map lock;
+  #format {run_to} {%l} {%1};
+  #unevent {MAP ENTER ROOM};
+  #send !ansi off;
+  #map run $run_to;
+  refresh_map_on_enter;
+  map_refresh;
+  #unvar run_to;
+  #send !ansi on;
+  #send !glance;
+}
+
 #alias take_a_step {
   before_step_hook;
   keep_cardinal_dirs;
@@ -224,9 +237,8 @@
   };
 
   #list cardinal_exits size cardinal_exit_count;
-  #var dir_to_go @choose_a_dir{$cardinal_exits};
-  
   #list stepper_path size stepper_path_length;
+
   #if {$stepper_path_length > 0} {
     #var dir_to_go $stepper_path[1];
     #list stepper_path delete 1;
@@ -241,6 +253,7 @@
     }
   };
   #elseif {$cardinal_exit_count > 0} {
+    #var dir_to_go @choose_a_dir{$cardinal_exits};
     #var step_dir $dir_to_go;
     _go_in_dir;
   };
