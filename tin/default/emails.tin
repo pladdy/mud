@@ -1,7 +1,9 @@
 #alias send_email {
   #read email.tin;
-  #nop TODO: get rid of opening and clsoing brackets in tell;
-  #script {content} {EMAIL_USER=$EMAIL_USER EMAIL_ADDR=$EMAIL_ADDR bin/email %0 &};
-  #unvar EMAIL_USER;
-  #unvar EMAIL_ADDR;
+  #if {"$EMAIL_ADDR" != "your@email.here"} {
+    log.info Sending email with "%0";
+    #script {content} {EMAIL_USER=$EMAIL_USER EMAIL_ADDR=$EMAIL_ADDR bin/email '%0' &};
+    #unvar EMAIL_USER;
+    #unvar EMAIL_ADDR;
+  };
 }

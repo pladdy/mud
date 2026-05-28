@@ -35,6 +35,10 @@ container: docker-build
 docker-build:
 	docker build . -t pladdy/mud:latest
 
+email.tin:
+	cp email.tin.template email.tin
+	@echo Open and edit email.tin with information to enable email alerts.
+
 install:
 	bin/install
 

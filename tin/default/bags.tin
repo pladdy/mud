@@ -52,4 +52,5 @@
   };
 
   #var i 0;
+  #list items_picked_up clear;
 }

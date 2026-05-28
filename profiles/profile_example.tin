@@ -1,9 +1,16 @@
 #nop Set up environment;
 
 #var guild {YourGuildHere};
-#var BAGS_TO_USE {8};
-#var ETERNALS {false};
+#nop set to true to auto bid on things in an allow list;
+#var auction[auto] {false};
+#nop set to a custom path if you have your own auction allow list;
+#var auction[allow_list_file] {tin/default/auction_allow.txt};
 
+#nop number of bags to try and fill with 'pba' alias;
+#var BAGS_TO_USE {8};
+#nop if you're in eternals guild or not;
+#var ETERNALS {false};
+#nop city location for 'weather' alias;
 #var WEATHER_LOCATION {YouCityHere};
 
 #script {character} {echo $PROFILE};

@@ -1,9 +1,7 @@
-#nop default auto auction to true;
-#var auction[auto] true;
-
 #alias load_auction_allow_list {
+    log.debug Loading auction allow list: $auction[allow_list_file];
     #if {"$auction[allow_list_file]" != ""} {
-        log.info Loading custom auction allow list;
+        log.info Loading auction allow list;
         #script {auction[allow]} {cat $auction[allow_list_file] | grep -v '#'};
     };
     #else {
@@ -11,8 +9,6 @@
         #script {auction[allow]} {cat tin/default/auction_allow.txt | grep -v '#'};
     };
 }
-
-log.debug auction allow list: $auction[allow];
 
 #alias auto_auction {
   #if {"$auction[auto]" != "true"} {
@@ -27,7 +23,6 @@ log.debug auction allow list: $auction[allow];
 
 #action {^[Auction] Robert : Up for bids: %1} {
     sound auction;
-    send_email %1 is being auctioned;
     #var auction[item] %1;
     load_auction_allow_list;
 }
@@ -40,9 +35,10 @@ log.debug auction allow list: $auction[allow];
     #replace {auction[offer]} {,} {};
 
     #if {"$auction[seller]" != "$character"} {
+        send_email $auction[item] is being auctioned;
         #foreach { $auction[allow][%*] } {item} {
             #regexp {$auction[item]} {%i$item} {
-                #if {"$auction[auto]" == "true" && $auction[offer] <= auction[max]} {
+                #if {"$auction[auto]" == "true" && $auction[offer] <= $auction[max]} {
                     log.info Bidding on item;
                     #math rando {4 d 4};
                     #delay $rando {#send !abid $auction[offer]};
