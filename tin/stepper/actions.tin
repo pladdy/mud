@@ -96,8 +96,9 @@
   #if {"$stepper" == "on"} {
     #local item %1;
     log.info Picked up item: $item;
-    #regexp {$item} {{green|orange} capsule} {#send !compress &1 capsule};
+    #regexp {$item} {green capsule} {#send !compress green capsule};
     #regexp {$item} {bronze key} {#send !keep key};
+    #regexp {$item} {dense wooden hammer} {#send !keep hammer};
     #regexp {$item} {gold coin} {#nop} {#list items_picked_up add {$item}};
   };
 }

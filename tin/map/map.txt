@@ -18,7 +18,7 @@ F 1048587
 
 G 0
 
-I 1
+I 4825
 
 L {ASCII NESW LINE} {NO EXITS} {#}
 L {ASCII NESW LINE} {N} {o}
@@ -741,7 +741,7 @@ E {104}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {3272}{cave}{cave}{0}{0}{}{1.000}{}{0.00}
 E {3273}{city}{city}{0}{0}{}{1.000}{}{0.00}
 
-R {107}{0}{<020>}{crafting}{<020>X}{}{}{say craftmenow}{}{}{1.000}{}
+R {107}{0}{<020>}{crafting}{<020>X}{}{}{say craftmenow}{}{Crafter's Lane (e,s,nw)}{1.000}{}
 E {91}{s}{s}{4}{1}{}{1.000}{}{0.00}
 E {6632}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 E {6633}{e}{e}{2}{0}{}{1.000}{}{0.00}
@@ -35900,114 +35900,114 @@ R {6631}{0}{<130>}{}{<130>!}{}{The Green Lion [Balthus]}{note: 'read runes'}{}{A
 E {6630}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {6630}{d}{d}{32}{0}{}{1.000}{}{0.00}
 
-R {6632}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6632}{0}{}{}{ }{}{}{}{}{Crafter's Lane (w,se,n)}{1.000}{}
 E {107}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {6635}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {6639}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {6633}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6633}{0}{}{}{ }{}{}{}{}{The Consignment Shop (w,u)}{1.000}{}
 E {107}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {6634}{u}{u}{16}{0}{}{1.000}{}{0.00}
 
-R {6634}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6634}{0}{}{}{ }{}{}{}{}{The Crafting Utilities Room (d)}{1.000}{}
 E {6633}{d}{d}{32}{0}{}{1.000}{}{0.00}
 
-R {6635}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6635}{0}{}{}{ }{}{}{}{}{Crafter's Lane (s,ne)}{1.000}{}
 E {6632}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {6636}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
 
-R {6636}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6636}{0}{}{}{ }{}{}{}{}{Crafter's Lane (nw,se,sw)}{1.000}{}
 E {6635}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 E {6637}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {6638}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 
-R {6637}{0}{<130>}{}{c}{}{}{}{}{}{1.000}{}
+R {6637}{0}{<130>}{}{c}{}{}{}{}{The Chef Room (kitchen,nw)}{1.000}{}
 E {6636}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 
-R {6638}{0}{<130>}{}{f}{}{}{<130>}{}{}{1.000}{}
+R {6638}{0}{<130>}{}{f}{}{}{<130>}{}{The Farming Room. (nw,ne,mixing,n,e,se)}{1.000}{}
 E {6636}{se}{se}{6}{0}{}{1.000}{}{0.00}
 
-R {6639}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6639}{0}{}{}{ }{}{}{}{}{Crafter's Lane (s,w,e,n)}{1.000}{}
 E {6632}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {6640}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {6641}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {6646}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {6640}{0}{<130>}{}{w}{}{}{}{}{}{1.000}{}
+R {6640}{0}{<130>}{}{w}{}{}{}{}{The Wrangler Room (s)}{1.000}{}
 E {6639}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {6641}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6641}{0}{}{}{ }{}{}{}{}{Crafter's Lane (e,sw)}{1.000}{}
 E {6639}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {6642}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 
-R {6642}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6642}{0}{}{}{ }{}{}{}{}{Crafter's Lane (nw,ne,se)}{1.000}{}
 E {6641}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
 E {6643}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 E {6645}{se}{se}{6}{0}{}{1.000}{}{0.00}
 
-R {6643}{0}{<130>}{blacksmith}{<130>!}{}{}{note: 'say blacksmithmenow'}{}{}{1.000}{}
+R {6643}{0}{<130>}{blacksmith}{<130>!}{}{}{note: 'say blacksmithmenow'}{}{The Blacksmithing Room (e,se,forge)}{1.000}{}
 E {6642}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {6644}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {6648}{forge}{forge}{0}{0}{}{1.000}{}{0.00}
 
-R {6644}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6644}{0}{}{}{ }{}{}{}{}{The Blacksmith Recipe Shop (w)}{1.000}{}
 E {6643}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {6645}{0}{<130>}{mines}{<130>!}{}{}{note: 'say minemenow'}{}{}{1.000}{}
+R {6645}{0}{<130>}{mines}{<130>!}{}{}{note: 'say minemenow'}{}{The Miner Room (nw,smelt,mines)}{1.000}{}
 E {6642}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 E {6649}{smelt}{smelt}{0}{0}{}{1.000}{}{0.00}
 E {6650}{mines}{mines}{0}{0}{}{1.000}{}{0.00}
 
-R {6646}{0}{<130>}{}{e}{}{}{}{}{}{1.000}{}
+R {6646}{0}{<130>}{}{e}{}{}{}{}{The Enchanter Room (e,kiln,n)}{1.000}{}
 E {6639}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {6647}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {6647}{0}{<170>}{}{}{}{}{}{}{}{1.000}{}
+R {6647}{0}{<170>}{}{}{}{}{}{}{The Enchanter Recipe Shop (w)}{1.000}{}
 E {6646}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
 R {6648}{0}{}{}{ }{}{}{}{}{}{1.000}{}
 E {6643}{out}{out}{0}{0}{}{1.000}{}{0.00}
 
-R {6649}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6649}{0}{}{}{ }{}{}{}{}{The Smelting Room (out)}{1.000}{}
 E {6645}{out}{out}{0}{0}{}{1.000}{}{0.00}
 
-R {6650}{0}{<020>}{}{<020>X}{}{}{}{}{}{1.000}{}
+R {6650}{0}{<020>}{}{<020>X}{}{}{}{}{A damp mine shaft (out,se)}{1.000}{}
 E {6645}{out}{out}{0}{0}{}{1.000}{}{0.00}
 E {6651}{se}{se}{6}{0}{}{1.000}{}{0.00}
 
-R {6651}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6651}{0}{}{}{ }{}{}{}{}{A damp mine shaft (nw,e)}{1.000}{}
 E {6650}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 E {6652}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {6652}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6652}{0}{}{}{ }{}{}{}{}{A musty mine shaft (s,e,w,n)}{1.000}{}
 E {6651}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {6653}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {6658}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {6659}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {6653}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6653}{0}{}{}{ }{}{}{}{}{A musty mine shaft (s,w,n)}{1.000}{}
 E {6652}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {6654}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {6655}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {6654}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6654}{0}{}{}{ }{}{}{}{}{A damp mine shaft (e)}{1.000}{}
 E {6653}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {6655}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6655}{0}{}{}{ }{}{}{}{}{A musty mine shaft (s,e)}{1.000}{}
 E {6653}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {6656}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {6656}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6656}{0}{}{}{ }{}{}{}{}{A musty mine shaft (se,w)}{1.000}{}
 E {6655}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {6657}{se}{se}{6}{0}{}{1.000}{}{0.00}
 
-R {6657}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6657}{0}{}{}{ }{}{}{}{}{A musty mine shaft (nw)}{1.000}{}
 E {6656}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 
-R {6658}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6658}{0}{}{}{ }{}{}{}{}{A musty mine shaft (w)}{1.000}{}
 E {6652}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {6659}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6659}{0}{}{}{ }{}{}{}{}{A stale mine shaft (sw,n,se)}{1.000}{}
 E {6652}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {6660}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 E {6661}{se}{se}{6}{0}{}{1.000}{}{0.00}
@@ -36016,7 +36016,7 @@ R {6660}{0}{}{}{ }{}{}{}{}{}{1.000}{}
 E {6659}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
 E {6667}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {6661}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {6661}{0}{}{}{ }{}{}{}{}{A musty mine shaft (sw,nw)}{1.000}{}
 E {6659}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 E {6662}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 
@@ -61692,13 +61692,13 @@ R {12328}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Large Open Cavern (e,n)}{1.000
 E {12321}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {12329}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {12329}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Large Open Cavern (w,s,e,n)}{1.000}{}
+R {12329}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Large Open Cavern (n,e,w,s)}{1.000}{}
 E {12328}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {12319}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {12330}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {12334}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {12330}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Large Open Cavern (e,w,s)}{1.000}{}
+R {12330}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Large Open Cavern (e,s,w)}{1.000}{}
 E {12329}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {12331}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {12333}{s}{s}{4}{0}{}{1.000}{}{0.00}
@@ -61713,7 +61713,7 @@ E {12331}{s}{s}{4}{0}{}{1.000}{}{0.00}
 R {12333}{0}{<130>}{branatharus}{<130>!}{}{fe dar Shad [Rastafan]}{note: branatharus -> death's freezer}{}{Dark Corner (n)}{1.000}{}
 E {12330}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {12334}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Large Open Cavern (w,s,n)}{1.000}{}
+R {12334}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Large Open Cavern (n,w,s)}{1.000}{}
 E {12329}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {12335}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {12337}{w}{w}{8}{0}{}{1.000}{}{0.00}
@@ -61730,7 +61730,7 @@ R {12337}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Waft of Evil (e,w)}{1.000}{}
 E {12334}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {12338}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {12338}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Gale of Evil (s,e,n)}{1.000}{}
+R {12338}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Gale of Evil (n,e,s)}{1.000}{}
 E {12337}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {12339}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {12340}{n}{n}{1}{0}{}{1.000}{}{0.00}
@@ -61744,7 +61744,7 @@ R {12340}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Blast of Evil (w,s)}{1.000}{}
 E {12338}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {12341}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {12341}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Before the Throne (w,e,n)}{1.000}{}
+R {12341}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Before the Throne (n,e,w)}{1.000}{}
 E {12340}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {12342}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {12343}{n}{n}{1}{0}{}{1.000}{}{0.00}
@@ -152550,7 +152550,7 @@ E {30027}{out}{out}{0}{0}{}{1.000}{}{0.00}
 
 R {30036}{0}{<020>}{tree_of_life2}{<020>X}{}{Tree of Life [Eek]}{}{}{Doorway to a temple. (doorway,leave)}{1.000}{}
 E {362}{leave}{leave}{0}{0}{}{1.000}{}{0.00}
-E {30037}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30037}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 
 R {30037}{0}{<130>}{}{<130>!}{}{Tree of Life [Turnhold]}{note: sandalphon, archangel of malkuth {glowing} -> bracers of the spirit {radiant}}{}{Temple of Malkuth (turnaway,onward)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
@@ -152748,7 +152748,7 @@ E {9547}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {30083}{0}{}{}{ }{}{Tree of Life [Turnhold]}{}{}{Path to Yesod (doorway,turnaway)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
-E {30084}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30084}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 
 R {30084}{0}{<130>}{}{<130>!}{}{Tree of Life [Turnhold]}{note: gabriel, archangel of yesod {glowing} -> greaves of the spirit {radiant}}{}{Temple of Yesod (turnaway,onward)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
@@ -152756,7 +152756,7 @@ E {30085}{onward}{onward}{0}{0}{}{1.000}{}{0.00}
 
 R {30085}{0}{}{}{ }{}{Tree of Life [Turnhold]}{}{}{Path to Hod (turnaway,doorway)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
-E {30086}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30086}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 
 R {30086}{0}{<130>}{}{<130>!}{}{Tree of Life [Turnhold]}{note: michael, archangel of hod {glowing} -> amulet of the spirit {radiant}}{}{Temple of Hod (turnaway,onward)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
@@ -152764,7 +152764,7 @@ E {30087}{onward}{onward}{0}{0}{}{1.000}{}{0.00}
 
 R {30087}{0}{}{}{ }{}{Tree of Life [Turnhold]}{}{}{Path to Netazch (doorway,turnaway)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
-E {30088}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30088}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 
 R {30088}{0}{<130>}{}{<130>!}{}{Tree of Life [Turnhold]}{note: haniel, archangel of netzach -> boots of the spirit {radiant}}{}{Temple of Netazch (turnaway,onward)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
@@ -152772,7 +152772,7 @@ E {30089}{onward}{onward}{0}{0}{}{1.000}{}{0.00}
 
 R {30089}{0}{<170>}{}{}{}{Tree of Life [Turnhold]}{}{}{Path to Tipharet (turnaway,doorway)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
-E {30090}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30090}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 
 R {30090}{0}{<130>}{}{<130>!}{}{Tree of Life [Turnhold]}{note: raphael, archangel of tipharet {glowing} -> cloak of the spirit {radiant}}{}{Temple of Tipharet (turnaway,onward)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
@@ -152780,7 +152780,7 @@ E {30091}{onward}{onward}{0}{0}{}{1.000}{}{0.00}
 
 R {30091}{0}{}{}{ }{}{Tree of Life [Turnhold]}{}{}{Path to Geburah (doorway,turnaway)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
-E {30092}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30092}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 
 R {30092}{0}{<130>}{}{<130>!}{}{Tree of Life [Turnhold]}{note: khamael, archangel of geburah {glowing} -> gloves of the spirit {radiant}}{}{Temple of Geburah (onward,turnaway)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
@@ -152788,7 +152788,7 @@ E {30093}{onward}{onward}{0}{0}{}{1.000}{}{0.00}
 
 R {30093}{0}{}{}{ }{}{Tree of Life [Turnhold]}{}{}{Path to Chesed (turnaway,doorway)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
-E {30094}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30094}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 
 R {30094}{0}{<130>}{}{<130>!}{}{Tree of Life [Turnhold]}{note: tzadkiel, archangel of chesed {glowing} -> helmet of the spirit {radiant}}{}{Temple of Chesed (turnaway,onward)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
@@ -152796,7 +152796,7 @@ E {30095}{onward}{onward}{0}{0}{}{1.000}{}{0.00}
 
 R {30095}{0}{}{}{ }{}{Tree of Life [Turnhold]}{}{}{Path to Binah (turnaway,doorway)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
-E {30096}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30096}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 
 R {30096}{0}{<130>}{}{<130>!}{}{Tree of Life [Turnhold]}{note: tzaphkiel, archangel of binah {glowing} -> shield of the spirit {radiant}}{}{Temple of Binah (turnaway,onward)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
@@ -152804,14 +152804,14 @@ E {30097}{onward}{onward}{0}{0}{}{1.000}{}{0.00}
 
 R {30097}{0}{}{}{ }{}{Tree of Life [Turnhold]}{}{}{Path to Chockmah (doorway,turnaway)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
-E {30098}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30098}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 
 R {30098}{0}{<130>}{}{<130>!}{}{Tree of Life [Turnhold]}{note: ratziel, archangel of chockmah {glowing} -> breastplate of the spirit {radiant}}{}{Temple of Chockmah (turnaway,onward)}{1.000}{}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
 E {30099}{onward}{onward}{0}{0}{}{1.000}{}{0.00}
 
 R {30099}{0}{}{}{ }{}{Tree of Life [Turnhold]}{}{}{Path to Keter (turnaway,doorway)}{1.000}{}
-E {30100}{doorway}{doorway;dtrig onward,doorway}{0}{0}{}{1.000}{}{0.00}
+E {30100}{doorway}{doorway}{0}{0}{}{1.000}{}{0.00}
 E {30036}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
 
 R {30100}{0}{<130>}{metatron}{<130>!}{}{Tree of Life [Turnhold]}{note: metatron, archangel of keter {glowing} -> sword of the spirit {radiant} (enchanted)}{}{Temple of Keter (turnaway,light)}{1.000}{}
@@ -180462,11 +180462,11 @@ E {36029}{d}{d}{32}{0}{}{1.000}{}{0.00}
 R {36031}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Cul de Sac}{1.000}{}
 E {12371}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {36032}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {36032}{0}{}{}{ }{}{fe dar Shad [Rastafan]}{}{}{Long Dark Corridor (u,w)}{1.000}{}
 E {12343}{u}{u}{16}{0}{}{1.000}{}{0.00}
 E {36033}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {36033}{0}{<130>}{}{<130>!}{}{}{note: to go west, 'speak the word'?}{}{}{1.000}{}
+R {36033}{0}{<130>}{}{<130>!}{}{fe dar Shad [Rastafan]}{note: to go west, 'speak the word'?}{}{Long Dark Corridor (e,w)}{1.000}{}
 E {36032}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {36034}{0}{}{}{ }{}{}{}{}{}{1.000}{}
@@ -190340,7 +190340,7 @@ E {38127}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {38124}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {38139}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 
-R {38127}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {38127}{0}{}{}{ }{}{Celestial Zodiacs [Mimic]}{}{}{Hawthorn Enclave (se,w)}{1.000}{}
 E {38126}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {38128}{se}{se}{6}{0}{}{1.000}{}{0.00}
 

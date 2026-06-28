@@ -89,3 +89,4 @@ e
 e
 ne
 e
+get barrier
