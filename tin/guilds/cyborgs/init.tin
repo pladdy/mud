@@ -1,0 +1,2 @@
+#list tells_blocklist add {guthrie};
+#list tells_blocklist add {as};

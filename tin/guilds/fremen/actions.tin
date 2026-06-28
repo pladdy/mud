@@ -1,6 +1,17 @@
 #nop second line of hpbar required to c
 #action {^%!{[> ]*}Li: %1 Sp: %2 Pa: %3 Ma: %4(%5) %6 C: %7 Gt: %8 G:} {
   #var litany_focus %1;
+  #var litany_focus_pct 0;
+  #if {"$litany_focus" == "Lum"} {#var litany_focus_pct 100};
+  #if {"$litany_focus" == "Luc"} {#var litany_focus_pct 90};
+  #if {"$litany_focus" == "Sha"} {#var litany_focus_pct 80};
+  #if {"$litany_focus" == "Uhi"} {#var litany_focus_pct 70};
+  #if {"$litany_focus" == "Hin"} {#var litany_focus_pct 60};
+  #if {"$litany_focus" == "Fat"} {#var litany_focus_pct 50};
+  #if {"$litany_focus" == "Suf"} {#var litany_focus_pct 40};
+  #if {"$litany_focus" == "Vex"} {#var litany_focus_pct 30};
+  #if {"$litany_focus" == "Pai"} {#var litany_focus_pct 20};
+  #if {"$litany_focus" == "Wra"} {#var litany_focus_pct 10};
 
   #var spice_level %2;
   #local ammo %4;
@@ -19,6 +30,14 @@
        && $available_spices > 0} {
     respice;
   };
+}
+
+#action {^%!{[> ]*}You receive a new stock of poison.$} {
+  #var poisons 4;
+}
+
+#action {^%!{[> ]*}You carefully apply poison to the crysknife.} {
+  #math {poisons} {$poisons - 1};
 }
 
 #nop  Voice;
