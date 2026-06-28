@@ -12,6 +12,9 @@ patch = $(lastword $(version_list))
 
 all: tintin install
 
+# logsense stuff
+# search archived logs: zgrep Balderdash logs/2026-05*.gz
+# read an archive: zless logs/2026-05-3k-session.logs.gz
 archive-logs:
 ifndef ym
 	$(error Usage: 'make $@ ym=<yyyy-mm> (eg: 2024-03))
@@ -23,7 +26,10 @@ archive-list:
 ifndef ym
 	$(error Usage: 'make $@ ym=<yyyy-mm> (eg: 2024-03))
 endif
-	tar -tf logs/$(ym)-3k-session.logs.gz
+	tar -t -f logs/$(ym)-3k-session.logs.gz
+
+unarchive-logs:
+	tar -vzx -f $(ym)-3k-session.log.gz
 
 bin/english-word-list.txt:
 	curl -s https://www.wordgamedictionary.com/english-word-list/download/english.txt -o $@

@@ -1,11 +1,16 @@
 Helmet of Aeonos
 - AC in all types
 - + wis / + int that scales
-- dodge special
+- can heal hp/sp
+- can increase AC
+- can increase wis/int
+- increases perception and magic resistance mskills
 
 Jade shield of Felines
 - AC in all types
 - % shield block that scales
+- seems to 'bash' / hit randomly for spell points
+- increases block mskill
 
 Warriors on level 8 can disarm you (unwield)!
 
