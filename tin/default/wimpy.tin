@@ -23,6 +23,7 @@
   sound_beeps;
   #if {"$stepper" == "on"} {
     log.warn Wimpied, disabling stepper;
+    send_email Turning off stepper due to wimpy firing;
     stepper off;
   };
 }

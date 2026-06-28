@@ -149,7 +149,6 @@
 
 #alias respond_to_killing_blow {
   #undelay mob_died_event;
-  #if {"$stepper" == "on"} {ttl_no_monsters off};
 
   _handle_btrig;
   commands_before_corpse;
@@ -171,6 +170,8 @@
 
   commands_after_corpse;
   _handle_dtrig;
+  #nop reactivate ttl for monters;
+  #if {"$stepper" == "on"} {ttl_no_monsters on};
 }
 
 #alias _divvy_and_get {

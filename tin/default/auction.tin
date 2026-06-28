@@ -21,29 +21,38 @@
   }
 }
 
-#action {^[Auction] Robert : Up for bids: %1} {
+#action {^%!{[> ]*}[Auction] Robert : Up for bids: %1} {
     sound auction;
     #var auction[item] %1;
     load_auction_allow_list;
 }
 
 #nop [Auction] Robert : Cable has requested 0 as the opening offer.;
-#action {^[Auction] Robert : %1 has requested {[,\d]+} as the opening offer.} {
+#action {^%!{[> ]*}[Auction] Robert : %1 has requested {[,\d]+} as the opening offer.} {
     #var auction[seller] %1;
     #format {auction[seller]} {%l} {$auction[seller]};
     #var auction[offer] %2;
     #replace {auction[offer]} {,} {};
 
+    load_auction_allow_list;
+    #if {"$auction[max]" == ""} {#var auction[max] 2500};
+
     #if {"$auction[seller]" != "$character"} {
-        send_email $auction[item] is being auctioned;
-        #foreach { $auction[allow][%*] } {item} {
-            #regexp {$auction[item]} {%i$item} {
-                #if {"$auction[auto]" == "true" && $auction[offer] <= $auction[max]} {
-                    log.info Bidding on item;
-                    #math rando {4 d 4};
-                    #delay $rando {#send !abid $auction[offer]};
+        #nop send_email $auction[item] is being auctioned;
+        #foreach { $auction[allow][%*] } {allowed_item} {
+            #if {"$allowed_item" != ""} {
+                #regexp {$auction[item]} {%i$allowed_item} {
+                    #if {"$auction[auto]" == "on" && $auction[offer] <= $auction[max]} {
+                        log.info Match on $allowed_item, bidding on $auction[item];
+                        #math rando {2 d 4};
+                        #delay $rando {#send !abid $auction[offer]};
+                    };
                 };
             };
         };
     };
+}
+
+#action {^%!{[> ]*}O: %1 %s%2%s:%sSmall Figurine %2$} {
+    log.warn Figurine! %2, item %1;
 }

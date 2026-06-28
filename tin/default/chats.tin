@@ -40,6 +40,9 @@
   #foreach $tells_blocklist blocked {
     log.debug checking blocklist, blocked=$blocked, actor=%1;
     #regexp {%1} {%i$blocked} {#var send_alert false};
+    #if {"$send_alert" == "false"} {
+      #break;
+    };
   };
 
   #if {"$send_alert" == "true"} {
@@ -51,16 +54,17 @@
     chats_refresh;
 
     #if {"$stepper" == "on"} {
+      log.info Sending email for tell from %1 with %2;
       send_email "Tell sent: %0";
       stepper off;
     };
   };
 }
 
-#action {^%!{[> ]*}%1 tells you: %2$} {
+#action {^%!{[> ]*}{[A-Z][a-z]+?} tells you: %2$} {
   #delay {tell_fallback_delay} {
     #if {$disable_chat_alerts != 1} {
-      log.warn Tell fallback being used instead of MIP;
+      log.debug Tell fallback being used instead of MIP;
       tell_handler %1 {%2};
     };
   } {1};
