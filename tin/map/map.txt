@@ -18,7 +18,7 @@ F 1048587
 
 G 0
 
-I 4825
+I 30346
 
 L {ASCII NESW LINE} {NO EXITS} {#}
 L {ASCII NESW LINE} {N} {o}
@@ -42352,7 +42352,7 @@ R {8162}{0}{<130>}{}{}{}{Tree of Life [Eek]}{note: metatron -> sword of spirit}{
 E {8143}{turnaway}{turnaway}{0}{0}{}{1.000}{}{0.00}
 E {9639}{light}{light}{0}{0}{}{1.000}{}{0.00}
 
-R {8163}{0}{}{fremen}{ }{}{}{}{}{}{1.000}{}
+R {8163}{0}{}{fremen}{ }{}{Fremen}{}{}{Aboard a spacing guild heighliner}{1.000}{}
 
 R {8164}{0}{<020>}{}{<020>X}{}{Fremen}{}{}{At the base of a dune (s,board ornithopter)}{1.000}{}
 E {8165}{s}{s}{4}{0}{}{1.000}{}{0.00}
@@ -89066,7 +89066,7 @@ R {18243}{0}{}{}{ }{}{Longshadow Camp [Andeddu]}{}{}{A rocky path (n)}{1.000}{}
 E {18241}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {18244}{w}{unlock door;open door;w}{8}{0}{}{1.000}{}{0.00}
 
-R {18244}{0}{<130>}{}{<130>!}{}{Longshadow Camp [Andeddu]}{note: orc warchief -> some bs armour?}{}{Inside a tent (e)}{1.000}{}
+R {18244}{0}{<130>}{}{<130>!}{}{Longshadow Camp [Andeddu]}{note: orc warchief -> battlesuit of the warchief}{}{Inside a tent (e)}{1.000}{}
 E {18243}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {18245}{0}{<130>}{}{<130>!}{}{Gamal Island [Lipscom]}{note: e -> ninjas}{}{Temple of the Dragon (w,e)}{1.000}{}
@@ -94433,7 +94433,7 @@ E {19432}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {19434}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {19456}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {19456}{0}{<acf>}{}{<acf>!}{}{}{special: 'enter trail' -> full heal in copse}{}{}{1.000}{}
+R {19456}{0}{<acf>}{}{<acf>!}{}{The Land v2.0 [Tiro]}{special: 'enter trail' -> full heal in copse}{}{Trothgard (n,e,w,s)}{1.000}{}
 E {19448}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {19451}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {19455}{e}{e}{2}{0}{}{1.000}{}{0.00}
@@ -122536,11 +122536,11 @@ E {24911}{n}{n}{1}{0}{}{1.000}{}{0.00}
 R {24911}{0}{<130>}{}{<130>!}{}{}{note: first mark bardol -> lore sword, lore staff}{}{}{1.000}{}
 E {24910}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {24912}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {24912}{0}{}{}{ }{}{The Land v2.0 [Tiro]}{}{}{A Dogwood Copse (enter,out)}{1.000}{}
 E {24913}{enter}{enter}{0}{0}{}{1.000}{}{0.00}
 E {19456}{out}{out}{0}{0}{}{1.000}{}{0.00}
 
-R {24913}{0}{<130>}{}{<130>!}{}{}{note: 'make meal' -> full heal}{}{}{1.000}{}
+R {24913}{0}{<130>}{}{<130>!}{}{The Land v2.0 [Tiro]}{note: 'make meal' -> full heal}{}{Waymeet (out)}{1.000}{}
 E {24912}{out}{out}{0}{0}{}{1.000}{}{0.00}
 
 R {24914}{0}{<020>}{}{<020>X}{}{}{exit: 'row boat'}{}{}{1.000}{}
@@ -163034,6 +163034,7 @@ E {32420}{play}{play}{0}{0}{}{1.000}{}{0.00}
 R {32420}{0}{<130>}{secz}{<130>!}{}{Section Z [Kikipopo]}{note: 'press start' to enter/begin; 'pause game' to leave; 'unpause game' to resume; 'enter <code>' to continue}{}{a title screen (exit)}{1.000}{}
 E {32419}{exit}{exit}{0}{0}{}{1.000}{}{0.00}
 E {32421}{press start}{press start}{0}{0}{}{1.000}{}{0.00}
+E {32420}{unpause game}{unpause game;#delay 1 unpause_sectionz}{0}{0}{}{1.000}{}{0.00}
 
 R {32421}{0}{}{secz_section_00}{ }{}{Section Z [Kikipopo]}{}{}{Section 00 (e,w,nw)}{1.000}{}
 E {32422}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
@@ -165488,48 +165489,48 @@ E {33822}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {36419}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {36420}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {32913}{0}{<020>}{banshees_lair}{<020>X}{}{}{}{}{}{1.000}{}
+R {32913}{0}{<020>}{banshees_lair}{<020>X}{}{Banshee's Lair [Revelation]}{}{}{Entrance to the Banshee's Lair (exit,enter)}{1.000}{}
 E {32851}{exit}{exit}{0}{0}{}{1.000}{}{0.00}
 E {32914}{enter}{enter}{0}{0}{}{1.000}{}{0.00}
 
-R {32914}{0}{<020>}{}{<020>X}{}{}{}{}{}{1.000}{}
+R {32914}{0}{<020>}{}{<020>X}{}{Banshee's Lair [Revelation]}{}{}{Entrance to the Banshee's Lair (s,e,out)}{1.000}{}
 E {32913}{out}{out}{0}{0}{}{1.000}{}{0.00}
 E {32915}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {32916}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {32915}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {32915}{0}{}{}{ }{}{Banshee's Lair [Revelation]}{}{}{Northern Arcane Hallway (w,e)}{1.000}{}
 E {32914}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {32917}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {32916}{0}{<130>}{}{<130>!}{}{}{note: 'ls markings' -> int requirement?}{}{}{1.000}{}
+R {32916}{0}{<130>}{}{<130>!}{}{Banshee's Lair [Revelation]}{note: 'ls markings' -> int requirement?}{}{Western Arcane Hallway (n,s)}{1.000}{}
 E {32914}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {32923}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {32917}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {32917}{0}{}{}{ }{}{Banshee's Lair [Revelation]}{}{}{Along the Northern Arcane Hallway (w,e)}{1.000}{}
 E {32915}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {32918}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {32918}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {32918}{0}{}{}{ }{}{Banshee's Lair [Revelation]}{}{}{Northeast Corner of the Arcane Hallways (w,s)}{1.000}{}
 E {32917}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {32919}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {32919}{0}{<130>}{}{<130>!}{}{}{note: 'ls markings', int requirement?}{}{}{1.000}{}
+R {32919}{0}{<130>}{}{<130>!}{}{Banshee's Lair [Revelation]}{note: 'ls markings', int requirement?}{}{Eastern Arcane Hallway (n,s)}{1.000}{}
 E {32918}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {32920}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {32920}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {32920}{0}{}{}{ }{}{Banshee's Lair [Revelation]}{}{}{Southeast Corner of the Arcane Hallways (w,n)}{1.000}{}
 E {32919}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {32921}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {32921}{0}{<130>}{}{<130>!}{}{}{note: magical barrier, needs to be dispelled}{}{}{1.000}{}
+R {32921}{0}{<130>}{}{<130>!}{}{Banshee's Lair [Revelation]}{note: magical barrier, needs to be dispelled}{}{Apex of Arcane Energy (e,w,d)}{1.000}{}
 E {32920}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {32922}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {32922}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {32922}{0}{}{}{ }{}{Banshee's Lair [Revelation]}{}{}{Southern Arcane Hallway (w,e)}{1.000}{}
 E {32921}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {32923}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {32923}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {32923}{0}{}{}{ }{}{Banshee's Lair [Revelation]}{}{}{Southwest Corner of the Arcane Hallways (n,e)}{1.000}{}
 E {32922}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {32916}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
@@ -169779,7 +169780,7 @@ R {33785}{0}{}{}{ }{}{}{}{}{}{1.000}{}
 E {33784}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {33816}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {33786}{0}{<020>}{necropolis}{<020>X}{}{Necropolis [Revelation]}{}{}{Entrance to the Necropolis (ne,w)}{1.000}{}
+R {33786}{0}{<020>}{necropolis}{<020>X}{}{Necropolis [Revelation]}{}{}{Entrance to the Necropolis (w,ne)}{1.000}{}
 E {32856}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {33986}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
 
@@ -170630,16 +170631,17 @@ E {30335}{s}{s}{4}{0}{}{1.000}{}{0.00}
 R {33985}{0}{<130>}{}{<130>!}{}{Terra's Terrific Treehouse [Quaker]}{note: 'insert seed' x 2, then 'plant hammer', 'chop tree', 'whittle ring'}{}{An empty garden (n)}{1.000}{}
 E {30384}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {33986}{0}{}{}{ }{}{Necropolis [Revelation]}{}{}{Pathway to the Necropolis (sw,n)}{1.000}{}
+R {33986}{0}{}{}{ }{}{Necropolis [Revelation]}{}{}{Pathway to the Necropolis (n,sw)}{1.000}{}
 E {33786}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 E {33987}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {33987}{0}{<110>}{}{<110>!}{}{Necropolis [Revelation]}{warn: n -> 214M aggro mob}{}{Gates to the Necropolis Graveyard (n,s)}{1.000}{}
+R {33987}{0}{<110>}{}{<110>!}{}{Necropolis [Revelation]}{warn: n -> 214M aggro mob}{}{Gates to the Necropolis Graveyard (s,n)}{1.000}{}
 E {33986}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {33988}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {33988}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {33988}{0}{<130>}{}{<130>!}{As you walk through the vast graveyards of the Necropolis, you can't help but feel like you're being watched. The wind howls and the frigid air becomes to penetrate your bones.  You stand amidst the gravestones that occupy almost every piece of available land. The light of the moon flickers as the clouds move through the sky. The presence of the dark priest causes your hairs to stand on end.}{Necropolis [Revelation]}{note: dark priest -> unholy tome of (stat)}{}{The Necropolis Graveyard (w,s,n)}{1.000}{}
 E {33987}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {40067}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
 R {33989}{0}{<130>}{perinth}{<130>!}{}{Der'Thalas [Tensor]}{note: perinth, say hi...say vesperia?}{}{Lower battlements (n)}{1.000}{}
 E {15336}{n}{n}{1}{0}{}{1.000}{}{0.00}
@@ -171553,7 +171555,7 @@ E {34200}{d}{d}{32}{1}{}{1.000}{}{0.00}
 R {34200}{0}{}{secz_section_47}{ }{}{Section Z [Kikipopo]}{}{}{Section 47 (n)}{1.000}{}
 E {34201}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {34201}{0}{}{}{ }{}{Section Z [Kikipopo]}{}{}{Section 47 (n,s,w)}{1.000}{}
+R {34201}{0}{}{}{ }{}{Section Z [Kikipopo]}{}{}{Section 47 (w,s,n)}{1.000}{}
 E {34200}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {34202}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {34203}{w}{w}{8}{0}{}{1.000}{}{0.00}
@@ -171561,12 +171563,12 @@ E {34203}{w}{w}{8}{0}{}{1.000}{}{0.00}
 R {34202}{0}{}{}{ }{}{Section Z [Kikipopo]}{}{}{Section 47 (s)}{1.000}{}
 E {34201}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {34203}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {34203}{0}{}{}{ }{}{Section Z [Kikipopo]}{}{}{Section 47 (e,w,nw)}{1.000}{}
 E {34201}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {34204}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 E {34206}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {34204}{0}{<130>}{}{<130>!}{}{}{note: u -> section 46, d -> section 50}{}{}{1.000}{}
+R {34204}{0}{<130>}{}{<130>!}{}{Section Z [Kikipopo]}{note: u -> section 46, d -> section 50}{}{Section 47 (d,se,u,s)}{1.000}{}
 E {34203}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {34184}{u}{u}{16}{0}{}{1.000}{}{0.00}
 E {34206}{s}{s}{4}{0}{}{1.000}{}{0.00}
@@ -171623,7 +171625,7 @@ E {34160}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 R {34216}{0}{}{}{ }{}{}{}{}{}{1.000}{}
 E {34214}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {34217}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {34217}{0}{}{}{ }{}{Section Z [Kikipopo]}{}{}{Section 51 (n)}{1.000}{}
 E {34213}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
 R {34218}{0}{<130>}{}{<130>!}{}{Section Z [Kikipopo]}{note: d -> section 52}{}{Section 51 (d,s)}{1.000}{}
@@ -190425,7 +190427,7 @@ E {38140}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {38124}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
 E {38139}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {38145}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+R {38145}{0}{}{}{ }{}{Celestial Zodiacs [Mimic]}{}{}{The Gallery (w,se,portal)}{1.000}{}
 E {38090}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {38092}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
@@ -198739,3 +198741,10 @@ E {38165}{e}{e}{2}{0}{}{1.000}{}{0.00}
 R {40066}{4104}{}{}{ }{}{Portal of Life v2.0 [Keeble]}{}{}{Forest of Despair (s,se,sw,ne,n)}{1.000}{}
 E {6521}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {6523}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {40067}{0}{}{}{ }{}{Necropolis [Revelation]}{}{}{The Necropolis Graveyard (e,w,n)}{1.000}{}
+E {33988}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {40068}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {40068}{0}{}{}{ }{}{Necropolis [Revelation]}{}{}{The Necropolis Graveyard (e,n)}{1.000}{}
+E {40067}{e}{e}{2}{0}{}{1.000}{}{0.00}

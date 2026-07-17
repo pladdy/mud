@@ -212,7 +212,12 @@
 
 #nop Section Z;
 
+#alias unpause_sectionz {
+  #map goto $sectionz_pause_room;
+}
+
 #action {^%!{[> ]*}You press PAUSE on the game, saving the rest for later.$} {
+  #var sectionz_pause_room $map[current_room];
   #map goto 32419;
 }
 

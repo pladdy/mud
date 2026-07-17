@@ -297,3 +297,13 @@
   log.warn A colossus spawned: $map[current_room] $map[room_info][data];
   sound_beeps;
 }
+
+#nop Necropolis
+
+#action {^A Shadowfiend steps through the rift to aid the Dark Priest.$} {
+  #send !kill fiend;
+}
+
+#action {transforms into a state of feigned death.$} {
+  #send !burn remains;
+}
