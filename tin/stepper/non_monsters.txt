@@ -16,7 +16,7 @@
 %+'s%+Droid
 a %+ of %+ broodling
 # changeling followers
-a .+ (asp caterpillar)|gopher|(grizzly bear)|owlet|platypus|(puddle of slime)|scropion|(tasmanian devil)|termite|(wandering spider)
+a .+ (asp caterpillar)|gopher|(grizzly bear)|owlet|platypus|(puddle of slime)|scropion|(tasmanian devil)|termite|(wandering spider)|toaster
 a .+ (komodo dragon)
 # jugger followers
 a (cargo truck|jeep) named|jugger support mech

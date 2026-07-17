@@ -94,17 +94,15 @@
   #regexp {%0} {rimalkin} {#var transform_mob rimalkin};
   #regexp {%0} {duke} {#var transform_mob duke};
   #regexp {%0} {%d of hearts} {#var transform_mob card};
-  #regexp {%0} {lama of} {#var transform_mob lama};
-  #regexp {%0} {shaman of} {#var transform_mob shaman};
-  #regexp {%0} {guardian of} {#var transform_mob guardian};
-  #regexp {%0} {lost soul of} {#var transform_mob soul};
+  #nop celestial zodiacs: lama of, shaman of, etc.;
+  #regexp {%0} {{\w+} of } {#var transform_mob &1};
+  #regexp {%0} {knight's grand champion} {#var transform_mob elf};
 
-  #nop knight horses map to 'horse' so you don't want to attack 'horse' in case;
-  #nop the mount is last in the room;
+  #nop knight horses map to 'horse': don't attack 'horse' if mount is last in room;
   #regexp {%0} {%+ horse%*} {#var transform_mob &0};
   #nop don't attack 'golem', could be a mage golem;
   #regexp {%0} {golem} {#var transform_mob %0};
-  
+
   #if {"$transform_mob" != "false"} {
     #return $transform_mob;
   };
@@ -121,6 +119,7 @@
       #replace {transform_mob} {{.+} {.+}$} {&2};
     };
   };
+
   #return $transform_mob;
 }
 

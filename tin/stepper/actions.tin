@@ -45,6 +45,14 @@
 
   log.debug mob_on_blacklist? $mob_on_blacklist;
 
+  #nop handle mobs with immunities;
+  #regexp {%1} {(crackling)} {
+    #if {"$guild" == "monks"} {
+      log.warn Switching chifocus, mob is immune to static;
+      #send !chifocus normal;
+    };
+  };
+
   #if {"$mob_on_blacklist" == "false"} {
     _transform_monster_name %1;
     #list {seen_monsters} {find} {$monster_name} {index_if_seen};
@@ -120,4 +128,13 @@
 #action {^%!{[> ]*}The Warrior of the Mist stands before you, blocking your progress.} {
   log.warn Movement blocked, trying to step again;
   take_a_step;
+}
+
+#action {^%!{[> ]*}There are no other challenge partners available right now.$} {
+  log.info No more challenge knights, removing stepper path steps.;
+  #if {"$stepper" == "on"} {
+    #while {"$stepper_path[1]" == "challenge" || "$stepper_path[1]" == "glance"} {
+      #list stepper_path delete 1;
+    }
+  }
 }

@@ -94,6 +94,13 @@
 
 #alias before_step_hook {#nop;}
 
+#alias add_challenge_knight_steps {
+  #loop 1 6 loop {
+    #list stepper_path insert 1 glance;
+    #list stepper_path insert 1 challenge;
+  };
+}
+
 #alias keep_cardinal_dirs {
   #list cardinal_exits clear;
 
@@ -243,7 +250,7 @@
     #var dir_to_go $stepper_path[1];
     #list stepper_path delete 1;
     #var step_dir $dir_to_go;
-    log.info Using stepper path to move;
+    log.debug Using stepper path to move;
     _go_in_dir;
     #if {$stepper_path_length == 1} {
       #nop TODO handle this better...;
