@@ -4,7 +4,7 @@
   #local min_seconds 10;
   #math rando {1 d 30};
   #math regen_time {$min_seconds + $rando};
-
+  #send !meditate;
   #delay {reactivate_stepper} {
     log.info "Re-activating stepper after regen time: $regen_time seconds.";
     stepper on;
@@ -133,10 +133,14 @@
   #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {
     log.warn Disabling stepper to regen mind.  Mind: $gp2, Stepper: $stepper;
     stepper off;
+    #if {$enemy > 0} {dtrig _rest_then_enable_stepper};
+    #else {_rest_then_enable_stepper};
   };
   #elseif {$corpses < 1 && "$stepper" == "on"} {
     log.warn Disabling stepper due to low corpses;
     stepper off;
+    #if {$enemy > 0} {dtrig _rest_then_enable_stepper};
+    #else {_rest_then_enable_stepper};
   };
   #else {
     #format {current_time} {%T};

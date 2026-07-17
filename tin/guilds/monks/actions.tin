@@ -39,8 +39,8 @@
 
 #action {^%!{[> ]*}Your inner energies are too tapped to repeat this action.$} {
   #if {"$stepper" == "on"} {
-    log.warn No focus left, disabling stepper;
-    stepper off;
+    #nop log.warn No focus left, disabling stepper;
+    #nop stepper off;
   };
 }
 
