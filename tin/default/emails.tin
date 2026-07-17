@@ -2,8 +2,13 @@
   #read email.tin;
   #if {"$EMAIL_ADDR" != "your@email.here"} {
     log.info Sending email with "%0";
-    #script {content} {EMAIL_USER=$EMAIL_USER EMAIL_ADDR=$EMAIL_ADDR bin/email '%0' &};
+    #var body {%0};
+    #replace {body} {'} {'"'"'};
+    log.debug Sending email body of '$body';
+    #script {content} {EMAIL_USER=$EMAIL_USER EMAIL_ADDR=$EMAIL_ADDR bin/email '$body' &};
+    log.info Email set: $content;
     #unvar EMAIL_USER;
     #unvar EMAIL_ADDR;
+    #unvar body
   };
 }

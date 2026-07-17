@@ -38,7 +38,7 @@
     #if {"$auction[max]" == ""} {#var auction[max] 2500};
 
     #if {"$auction[seller]" != "$character"} {
-        #nop send_email $auction[item] is being auctioned;
+        send_email $auction[item] is being auctioned;
         #foreach { $auction[allow][%*] } {allowed_item} {
             #if {"$allowed_item" != ""} {
                 #regexp {$auction[item]} {%i$allowed_item} {

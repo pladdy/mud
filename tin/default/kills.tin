@@ -154,8 +154,9 @@
   commands_before_corpse;
 
   #if {"$ktrig_status" == "on"} {
-    log.debug checking $last_killer against killers ($character|$summons|$my_dog|tree) that can use corpse;
-    #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree|$last_killed}} {
+    #local valid_killers {$character|$summons|$my_dog|tree|shadowbound follower};
+    log.debug checking $last_killer against killers ($valid_killers) that can use corpse;
+    #regexp {$last_killer} {%i{$valid_killers}} {
       wrap_or_use_corpse;
       _divvy_and_get;
     };

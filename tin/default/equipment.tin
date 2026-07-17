@@ -19,8 +19,10 @@
 }
 
 #action {Skipping: %1 will bind on pickup.$} {
-  log.warn Bindy item: %1 at $map[current_room] $map[room_info][data];
+  #local message {Bindy item: %1 at $map[current_room] $map[room_info][data]};
+  log.warn $message;
   sound_beeps;
+  #if {"$stepper" == "on"} {send_email $message};
 }
 
 #action {^%!{[> ]*}You keep *A plastic ice kream spoon.$} {

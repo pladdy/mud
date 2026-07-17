@@ -26,3 +26,7 @@
   #send !home;
   #map move home;
 }
+
+#action {^Out of nowhere a crazed hockey fan leaps towards the Cup. The fan is struck$} {
+  use_corpse;
+}
