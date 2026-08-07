@@ -53,6 +53,4 @@
     };
 }
 
-#action {^%!{[> ]*}O: %1 %s%2%s:%sSmall Figurine %2$} {
-    log.warn Figurine! %2, item %1;
-}
+#highlight {^%!{[> ]*}O: %1 %s%2%s:%sSmall Figurine %2$} {underscore <faf>}
