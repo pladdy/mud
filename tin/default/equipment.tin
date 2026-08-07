@@ -41,3 +41,15 @@
   log.warn Soul drinker is full, time to 'grip blade' and blick something.;
   sound_beeps
 }
+
+#alias murmur_name {
+  #format {murmur} {%r} {$character};
+  #replace {murmur} {a} {-};
+  #replace {murmur} {e} {-};
+  #replace {murmur} {i} {-};
+  #replace {murmur} {o} {-};
+  #replace {murmur} {u} {-};
+  #replace {murmur} {s} {zz};
+  #var murmur {$murmur}zz;
+  #send !murmur $murmur;
+}
