@@ -1,0 +1,33 @@
+stepper_run westersea_slum
+w
+w
+w
+w
+w
+w
+w
+s
+s
+e
+e
+e
+e
+e
+e
+e
+n
+w
+w
+w
+w
+w
+w
+stepper_run 9865
+w
+w
+w
+w
+w
+w
+w
+w

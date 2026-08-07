@@ -38,6 +38,8 @@
     #if {$stepper_path_length == 0} {
       log.warn No path loaded, turning stepper off;
       #delay {1} {stepper off};
+      log.info Possible paths:;
+      print_system_output ls tin/stepper/paths;
     };
     #else {
       log.info Loaded $stepper_path_length stepper_path rooms;
@@ -302,7 +304,7 @@
 }
 
 #alias ttl_no_monsters {
-  #local TTL 60;
+  #local TTL 120;
   #local ticker_name ttl_no_monsters;
 
   #if {"%0" == "on"} {

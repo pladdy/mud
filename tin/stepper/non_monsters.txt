@@ -49,5 +49,5 @@ an? (disfigured (jackalwere|weretiger)|disgusting carrion crawler|enormous 8-hea
 (beautiful chimera)|(majestic gryphon)|(mystic unicorn)
 zelligar
 # celstial zodiacs
-a shadowbound follower|guardian spirit
+a shadowbound follower|guardian spirit|a charmed follower
 permit officer

@@ -3,6 +3,7 @@
 }
 
 #var blocked_rooms[37270] {exit of celestial zodiacs};
+#var blocked_rooms[40163] {exit into dundee hunters camp};
 
 #function least_visited_room {
   #local i 0;
@@ -96,6 +97,7 @@
   #regexp {%0} {%d of hearts} {#var transform_mob card};
   #nop celestial zodiacs: lama of, shaman of, etc.;
   #regexp {%0} {{\w+} of } {#var transform_mob &1};
+  #regexp {%0} {bloodseer } {#var transform_mob bloodseer};
   #regexp {%0} {knight's grand champion} {#var transform_mob elf};
 
   #nop knight horses map to 'horse': don't attack 'horse' if mount is last in room;

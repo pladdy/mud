@@ -293,8 +293,33 @@
   sound_beeps;
 }
 
+#action {^>>> THE DARKNESS TEARS OPEN <<<$} {
+  log.warn Portal opened in room $map[current_room] $map[room_info][data];
+  sound_beeps;
+}
+
 #action {^>>> A COLOSSAL MONSTROSITY STOMPS INTO VIEW <<<$} {
   log.warn A colossus spawned: $map[current_room] $map[room_info][data];
+  sound_beeps;
+}
+
+#action {^>>> A HORRIFIC ABOMINATION TEARS INTO EXISTENCE <<<$} {
+  log.warn An abomination spawned: $map[current_room] $map[room_info][data];
+  sound_beeps;
+}
+
+#nop exit from aeonos room;
+#action {^The feeling of power and reverence you felt while swimming in the$} {
+  #map goto 37270;
+}
+
+#nop exit from zephyrak room;
+#action {^The light engulfs you and the darkness shatters. You slam into solid} {
+  #map goto 37270;
+}
+
+#action {^A charmed follower appears and begins to follow you.$} {
+  log.warn A CZ follower is summoned;
   sound_beeps;
 }
 

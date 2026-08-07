@@ -103,7 +103,7 @@
 #action {^{[> ]*}%1: Ok.$} {
   #if {"$stepper" == "on"} {
     #local item %1;
-    log.info Picked up item: $item;
+    log.debug Picked up item: $item;
     #regexp {$item} {green capsule} {#send !compress green capsule};
     #regexp {$item} {bronze key} {#send !keep key};
     #regexp {$item} {dense wooden hammer} {#send !keep hammer};
