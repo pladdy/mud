@@ -28,3 +28,5 @@
 #action {^%!{[> ]*}You feel less awesomesauce.$} {
   #send !pheal 2000 surge;
 }
+
+#highlight {^Your powers overwhelm your target!$} {light blink Violet}

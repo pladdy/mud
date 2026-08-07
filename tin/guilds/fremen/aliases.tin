@@ -143,8 +143,8 @@
 #alias _regen_for_litany {
   #if {"$stepper" == "on"} {
     #var stepper_was_on true;
-    stepper off;
     log.info Creating delay 'reactivate_stepper' to regen;
+    stepper off;
   };
 
   #local min_seconds 100 - $litany_focus_pct;
@@ -159,7 +159,10 @@
 }
 
 #alias check_stepper {
-  #if {$corpses < 1 && "$stepper" == "on"} {stepper off};
+  #if {$corpses < 1 && "$stepper" == "on"} {
+    log.info Disabling stepper due to low corpses;
+    stepper off;
+  };
   #elseif {$litany_focus_pct < 50} {
     #if {"$stepper" == "on" && $enemy == 0} {
       _regen_for_litany;
@@ -173,6 +176,7 @@
     #math {time_since_stepper_started} {$current_time - $stepper_started};
 
     #if {"$stepper" == "on" && $time_since_stepper_started > 750} {
+      log.info Disabling stepper to rest;
       stepper off;
 
       log.info Creating delay 'reactivate_stepper' to activate stepper after regen.;

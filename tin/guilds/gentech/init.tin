@@ -1,1 +1,4 @@
 #var summons {$character v3.0};
+
+#gag {^Your genetic arm strike misses.$}
+#gag {^Your genetic arm strikes}
