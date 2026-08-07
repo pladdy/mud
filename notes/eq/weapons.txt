@@ -25,3 +25,8 @@ Armour Weapons:
   Shansabyk Castle: galmog hide reflects damage
                     ring of thunderbolts, does one big hit
   Dragon Isle: octochromatic, main, scales can do dmg
+  Lost knights arena: shield can 'bash', almost 1k dmg at 275 str
+
+Notes:
+  - don't try to buff/change mythic knight shield, it won't work well and may
+    lower WC permanently
