@@ -1,7 +1,7 @@
 #alias mip_combat_hook {
+    attempt_slow;
     attempt_mystic_immersion;
     attempt_explosive_release;
-    attempt_slow;
     attempt_haste;
     attempt_monstrous_fortitude;
     attempt_pws;

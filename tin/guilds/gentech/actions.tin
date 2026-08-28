@@ -30,3 +30,27 @@
 }
 
 #highlight {^Your powers overwhelm your target!$} {light blink Violet}
+
+#alias _handle_energy_immune {
+  log.warn energy immune mob, switching damage type;
+  fi;
+  dtrig en;
+}
+
+#action {^%!{[> ]*}%1 (pulsing).} {
+  _handle_energy_immune
+} {2}
+
+#action {^%!{[> ]*}[M] %1 (pulsing).} {
+  stepper_monster_trigger {%1};
+  _handle_energy_immune
+} {1}
+
+#action {^%!{[> ]*}Spectral Guardian} {
+  _handle_energy_immune
+}
+
+#action {^%!{[> ]*}[M] Spectral Guardian} {
+  stepper_monster_trigger {%0};
+  _handle_energy_immune
+}

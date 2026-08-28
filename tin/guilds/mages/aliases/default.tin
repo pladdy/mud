@@ -51,7 +51,7 @@
 }
 
 #alias attempt_slow {
-  #if {$rounds_in_combat > 0 && $slowed != 1 && @combat_rounds_left{} > 10} {
+  #if {$rounds_in_combat > 0 && $slowed != 1 && @combat_rounds_left{} > 5} {
     #send !cast slow
   };
 }
@@ -122,8 +122,8 @@
     #nop  TODO: make a function to check if last killer is me?;
     #regexp {$last_killer} {%i{$character|$summons|$my_dog|tree}} {
       tap_corpse
-    }
-  }
+    };
+  };
   #var mage_golem_defending false;
 }
 

@@ -61,7 +61,7 @@
     #if {"$use_psphere" == "true"} {
       #delay {30} {#send !cast greater contingency as prismatic sphere#500#cast prismatic sphere};
     };
-    #nop TODO: replace with mantle
+    #nop TODO: replace with mantle;
     #delay {30} {#send !cast greater contingency as armor#cast armor};
   };
   #else {
@@ -140,7 +140,7 @@
 }
 
 #alias _summon_ms_offense {
-  #send !cast summon config as monster summoning 6##$offense_summon_count#2000#50#assist#offense;
+  #send !cast summon config as monster summoning 6#ogre magi#$offense_summon_count#2000#50#assist#offense;
 }
 
 #alias sumup {
@@ -164,7 +164,7 @@
   #nop it seems if everyone is defending, the count has to be lowered by 1;
   #math defense_summon_count {$offense_summon_count - 1};
   #send !cast summon config as create golem##1#1000#100#defend#defense;
-  #send !cast summon config as monster summoning 6##$defense_summon_count#2000#50#defend#offense;
+  #send !cast summon config as monster summoning 6#ogre magi#$defense_summon_count#2000#50#defend#offense;
   #send !cast summon config activate;
   _post_summon_actions;
 }

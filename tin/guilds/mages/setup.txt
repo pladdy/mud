@@ -5,15 +5,16 @@ eq -hide hands
 eq -hide head
 
 alias .login jump/study spellbook/cast monitor/cast mindblank/0/cast activate combat
-alias 0 cast perform as 600/cast disintegrate
-alias 1 cast perform as 400/cast lightning bolt
-alias 2 cast perform as 400/cast cone of cold
-alias 3 cast perform as 400/cast clenched fist
-alias 4 cast perform as 600/cast venomous spray
-alias 5 cast perform as 600/cast prismatic spray
-alias 6 cast perform as 600/cast disintegrate
+
+alias 0 cast perform as 1000/cast implosion
+alias 1 cast perform as 1000/cast lightning bolt
+alias 2 cast perform as 1000/cast cone of cold
+alias 3 cast perform as 1000/cast venomous spray
+alias 4 cast perform as 1000/cast prismatic spray
+alias 5 cast perform as 1000/cast disintegrate
+alias 6 cast perform as 1000/cast implosion
+
 alias a ptell
-alias aa cast acid arrow
 alias ac cast activate combat
 alias adv advance
 alias an anchor
@@ -21,7 +22,6 @@ alias ar cast armor
 alias bl cast blink
 alias c cast
 alias cb cast corpse blast
-alias cf cast clenched fist
 alias ch cast charm monster
 alias cm cast charm monster
 alias co cast confusion

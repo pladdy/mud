@@ -15,6 +15,15 @@
   #var focus {%3};
 }
 
+#action {^ Combat Method: %1 } {
+  #var monks[method] %1;
+  #format {monks[method]} {%l} {$monks[method]};
+}
+
+#action {^and settle in on the fighting method of the %1.$} {
+  #var monks[method] %1;
+}
+
 #action {^%!{[> ]*}Your inner energies are too tapped to repeat this action.$} {
   #var {focus} {0};
 }
@@ -86,4 +95,22 @@
 
 #action {^An alien arrives to help.$} {
   #send !pr alien;
+}
+
+#nop mob specific actions while stepping;
+#action {^%!{[> ]*}[M] %1 (psychic)} {
+  log.warn mind immune mob, switching damage type;
+  #send !chifocus static;
+}
+
+#action {^%!{[> ]*}[M] %1 (crackling)} {
+  log.warn mind immune mob, switching damage type;
+  #nop prefer static so dtrig;
+  #send !chifocus thought;
+  dtrig {chifocus static};
+}
+
+#action {^%!{[> ]*}[M] %1 (infernal)} {
+  log.warn blunt immune mob, switching damage type;
+  #send !chifocus static;
 }

@@ -118,8 +118,8 @@
 #alias before_step_hook {
   #math pct_sp {$sp / $sp_max * 1.0};
 
-  #if {$pct_sp < .50} {
-    log.info Disabling stepper to regen spell points;
+  #if {$pct_sp < .50 || $gp2 < $MIN_MIND} {
+    log.info Disabling stepper to regen sp or mind;
     stepper off;
     #delay {2} {#send !meditate};
     #delay {30} {
@@ -200,11 +200,23 @@
 
 #alias mip_combat_hook {
   #if {$gp2 < $MIN_MIND} {#showme <110>Mind is low!};
-  #local MIN_SP 100;
+  #local MIN_SP 150;
   #if {$sp < $MIN_SP && $corpses > 0 && $rounds_in_combat > 0} {resp};
 
-  #if {$sp < $MIN_SP && $corpses > 0 && $rounds_in_combat > 0} {
-    #nop #send !method crane;
+  #local MIN_FOCUS 40;
+  #if {"$stepper" == "on" &&
+       ($sp < $MIN_SP || $focus < $MIN_FOCUS) &&
+       $rounds_in_combat > 0 &&
+       "$monks[method]" != "crane"} {
+      mtc;
+  };
+
+  #if {"$stepper" == "on" &&
+      $sp >= $sp_max &&
+      $focus >= 100 &&
+      $rounds_in_combat > 0 &&
+      "$monks[method]" != "phoenix"} {
+    mtp;
   };
 
   attempt_enervate;
@@ -216,8 +228,10 @@
 }
 
 #alias mip_gline1_hook {
-  #nop <cMethod>: <ySerpent>    <cCrits>: <gOn>    <cStun>: <gOn>    <cHide>: <rOFF>;
+  #nop <cMthd>: <yPhoenix>    <cC>: <gOn>    <cS>: <gOn>    <cH>: <rOFF>    <cD>: <gOn>;
   #local data %0;
+  #regexp {<cMthd>: <yPhoenix> } {<cMthd>: <[a-z]{.+?}>} {#var $monks[method] &2};
+  #format {monks[method]} {%l} {$monks[method]};
 }
 
 #alias mip_gline2_hook {

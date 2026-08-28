@@ -40,3 +40,20 @@
 #action {^%!{[> ]*}$MAGE_FAMILIAR says: Woa, wtf?!  Where'd you go?$} {
   #var mage_familiar_present true;
 }
+
+#nop stepper/area specific actions
+#action {^%!{[> ]*}[M] %1 (adamant)} {
+  stepper_monster_trigger {%0};
+  log.warn energy immune mob, switching damage type;
+  #send !cast perform as 1000/cast disintegrate;
+  dtrig #send !cast perform as 1000/cast implosion;
+} {1}
+
+#action {^%!{[> ]*}[M] Lost Soul of the Zodiac} {
+  stepper_monster_trigger {%0};
+  #delay 2 {
+    log.warn Lost soul in room, trying to target;
+    #send !kill soul;
+    #send !po soul;
+  };
+} {1}

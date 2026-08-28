@@ -66,6 +66,14 @@
 #alias cona {conform_bias attack %1;}
 #alias cond {conform_bias defense %1;}
 
+#alias el {
+  #send !switchddb voltage;
+  #send !switch shocker;
+  #send !aset synthorg yellow;
+  #send !aset ddb yellow;
+  #send !=swap voltage;
+}
+
 #alias en {
   #send !switchddb sonic;
   #send !switch sonicator;
