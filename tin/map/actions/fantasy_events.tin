@@ -253,6 +253,11 @@
 
 #nop  Taslen;
 
+#alias _taslen_gangplank {
+  #send !gangplank;
+  #map goto $taslen_gangplank_exit;
+}
+
 #action {^You see land appear far to the east.$} {
   #if {$map[current_room] == 21069} {
     #var taslen_gangplank_exit taslen_east;
@@ -284,27 +289,32 @@
 #nop Celestial Zodiacs
 
 #action {^The stars align and your celestial insight reveals the creation of a portal to the unknown.$} {
-  log.warn Portal opened in room $map[current_room] $map[room_info][data];
+  #format cz_time {%t} {%Y-%m-%d %H:%M:%S};
+  log.warn $cz_time: Portal opened in room $map[current_room] $map[room_info][data];
   sound_beeps;
 }
 
 #action {^>>> THE STARS ALIGN <<<$} {
-  log.warn Portal opened in room $map[current_room] $map[room_info][data];
+  #format cz_time {%t} {%Y-%m-%d %H:%M:%S};
+  log.warn $cz_time: Portal opened in room $map[current_room] $map[room_info][data];
   sound_beeps;
 }
 
 #action {^>>> THE DARKNESS TEARS OPEN <<<$} {
-  log.warn Portal opened in room $map[current_room] $map[room_info][data];
+  #format cz_time {%t} {%Y-%m-%d %H:%M:%S};
+  log.warn $cz_time: Portal opened in room $map[current_room] $map[room_info][data];
   sound_beeps;
 }
 
 #action {^>>> A COLOSSAL MONSTROSITY STOMPS INTO VIEW <<<$} {
-  log.warn A colossus spawned: $map[current_room] $map[room_info][data];
+  #format cz_time {%t} {%Y-%m-%d %H:%M:%S};
+  log.warn $cz_time: A colossus spawned: $map[current_room] $map[room_info][data];
   sound_beeps;
 }
 
 #action {^>>> A HORRIFIC ABOMINATION TEARS INTO EXISTENCE <<<$} {
-  log.warn An abomination spawned: $map[current_room] $map[room_info][data];
+  #format cz_time {%t} {%Y-%m-%d %H:%M:%S};
+  log.warn $cz_time: An abomination spawned: $map[current_room] $map[room_info][data];
   sound_beeps;
 }
 
