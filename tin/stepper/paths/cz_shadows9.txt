@@ -53,4 +53,6 @@ se
 e
 ne
 sw
+w
 enter
+d

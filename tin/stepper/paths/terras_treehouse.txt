@@ -21,6 +21,27 @@ get seed
 keep seed
 d
 n
+sw
+u
+pick fruit
+get seed
+keep seed
+d
+ne
+nw
+u
+pick fruit
+get seed
+keep seed
+d
+se
+n
+u
+pick fruit
+get seed
+keep seed
+d
+s
 se
 sw
 s
@@ -56,6 +77,27 @@ get seed
 keep seed
 d
 n
+n
+u
+pick fruit
+get seed
+keep seed
+d
+s
+ne
+u
+pick fruit
+get seed
+keep seed
+d
+sw
+se
+u
+pick fruit
+get seed
+keep seed
+d
+nw
 sw
 se
 s
@@ -81,9 +123,3 @@ ne
 ne
 e
 bow
-insert seed
-insert seed
-plant hammer
-chop tree
-whittle ring
-get all

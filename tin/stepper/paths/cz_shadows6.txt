@@ -36,7 +36,9 @@ ne
 n
 ne
 n
+ne
 w
+sw
 s
 se
 e

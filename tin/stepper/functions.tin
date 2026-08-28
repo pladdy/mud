@@ -3,7 +3,8 @@
 }
 
 #var blocked_rooms[37270] {exit of celestial zodiacs};
-#var blocked_rooms[40163] {exit into dundee hunters camp};
+#var blocked_rooms[40163] {exit swamp 1 into dundee hunters camp};
+#var blocked_rooms[40172] {exit swamp 2 into dundee hunters camp};
 
 #function least_visited_room {
   #local i 0;

@@ -37,21 +37,13 @@
 
 #nop Monster trigger;
 
-#action {^%!{[> ]*}[M] %1} {
+#alias stepper_monster_trigger {
   log.debug monster trigger firing;
 
   set_under_attack %1;
   #local mob_on_blacklist {@mob_is_blacklisted{%1}};
 
   log.debug mob_on_blacklist? $mob_on_blacklist;
-
-  #nop handle mobs with immunities;
-  #regexp {%1} {(crackling)} {
-    #if {"$guild" == "monks"} {
-      log.warn Switching chifocus, mob is immune to static;
-      #send !chifocus normal;
-    };
-  };
 
   #if {"$mob_on_blacklist" == "false"} {
     _transform_monster_name %1;
@@ -61,6 +53,10 @@
       #list {seen_monsters} {add} {$monster_name};
     };
   };
+}
+
+#action {^%!{[> ]*}[M] %1} {
+  stepper_monster_trigger {%1};
 }
 
 #nop Prompt;
@@ -83,15 +79,27 @@
 
 #action {^[P] %1} {
   log.debug Tracker found player present, player %1;
-  #var player_present {true};
-  #if {"$stepper" == "on"} {
-    sound_beeps;
-    #delay player_present_delay {
-      #if {"$player_present" == "true"} {
-        log.warn Player still present!  Trying to move.;
-        take_a_step;
-      };
-    } 5;
+  #format {player} {%l} {%1};
+  #var skip_player false;
+
+  #foreach { $stepper_party[%*] } {party_player} {
+    #regexp {$player} {$party_player} {
+      log.debug Party member, skipping;
+      #var skip_player true;
+    };
+  };
+
+  #if {"$skip_player" == "false"} {
+    #var player_present {true};
+    #if {"$stepper" == "on"} {
+      sound_beeps;
+      #delay player_present_delay {
+        #if {"$player_present" == "true"} {
+          log.warn Player still present!  Trying to move.;
+          take_a_step;
+        };
+      } 5;
+    };
   };
 }
 

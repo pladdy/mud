@@ -446,3 +446,4 @@ n
 ne
 sw
 enter
+d
