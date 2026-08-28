@@ -20,4 +20,5 @@ Obsidian Serpent - neutral - 7.9M - Venomous serpent serum = +1 penetration
 Quartz Specter - evil - 8.8M - Ephemeral echoes elixir = +1 lore
 Spectral Guardian - neutral - 10.3M - Elysian effervescence = +1 maintenance
 Stonebound Enchantress - neutral - 7.8M - Shadowmeld brew = +1 dodge
+ - drink after trix boost (including +1 from rabbit) to get 16 dodge
 Stoneform Mimic - neutral - 9.9M - Phoenix flame elixir = +1 fleecing

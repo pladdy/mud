@@ -1,6 +1,26 @@
+# Westersea
+
 ## NPCs
 
 NPCs that can give you tasks respond to 'say work' and 'say complete'
+- tinny the guard
+- timmy the guard
+- captain mayne
+- the board at the center of westersea has tasks
+
+The work gives you reps to enter the city and unlock more missions.
+- need 100k reps to finish unwelcome visitor mission line
+
+Start with sewer clean up and getting rusty lock boxes from Lucas Lockhart
+- need lockpicking level 5 to pick sewer grates
+
+To pick sewer gates to get in and out of sewer you need lockpicking 5
+
+## Solarpeak skills
+
+Persuasion
+- buy things in town like from bern and persuasion skill can go up?
+- can give you a discount on stuff you buy...
 
 ## Lock boxes
 
@@ -8,12 +28,13 @@ NPCs that can give you tasks respond to 'say work' and 'say complete'
 - locking picking levels required for more advanced lock boxes
 
 - rusty lockbox, 
-  - no sxp after lvl 10
+  - no sxp after lvl 10 (0-10 gives xp)
   - in sewer, 'exchange' at lucas lockhart
   - yield one reagent
-- worn lockbox, 
-  - requires and gives sxp levels 10-20
+- worn lockbox
+  - requires and gives sxp levels 8-20
   - in west slums, can give multiple glowing items
+    - also lucas lockhart exhcanges them for 3 glowing bits in sewer
   - can give fishing supplies
 - hard iron lockbox
   - requires and gives sxp levels 20-30
@@ -36,7 +57,23 @@ Lockboxes can contain
 - rotten meat (sewer bits for lockhart?)
 - ring of spell turning
 
-## Page seven, A.Q.
+### Burnt piece of paper
+
+I think i found this in westersea slums, maybe about soul beads and a flask?
+
+| dd Urch   fi  t.
+|  mmer.
+|Si   r.
+|   l.
+|A d  gg.
+|Add ess     bead.
+|S  r.
+|
+|Store    crud   lass fl  k.
+
+### Pages
+
+#### Page seven, A.Q.
 
 ```
 |*-*-*-*-*- Potion of Brute Force -*-*-*-*-*-*
@@ -62,7 +99,387 @@ Lockboxes can contain
 |*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 ```
 
+#### Page eleven, A.Q.
+
+|*-*-*-*-*-*- Potion of Dexterity -*-*-*-*-*-*
+||                                           |
+|*  To enhance one's dexterity, one needs to *
+||  drink a potion following these exact     |
+|*  instructions:                            *
+||                                           |
+|*  1 Add a blue moonfish scale. (Note that  *
+||    the size of the scale can differ and   |
+|*    different containers might be needed)  *
+||  2 Add a flask of water.                  |
+|*  3 Simmer the mixture.                    *
+||  4 Grind any remaining harsh bits.        |
+|*  5 Add a Grahl root.                      *
+||  6 Cool the mixture.                      |
+|*  7 Add an essence bead.                   *
+||  8 Store the mixture in a crude glass     |
+|*    flask.                                 *
+||                                    - A.Q. |
+|*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+## Missions
+
+Go to NPC and 'say work'
+'say complete' when finished
+
+### Tinny missions
+
+#### Sewer cleanup
+
+- repeatable
+- 250 reps
+- 2,500 coins
+- 25,000 xp
+
+#### Scout for the town
+
+25,000 reps:
+- mountain range : mountain to north of westersea (go east, it's hidden)
+- southern camp : soldier cap south of westersea
+
+#### Scout the realm
+
+20,000 reps
+- winter wasteland : medlar
+- desert temple : temple of drakonus area in desert fantasy
+- faeries : faerie glade
+
+### Captain Mayne missions
+
+#### Grab guard reports
+
+- grab reports off desks in the ramparts
+- 2,500 coins
+- 100,000 xp
+- 4,000 reps
+
+#### Find the lieutenant
+
+Located in se corner of westersea slums
+
+- 1,000 reps
+- 1,000 gold
+- 175,000 xp
+
+#### Slum cleanup
+
+- repeatable
+- 1,000 reps
+- 5,000 gold
+- 200,000 xp
+
+#### Inform the widow
+
+Go to weave poll and say husband, then death
+- 1,000 reps
+- eavesdropping mission
+
+#### Eavesdropping
+
+Go to waterway under merchant, 'listen'
+- 1,000 reps
+- 2,500 gold
+- 400,000 xp
+
+#### Slay dotar
+
+- find dotar in bottom of sewer
+- has 
+
+### Tommy missions
+
+#### An unwelcome visitor
+
+- go to lady anne (polle), 'say ivar cutters'
+- need 100k reps, then go to sir michael oxtrott 'say jan trotters'
+- to go to asthon nibble, say tom fablepott
+- kill ashton nibble
+- complete
+- 2,000 reps
+- 7,500 gold
+- 300,000 xp
+- give note to tommy
+
+#### Send word to Alister
+
+- go to alister, say 'it's time
+- 500 reps
+- 5,000 gold
+- 75,000 xp
+
+|Alister finishes with: I'll be answering all the questions you might have
+|                      now as well. Just let me know if you want to know
+|                      more about the city, the sewer or the people who are
+|                      in charge and so forth.
+- say sewer/below (for info)
+ 
+#### A hungry guard
+
+- go to bakery, say 'rolls'
+- go to bern (blacksmith), buy 5 bowls
+- go back to bakery, 'give bowls to per'
+- get 5 rolls and give to guard
+
+- 1,000 reps
+- 10,000 gold
+- 150,000 xp
+
+### Town board missions
+
+There's a board in the middle of town, read the missions and accept them.
+
+#### Sewer excursion
+
+- find dotar's area in the sewer
+- go to alister dawntreader and say 'complete'
+- 1,000 reps
+- 500 gold
+- 200,000 xp
+
+#### City volunteers
+- go to lamps and search them
+- return to mayne
+- 2,000 reps
+- 150,000 xp
+
+#### Caught a fish?
+
+#### It's just a shed
+
+- Explore underdark by going to shed
+- Druegar is near the arena
+- Illithids is the central brain
+- Ylis is behind a lockpick 50 door in the maze, where the adamantium ring of protection is
+
+#### Hat gone missing
+
+#### Desert diving
+
+- This is going to taslen and exploring, return to olaf
+- 2,000 reps
+- 5,000 gold
+- 800,000 xp
+
+#### Island of the west
+
+- Must be a fantasy island?
+- tried chartering to all islands, didn't work
+
+### Jainie Markson missions
+
+I'm not sure how to get jainie to give you missions...
+
+#### Kail's defeat
+
+- by the mansion kail jumps out and attacks you, kill him
+- 2,000 reps
+- 15,000 gold
+- 100,000 xp
+
+#### Longtooth's defeat
+
+- kill longtooth in sewer
+- 5,000 gold
+- 100,000 xp
+- some reps
+
+### Alister Dawnstrider missions
+
+#### Find the church tomb
+
+- no idea how people figured out this puzzle, tapestry in the ne room of church
+- 4x turn left dial, 
+- 3x turn centre dial, 
+- 5x turn right dial, 
+- push explosion, push boulder, push orb, push vase
+- you enter a room and can get 2 items
+- ls items -> coil of rope
+- ls something -> candle
+- push button to leave
+- go to bell above church, repair and get chisel
+- go to alister, 'carve c'
+- insert candle into hole
+- 2,000 reps
+- 3,500 gold
+- 2,000,000 xp
+
+#### Explore church tomb
+
+- at alister, go down
+- read the 3 engravings, see below
+- 2,200 reps
+- 3,500 gold
+- 2,000,000 xp
+
+To get to the church tomb you have to finish the unwelcome visitor mission line.
+You need 100k reps to get to the tomb.
+
+##### Engravings on walls in tomb
+
+|Tok    Onak Edith Nith   Torrel Enith Rach  Sam   Polla    Eric
+|Adamus Kal  Yumi  Ognas  Unuz   Ram   Nint  Alkal Manz     Enall
+|Ind    Nat  Kazap Anrith Ramp   Inl   Tommp Hild  Akazamml Lil
+|
+|The western wall engravings read:
+|Kap   Anp   Rinnel Inqp  Thalom   Hal    Ank  Limmal Inna Sintal
+|Tore  Hilda Edith  Onk   Limpalla David  Wann Ank    Yamp Olof
+|Faith Ap    Kind   Noppe Olm      Torrax Enid Onappa Kont Sin
+
+- Take the first letter of each word
+To enter speak your name in karithal
+karithal is the old way of aknoteoks
+
+|???   ???  ???    Sam   ????  ????   Evers Lay    Gil   Nai
+|Inge  Sil  Amm    ???   Dony  Dim    Aniim Daple  Nim   Alis
+|David Rich Ada    Ward  Kaine Caine  Adim  Backad Sinky Elin
+|Mike  Ali  Nanna  Reppe Inky  Efith  Hilda Thorr  Ninna Ramp
+|Unla  Tinn Ninkel Elina Moby  Dinkel Ulaf  Onap   Rim   Pimpo
+|
+|The western wall engravings read:
+|???? Kap   ????     Elsa Lii    Gregory Nappol ????  Isa  Sinap
+|Anna Donal Didry    ???? Annad  ????    Nate   Edith Matt ????
+|Omer Windu Dalantal ???? Unikel Ohera   Rippal Poshh ???? ????
+
+- take captial letters and reverse them
+
+???s ?? elgn is a?ddadna drawkcabse manriehtnr utnemduorp
+-> proud men turn their names backward and add a single s
+
+?k?elgn?is add?a?nem? owd?uorp??
+-> proud women add a single k
+
+|Mimmi Unai   Riyna Ilad Simmy  Thistle Halink  Ethan Alat ???
+|????  Critz  Tim   Ino  Osalad Niplym  Taink   ????  Hak  Aduk
+|Tam   Willey Ida   Lim  Lam    Linkoln Enapper ????  Ak   Diman
+|
+|The western wall engravings read:
+|Yourn Ola   Unp  ????  Tim  Oomna   ????    Caine  Lars Apa
+|Riga  Ility Timp Yori  ???? ????    William Inmely Tapp ????
+|Helga Igor  Tam  Sissy Tain Wincent ????    Inga   Niss ????
+
+- first letter of each word
+
+mur is the action that will lead
+you to clarity with its twin
+-> murmur
+
+ask alister about 'aknoteoks'
+
+|'language
+|You say: language
+|
+|Alister says: Well, the Aknoteoks' language isn't that different from
+|             ours.
+|>
+|Alister says: However, one thing that we've discovered was the absence of
+|             vowels.
+|Alister ponders something.
+|
+|Alister says: They used '-' instead which might be puzzling at first.
+|
+|Alister says: Oh, just to avoid confusion. The letter 'Y' was always
+|             considered a vowel in their language.
+
+shenanigans
+
+In the mansion in westersea, there's a library and you can look up stuff
+|>lookup karithal
+|
+|After browsing through book after book you come across a passage that reads:
+|
+|Almost nothing is known of the Karithal. While most scholars agree it is a name, some say it is
+|the name of an ancient language, others say it is the name of a race, or of a nation. Scholars
+|have however been able to make connections between "Karithal" and Aknoteoks.
+|
+|>lookup aknoteoks
+|
+|After browsing through book after book you come across a passage that reads:
+|
+|Aknoteoks is an ancient race consisting of reptiles, insects and arachnids. It is rumoured that
+|this great race dominated the immediate area several thousand years ago. What caused them to
+|die out or simply vanish is unclear but there are several theories. Some of these are...
+|
+|The remaining text of the document is ruined beyond reading.
+
+sn-g-n-n-hss
+
+There's a book somewhere though, because you learn that 's' is 'zz' and 'k' is 'klp'
+Add extra 'zz' to end as well
+
+- rever name
+- vowels (aeiouy) become '-'
+- k becomes 'klp'
+- m becomes 'nrp', 'nprp'
+- r becomes 'pr'
+- if male, add 'zz'
+- if female, add 'klp'
+
+shenanigans
+murmur zzn-g-n-n-hzzzz
+
+malarkey
+--klppr-l-nprpzz
+
+tintin alias so it's dynamic:
+|#ALIAS {murmur_name}
+|{
+|    #format {murmur} {%r} {$character};
+|    #replace {murmur} {a} {-};
+|    #replace {murmur} {e} {-};
+|    #replace {murmur} {i} {-};
+|    #replace {murmur} {o} {-};
+|    #replace {murmur} {u} {-};
+|    #replace {murmur} {s} {zz};
+|    #variable murmur {$murmur}zz;
+|    #send !murmur $murmur
+|}
+
+#### Make contact
+
+- touch sphere in tomb
+- explore mansion (requires locking picking 15)
+
+#### Church Tomb cleanup
+
+- 2,000 reps
+- 10,000 gold
+- 750,000 xp
+
+There are 4 mobs you can kill in tombs
+- mobs can rarely drop steel and stone lockboxes
+
+Insects
+- can drop insect belt (other)
+  - seems to give you a green shield/aura?
+
+Orbweavers
+- can drop arachnid husk (shield)
+
+Arakofialian Beetles
+- can drop ?
+
+Anyphaenid sac spider
+- can drop cocoon (other)
+  - cocoon is pretty good, big damage reduction (DR) after it's fully 'fuse'ed
+
+- mobs can't be slowed (by mage)
+- polymorph other doesn't work (mage)
+
+#### Deliver spider fang
+
+Mobs in church tombs can drop items that can be 'study'ied and delivered to Jorbin
+
+- 300 reps
+- 7,500 gold
+- 50,000 xp
+
 ## Fishing Journal
+
+Get the journal from the fisherman at the north outside west of the city.
 
 >read journal
 
@@ -210,113 +627,3 @@ bait rod
 fish
 reel
 pull
-
-
-## Church Tomb
-
-|Tok    Onak Edith Nith   Torrel Enith Rach  Sam   Polla    Eric
-|Adamus Kal  Yumi  Ognas  Unuz   Ram   Nint  Alkal Manz     Enall
-|Ind    Nat  Kazap Anrith Ramp   Inl   Tommp Hild  Akazamml Lil
-|
-|The western wall engravings read:
-|Kap   Anp   Rinnel Inqp  Thalom   Hal    Ank  Limmal Inna Sintal
-|Tore  Hilda Edith  Onk   Limpalla David  Wann Ank    Yamp Olof
-|Faith Ap    Kind   Noppe Olm      Torrax Enid Onappa Kont Sin
-
-To enter speak your name in karithal
-karithal is the old way of aknoteoks
-
-|???   ???  ???    Sam   ????  ????   Evers Lay    Gil   Nai
-|Inge  Sil  Amm    ???   Dony  Dim    Aniim Daple  Nim   Alis
-|David Rich Ada    Ward  Kaine Caine  Adim  Backad Sinky Elin
-|Mike  Ali  Nanna  Reppe Inky  Efith  Hilda Thorr  Ninna Ramp
-|Unla  Tinn Ninkel Elina Moby  Dinkel Ulaf  Onap   Rim   Pimpo
-|
-|The western wall engravings read:
-|???? Kap   ????     Elsa Lii    Gregory Nappol ????  Isa  Sinap
-|Anna Donal Didry    ???? Annad  ????    Nate   Edith Matt ????
-|Omer Windu Dalantal ???? Unikel Ohera   Rippal Poshh ???? ????
-
-???s ?? elgn is a?ddadna drawkcabse manriehtnr utnemduorp
--> proud men turn their names backward and add a single s
-
-?k?elgn?is add?a?nem? owd?uorp??
--> proud women add a single k
-
-|Mimmi Unai   Riyna Ilad Simmy  Thistle Halink  Ethan Alat ???
-|????  Critz  Tim   Ino  Osalad Niplym  Taink   ????  Hak  Aduk
-|Tam   Willey Ida   Lim  Lam    Linkoln Enapper ????  Ak   Diman
-|
-|The western wall engravings read:
-|Yourn Ola   Unp  ????  Tim  Oomna   ????    Caine  Lars Apa
-|Riga  Ility Timp Yori  ???? ????    William Inmely Tapp ????
-|Helga Igor  Tam  Sissy Tain Wincent ????    Inga   Niss ????
-
-mur is the action that will lead
-you to clarity with its twin
--> murmur
-
-ask alister about 'aknoteoks'
-
-|'language
-|You say: language
-|
-|Alister says: Well, the Aknoteoks' language isn't that different from
-|             ours.
-|>
-|Alister says: However, one thing that we've discovered was the absence of
-|             vowels.
-|Alister ponders something.
-|
-|Alister says: They used '-' instead which might be puzzling at first.
-|
-|Alister says: Oh, just to avoid confusion. The letter 'Y' was always
-|             considered a vowel in their language.
-
-shenanigans
-
-In the mansion in westersea, there's a library and you can look up stuff
-|>lookup karithal
-|
-|After browsing through book after book you come across a passage that reads:
-|
-|Almost nothing is known of the Karithal. While most scholars agree it is a name, some say it is
-|the name of an ancient language, others say it is the name of a race, or of a nation. Scholars
-|have however been able to make connections between "Karithal" and Aknoteoks.
-|
-|>lookup aknoteoks
-|
-|After browsing through book after book you come across a passage that reads:
-|
-|Aknoteoks is an ancient race consisting of reptiles, insects and arachnids. It is rumoured that
-|this great race dominated the immediate area several thousand years ago. What caused them to
-|die out or simply vanish is unclear but there are several theories. Some of these are...
-|
-|The remaining text of the document is ruined beyond reading.
-
-sn-g-n-n-hss
-
-There's a book somewhere though, because you learn that 's' is 'zz' and 'k' is 'klp'
-Add extra 'zz' to end as well
-
-shenanigans
-murmur zzn-g-n-n-hzzzz
-
-### Tomb cleanup
-
-There are 4 mobs you can hill in tombs
-- mobs can rarely drop steel and stone lockboxes
-
-Insects
-- can drop insect belt (other)
-  - seems to give you a green shield/aura?
-
-Orbweavers
-- can drop arachnid husk (shield)
-
-Arakofialian Beetles
-- can drop ?
-
-Anyphaenid sac spider
-- can drop cocoon (other)
-  - cocoon is pretty good, big damage reduction (DR) after it's fully 'fuse'ed

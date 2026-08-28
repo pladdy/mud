@@ -4,7 +4,14 @@ At the entrance you can 'press start', 'unpause game'.
 
 In the game you can 'pause game'.
 
-# Notes
+## Figurines
+
+Glimmering, 139
+Blinding, 140
+Eye-ball piercing, 150
+
+## Notes
+
 After getting to section 20, can you pause and burn a continue to go to 20
 After getting to section 40, you can pause and burn a continue to go to 40
 - continues are saved across boots
@@ -14,7 +21,8 @@ After getting to section 40, you can pause and burn a continue to go to 40
 |Just a reminder, your continue code for Section 40 is LollygagNincompoopNambypamby
 |You have 4 continue uses remaining.
 
-# Route to take through Section Z to get to brain
+## Route to take through Section Z to get to brain
+
 Section 0: e, s, d
 Section 1: w, sw, se, e, d
 Section 3: n, n, e, e, u
