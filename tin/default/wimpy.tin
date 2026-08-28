@@ -58,3 +58,20 @@
 
   wimpy_commands;
 }
+
+#action {^Your wimpy is now set to: %1%} {
+  #var wimpy_value %1;
+}
+
+#action {^Wimpy: %1 (%2%)} {
+  #var wimpy_value %2;
+  #format {wimpy_value} {%p} {$wimpy_value};
+}
+
+#action {^Wimpy removed you brave soul you} {
+  #var wimpy_value 0;
+}
+
+#action {^Wimpy:   OFF}{
+  #var wimpy_value 0;
+}

@@ -44,12 +44,109 @@
 
 #alias murmur_name {
   #format {murmur} {%r} {$character};
+  #replace {murmur} {r} {pr};
+  #replace {murmur} {m} {nprp};
+  #replace {murmur} {k} {klp};
   #replace {murmur} {a} {-};
   #replace {murmur} {e} {-};
   #replace {murmur} {i} {-};
   #replace {murmur} {o} {-};
   #replace {murmur} {u} {-};
+  #replace {murmur} {y} {-};
   #replace {murmur} {s} {zz};
   #var murmur {$murmur}zz;
   #send !murmur $murmur;
+}
+
+#nop murus faralain 2.0 ethereal potions;
+#action {^%!{[> ]*}You down the liquid in a gulp!  Spasms rack your body as the liquid} {
+  #delay 3600 {
+    log.warn Time to drink ethereal potion 2.0;
+    sound_beeps;
+  };
+}
+
+#nop cocoon recharge;
+#gag {^%!{[> ]*}There is no reason to 'fuse' here.}
+
+#nop ring of spite
+#action {^%!{[> ]*}The ring's energy has not yet settled.} {
+  #delay {2} {#send !twist stone};
+}
+
+#nop TODO: pick a stone to use...opal is risky so using rose for regen;
+#action {^%!{[> ]*}Your malachite stone releases a cloud of noxious green mist!} {
+  ros rose;
+}
+
+#action {^%!{[> ]*}Your amethyst stone flares with a psychic energy, invading} {
+  ros rose;
+}
+
+#nop turqoise stone;
+#action {^%!{[> ]*}A shimmering barrier of frost surrounds you.} {
+  ros ame;
+}
+#action {^%!{[> ]*}Your frost shield shatters into glittering ice crystals and melts away.} {
+  ros jade;
+} {1}
+
+#nop jade stone;
+#action {^%!{[> ]*}Your jade stone pulses with protective energy. Your skin hardens.} {
+  ros mal;
+}
+#action {^%!{[> ]*}The jade's protection fades from your skin.} {
+  ros tur;
+} {1}
+
+#alias _remove_stone {#send !remove stone from ring}
+#alias _insert_stone {#send !insert %0 into ring; #send !twist stone;}
+
+#alias ros {
+  #switch {"%1"} {
+    #nop amethyst, stun and sp bleed;
+    #case {"ame"} {_remove_stone; _insert_stone amethyst};
+    #case {"amethyst"} {_remove_stone; _insert_stone amethyst};
+    #nop rose quartz: hp/sp regen (~2% of max hp or sp);
+    #case {"ros"} {_remove_stone; _insert_stone rose quartz};
+    #case {"rose"} {_remove_stone; _insert_stone rose quartz};
+    #case {"qua"} {_remove_stone; _insert_stone rose quartz};
+    #case {"quartz"} {_remove_stone; _insert_stone rose quartz};
+    #nop opal: prismatic spray 1 / 5 rounds;
+    #case {"opa"} {_remove_stone; _insert_stone opal};
+    #case {"opal"} {_remove_stone; _insert_stone opal};
+    #nop jade: buffs AC for a 15 rounds or so;
+    #case {"jad"} {_remove_stone; _insert_stone jade};
+    #case {"jade"} {_remove_stone; _insert_stone jade};
+    #nop obsidian: drains hps from mob to you;
+    #case {"obs"} {_remove_stone; _insert_stone obsidian};
+    #case {"obsidian"} {_remove_stone; _insert_stone obsidian};
+    #nop turqoise: big ac buff and frost aura can slow mobs;
+    #case {"tur"} {_remove_stone; _insert_stone turquoise};
+    #case {"turquoise"} {_remove_stone; _insert_stone turquoise};
+    #nop malachite: poison attack, room dmg?;
+    #case {"mal"} {_remove_stone; _insert_stone malachite};
+    #case {"malachite"} {_remove_stone; _insert_stone malachite};
+    #nop tiger's eye: boosts attack speed mskill;
+    #case {"tig"} {_remove_stone; _insert_stone tiger's eye};
+    #case {"tiger's eye"} {_remove_stone; _insert_stone tiger's eye};
+  }
+}
+
+#nop Freeway;
+
+#action {^%!{[> ]*}You feel Freeway's warmth and love fill your body!} {
+  log.info --> Freeway +10 sp regen boost started <--;
+}
+
+#action {^%!{[> ]*}Freeway's love slips away from your being.} {
+  #send !love freeway;
+}
+
+#action {^%!{[> ]*}Freeway's love strengthens your resolve!} {
+  log.info --> Freeway +10 con boost started <--;
+}
+
+#action {Freeway licks your hand and a warm surge fills you.} {
+  #nop;
 }

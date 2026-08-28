@@ -6,7 +6,21 @@
     };
     #else {
         log.info Loading default auction allow list;
-        #script {auction[allow]} {cat tin/default/auction_allow.txt | grep -v '#'};
+        #script {allows} {cat tin/default/auction_allow.txt | grep -v '#'};
+
+        #list allows simplify;
+        #list allow clear;
+        #list auction[allow] clear;
+        #var auction[allow_price] {};
+
+        #foreach {$allows} {allow} {
+            #showme allow: $allow;
+            #list allow explode {:};
+            #list auction[allow] add $allow[1];
+            #var auction[allow_price][$allow[1]] {$allow[2]};
+        };
+        #unvar allow;
+        #unvar allows;
     };
 }
 
@@ -42,7 +56,9 @@
         #foreach { $auction[allow][%*] } {allowed_item} {
             #if {"$allowed_item" != ""} {
                 #regexp {$auction[item]} {%i$allowed_item} {
-                    #if {"$auction[auto]" == "on" && $auction[offer] <= $auction[max]} {
+                    #if {"$auction[auto]" == "on" && 
+                         $auction[offer] <= $auction[allow_price][$allowed_item]
+                        } {
                         log.info Match on $allowed_item, bidding on $auction[item];
                         #math rando {2 d 4};
                         #delay $rando {#send !abid $auction[offer]};

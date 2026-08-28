@@ -1,11 +1,17 @@
-small figurine (eyeball-piercing)
-rod of lordly might
-very blue wooden ring
-ring of hearts
-potion giving you
-mask of gemino
-legendary gem
-ghoti
-god crafted plate
-grimoire of zephyrak (esoteric)
-tome of aeonos (transcendent)
+small figurine (eyeball-piercing):20000
+rod of lordly might:20000
+very blue wooden ring:15000
+ring of hearts:1000
+potion giving you:10000
+mask of gemino:5000
+legendary gem:2500
+ghoti:2500
+god crafted plate:1000
+grimoire of zephyrak (esoteric):5000
+tome of aeonos (transcendent):10000
+zephyrak's sword of wrath (malevolent):20000
+stone (transcendent):5000
+ring of spite, empty (malevolent):5000
+dark black potion:2000
+sphere of annihilation:2000
+aurothon:15000

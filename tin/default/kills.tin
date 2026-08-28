@@ -43,22 +43,22 @@
 
 #action {The mask of Gemino Mortis%1(worn on head)} {
   log.debug Mask of Gemino Mortis equipped.;
-  #var gemino_mortis true;
+  #nop #var gemino_mortis true;
 }
 
 #action {The mask of Gemino Mortis%1(worn on head).$} {
   log.debug Mask of Gemino Mortis equipped.;
-  #var gemino_mortis true;
+  #nop #var gemino_mortis true;
 }
 
 #action {^%!{[> ]*}You fit the mask on and your eyes glow dimly green} {
   log.debug Mask of Gemino Mortis equipped.;
-  #var gemino_mortis true;
+  #nop #var gemino_mortis true;
 }
 
 #action {^%!{[> ]*}Your eyes darken as you remove the mask.} {
   log.debug Mask of Gemino Mortis equipped.;
-  #var gemino_mortis false;
+  #nop #var gemino_mortis false;
 }
 
 #nop  If this happens, there's only one corpse;
@@ -144,8 +144,6 @@
     ttl_no_monsters on;
   };
 }
-
-#gag {^There is no reason to 'fuse' here.$}
 
 #alias respond_to_killing_blow {
   #undelay mob_died_event;
