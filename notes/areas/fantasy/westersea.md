@@ -165,10 +165,19 @@ Located in se corner of westersea slums
 - 1,000 gold
 - 175,000 xp
 
+#### Fortify Westersea
+
+- you have to wander the towers/ramparts and a thief attacks a guard
+- go to bern, give note to bern
+- go to each chest in westersea and 'fortify chest'
+- 10,000 gold
+- 200,000 xp
+- 2,000 reps
+
 #### Slum cleanup
 
 - repeatable
-- 1,000 reps
+- 500 reps (more from killing mobs)
 - 5,000 gold
 - 200,000 xp
 
@@ -188,7 +197,10 @@ Go to waterway under merchant, 'listen'
 #### Slay dotar
 
 - find dotar in bottom of sewer
-- has 
+- has The staff of despair (enchanted) (BOP)
+- 4,000 reps
+- 10,000 gold
+- 5,000,000 xp
 
 ### Tommy missions
 

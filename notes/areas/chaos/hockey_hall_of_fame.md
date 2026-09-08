@@ -2,7 +2,7 @@
 
 Getting lord stanley cup
 
-The mob is 'Mike' and he spawns once after he's kills.
+The mob is 'Mike' and he spawns once after he's killed.
 Cup is unique!
 
 He spawns in one of the 4 rooms available...
@@ -15,8 +15,11 @@ You can duplicate or get item with (reload item and (duplicate creature:
 
 - find mike alive
 - (reload item Lord Stanley's Cup
+- unwield and turn off damage
+- kill mike
 - (duplicate creature mike
-- kill mike 2
+- kill mike 1
+- get cup and leave original mike
 
 ## Key to exec lounge
 

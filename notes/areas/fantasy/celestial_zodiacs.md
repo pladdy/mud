@@ -35,26 +35,29 @@ Use a satchel!  You need it to store souls and sell them for 5 reps / soul later
 ## Mob size
 
 - big jump at scaler 130 from 120-129
+- lost souls do mind damage and are mind immune
 
 | Scaler | Mobs     | Colossus /  | Mimic    | Aeonos / | Mark (wis/int/cha)
 |        |          | Abomination |          | Zephyrak | Mark (str/con/dex)
 |--------|----------|-------------|----------|----------|-----------
+| 85-87  | 10-15M   | 20-25M      | 20-25M   | 40M      | +7
 | 101    | 30-40M   | 60M         | 60M      | 100M     | +9
+| 110    | 48M      | 80M         | 80M      | 140M     | +10
 | 125    | 85-90M   | 155M        | 155M     | 340M     | +11
 | 130    | 120-150M | 260M        | 260M     | 515M     | +11
 | 140    | 210-220M | 400-450M    | 400-450M |          |
 
-## Items
+## Item adjectives by scaler
 
-| Scaler | Tome / Helmet | Shield       
-|--------|---------------|--------------
-| 77     | luminous      | remarkable   
-| 80     | luminous      | remarkable   
-| 101    | radiant       | exceptional  
-| 125    | resplendent   | exceptional  
-| 130    | magnificent   |              
-| 140    | divine        |              
-| ?      | transcendent  | unbelievable 
+| Scaler | Tome / Helmet (stat) | Shield
+|--------|----------------------|--------------
+| 77-80  | luminous             | remarkable
+| 101    | radiant              | exceptional
+| 110    | brilliant (+8)       | exceptional
+| 125    | resplendent          | exceptional
+| 130    | magnificent          |
+| 140    | divine               |
+| 150    | transcendent         | unbelievable
 
 | Scaler | Grimoire   | Ring / Sword | Stone
 |--------|------------|--------------|------
@@ -62,6 +65,7 @@ Use a satchel!  You need it to store souls and sell them for 5 reps / soul later
 | 80     |            |              | polished
 | 85     | weathered  | vicious      | polished
 | 101    | mysterious | dreadful     | brilliant
+| 110    |            | terrifying   | pristine
 | 125    | arcane     | horrific     | flawless
 | 130    | enigmatic  | cataclysmic  | perfect
 | 140    | cryptic    | apocalyptic  | 
@@ -119,6 +123,16 @@ Kills decrease Zodiacs of Aeonos reps
 
 Goat warrior on level 8 can disarm you (unwield)!
 
+- Level 1: guardians
+- Level 2: devas
+- Level 3: druids
+- Level 4: sages
+- Level 5: lamas
+- Level 6: shamans
+- Level 7: spirit warriors
+- Level 8: warriors (chinese)
+- Level 9: knights (western)
+
 ## Stat boosts
 
 Celestial fortitude (+2 con) seems random...
@@ -155,7 +169,7 @@ Colossus will show up ~ 10-11 AM & PM eastern; has multiple lives
 
 ### Mimic Chest
 
-Portal to mimic chest opens at ~4-5 AM & PM eastern daily
+Portal to mimic chest opens at ~4-5:59 AM & PM eastern daily
 - one contains potion of vitality (full heal)
 - one chest is a mimic with tome of aeonos
 - mimic does fire damage
@@ -167,6 +181,16 @@ Portal to mimic chest opens at ~4-5 AM & PM eastern daily
 
 Kills decrease Zodiacs of Zephyrak reps
 Kills increase Zodiacs of Aeonos reps
+
+- Level 1: desecrators
+- Level 2: asuras
+- Level 3: rotseers
+- Level 4: deceivers
+- Level 5: heretics
+- Level 6: bloodseers
+- Level 7: skinwalkers
+- Level 8: warlords
+- Level 9: blackguards
 
 ## Stat boosts
 
@@ -180,12 +204,12 @@ Killing warlord of the cat on level 8 gives dex boost (+2)
 
 ### Abominations
 
-Abominations will show up ~ 12-13? AM & PM eastern; has multiple lives
+Abominations will show up ~ 12-12:30? AM & PM eastern; has multiple lives
 - heart gives 200% overmax heal?
 
 ### Mimic chest
 
-Fracture to mimic chest opens at ~6-7 AM & PM eastern daily
+Fracture to mimic chest opens at ~6-7:59 AM & PM eastern daily
 - mimic treasure chest has grimoire of zephyrak
 - bag of star dust (sprinkle on weapon)
   - makes it radiation dmg, with penetration, +wc
