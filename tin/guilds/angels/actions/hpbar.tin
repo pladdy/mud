@@ -5,14 +5,15 @@
   calculate_delta gxp;
   #var yin {%3};
   #var yang {%4};
+  #var angel[rebirths] {%5};
 }
 
 #action {^%!{[> ]*}C: %1/%2 Yi: %3 Ya: %4/%5 F: %6 RB: %7/%8 (%9%%) G: %10} {
-  _angel_hpbar2 %1 %10 %3 %4;
+  _angel_hpbar2 %1 %10 %3 %4 %7;
 }
 
 #action {^%!{[> ]*}C: %1 %2 Yi: %3 Ya: %4/%5 F: %6 RB: %7/%8 (%9%%) G: %10} {
-  _angel_hpbar2 %1 %10 %3 %4;
+  _angel_hpbar2 %1 %10 %3 %4 %7;
 }
 
 #action {^%!{[> ]*}HO: %1/%2 HI: %3/%4 LO: %5/%6 LI: %7/%8 R: %9} {

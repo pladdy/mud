@@ -30,10 +30,12 @@
 }
 
 #nop Don't use hp in this alias, it messes with angel actions;
-#alias redi {
+#alias reco {
   #send !unwrap;
   #send !disperse;
 }
+
+#alias redi {reco}
 
 #alias redis {
   #if {"%1" != ""} {

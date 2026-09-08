@@ -25,3 +25,9 @@
 #action {^%!{[> ]*}You are already using your wings to fly.$} {
   #var flying true;
 }
+
+#highlight {^%!{[> ]*}A magnificent feeling overcomes you.} {<caf>}
+#action {^%!{[> ]*}A magnificent feeling overcomes you.} {
+  #var angel[rebirths] 1;
+  with_rebirths;
+}

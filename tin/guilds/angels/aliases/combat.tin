@@ -8,11 +8,11 @@
 }
 
 #alias attempt_beyond_time {
-  #local MIN_DIV_FOR_BT 150;
+  #local MIN_DIV_FOR_BT 250;
 
   #if {"$use_beyond_time" == "true" &&
        $gp2 > $MIN_DIV_FOR_BT &&
-       $pct_gp1 < 0.5} {
+       $pct_gp1 < 0.4} {
     #send !manifest beyond time;
   };
 }
@@ -41,7 +41,11 @@
 }
 
 #alias attempt_dive {
-  #if {"$use_dive" == "true" && "$already_dove" == "false"} {#send !dive};
+  #delay 2 {
+    #if {"$use_dive" == "true" && "$already_dove" == "false" && $enemy > 10} {
+      #send !dive;
+    };
+  };
 }
 
 #alias attempt_divine_strike {
@@ -172,10 +176,32 @@
 }
 
 #alias awe {
-  #if {%0} {#send !awe %0};
-  #else {#send !awe $highest_area};
-  decrement_ts 2;
-  reduce_high_advantage_and_resort;
+  #switch {"%0"} {
+    #case {"on"} {#var use_awe true};
+    #case {"off"} {#var use_awe false};
+    #case {"foes"} {
+      #if {"$awe_foes" == "true"} {
+        log.info Setting awe back to normal;
+        #var {awe_foes} {false};
+      };
+      #else {
+        log.info Turning awe on as much as possible.;
+        #var {awe_foes} {true};
+      };
+    };
+    #case {"help"} {
+      #showme Usage:;
+      #showme   awe_foes on: turn awe on;
+      #showme   awe_foes off: turn awe off;
+      #showme   awe_foes foes: Prioritize using awe over strikes;
+      #showme   awe_foes: Use awe at the highest advantage location;
+    };
+    #default {
+      #send !awe %0;
+      decrement_ts 2;
+      reduce_high_advantage_and_resort;
+    };
+  };
 }
 
 #alias awe_at {
@@ -188,19 +214,6 @@
     log.info Current awe_at_hp_pct: $awe_at_hp_pct%.;
   };
 }
-
-#alias awe_foes {
-  #if {"$awe_foes" == "true"} {
-    log.info Turning awe as much as possible back to normal.;
-    #var {awe_foes} {false};
-  };
-  #else {
-    log.info Turning awe on as much as possible.;
-    #var {awe_foes} {true};
-  };
-}
-
-#alias awf {awe_foes};
 
 #alias consecrate {
   #if {"%1" == "on"} {
@@ -215,7 +228,6 @@
     #send !use_consecrate;
   };
 }
-
 
 #alias decrement_ts {
   #math {gp1} {$gp1 - %1};
@@ -234,16 +246,24 @@
 }
 
 #alias disengage {
-  #if {"%1" == "on"} {
-    log.info Turning auto-disengage on;
-    #var use_disengage true;
-  };
-  #elseif {"%1" == "off"} {
-    log.info Turning auto-disengage off;
-    #var use_disengage false;
-  };
-  #else {
-    #send !disengage %0;
+  #switch {"%0"} {
+    #case {"on"} {
+      log.info Turning auto-disengage on;
+      #var use_disengage true;
+    };
+    #case {"off"} {
+      log.info Turning auto-disengage off;
+      #var use_disengage false;
+    };
+    #case {"help"} {
+      #showme Usage:;
+      #showme   disengage on: Turn auto-disengage on;
+      #showme   disengage off: Turn auto-disengage off;
+      #showme   disengage: Disengage 1 distance;
+      #showme   disengage <number>: Disengage <number> distance;
+    };
+    #case {""} {#send !disengage 1};
+    #default {#send !disengage %0};
   };
 }
 
@@ -257,7 +277,7 @@
   reduce_high_advantage_and_resort;
 }
 
-#alias dq {
+#alias _dq {
   #list dq_list create %0;
   #local dq_string {};
   #local dq_count 0;
@@ -295,27 +315,30 @@
   #unvar dq_list;
 }
 
-#alias dq_gxp {
-  #send !defensequeue clear;
-  #send !defensequeue reversal,parry,riposte,block,void;
-}
-
-#alias dqa {
-  #send !defensequeue clear;
-  #send !defensequeue void,block,parry,riposte;
-}
-
-#alias dqc {#send !defensequeue clear;}
-
-#nop reversal doesn't seem to do dmg...;
-#alias dqo {
-  #send !defensequeue clear;
-  #send !defensequeue parry,riposte,void,block;
-};
-
-#alias dqd {
-  #send !defensequeue clear;
-  #send !defensequeue void,block,parry,riposte;
+#alias dq {
+  #switch {"%0"} {
+    #case {"gxp"} {
+      dq c;
+      #send !defensequeue reversal,parry,riposte,block,void;
+    };
+    #case {"o"} {
+      dq c;
+      #send !defensequeue parry,riposte,void,block;
+    };
+    #case {"c"} {#send !defensequeue clear};
+    #case {"d"} {
+      dq c;
+      #send !defensequeue void,block,parry,riposte;
+    };
+    #case {"help"} {
+      #showme Usage:           dq gxp|o|c|d|help;
+      #showme Or custom order: dq p ri v b (parry,riposte,void,block)
+    };
+    #default {
+      #if {"%0" != ""} {_dq %0};
+      #else {#send !defensequeue};
+    };
+  };
 }
 
 #function enough_distance_and_time {
@@ -365,6 +388,36 @@
   reduce_high_advantage_and_resort;
 }
 
+#alias rise {
+  #if {$enemy > 0 && ($angel[distance] < 2 || $gp2 < 100)} {
+    #if {$angel[distance] < 2} {
+      log.warn Can't rise due to distance ($angel[distance]), trying again next round!;
+    };
+    #else {
+      log.warn Can't rise due to divinity ($gp2), trying again next round!;
+    };
+    #delay 2 {rise};
+  };
+  #else {#send !rise};
+}
+
+#alias _with_rebirths {
+  #send !wimpy 0;
+  #send !reaction clear;
+  #send !panic off;
+}
+
+#alias set_wimpy {
+  #if {$wimpy_value > 0 && $angel[rebirths] > 0 && $enemy > 0} {
+    _with_rebirths;
+  };
+  #if {$wimpy_value == 0 && $angel[rebirths] == 0 && $enemy > 0} {
+    #send !wimpy 50;
+    #send !reaction 1200 radiance;
+    #send !panic radiance/80%/1;
+  };
+}
+
 #function should_awe {
   #if {
     "$use_awe" == "true" &&
@@ -386,22 +439,14 @@
 #function should_retribution {
   #if {"$use_retribution" == "true" &&
        $retributions >= $retribution_at_hits &&
-       $adv_sort[1][2] > $retribution_at} {
+       $adv_sort[1][2] > $swing_at} {
     #return 1;
   };
   #else {#return 0};
 }
 
 #function should_swing {
-  #local min_swing_at 80;
-
-  #nop If disengage is blocked, so is lunge, swing at lower advantage.;
-  #if {@enough_distance_and_time{} 
-       && "$can_disengage" == "false" 
-       && $adv_sort[1][2] > $min_swing_at} {
-    #return 1;
-  };
-  #elseif {@enough_distance_and_time{} && $adv_sort[1][2] > $swing_at} {
+  #if {@enough_distance_and_time{} && $adv_sort[1][2] > $swing_at} {
     #return 1;
   };
   #else {#return 0};

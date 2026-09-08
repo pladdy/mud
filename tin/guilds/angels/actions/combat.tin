@@ -146,3 +146,17 @@
   #if {@should_retribution{}} {retribution};
   #else {divine_strike};
 }
+
+#action {^%!{[> ]*}You pause for just a moment and concentrate on your divine cause.} {
+  #var angel[last_lunge_at] $lunge_at;
+  #var angel[providence_at] $providence_at;
+  #var angel[swing_at] $swing_at;
+
+  #math {lunge_at} {$lunge_at * 1.5};
+  #math {providence_at} {$providence_at * 1.5};
+}
+
+#action {^%!{[> ]*}You calm your zealous fervor!} {
+  #var lunge_at $angel[last_lunge_at];
+  #var providence_at $angel[providence_at];
+}

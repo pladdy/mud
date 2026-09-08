@@ -18,6 +18,7 @@
     attempt_consecrate;
     attempt_renewed_light;
     show_trainings;
+    set_wimpy;
     check_stepper;
   }
 
