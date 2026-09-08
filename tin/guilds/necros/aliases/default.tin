@@ -196,11 +196,13 @@
   #send !powers;  
 }
 
-#alias reab {
+#alias reco {
   log.debug unwrap and absorb;
   #send !unwrap smallest;
   #send !ab;
 }
+
+#alias reab {reco}
 
 #alias reabf {
   log.debug unwrap, freeze, and absorb;

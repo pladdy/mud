@@ -250,7 +250,7 @@
   #send meditate;
 }
 
-#alias reet {
+#alias reco {
   #send !unwrap;
   #send !study corpse;
   #send !eat corpse;

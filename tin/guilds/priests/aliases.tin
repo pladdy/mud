@@ -59,7 +59,7 @@
 }
 
 #alias attempt_offer {
-  #if {$gp1 < 150 && $corpses > 0 && $enemy > 0} {reof};
+  #if {$gp1 < 150 && $corpses > 0 && $enemy > 0} {reco};
 }
 
 #alias attempt_protection {
@@ -189,7 +189,7 @@
   #if {"$enemy_str" == "none"} {#var enemy {0}};
 }
 
-#alias reof {
+#alias reco {
   #send !unwrap smallest;
   #send !offer corpse;
 }

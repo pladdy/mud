@@ -121,7 +121,7 @@
   #send !get all;
 }
 
-#alias resp {
+#alias reco {
   #send !unwrap smallest;
   #send !eat corpse;
 }

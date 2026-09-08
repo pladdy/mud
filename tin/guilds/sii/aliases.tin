@@ -57,7 +57,7 @@
   #send !infest;
 }
 
-#alias reen {
+#alias reco {
   #send !unwrap smallest;
   #send !envelop corpse;
   #send !collect dna from corpse;
