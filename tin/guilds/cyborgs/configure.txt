@@ -13,9 +13,21 @@ configure pattern remove 1
 configure pattern remove 1
 
 # configuration for 4 mediums
-configure pattern add voltaic palm pad [0]/ocular laser [0]/freon injector [0]/expansive hip augmentation
-configure pattern add voltaic palm pad [1]/ocular laser [1]/freon injector [1]/expansive hip augmentation
-alias 1 configure strategy set 1/2
+configure pattern add electrostatic cannon/freon injector [0]/ocular laser [0]/expansive hip augmentation
+configure pattern add incendiary cannon/freon injector [1]/ocular laser [1]/expansive hip augmentation
+configure pattern add hydraulic ramhammer/freon injector [0]/ocular laser [0]/expansive hip augmentation
+configure pattern add electrostatic cannon/freon injector [1]/ocular laser [1]/expansive hip augmentation
+configure pattern add incendiary cannon/freon injector [0]/ocular laser [0]/expansive hip augmentation
+configure pattern add hydraulic ramhammer/freon injector [1]/ocular laser [1]/expansive hip augmentation
+configure strategy set 1/2/3/4/5/6
+
+# with heavy slotted
+configure pattern add hydraulic ramhammer [0]/freon injector [0]/ocular laser [0]/expansive hip augmentation
+configure pattern add hydraulic ramhammer [1]/freon injector [1]/ocular laser [1]/expansive hip augmentation
+configure pattern add hydraulic ramhammer [2]/freon injector [0]/ocular laser [0]/expansive hip augmentation
+configure pattern add hydraulic ramhammer [0]/freon injector [1]/ocular laser [1]/expansive hip augmentation
+configure pattern add hydraulic ramhammer [1]/freon injector [0]/ocular laser [0]/expansive hip augmentation
+configure pattern add hydraulic ramhammer [2]/freon injector [1]/ocular laser [1]/expansive hip augmentation
 
 # configuration for 3 super heavies and 2 heavies
 # configure for heavies

@@ -68,8 +68,9 @@
 }
 
 #alias mip_combat_hook {
-  #local MIN_POWER 400;
-  #if {$corpses > 0 && $gp1 < $MIN_POWER} {redc};
+  #local MIN_POWER .30;
+  #math {gp1_ratio} {$gp1 / $gp1_max * 1.00};
+  #if {$corpses > 0 && $gp1_ratio < $MIN_POWER && $enemy > 0} {reco};
   check_stepper;
 };
 
@@ -78,21 +79,18 @@
   #nop I~<gND:> <yYes><g[><y58%><g]> <g[><yIPP><g|><yGE><g|><yAA><g|><yHNE><g|><yMDF><g]><gSI: [><y68.3215%><g]>;
   #local data %0;
   #regexp {$data} {IPP} {#nop;} {#send !activate intrinsic preservation proxy};
-  #regexp {$data} {AA} {#nop;} {#send !activate assault animus};
+  #nop #regexp {$data} {AA} {#nop;} {#send !activate assault animus};
   #regexp {$data} {GE} {#nop;} {#send !activate grip enhancer};
-  #regexp {$data} {HNE} {#nop;} {#send !activate hadronic negation emitter};
+  #nop #regexp {$data} {HNE} {#nop;} {#send !activate hadronic negation emitter};
   #regexp {$data} {SI: [><y{\d+\.\d+}%><g]} {#var gxp &1};
 }
 
-#alias redc {
+#alias reco {
   #send !unwrap smallest;
   _send_decompose;
 }
 
-#alias reet {
-  #send !unwrap smallest;
-  #send !eat corpse;
-}
+#alias redc {reco}
 
 #alias reload_configure {
   #textin tin/guilds/cyborgs/configure.txt

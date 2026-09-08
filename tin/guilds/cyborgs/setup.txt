@@ -3,3 +3,4 @@ alias co configure
 alias de deactivate
 
 aset cyborg_com higreen
+aset cyborg_def hide
