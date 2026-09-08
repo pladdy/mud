@@ -14,7 +14,6 @@
         #var auction[allow_price] {};
 
         #foreach {$allows} {allow} {
-            #showme allow: $allow;
             #list allow explode {:};
             #list auction[allow] add $allow[1];
             #var auction[allow_price][$allow[1]] {$allow[2]};

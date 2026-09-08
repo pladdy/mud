@@ -37,12 +37,25 @@
 #alias tell_handler {
   #var send_alert true;
 
+  #nop check block list;
   #foreach $tells_blocklist blocked {
     log.debug checking blocklist, blocked=$blocked, actor=%1;
     #regexp {%1} {%i$blocked} {#var send_alert false};
     #if {"$send_alert" == "false"} {
       #break;
     };
+  };
+
+  #nop misc blocks;
+  #nop #showme The name is %1;
+  #regexp {%1} {WARNING:} {#var send_alert false};
+  #regexp {%1} {A:} {#var send_alert false};
+  #regexp {%1} {%iuhoh,} {#var send_alert false};
+
+  #nop #showme The tell is "%2";
+  #regexp {%2} {%iis afk} {#var send_alert false};
+  #if {"%2" == "mutters an elvish phrase and you watch as shadows form around him."} {
+    #var send_alert false;
   };
 
   #if {"$send_alert" == "true"} {

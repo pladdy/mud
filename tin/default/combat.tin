@@ -103,3 +103,5 @@
   log.warn %1 disarmed you, re-wielding!;
   #send !wield $wielded_weapon;
 }
+
+#gag {^%!{[> ]*}Your party overwhelms the Beatle's defenses.}

@@ -69,40 +69,45 @@
 #nop cocoon recharge;
 #gag {^%!{[> ]*}There is no reason to 'fuse' here.}
 
-#nop ring of spite
+#nop ring of spite;
+#nop having it run while stepping makes the stepper mess up...;
 #action {^%!{[> ]*}The ring's energy has not yet settled.} {
   #delay {2} {#send !twist stone};
 }
 
-#nop TODO: pick a stone to use...opal is risky so using rose for regen;
 #action {^%!{[> ]*}Your malachite stone releases a cloud of noxious green mist!} {
-  ros rose;
+  #if {"$stepper" != "on"} {ros rose};
 }
 
 #action {^%!{[> ]*}Your amethyst stone flares with a psychic energy, invading} {
-  ros rose;
+  #if {"$stepper" != "on"} {ros rose};
 }
 
 #nop turqoise stone;
 #action {^%!{[> ]*}A shimmering barrier of frost surrounds you.} {
-  ros ame;
+  #if {"$stepper" != "on"} {ros ame};
 }
 #action {^%!{[> ]*}Your frost shield shatters into glittering ice crystals and melts away.} {
-  ros jade;
+  #if {"$stepper" != "on"} {ros jade};
 } {1}
 
 #nop jade stone;
 #action {^%!{[> ]*}Your jade stone pulses with protective energy. Your skin hardens.} {
-  ros mal;
+  #if {"$stepper" != "on"} {ros mal};
 }
 #action {^%!{[> ]*}The jade's protection fades from your skin.} {
-  ros tur;
+  #if {"$stepper" != "on"} {ros tur};
 } {1}
 
 #alias _remove_stone {#send !remove stone from ring}
-#alias _insert_stone {#send !insert %0 into ring; #send !twist stone;}
+#alias _insert_stone {
+  #if {"$use_ring_of_spite" != "false"} {
+    #send !insert %0 into ring; #send !twist stone;
+  };
+}
 
 #alias ros {
+  #var use_ring_of_spite true;
   #switch {"%1"} {
     #nop amethyst, stun and sp bleed;
     #case {"ame"} {_remove_stone; _insert_stone amethyst};
@@ -130,6 +135,7 @@
     #nop tiger's eye: boosts attack speed mskill;
     #case {"tig"} {_remove_stone; _insert_stone tiger's eye};
     #case {"tiger's eye"} {_remove_stone; _insert_stone tiger's eye};
+    #case {"off"} {_remove stone; #var use_ring_of_spite false;};
   }
 }
 
@@ -137,16 +143,35 @@
 
 #action {^%!{[> ]*}You feel Freeway's warmth and love fill your body!} {
   log.info --> Freeway +10 sp regen boost started <--;
+  log.info Setting delay to reset in 30 min;
+  #delay {1800} {#send !hug freeway};
 }
 
 #action {^%!{[> ]*}Freeway's love slips away from your being.} {
+  love_freeway;
+}
+
+#alias cuddle_freeway {
+  #send !cuddle freeway;
+  log.info Setting delay to reset in 30 min;
+  #undelay cuddle_freeway;
+  #delay {cuddle_freeway} {cuddle_freeway} {1570};
+}
+
+#alias love_freeway {
   #send !love freeway;
+  log.info Setting delay to reset in 30 min;
+  #undelay love_freeway;
+  #delay {love_freeway} {love_freeway} {1570};
 }
 
 #action {^%!{[> ]*}Freeway's love strengthens your resolve!} {
   log.info --> Freeway +10 con boost started <--;
 }
 
-#action {Freeway licks your hand and a warm surge fills you.} {
+#action {^%!{[> ]*}Freeway licks your hand and a warm surge fills you.} {
   #nop;
 }
+
+#nop potion of regeneration
+#gag {^%!{[> ]*}You can feel the liquid churn inside of you...};

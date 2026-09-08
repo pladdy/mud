@@ -30,3 +30,5 @@
 #action {^Out of nowhere a crazed hockey fan leaps towards the Cup. The fan is struck$} {
   use_corpse;
 }
+
+#action {^A hockey fan sprints out and dies.$} {use_corpse}
