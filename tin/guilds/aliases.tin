@@ -1,0 +1,7 @@
+#alias reco {
+    #nop re-corpse / aka use a corpse from the coffin;
+}
+
+#alias use_corpse {
+    #nop use corpse on the ground;
+}
