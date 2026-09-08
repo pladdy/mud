@@ -5,12 +5,12 @@
 #alias attempt_stamina_recovery {
   #if {$enemy > 0 && $pct_stamina < 0.5} {
     #if {$knight_scw > 50} {#send !scw};
-    #elseif {$corpses > 0} {rebc};
+    #elseif {$corpses > 0} {reco};
   };
 }
 
 #alias attempt_strain_recovery {
-  #if {$enemy > 0 && $gp2 < 150 && $corpses > 0} {rebc};
+  #if {$enemy > 0 && $gp2 < 150 && $corpses > 0} {reco};
 }
 
 #alias attempt_will {
@@ -138,7 +138,7 @@
   default_skills;
 }
 
-#alias rebc {
+#alias reco {
   #send !unwrap smallest;
   #send !bury corpse;
 }

@@ -227,7 +227,7 @@
   };
 }
 
-#alias reab {
+#alias reco {
   #send !unwrap smallest;
   #send !focus absorb energy;
 }
