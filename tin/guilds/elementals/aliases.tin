@@ -54,14 +54,14 @@
   run el_apex;
 }
 
-#alias recd {
+#alias reco {
   #send !unwrap smallest;
   use_corpse;
 }
 
 #alias reet {
   #send !unwrap smallest;
-  #send !eat corpse;;
+  #send !eat corpse;
 }
 
 #alias rg {

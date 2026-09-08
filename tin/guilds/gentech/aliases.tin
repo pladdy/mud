@@ -120,7 +120,7 @@
 
 #alias mip_combat_hook {
   attempt_recharge;
-  #if {$gp1 < 3500 && $corpses > 0} {repu};
+  #if {$gp1 < 3500 && $corpses > 0} {reco};
   check_stepper;
 }
 
@@ -185,7 +185,7 @@
   #send !aset synthorg yellow;
 }
 
-#alias repu {
+#alias reco {
   #send !unwrap smallest;
   #send !recharge;
   #send !reclaim;
