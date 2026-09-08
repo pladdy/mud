@@ -33,6 +33,13 @@
   #var tried_to_auto_kill false;
   parse_exits %1;
   add_room_to_visited;
+
+  #list items_picked_up size items_picked_up_count;
+  #if {"$stepper" == "on" && $items_picked_up_count > 0} {
+    log.info Putting all in bags: $items_picked_up;
+    pba;
+    #list items_picked_up clear;
+  };
 }
 
 #nop Monster trigger;
@@ -67,13 +74,6 @@
       auto_kill;
       #var tried_to_auto_kill true;
     };
-  };
-
-  #list items_picked_up size items_picked_up_count;
-  #if {"$stepper" == "on" && $items_picked_up_count > 0} {
-    log.info Putting all in bags: $items_picked_up;
-    pba;
-    #list items_picked_up clear;
   };
 }
 

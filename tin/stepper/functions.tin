@@ -5,14 +5,16 @@
 #var blocked_rooms[37270] {exit of celestial zodiacs};
 #var blocked_rooms[40163] {exit swamp 1 into dundee hunters camp};
 #var blocked_rooms[40172] {exit swamp 2 into dundee hunters camp};
+#var blocked_rooms[36439] {hidden east room in icy blue};
 
 #function least_visited_room {
-  #local i 0;
   #var exit_check_dir {};
   #var dir_to_go {};
   #list cardinal_exits size cardinal_exits_size;
   #format least_visited_time {%T};
+  log.info Checking for least visited room, current_time: $least_visited_time;
 
+  #local i 0;
   #foreach $map[room_info][exits] {item} {
     #math {item_is_dir} {$i % 2};
     #if {$item_is_dir == 0} {
@@ -30,10 +32,13 @@
       #if {"$blocked_rooms[$item]" != "" || "$exit_check_dir" == ""} {
         log.warn "Skipping room, it's blocked: $blocked_rooms[$item]";
       };
+      #elseif {"$exit_check_dir" == "$entered_from"} {
+        log.warn Skipping room, entered from it: $exit_check_dir;
+      };
       #else {
         #if {"$visited_room_times[$item]" != ""} {
           #if {$visited_room_times[$item] < $least_visited_time} {
-            log.info Updating least visited room to $exit_check_dir, id $item, time $visited_room_times[$item];
+            log.info Updating least visited room to direction: $exit_check_dir, room id: $item, recorded time: $visited_room_times[$item];
             #var dir_to_go $exit_check_dir;
             #var least_visited_time $visited_room_times[$item];
           };
@@ -57,6 +62,7 @@
     #math {random_index} {1 d $cardinal_exits_size};
     #var dir_to_go $cardinal_exits[$random_index];
   };
+  log.info Returning direction to go $dir_to_go;
   #return $dir_to_go;
 }
 

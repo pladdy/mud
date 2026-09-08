@@ -9,12 +9,21 @@
 #var valid_stepper_dirs[se] {valid};
 
 #alias _go_in_dir {
-  log.info Stepping in direction $dir_to_go;
-  #regexp {$dir_to_go} {stepper_run} {
+  log.info Stepper is moving $dir_to_go;
+  #regexp {"$dir_to_go"} {stepper_run} {
+    log.info Stepper running;
     $dir_to_go;
   } {
-    #send !$dir_to_go;
-    #map move $dir_to_go;
+    #switch {"$dir_to_go"} {
+      #case "add_challenge_knight_steps" {
+        log.info Adding challenge knight steps;
+        $dir_to_go;
+      };
+      #default {
+        #send !$dir_to_go;
+        #map move $dir_to_go;
+      };
+    };
   };
 }
 
@@ -82,11 +91,11 @@
   #list {seen_monsters} {size} {seen_monster_count};
 
   #if {"$stepper" == "on" && "$player_present" == "true"} {
-    log.debug player present;
+    log.info Player preent, moving;
     take_a_step;
   };
   #elseif {"$stepper" == "on" && $seen_monster_count == 0 && "$player_present" == "false"} {
-    log.debug no monsters present;
+    log.info No monsters, moving;
     #if {"$item_present" == "true"} {
       #if {"$flying" == "true"} {#send !swoop all};
       #else {#send !get all};
@@ -225,10 +234,20 @@
       #var stepper_path_rooms 0;
     };
     #case {"party"} {
-      #if {"%2" != ""} {
-        log.info Adding party member to ignore list;
-        #format player {%l} {%2};
-        #list stepper_party add %2;
+      #if {"%2" == "remove"} {
+        log.info Removing party member '%3' from ignore list;
+        #format player {%l} {%3};
+        #list stepper_party find $player index;
+        #list stepper_party delete $index;
+        #list tells_blocklist find $player index;
+        #list tells_blocklist delete $index;
+        #unvar index;
+      };
+      #elseif {"%2" == "add"} {
+        log.info Adding party member '%3' to ignore list;
+        #format player {%l} {%3};
+        #list stepper_party add %3;
+        #list tells_blocklist add %3;
       };
       #else {
         log.info Party member list: $stepper_party;
@@ -258,6 +277,7 @@
   #send !glance;
   #nop force a delay, try to avoid skipping rooms;
   #script {sleep 1};
+  #delay 1 {#send !brief on no};
 }
 
 #alias take_a_step {
@@ -294,6 +314,7 @@
     _go_in_dir;
   };
   #else {
+    log.info Moving back to entered from: $entered_from;
     #var step_dir $entered_from;
     $entered_from;
   };
