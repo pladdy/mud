@@ -256,6 +256,7 @@
 #alias _taslen_gangplank {
   #send !gangplank;
   #map goto $taslen_gangplank_exit;
+  #delay 1 {#map goto $taslen_gangplank_exit};
 }
 
 #action {^You see land appear far to the east.$} {
