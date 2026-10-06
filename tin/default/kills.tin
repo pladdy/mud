@@ -163,7 +163,12 @@
 
     #nop Kill Sprints...places to run after a mob dies;
     #switch {"$last_killed"} {
-      #case "Cryohydra." {run verbeeg_chief;};
+      #case "Cryohydra." {run verbeeg_chief};
+    };
+
+    #regexp {$last_killed} {Jugger Support Mech} {
+      sound mob_dies;
+      #var jugger_support_dead true;
     };
   };
 
@@ -172,7 +177,7 @@
   #nop reactivate ttl for monters;
   #if {"$stepper" == "on"} {ttl_no_monsters on};
   #nop heal cocoon;
-  #send !fuse;
+  #3 {#send !fuse};
 }
 
 #alias _divvy_and_get {

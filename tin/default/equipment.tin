@@ -37,12 +37,41 @@
   #send !wear shield;
 }
 
-#action {You swing Soul Drinker into %1. A short tendril of soul appears but dissipates} {
-  log.warn Soul drinker is full, time to 'grip blade' and blick something.;
-  sound_beeps
+#alias wield_before_hook {
+  #nop;
 }
 
+#alias wield_after_hook {
+  #nop;
+}
+
+#alias wield {
+  log.info Wielding %0;
+  wield_before_hook;
+  #var {wielded_weapon} {%0};
+  #send !wield %0;
+  wield_after_hook;
+
+  #class wield kill;
+  #class wield open;
+  #action {^%!{[> ]*}You unwield %1.} {#send !wield %1};
+  #class wield close;
+}
+
+#alias unwield {
+  log.info Unwielding %0;
+  #class wield kill;
+  #send !unwield %0;
+}
+
+#action {You swing Soul Drinker into %1. A short tendril of soul appears but dissipates} {
+  log.warn Soul drinker is full, time to 'grip blade' and blick something.;
+  sound_beeps;
+}
+
+#nop used in westersea tomb to get into tomb under church;
 #alias murmur_name {
+  #nop male characters;
   #format {murmur} {%r} {$character};
   #replace {murmur} {r} {pr};
   #replace {murmur} {m} {nprp};
@@ -55,6 +84,20 @@
   #replace {murmur} {y} {-};
   #replace {murmur} {s} {zz};
   #var murmur {$murmur}zz;
+  #send !murmur $murmur;
+  #nop female characters;
+  #var murmur $character;
+  #replace {murmur} {r} {pr};
+  #replace {murmur} {m} {nprp};
+  #replace {murmur} {k} {klp};
+  #replace {murmur} {a} {-};
+  #replace {murmur} {e} {-};
+  #replace {murmur} {i} {-};
+  #replace {murmur} {o} {-};
+  #replace {murmur} {u} {-};
+  #replace {murmur} {y} {-};
+  #replace {murmur} {s} {zz};
+  #var murmur {$murmur}klp;
   #send !murmur $murmur;
 }
 
@@ -76,27 +119,38 @@
 }
 
 #action {^%!{[> ]*}Your malachite stone releases a cloud of noxious green mist!} {
-  #if {"$stepper" != "on"} {ros rose};
+  #if {"$stepper" != "on" && "$use_ring_of_spite" == "true"} {ros rose};
 }
 
 #action {^%!{[> ]*}Your amethyst stone flares with a psychic energy, invading} {
-  #if {"$stepper" != "on"} {ros rose};
+  #if {"$stepper" != "on" && "$use_ring_of_spite" == "true"} {ros rose};
 }
 
 #nop turqoise stone;
 #action {^%!{[> ]*}A shimmering barrier of frost surrounds you.} {
-  #if {"$stepper" != "on"} {ros ame};
+  #if {"$stepper" != "on" && "$use_ring_of_spite" == "true"} {ros ame};
 }
+
 #action {^%!{[> ]*}Your frost shield shatters into glittering ice crystals and melts away.} {
-  #if {"$stepper" != "on"} {ros jade};
+  #if {
+    "$stepper" != "on" 
+    && (
+      "$use_ring_of_spite" == "true" || "$use_ring_of_spite" == "defense"
+    )
+  } {ros jade};
 } {1}
 
 #nop jade stone;
 #action {^%!{[> ]*}Your jade stone pulses with protective energy. Your skin hardens.} {
-  #if {"$stepper" != "on"} {ros mal};
+  #if {"$stepper" != "on" && "$use_ring_of_spite" == "true"} {ros mal};
 }
 #action {^%!{[> ]*}The jade's protection fades from your skin.} {
-  #if {"$stepper" != "on"} {ros tur};
+    #if {
+    "$stepper" != "on" 
+    && (
+      "$use_ring_of_spite" == "true" || "$use_ring_of_spite" == "defense"
+    )
+  } {ros tur};
 } {1}
 
 #alias _remove_stone {#send !remove stone from ring}
@@ -107,7 +161,6 @@
 }
 
 #alias ros {
-  #var use_ring_of_spite true;
   #switch {"%1"} {
     #nop amethyst, stun and sp bleed;
     #case {"ame"} {_remove_stone; _insert_stone amethyst};
@@ -135,7 +188,13 @@
     #nop tiger's eye: boosts attack speed mskill;
     #case {"tig"} {_remove_stone; _insert_stone tiger's eye};
     #case {"tiger's eye"} {_remove_stone; _insert_stone tiger's eye};
-    #case {"off"} {_remove stone; #var use_ring_of_spite false;};
+    #case {"defense"} {
+      #var use_ring_of_spite defense;
+      _remove_stone; 
+      _insert_stone turquoise
+    };
+    #case {"off"} {_remove_stone; #var use_ring_of_spite false};
+    #case {"on"} {_remove_stone; #var use_ring_of_spite true};
   }
 }
 
@@ -151,18 +210,46 @@
   love_freeway;
 }
 
+#nop int boost;
 #alias cuddle_freeway {
   #send !cuddle freeway;
-  log.info Setting delay to reset in 30 min;
-  #undelay cuddle_freeway;
-  #delay {cuddle_freeway} {cuddle_freeway} {1570};
+  #format current_time {%T};
+  #math diff {$current_time - $last_received_input};
+  #delay {cuddle_freeway} {
+      #if {$diff < 3600} {      
+        log.info Setting delay to reset in 30 min;
+        #undelay cuddle_freeway;
+        cuddle_freeway;
+      };
+  } {1570};
 }
 
+#nop regen boost;
+#alias hug_freeway {
+  #send !hug freeway;
+  #format current_time {%T};
+  #math diff {$current_time - $last_received_input};
+  #delay {hug_freeway} {
+      #if {$diff < 3600} {      
+        log.info Setting delay to reset in 30 min;
+        #undelay hug_freeway;
+        hug_freeway;
+      };
+  } {1570};
+}
+
+#nop con boost;
 #alias love_freeway {
   #send !love freeway;
-  log.info Setting delay to reset in 30 min;
-  #undelay love_freeway;
-  #delay {love_freeway} {love_freeway} {1570};
+  #format current_time {%T};
+  #math diff {$current_time - $last_received_input};
+  #delay {love_freeway} {
+      #if {$diff < 3600} {      
+        log.info Setting delay to reset in 30 min;
+        #undelay love_freeway;
+        love_freeway;
+      };
+  } {1570};
 }
 
 #action {^%!{[> ]*}Freeway's love strengthens your resolve!} {
@@ -175,3 +262,13 @@
 
 #nop potion of regeneration
 #gag {^%!{[> ]*}You can feel the liquid churn inside of you...};
+
+#nop celestial zodiac celestial pocket watch;
+
+#action {^%!{[> ]*}rhythm. The stars whisper, "Divine fury reveals while dark insight"} {
+  send_email Celstial zodiacs portal to tome is available.;
+}
+
+#action {^%!{[> ]*}rhythm. The stars whisper, "Flesh weakens as the rifts awaken."} {
+  send_email Celstial zodiacs fracture to grimoire is available.;
+}

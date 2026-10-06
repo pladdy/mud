@@ -68,7 +68,7 @@
 
     #if {"$stepper" == "on"} {
       log.info Sending email for tell from %1 with %2;
-      send_email "Tell sent: %0";
+      send_email Tell sent: %0;
       stepper off;
     };
   };

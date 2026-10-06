@@ -1,3 +1,16 @@
+#alias _received_input {
+  log.debug Input received;
+  #if {"$stepper" == "on"} {
+    log.info Input received.  Refreshing stepper TTL.;
+    ttl_stepper on;
+  };
+  #format last_received_input {%T};
+}
+
+#event {RECEIVED INPUT} {
+  _received_input;
+};
+
 #nop MAP ENTER ROOM is set with an alias so it can be toggled;
 #nop see tin/map/aliases/default.tin;
 
@@ -22,8 +35,8 @@
 #event {SESSION CONNECTED} {
   #format log_day {%t} {%Y-%m-%d};
   #var {session_log} {./logs/$log_day-3k-session.log};
+  #log timestamp {%Y-%m-%d %H:%M:%S: };
   #log append {$session_log};
-  #delay 5 {#echo {Session connected at %t.} {%Y-%m-%d %H:%M:%S}};
 }
 
 #nop Define alias here to make available to events below;
@@ -33,12 +46,13 @@
     echo \#var {map[current_room]} {$map[current_room]} > last_session.tin;
     echo \#var {chaos_port_location} {$chaos_port_location} >> last_session.tin;
     echo \#var {wielded_weapon} {$wielded_weapon} >> last_session.tin;
+    echo \#var {stepper_path} {$stepper_path} >> last_session.tin;
+    echo \#var {stepper_path_name} {$stepper_path_name} >> last_session.tin;
   };
 }
 
 #event {SESSION DISCONNECTED} {
   #showme <170>Session disconnecting...;
-  #echo {Session disconnecting at %t.} {%Y-%m-%d %H:%M:%S};
   map_save;
   export_session;
 

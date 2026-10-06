@@ -1,17 +1,23 @@
 small figurine (eyeball-piercing):20000
 rod of lordly might:20000
-very blue wooden ring:15000
+very blue wooden ring:5000
 ring of hearts:1000
 potion giving you:10000
 mask of gemino:5000
 legendary gem:2500
-ghoti:2500
+ghoti:1000
 god crafted plate:1000
-grimoire of zephyrak (esoteric):5000
-tome of aeonos (transcendent):10000
-zephyrak's sword of wrath (malevolent):20000
-stone (transcendent):5000
-ring of spite, empty (malevolent):5000
 dark black potion:2000
 sphere of annihilation:2000
 aurothon:15000
+sword of light:10000
+zephyrak's sword of wrath (malevolent):5000
+helmet of aeonos (transcendent):5000
+ring of spite, empty (malevolent):7000
+ring of spite, empty (apocalyptic):5000
+ring of spite, empty (catacllysmic):3000
+ring of spite, empty (horrific):2000
+stone (transcendent):5000
+jade shield of felines (unbelievable):5000
+grimoire of zephyrak (esoteric):5000
+tome of aeonos (transcendent):10000

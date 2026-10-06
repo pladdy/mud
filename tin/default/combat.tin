@@ -105,3 +105,8 @@
 }
 
 #gag {^%!{[> ]*}Your party overwhelms the Beatle's defenses.}
+
+#nop celestial zodiacs soul summoned;
+#action {^A celestial guardian is summoned!} {
+  #send !kill soul;
+}

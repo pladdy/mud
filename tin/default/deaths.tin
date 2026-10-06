@@ -12,4 +12,5 @@
     stepper off;
   };
   #undelay reactivate_stepper;
+  send_email You died fool!\n\nRoom $map[current_room]: $map[room_info][area], $map[room_info][data];
 }
