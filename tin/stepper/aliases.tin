@@ -10,20 +10,39 @@
 
 #alias _go_in_dir {
   log.info Stepper is moving $dir_to_go;
-  #regexp {"$dir_to_go"} {stepper_run} {
-    log.info Stepper running;
+  #regexp {"$dir_to_go"} {{_|#\w+}} {
+    log.info Stepper running direction as command: $dir_to_go;
     $dir_to_go;
   } {
-    #switch {"$dir_to_go"} {
-      #case "add_challenge_knight_steps" {
-        log.info Adding challenge knight steps;
-        $dir_to_go;
+    #send !$dir_to_go;
+    #map move $dir_to_go;
+  };
+}
+
+#alias read_stepper_path {
+  #local path tin/stepper/paths/%1.txt;
+  #scan file $path {
+    #var last_dir {};
+    #var start_of_line true;
+    #var skip_line false;
+
+    #list stepper_path clear;
+    #parse {&0} {c} {
+      #if {"$start_of_line" == "true" && "$c" == "#"} {
+        #var skip_line true;
       };
-      #default {
-        #send !$dir_to_go;
-        #map move $dir_to_go;
+      #if {"$c" == "\n"} {
+        #list stepper_path add {$last_dir};
+        #var last_dir {};
+        #var start_of_line true;
+        #var skip_line false;
+      };
+      #elseif {"$skip_line" != "true"} {
+        #var last_dir {$last_dir$c};
+        #var start_of_line false;
       };
     };
+    #list stepper_path add {$last_dir};
   };
 }
 
@@ -35,33 +54,25 @@
     #var stepper_path_rooms 0;
   };
   #else {
-    #local path tin/stepper/paths/%1.txt;
-    #scan file $path {
-      #var last_dir {};
-      #parse {&0} {c} {
-        #if {"$c" == "\n"} {
-          #list stepper_path add {$last_dir};
-          #var last_dir {};
-        };
-        #else {
-          #var last_dir {$last_dir$c};
-        };
-      };
-      #list stepper_path add {$last_dir};
-    };
-    #list stepper_path size stepper_path_length;
+    read_stepper_path %1;
+    #list stepper_path size stepper_path_rooms;
 
-    #if {$stepper_path_length == 0} {
+    #if {$stepper_path_rooms == 0} {
       log.warn No path loaded, turning stepper off;
       #delay {1} {stepper off};
       log.info Possible paths:;
       print_system_output ls tin/stepper/paths;
     };
     #else {
-      #var stepper_path_rooms {$stepper_path_length};
-      log.info Loaded $stepper_path_length stepper_path rooms;
+      #var stepper_path_name {%1};
+      log.info Loaded $stepper_path_rooms stepper_path rooms;
     };
   };
+}
+
+#alias _mission_ask_accept {
+  #send !mission ask;
+  #6 #send !mission accept;
 }
 
 #alias _reset_prompt_ticker {
@@ -197,10 +208,6 @@
       ttl_stepper on;
       #nop only turn on monster found TTL if not in combat;
       #if {$enemy <= 0} {ttl_no_monsters on};
-      #event {RECEIVED INPUT} {
-        log.info Input received.  Refreshing stepper TTL.;
-        ttl_stepper on;
-      };
       #ticker {prompt} {
         #if {$rounds_in_combat == 0} {#send !glance};
       } {2};
@@ -221,7 +228,6 @@
       #unvar seen_monster_count;
       ttl_stepper;
       ttl_no_monsters off;
-      #unevent {RECEIVED INPUT};
       #undelay reactivate_stepper;
       #unticker prompt;
       tracker off;
@@ -254,14 +260,34 @@
       };
     };
     #case {"status"} {
+      #nop recalculate % completion;
+      #var stepper_path_loaded $stepper_path;
+      read_stepper_path $stepper_path_name;
+      #list stepper_path size stepper_path_rooms;
+      #var stepper_path $stepper_path_loaded;
+      #unvar stepper_path_loaded;
+      #list stepper_path size stepper_path_rooms_left;
+      #math stepper_path_rooms_visited {$stepper_path_rooms - $stepper_path_rooms_left};
       #math {stepper_completion} {$stepper_path_rooms_visited / $stepper_path_rooms * 100.00};
-      log.info Stepper is $stepper_completion% ( $stepper_path_rooms_visited / $stepper_path_rooms ) done;
+      log.info Stepper $stepper_path_name is $stepper_completion% ( $stepper_path_rooms_visited / $stepper_path_rooms ) done;
       #unvar stepper_completion
     };
     #default {
       log.warn Invalid syntax: stepper on|off|clear [stepper path file name];
     }
   };
+}
+
+#alias step_fast {
+  #list stepper_path size stepper_path_length;
+  #if {$stepper_path_length > 0} {
+    #%1 {
+      #var dir_to_go $stepper_path[1];
+      _go_in_dir;
+      #list stepper_path delete 1;
+      #math {stepper_path_rooms_visited} {$stepper_path_rooms_visited + 1};
+    }
+  }
 }
 
 #alias stepper_run {

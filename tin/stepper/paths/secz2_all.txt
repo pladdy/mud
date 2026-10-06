@@ -1,0 +1,196 @@
+# section 20
+se
+s
+nw
+w
+s
+u
+# section 22
+e
+e
+sw
+s
+u
+# section 21
+n
+n
+se
+se
+n
+n
+u
+# section 24 
+s
+s
+nw
+sw
+n
+n
+u
+# section 23
+e
+e
+sw
+sw
+n
+s
+e
+e
+n
+s
+u
+# section 25
+e
+e
+sw
+w
+s
+e
+e
+d
+# section 26
+n
+e
+s
+s
+w
+w
+n
+n
+s
+u
+# section 27
+s
+s
+e
+e
+n
+n
+u
+# section 28
+e
+e
+sw
+s
+u
+# section 29
+w
+w
+s
+e
+e
+s
+w
+w
+d
+# repeat section 20
+sw
+s
+d
+# repeat section 21
+n
+e
+se
+n
+n
+d
+# section 30
+e
+e
+w
+s
+s
+e
+w
+w
+d
+# section 31
+e
+ne
+w
+w
+n
+e
+d
+# section 32
+w
+ne
+e
+w
+w
+s
+s
+e
+e
+d
+# section 33
+n
+ne
+w
+w
+u
+# section 34
+s
+s
+n
+w
+nw
+s
+s
+d
+# repeat section 20
+sw
+s
+u
+# repeat section 22
+se
+s
+d
+# section 35
+e
+w
+w
+n
+e
+nw
+e
+e
+d
+# section 37
+s
+n
+ne
+se
+w
+se
+u
+# section 36
+w
+w
+s
+s
+e
+e
+n
+w
+u
+# section 38
+n
+n
+se
+ne
+s
+s
+d
+# section 39
+e
+w
+w
+s
+e
+sw
+e
+e
+e
+e
+proceed

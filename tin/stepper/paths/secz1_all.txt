@@ -1,0 +1,191 @@
+# section 00
+w
+s
+n
+n
+se
+e
+n
+s
+s
+d
+# section 01
+w
+w
+s
+e
+w
+s
+e
+e
+u
+# section 02
+s
+s
+e
+e
+d
+# section 03
+n
+n
+se
+e
+nw
+e
+d
+# section 04
+w
+e
+e
+w
+n
+ne
+w
+w
+u
+# section 06
+n
+n
+sw
+nw
+s
+s
+u
+# section 05
+ne
+e
+s
+n
+nw
+sw
+ne
+u
+# section 07
+e
+e
+w
+s
+s
+u
+# section 08
+se
+nw
+ne
+w
+w
+s
+s
+d
+# section 11
+s
+n
+n
+se
+se
+n
+n
+s
+d
+# section 10
+e
+e
+w
+s
+sw
+e
+e
+d
+# section 09
+e
+e
+sw
+s
+u
+# section 06
+n
+n
+sw
+w
+s
+d
+# section 12
+w
+w
+s
+s
+e
+e
+n
+w
+u
+# section 13
+w
+w
+e
+s
+s
+d
+# section 14
+e
+e
+sw
+sw
+n
+s
+e
+e
+n
+s
+u
+# section 16
+w
+w
+n
+n
+e
+s
+n
+e
+u
+# section 15
+n
+n
+e
+sw
+e
+se
+nw
+ne
+u
+# section 18
+w
+w
+s
+s
+e
+e
+d
+# section 17
+se
+s
+n
+w
+w
+s
+d
+# section 19
+n
+s
+s
+n
+e
+e
+s
+n
+n
+se
+e
+e
+se
+se
+proceed

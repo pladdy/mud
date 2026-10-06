@@ -1,0 +1,249 @@
+# section 40
+n
+w
+e
+e
+sw
+s
+e
+w
+w
+d
+# section 41
+s
+se
+n
+e
+n
+u
+# section 44
+w
+w
+s
+e
+w
+s
+e
+e
+d
+# section 45
+e
+e
+w
+w
+n
+e
+nw
+e
+e
+d
+# section 46
+s
+n
+n
+se
+se
+n
+n
+d
+# section 48
+w
+w
+s
+e
+w
+s
+e
+e
+d
+# section 47
+n
+n
+s
+w
+nw
+s
+s
+enter portal
+# section 49
+w
+w
+n
+n
+u
+# section 41
+s
+se
+ne
+n
+d
+# section 43
+e
+w
+w
+n
+e
+ne
+w
+w
+u
+# section 42
+w
+w
+s
+e
+sw
+e
+e
+u
+# section 41
+s
+se
+ne
+n
+u
+# section 44
+w
+w
+s
+s
+e
+e
+d
+# section 45
+n
+n
+e
+e
+d
+# section 46
+e
+se
+n
+n
+u
+# section 50
+e
+sw
+s
+e
+ne
+sw
+d
+# section 47
+n
+w
+w
+s
+enter portal
+# section 49
+w
+nw
+n
+u
+# section 41
+s
+se
+ne
+n
+d
+#section 43
+w
+n
+n
+d
+# section 51
+e
+n
+s
+s
+nw
+w
+s
+n
+n
+d
+# section 52
+w
+n
+n
+se
+se
+n
+n
+w
+d
+# section 53
+w
+w
+s
+e
+e
+s
+w
+w
+d
+# section 55
+n
+nw
+sw
+e
+w
+s
+d
+# section 54
+sw
+s
+n
+n
+w
+enter portal
+# section 56
+n
+e
+s
+w
+w
+n
+n
+e
+e
+d
+# section 57
+e
+e
+w
+w
+se
+w
+s
+e
+e
+d
+# section 58
+se
+w
+w
+n
+n
+e
+e
+w
+w
+s
+d
+# section 59
+n
+nw
+se
+ne
+e
+e
+e
+se
+se
+e
+e
+ne
+e
+d

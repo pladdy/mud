@@ -1,5 +1,3 @@
-stepper_run secz
-press play
 e
 s
 d
