@@ -18,3 +18,5 @@
 
 #gag {Bonehead, you're at max hit points already.}
 #gag {You must wait for an attack from that monster.}
+
+#var monks[preferred_method] phoenix;

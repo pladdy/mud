@@ -1,9 +1,23 @@
+#alias _ammo {
+    #var jugger_ammo_type %1;
+    #send !su assault %1;
+}
+
 #alias ammo {
-  run jugger_ammo;
   #switch {"%1"} {
-    #case {"proj"} {#send !vbuy projectile 4 1 10000};
-    #case {"miss"} {#send !vbuy missile 1 1 10000};
-    #default {#showme pass in 'miss' or 'proj'};
+    #case {"edged"} {_ammo %1};
+    #case {"blunt"} {_ammo %1};
+    #case {"fire"} {_ammo %1};
+    #case {"ice"} {_ammo %1};
+    #case {"acid"} {_ammo %1};
+    #case {"poison"} {_ammo %1};
+    #case {"energy"} {_ammo %1};
+    #case {"radiation"} {_ammo %1};
+    #default {
+      #showme Usage:;
+      #showme - ammo <dmg type>;
+      #showme - current setting: $jugger_ammo_type;
+    };
   }
 }
 
@@ -70,7 +84,7 @@
 
 #alias login_commands {
   #delay 2 #send !support summon;
-  #delay 4 #send !support assault fire;
+  #delay 4 #send !support assault $jugger_ammo_type;
   #delay 6 #send !cdefend support;
   #delay 8 {
     #send !empower on;
@@ -82,7 +96,7 @@
   #if {$rounds_in_combat > 0 && $gp1 < 30 && $corpses > 0} {reco};
 
   #nop Use up excess sps on heat if i'm at full;
-  #if {$rounds_in_combat > 0 && $gp2 < 75 && $sp >= $sp_max} {#send !dissipate};
+  #if {$rounds_in_combat > 0 && $gp2 < 70 && $sp >= $sp_max} {#send !dissipate};
 
   #nop Use up missiles and clan powers;
   #if {$clan_powers > 0 && $jugger_reset > 97} {#send !frenzy;};
@@ -90,6 +104,7 @@
 
   attempt_airdrop;
   check_stepper;
+  #if {"$jugger_support_dead" == "true"} {sound_beep};
 };
 
 #alias mip_gline1_hook {
@@ -100,8 +115,8 @@
   #regexp {$data} {Ammo:[{\d+}/} {#var jugger_mounts[0] &1};
   #regexp {$data} {Ammo:[{\d+}/{\d+}]} {#var jugger_mounts[1] &2} {#var jugger_mounts[1] 101};
 
-  #if {$jugger_mounts[0] < 100} {rammo 4 1};
-  #if {$jugger_mounts[1] < 100} {rammo 4 2};
+  #if {$jugger_mounts[0] < 20} {reload 1 p $jugger_ammo_type};
+  #if {$jugger_mounts[1] < 20} {reload 2 p $jugger_ammo_type};
 
   #regexp {$data} {Gxp: {\d+\.\d+}%} {#var gxp &1};
   #regexp {$data} {Coffin: {\d+}} {#var corpses &1} {#var corpses 0};
@@ -117,13 +132,44 @@
 }
 
 #nop  Remote Ammo (via truck) purchase;
-#alias rammo {
+#alias reload {
   #if {"%1" == ""} {
+    #send !truck ammo list missile;
     #send !truck ammo list projectile;
-    #showme <170>Syntax is 'rammo <ammo number> <mount number>';
+    #showme <170>Syntax is 'reload <mount number> <ammo type> <dmg type>';
+    #showme <170>Ex: reload 1 p radiation;
   };
+  #elseif {"%1" == "guild"} {  
+    run jugger_ammo;
+    #switch {"%2"} {
+      #case {"p"} {#send !vbuy projectile 1 1 500};
+      #case {"m"} {#send !vbuy missile 1 1 500};
+      #default {#showme Usage: reload guild <mount>};
+    };
+  }
   #else {
-    #send !truck ammo vbuy projectile %1 %2 10000;
+    #switch {"%2"} {
+      #case {"m"} {
+        #switch {"%3"} {
+          #case {"fire"} {#send !truck ammo vbuy missile 2 %1 500};
+          #case {"cold"} {#send !truck ammo vbuy missile 3 %1 500};
+          #case {"poison"} {#send !truck ammo vbuy missile 4 %1 500};
+          #case {"acid"} {#send !truck ammo vbuy missile 5 %1 500};
+          #case {"radiation"} {#send !truck ammo vbuy missile 6 %1 500};
+          #default {#send !truck ammo list missile};
+        };
+      };
+      #case {"p"} {
+        #switch {"%3"} {
+          #case {"edged"} {#send !truck ammo vbuy projectile 2 %1 500};
+          #case {"blunt"} {#send !truck ammo vbuy projectile 3 %1 500};
+          #case {"fire"} {#send !truck ammo vbuy projectile 4 %1 500};
+          #case {"radiation"} {#send !truck ammo vbuy projectile 5 %1 500};
+          #case {"energy"} {#send !truck ammo vbuy projectile 6 %1 500};
+          #default {#send !truck ammo list projectile}; 
+        };
+      };
+    };
   };
 }
 
@@ -172,6 +218,15 @@
   #99 #send !support upgrade armor;
   #125 #send !support upgrade repair;
   #send !support defend edged,blunt,fire,ice,electric toggle;
+}
+
+#alias tr {
+  #if {"%1" == "max"} {
+    #send !transpose max;
+  };
+  #else {
+    #send !transpose %1;
+  };
 }
 
 #alias use_corpse {

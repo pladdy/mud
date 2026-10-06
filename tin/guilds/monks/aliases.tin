@@ -130,7 +130,7 @@
 }
 
 #alias check_stepper {
-  #if {"$stepper" == "on" && $gp2 < $MIN_MIND} {
+  #if {"$stepper" == "on" && ($gp2 < $MIN_MIND || ($focus < 20 && $gp2 < 200))} {
     log.warn Disabling stepper to regen mind.  Mind: $gp2, Stepper: $stepper;
     stepper off;
     #if {$enemy > 0} {dtrig _rest_then_enable_stepper};
@@ -203,20 +203,22 @@
   #local MIN_SP 150;
   #if {$sp < $MIN_SP && $corpses > 0 && $rounds_in_combat > 0} {resp};
 
-  #local MIN_FOCUS 40;
+  #local MIN_FOCUS 125;
   #if {"$stepper" == "on" &&
-       ($sp < $MIN_SP || $focus < $MIN_FOCUS) &&
+       ($sp < $MIN_SP || $focus < $MIN_FOCUS || $gp2 < 200) &&
        $rounds_in_combat > 0 &&
        "$monks[method]" != "crane"} {
-      mtc;
+      #send !mtc;
   };
 
   #if {"$stepper" == "on" &&
       $sp >= $sp_max &&
       $focus >= 100 &&
       $rounds_in_combat > 0 &&
-      "$monks[method]" != "phoenix"} {
-    mtp;
+      "$monks[method]" != "phoenix" &&
+      "$monks[preferred_method]" == "phoenix"
+    } {
+    #send !mtp;
   };
 
   attempt_enervate;
@@ -248,6 +250,16 @@
 #alias mm {
   #var keep_meditating true;
   #send meditate;
+}
+
+#alias mtc {
+  #send !mtc;
+  #var monks[preferred_method] crane;
+}
+
+#alias mtp {
+  #send !mtp;
+  #var monks[preferred_method] phoenix;
 }
 
 #alias reco {

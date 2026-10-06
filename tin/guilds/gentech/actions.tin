@@ -15,8 +15,13 @@
   #if {"%3" == "--------"} {#send !sya};
 }
 
+#nop party triggers;
 #action {^%!{[> ]*}%1 gives you a high-five!$} {
   #if {"$party_status" == "yes"} {#send !unwrap}
+}
+
+#action {^%!{[> ]*}%1 taps you on the shoulder.$} {
+  #if {"$party_status" == "yes"} {#send !powerfeed %1 500};
 }
 
 #nop  Adjust pheal when using embiggen;
@@ -53,4 +58,8 @@
 #action {^%!{[> ]*}[M] Spectral Guardian} {
   stepper_monster_trigger {%0};
   _handle_energy_immune
+}
+
+#action {^%!{[> ]*}ALERT-=-=-=-=ALERT-=-=-=-=-ALERT=-=-=-=-ALERT=-=-=-=-=ALERT} {
+  sound_beeps;
 }

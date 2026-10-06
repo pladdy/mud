@@ -285,9 +285,11 @@
 
 #alias use_corpse {#send !focus absorb energy}
 
-#alias wield {
+#alias wield_before_hook {
   #send !sheath;
-  #send !wield %0;
+}
+
+#alias wield_after_hook {
   #send !focus melee;
   #send !wear shield;
 }

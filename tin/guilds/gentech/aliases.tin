@@ -120,7 +120,8 @@
 
 #alias mip_combat_hook {
   attempt_recharge;
-  #if {$gp1 < 3500 && $corpses > 0} {reco};
+  #math {gp1_ratio} {$gp1 / $gp1_max * 1.0};
+  #if {$enemy > 0 && $gp1_ratio < .5 && $corpses > 0} {reco};
   check_stepper;
 }
 
@@ -201,6 +202,11 @@
   #send !recharge;
   #send !reclaim;
   #send !hp;
+  #list stepper_party find noonien index;
+  #if {$index > 0} {
+    #send !powerfeed noonien 1000;
+  };
+  #unvar index;
 }
 
 #alias wimpy_commands {

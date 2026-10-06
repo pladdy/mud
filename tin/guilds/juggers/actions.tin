@@ -23,3 +23,26 @@
 } {4}
 
 #gag {^%!{[> ]*}The computer chirps 'No healing needed.'}
+
+#alias _handle_fire_immune {
+  #if {"$jugger_ammo_type" == "fire"} {
+    ammo edged;
+    #send !dump 1;
+    #send !dump 2;
+    dtrig ammo fire;
+  };
+}
+
+#action {^%!{[> ]*}%1 (infernal).} {
+  _handle_fire_immune;
+} {2}
+
+#action {^%!{[> ]*}[M] %1 (infernal).} {
+  stepper_monster_trigger {%1};
+  _handle_fire_immune;
+} {1}
+
+
+#action {^%!{[> ]*}Responding to %1's call for support, a Jugger Support Mech enters} {
+  #var jugger_support_dead false;
+}
