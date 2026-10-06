@@ -3,16 +3,16 @@
 Lost souls will aggro you
 Mobs will assist lost souls
 
-- it's possible to get a shadow follower to assist you
+- it's possible to get a shadow/charmed follower to assist you
 
 When going for mark stat boosts, beware diminishing returns.
-At scaler 100 maybe you get +8 to stats
-  - 15M mobs
+At scaler 100 you get +9 to stats
+  - 30M mobs
 At 125 you get +11, but it takes much longer
   - 85M mobs
-  - 500% the class for + 33% stats
+  - 300% the class for + 23% stats
 
-Also if rep farming, use smallest dungeon.  Reps are constant / mob and for orbs.
+Reps are constant / mob and for orbs.
 - mobs: 5 reps
 - aeonos/zephyrak: 500 reps
 - abomination/colossus: 5
@@ -27,8 +27,8 @@ Ideally you use tattoo to get highest scaler eq
   - marks
 
 Then farm for reps rest of boot on lowest scaler.
-- should be able to clear 540 (108 mobs * 5 reps) + 500 for god, + orbs
-- maybe 1500 reps?
+- should be able to clear 545 (109 mobs * 5 reps + ~50 * 5 reps (souls)) + 500 for god
+- ~1250 / run
 
 Use a satchel!  You need it to store souls and sell them for 5 reps / soul later.
 
@@ -39,37 +39,46 @@ Use a satchel!  You need it to store souls and sell them for 5 reps / soul later
 
 | Scaler | Mobs     | Colossus /  | Mimic    | Aeonos / | Mark (wis/int/cha)
 |        |          | Abomination |          | Zephyrak | Mark (str/con/dex)
-|--------|----------|-------------|----------|----------|-----------
-| 85-87  | 10-15M   | 20-25M      | 20-25M   | 40M      | +7
+|--------|----------|-------------|----------|----------|-------------------
+| 85     | 10-15M   | 20-25M      | 20-25M   | 40M      | +7
+| 86     | 13M      | 20-25M      | 20-25M   | 40M      | +8
+| 90     | 16-19M   | 30M         | 30M      | 60M      | +8
 | 101    | 30-40M   | 60M         | 60M      | 100M     | +9
 | 110    | 48M      | 80M         | 80M      | 140M     | +10
+| 115    | 50M      | 95M         |          | 170M     | +10
+| 120    | 70M      | 148M        | 148M     | 250M     | +11
 | 125    | 85-90M   | 155M        | 155M     | 340M     | +11
 | 130    | 120-150M | 260M        | 260M     | 515M     | +11
 | 140    | 210-220M | 400-450M    | 400-450M |          |
 
 ## Item adjectives by scaler
 
-| Scaler | Tome / Helmet (stat) | Shield
-|--------|----------------------|--------------
-| 77-80  | luminous             | remarkable
-| 101    | radiant              | exceptional
-| 110    | brilliant (+8)       | exceptional
-| 125    | resplendent          | exceptional
-| 130    | magnificent          |
-| 140    | divine               |
-| 150    | transcendent         | unbelievable
+| Scaler | Tome / Helmet (stat) | Shield       | Level req.
+|--------|----------------------|--------------|-----------
+| 77-80  | luminous             | remarkable   |
+| 90     |                      |              |
+| 101    | radiant              | exceptional  |
+| 110    | brilliant (+8)       | exceptional  |
+| 120    | resplendent (+9)     | exceptional  | >90
+| 125    | resplendent          | exceptional  |
+| 130    | magnificent          |              |
+| 140    | divine               |              |
+| 150    | transcendent (+12)   | unbelievable | >120
 
-| Scaler | Grimoire   | Ring / Sword | Stone
-|--------|------------|--------------|------
-| 77     |            | malicous     |
-| 80     |            |              | polished
-| 85     | weathered  | vicious      | polished
-| 101    | mysterious | dreadful     | brilliant
-| 110    |            | terrifying   | pristine
-| 125    | arcane     | horrific     | flawless
-| 130    | enigmatic  | cataclysmic  | perfect
-| 140    | cryptic    | apocalyptic  | 
-| ?      | esoteric   | malevolent   |
+| Scaler | Grimoire   | Ring / Sword | Stone        | Level req.
+|--------|------------|--------------|--------------|-----------
+| 77     |            | malicous     |              |
+| 80     |            |              | polished     |
+| 85     | weathered  | vicious      | polished     |
+| 90     | weathered  | vicious      | polished     |
+| 101    | mysterious | dreadful     | brilliant    |
+| 110    |            | terrifying   | pristine     |
+| 115    |            | terrifying   | pristine     |
+| 120    | arcane     | horrific     | flawless     | >90
+| 125    | arcane     | horrific     | flawless     |
+| 130    | enigmatic  | cataclysmic  | perfect      |
+| 140    | cryptic    | apocalyptic  |              |
+| 150    | esoteric   | malevolent   | transcendent | >120
 
 Tome/Grimoire regen may be based on % of stat 
 - grimoire may be 10% of max con stat
@@ -84,23 +93,58 @@ You can spend reps to buy items that help you in the area
 | #)  Item                                         : Rep Cost
 |---  ----------                                   : ---------
 | 1)  Celestial Pocket Watch                       : 50
-| 2)  Shadow Lantern                               : 100
-| 3)  Zephyrak's token of return                   : 200
+| 2)  Shadow Lantern / Radiant Lantern             : 100
+| 3)  Zephyrak|Aeonos's token of return            : 200
 | 4)  Celestial Satchel of Balance                 : 300
 | 5)  Potion of vitality                           : 400
 | 6)  Astral Locket                                : 1000
 | 7)  Celestial Hand                               : 1500
-| 8)  Celestial Tattoo                             : 7000
+| 8)  Celestial Coin                               : 2000
+| 9)  Celestial Tattoo                             : 10000
 |-------------------------------------------------------------
 
 - watch tells you when events will happen (portals, colossus', etc.)
-- shadow lantern - -2 light
+- shadow lantern - -2 light / +2 light
 - token of return - port to entrance
-- satch of balance - holds orbs
+- satchel of balance - holds orbs
 - potion of vitality - hp heal
-- astral locket - lost souls don't attack (except those in pool)
-- celetial hand - ?
+- astral locket 
+  - lost souls don't aggro (except those in pool)
+  - abominations / colossus' don't aggro
+- celetial hand - can 'reveal' mobs alignment and immunities
+- celestial coin - ?
 - celetial tattoo - can travel through levels without killing all celestials
+
+### Celestial Pocket Watch
+
+Seems like mimics and collossus/abominations are random now and you have to get
+a watch.
+
+All messages seem to have this prefix:
+```
+The watch glows with 10 soft pulses of light, thrumming with celestial rhythm. The stars
+whisper,
+```
+
+Followed by a unique message
+
+"Allies gather while corruption mutates."
+- ?
+ 
+"Colossi stir as dark servants answer."
+- colossus will show up within the hour in light area
+
+"Salvation burns while an abomination awakens."
+- an abomination will show up within the hour in shadows area
+
+"Truth bends as shadows strike."
+- wtf?
+
+"Divine fury reveals while dark insight spreads."
+- apparently a portal will open lolwut
+
+"Devotion forms while decay spreads."
+- wtf?
 
 ## Immunities
 
@@ -113,8 +157,14 @@ verdant - acid?
 crackling - elec
 psychic - mind
 pulsing - energy
-venomous - poison?
+venomous - poison
 glowing - radiation?
+
+# Mob Timings
+
+Abominations/Colossus' and Mimics spawn at specific times.  Rumor is it's within
+45 minutes (random) of when you enter the dungeon.  So once you enter you have to
+stay when going for mimic chests.
 
 # Light
 
