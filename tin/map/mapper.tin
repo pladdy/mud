@@ -11,9 +11,8 @@
         #send !aset room_short white+[MRS] +reset;
         #send !aset room_long white+[RL] +reset;
         #send !brief on no;
-        #event {RECEIVED INPUT} {
-            #nop;
-        };
+        #nop why disable this event?;
+        #event {RECEIVED INPUT} {#nop;};
         #send !rating;
         #send !glance;
     };
@@ -27,7 +26,7 @@
         #send !aset room_long;
         #send !brief on yes;
         #unvar map[room_desc];
-        #unevent {RECEIVED INPUT};
+        #event {RECEIVED INPUT} {_received_input};
         #class mapper_actions kill;
     };
 }
