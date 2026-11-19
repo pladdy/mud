@@ -268,13 +268,11 @@
   #send !eat corpse;
 }
 
-#alias resp {reet}
-#alias rest {reet}
-
-#alias resps {#loop 1 5 loop {reet};}
+#alias resps {#loop 1 5 loop {reco}}
 
 #alias use_corpse {
   #nop study corpse always, in before corpse hook;
+  #send !study corpse;
   #send !eat corpse;
   #send !hp;
 }

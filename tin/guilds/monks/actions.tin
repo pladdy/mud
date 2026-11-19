@@ -24,12 +24,8 @@
   #var monks[method] %1;
 }
 
-#action {^%!{[> ]*}Your inner energies are too tapped to repeat this action.$} {
-  #var {focus} {0};
-}
-
 #action {^%!{[> ]*}Mental energies pour into you from the power of the Ancients.$} {
-  #var {focus} {183};
+  #var {focus} {215};
 }
 
 #nop  Meditate;
@@ -47,6 +43,7 @@
 }
 
 #action {^%!{[> ]*}Your inner energies are too tapped to repeat this action.$} {
+  #var {focus} {0};
   #if {"$stepper" == "on"} {
     #nop log.warn No focus left, disabling stepper;
     #nop stepper off;
@@ -98,19 +95,35 @@
 }
 
 #nop mob specific actions while stepping;
-#action {^%!{[> ]*}[M] %1 (psychic)} {
-  log.warn mind immune mob, switching damage type;
-  #send !chifocus static;
+#alias _handle_immune {
+  log.warn Mob is immune to %1, switching damage type to %2;
+  #send !chifocus %2;
+  dtrig cfs;
 }
 
-#action {^%!{[> ]*}[M] %1 (crackling)} {
-  log.warn mind immune mob, switching damage type;
-  #nop prefer static so dtrig;
-  #send !chifocus thought;
-  dtrig {chifocus static};
-}
+#action {^%!{[> ]*}%1 (psychic).} {
+  _handle_immune mind static;
+} {2}
 
-#action {^%!{[> ]*}[M] %1 (infernal)} {
-  log.warn blunt immune mob, switching damage type;
-  #send !chifocus static;
-}
+#action {^%!{[> ]*}[M] %1 (psychic).} {
+  stepper_monster_trigger {%1};
+  _handle_immune mind static;
+} {1}
+
+#action {^%!{[> ]*}%1 (crackling).} {
+  _handle_immune electric thought;
+} {2}
+
+#action {^%!{[> ]*}[M] %1 (crackling).} {
+  stepper_monster_trigger {%1};
+  _handle_immune electric thought;
+} {1}
+
+#action {^%!{[> ]*}%1 (infernal).} {
+  _handle_immune fire static;
+} {2}
+
+#action {^%!{[> ]*}[M] %1 (infernal).} {
+  stepper_monster_trigger {%1};
+  _handle_immune fire static;
+} {1}
