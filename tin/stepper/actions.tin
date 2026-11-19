@@ -113,6 +113,7 @@
     #local item %1;
     log.debug Picked up item: $item;
     #regexp {$item} {green capsule} {#send !compress green capsule};
+    #regexp {$item} {voucher} {#send !keep voucher};
     #regexp {$item} {bronze key} {#send !keep key};
     #regexp {$item} {dense wooden hammer} {#send !keep hammer};
     #regexp {$item} {gold coin} {#nop} {#list items_picked_up add {$item}};

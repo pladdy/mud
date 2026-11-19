@@ -1,7 +1,7 @@
 # lines starting with '#' will be ignored
 (%w golem)
 # dogs
-'s %+ dog|wolfhound|bulldog
+'s %+ dog|wolfhound|bulldog|vallhund
 # knights mounts
 .+, .+'s (lazy fat cat)
 .+, .+'s .+ ((shetland pony)|nag|cob|palfrey|mustang|(arabian|andalusian|shire|belgian horse))
@@ -12,7 +12,7 @@
 %+ ferryman
 %*shenanigans
 # necromancer followers
-(a|the) (skeleton|zombie|ghoul|valpur|ghast|manshi|bolwyn|greesh|wight|heucuva|tholen|bayen|quarin|mohrg|grimare|valithyn)(\.|under)
+.+ (a|the) (skeleton|zombie|ghoul|valpur|ghast|manshi|bolwyn|greesh|wight|heucuva|tholen|bayen|quarin|mohrg|grimare|valithyn)( [\d+%])?.
 %+'s%+Controller Alfred
 %+'s%+Droid
 a %+ of %+ broodling
@@ -42,8 +42,12 @@ an? (manes|orc|giant rat|goblin|kobold|hobgoblin)
 an? (lemure|gnoll|(giant (centipede|toad))|ugly troglodyte|stirge)
 an? (large ogre|smelly bugbear|rotting ghoul|wererat|((huge|large) spider)|giant (lizard|weasel|tick|boring beetle))
 an? (dark shadow|stony gargoyle|froth-mouthed hell hound|carnivorous ape|poisonous toad|large ice toad|giant constrictive snake|disfigured werewolf|5-headed hydra|huge owlbear)
+an? (cockatrice|minotaur|leucrotta|wereboar|7-headed hydra|poisonous snake|displacer beast|giant spider)
 an? (terrible wyvern|stinky-assed otyugh|enormous troll|near-invisible wraith|dangerous rakshasa|firey salamander|terrifying manticore|powerful ogre magi)
 an? (disfigured (jackalwere|weretiger)|disgusting carrion crawler|enormous 8-headed hydra|rotting wight|shimmering phase spider)
+an? (enormous ((stone|hill|frost|fire) giant|neo-otyugh))|gargantuan roper|shimmering spectre|giant slug|hu-goddamn-mongous 10-headed hydra
+an? fugly night hag|crimson-red fire lizard|2-headed ettin|giant umber hulk|3-headed chimera|rotting mummy
+an? rock-encrusted xorn|obsidian-black gorgon|damn ugly mind-flayer|enormous, 8-headed pyro-hydra|huge flaming phoenix
 's ice golem
 # priest psummons
 (beautiful chimera)|(majestic gryphon)|(mystic unicorn)

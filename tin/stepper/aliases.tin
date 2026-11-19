@@ -81,7 +81,7 @@
 }
 
 #alias _transform_monster_name {
-  log.debug Trying to parse mosnter name %0;
+  log.debug Trying to parse monster name %0;
 
   #var monster_name %0;
   #replace monster_name {[M]} {};
@@ -145,6 +145,10 @@
 #alias load_non_monsters {
   #script {non_monsters} {cat tin/stepper/non_monsters.txt | grep -v '#'};
   log.debug non_monsters: $non_monsters;
+}
+
+#alias load_non_monsters_hook {
+  #nop;
 }
 
 #alias parse_exits {
@@ -278,15 +282,21 @@
   };
 }
 
-#alias step_fast {
-  #list stepper_path size stepper_path_length;
-  #if {$stepper_path_length > 0} {
-    #%1 {
-      #var dir_to_go $stepper_path[1];
-      _go_in_dir;
-      #list stepper_path delete 1;
-      #math {stepper_path_rooms_visited} {$stepper_path_rooms_visited + 1};
-    }
+#alias step {
+  #if {%0 > 0} {
+    #list stepper_path size stepper_path_length;
+    #if {$stepper_path_length > 0} {
+      #%1 {
+        #var dir_to_go $stepper_path[1];
+        _go_in_dir;
+        #list stepper_path delete 1;
+        #math {stepper_path_rooms_visited} {$stepper_path_rooms_visited + 1};
+      }
+    };
+  };
+  #else {
+    #send !step %0;
+    #map move {step %0};
   }
 }
 
@@ -360,6 +370,7 @@
     #send !aset look_weapon hicyan+[W] +reset;
     #send !brief on no;
     load_non_monsters;
+    load_non_monsters_hook;
     #var tracker on;
   };
   #elseif {"%0" == "off"} {

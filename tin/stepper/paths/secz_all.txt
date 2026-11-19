@@ -633,4 +633,5 @@ e
 e
 ne
 e
+get barrier
 d

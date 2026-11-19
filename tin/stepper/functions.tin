@@ -6,6 +6,7 @@
 #var blocked_rooms[40163] {exit swamp 1 into dundee hunters camp};
 #var blocked_rooms[40172] {exit swamp 2 into dundee hunters camp};
 #var blocked_rooms[36439] {hidden east room in icy blue};
+#var blocked_rooms[33786] {goes to necropolis, danger will robinson!};
 
 #function least_visited_room {
   #var exit_check_dir {};
@@ -30,7 +31,7 @@
     #else {
       #nop item is a room id;
       #if {"$blocked_rooms[$item]" != "" || "$exit_check_dir" == ""} {
-        log.warn "Skipping room, it's blocked: $blocked_rooms[$item]";
+        log.warn Skipping room, it's blocked: $blocked_rooms[$item];
       };
       #elseif {"$exit_check_dir" == "$entered_from"} {
         log.warn Skipping room, entered from it: $exit_check_dir;
@@ -83,7 +84,7 @@
     #format {monster_lc} {%l} {$monster};
     #regexp {$monster_lc} {%!{$non_monster}} {#replace result {false} {true}};
 
-    log.debug checking '$monster' vs '$non_monster', match? '$result';
+    log.debug checking '$monster_lc' vs '$non_monster', match? '$result';
 
     #if {"$result" == "true"} {
       log.debug '$monster' is blacklisted based on '$non_monster', skipping;
@@ -106,6 +107,8 @@
   #regexp {%0} {{\w+} of } {#var transform_mob &1};
   #regexp {%0} {bloodseer } {#var transform_mob bloodseer};
   #regexp {%0} {knight's grand champion} {#var transform_mob elf};
+  #regexp {%0} {%!{(old, wrinkled)|(savon the)}} {#var transform_mob human};
+  #regexp {%0} {mendes} {#var transform_mob arturo};
 
   #nop knight horses map to 'horse': don't attack 'horse' if mount is last in room;
   #regexp {%0} {%+ horse%*} {#var transform_mob &0};
