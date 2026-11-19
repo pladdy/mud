@@ -31,4 +31,6 @@
   use_corpse;
 }
 
-#action {^A hockey fan sprints out and dies.$} {use_corpse}
+#action {^A hockey fan sprints out and dies.$} {
+  use_corpse;
+}

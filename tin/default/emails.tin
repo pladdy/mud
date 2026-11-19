@@ -6,7 +6,7 @@
     #replace {body} {'} {'"'"'};
     log.debug Sending email body of '$body';
     #script {content} {EMAIL_USER=$EMAIL_USER EMAIL_ADDR=$EMAIL_ADDR bin/email '$body' &};
-    log.info Email set: $content;
+    log.info Email set: $body;
     #unvar EMAIL_USER;
     #unvar EMAIL_ADDR;
     #unvar body

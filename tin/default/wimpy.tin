@@ -23,8 +23,12 @@
   sound_beeps;
   #if {"$stepper" == "on"} {
     log.warn Wimpied, disabling stepper;
-    send_email Turning off stepper due to wimpy firing;
+    send_email Turning off stepper due to wimpy firing, will re-enter in 20s;
     stepper off;
+    #delay {20} {
+      #send !$wimpy_from_dir;
+      stepper on;
+    };
   };
 }
 
@@ -43,18 +47,19 @@
   _default_wimpy_commands;
 
   #switch {"%1"} {
-    #case "north" {#map move n};
-    #case "south" {#map move s};
-    #case "east" {#map move e};
-    #case "west" {#map move w};
-    #case "northwest" {#map move nw};
-    #case "northeast" {#map move ne};
-    #case "southwest" {#map move sw};
-    #case "southeast" {#map move se};
-    #case "up" {#map move u};
-    #case "down" {#map move d};
-    #default {#map move %1};
+    #case "north" {#var wimpy_to_dir n; #wimpy_from_dir s;};
+    #case "south" {#var wimpy_to_dir s; #wimpy_from_dir n;};
+    #case "east" {#var wimpy_to_dir e; #wimpy_from_dir w;};
+    #case "west" {#var wimpy_to_dir w; #wimpy_from_dir e;};
+    #case "northwest" {#var wimpy_to_dir nw; #wimpy_from_dir se;};
+    #case "northeast" {#var wimpy_to_dir ne; #wimpy_from_dir sw;};
+    #case "southwest" {#var wimpy_to_dir sw; #wimpy_from_dir ne;};
+    #case "southeast" {#var wimpy_to_dir se; #wimpy_from_dir nw;};
+    #case "up" {#var wimpy_to_dir u; #wimpy_from_dir d;};
+    #case "down" {#var wimpy_to_dir d; #wimpy_from_dir u;};
+    #default {#var wimpy_to_dir %1; #wimpy_from_dir %1;};
   };
+  #map move $wimpy_to_dir;
 
   wimpy_commands;
 }

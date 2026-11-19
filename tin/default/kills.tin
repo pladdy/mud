@@ -1,7 +1,7 @@
 #nop party triggers;
 #action {Zorge studies the damage done to the corpse in an effort to learn} {
   wrap_or_use_corpse;
-  _divvy_and_get;
+  divvy_and_get;
 }
 
 #action {^%!{[> ]*}%1 gasps for breath, then slumps into death.$} {
@@ -17,7 +17,7 @@
 }
 
 #nop  For debugging, regex doesn't use anchors.;
-#action {%1 dealt the killing blow to %2.$} {
+#action {^%1 dealt the killing blow to %2.$} {
   #var last_killer %1;
   #var last_killed %2;
   log.debug $last_killer has killed $last_killed;
@@ -134,7 +134,7 @@
     commands_before_corpse;
     wrap_or_use_corpse;
     #send !glance;
-    _divvy_and_get;
+    divvy_and_get;
     commands_after_corpse;
     _handle_dtrig;
   } {2};
@@ -152,11 +152,11 @@
   commands_before_corpse;
 
   #if {"$ktrig_status" == "on"} {
-    #local valid_killers {$character|$summons|$my_dog|tree|shadowbound follower|charmed follower};
+    #local valid_killers {$character|$summons|$my_dog|tree|shadowbound follower|charmed follower|$last_killer};
     log.debug checking $last_killer against killers ($valid_killers) that can use corpse;
     #regexp {$last_killer} {%i{$valid_killers}} {
       wrap_or_use_corpse;
-      _divvy_and_get;
+      divvy_and_get;
     };
 
     #send !glance;
@@ -180,7 +180,7 @@
   #3 {#send !fuse};
 }
 
-#alias _divvy_and_get {
+#alias divvy_and_get {
   #if {"$party_status" == "yes"} {#send !divvy gold};
   #if {"$gemino_mortis" != "true"} {
     #if {"$flying" == "true"} {#send !swoop all};

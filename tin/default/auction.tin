@@ -24,13 +24,13 @@
 }
 
 #alias auto_auction {
-  #if {"$auction[auto]" != "true"} {
+  #if {"$auction[auto]" != "on"} {
     #showme <170>Auto auction enabled.;
-    #var auction[auto] true;
+    #var auction[auto] on;
   };
    #else {
     #showme <170>Auto auction disabled.;
-    #var auction[auto] false;
+    #var auction[auto] off;
   }
 }
 

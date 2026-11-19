@@ -265,10 +265,18 @@
 
 #nop celestial zodiac celestial pocket watch;
 
-#action {^%!{[> ]*}rhythm. The stars whisper, "Divine fury reveals while dark insight"} {
+#action {^%!{[> ]*}rhythm. The stars whisper, "Divine fury reveals} {
   send_email Celstial zodiacs portal to tome is available.;
 }
 
-#action {^%!{[> ]*}rhythm. The stars whisper, "Flesh weakens as the rifts awaken."} {
+#action {^%!{[> ]*}rhythm. The stars whisper, "Gods reveal while shadows} {
+  send_email Celstial zodiacs portal to tome is available.;
+}
+
+#action {^%!{[> ]*}rhythm. The stars whisper, "Flesh weakens as the rifts} {
+  send_email Celstial zodiacs fracture to grimoire is available.;
+}
+
+#action {^%!{[> ]*}rhythm. The stars whisper, "Plague spreads while minds} {
   send_email Celstial zodiacs fracture to grimoire is available.;
 }
