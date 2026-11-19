@@ -18,7 +18,7 @@
 
   #if {"$spells[pg]" == "on"} {#regexp {$data} {PG} {#nop} {pg}};
   #if {"$spells[pe]" == "on"} {#regexp {$data} {PE} {#nop} {pe}};
-  #if {$spell_taps < 4 && $gp1 < 25 && $corpses > 0} {rebl};
+  #if {$spell_taps < 4 && $gp1 < 25 && $corpses > 0} {reco};
   #if {$mage_gem < 80 && "$mage_familiar_present" == "true"} {#send !ffetch gem};
 }
 
@@ -39,13 +39,13 @@
   #regexp {$data} {golem:{.+?}%} {#var mage_golem_health &1} {#var mage_golem_health 0};
   #replace {mage_golem_health} {mf} {};
   #replace {mage_golem_health} {^} {};
+  #math pct_hp {$hp / $hp_max * 1.00};
   #if {
-      "$stepper" == "on" 
-      && "$mage_golem_defending" != "true"
-      && $enemy > 25
+      "$mage_golem_defending" != "true"
+      && $enemy > 0
       && (
-        ($golems > 1 && $mage_golem_health > 0) 
-        || ($golems > 0 && $mage_golem_health > 35)
+        ($golems > 1 && $mage_golem_health > 0 && $pct_hp < 1.5) 
+        || ($golems > 0 && $mage_golem_health > 35 && $pct_hp < 1.5) 
       )
     } {
     def;

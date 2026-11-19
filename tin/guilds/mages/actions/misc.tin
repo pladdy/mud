@@ -51,9 +51,17 @@
 
 #action {^%!{[> ]*}[M] Lost Soul of the Zodiac} {
   stepper_monster_trigger {%0};
-  #delay 2 {
-    log.warn Lost soul in room, trying to target;
-    #send !kill soul;
-    #send !po soul;
+  #delay 4 {
+    log.warn Lost soul in room, trying to use as a hitter;
+    #send !po @transform_mob{$seen_monsters[1]};
   };
 } {1}
+
+#action {^%!{[> ]*}%1 giant throws an enormous rock at %2!} {
+  #send !get rock;
+  #send !give rock to %1 giant;
+}
+
+#action {^%!{[> ]*}The rock shatters as it hits the ground.} {
+  #send ffetch rock;
+}

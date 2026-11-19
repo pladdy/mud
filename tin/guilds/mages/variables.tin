@@ -9,13 +9,14 @@
 #var ms6 {Wraith|Wight|Otyugh|Weretiger|Jackalwere|Manticore};
 #var ms6 {$ms6|Rakshasa|Carrion Crawler|Salamander|Phase Spider};
 #var ms6 {$ms6|Ogre Magi|Troll|8-headed hydra|Wyvern};
-#nop #var ms7 {};
-#nop #var ms8 {};
+#var ms7 {Phoenix|Stone giant|Neo-otyugh|Spectre|Giant slug|10-headed hydra|Fire lizard|Ettin};
+#var ms7 {$ms7|Chimera|Mummy|Xorn|Gorgon|Night hag|Umber hulk|Hill giant|Fire giant};
+#var ms7 {$ms7|Frost giant|8-headed pyro hydra|Roper|Mind flayer|8-headed pyro-hydra};
 
 #var haste false;
 #var slowed {0};
 
-#var summons {.* golem|Something|$ms1|$ms2|$ms3|$ms4|$ms5|$ms6};
+#var summons {.* golem|Something|$ms1|$ms2|$ms3|$ms4|$ms5|$ms6|$ms7};
 #var use_gcon true;
 #var use_psphere true;
 
@@ -27,6 +28,8 @@
 #var defense_mf false;
 #var offense_mf false;
 #var offense_summon_count 4;
+#var monster_summoning_level 7;
+#var monster_summoning_mob phoenix;
 
 #var pws false;
 #var pws_recovering false;

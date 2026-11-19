@@ -22,7 +22,7 @@
 }
 
 #action {^%!{[> ]*}Your immersion has expired.$} {
-  #send !cast spell tap always;
+  #nop #send !cast spell tap always;
   #2 #send !ash;
 }
 
@@ -65,7 +65,7 @@
 
 #action {^%!{[> ]*}%1 is already hasted.$} {
   #format {target} {%l} {%1};
-  #if {"$target" == "$character"}{#var haste true};
+  #if {"$target" == "$character"} {#var haste true};
   #else {#var offense_haste true};
 }
 

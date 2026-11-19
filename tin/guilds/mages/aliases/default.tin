@@ -1,5 +1,5 @@
 #alias attempt_explosive_release {
-  #if {$rounds_in_combat > 0 && $gp1 < 15 && $school_spells > 0} {
+  #if {$rounds_in_combat > 0 && $gp1 < 30 && $school_spells > 0} {
     #send !er;
   };
   #elseif {"$immersed" == "false" && $school_spells > 0 && $gp1 < 35} {
@@ -111,6 +111,14 @@
   };
 }
 
+#alias commands_after_corpse {
+  #nop polymorph other when mobs are the same;
+  #if {"$last_killer" == "$last_killed"} {
+    wrap_or_use_corpse;
+    divvy_and_get;
+  };
+}
+
 #alias commands_before_corpse {
   #send !study spellbook;
   #var phantasmal_killer reset;
@@ -157,6 +165,8 @@
 
 #alias use_corpse {
   #send !hp;
+  #nop use glance to see dmg type of summons by corpse dmg type;
+  #send !glance;
   tap_corpse;
   #send !cast corpse blast;
   #send !hp;
