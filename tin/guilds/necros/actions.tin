@@ -225,11 +225,17 @@
 }
 
 #action {^%!{[> ]*} You have %1 memorizations of dream left master.} {
-  #if {"$stepper" == "on"} {stepper off};
+  #if {"$stepper" == "on"} {
+    log.warning Disabling stepper due to low memorizations of dream.;
+    stepper off;
+  };
 }
 
 #action {^%!{[> ]*} You don't have dream memorized this cycle.} {
-  #if {"$stepper" == "on"} {stepper off};
+  #if {"$stepper" == "on"} {
+    log.warning Disabling stepper due to low memorizations of dream.;
+    stepper off;
+  };
 }
 
 #action {%!{[> ]*} You already have a magical shield in effect master.} {

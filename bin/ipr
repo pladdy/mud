@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import sys
 
 parser = argparse.ArgumentParser(
     prog="Invoke Prime", description="Returns answers for invoke prime calls."
@@ -15,7 +16,8 @@ args = parser.parse_args()
 
 # TODO: should we have a word list and a phrase list?  more important for
 # mob matching
-word_list = open("bin/ipr_words.txt").read().split("\n")
+with open("bin/ipr_words.txt") as f:
+    word_list = f.read().split("\n")
 
 
 def debug(msg: str):
@@ -23,12 +25,12 @@ def debug(msg: str):
         print(msg)
 
 
-def find_word(word: str, word_list: list[str], split: bool = True) -> str:
-    debug(f"find word: {word}")
+def find_word(find: str, word_list: list[str], split: bool = True) -> str:
+    debug(f"find word: {find}")
     new_word = []
-    words = [word.lower()]
+    words = [find.lower()]
     if split:
-        words = map(str.lower, word.split(" "))
+        words = map(str.lower, find.split(" "))
 
     for word in words:
         found = False
@@ -39,10 +41,14 @@ def find_word(word: str, word_list: list[str], split: bool = True) -> str:
                 continue
 
             for i, c in enumerate(word):
+                if c != "-" and _word[i] != c:
+                    break
+                debug(f"    i is {i} c is {c}")
                 if i == len(word) - 1:
                     debug("  found!")
                     found = True
                 if c == "-":
+                    debug("      skipping dash")
                     continue
                 if c != _word[i]:
                     break
@@ -55,17 +61,18 @@ def find_word(word: str, word_list: list[str], split: bool = True) -> str:
 
 
 def fix_word_list() -> None:
-    word_list = sorted(list(set(open("bin/ipr_words.txt").read().split("\n"))))
+    with open("bin/ipr_words.txt") as f:
+        word_list = sorted(set(f.read().split("\n")))
+
     with open("bin/ipr_words.txt", "w") as f:
-        for word in word_list:
-            f.write(f"{word}\n")
+        f.writelines(word_list)
 
 
 if args.fix:
     print("Sorting and deduping word list")
     fix_word_list()
     print("Done")
-    exit(0)
+    sys.exit(0)
 
 solution = ""
 line = args.line
@@ -116,3 +123,6 @@ print(solution)
 # -> peasgx
 
 # bin/ipr -p "Snar-ing at Red Foot S-ldier, th- skull gnashes i-s teeth in ange-." -l "Snarling at &2, the skull gnashes its teeth in anger." -m "Red Foot S-ldier"
+
+# bin/ipr -p "The skull di-es quickly tow-rds R-d Priest but -arrowly misses." -l "The skull dives quickly towards &2 but narrowly misses." -m "R-d Priest"
+# -> vaen

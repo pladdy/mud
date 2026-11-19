@@ -144,7 +144,6 @@
   };
 }
 
-
 #alias commands_after_corpse {
   #var familiar_called false;
 }
@@ -189,6 +188,10 @@
   #send !get all from chest;
   #send !close chest;
   #send !deliver;
+}
+
+#alias load_non_monsters_hook {
+  #list non_monsters add {$necro_follower_name the};
 }
 
 #alias login_commands {
@@ -277,9 +280,13 @@
   #if {$ncorpses < $MAX_NECRO_CORPSES} {p};
   #elseif {$hpp > 0.75 && $spp > 0.8 && gp1p > 0.9} {
     #if {$ncorpses < $MAX_NECRO_CORPSES + 5} {p};
-    #else {#send !ab};
+    #else {
+      #send !preserve;
+      #send !ab;
+    };
   };
   #else {
+    #send !preserve;
     #if {$hpp < $spp && $hpp < $gp1p} {#send !abb};
     #else {#send !ab};
   };

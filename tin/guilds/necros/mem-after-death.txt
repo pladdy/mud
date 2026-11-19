@@ -1,14 +1,15 @@
-
+study bloodarc 2
 study create light 2
-study turn undead 3
-study funeral pyre 2
 study dispell 3
-study rope trick 3
+study dream 100
+study funeral pyre 2
 study animate dead 2
 study protection 3
 study shift 2
 study soulbind 2
-study will 2
-study dream 100
+study rope trick 3
+study turn undead 3
+study unholy armor
 study unholy ground 2
+study will 2
 # go study chest, fright, and snare

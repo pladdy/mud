@@ -1,6 +1,8 @@
 a
+angry
 bear
 beast
+beloch
 black
 blue
 brenan
@@ -22,8 +24,11 @@ dragon
 duke
 duke of vampires
 electricity
+elephant
+elite
 elven
 energy
+faerie
 familiar
 fighter
 foot
@@ -32,6 +37,7 @@ gigantic
 gold
 green
 groma
+grunt
 guard
 guardian
 hell
@@ -47,6 +53,7 @@ klaver
 large
 leader
 leaping
+leeva
 letter a
 letter b
 letter c
@@ -119,3 +126,13 @@ zombie
 queen
 haruki
 chunkfunk
+wes mantooth
+frank vitchard
+veronica corningstone
+arturo mendes
+garth holladay
+brick tamland
+champ kind
+ron burgundy
+brian fantana
+ed harken
