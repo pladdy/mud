@@ -353,7 +353,8 @@
   #local MAX_WATER_RATIO 1.2;
 
   #send !hp;
-  #if {$total_water_pct < $MAX_WATER_RATIO} {#send !reclaim} {#send !fai};
+  #if {$total_water_pct < $MAX_WATER_RATIO && $gp1 < $gp1_max} {#send !reclaim};
+  #else {#send !fai};
   #send !hp;
 }
 

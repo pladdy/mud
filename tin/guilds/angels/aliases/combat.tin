@@ -401,7 +401,7 @@
   #else {#send !rise};
 }
 
-#alias _with_rebirths {
+#alias with_rebirths {
   #send !wimpy 0;
   #send !reaction clear;
   #send !panic off;
@@ -409,7 +409,7 @@
 
 #alias set_wimpy {
   #if {$wimpy_value > 0 && $angel[rebirths] > 0 && $enemy > 0} {
-    _with_rebirths;
+    with_rebirths;
   };
   #if {$wimpy_value == 0 && $angel[rebirths] == 0 && $enemy > 0} {
     #send !wimpy 50;
