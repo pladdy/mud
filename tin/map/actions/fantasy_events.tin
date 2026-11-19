@@ -303,7 +303,7 @@
 
 #action {^>>> THE DARKNESS TEARS OPEN <<<$} {
   #format cz_time {%t} {%Y-%m-%d %H:%M:%S};
-  log.warn $cz_time: Portal opened in room $map[current_room] $map[room_info][data];
+  log.warn $cz_time: Fracture opened in room $map[current_room] $map[room_info][data];
   sound_beeps;
 }
 

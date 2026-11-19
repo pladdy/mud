@@ -78,7 +78,7 @@
 
 #nop Forest of charms;
 
-#action {^Lucky says: Thank ya fer finding me %1 Charm!} {
+#action {^%!{[> ]*}Lucky says: Thank ya fer finding me %1 Charm!} {
   #send !give charm to lucky;
 }
 
