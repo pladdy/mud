@@ -32,6 +32,19 @@ Then farm for reps rest of boot on lowest scaler.
 
 Use a satchel!  You need it to store souls and sell them for 5 reps / soul later.
 
+## Known dungeon bug
+
+If you enter the dungeon and SPRINT to a room you can bypass the checks on each
+level to see if any celestials exist.
+
+Exploit:
+  sprint to aeonos, get helmet
+  walk back to cat, get shield
+  sprint to zephyrak
+  walk back to each level and get gems
+
+Normally this would require 10k reps for the tattoo
+
 ## Mob size
 
 - big jump at scaler 130 from 120-129
@@ -47,9 +60,9 @@ Use a satchel!  You need it to store souls and sell them for 5 reps / soul later
 | 110    | 48M      | 80M         | 80M      | 140M     | +10
 | 115    | 50M      | 95M         |          | 170M     | +10
 | 120    | 70M      | 148M        | 148M     | 250M     | +11
-| 125    | 85-90M   | 155M        | 155M     | 340M     | +11
+| 125    | 85-100M  | 155M        | 155M     | 300-340M | +11
 | 130    | 120-150M | 260M        | 260M     | 515M     | +11
-| 140    | 210-220M | 400-450M    | 400-450M |          |
+| 140    | 210-220M | 400-450M    | 400-450M | 720-760M | +12
 
 ## Item adjectives by scaler
 
@@ -58,11 +71,11 @@ Use a satchel!  You need it to store souls and sell them for 5 reps / soul later
 | 77-80  | luminous             | remarkable   |
 | 90     |                      |              |
 | 101    | radiant              | exceptional  |
-| 110    | brilliant (+8)       | exceptional  |
+| 110    | brilliant (+8)       | exceptional  | >80
 | 120    | resplendent (+9)     | exceptional  | >90
-| 125    | resplendent          | exceptional  |
-| 130    | magnificent          |              |
-| 140    | divine               |              |
+| 125    | resplendent          | exceptional  | >95
+| 130    | magnificent          |              | >100
+| 140    | divine               | incredible   | >110
 | 150    | transcendent (+12)   | unbelievable | >120
 
 | Scaler | Grimoire   | Ring / Sword | Stone        | Level req.
@@ -75,9 +88,9 @@ Use a satchel!  You need it to store souls and sell them for 5 reps / soul later
 | 110    |            | terrifying   | pristine     |
 | 115    |            | terrifying   | pristine     |
 | 120    | arcane     | horrific     | flawless     | >90
-| 125    | arcane     | horrific     | flawless     |
-| 130    | enigmatic  | cataclysmic  | perfect      |
-| 140    | cryptic    | apocalyptic  |              |
+| 125    | arcane     | horrific     | flawless     | >95
+| 130    | enigmatic  | cataclysmic  | perfect      | >100
+| 140    | cryptic    | apocalyptic  | immaculate   | >110
 | 150    | esoteric   | malevolent   | transcendent | >120
 
 Tome/Grimoire regen may be based on % of stat 
@@ -117,8 +130,21 @@ You can spend reps to buy items that help you in the area
 
 ### Celestial Pocket Watch
 
-Seems like mimics and collossus/abominations are random now and you have to get
-a watch.
+The watch shows a message at the top of the hour.  Messages change every 2
+hours from when they start and they go in order.  The messages seem to start
+at a different hour each day.  So day 1 of boot, 'Truth bends...' starts at 12.
+Day 2 of boot it starts at 10, etc.
+
+#### Meanings
+
+"Devotion forms": a follower is possible (shadowbound or charmed)
+"Minds fracture": fracture to grimoire: fracture opens when it says 6,7,18,19
+"Divine fury": portal to tome: portal opens when watch says 4,5,16,17
+"Colossi stir": colossus will show up
+"Abomination awakens": abomination will show up
+"Plague spreds":
+"Decay spreads":
+"Meteors blaze":
 
 All messages seem to have this prefix:
 ```
@@ -126,39 +152,42 @@ The watch glows with 10 soft pulses of light, thrumming with celestial rhythm. T
 whisper,
 ```
 
-Followed by a unique message
+Followed by a unique message (should be 12 of these):
 
-"Allies gather while corruption mutates."
-- ?
- 
-"Colossi stir as dark servants answer."
-- colossus will show up within the hour in light area
-
-"Salvation burns while an abomination awakens."
-- an abomination will show up within the hour in shadows area
-
+"Salvation burns while an abomination awakens"
+  - an abomination will show up within the hour in shadows area
 "Truth bends as shadows strike."
-- wtf?
-
-"Divine fury reveals while dark insight spreads."
-- apparently a portal will open lolwut
-
+"Divine fury reveals while dark insight
+  - portal to tome will open
+"Flesh weakens as the rifts awaken."
+  - fracture to get grimoire
 "Devotion forms while decay spreads."
-- wtf?
+  - a follower will show up, and can get plague in area
+"Titans march as servants kneel."
+"Meteors blaze while abominations rise."
+  - abomination in shadows area
+"Illusions shimmer as tendrils lash."
+"Gods reveal while shadows deceive."
+  - portal to tome will open
+"Plague spreads while minds fracture."
+  - fracture to get grimoire
+"Allies gather while corruption mutates."
+"Colossi stir as dark servants answer."
+  - colossus will show up within the hour in light area
 
 ## Immunities
 
 Mobs with adjectives have damage immunities
 
-adamant - blunt
+adamant - blunt?
 infernal - fire
 glacial - cold
 verdant - acid?
 crackling - elec
 psychic - mind
-pulsing - energy
+pulsing - radiation?
 venomous - poison
-glowing - radiation?
+glowing - energy
 
 # Mob Timings
 

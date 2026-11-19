@@ -56,6 +56,8 @@ Lockboxes can contain
   - seaweed
 - rotten meat (sewer bits for lockhart?)
 - ring of spell turning
+- faintly glowing translucent vial -> +10 str < 1min
+- faintly glowing orange vial -> +10 dex < 1min
 
 ### Burnt piece of paper
 

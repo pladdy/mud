@@ -16,9 +16,7 @@ You can duplicate or get item with (reload item and (duplicate creature:
 - find mike alive
 - unwield and turn off damage
 - (reload item Lord Stanley's Cup
-- kill mike
-- (duplicate creature mike
-- kill mike 1
+- kill mike;(duplicate creature mike;k mike 1
 - get cup and leave (so a mike stays in the room)
 
 ```sh
@@ -32,11 +30,11 @@ If Mike can't be found, check back.  He should eventually respawn.
 
 Go to gary_bettman
 
-say hi
-say hall of fame
-say chairman
-say replacement
-say questions
+'hi
+'hall of fame
+'chairman
+'replacement
+'questions
 'willie o'ree
 '1980
 'bill masterton memorial trophy
